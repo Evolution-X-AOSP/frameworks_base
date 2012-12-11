@@ -306,4 +306,8 @@
     <string name="accessibility_quick_settings_onthego_on">On-The-Go on</string>
     <string name="accessibility_quick_settings_onthego_changed_off">On-The-Go turned off</string>
     <string name="accessibility_quick_settings_onthego_changed_on">On-The-Go turned on</string>
+
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Cursor left</string>
+    <string name="accessibility_dpad_right">Cursor right</string>
 </resources>
