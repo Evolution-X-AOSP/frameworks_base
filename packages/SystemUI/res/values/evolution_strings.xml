@@ -27,4 +27,8 @@
     <string name="kilobytespersecond_short" translatable="false">kB/s</string>
     <string name="megabytespersecond_short" translatable="false">MB/s</string>
     <string name="gigabytespersecond_short" translatable="false">GB/s</string>
+
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Cursor left</string>
+    <string name="accessibility_dpad_right">Cursor right</string>
 </resources>
