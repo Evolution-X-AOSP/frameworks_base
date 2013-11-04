@@ -168,5 +168,6 @@ public class SecureSettings {
         Settings.Secure.ACCESSIBILITY_MAGNIFICATION_MODE,
         Settings.Secure.ACCESSIBILITY_BUTTON_TARGETS,
         // Evolution X Customization
+        Settings.Secure.VOLUME_LINK_NOTIFICATION,
     };
 }
