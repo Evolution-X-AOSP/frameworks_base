@@ -49,6 +49,7 @@ import android.os.RemoteException;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.provider.Settings;
+import android.provider.Settings.Secure;
 import android.util.Slog;
 import android.util.SparseArray;
 import android.view.IDisplayWindowRotationCallback;
@@ -59,6 +60,7 @@ import android.window.WindowContainerTransaction;
 import com.android.internal.R;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.util.function.pooled.PooledLambda;
+import com.android.internal.view.RotationPolicy;
 import com.android.server.LocalServices;
 import com.android.server.UiThread;
 import com.android.server.policy.WindowManagerPolicy;
@@ -134,6 +136,8 @@ public class DisplayRotation {
     private boolean mAllowSeamlessRotationDespiteNavBarMoving;
 
     private int mDeferredRotationPauseCount;
+
+    private int mUserRotationAngles = -1;
 
     /**
      * A count of the windows which are 'seamlessly rotated', e.g. a surface at an old orientation
@@ -1156,10 +1160,13 @@ public class DisplayRotation {
                                 ? ALLOW_ALL_ROTATIONS_ENABLED
                                 : ALLOW_ALL_ROTATIONS_DISABLED;
             }
-            if (sensorRotation != Surface.ROTATION_180
-                    || mAllowAllRotations == ALLOW_ALL_ROTATIONS_ENABLED
-                    || orientation == ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR
-                    || orientation == ActivityInfo.SCREEN_ORIENTATION_FULL_USER) {
+            boolean allowed = true;
+            if (orientation != ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR
+                    && orientation != ActivityInfo.SCREEN_ORIENTATION_FULL_USER) {
+                allowed = RotationPolicy.isRotationAllowed(sensorRotation,
+                        mUserRotationAngles, mAllowAllRotations != ALLOW_ALL_ROTATIONS_DISABLED);
+            }
+            if (allowed) {
                 preferredRotation = sensorRotation;
             } else {
                 preferredRotation = lastRotation;
@@ -1404,6 +1411,13 @@ public class DisplayRotation {
                 shouldUpdateRotation = true;
             }
 
+            final int userRotationAngles = Settings.System.getInt(resolver,
+                    Settings.System.ACCELEROMETER_ROTATION_ANGLES, -1);
+            if (mUserRotationAngles != userRotationAngles) {
+                mUserRotationAngles = userRotationAngles;
+                shouldUpdateRotation = true;
+            }
+
             final int userRotationMode = Settings.System.getIntForUser(resolver,
                     Settings.System.ACCELEROMETER_ROTATION, 0, UserHandle.USER_CURRENT) != 0
                             ? WindowManagerPolicy.USER_ROTATION_FREE
@@ -1522,6 +1536,9 @@ public class DisplayRotation {
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.ACCELEROMETER_ROTATION), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.ACCELEROMETER_ROTATION_ANGLES), false, this,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.USER_ROTATION), false, this,
