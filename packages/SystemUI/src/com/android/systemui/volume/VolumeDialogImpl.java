@@ -785,7 +785,7 @@ public class VolumeDialogImpl implements VolumeDialog,
     }
 
     private boolean shouldSlideInVolumeTray() {
-        return mContext.getDisplay().getRotation() != RotationPolicy.NATURAL_ROTATION;
+        return mContext.getDisplay().getRotation() != RotationPolicy.getNaturalRotation();
     }
 
     private boolean isLandscape() {
