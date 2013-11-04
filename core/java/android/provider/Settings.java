@@ -2567,6 +2567,8 @@ public final class Settings {
 
             // At one time in System, then Global, but now back in Secure
             MOVED_TO_SECURE.add(Secure.INSTALL_NON_MARKET_APPS);
+
+            MOVED_TO_SECURE.add(Secure.VOLUME_LINK_NOTIFICATION);
         }
 
         @UnsupportedAppUsage
@@ -9375,6 +9377,14 @@ public final class Settings {
 
         private static final Validator AWARE_LOCK_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
 
+        /*
+         * Boolean value whether to link ringtone and notification volume
+         * @hide
+         */
+        public static final String VOLUME_LINK_NOTIFICATION = "volume_link_notification";
+
+        private static final Validator VOLUME_LINK_NOTIFICATION_VALIDATOR = BOOLEAN_VALIDATOR;
+
         /**
          * Whether tethering is allowed to use VPN upstreams
          * 0 = false, 1 = true
@@ -9528,7 +9538,8 @@ public final class Settings {
             SILENCE_TIMER_TOUCH_COUNT,
             DARK_MODE_DIALOG_SEEN,
             GLOBAL_ACTIONS_PANEL_ENABLED,
-            AWARE_LOCK_ENABLED
+            AWARE_LOCK_ENABLED,
+            VOLUME_LINK_NOTIFICATION
         };
 
         /**
@@ -9724,6 +9735,7 @@ public final class Settings {
             VALIDATORS.put(GLOBAL_ACTIONS_PANEL_ENABLED, GLOBAL_ACTIONS_PANEL_ENABLED_VALIDATOR);
             VALIDATORS.put(AWARE_LOCK_ENABLED, AWARE_LOCK_ENABLED_VALIDATOR);
             VALIDATORS.put(TETHERING_ALLOW_VPN_UPSTREAMS, TETHERING_ALLOW_VPN_UPSTREAMS_VALIDATOR);
+            VALIDATORS.put(VOLUME_LINK_NOTIFICATION, VOLUME_LINK_NOTIFICATION_VALIDATOR);
         }
 
         /**
