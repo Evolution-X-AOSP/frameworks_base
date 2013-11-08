@@ -5834,6 +5834,12 @@ public final class Settings {
         /** @hide */
         private static final Validator VIBRATE_ON_CALLWAITING_VALIDATOR = BOOLEAN_VALIDATOR;
 
+        /**
+         * Whether to prevent loud volume levels when headset is first plugged in.
+         * @hide
+         */
+        public static final String SAFE_HEADSET_VOLUME = "safe_headset_volume";
+
         /** End of Evolution X system settings**/
 
         /**
