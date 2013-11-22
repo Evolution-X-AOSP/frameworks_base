@@ -317,4 +317,7 @@
 
     <!-- Whether tilt to bright is enabled by default. -->
     <bool name="def_wearable_tiltToBrightEnabled">false</bool>
+
+    <!-- Default for Settings.Global.TETHER_DUN_REQUIRED -->
+    <integer name="def_tether_dun_required">0</integer>
 </resources>
