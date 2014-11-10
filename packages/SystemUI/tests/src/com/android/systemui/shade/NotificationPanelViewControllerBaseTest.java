@@ -190,6 +190,7 @@ import com.android.systemui.statusbar.policy.KeyguardUserSwitcherView;
 import com.android.systemui.statusbar.policy.ResourcesSplitShadeStateController;
 import com.android.systemui.statusbar.policy.data.repository.FakeDeviceProvisioningRepository;
 import com.android.systemui.statusbar.window.StatusBarWindowStateController;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.unfold.SysUIUnfoldComponent;
 import com.android.systemui.user.domain.interactor.UserSwitcherInteractor;
 import com.android.systemui.util.kotlin.JavaAdapter;
@@ -344,6 +345,7 @@ public class NotificationPanelViewControllerBaseTest extends SysuiTestCase {
     @Mock private ActiveNotificationsInteractor mActiveNotificationsInteractor;
     @Mock private KeyguardClockPositionAlgorithm mKeyguardClockPositionAlgorithm;
     @Mock private NaturalScrollingSettingObserver mNaturalScrollingSettingObserver;
+    @Mock private TunerService mTunerService;
 
     protected final int mMaxUdfpsBurnInOffsetY = 5;
     protected FakeFeatureFlagsClassic mFeatureFlags = new FakeFeatureFlagsClassic();
@@ -808,7 +810,8 @@ public class NotificationPanelViewControllerBaseTest extends SysuiTestCase {
                 mActiveNotificationsInteractor,
                 mJavaAdapter,
                 mCastController,
-                new ResourcesSplitShadeStateController()
+                new ResourcesSplitShadeStateController(),
+                mTunerService
         );
     }
 
