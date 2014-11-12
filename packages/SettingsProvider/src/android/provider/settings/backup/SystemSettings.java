@@ -87,5 +87,6 @@ public class SystemSettings {
         // Evolution X Customization
         Settings.System.DOUBLE_TAP_SLEEP_GESTURE,
         Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN,
+        Settings.System.SCREENSHOT_SOUND,
     };
 }
