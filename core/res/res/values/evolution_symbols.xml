@@ -130,6 +130,13 @@
     <java-symbol type="anim" name="custom_app_out" />
     <java-symbol type="integer" name="config_deviceHardwareKeys" />
 
+    <!-- Device keys user-customisable behavior -->
+    <java-symbol type="integer" name="config_longPressOnHomeBehaviorHwKeys" />
+    <java-symbol type="integer" name="config_doubleTapOnHomeBehaviorHwKeys" />
+    <java-symbol type="integer" name="config_longPressOnMenuBehaviorHwKeys" />
+    <java-symbol type="integer" name="config_longPressOnAppSwitchBehaviorHwKeys" />
+    <java-symbol type="integer" name="config_longPressOnAssistBehaviorHwKeys" />
+
     <java-symbol type="bool" name="config_hasNotificationLed" />
     <java-symbol type="bool" name="config_intrusiveBatteryLed" />
     <java-symbol type="bool" name="config_multiColorBatteryLed" />

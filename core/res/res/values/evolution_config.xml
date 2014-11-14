@@ -133,6 +133,82 @@
          config to 7. -->
     <integer name="config_deviceHardwareKeys">64</integer>
 
+    <!-- Control the behavior when the user long presses the home button.
+            0 - Nothing
+            1 - Menu key
+            2 - Recent apps view in SystemUI
+            3 - Launch assist intent
+            4 - Voice Search
+            5 - In-app Search
+            6 - Launch camera
+            7 - Sleep
+            8 - Toggle split screen
+            9 - Take screenshot
+         This needs to match the enums in DeviceKeysConstants.java.
+    -->
+    <integer name="config_longPressOnHomeBehaviorHwKeys">3</integer>
+
+    <!-- Control the behavior when the user double-taps the home button.
+            0 - Nothing
+            1 - Menu key
+            2 - Recent apps view in SystemUI
+            3 - Launch assist intent
+            4 - Voice Search
+            5 - In-app Search
+            6 - Launch camera
+            7 - Sleep
+            8 - Toggle split screen
+            9 - Take screenshot
+         This needs to match the enums in DeviceKeysConstants.java.
+    -->
+    <integer name="config_doubleTapOnHomeBehaviorHwKeys">0</integer>
+
+    <!-- Control the behavior when the user long presses the menu button.
+            0 - Nothing
+            1 - Menu key
+            2 - Recent apps view in SystemUI
+            3 - Launch assist intent
+            4 - Voice Search
+            5 - In-app Search
+            6 - Launch camera
+            7 - Sleep
+            8 - Toggle split screen
+            9 - Take screenshot
+         This needs to match the enums in DeviceKeysConstants.java.
+    -->
+    <integer name="config_longPressOnMenuBehaviorHwKeys">2</integer>
+
+
+    <!-- Control the behavior when the user long presses the app switch button.
+            0 - Nothing
+            1 - Menu key
+            2 - Recent apps view in SystemUI
+            3 - Launch assist intent
+            4 - Voice Search
+            5 - In-app Search
+            6 - Launch camera
+            7 - Sleep
+            8 - Toggle split screen
+            9 - Take screenshot
+         This needs to match the enums in DeviceKeysConstants.java.
+    -->
+    <integer name="config_longPressOnAppSwitchBehaviorHwKeys">8</integer>
+
+    <!-- Control the behavior when the user long presses the assist button.
+            0 - Nothing
+            1 - Menu key
+            2 - Recent apps view in SystemUI
+            3 - Launch assist intent
+            4 - Voice Search
+            5 - In-app Search
+            6 - Launch camera
+            7 - Sleep
+            8 - Toggle split screen
+            9 - Take screenshot
+         This needs to match the enums in DeviceKeysConstants.java.
+    -->
+    <integer name="config_longPressOnAssistBehaviorHwKeys">4</integer>
+
     <!-- Whether device has notification LED -->
     <bool name="config_hasNotificationLed">true</bool>
 
