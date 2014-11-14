@@ -1514,7 +1514,7 @@
          This needs to match the constants in
          policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
     -->
-    <integer name="config_longPressOnHomeBehavior">0</integer>
+    <!--<integer name="config_longPressOnHomeBehavior">3</integer>-->
 
     <!-- Control the behavior when the user double-taps the home button.
             0 - Nothing
@@ -1523,7 +1523,7 @@
          This needs to match the constants in
          policy/src/com/android/internal/policy/impl/PhoneWindowManager.java
     -->
-    <integer name="config_doubleTapOnHomeBehavior">0</integer>
+    <!--<integer name="config_doubleTapOnHomeBehavior">0</integer>-->
 
     <!-- Note: This setting is deprecated, please use
     config_screenBrightnessSettingMinimumFloat instead -->
