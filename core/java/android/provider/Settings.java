@@ -15350,6 +15350,14 @@ public final class Settings {
                 "power_button_very_long_press";
 
         /**
+         * Whether to wake the display when plugging or unplugging the charger
+         *
+         * @hide
+         */
+        public static final String WAKE_WHEN_PLUGGED_OR_UNPLUGGED =
+                "wake_when_plugged_or_unplugged";
+
+        /**
          * Show overlay of CPU core speeds
          * @hide
          */
