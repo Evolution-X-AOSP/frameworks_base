@@ -5777,6 +5777,12 @@ public final class Settings {
                 "notification_guts_kill_app_button";
 
         /**
+         * Whether to wake the display when plugging or unplugging the charger
+         * @hide
+         */
+        public static final String WAKE_WHEN_PLUGGED_OR_UNPLUGGED = "wake_when_plugged_or_unplugged";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
