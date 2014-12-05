@@ -119,5 +119,6 @@ public class SystemSettings {
         Settings.System.AMBIENT_WAKE_GESTURES,
         Settings.System.ENABLE_RIPPLE_EFFECT,
         Settings.System.MAX_VISIBLE_NOTIFICATION_ICONS,
+        Settings.System.STATUS_BAR_NOTIF_COUNT,
     };
 }
