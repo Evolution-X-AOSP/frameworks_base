@@ -6921,6 +6921,14 @@ public final class Settings {
         public static final String MAX_VISIBLE_NOTIFICATION_ICONS = "max_visible_notification_icons";
 
         /**
+         * Show the pending notification counts as overlays on the status bar
+         * Default 0
+         * @hide
+         */
+        @Readable
+        public static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
