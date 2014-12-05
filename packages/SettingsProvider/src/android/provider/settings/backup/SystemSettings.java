@@ -112,5 +112,6 @@ public class SystemSettings {
         Settings.System.CUSTOM_NOTIFICATION_VIBRATION_PATTERN,
         Settings.System.DEFAULT_NOTIFICATION_TORCH,
         Settings.System.MAX_VISIBLE_NOTIFICATION_ICONS,
+        Settings.System.STATUS_BAR_NOTIF_COUNT,
     };
 }

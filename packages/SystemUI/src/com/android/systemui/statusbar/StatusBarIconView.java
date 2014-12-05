@@ -37,6 +37,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
+import android.graphics.Typeface;
 import android.os.Trace;
 import android.os.UserHandle;
 import android.provider.Settings;
@@ -166,6 +167,7 @@ public class StatusBarIconView extends AnimatedImageView implements StatusIconDi
     private ValueAnimator mColorAnimator;
     private int mCurrentSetColor = NO_COLOR;
     private int mAnimationStartColor = NO_COLOR;
+    private boolean mShowNotificationCount;
     private final ValueAnimator.AnimatorUpdateListener mColorUpdater
             = animation -> {
         int newColor = NotificationUtils.interpolateColors(mAnimationStartColor, mIconColor,
@@ -199,6 +201,9 @@ public class StatusBarIconView extends AnimatedImageView implements StatusIconDi
         mNumberPain.setTextAlign(Paint.Align.CENTER);
         mNumberPain.setColor(context.getColor(R.drawable.notification_number_text_color));
         mNumberPain.setAntiAlias(true);
+        mNumberPain.setTypeface(Typeface.DEFAULT_BOLD);
+        final float scaledPx = 8 * getResources().getDisplayMetrics().density;
+        mNumberPain.setTextSize(scaledPx);
         setNotification(sbn);
         setScaleType(ScaleType.CENTER);
         mDensity = context.getResources().getDisplayMetrics().densityDpi;
@@ -343,10 +348,22 @@ public class StatusBarIconView extends AnimatedImageView implements StatusIconDi
         mNewIconStyle = iconStyle;
     }
 
+    public void setShowCount(boolean showCount) {
+        mShowNotificationCount = showCount;
+    }
+
     /**
      * Returns whether the set succeeded.
      */
     public boolean set(StatusBarIcon icon) {
+        return set(icon, false);
+    }
+
+    public boolean updateIconForced() {
+        return set(mIcon, true);
+    }
+
+    private boolean set(StatusBarIcon icon, boolean force) {
         final boolean iconEquals = mIcon != null && equalIcons(mIcon.icon, icon.icon);
         final boolean levelEquals = iconEquals
                 && mIcon.iconLevel == icon.iconLevel;
@@ -354,22 +371,24 @@ public class StatusBarIconView extends AnimatedImageView implements StatusIconDi
                 && mIcon.visible == icon.visible;
         final boolean numberEquals = mIcon != null
                 && mIcon.number == icon.number;
+        if (icon == null) {
+            return false;
+        }
         mIcon = icon.clone();
         setContentDescription(icon.contentDescription);
-        if (!iconEquals) {
+        if (!iconEquals || force) {
             if (!updateDrawable(false /* no clear */)) return false;
             // we have to clear the grayscale tag since it may have changed
             setTag(R.id.icon_is_grayscale, null);
             // Maybe set scale based on icon height
             maybeUpdateIconScaleDimens();
         }
-        if (!levelEquals) {
+        if (!levelEquals || force) {
             setImageLevel(icon.iconLevel);
         }
 
-        if (!numberEquals) {
-            if (icon.number > 0 && getContext().getResources().getBoolean(
-                        R.bool.config_statusBarShowNumber)) {
+        if (!numberEquals || force) {
+            if (icon.number > 1 && mShowNotificationCount) {
                 if (mNumberBackground == null) {
                     mNumberBackground = getContext().getResources().getDrawable(
                             R.drawable.ic_notification_overlay);
@@ -381,7 +400,7 @@ public class StatusBarIconView extends AnimatedImageView implements StatusIconDi
             }
             invalidate();
         }
-        if (!visibilityEquals) {
+        if (!visibilityEquals || force) {
             setVisibility(icon.visible && !mBlocked ? VISIBLE : GONE);
         }
         return true;
@@ -629,6 +648,7 @@ public class StatusBarIconView extends AnimatedImageView implements StatusIconDi
 
         return c.getString(R.string.accessibility_desc_notification_icon, appName, desc);
     }
+
 
     /**
      * Set the color that is used to draw decoration like the overflow dot. This will not be applied
