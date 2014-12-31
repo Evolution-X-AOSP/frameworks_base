@@ -5525,6 +5525,13 @@ public final class Settings {
          */
         public static final String LOCK_OWNER_FONTS = "lock_owner_fonts";
 
+        /**
+         * Whether to use the custom quick unlock screen control
+         * @hide
+         */
+        public static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL =
+                "lockscreen_quick_unlock_control";
+
         /** End of Evolution X system settings**/
 
         /**
