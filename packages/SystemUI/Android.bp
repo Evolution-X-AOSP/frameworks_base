@@ -211,6 +211,7 @@ android_library {
         "keepanno-annotations",
     ],
     manifest: "AndroidManifest.xml",
+    additional_manifests: ["CustomManifest.xml"],
 
     javacflags: [
         "-Adagger.fastInit=enabled",
