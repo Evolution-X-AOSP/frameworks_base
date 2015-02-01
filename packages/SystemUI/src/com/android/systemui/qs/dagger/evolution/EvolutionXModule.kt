@@ -22,6 +22,7 @@ import com.android.systemui.qs.tiles.HeadsUpTile
 import com.android.systemui.qs.tiles.PowerShareTile
 import com.android.systemui.qs.tiles.SoundTile
 import com.android.systemui.qs.tiles.SyncTile
+import com.android.systemui.qs.tiles.UsbTetherTile
 
 import dagger.Binds
 import dagger.Module
@@ -60,4 +61,10 @@ interface EvolutionXModule {
     @IntoMap
     @StringKey(AmbientDisplayTile.TILE_SPEC)
     fun bindAmbientDisplayTile(ambientDisplayTile: AmbientDisplayTile): QSTileImpl<*>
+
+    /** Inject UsbTetherTile into tileMap in QSModule */
+    @Binds
+    @IntoMap
+    @StringKey(UsbTetherTile.TILE_SPEC)
+    fun bindUsbTetherTile(usbTetherTile: UsbTetherTile): QSTileImpl<*>
 }
