@@ -6913,6 +6913,13 @@ public final class Settings {
         public static final String VOLUME_WAKE_SCREEN = "volume_wake_screen";
 
         /**
+         * Whether to answer the call with the volume keys, the value is boolean.
+         * 0 = 0ff, 1 = on
+         * @hide
+         */
+        public static final String VOLUME_ANSWER_CALL = "volume_answer_call";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -7089,6 +7096,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(CAMERA_SLEEP_ON_RELEASE);
             PRIVATE_SETTINGS.add(CAMERA_LAUNCH);
             PRIVATE_SETTINGS.add(VOLUME_WAKE_SCREEN);
+            PRIVATE_SETTINGS.add(VOLUME_ANSWER_CALL);
         }
 
         /**
