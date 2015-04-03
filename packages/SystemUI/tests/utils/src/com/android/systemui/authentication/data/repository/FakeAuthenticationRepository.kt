@@ -47,6 +47,9 @@ class FakeAuthenticationRepository(
     private val _isPatternVisible = MutableStateFlow(true)
     override val isPatternVisible: StateFlow<Boolean> = _isPatternVisible.asStateFlow()
 
+    private val _patternSize = MutableStateFlow(LockPatternUtils.PATTERN_SIZE_DEFAULT)
+    override val patternSize: StateFlow<Byte> = _patternSize.asStateFlow()
+
     override val lockout: MutableStateFlow<AuthenticationLockoutModel?> = MutableStateFlow(null)
 
     override val hasLockoutOccurred = MutableStateFlow(false)
@@ -215,7 +218,8 @@ class FakeAuthenticationRepository(
                 isPattern ->
                     credential.contentEquals(
                         LockPatternUtils.patternToByteArray(
-                            expectedCredential as List<LockPatternView.Cell>
+                            expectedCredential as List<LockPatternView.Cell>,
+                            LockPatternUtils.PATTERN_SIZE_DEFAULT
                         )
                     )
                 else -> error("Unsupported credential type $type!")
@@ -223,7 +227,8 @@ class FakeAuthenticationRepository(
         }
 
         private fun List<AuthenticationPatternCoordinate>.toCells(): List<LockPatternView.Cell> {
-            return map { coordinate -> LockPatternView.Cell.of(coordinate.y, coordinate.x) }
+            return map { coordinate -> LockPatternView.Cell.of(
+                coordinate.y, coordinate.x, LockPatternUtils.PATTERN_SIZE_DEFAULT) }
         }
     }
 }
