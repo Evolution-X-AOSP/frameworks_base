@@ -79,6 +79,9 @@ interface AuthenticationRepository {
     /** Whether the pattern should be visible for the currently-selected user. */
     val isPatternVisible: StateFlow<Boolean>
 
+    /** The current pattern size. */
+    val patternSize: StateFlow<Byte>
+
     /**
      * The current authentication lockout (aka "throttling") state, set when the user has to wait
      * before being able to try another authentication attempt. `null` indicates throttling isn't
@@ -182,6 +185,12 @@ constructor(
     override val authenticationChallengeResult = MutableSharedFlow<Boolean>()
 
     override val hintedPinLength: Int = 6
+
+    override val patternSize: StateFlow<Byte> =
+        refreshingFlow(
+            initialValue = LockPatternUtils.PATTERN_SIZE_DEFAULT,
+            getFreshValue = lockPatternUtils::getLockPatternSize,
+        )
 
     override val isPatternVisible: StateFlow<Boolean> =
         refreshingFlow(
