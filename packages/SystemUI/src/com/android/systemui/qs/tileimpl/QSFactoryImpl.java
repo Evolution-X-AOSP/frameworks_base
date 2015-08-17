@@ -61,6 +61,7 @@ import com.android.systemui.qs.tiles.SoundTile;
 import com.android.systemui.qs.tiles.SyncTile;
 import com.android.systemui.qs.tiles.UiModeNightTile;
 import com.android.systemui.qs.tiles.UsbTetherTile;
+import com.android.systemui.qs.tiles.VolumeTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
 import com.android.systemui.util.leak.GarbageMonitor;
@@ -112,6 +113,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<SoundTile> mSoundTileProvider;
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
     private final Provider<RebootTile> mRebootTileProvider;
+    private final Provider<VolumeTile> mVolumeTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
     private final Provider<CustomTile.Builder> mCustomTileBuilderProvider;
@@ -156,7 +158,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<SyncTile> syncTileProvider,
             Provider<SoundTile> soundTileProvider,
             Provider<HeadsUpTile> headsUpTileProvider,
-            Provider<RebootTile> rebootTileProvider) {
+            Provider<RebootTile> rebootTileProvider,
+            Provider<VolumeTile> volumeTileProvider) {
         mQsHostLazy = qsHostLazy;
         mCustomTileBuilderProvider = customTileBuilderProvider;
 
@@ -197,6 +200,7 @@ public class QSFactoryImpl implements QSFactory {
         mSoundTileProvider = soundTileProvider;
         mHeadsUpTileProvider = headsUpTileProvider;
         mRebootTileProvider = rebootTileProvider;
+        mVolumeTileProvider = volumeTileProvider;
     }
 
     /** Creates a tile with a type based on {@code tileSpec} */
@@ -287,6 +291,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mHeadsUpTileProvider.get();
             case "reboot":
                 return mRebootTileProvider.get();
+            case "volume_panel":
+                return mVolumeTileProvider.get();
         }
         // Custom tiles
         if (tileSpec.startsWith(CustomTile.PREFIX)) {
