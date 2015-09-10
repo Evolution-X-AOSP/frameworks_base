@@ -45,6 +45,7 @@ import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
@@ -193,6 +194,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     private static final String GLOBAL_ACTION_KEY_LOGOUT = "logout";
     static final String GLOBAL_ACTION_KEY_EMERGENCY = "emergency";
     static final String GLOBAL_ACTION_KEY_SCREENSHOT = "screenshot";
+    static final String GLOBAL_ACTION_KEY_ONTHEGO = "onthego";
     private static final String GLOBAL_ACTIONS_USERS_CHOICE = "users_choice";
 
     private static final int RESTART_RECOVERY_BUTTON = 1;
@@ -746,6 +748,8 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                     addIfShouldShowAction(tempActions, getScreenrecordAction());
                 } else if (flashlightUserEnabled(mContext)) {
                     addIfShouldShowAction(tempActions, getFlashlightToggleAction());
+                } else if (OnTheGoUserEnabled(mContext)) {
+                     addIfShouldShowAction(tempActions, getOnTheGoAction());
                 }
             } else if (GLOBAL_ACTION_KEY_LOGOUT.equals(actionKey)) {
                 if (mDevicePolicyManager.isLogoutEnabled()
@@ -905,6 +909,12 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         boolean flashlightUserEnabled = Settings.System.getIntForUser(context.getContentResolver(),
                 Settings.System.GLOBAL_ACTIONS_USERS_CHOICE, 0, UserHandle.USER_CURRENT) == 3;
         return flashlightUserEnabled;
+    }
+
+    private boolean OnTheGoUserEnabled(Context context) {
+        boolean OnTheGoUserEnabled = Settings.System.getIntForUser(context.getContentResolver(),
+                Settings.System.GLOBAL_ACTIONS_USERS_CHOICE, 0, UserHandle.USER_CURRENT) == 4;
+        return OnTheGoUserEnabled;
     }
 
     @VisibleForTesting
@@ -1401,6 +1411,33 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
             }
         };
     }
+
+    private Action getOnTheGoAction() {
+        return new SinglePressAction(com.android.systemui.R.drawable.ic_lock_onthego,
+                    com.android.systemui.R.string.global_action_onthego) {
+
+        @Override
+        public void onPress() {
+            ComponentName cn = new ComponentName("com.android.systemui",
+                    "com.android.systemui.evolution.onthego.OnTheGoService");
+            Intent onTheGoIntent = new Intent();
+            onTheGoIntent.setComponent(cn);
+            onTheGoIntent.setAction("start");
+            mContext.startService(onTheGoIntent);
+        }
+
+        @Override
+        public boolean showDuringKeyguard() {
+            return true;
+        }
+
+        @Override
+        public boolean showBeforeProvisioning() {
+            return true;
+        }
+       };
+    }
+
 
     @VisibleForTesting
     class LockDownAction extends SinglePressAction {
