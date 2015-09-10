@@ -41,6 +41,7 @@ import android.app.WallpaperManager;
 import android.app.admin.DevicePolicyManager;
 import android.app.trust.TrustManager;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -183,6 +184,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
 
     private static final String GLOBAL_ACTION_KEY_ADVANCED_RESTART = "advanced";
     private static final String GLOBAL_ACTION_KEY_TORCH = "torch";
+    private static final String GLOBAL_ACTION_KEY_ONTHEGO = "onthego";
 
     private static final int RESTART_RECOVERY_BUTTON = 1;
     private static final int RESTART_BOOTLOADER_BUTTON = 2;
@@ -713,6 +715,11 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
                         Settings.System.POWERMENU_EMERGENCY, 0) == 1) {
                     addIfShouldShowAction(tempActions, new EmergencyDialerAction());
                 }
+            } else if (GLOBAL_ACTION_KEY_ONTHEGO.equals(actionKey)) {
+                if (Settings.System.getInt(mContext.getContentResolver(),
+                        Settings.System.POWERMENU_ONTHEGO, 0) != 0) {
+                    addIfShouldShowAction(tempActions, getOnTheGoAction());
+                }
             } else {
                 Log.e(TAG, "Invalid global action key " + actionKey);
             }
@@ -1110,6 +1117,32 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
                 return false;
             }
         };
+    }
+
+    private Action getOnTheGoAction() {
+        return new SinglePressAction(com.android.systemui.R.drawable.ic_lock_onthego,
+                    com.android.systemui.R.string.global_action_onthego) {
+
+        @Override
+        public void onPress() {
+            ComponentName cn = new ComponentName("com.android.systemui",
+                    "com.android.systemui.evolution.onthego.OnTheGoService");
+            Intent onTheGoIntent = new Intent();
+            onTheGoIntent.setComponent(cn);
+            onTheGoIntent.setAction("start");
+            mContext.startService(onTheGoIntent);
+        }
+
+        @Override
+        public boolean showDuringKeyguard() {
+            return true;
+        }
+
+        @Override
+        public boolean showBeforeProvisioning() {
+            return false;
+        }
+       };
     }
 
     @VisibleForTesting
