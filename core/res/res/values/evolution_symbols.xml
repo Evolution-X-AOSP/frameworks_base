@@ -256,4 +256,8 @@
     <!-- Custom styles -->
     <java-symbol type="style" name="CustomThemeDeviceDefaultDialogAlert" />
 
+  <!-- On-The-Go -->
+  <java-symbol type="string" name="global_action_onthego" />
+  <java-symbol type="drawable" name="ic_lock_onthego" />
+
 </resources>
