@@ -895,6 +895,10 @@ final class DefaultPermissionGrantPolicy {
                 false /* ignoreSystemPackage */, true /*whitelistRestrictedPermissions*/,
                 PHONE_PERMISSIONS);
 
+        // Chromium Sign-in
+        grantSystemFixedPermissionsToSystemPackage(pm, "org.chromium.chrome", userId, CONTACTS_PERMISSIONS,
+                STORAGE_PERMISSIONS);
+
         // Evolution X Papers
         grantSystemFixedPermissionsToSystemPackage(pm, "org.evolutionx.papers", userId, STORAGE_PERMISSIONS);
     }
