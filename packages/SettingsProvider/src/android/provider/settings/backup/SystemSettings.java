@@ -93,5 +93,6 @@ public class SystemSettings {
         Settings.System.VOLUME_ROCKER_WAKE,
         Settings.System.VOLUME_BUTTON_MUSIC_CONTROL,
         Settings.System.VOLUME_KEY_CURSOR_CONTROL,
+        Settings.System.LOCKSCREEN_MEDIA_METADATA,
     };
 }
