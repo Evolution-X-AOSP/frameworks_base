@@ -156,6 +156,7 @@ public class NotificationMediaManager implements Dumpable {
     private ImageView mBackdropBack;
 
     private boolean mShowCompactMediaSeekbar;
+    private boolean mLockscreenMediaMetadata;
     private int mAlbumArtFilter;
     private final DeviceConfig.OnPropertiesChangedListener mPropertiesChangedListener =
             new DeviceConfig.OnPropertiesChangedListener() {
@@ -560,7 +561,7 @@ public class NotificationMediaManager implements Dumpable {
         }
 
         Bitmap artworkBitmap = null;
-        if (mediaMetadata != null && !mKeyguardBypassController.getBypassEnabled()) {
+        if (mediaMetadata != null && !mKeyguardBypassController.getBypassEnabled() && mLockscreenMediaMetadata) {
             artworkBitmap = mediaMetadata.getBitmap(MediaMetadata.METADATA_KEY_ART);
             if (artworkBitmap == null) {
                 artworkBitmap = mediaMetadata.getBitmap(MediaMetadata.METADATA_KEY_ALBUM_ART);
@@ -904,5 +905,9 @@ public class NotificationMediaManager implements Dumpable {
                 }
             }
         }
+    }
+
+    public void setLockscreenMediaMetadata(boolean lockscreenMediaMetadata) {
+        mLockscreenMediaMetadata = lockscreenMediaMetadata;
     }
 }
