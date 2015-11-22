@@ -96,4 +96,8 @@
 
   <!-- Cycle through ringer modes -->
   <java-symbol type="string" name="volume_dialog_ringer_guidance_normal" />
+
+  <!-- Older rotation sensors are not setting event.timestamp correctly. Setting to
+      true will use SystemClock.elapsedRealtimeNanos() to set timestamp. -->
+  <java-symbol type="bool" name="config_useSystemClockforRotationSensor" />
 </resources>
