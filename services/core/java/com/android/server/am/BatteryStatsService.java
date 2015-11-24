@@ -17,6 +17,7 @@
 package com.android.server.am;
 
 import static android.Manifest.permission.BATTERY_STATS;
+import static android.Manifest.permission.RESET_BATTERY_STATS;
 import static android.Manifest.permission.BLUETOOTH_CONNECT;
 import static android.Manifest.permission.DEVICE_POWER;
 import static android.Manifest.permission.NETWORK_STACK;
@@ -913,6 +914,17 @@ public final class BatteryStatsService extends IBatteryStats.Stub
     public boolean isCharging() {
         synchronized (mStats) {
             return mStats.isCharging();
+        }
+    }
+
+    @Override
+    @EnforcePermission(RESET_BATTERY_STATS)
+    public void resetStatistics() {
+        super.resetStatistics_enforcePermission();
+
+        synchronized (mStats) {
+            mStats.resetAllStatsAndHistoryLocked(
+                BatteryStatsImpl.RESET_REASON_ADB_COMMAND);
         }
     }
 

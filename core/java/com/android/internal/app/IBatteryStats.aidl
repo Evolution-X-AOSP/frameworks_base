@@ -74,6 +74,9 @@ interface IBatteryStats {
     @RequiresNoPermission
     boolean isCharging();
 
+    @EnforcePermission("RESET_BATTERY_STATS")
+    void resetStatistics();
+
     // Return the computed amount of time remaining on battery, in milliseconds.
     // Returns -1 if nothing could be computed.
     @RequiresNoPermission
