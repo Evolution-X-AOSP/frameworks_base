@@ -1,4 +1,7 @@
 /*
+ * Copyright (c) 2018, The Linux Foundation. All rights reserved.
+ * Not a Contribution.
+ *
  * Copyright (C) 2015 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -51,7 +54,7 @@ import java.util.regex.Pattern;
  */
 @SystemApi
 @FlaggedApi(Flags.FLAG_ENABLE_NFC_MAINLINE)
-public final class AidGroup implements Parcelable {
+public class AidGroup implements Parcelable {
     /**
      * The maximum number of AIDs that can be present in any one group.
      */
@@ -60,10 +63,10 @@ public final class AidGroup implements Parcelable {
     private static final String TAG = "AidGroup";
 
 
-    private final List<String> mAids;
-    private final String mCategory;
+    protected List<String> mAids;
+    protected String mCategory;
     @SuppressWarnings("unused") // Unused as of now, but part of the XML input.
-    private final String mDescription;
+    protected String mDescription;
 
     /**
      * Creates a new AidGroup object.
