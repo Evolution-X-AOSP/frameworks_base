@@ -6546,6 +6546,13 @@ public final class Settings {
          */
         public static final String SHOW_APP_VOLUME = "show_app_volume";
 
+         /**
+         * Volume rocker wake
+         * @hide
+         */
+        @Readable
+        public static final String VOLUME_ROCKER_WAKE = "volume_rocker_wake";
+
         /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
