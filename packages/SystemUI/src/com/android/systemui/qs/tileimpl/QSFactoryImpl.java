@@ -25,6 +25,7 @@ import com.android.systemui.plugins.qs.*;
 import com.android.systemui.plugins.qs.QSTileView;
 import com.android.systemui.qs.external.CustomTile;
 import com.android.systemui.qs.tiles.AirplaneModeTile;
+import com.android.systemui.qs.tiles.AmbientDisplayTile;
 import com.android.systemui.qs.tiles.AODTile;
 import com.android.systemui.qs.tiles.BatterySaverTile;
 import com.android.systemui.qs.tiles.BluetoothTile;
@@ -152,6 +153,8 @@ public class QSFactoryImpl implements QSFactory {
                 return new MusicTile(mHost);
             case "compass":
                 return new CompassTile(mHost);
+            case "ambient_display":
+                return new AmbientDisplayTile(mHost);
         }
 
         // Intent tiles.
