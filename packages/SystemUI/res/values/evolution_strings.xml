@@ -244,4 +244,7 @@
     <string name="camera_title_tile">Camera</string>
     <string name="call_title_tile">Dialer</string>
 
+    <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">Sleep Screen</string>
+
 </resources>
