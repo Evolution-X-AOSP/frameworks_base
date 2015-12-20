@@ -48,6 +48,7 @@ import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
+import com.android.systemui.qs.tiles.SleepScreenTile;
 import com.android.systemui.qs.tiles.SoundSearchTile;
 import com.android.systemui.qs.tiles.SoundTile;
 import com.android.systemui.qs.tiles.SyncTile;
@@ -100,6 +101,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<MusicTile> mMusicTileProvider;
     private final Provider<CompassTile> mCompassTileProvider;
     private final Provider<AmbientDisplayTile> mAmbientDisplayTileProvider;
+    private final Provider<SleepScreenTile> mSleepScreenTileProvider;
 
     private QSTileHost mHost;
 
@@ -134,7 +136,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<VolumeTile> volumeTileProvider,
             Provider<MusicTile> musicTileProvider,
             Provider<CompassTile> compassTileProvider,
-            Provider<AmbientDisplayTile> ambientDisplayTileProvider) {
+            Provider<AmbientDisplayTile> ambientDisplayTileProvider,
+            Provider<SleepScreenTile> sleepScreenTileProvider) {
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
         mCellularTileProvider = cellularTileProvider;
@@ -167,6 +170,7 @@ public class QSFactoryImpl implements QSFactory {
         mMusicTileProvider = musicTileProvider;
         mCompassTileProvider = compassTileProvider;
         mAmbientDisplayTileProvider = ambientDisplayTileProvider;
+        mSleepScreenTileProvider = sleepScreenTileProvider;
     }
 
     public void setHost(QSTileHost host) {
@@ -245,6 +249,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mCompassTileProvider.get();
             case "ambient_display":
                 return mAmbientDisplayTileProvider.get();
+            case "sleepscreen":
+                return mSleepScreenTileProvider.get();
         }
 
         // Intent tiles.
