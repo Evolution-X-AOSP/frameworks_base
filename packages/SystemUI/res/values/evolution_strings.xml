@@ -78,6 +78,9 @@
     <string name="quick_settings_reboot_label">Reboot</string>
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
 
+    <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">Sleep Screen</string>
+
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Sound</string>
     <string name="quick_settings_sound_mute">Mute</string>
