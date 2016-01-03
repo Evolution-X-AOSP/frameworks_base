@@ -6453,6 +6453,12 @@ public final class Settings {
         /** @hide */
         private static final Validator FLASHLIGHT_ON_CALL_WAITING_VALIDATOR = BOOLEAN_VALIDATOR;
 
+        /**
+         * Enable/Disable screenshot sound
+         * @hide
+         */
+        public static final String SCREENSHOT_SOUND = "screenshot_sound";
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
