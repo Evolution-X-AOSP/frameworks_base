@@ -7459,6 +7459,25 @@ public final class Settings {
         public static final String QS_BRIGHTNESS_TEXTVIEW = "qs_brightness_textview";
 
         /**
+         * Activate torchlight when power button is
+         * long-pressed while the display is off
+         * The value is boolean (1 or 0).
+         * @hide
+         */
+        public static final String TORCH_LONG_PRESS_POWER_GESTURE =
+                "torch_long_press_power_gesture";
+
+        /**
+         * When the torch has been turned on by long press on power,
+         * automatically turn off after a configurable number of seconds.
+         * The value is an integer number of seconds in the range 0-3600.
+         * 0 means never automatically turn off.
+         * @hide
+         */
+        public static final String TORCH_LONG_PRESS_POWER_TIMEOUT =
+                "torch_long_press_power_timeout";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -7686,6 +7705,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(CAMERA_WAKE_SCREEN);
             PRIVATE_SETTINGS.add(CAMERA_SLEEP_ON_RELEASE);
             PRIVATE_SETTINGS.add(CAMERA_LAUNCH);
+            PRIVATE_SETTINGS.add(TORCH_LONG_PRESS_POWER_GESTURE);
+            PRIVATE_SETTINGS.add(TORCH_LONG_PRESS_POWER_TIMEOUT);
         }
 
         /**
