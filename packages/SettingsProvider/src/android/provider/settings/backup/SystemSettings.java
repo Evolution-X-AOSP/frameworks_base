@@ -88,5 +88,7 @@ public class SystemSettings {
         Settings.System.DOUBLE_TAP_SLEEP_GESTURE,
         Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN,
         Settings.System.SCREENSHOT_SOUND,
+        Settings.System.TORCH_LONG_PRESS_POWER_GESTURE,
+        Settings.System.TORCH_LONG_PRESS_POWER_TIMEOUT,
     };
 }
