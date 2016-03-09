@@ -280,5 +280,6 @@ public class SecureSettingsValidators {
         // Evolution X Customization
         VALIDATORS.put(Secure.VOLUME_LINK_NOTIFICATION, BOOLEAN_VALIDATOR);
         VALIDATORS.put(Secure.KEYBOARD_BRIGHTNESS, NON_NEGATIVE_INTEGER_VALIDATOR);
+        VALIDATORS.put(Secure.FEATURE_TOUCH_HOVERING, BOOLEAN_VALIDATOR);
     }
 }
