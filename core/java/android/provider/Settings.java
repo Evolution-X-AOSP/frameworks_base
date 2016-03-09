@@ -6998,6 +6998,27 @@ public final class Settings {
         public static final Validator NAVIGATION_BAR_MENU_ARROW_KEYS_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
+        /**
+         * Whether touch hovering is enabled on supported hardware
+         * @hide
+         */
+        public static final String FEATURE_TOUCH_HOVERING = "feature_touch_hovering";
+
+        /** @hide */
+        private static final Validator FEATURE_TOUCH_HOVERING_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Whether the HighTouchSensitivity is activated or not.
+         * 0 = off, 1 = on
+         */
+        public static final String HIGH_TOUCH_SENSITIVITY_ENABLE =
+                "high_touch_sensitivity_enable";
+
+        /** @hide */
+        private static final Validator HIGH_TOUCH_SENSITIVITY_ENABLE_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
@@ -7490,6 +7511,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(NOTIFICATION_PULSE_COLOR);
             PRIVATE_SETTINGS.add(NOTIFICATION_PULSE_COLOR_AUTOMATIC);
             PRIVATE_SETTINGS.add(NAVIGATION_BAR_MENU_ARROW_KEYS);
+            PRIVATE_SETTINGS.add(FEATURE_TOUCH_HOVERING);
+            PRIVATE_SETTINGS.add(HIGH_TOUCH_SENSITIVITY_ENABLE);
             // Evolution X Settings end
         }
 
@@ -7784,6 +7807,8 @@ public final class Settings {
             VALIDATORS.put(NOTIFICATION_PULSE_COLOR_AUTOMATIC,
                     NOTIFICATION_PULSE_COLOR_AUTOMATIC_VALIDATOR);
             VALIDATORS.put(NAVIGATION_BAR_MENU_ARROW_KEYS, NAVIGATION_BAR_MENU_ARROW_KEYS_VALIDATOR);
+            VALIDATORS.put(FEATURE_TOUCH_HOVERING, FEATURE_TOUCH_HOVERING_VALIDATOR);
+            VALIDATORS.put(HIGH_TOUCH_SENSITIVITY_ENABLE, HIGH_TOUCH_SENSITIVITY_ENABLE_VALIDATOR);
             // Evolution X Settings end
         }
 
