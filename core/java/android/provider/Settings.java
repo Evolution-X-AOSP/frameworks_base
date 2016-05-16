@@ -5151,6 +5151,20 @@ public final class Settings {
          */
         public static final String SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
 
+        /**
+         * Change quick settings tiles animation style
+         *
+         * @hide
+         */
+        public static final String ANIM_TILE_STYLE = "anim_tile_style";
+
+        /**
+         * Change quick settings tiles animation duration
+         *
+         * @hide
+         */
+        public static final String ANIM_TILE_DURATION = "anim_tile_duration";
+
         /** End of Evolution X system settings**/
 
         /**
