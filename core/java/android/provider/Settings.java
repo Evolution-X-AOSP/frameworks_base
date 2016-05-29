@@ -11831,6 +11831,13 @@ public final class Settings {
                 "quick_settings_tiles_anim_duration";
 
         /**
+         * Change quick settings tiles interpolator
+         * @hide
+         */
+        public static final String QUICK_SETTINGS_TILES_ANIM_INTERPOLATOR =
+                "quick_settings_tiles_anim_interpolator";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
