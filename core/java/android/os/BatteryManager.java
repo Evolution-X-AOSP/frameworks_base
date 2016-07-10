@@ -164,6 +164,12 @@ public class BatteryManager {
     public static final String EXTRA_EVENT_TIMESTAMP = "android.os.extra.EVENT_TIMESTAMP";
 
     /**
+     * boolean value to detect fast charging
+     * {@hide}
+     */
+    public static final String EXTRA_DASH_CHARGER = "dash_charger";
+
+    /**
      * Extra for {@link android.content.Intent#ACTION_BATTERY_CHANGED}:
      * Contains a value that forces Moto Mod battery level `mod_level`
      * to overwrite the interal battery level and act as the device's
