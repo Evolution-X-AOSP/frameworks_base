@@ -24,6 +24,7 @@ import android.annotation.SystemService;
 import android.annotation.TestApi;
 import android.app.ActivityThread;
 import android.content.Context;
+import android.hardware.Camera;
 import android.hardware.CameraInfo;
 import android.hardware.CameraStatus;
 import android.hardware.ICameraService;
@@ -1238,8 +1239,10 @@ public final class CameraManager {
 
         private String[] extractCameraIdListLocked() {
             String[] cameraIds = null;
+            boolean exposeAuxCamera = Camera.shouldExposeAuxCamera();
             int idCount = 0;
             for (int i = 0; i < mDeviceStatus.size(); i++) {
+                if (!exposeAuxCamera && i == 2) break;
                 int status = mDeviceStatus.valueAt(i);
                 if (status == ICameraServiceListener.STATUS_NOT_PRESENT
                         || status == ICameraServiceListener.STATUS_ENUMERATING) continue;
@@ -1248,6 +1251,7 @@ public final class CameraManager {
             cameraIds = new String[idCount];
             idCount = 0;
             for (int i = 0; i < mDeviceStatus.size(); i++) {
+                if (!exposeAuxCamera && i == 2) break;
                 int status = mDeviceStatus.valueAt(i);
                 if (status == ICameraServiceListener.STATUS_NOT_PRESENT
                         || status == ICameraServiceListener.STATUS_ENUMERATING) continue;
@@ -1699,6 +1703,11 @@ public final class CameraManager {
         }
 
         private void onStatusChangedLocked(int status, String id) {
+            if (!Camera.shouldExposeAuxCamera() && Integer.parseInt(id) >= 2) {
+                Log.w(TAG, "[soar.cts] ignore the status update of camera: " + id);
+                return;
+            }
+
             if (DEBUG) {
                 Log.v(TAG,
                         String.format("Camera id %s has status changed to 0x%x", id, status));
