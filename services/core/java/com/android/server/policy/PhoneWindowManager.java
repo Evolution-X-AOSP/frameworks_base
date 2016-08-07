@@ -4159,7 +4159,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 		&& (!mHapticOnAction)
                 && (policyFlags & WindowManagerPolicy.FLAG_VIRTUAL) != 0
                 && (!isNavBarVirtKey || mNavBarVirtualKeyHapticFeedbackEnabled)
-                && event.getRepeatCount() == 0;
+                && event.getRepeatCount() == 0
+                && !isHwKeysDisabled();
 
         if (!virtualKey) {
             if (isHwKeysDisabled() || keyguardOn() || isDozeMode()) {

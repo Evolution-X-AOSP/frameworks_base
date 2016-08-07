@@ -181,7 +181,7 @@ public class HardkeyActionHandler {
                     return true;
                 }
 
-	        // We suggest that device (gemini) has capacitivity Menu button mapped on mechanical key Home 
+	        // We suggest that device (gemini) has capacitivity Menu button mapped on mechanical key Home
 	        // and we don't need any events from Menu button, when Home is pressed
 	    	mMenuButton.setWasConsumed(true);
                 if (mHomeButton.isDoubleTapEnabled()) {
@@ -667,8 +667,11 @@ public class HardkeyActionHandler {
             resolver.registerContentObserver(
                     Settings.Secure.getUriFor(Settings.Secure.HARDWARE_KEYS_DISABLE), false, this,
                     UserHandle.USER_ALL);
-	    resolver.registerContentObserver(
+	          resolver.registerContentObserver(
                     Settings.System.getUriFor(Settings.System.HAPTIC_ON_ACTION_KEY), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(
+                    Settings.Secure.getUriFor(Settings.Secure.HARDWARE_KEYS_DISABLE), false, this,
                     UserHandle.USER_ALL);
             updateKeyAssignments();
         }
