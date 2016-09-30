@@ -1847,6 +1847,7 @@ public class NotificationPanelView extends PanelView implements
                 * mKeyguardStatusBarAnimateAlpha);
         mKeyguardStatusBar.setVisibility(mKeyguardStatusBar.getAlpha() != 0f
                 && !mDozing ? VISIBLE : INVISIBLE);
+        mStatusBar.getVisualizer().setAlpha(mKeyguardStatusBar.getAlpha());
     }
 
     private void updateKeyguardBottomAreaAlpha() {
