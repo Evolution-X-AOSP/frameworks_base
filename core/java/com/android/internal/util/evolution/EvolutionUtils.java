@@ -20,6 +20,7 @@ import android.content.Context;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
+import android.net.ConnectivityManager;
 
 public class EvolutionUtils {
 
@@ -43,5 +44,11 @@ public class EvolutionUtils {
             // Ignore
         }
         return false;
+    }
+
+    public static boolean isWifiOnly(Context context) {
+        ConnectivityManager cm = (ConnectivityManager)context.getSystemService(
+                Context.CONNECTIVITY_SERVICE);
+        return (cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE) == false);
     }
 }
