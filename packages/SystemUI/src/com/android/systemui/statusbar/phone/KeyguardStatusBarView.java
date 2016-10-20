@@ -26,6 +26,7 @@ import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.graphics.Color;
 import android.graphics.Rect;
+import android.database.ContentObserver;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Handler;
@@ -81,6 +82,8 @@ public class KeyguardStatusBarView extends RelativeLayout
     private boolean mKeyguardUserSwitcherShowing;
     private boolean mBatteryListening;
 
+    private int mShowCarrierLabel;
+
     private TextView mCarrierLabel;
     private View mSystemIconsSuperContainer;
     private MultiUserSwitch mMultiUserSwitch;
@@ -112,8 +115,21 @@ public class KeyguardStatusBarView extends RelativeLayout
 
     private int mCurrentOrientation = -1;
 
+    private ContentObserver mObserver = new ContentObserver(new Handler()) {
+        public void onChange(boolean selfChange, Uri uri) {
+            showStatusBarCarrier();
+            updateVisibilities();
+        }
+    };
+
     public KeyguardStatusBarView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        showStatusBarCarrier();
+    }
+
+    private void showStatusBarCarrier() {
+        mShowCarrierLabel = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.STATUS_BAR_SHOW_CARRIER, 1, UserHandle.USER_CURRENT);
     }
 
     @Override
@@ -219,6 +235,13 @@ public class KeyguardStatusBarView extends RelativeLayout
                 mMultiUserSwitch.setVisibility(View.VISIBLE);
             } else {
                 mMultiUserSwitch.setVisibility(View.GONE);
+            }
+        }
+        if (mCarrierLabel != null) {
+            if (mShowCarrierLabel == 1 || mShowCarrierLabel == 3) {
+                mCarrierLabel.setVisibility(View.VISIBLE);
+            } else {
+                mCarrierLabel.setVisibility(View.GONE);
             }
         }
     }
@@ -356,6 +379,8 @@ public class KeyguardStatusBarView extends RelativeLayout
         Dependency.get(ConfigurationController.class).addCallback(this);
         mIconManager = new TintedIconManager(findViewById(R.id.statusIcons));
         Dependency.get(StatusBarIconController.class).addIconGroup(mIconManager);
+        getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
+		        Settings.System.STATUS_BAR_SHOW_CARRIER), false, mObserver);
         onThemeChanged();
     }
 

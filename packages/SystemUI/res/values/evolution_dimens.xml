@@ -52,4 +52,7 @@
     <!-- QS tile height -->
     <dimen name="qs_tile_height_wo_label">48dp</dimen>
 
+    <!-- Custom Carrier Label -->
+    <dimen name="status_bar_carrier_height">14dp</dimen>
+
 </resources>

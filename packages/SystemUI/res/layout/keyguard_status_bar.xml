@@ -62,7 +62,7 @@
         android:gravity="center"
         android:visibility="gone" />
 
-    <com.android.keyguard.CarrierText
+    <com.android.systemui.carrierlabel.CarrierLabel
         android:id="@+id/keyguard_carrier_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -72,7 +72,6 @@
         android:ellipsize="marquee"
         android:textDirection="locale"
         android:textAppearance="@style/TextAppearance.StatusBar.CarrierLabel"
-        android:textColor="?attr/wallpaperTextColorSecondary"
         android:singleLine="true"
         systemui:showMissingSim="true"
         systemui:showAirplaneMode="true" />
