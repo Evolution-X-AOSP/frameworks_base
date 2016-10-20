@@ -58,4 +58,7 @@
     <!-- The width/height of the charging indicator view on keyguard. -->
     <dimen name="keyguard_charging_indication_height">48dp</dimen>
     <dimen name="keyguard_charging_indication_width">24dp</dimen>
+
+    <!-- Custom Carrier Label -->
+    <dimen name="status_bar_carrier_height">11dp</dimen>
 </resources>
