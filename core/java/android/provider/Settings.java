@@ -4995,6 +4995,17 @@ public final class Settings {
          */
         public static final String NIGHT_BRIGHTNESS_VALUE = "night_brightness_value";
 
+        /**
+         * Number of qs columns on landscape orientation
+         * @hide
+         */
+        public static final String QS_LAYOUT_COLUMNS_LANDSCAPE = "qs_layout_columns_landscape";
+
+        /**
+         * @hide
+         */
+        public static final String QS_LAYOUT_COLUMNS = "qs_layout_columns";
+
         /** End of Evolution X system settings**/
 
         /**
