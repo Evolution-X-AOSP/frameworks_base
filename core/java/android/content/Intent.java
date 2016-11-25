@@ -6829,6 +6829,21 @@ public class Intent implements Parcelable, Cloneable {
     public static final String EXTRA_IS_RESTORE =
             "android.intent.extra.IS_RESTORE";
 
+    /**
+     * Broadcast action: lid state changed
+     * @hide
+     */
+    public static final String ACTION_LID_STATE_CHANGED =
+            "android.intent.action.LID_STATE_CHANGED";
+
+    /**
+     * This field is part of the intent {@link #ACTION_LID_STATE_CHANGED}.
+     * Intent extra field for the state of lid/cover
+     * @hide
+     */
+    public static final String EXTRA_LID_STATE =
+            "android.intent.extra.LID_STATE";
+
     // ---------------------------------------------------------------------
     // ---------------------------------------------------------------------
     // Intent flags (see mFlags variable).
