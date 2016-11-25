@@ -844,6 +844,9 @@
     <protected-broadcast android:name="com.android.server.app.AppLockManagerService.APP_LOCK_TIMEOUT" />
     <protected-broadcast android:name="android.app.action.UNLOCK_APP" />
 
+    <!-- Used to launch a common app (FlipFlap) for devices with flip cover. -->
+    <protected-broadcast android:name="android.intent.action.LID_STATE_CHANGED" />
+
     <!-- ====================================================================== -->
     <!--                          RUNTIME PERMISSIONS                           -->
     <!-- ====================================================================== -->
