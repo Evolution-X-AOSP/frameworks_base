@@ -699,11 +699,11 @@ public class NotificationMediaManager implements Dumpable, MediaDataManager.List
                     break;
                 case 3:
                     artworkDrawable = new BitmapDrawable(mBackdropBack.getResources(),
-                        ImageHelper.getBlurredImage(mContext, bmp, 7.0f));
+                        ImageHelper.getBlurredImage(mContext, bmp, getLockScreenMediaBlurLevel()));
                     break;
                 case 4:
                     artworkDrawable = new BitmapDrawable(mBackdropBack.getResources(),
-                        ImageHelper.getGrayscaleBlurredImage(mContext, bmp, 7.0f));
+                        ImageHelper.getGrayscaleBlurredImage(mContext, bmp, getLockScreenMediaBlurLevel()));
                     break;
             }
         }
@@ -867,7 +867,7 @@ public class NotificationMediaManager implements Dumpable, MediaDataManager.List
     };
 
     private Bitmap processArtwork(Bitmap artwork) {
-        return mMediaArtworkProcessor.processArtwork(mContext, artwork);
+        return mMediaArtworkProcessor.processArtwork(mContext, artwork, getLockScreenMediaBlurLevel());
     }
 
     @MainThread
@@ -932,5 +932,12 @@ public class NotificationMediaManager implements Dumpable, MediaDataManager.List
                 @PlaybackState.State int state) {}
 
         default void setMediaNotificationColor(boolean colorizedMedia, int color) {};
+    }
+
+    private float getLockScreenMediaBlurLevel() {
+        float level = (float) Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LOCKSCREEN_MEDIA_BLUR, 25,
+                UserHandle.USER_CURRENT) / 100;
+        return level;
     }
 }
