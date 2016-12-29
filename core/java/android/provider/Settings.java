@@ -6222,6 +6222,12 @@ public final class Settings {
         public static final String QS_TILE_LABEL_HIDE = "qs_tile_label_hide";
 
         /**
+         * Adjust media artwork wallpaper blur level on lockscreen
+         * @hide
+         */
+        public static final String LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
