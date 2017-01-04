@@ -4501,6 +4501,12 @@ public final class Settings {
         public static final Validator BATTERY_LIGHT_LOW_BLINKING_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
+	/**
+         * Whether to enable the pixel navbar animation
+         * @hide
+         */
+        public static final String PIXEL_NAV_ANIMATION = "pixel_nav_animation";
+
         /**
         * Whether to blink battery light when low
         * @hide
