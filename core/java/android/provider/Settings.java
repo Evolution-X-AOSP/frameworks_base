@@ -4872,6 +4872,26 @@ public final class Settings {
         public static final String STATUS_BAR_QUICK_QS_PULLDOWN = "status_bar_quick_qs_pulldown";
 
         /**
+         * Whether to show network traffic indicator in statusbar
+         * @hide
+         */
+        public static final String NETWORK_TRAFFIC_STATE = "network_traffic_state";
+
+        /** @hide */
+        private static final Validator NETWORK_TRAFFIC_STATE_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Network traffic inactivity threshold (default is 1 kBs)
+         * @hide
+         */
+        public static final String NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD = "network_traffic_autohide_threshold";
+
+        /** @hide */
+        private static final Validator NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -4958,6 +4978,8 @@ public final class Settings {
             VIBRATE_ON_CALLWAITING,
             VIBRATE_ON_DISCONNECT,
             FORCE_FULLSCREEN_CUTOUT_APPS,
+            NETWORK_TRAFFIC_STATE,
+            NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD,
         };
 
         /**
@@ -5109,6 +5131,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DISPLAY_PICTURE_ADJUSTMENT);
             PRIVATE_SETTINGS.add(LIVE_DISPLAY_HINTED);
             PRIVATE_SETTINGS.add(FORCE_FULLSCREEN_CUTOUT_APPS);
+            PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_STATE);
+            PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD);
         }
 
         /**
@@ -5237,6 +5261,8 @@ public final class Settings {
             VALIDATORS.put(DISPLAY_PICTURE_ADJUSTMENT, DISPLAY_PICTURE_ADJUSTMENT_VALIDATOR);
             VALIDATORS.put(LIVE_DISPLAY_HINTED, LIVE_DISPLAY_HINTED_VALIDATOR);
             VALIDATORS.put(FORCE_FULLSCREEN_CUTOUT_APPS, FORCE_FULLSCREEN_CUTOUT_APPS_VALIDATOR);
+            VALIDATORS.put(NETWORK_TRAFFIC_STATE, NETWORK_TRAFFIC_STATE_VALIDATOR);
+            VALIDATORS.put(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD_VALIDATOR);
         }
 
         /**
