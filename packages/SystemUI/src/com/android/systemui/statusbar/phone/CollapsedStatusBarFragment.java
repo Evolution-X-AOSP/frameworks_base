@@ -82,6 +82,10 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private int mShowCarrierLabel;
     private boolean mHasCarrierLabel;
 
+    // network traffic
+    private View mNetworkTraffic;
+    private int mShowNetworkTraffic;
+
     private class SettingsObserver extends ContentObserver {
        SettingsObserver(Handler handler) {
            super(handler);
@@ -93,6 +97,9 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
                     false, this, UserHandle.USER_ALL);
          mContentResolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_SHOW_CARRIER),
+                    false, this, UserHandle.USER_ALL);
+         mContentResolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.NETWORK_TRAFFIC_STATE),
                     false, this, UserHandle.USER_ALL);
        }
 
@@ -145,6 +152,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mCenterClockLayout = (LinearLayout) mStatusBar.findViewById(R.id.center_clock_layout);
         mRightClock = mStatusBar.findViewById(R.id.right_clock);
         mCustomCarrierLabel = mStatusBar.findViewById(R.id.statusbar_carrier_text);
+        mNetworkTraffic = mStatusBar.findViewById(R.id.networkTraffic);
         updateSettings(false);
         showSystemIconArea(false);
         initEmergencyCryptkeeperText();
@@ -278,6 +286,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     public void showSystemIconArea(boolean animate) {
         animateShow(mSystemIconArea, animate);
         animateShow(mCenterClockLayout, animate);
+        updateNetworkTraffic(animate);
         if (mClockStyle == 2) {
             animateShow(mRightClock, animate);
         }
@@ -314,6 +323,14 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     public void showCarrierName(boolean animate) {
         if (mCustomCarrierLabel != null) {
             setCarrierLabel(animate);
+        }
+    }
+
+    public void updateNetworkTraffic(boolean animate) {
+        if (mNetworkTraffic != null) {
+            if (mShowNetworkTraffic != 0) {
+                animateShow(mNetworkTraffic, animate);
+            }
         }
     }
 
@@ -393,9 +410,13 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mShowCarrierLabel = Settings.System.getIntForUser(mContentResolver,
                 Settings.System.STATUS_BAR_SHOW_CARRIER, 1,
                 UserHandle.USER_CURRENT);
+        mShowNetworkTraffic = Settings.System.getIntForUser(mContentResolver,
+                Settings.System.NETWORK_TRAFFIC_STATE, 0,
+                UserHandle.USER_CURRENT);
         updateClockStyle(animate);
         mHasCarrierLabel = (mShowCarrierLabel == 2 || mShowCarrierLabel == 3);
         setCarrierLabel(animate);
+        updateNetworkTraffic(animate);
     }
 
     private void updateClockStyle(boolean animate) {
