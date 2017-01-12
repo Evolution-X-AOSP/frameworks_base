@@ -57,6 +57,8 @@ import android.graphics.drawable.InsetDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.media.AudioManager;
 import android.media.MediaActionSound;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
@@ -232,7 +234,7 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
     private float mCornerSizeX;
     private float mDismissDeltaY;
 
-    private MediaActionSound mCameraSound;
+    private Ringtone mScreenshotSound;
     private AudioManager mAudioManager;
     private Vibrator mVibrator;
 
@@ -329,9 +331,9 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
         mFastOutSlowIn =
                 AnimationUtils.loadInterpolator(mContext, android.R.interpolator.fast_out_slow_in);
 
-        // Setup the Camera shutter sound
-        mCameraSound = new MediaActionSound();
-        mCameraSound.load(MediaActionSound.SHUTTER_CLICK);
+        // Setup the Screenshot sound
+        mScreenshotSound = RingtoneManager.getRingtone(mContext,
+                    Uri.parse("file://" + "/system/media/audio/ui/camera_click.ogg"));
 
         // Grab system services needed for screenshot sound
         mAudioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
@@ -736,7 +738,7 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
                     // Play the shutter sound to notify that we've taken a screenshot
                     if (Settings.System.getInt(mContext.getContentResolver(),
                             Settings.System.SCREENSHOT_SOUND, 0) == 1) {
-                        mCameraSound.play(MediaActionSound.SHUTTER_CLICK);
+                        mScreenshotSound.play();
                     }
                     break;
             }
@@ -914,7 +916,9 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
                         // Play the shutter sound to notify that we've taken a screenshot
                         if (Settings.System.getInt(mContext.getContentResolver(),
                                 Settings.System.SCREENSHOT_SOUND, 0) == 1) {
-                            mCameraSound.play(MediaActionSound.SHUTTER_CLICK);
+                            if (mScreenshotSound != null) {
+                                mScreenshotSound.play();
+                            }
                         }
                         break;
                 }
