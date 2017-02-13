@@ -208,4 +208,7 @@
     <string name="gaming_mode_panel_brightness_title">Disable automatic brightness</string>
     <string name="gaming_mode_panel_media_title">Set Media Volume</string>
 
+    <!-- Text to use when the number in a notification info is too large -->
+    <string name="status_bar_notification_info_overflow" translatable="false">\u221E</string>
+
 </resources>
