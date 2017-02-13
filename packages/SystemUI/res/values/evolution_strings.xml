@@ -63,4 +63,7 @@
 
     <!-- Status bar - icons -->
     <string name="status_bar_icons_title">Status bar icons</string>
+
+    <!-- Text to use when the number in a notification info is too large -->
+    <string name="status_bar_notification_info_overflow" translatable="false">\u221E</string>
 </resources>
