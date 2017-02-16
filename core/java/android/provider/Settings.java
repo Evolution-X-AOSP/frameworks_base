@@ -9580,6 +9580,12 @@ public final class Settings {
         public static final String RADIO_WIFI = "wifi";
 
         /**
+         * Audio focus mode for ringtones when headset is connected
+         * @hide
+         */
+        public static final String RINGTONE_FOCUS_MODE = "ringtone_focus_mode";
+
+        /**
          * {@hide}
          */
         public static final String RADIO_WIMAX = "wimax";
