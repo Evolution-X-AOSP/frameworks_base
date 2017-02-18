@@ -26,6 +26,7 @@ import com.android.systemui.plugins.qs.QSTile;
 import com.android.systemui.plugins.qs.QSTileView;
 import com.android.systemui.qs.QSTileHost;
 import com.android.systemui.qs.external.CustomTile;
+import com.android.systemui.qs.tiles.AdbOverNetworkTile;
 import com.android.systemui.qs.tiles.AirplaneModeTile;
 import com.android.systemui.qs.tiles.AmbientDisplayTile;
 import com.android.systemui.qs.tiles.AODTile;
@@ -120,6 +121,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<GamingModeTile> mGamingModeTileProvider;
     private final Provider<DataSwitchTile> mDataSwitchTileProvider;
     private final Provider<ImmersiveTile> mImmersiveTileProvider;
+    private final Provider<AdbOverNetworkTile> mAdbOverNetworkProvider;
 
     private QSTileHost mHost;
 
@@ -164,7 +166,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<HWKeysTile> hWKeysTileProvider,
             Provider<GamingModeTile> gamingModeTileProvider,
             Provider<DataSwitchTile> dataSwitchTileProvider,
-            Provider<ImmersiveTile> immersiveTileProvider) {
+            Provider<ImmersiveTile> immersiveTileProvider,
+            Provider<AdbOverNetworkTile> adbOverNetworkProvider) {
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
         mCellularTileProvider = cellularTileProvider;
@@ -207,6 +210,7 @@ public class QSFactoryImpl implements QSFactory {
         mGamingModeTileProvider = gamingModeTileProvider;
         mDataSwitchTileProvider = dataSwitchTileProvider;
         mImmersiveTileProvider = immersiveTileProvider;
+        mAdbOverNetworkProvider = adbOverNetworkProvider;
     }
 
     public void setHost(QSTileHost host) {
@@ -305,6 +309,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mDataSwitchTileProvider.get();
             case "immersive":
                 return mImmersiveTileProvider.get();
+            case "adb_network":
+                return mAdbOverNetworkProvider.get();
         }
 
         // Intent tiles.
