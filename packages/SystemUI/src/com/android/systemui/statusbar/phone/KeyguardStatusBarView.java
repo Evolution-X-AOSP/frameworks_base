@@ -19,7 +19,12 @@ package com.android.systemui.statusbar.phone;
 import static com.android.systemui.ScreenDecorations.DisplayCutoutView.boundsFromDirection;
 import static com.android.systemui.util.Utils.getStatusBarHeaderHeightKeyguard;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.animation.AnimatorListenerAdapter;
 import android.annotation.ColorInt;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -27,6 +32,8 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Trace;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.Pair;
 import android.util.TypedValue;
@@ -103,6 +110,7 @@ public class KeyguardStatusBarView extends RelativeLayout {
     private int mTopClipping;
     private final Rect mClipRect = new Rect(0, 0, 0, 0);
     private boolean mIsUserSwitcherEnabled;
+    private boolean mHideContents;
 
     public KeyguardStatusBarView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -226,7 +234,7 @@ public class KeyguardStatusBarView extends RelativeLayout {
             // we only show the multi-user switch if it's enabled through UserManager as well as
             // by the user.
             if (mIsUserSwitcherEnabled) {
-                mMultiUserAvatar.setVisibility(View.VISIBLE);
+                mMultiUserAvatar.setVisibility(mHideContents ? View.INVISIBLE : View.VISIBLE);
             } else {
                 mMultiUserAvatar.setVisibility(View.GONE);
             }
@@ -532,5 +540,97 @@ public class KeyguardStatusBarView extends RelativeLayout {
         Trace.beginSection("KeyguardStatusBarView#onMeasure");
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         Trace.endSection();
+    }
+
+    public void toggleContents(boolean hideContents) {
+        boolean shouldHideContents = Settings.System.getIntForUser(
+                getContext().getContentResolver(), Settings.System.LOCK_HIDE_STATUS_BAR, 0,
+                UserHandle.USER_CURRENT) == 1;
+        if (!shouldHideContents) {
+            hideContents = false;
+        }
+        if (mHideContents == hideContents) {
+            return;
+        }
+
+        mHideContents = hideContents;
+        if (mHideContents) {
+            Animator fadeAnimator1 = null;
+            if (mMultiUserAvatar.getVisibility() != View.GONE) {
+                fadeAnimator1 = ObjectAnimator.ofFloat(mMultiUserAvatar, "alpha", 1f, 0f);
+                fadeAnimator1.setDuration(500);
+                fadeAnimator1.setInterpolator(Interpolators.ALPHA_OUT);
+                fadeAnimator1.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        mMultiUserAvatar.setVisibility(View.INVISIBLE);
+                    }
+                });
+            }
+            Animator fadeAnimator2 = ObjectAnimator.ofFloat(mSystemIconsContainer, "alpha", 1f, 0f);
+            fadeAnimator2.setDuration(500);
+            fadeAnimator2.setInterpolator(Interpolators.ALPHA_OUT);
+            fadeAnimator2.addListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    mSystemIconsContainer.setVisibility(View.INVISIBLE);
+                }
+            });
+            Animator fadeAnimator3 = null;
+            if (mCarrierLabel.getVisibility() != View.GONE) {
+                fadeAnimator3 = ObjectAnimator.ofFloat(mCarrierLabel, "alpha", 1f, 0f);
+                fadeAnimator3.setDuration(500);
+                fadeAnimator3.setInterpolator(Interpolators.ALPHA_OUT);
+                fadeAnimator3.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        mCarrierLabel.setVisibility(View.INVISIBLE);
+                    }
+                });
+            }
+            AnimatorSet set = new AnimatorSet();
+            set.playTogether(fadeAnimator2);
+            if (fadeAnimator3 != null) {
+                set.playTogether(fadeAnimator3);
+            }
+            if (fadeAnimator1 != null) {
+                set.playTogether(fadeAnimator1);
+            }
+            set.start();
+        } else {
+            Animator fadeAnimator1 = null;
+            if (mMultiUserAvatar.getVisibility() != View.GONE) {
+                mMultiUserAvatar.setAlpha(0f);
+                mMultiUserAvatar.setVisibility(View.VISIBLE);
+                fadeAnimator1 = ObjectAnimator.ofFloat(mMultiUserAvatar, "alpha", 0f, 1f);
+                fadeAnimator1.setDuration(500);
+                fadeAnimator1.setInterpolator(Interpolators.ALPHA_IN);
+            }
+
+            mSystemIconsContainer.setAlpha(0f);
+            mSystemIconsContainer.setVisibility(View.VISIBLE);
+            Animator fadeAnimator2 = ObjectAnimator.ofFloat(mSystemIconsContainer, "alpha", 0f, 1f);
+            fadeAnimator2.setDuration(500);
+            fadeAnimator2.setInterpolator(Interpolators.ALPHA_IN);
+
+            Animator fadeAnimator3 = null;
+            if (mCarrierLabel.getVisibility() != View.GONE) {
+                mCarrierLabel.setAlpha(0f);
+                mCarrierLabel.setVisibility(View.VISIBLE);
+                fadeAnimator3 = ObjectAnimator.ofFloat(mCarrierLabel, "alpha", 0f, 1f);
+                fadeAnimator3.setDuration(500);
+                fadeAnimator3.setInterpolator(Interpolators.ALPHA_IN);
+            }
+
+            AnimatorSet set = new AnimatorSet();
+            set.playTogether(fadeAnimator2);
+            if (fadeAnimator3 != null) {
+                set.playTogether(fadeAnimator3);
+            }
+            if (fadeAnimator1 != null) {
+                set.playTogether(fadeAnimator1);
+            }
+            set.start();
+        }
     }
 }
