@@ -98,11 +98,6 @@
         android:title="@string/status_bar_data_saver" />
 
     <com.android.systemui.tuner.StatusBarSwitch
-        android:icon="@drawable/ic_statusbar_phone"
-        android:key="call_strength"
-        android:title="@string/status_bar_call_strength" />
-
-    <com.android.systemui.tuner.StatusBarSwitch
         android:icon="@drawable/ic_statusbar_vpn"
         android:key="vpn"
         android:title="@string/status_bar_vpn" />
@@ -111,6 +106,21 @@
         android:icon="@drawable/ic_statusbar_airplanemode"
         android:key="airplane"
         android:title="@string/status_bar_airplane" />
+
+    <com.android.systemui.tuner.StatusBarSwitch
+        android:icon="@drawable/ic_statusbar_roaming"
+        android:key="roaming"
+        android:title="@string/status_bar_roaming" />
+
+    <com.android.systemui.tuner.StatusBarSwitch
+        android:icon="@drawable/ic_statusbar_hd_calling"
+        android:key="hd_calling"
+        android:title="@string/status_bar_hd_calling" />
+
+    <com.android.systemui.tuner.StatusBarSwitch
+        android:icon="@drawable/ic_statusbar_vowifi"
+        android:key="vowifi"
+        android:title="@string/status_bar_vowifi" />
 
     <!-- other weird signal stuff -->
 
