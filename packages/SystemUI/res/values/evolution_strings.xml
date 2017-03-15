@@ -8,10 +8,18 @@
     <string name="clock">Clock</string>
 
     <!-- Statusbar Icons -->
-    <string name="status_bar_call_strength">Call strength</string>
     <string name="status_bar_data_saver">Data saver</string>
     <string name="status_bar_nfc">NFC</string>
     <string name="status_bar_vpn">VPN</string>
+
+    <!-- Name of the roaming status bar icon. -->
+    <string name="status_bar_roaming">Roaming indicator</string>
+
+    <!-- Name of the HD calling status bar icon. -->
+    <string name="status_bar_hd_calling">HD calling (VoLTE/VoNR)</string>
+
+    <!-- Name of the VoWiFi status bar icon. -->
+    <string name="status_bar_vowifi">Wi-Fi calling (VoWiFi)</string>
 
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Sound</string>

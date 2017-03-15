@@ -22,6 +22,7 @@ import com.android.systemui.statusbar.pipeline.shared.data.model.ConnectivitySlo
 import com.android.systemui.statusbar.pipeline.shared.data.model.DataActivityModel
 import com.android.systemui.statusbar.pipeline.shared.data.repository.ConnectivityRepository
 import com.android.systemui.statusbar.pipeline.wifi.data.repository.WifiRepository
+import com.android.systemui.statusbar.pipeline.wifi.shared.model.VoWifiState
 import com.android.systemui.statusbar.pipeline.wifi.shared.model.WifiNetworkModel
 import com.android.systemui.statusbar.pipeline.wifi.shared.model.WifiScanEntry
 import javax.inject.Inject
@@ -63,6 +64,12 @@ interface WifiInteractor {
 
     /** True if there are networks available other than the currently-connected one */
     val areNetworksAvailable: StateFlow<Boolean>
+
+    /** Our current VoWifi state. */
+    val voWifiState: StateFlow<VoWifiState>
+
+    /** True if we're configured to force-hide the VoWifi icon and false otherwise. */
+    val isVoWifiForceHidden: Flow<Boolean>
 }
 
 @SysUISingleton
@@ -118,6 +125,25 @@ constructor(
                 }
             }
             .stateIn(scope, SharingStarted.WhileSubscribed(), false)
+
+    override val voWifiState: StateFlow<VoWifiState> =
+        wifiRepository.imsStates.map { states ->
+            val voWifiEnabled = states.filter { it.isVoWifiAvailable() }
+            if (voWifiEnabled.isNotEmpty()) {
+                // Get the VoWifi enabled slots
+                val slots = voWifiEnabled.map { it.slotIndex }
+                // Get the active subscription count from any one of the states
+                // (All states are being collected at the same time so doesn't matter)
+                val activeSubCount = voWifiEnabled.first().activeSubCount
+                VoWifiState.Enabled(slots, activeSubCount)
+            } else {
+                VoWifiState.Disabled
+            }
+        }
+        .stateIn(scope, SharingStarted.WhileSubscribed(), VoWifiState.Disabled)
+
+    override val isVoWifiForceHidden: Flow<Boolean> =
+        connectivityRepository.forceHiddenSlots.map { it.contains(ConnectivitySlot.VOWIFI) }
 
     private fun anyNonMatchingNetworkExists(
         currentNetwork: WifiNetworkModel.Active,

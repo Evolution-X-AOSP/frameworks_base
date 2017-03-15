@@ -26,6 +26,7 @@ data class SignalIconModel(
     val numberOfLevels: Int,
     val showExclamationMark: Boolean,
     val carrierNetworkChange: Boolean,
+    val showRoaming: Boolean
 ) : Diffable<SignalIconModel> {
     // TODO(b/267767715): Can we implement [logDiffs] and [logFull] generically for data classes?
     override fun logDiffs(prevVal: SignalIconModel, row: TableRowLogger) {
@@ -41,6 +42,9 @@ data class SignalIconModel(
         if (prevVal.carrierNetworkChange != carrierNetworkChange) {
             row.logChange(COL_CARRIER_NETWORK_CHANGE, carrierNetworkChange)
         }
+        if (prevVal.showRoaming != showRoaming) {
+            row.logChange(COL_SHOW_ROAMING, showRoaming)
+        }
     }
 
     override fun logFull(row: TableRowLogger) {
@@ -48,6 +52,7 @@ data class SignalIconModel(
         row.logChange(COL_NUM_LEVELS, numberOfLevels)
         row.logChange(COL_SHOW_EXCLAMATION, showExclamationMark)
         row.logChange(COL_CARRIER_NETWORK_CHANGE, carrierNetworkChange)
+        row.logChange(COL_SHOW_ROAMING, showRoaming)
     }
 
     /** Convert this model to an [Int] consumable by [SignalDrawable]. */
@@ -55,7 +60,7 @@ data class SignalIconModel(
         if (carrierNetworkChange) {
             SignalDrawable.getCarrierChangeState(numberOfLevels)
         } else {
-            SignalDrawable.getState(level, numberOfLevels, showExclamationMark)
+            SignalDrawable.getState(level, numberOfLevels, showExclamationMark, showRoaming)
         }
 
     companion object {
@@ -63,5 +68,6 @@ data class SignalIconModel(
         private const val COL_NUM_LEVELS = "numLevels"
         private const val COL_SHOW_EXCLAMATION = "showExclamation"
         private const val COL_CARRIER_NETWORK_CHANGE = "carrierNetworkChange"
+        private const val COL_SHOW_ROAMING = "showRoaming"
     }
 }

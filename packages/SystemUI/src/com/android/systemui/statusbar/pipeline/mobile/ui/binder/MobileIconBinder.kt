@@ -68,8 +68,8 @@ object MobileIconBinder {
         val networkTypeContainer = view.requireViewById<FrameLayout>(R.id.mobile_type_container)
         val iconView = view.requireViewById<ImageView>(R.id.mobile_signal)
         val mobileDrawable = SignalDrawable(view.context).also { iconView.setImageDrawable(it) }
-        val roamingView = view.requireViewById<ImageView>(R.id.mobile_roaming)
-        val roamingSpace = view.requireViewById<Space>(R.id.mobile_roaming_space)
+        val mobileHdView = view.requireViewById<ImageView>(R.id.mobile_hd)
+        val mobileHdSpace = view.requireViewById<Space>(R.id.mobile_hd_space)
         val dotView = view.requireViewById<StatusBarIconView>(R.id.status_bar_dot)
 
         view.isVisible = viewModel.isVisible.value
@@ -182,11 +182,11 @@ object MobileIconBinder {
                         }
                     }
 
-                    // Set the roaming indicator
+                    // Set the mobile HD indicator (VoLTE/VoNR)
                     launch {
-                        viewModel.roaming.distinctUntilChanged().collect { isRoaming ->
-                            roamingView.isVisible = isRoaming
-                            roamingSpace.isVisible = isRoaming
+                        viewModel.showHd.distinctUntilChanged().collect { isHd ->
+                            mobileHdView.isVisible = isHd
+                            mobileHdSpace.isVisible = isHd
                         }
                     }
 
@@ -217,7 +217,7 @@ object MobileIconBinder {
                                 networkTypeView.imageTintList = tint
                             }
 
-                            roamingView.imageTintList = tint
+                            mobileHdView.imageTintList = tint
                             activityIn.imageTintList = tint
                             activityOut.imageTintList = tint
                             dotView.setDecorColor(colors.tint)
