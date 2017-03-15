@@ -29,6 +29,8 @@ import com.android.systemui.statusbar.pipeline.airplane.data.repository.Airplane
 import com.android.systemui.statusbar.pipeline.airplane.data.repository.AirplaneModeRepositoryImpl
 import com.android.systemui.statusbar.pipeline.airplane.ui.viewmodel.AirplaneModeViewModel
 import com.android.systemui.statusbar.pipeline.airplane.ui.viewmodel.AirplaneModeViewModelImpl
+import com.android.systemui.statusbar.pipeline.ims.data.repository.CommonImsRepository
+import com.android.systemui.statusbar.pipeline.ims.data.repository.CommonImsRepositoryImpl
 import com.android.systemui.statusbar.pipeline.mobile.data.repository.CarrierConfigCoreStartable
 import com.android.systemui.statusbar.pipeline.mobile.data.repository.MobileConnectionsRepository
 import com.android.systemui.statusbar.pipeline.mobile.data.repository.MobileRepositorySwitcher
@@ -123,6 +125,9 @@ abstract class StatusBarPipelineModule {
     @IntoMap
     @ClassKey(WifiRepositoryDagger::class)
     abstract fun bindWifiRepositoryDagger(impl: WifiRepositoryDagger): CoreStartable
+
+    @Binds
+    abstract fun bindCommonImsRepository(impl: CommonImsRepositoryImpl): CommonImsRepository
 
     companion object {
         @Provides
