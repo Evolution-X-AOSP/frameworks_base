@@ -6040,6 +6040,30 @@ public final class Settings {
         public static final String VOLUME_DIALOG_TIMEOUT = "volume_dialog_timeout";
 
         /**
+         * Whether to auto hide clock
+         * @hide
+         */
+        public static final String STATUS_BAR_CLOCK_AUTO_HIDE = "status_bar_clock_auto_hide";
+
+        /**
+         * Auto hide clock hours duration
+         * @hide
+         */
+        public static final String STATUS_BAR_CLOCK_AUTO_HIDE_HDURATION = "status_bar_clock_auto_hide_hduration";
+
+        /**
+         * Auto hide clock seconds duration
+         * @hide
+         */
+        public static final String STATUS_BAR_CLOCK_AUTO_HIDE_SDURATION = "status_bar_clock_auto_hide_sduration";
+
+        /**
+         * Enable/disable Bluetooth Battery bar
+         * @hide
+         */
+        public static final String BLUETOOTH_SHOW_BATTERY = "bluetooth_show_battery";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -6057,24 +6081,6 @@ public final class Settings {
          */
         public static final String[] LEGACY_RESTORE_SETTINGS = {
         };
-
-        /**
-         * Whether to auto hide clock
-         * @hide
-         */
-        public static final String STATUS_BAR_CLOCK_AUTO_HIDE = "status_bar_clock_auto_hide";
-
-        /**
-         * Auto hide clock hours duration
-         * @hide
-         */
-        public static final String STATUS_BAR_CLOCK_AUTO_HIDE_HDURATION = "status_bar_clock_auto_hide_hduration";
-
-        /**
-         * Auto hide clock seconds duration
-         * @hide
-         */
-        public static final String STATUS_BAR_CLOCK_AUTO_HIDE_SDURATION = "status_bar_clock_auto_hide_sduration";
 
         /**
          * These are all public system settings
