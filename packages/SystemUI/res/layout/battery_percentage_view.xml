@@ -25,5 +25,7 @@
         android:textAppearance="@style/TextAppearance.StatusBar.Clock"
         android:textColor="?android:attr/textColorPrimary"
         android:gravity="center_vertical|start"
+        android:paddingStart="-3dp"
+        android:paddingEnd="@dimen/battery_level_padding_start"
         android:importantForAccessibility="no"
         />
