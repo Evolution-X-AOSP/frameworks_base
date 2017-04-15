@@ -1,4 +1,8 @@
 // Baseline format: 1.0
+AcronymName: android.telephony.ims.stub.ImsUtImplBase#queryCFForServiceClass(int, String, int):
+    Acronyms should not be capitalized in method names: was `queryCFForServiceClass`, should this be `queryCfForServiceClass`?
+
+
 ArrayReturn: android.view.contentcapture.ViewNode#getAutofillOptions():
     Method should return Collection<CharSequence> (or subclass) instead of raw array; was `java.lang.CharSequence[]`
 
@@ -61,6 +65,10 @@ MissingNullability: android.telephony.mbms.DownloadRequest.Builder#setServiceId(
     Missing nullability on method `setServiceId` return
 MissingNullability: android.telephony.mbms.DownloadRequest.Builder#setServiceId(String) parameter #0:
     Missing nullability on parameter `serviceId` in method `setServiceId`
+
+
+MissingNullability: android.telephony.ims.stub.ImsUtImplBase#queryCFForServiceClass(int, String, int) parameter #1:
+    Missing nullability on parameter `number` in method `queryCFForServiceClass`
 
 
 ProtectedMember: android.printservice.recommendation.RecommendationService#attachBaseContext(android.content.Context):

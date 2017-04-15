@@ -3,6 +3,10 @@ AcronymName: android.net.NetworkCapabilities#setSSID(String):
     Acronyms should not be capitalized in method names: was `setSSID`, should this be `setSsid`?
 
 
+AcronymName: android.telephony.ims.stub.ImsUtImplBase#queryCFForServiceClass(int, String, int):
+    Acronyms should not be capitalized in method names: was `queryCFForServiceClass`, should this be `queryCfForServiceClass`?
+
+
 ActionValue: android.location.Location#EXTRA_NO_GPS_LOCATION:
     
 ActionValue: android.net.wifi.WifiManager#ACTION_LINK_CONFIGURATION_CHANGED:
@@ -180,6 +184,8 @@ MissingNullability: android.telephony.ims.stub.ImsSmsImplBase#onSmsStatusReportR
     
 MissingNullability: android.telephony.ims.stub.ImsSmsImplBase#onSmsStatusReportReceived(int, String, byte[]) parameter #2:
     
+MissingNullability: android.telephony.ims.stub.ImsUtImplBase#queryCFForServiceClass(int, String, int) parameter #1:
+    Missing nullability on parameter `number` in method `queryCFForServiceClass`
 MissingNullability: android.telephony.mbms.DownloadRequest.Builder#setServiceId(String):
     
 MissingNullability: android.telephony.mbms.DownloadRequest.Builder#setServiceId(String) parameter #0:
