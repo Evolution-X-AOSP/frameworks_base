@@ -16,6 +16,7 @@
 
 package android.provider.settings.validators;
 
+import static android.provider.settings.validators.SettingsValidators.ANY_INTEGER_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.ANY_STRING_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.BOOLEAN_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.COMPONENT_NAME_VALIDATOR;
@@ -213,5 +214,10 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.FLASHLIGHT_ON_CALL, new InclusiveIntegerRangeValidator(0, 4));
         VALIDATORS.put(System.FLASHLIGHT_ON_CALL_IGNORE_DND, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.FLASHLIGHT_ON_CALL_RATE, new InclusiveIntegerRangeValidator(1, 5));
+        VALIDATORS.put(System.STATUS_BAR_LOGO, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.STATUS_BAR_LOGO_COLOR, ANY_INTEGER_VALIDATOR);
+        VALIDATORS.put(System.STATUS_BAR_LOGO_POSITION, ANY_INTEGER_VALIDATOR);
+        VALIDATORS.put(System.STATUS_BAR_LOGO_STYLE, ANY_INTEGER_VALIDATOR);
+        VALIDATORS.put(System.STATUS_BAR_LOGO_COLOR_ACCENT, BOOLEAN_VALIDATOR);
     }
 }
