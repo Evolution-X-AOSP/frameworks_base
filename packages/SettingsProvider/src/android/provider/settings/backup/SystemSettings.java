@@ -111,5 +111,8 @@ public class SystemSettings {
         Settings.System.DEFAULT_NOTIFICATION_TORCH,
         Settings.System.MAX_VISIBLE_NOTIFICATION_ICONS,
         Settings.System.STATUS_BAR_NOTIF_COUNT,
+        Settings.System.STATUS_BAR_LOGO,
+        Settings.System.STATUS_BAR_LOGO_POSITION,
+        Settings.System.STATUS_BAR_LOGO_STYLE,
     };
 }
