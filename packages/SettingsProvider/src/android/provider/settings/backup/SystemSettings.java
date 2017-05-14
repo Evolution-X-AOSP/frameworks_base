@@ -95,5 +95,10 @@ public class SystemSettings {
         Settings.System.FLASHLIGHT_ON_CALL,
         Settings.System.FLASHLIGHT_ON_CALL_IGNORE_DND,
         Settings.System.FLASHLIGHT_ON_CALL_RATE,
+        Settings.System.STATUS_BAR_LOGO,
+        Settings.System.STATUS_BAR_LOGO_COLOR,
+        Settings.System.STATUS_BAR_LOGO_POSITION,
+        Settings.System.STATUS_BAR_LOGO_STYLE,
+        Settings.System.STATUS_BAR_LOGO_COLOR_ACCENT,
     };
 }
