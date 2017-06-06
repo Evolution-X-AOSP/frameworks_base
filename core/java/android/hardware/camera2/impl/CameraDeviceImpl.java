@@ -18,11 +18,11 @@ package android.hardware.camera2.impl;
 
 import static com.android.internal.util.function.pooled.PooledLambda.obtainRunnable;
 
-import android.app.ActivityThread;
 import android.annotation.NonNull;
 import android.content.Context;
 import android.graphics.ImageFormat;
 import android.hardware.ICameraService;
+import android.app.ActivityThread;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCaptureSession;
 import android.hardware.camera2.CameraCharacteristics;
@@ -87,7 +87,7 @@ public class CameraDeviceImpl extends CameraDevice
     private final boolean DEBUG = false;
 
     private static final int REQUEST_ID_NONE = -1;
-    private int customOpMode = 0;
+
     // TODO: guard every function with if (!mRemoteDevice) check (if it was closed)
     private ICameraDeviceUserWrapper mRemoteDevice;
 
@@ -132,8 +132,6 @@ public class CameraDeviceImpl extends CameraDevice
     private final Map<String, CameraCharacteristics> mPhysicalIdsToChars;
     private final int mTotalPartialCount;
     private final Context mContext;
-
-    private final boolean mForceMultiResolution;
 
     private static final long NANO_PER_SECOND = 1000000000; //ns
 
@@ -308,9 +306,6 @@ public class CameraDeviceImpl extends CameraDevice
             mTotalPartialCount = partialCount;
         }
         mIsPrivilegedApp = checkPrivilegedAppList();
-
-        mForceMultiResolution = mContext.getResources().getBoolean(
-                com.android.internal.R.bool.config_forceMultiResolution);
     }
 
     public CameraDeviceCallbacks getCallbacks() {
@@ -399,10 +394,6 @@ public class CameraDeviceImpl extends CameraDevice
         }
     }
 
-    public void setVendorStreamConfigMode(int fpsrange) {
-        customOpMode = fpsrange;
-    }
-
     @Override
     public String getId() {
         return mCameraId;
@@ -456,11 +447,7 @@ public class CameraDeviceImpl extends CameraDevice
                     "any output streams");
         }
 
-        try {
-            checkInputConfiguration(inputConfig);
-        } catch (IllegalArgumentException e) {
-            Log.w(TAG, "Check input configuration failed due to: " + e.getMessage());
-        }
+        checkInputConfiguration(inputConfig);
 
         boolean success = false;
 
@@ -525,7 +512,6 @@ public class CameraDeviceImpl extends CameraDevice
                         mConfiguredOutputs.put(streamId, outConfig);
                     }
                 }
-                operatingMode = (operatingMode | (customOpMode << 16));
 
                 int offlineStreamIds[];
                 if (sessionParams != null) {
@@ -1548,7 +1534,7 @@ public class CameraDeviceImpl extends CameraDevice
             return;
         }
         int inputFormat = inputConfig.getFormat();
-        if (inputConfig.isMultiResolution() || mForceMultiResolution) {
+        if (inputConfig.isMultiResolution()) {
             MultiResolutionStreamConfigurationMap configMap = mCharacteristics.get(
                     CameraCharacteristics.SCALER_MULTI_RESOLUTION_STREAM_CONFIGURATION_MAP);
 
@@ -1589,15 +1575,11 @@ public class CameraDeviceImpl extends CameraDevice
                 return;
             }
 
-            boolean skipInputConfigCheck =
-                SystemProperties.getBoolean("persist.camera.skip_input_config_check", false);
-            if (!skipInputConfigCheck) {
-              if (!checkInputConfigurationWithStreamConfigurations(inputConfig, /*maxRes*/false) &&
-                      !checkInputConfigurationWithStreamConfigurations(inputConfig, /*maxRes*/true)) {
-                  throw new IllegalArgumentException("Input config with format " +
-                          inputFormat + " and size " + inputConfig.getWidth() + "x" +
-                          inputConfig.getHeight() + " not supported by camera id " + mCameraId);
-              }
+            if (!checkInputConfigurationWithStreamConfigurations(inputConfig, /*maxRes*/false) &&
+                    !checkInputConfigurationWithStreamConfigurations(inputConfig, /*maxRes*/true)) {
+                throw new IllegalArgumentException("Input config with format " +
+                        inputFormat + " and size " + inputConfig.getWidth() + "x" +
+                        inputConfig.getHeight() + " not supported by camera id " + mCameraId);
             }
         }
     }
