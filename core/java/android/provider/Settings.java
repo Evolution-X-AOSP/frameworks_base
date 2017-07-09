@@ -5635,6 +5635,12 @@ public final class Settings {
           */
         public static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
 
+        /**
+         * Sensor block per-package
+         * @hide
+         */
+        public static final String SENSOR_BLOCK = "sensor_block";
+
         /** End of Evolution X system settings**/
 
         /**
