@@ -86,7 +86,7 @@ public final class ShutdownThread extends Thread {
     private static final int MOUNT_SERVICE_STOP_PERCENT = 20;
 
     // length of vibration before shutting down
-    @VisibleForTesting static final int DEFAULT_SHUTDOWN_VIBRATE_MS = 500;
+    @VisibleForTesting static final int DEFAULT_SHUTDOWN_VIBRATE_MS = 250;
 
     // state tracking
     private static final Object sIsStartedGuard = new Object();
