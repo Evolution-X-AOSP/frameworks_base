@@ -107,5 +107,6 @@ public class SystemSettings {
         Settings.System.EDGE_LIGHT_COLOR_MODE,
         Settings.System.EDGE_LIGHT_CUSTOM_COLOR,
         Settings.System.BLOCK_ALERT,
+        Settings.System.SENSOR_BLOCK,
     };
 }
