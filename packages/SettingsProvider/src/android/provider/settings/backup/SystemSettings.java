@@ -111,5 +111,6 @@ public class SystemSettings {
         Settings.System.EDGE_LIGHT_CUSTOM_COLOR,
         Settings.System.BLOCK_ALERT,
         Settings.System.VOLUME_BUTTON_MUSIC_CONTROL,
+        Settings.System.SENSOR_BLOCK,
     };
 }
