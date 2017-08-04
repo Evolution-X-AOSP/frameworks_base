@@ -214,4 +214,9 @@
 
   <!-- Screen recorder framerate limit -->
   <java-symbol type="integer" name="config_screenRecorderMaxFramerate" />
+
+
+  <!-- Any package that has one of the package names defined below will be prevented
+       from using specific sensors in order to stop battery drain -->
+  <java-symbol type="array" name="config_blockPackagesSensorDrain" />
 </resources>
