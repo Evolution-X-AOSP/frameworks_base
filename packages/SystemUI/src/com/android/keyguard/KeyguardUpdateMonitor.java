@@ -464,7 +464,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
             }
         }
         for (int i = 0; i < changedSubscriptions.size(); i++) {
-            SimData data = mSimDatas.get(changedSubscriptions.get(i).getSubscriptionId());
+            SimData data = mSimDatas.get(changedSubscriptions.get(i).getSimSlotIndex());
             for (int j = 0; j < mCallbacks.size(); j++) {
                 KeyguardUpdateMonitorCallback cb = mCallbacks.get(j).get();
                 if (cb != null) {
@@ -1735,7 +1735,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
         }
 
         // Take a guess at initial SIM state, battery status and PLMN until we get an update
-        mBatteryStatus = new BatteryStatus(BATTERY_STATUS_UNKNOWN, 100, 0, 0, 0, 0, 0, 0, false, false, false);
+        mBatteryStatus = new BatteryStatus(BATTERY_STATUS_UNKNOWN, 100, 0, 0, 0, 0, 0, 0, false, false, false,false);
 
         // Watch for interesting updates
         final IntentFilter filter = new IntentFilter();
@@ -2468,11 +2468,11 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
             }
         }
 
-        SimData data = mSimDatas.get(subId);
+        SimData data = mSimDatas.get(slotId);
         final boolean changed;
         if (data == null) {
             data = new SimData(state, slotId, subId);
-            mSimDatas.put(subId, data);
+            mSimDatas.put(slotId, data);
             changed = true; // no data yet; force update
         } else {
             changed = (data.simState != state || data.subId != subId || data.slotId != slotId);
@@ -2654,6 +2654,11 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
             return true;
         }
 
+        // change in oem fast charging while plugged in
+        if (nowPluggedIn && current.oemFastChargeStatus != old.oemFastChargeStatus) {
+            return true;
+        }
+
         return false;
     }
 
@@ -2822,18 +2827,20 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
     }
 
     public int getSimState(int subId) {
-        if (mSimDatas.containsKey(subId)) {
-            return mSimDatas.get(subId).simState;
+        int slotId = SubscriptionManager.getSlotIndex(subId);
+        if (mSimDatas.containsKey(slotId)) {
+            return mSimDatas.get(slotId).simState;
         } else {
             return TelephonyManager.SIM_STATE_UNKNOWN;
         }
     }
 
     private int getSlotId(int subId) {
-        if (!mSimDatas.containsKey(subId)) {
-            refreshSimState(subId, SubscriptionManager.getSlotIndex(subId));
+        int slotId = SubscriptionManager.getSlotIndex(subId);
+        if (!mSimDatas.containsKey(slotId)) {
+            refreshSimState(subId, slotId);
         }
-        return mSimDatas.get(subId).slotId;
+        return mSimDatas.get(slotId).slotId;
     }
 
     private final TaskStackChangeListener
@@ -2862,11 +2869,11 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
                 (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
         int state = (tele != null) ?
                 tele.getSimState(slotId) : TelephonyManager.SIM_STATE_UNKNOWN;
-        SimData data = mSimDatas.get(subId);
+        SimData data = mSimDatas.get(slotId);
         final boolean changed;
         if (data == null) {
             data = new SimData(state, slotId, subId);
-            mSimDatas.put(subId, data);
+            mSimDatas.put(slotId, data);
             changed = true; // no data yet; force update
         } else {
             changed = data.simState != state;

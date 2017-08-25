@@ -29,6 +29,7 @@ import static android.os.BatteryManager.EXTRA_STATUS;
 import static android.os.BatteryManager.EXTRA_DASH_CHARGER;
 import static android.os.BatteryManager.EXTRA_WARP_CHARGER;
 import static android.os.BatteryManager.EXTRA_VOOC_CHARGER;
+import static android.os.BatteryManager.EXTRA_OEM_FAST_CHARGER;
 
 import android.content.Context;
 import android.content.Intent;
@@ -62,11 +63,12 @@ public class BatteryStatus {
     public final boolean dashChargeStatus;
     public final boolean warpChargeStatus;
     public final boolean voocChargeStatus;
+    public final boolean oemFastChargeStatus;
 
     public BatteryStatus(int status, int level, int plugged, int health,
             int maxChargingCurrent, int maxChargingVoltage,
             int maxChargingWattage, float temperature, boolean dashChargeStatus,
-            boolean warpChargeStatus, boolean voocChargeStatus) {
+            boolean warpChargeStatus, boolean voocChargeStatus, boolean oemFastChargeStatus) {
         this.status = status;
         this.level = level;
         this.plugged = plugged;
@@ -78,6 +80,7 @@ public class BatteryStatus {
         this.dashChargeStatus = dashChargeStatus;
         this.warpChargeStatus = warpChargeStatus;
         this.voocChargeStatus = voocChargeStatus;
+        this.oemFastChargeStatus = oemFastChargeStatus;
     }
 
     public BatteryStatus(Intent batteryChangedIntent) {
@@ -109,6 +112,7 @@ public class BatteryStatus {
             maxChargingCurrent = -1;
             maxChargingVoltage = -1;
         }
+        oemFastChargeStatus = batteryChangedIntent.getBooleanExtra(EXTRA_OEM_FAST_CHARGER, false);
     }
 
     /**
@@ -158,6 +162,9 @@ public class BatteryStatus {
      * @return the charing speed
      */
     public final int getChargingSpeed(Context context) {
+        if (oemFastChargeStatus) {
+                return CHARGING_FAST;
+        }
         final int slowThreshold = context.getResources().getInteger(
                 R.integer.config_chargingSlowlyThreshold);
         final int fastThreshold = context.getResources().getInteger(
