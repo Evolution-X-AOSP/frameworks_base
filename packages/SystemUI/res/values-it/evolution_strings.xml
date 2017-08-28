@@ -56,4 +56,7 @@
     <string name="accessibility_quick_settings_reading_mode_off">Modalità lettura disattivata.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Modalità lettura attivata.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Modalità lettura disattivata.</string>
+    <string name="global_action_restart_advanced">Riavvio avanzato</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
 </resources>
