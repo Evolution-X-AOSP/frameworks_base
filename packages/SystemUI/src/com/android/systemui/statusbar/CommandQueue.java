@@ -128,6 +128,7 @@ public class CommandQueue extends IStatusBar.Stub implements CallbackController<
     private static final int MSG_SUPPRESS_AMBIENT_DISPLAY          = 56 << MSG_SHIFT;
     private static final int MSG_SHOW_IN_DISPLAY_FINGERPRINT_VIEW  = 57 << MSG_SHIFT;
     private static final int MSG_HIDE_IN_DISPLAY_FINGERPRINT_VIEW  = 58 << MSG_SHIFT;
+    private static final int MSG_TOGGLE_CAMERA_FLASH               = 59 << MSG_SHIFT;
 
     public static final int FLAG_EXCLUDE_NONE = 0;
     public static final int FLAG_EXCLUDE_SEARCH_PANEL = 1 << 0;
@@ -342,6 +343,8 @@ public class CommandQueue extends IStatusBar.Stub implements CallbackController<
          * @param enabled
          */
         default void onTracingStateChanged(boolean enabled) { }
+
+        default void toggleCameraFlash() { }
     }
 
     public CommandQueue(Context context) {
@@ -984,6 +987,13 @@ public class CommandQueue extends IStatusBar.Stub implements CallbackController<
         }
     }
 
+    public void toggleCameraFlash() {
+        synchronized (mLock) {
+            mHandler.removeMessages(MSG_TOGGLE_CAMERA_FLASH);
+            mHandler.sendEmptyMessage(MSG_TOGGLE_CAMERA_FLASH);
+        }
+    }
+
     private final class H extends Handler {
         private H(Looper l) {
             super(l);
@@ -1244,6 +1254,11 @@ public class CommandQueue extends IStatusBar.Stub implements CallbackController<
                 case MSG_RECENTS_ANIMATION_STATE_CHANGED:
                     for (int i = 0; i < mCallbacks.size(); i++) {
                         mCallbacks.get(i).onRecentsAnimationStateChanged(msg.arg1 > 0);
+                    }
+                    break;
+                case MSG_TOGGLE_CAMERA_FLASH:
+                    for (int i = 0; i < mCallbacks.size(); i++) {
+                        mCallbacks.get(i).toggleCameraFlash();
                     }
                     break;
                 case MSG_SYSTEM_BAR_APPEARANCE_CHANGED:
