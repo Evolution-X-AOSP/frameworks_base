@@ -103,6 +103,7 @@ interface IStatusBarService
 
     /**
      * Custom utils
+     * Evolution X
      */
     void toggleCameraFlash();
 }

@@ -153,6 +153,7 @@ oneway interface IStatusBar
 
     /**
      * Custom utils
+     * Evolution X
      */
     void toggleCameraFlash();
 }
