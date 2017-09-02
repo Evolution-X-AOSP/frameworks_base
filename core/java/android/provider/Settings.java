@@ -15314,6 +15314,18 @@ public final class Settings {
         public static final String DISABLE_TRANSITION_ANIMATIONS = "disable_transition_animations";
 
         /**
+         * Enable blocking wakelock
+         * @hide
+         */
+        public static final String WAKELOCK_BLOCKING_ENABLED = "wakelock_blocking_enabled";
+
+         /**
+         * List of wakelock blocks selected
+         * @hide
+         */
+        public static final String WAKELOCK_BLOCKING_LIST = "wakelock_blocking_list";
+
+        /**
          * Global settings that shouldn't be persisted.
          *
          * @hide
