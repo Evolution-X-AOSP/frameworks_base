@@ -148,6 +148,9 @@ interface IPowerManager
     // Forces the system to suspend even if there are held wakelocks.
     boolean forceSuspend();
 
+    // blocked wakelock support
+    String getSeenWakeLocks();
+
     const int LOCATION_MODE_NO_CHANGE = 0;
     const int LOCATION_MODE_GPS_DISABLED_WHEN_SCREEN_OFF = 1;
     const int LOCATION_MODE_ALL_DISABLED_WHEN_SCREEN_OFF = 2;

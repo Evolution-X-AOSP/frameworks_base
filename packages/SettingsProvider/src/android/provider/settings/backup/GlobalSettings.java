@@ -106,6 +106,8 @@ public class GlobalSettings {
         Settings.Global.Wearable.RTL_SWIPE_TO_DISMISS_ENABLED_DEV,
         Settings.Global.Wearable.REDUCE_MOTION,
         Settings.Global.WIFI_OFF_TIMEOUT,
-        Settings.Global.BLUETOOTH_OFF_TIMEOUT
+        Settings.Global.BLUETOOTH_OFF_TIMEOUT,
+        Settings.Global.WAKELOCK_BLOCKING_ENABLED,
+        Settings.Global.WAKELOCK_BLOCKING_LIST
     };
 }
