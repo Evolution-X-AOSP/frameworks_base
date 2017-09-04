@@ -75,4 +75,7 @@
 
     <!-- Whether device supports gaming mode profiles -->
     <bool name="config_gamingmode_performance">false</bool>
+
+    <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
+    <bool name="config_intrusiveBatteryLed">@bool/config_intrusiveNotificationLed</bool>
 </resources>
