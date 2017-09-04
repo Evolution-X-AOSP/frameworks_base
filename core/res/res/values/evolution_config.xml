@@ -84,4 +84,7 @@
 
     <!-- Should we filter any display modes which are unmapped? -->
     <bool name="config_filterDisplayModes">false</bool>
+
+    <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
+    <bool name="config_intrusiveBatteryLed">@bool/config_intrusiveNotificationLed</bool>
 </resources>
