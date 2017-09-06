@@ -208,6 +208,7 @@ public class RescueParty {
     }
 
     private static void executeRescueLevel(Context context) {
+        if (isDisabled()) return;
         final int level = SystemProperties.getInt(PROP_RESCUE_LEVEL, LEVEL_NONE);
         if (level == LEVEL_NONE) return;
 
