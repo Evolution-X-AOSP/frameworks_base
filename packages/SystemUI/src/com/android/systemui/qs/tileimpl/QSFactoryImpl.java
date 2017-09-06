@@ -46,6 +46,7 @@ import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.MusicTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
+import com.android.systemui.qs.tiles.RebootTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
 import com.android.systemui.qs.tiles.SleepScreenTile;
@@ -104,6 +105,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<AmbientDisplayTile> mAmbientDisplayTileProvider;
     private final Provider<SleepScreenTile> mSleepScreenTileProvider;
     private final Provider<VpnTile> mVpnTileProvider;
+    private final Provider<RebootTile> mRebootTileProvider;
 
     private QSTileHost mHost;
 
@@ -140,7 +142,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<CompassTile> compassTileProvider,
             Provider<AmbientDisplayTile> ambientDisplayTileProvider,
             Provider<SleepScreenTile> sleepScreenTileProvider,
-            Provider<VpnTile> vpnTileProvider) {
+            Provider<VpnTile> vpnTileProvider,
+            Provider<RebootTile> rebootTileProvider) {
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
         mCellularTileProvider = cellularTileProvider;
@@ -175,6 +178,7 @@ public class QSFactoryImpl implements QSFactory {
         mAmbientDisplayTileProvider = ambientDisplayTileProvider;
         mSleepScreenTileProvider = sleepScreenTileProvider;
         mVpnTileProvider = vpnTileProvider;
+        mRebootTileProvider = rebootTileProvider;
     }
 
     public void setHost(QSTileHost host) {
@@ -257,6 +261,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mSleepScreenTileProvider.get();
             case "vpn":
                 return mVpnTileProvider.get();
+            case "reboot":
+                return mRebootTileProvider.get();
         }
 
         // Intent tiles.
