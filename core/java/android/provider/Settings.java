@@ -6921,6 +6921,16 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * Disable dashboard conditions in settings
+         * @hide
+         */
+        public static final String ENABLE_CONDITIONS = "enable_conditions";
+
+        /** @hide */
+        private static final Validator ENABLE_CONDITIONS_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -7130,6 +7140,7 @@ public final class Settings {
             BATTERY_BAR_HIGH_COLOR,
             BATTERY_BAR_LOW_COLOR,
             BATTERY_BAR_USE_GRADIENT_COLOR,
+            ENABLE_CONDITIONS,
             // Evolution X Settings end
         };
 
@@ -7388,6 +7399,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DISPLAY_CUTOUT_HIDDEN);
             PRIVATE_SETTINGS.add(LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED);
             PRIVATE_SETTINGS.add(LOCKSCREEN_BATTERY_INFO);
+            PRIVATE_SETTINGS.add(ENABLE_CONDITIONS);
             // Evolution X Settings end
         }
 
@@ -7674,6 +7686,7 @@ public final class Settings {
             VALIDATORS.put(BATTERY_BAR_HIGH_COLOR, BATTERY_BAR_HIGH_COLOR_VALIDATOR);
             VALIDATORS.put(BATTERY_BAR_LOW_COLOR, BATTERY_BAR_LOW_COLOR_VALIDATOR);
             VALIDATORS.put(BATTERY_BAR_USE_GRADIENT_COLOR, BATTERY_BAR_USE_GRADIENT_COLOR_VALIDATOR);
+            VALIDATORS.put(ENABLE_CONDITIONS, ENABLE_CONDITIONS_VALIDATOR);
             // Evolution X Settings end
         }
 
