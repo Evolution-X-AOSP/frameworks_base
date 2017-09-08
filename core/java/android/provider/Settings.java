@@ -5048,6 +5048,12 @@ public final class Settings {
          */
         public static final String BLUETOOTH_QS_SHOW_BATTERY = "bluetooth_qs_show_battery";
 
+        /**
+         * Whether to show heads up only for dialer and sms apps
+         * @hide
+         */
+        public static final String LESS_BORING_HEADS_UP = "less_boring_heads_up";
+
         /** End of Evolution X system settings**/
 
         /**
