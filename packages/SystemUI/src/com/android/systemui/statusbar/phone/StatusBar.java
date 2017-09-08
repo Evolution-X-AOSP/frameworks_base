@@ -1982,6 +1982,18 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_SHOW_BATTERY_PERCENT),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_ROWS_PORTRAIT),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_ROWS_LANDSCAPE),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_COLUMNS_PORTRAIT),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_COLUMNS_LANDSCAPE),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -1992,6 +2004,11 @@ public class StatusBar extends SystemUI implements DemoMode,
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.QS_SHOW_BATTERY_PERCENT))) {
                 setQsBatteryPercentMode();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_ROWS_PORTRAIT)) ||
+                    uri.equals(Settings.System.getUriFor(Settings.System.QS_ROWS_LANDSCAPE)) ||
+                    uri.equals(Settings.System.getUriFor(Settings.System.QS_COLUMNS_PORTRAIT)) ||
+                    uri.equals(Settings.System.getUriFor(Settings.System.QS_COLUMNS_LANDSCAPE))) {
+                setQsRowsColumns();
             }
         }
 
@@ -2001,6 +2018,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             setHeadsUpBlacklist();
             setFpToDismissNotifications();
             setQsBatteryPercentMode();
+            setQsRowsColumns();
         }
     }
 
@@ -2031,6 +2049,12 @@ public class StatusBar extends SystemUI implements DemoMode,
     private void setQsBatteryPercentMode() {
         if (mQSBarHeader != null) {
             ((QuickStatusBarHeader) mQSBarHeader).setBatteryPercentMode();
+        }
+    }
+
+    private void setQsRowsColumns() {
+        if (mQSPanel != null) {
+            mQSPanel.updateResources();
         }
     }
 
