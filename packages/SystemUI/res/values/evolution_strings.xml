@@ -129,6 +129,7 @@
     <string name="custom_hint">Swipe from icon to launch</string>
 
     <!-- Status bar icons -->
+    <string name="statusbar_items_title">Statusbar icon</string>
     <string name="status_bar_data_disabled">Data disabled</string>
     <string name="status_bar_data_saver">Data saver</string>
     <string name="status_bar_nfc">NFC</string>
