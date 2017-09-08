@@ -80,4 +80,7 @@
 
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Screenshot deleted</string>
+
+    <!-- Statusbar tuner -->
+    <string name="statusbar_items_title">Statusbar icons</string>
 </resources>
