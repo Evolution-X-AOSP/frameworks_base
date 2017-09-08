@@ -374,6 +374,14 @@
             </intent-filter>
         </activity-alias>
 
+        <activity android:name=".tuner.NavBarActivity"
+                  android:theme="@style/TunerSettings"
+                  android:label="@string/nav_bar"
+                  android:process=":tuner"
+                  android:parentActivityName="com.evolution.settings.fragments.Navigation"
+                  android:exported="true">
+        </activity>
+
         <!-- Service used by secondary users to register themselves with the system user. -->
         <service android:name=".recents.RecentsSystemUserService"
             android:exported="false"
