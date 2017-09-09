@@ -93,5 +93,6 @@ public class SystemSettings {
         Settings.System.FULLSCREEN_GESTURES,
         Settings.System.NAVIGATION_BAR_INVERSE,
         Settings.System.USE_OLD_MOBILETYPE,
+        Settings.System.VOLUME_KEY_CURSOR_CONTROL,
     };
 }
