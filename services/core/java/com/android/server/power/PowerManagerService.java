@@ -471,6 +471,9 @@ public final class PowerManagerService extends SystemService
     // A bitfield of battery conditions under which to make the screen stay on.
     private int mStayOnWhilePluggedInSetting;
 
+    // True if the device should wake up when plugged or unplugged
+    private int mWakeUpWhenPluggedOrUnpluggedSetting;
+
     // True if the device should stay on.
     private boolean mStayOn;
 
@@ -975,6 +978,9 @@ public final class PowerManagerService extends SystemService
         resolver.registerContentObserver(Settings.Secure.getUriFor(
                 Settings.Secure.HARDWARE_KEYS_DISABLE),
                 false, mSettingsObserver, UserHandle.USER_ALL);
+        resolver.registerContentObserver(Settings.Global.getUriFor(
+                Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED),
+                false, mSettingsObserver, UserHandle.USER_ALL);
         IVrManager vrManager = IVrManager.Stub.asInterface(getBinderService(Context.VR_SERVICE));
         if (vrManager != null) {
             try {
@@ -1118,6 +1124,9 @@ public final class PowerManagerService extends SystemService
         mProximityWakeEnabled = Settings.System.getInt(resolver,
                 Settings.System.PROXIMITY_ON_WAKE,
                 mProximityWakeEnabledByDefaultConfig ? 1 : 0) == 1;
+        mWakeUpWhenPluggedOrUnpluggedSetting = Settings.Global.getInt(resolver,
+                Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
+                (mWakeUpWhenPluggedOrUnpluggedConfig ? 1 : 0));
         mDirty |= DIRTY_SETTINGS;
     }
 
@@ -1890,7 +1899,7 @@ public final class PowerManagerService extends SystemService
     private boolean shouldWakeUpWhenPluggedOrUnpluggedLocked(
             boolean wasPowered, int oldPlugType, boolean dockedOnWirelessCharger) {
         // Don't wake when powered unless configured to do so.
-        if (!mWakeUpWhenPluggedOrUnpluggedConfig) {
+        if (mWakeUpWhenPluggedOrUnpluggedSetting == 0) {
             return false;
         }
 
