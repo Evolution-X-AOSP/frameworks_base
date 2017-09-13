@@ -44,6 +44,7 @@ import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.qs.DetailAdapter;
 import com.android.systemui.plugins.qs.QSIconView;
 import com.android.systemui.plugins.qs.QSTile.SignalState;
+import com.android.systemui.statusbar.policy.KeyguardStateController;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.SignalTileView;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
@@ -108,7 +109,11 @@ public class CellularTile extends QSTileImpl<SignalState> {
             return;
         }
         if (mDataController.isMobileDataEnabled()) {
-            maybeShowDisableDialog();
+            if (mKeyguard.isMethodSecure() && mKeyguard.isShowing()) {
+                mActivityStarter.postQSRunnableDismissingKeyguard(this::maybeShowDisableDialog);
+            } else {
+                maybeShowDisableDialog();
+            }
         } else {
             mDataController.setMobileDataEnabled(true);
         }
