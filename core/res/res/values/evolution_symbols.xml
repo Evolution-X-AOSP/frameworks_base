@@ -85,6 +85,7 @@
     <java-symbol type="bool" name="config_defaultAntiFlicker" />
 
     <!-- Leds -->
+    <java-symbol type="bool" name="config_hasNotificationLed" />
     <java-symbol type="bool" name="config_intrusiveBatteryLed" />
 
     <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
