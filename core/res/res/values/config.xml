@@ -2877,6 +2877,10 @@
         <item>logout</item>
         <item>screenshot</item>
         <item>screenrecord</item>
+        <item>airplane</item>
+        <item>settings</item>
+        <item>users</item>
+        <item>silent</item>
     </string-array>
 
     <!-- Number of milliseconds to hold a wake lock to ensure that drawing is fully
