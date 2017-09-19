@@ -66,6 +66,7 @@
         <item>airplane</item>
         <item>settings</item>
         <item>lockdown</item>
+        <item>torch</item>
     </string-array>
 
 </resources>
