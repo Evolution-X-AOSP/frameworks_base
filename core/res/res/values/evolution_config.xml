@@ -61,6 +61,7 @@
         <item>airplane</item>
         <item>settings</item>
         <item>lockdown</item>
+        <item>torch</item>
     </string-array>
 
     <!-- Whether to force enable multi resolution configuration for camera -->
