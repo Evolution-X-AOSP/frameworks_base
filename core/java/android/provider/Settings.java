@@ -4540,6 +4540,16 @@ public final class Settings {
                 ANY_INTEGER_VALIDATOR;
 
         /**
+         * Whether to display qs tile titles in the qs panel
+         * @hide
+         */
+        public static final String QS_TILE_TITLE_VISIBILITY = "qs_tile_title_visibility";
+
+        /** @hide */
+        private static final Validator QS_TILE_TITLE_VISIBILITY_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -4614,6 +4624,7 @@ public final class Settings {
             SCREENSHOT_SHUTTER_SOUND,
             QS_LAYOUT_COLUMNS_LANDSCAPE,
             QS_LAYOUT_COLUMNS,
+            QS_TILE_TITLE_VISIBILITY,
         };
 
         /**
@@ -4740,6 +4751,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(SCREENSHOT_SHUTTER_SOUND);
             PRIVATE_SETTINGS.add(QS_LAYOUT_COLUMNS_LANDSCAPE);
             PRIVATE_SETTINGS.add(QS_LAYOUT_COLUMNS);
+            PRIVATE_SETTINGS.add(QS_TILE_TITLE_VISIBILITY);
         }
 
         /**
@@ -4842,6 +4854,7 @@ public final class Settings {
             VALIDATORS.put(QS_LAYOUT_COLUMNS_LANDSCAPE,
                     QS_LAYOUT_COLUMNS_LANDSCAPE_VALIDATOR);
             VALIDATORS.put(QS_LAYOUT_COLUMNS, QS_LAYOUT_COLUMNS_VALIDATOR);
+            VALIDATORS.put(QS_TILE_TITLE_VISIBILITY, QS_TILE_TITLE_VISIBILITY_VALIDATOR);
         }
 
         /**
