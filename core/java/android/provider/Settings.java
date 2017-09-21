@@ -4996,15 +4996,21 @@ public final class Settings {
         public static final String NIGHT_BRIGHTNESS_VALUE = "night_brightness_value";
 
         /**
+         * @hide
+         */
+        public static final String QS_LAYOUT_COLUMNS = "qs_layout_columns";
+
+        /**
          * Number of qs columns on landscape orientation
          * @hide
          */
         public static final String QS_LAYOUT_COLUMNS_LANDSCAPE = "qs_layout_columns_landscape";
 
         /**
+         * Whether to display qs tile titles in the qs panel
          * @hide
          */
-        public static final String QS_LAYOUT_COLUMNS = "qs_layout_columns";
+        public static final String QS_TILE_TITLE_VISIBILITY = "qs_tile_title_visibility";
 
         /** End of Evolution X system settings**/
 
@@ -5245,6 +5251,9 @@ public final class Settings {
             PRIVATE_SETTINGS.add(THEME_AUTOMATIC_TIME_IS_NIGHT);
             PRIVATE_SETTINGS.add(THEME_DARK_STYLE);
             PRIVATE_SETTINGS.add(SCREENSHOT_DEFAULT_MODE);
+            PRIVATE_SETTINGS.add(QS_LAYOUT_COLUMNS);
+            PRIVATE_SETTINGS.add(QS_LAYOUT_COLUMNS_LANDSCAPE);
+            PRIVATE_SETTINGS.add(QS_TILE_TITLE_VISIBILITY);
         }
 
         /**
