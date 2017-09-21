@@ -206,6 +206,9 @@ import com.android.internal.policy.PhoneWindow;
 import com.android.internal.policy.TransitionAnimation;
 import com.android.internal.statusbar.IStatusBarService;
 import com.android.internal.util.ArrayUtils;
+import com.android.internal.util.ScreenshotHelper;
+import com.android.internal.util.hwkeys.ActionHandler;
+import com.android.internal.util.hwkeys.ActionUtils;
 import com.android.server.ExtconStateObserver;
 import com.android.server.ExtconUEventObserver;
 import com.android.server.GestureLauncherService;
@@ -545,6 +548,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     boolean mWakeOnBackKeyPress;
     long mWakeUpToLastStateTimeout;
 
+    private HardkeyActionHandler mKeyHandler;
+
     private boolean mHandleVolumeKeysInWM;
 
     private boolean mPendingKeyguardOccluded;
@@ -762,6 +767,17 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     break;
                 case MSG_SCREENSHOT_CHORD:
                     handleScreenShot(msg.arg1, msg.arg2);
+                    break;
+                case HardkeyActionHandler.MSG_FIRE_HOME:
+                    launchHomeFromHotKey(DEFAULT_DISPLAY);
+                    break;
+//                case HardkeyActionHandler.MSG_UPDATE_MENU_KEY:
+//                    synchronized (mLock) {
+//                        mHasPermanentMenuKey = msg.arg1 == 1;
+//                    }
+//                    break;
+                case HardkeyActionHandler.MSG_DO_HAPTIC_FB:
+                    performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, false, "Hardkey Long-Press");
                     break;
             }
         }
@@ -2051,6 +2067,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
         mHandler = new PolicyHandler();
         mWakeGestureListener = new MyWakeGestureListener(mContext, mHandler);
+        // only for hwkey devices
+        if (!mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_showNavigationBar)) {
+            mKeyHandler = new HardkeyActionHandler(mContext, mHandler);
+        }
         mSettingsObserver = new SettingsObserver(mHandler);
         mModifierShortcutManager = new ModifierShortcutManager(context);
         mUiMode = context.getResources().getInteger(
@@ -2931,6 +2952,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         final int displayId = event.getDisplayId();
         final long key_consumed = -1;
         final long key_not_consumed = 0;
+        final boolean longPress = (flags & KeyEvent.FLAG_LONG_PRESS) != 0;
+        final boolean virtualKey = event.getDeviceId() == KeyCharacterMap.VIRTUAL_KEYBOARD;
 
         if (DEBUG_INPUT) {
             Log.d(TAG, "interceptKeyTi keyCode=" + keyCode + " down=" + down + " repeatCount="
@@ -2941,6 +2964,21 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             return key_consumed;
         }
 
+        // we only handle events from hardware key devices that originate from real button
+        // pushes. We ignore virtual key events as well since it didn't come from a hard key or
+        // it's the key handler synthesizing a back or menu key event for dispatch
+        // if keyguard is showing and secure, don't intercept and let aosp keycode
+        // implementation handle event
+        if (mKeyHandler != null && !keyguardOn && !virtualKey) {
+            boolean handled = mKeyHandler.handleKeyEvent(focusedToken, keyCode, repeatCount, down, canceled,
+                    longPress, keyguardOn);
+            if (handled)
+                return key_consumed;
+        }
+
+        // If we think we might have a combination key chord on the way
+        // but we're not sure, then tell the dispatcher to wait a little while and
+        // try again later before dispatching.
         if ((flags & KeyEvent.FLAG_FALLBACK) == 0) {
             final long now = SystemClock.uptimeMillis();
             final long interceptTimeout = mKeyCombinationManager.getKeyInterceptTimeout(keyCode);
@@ -5907,6 +5945,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     @Override
     public boolean hasNavigationBar() {
         return mDefaultDisplayPolicy.hasNavigationBar();
+    }
+
+    @Override
+    public void sendCustomAction(Intent intent) {
+        String action = intent.getAction();
     }
 
     @Override
