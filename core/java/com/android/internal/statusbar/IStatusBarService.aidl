@@ -233,6 +233,10 @@ interface IStatusBarService
 
     /** Evolution X additions. */
     void toggleCameraFlash();
+    void toggleRecentApps();
+    void toggleSplitScreen();
+    void preloadRecentApps();
+    void cancelPreloadRecentApps();
 
     /** Starts the default assistant app. */
     void startAssist(in Bundle args);
