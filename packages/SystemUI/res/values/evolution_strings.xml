@@ -267,4 +267,7 @@
     <!-- AOD media indication -->
     <string name="music_controls_no_title">No title</string>
 
+    <string name="lockscreen_default">Default</string>
+    <string name="lockscreen_hidden">None</string>
+
 </resources>
