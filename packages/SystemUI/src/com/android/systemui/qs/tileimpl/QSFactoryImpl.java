@@ -44,6 +44,7 @@ import com.android.systemui.qs.tiles.CastTile;
 import com.android.systemui.qs.tiles.CellularTile;
 import com.android.systemui.qs.tiles.ColorCorrectionTile;
 import com.android.systemui.qs.tiles.ColorInversionTile;
+import com.android.systemui.qs.tiles.CompassTile;
 import com.android.systemui.qs.tiles.DataSaverTile;
 import com.android.systemui.qs.tiles.DataSwitchTile;
 import com.android.systemui.qs.tiles.DeviceControlsTile;
@@ -153,6 +154,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<VPNTetheringTile> mVPNTetheringTileProvider;
     private final Provider<PreferredNetworkTile> mPreferredNetworkTileProvider;
     private final Provider<GloveModeTile> mGloveModeTileProvider;
+    private final Provider<CompassTile> mCompassTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
     private final Provider<CustomTile.Builder> mCustomTileBuilderProvider;
@@ -214,7 +216,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<ScreenshotTile> screenshotTileProvider,
             Provider<VPNTetheringTile> vpnTetheringTileProvider,
             Provider<PreferredNetworkTile> preferredNetworkTileProvider,
-            Provider<GloveModeTile> gloveModeTileProvider) {
+            Provider<GloveModeTile> gloveModeTileProvider,
+            Provider<CompassTile> compassTileProvider) {
         mQsHostLazy = qsHostLazy;
         mCustomTileBuilderProvider = customTileBuilderProvider;
 
@@ -272,6 +275,7 @@ public class QSFactoryImpl implements QSFactory {
         mVPNTetheringTileProvider = vpnTetheringTileProvider;
         mPreferredNetworkTileProvider = preferredNetworkTileProvider;
         mGloveModeTileProvider = gloveModeTileProvider;
+        mCompassTileProvider = compassTileProvider;
     }
 
     /** Creates a tile with a type based on {@code tileSpec} */
@@ -396,6 +400,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mPreferredNetworkTileProvider.get();
             case "glovemode":
                 return mGloveModeTileProvider.get();
+            case "compass":
+                return mCompassTileProvider.get();
         }
         // Custom tiles
         if (tileSpec.startsWith(CustomTile.PREFIX)) {
