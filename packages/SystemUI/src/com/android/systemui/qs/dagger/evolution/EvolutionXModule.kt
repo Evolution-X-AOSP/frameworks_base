@@ -21,6 +21,7 @@ import com.android.systemui.qs.tiles.AODTile
 import com.android.systemui.qs.tiles.AmbientDisplayTile
 import com.android.systemui.qs.tiles.CaffeineTile
 import com.android.systemui.qs.tiles.CellularTile
+import com.android.systemui.qs.tiles.CompassTile
 import com.android.systemui.qs.tiles.HeadsUpTile
 import com.android.systemui.qs.tiles.PowerShareTile
 import com.android.systemui.qs.tiles.ReadingModeTile
@@ -49,6 +50,12 @@ interface EvolutionXModule {
     @IntoMap
     @StringKey(SmartPixelsTile.TILE_SPEC)
     fun bindSmartPixelsTile(smartPixelsTile: SmartPixelsTile): QSTileImpl<*>
+
+    /** Inject CompassTile into tileMap in QSModule */
+    @Binds
+    @IntoMap
+    @StringKey(CompassTile.TILE_SPEC)
+    fun bindCompassTile(compassTile: CompassTile): QSTileImpl<*>
 
     /** Inject SoundTile into tileMap in QSModule */
     @Binds
