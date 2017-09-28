@@ -5347,6 +5347,20 @@ public final class Settings {
         private static final Validator NETWORK_TRAFFIC_HIDEARROW_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
+        /**
+         * Applications list where heasdup should't show
+         *
+         * @hide
+         */
+        public static final String HEADS_UP_STOPLIST_VALUES = "heads_up_stoplist_values";
+
+        /**
+         * Which applications to disable heads up notifications for
+         *
+         * @hide
+         */
+        public static final String HEADS_UP_BLACKLIST_VALUES = "heads_up_blacklist_values";
+
         /** End of Evolution X system settings**/
 
         /**
