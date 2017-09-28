@@ -18,7 +18,9 @@ package com.android.systemui.statusbar.notification.interruption;
 
 import static com.android.systemui.statusbar.StatusBarState.SHADE;
 
+import android.app.ActivityManager;
 import android.app.NotificationManager;
+import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.ContentObserver;
@@ -32,6 +34,7 @@ import android.provider.Telephony.Sms;
 import android.service.dreams.IDreamManager;
 import android.service.notification.StatusBarNotification;
 import android.telecom.TelecomManager;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.android.internal.annotations.VisibleForTesting;
@@ -73,6 +76,10 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
     private final NotifPipelineFlags mFlags;
     private final KeyguardNotificationVisibilityProvider mKeyguardNotificationVisibilityProvider;
 
+    ActivityManager mAm;
+    private ArrayList<String> mStoplist = new ArrayList<String>();
+    private ArrayList<String> mBlacklist = new ArrayList<String>();
+
     @VisibleForTesting
     protected boolean mUseHeadsUp = false;
 
@@ -109,6 +116,9 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
         mLogger = logger;
         mFlags = flags;
         mKeyguardNotificationVisibilityProvider = keyguardNotificationVisibilityProvider;
+        mAm = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
+        setHeadsUpStoplist();
+        setHeadsUpBlacklist();
         mHeadsUpObserver = new ContentObserver(mainHandler) {
             @Override
             public void onChange(boolean selfChange) {
@@ -196,6 +206,20 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
     private boolean shouldHeadsUpWhenAwake(NotificationEntry entry) {
         StatusBarNotification sbn = entry.getSbn();
 
+        // get the info from the currently running task
+        List<ActivityManager.RunningTaskInfo> taskInfo = mAm.getRunningTasks(1);
+        if(taskInfo != null && !taskInfo.isEmpty()) {
+            ComponentName componentInfo = taskInfo.get(0).topActivity;
+            if(isPackageInStoplist(componentInfo.getPackageName())
+                && !isDialerApp(sbn.getPackageName())) {
+                return false;
+            }
+        }
+
+         if(isPackageBlacklisted(sbn.getPackageName())) {
+            return false;
+        }
+
         if (!mUseHeadsUp) {
             mLogger.logNoHeadsUpFeatureDisabled();
             return false;
@@ -258,6 +282,45 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
         return true;
     }
 
+    private boolean isPackageInStoplist(String packageName) {
+        return mStoplist.contains(packageName);
+    }
+
+    private boolean isPackageBlacklisted(String packageName) {
+        return mBlacklist.contains(packageName);
+    }
+
+    private boolean isDialerApp(String packageName) {
+        return packageName.equals("com.android.dialer")
+            || packageName.equals("com.google.android.dialer");
+    }
+
+    private void splitAndAddToArrayList(ArrayList<String> arrayList,
+            String baseString, String separator) {
+        // clear first
+        arrayList.clear();
+        if (baseString != null) {
+            final String[] array = TextUtils.split(baseString, separator);
+            for (String item : array) {
+                arrayList.add(item.trim());
+            }
+        }
+    }
+
+    @Override
+    public void setHeadsUpStoplist() {
+        final String stopString = Settings.System.getString(mContext.getContentResolver(),
+                    Settings.System.HEADS_UP_STOPLIST_VALUES);
+        splitAndAddToArrayList(mStoplist, stopString, "\\|");
+    }
+
+    @Override
+    public void setHeadsUpBlacklist() {
+        final String blackString = Settings.System.getString(mContext.getContentResolver(),
+                    Settings.System.HEADS_UP_BLACKLIST_VALUES);
+        splitAndAddToArrayList(mBlacklist, blackString, "\\|");
+    }
+
     /**
      * Whether or not the notification should "pulse" on the user's display when the phone is
      * dozing.  This displays the ambient view of the notification.
@@ -317,7 +380,7 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
     }
 
     private static String getDefaultSmsPackage(Context ctx) {
-        // for reference, there's also a new RoleManager api with getDefaultSmsPackage(context, userid) 
+        // for reference, there's also a new RoleManager api with getDefaultSmsPackage(context, userid)
         return Sms.getDefaultSmsPackage(ctx);
     }
 
