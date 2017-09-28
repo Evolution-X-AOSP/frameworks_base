@@ -47,6 +47,7 @@ import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.KillappTile;
 import com.android.systemui.qs.tiles.LiveDisplayTile;
+import com.android.systemui.qs.tiles.LocaleTile;
 import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.MonoToggleTile;
 import com.android.systemui.qs.tiles.MusicTile;
@@ -109,6 +110,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
     private final Provider<KillappTile> mKillappTileProvider;
     private final Provider<LiveDisplayTile> mLiveDisplayTileProvider;
+    private final Provider<LocaleTile> mLocaleTileProvider;
     private final Provider<MonoToggleTile> mMonoToggleTileProvider;
     private final Provider<MusicTile> mMusicTileProvider;
     private final Provider<RebootTile> mRebootTileProvider;
@@ -154,6 +156,7 @@ public class QSFactoryImpl implements QSFactory {
             Provider<HeadsUpTile> headsUpTileProvider,
             Provider<KillappTile> killappTileProvider,
             Provider<LiveDisplayTile> liveDisplayTileProvider,
+            Provider<LocaleTile> localeTileProvider,
             Provider<MonoToggleTile> monoToggleTileProvider,
             Provider<MusicTile> musicTileProvider,
             Provider<RebootTile> rebootTileProvider,
@@ -195,6 +198,7 @@ public class QSFactoryImpl implements QSFactory {
         mHeadsUpTileProvider = headsUpTileProvider;
         mKillappTileProvider = killappTileProvider;
         mLiveDisplayTileProvider = liveDisplayTileProvider;
+        mLocaleTileProvider = localeTileProvider;
         mMonoToggleTileProvider = monoToggleTileProvider;
         mMusicTileProvider = musicTileProvider;
         mRebootTileProvider = rebootTileProvider;
@@ -277,6 +281,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mKillappTileProvider.get();
             case "livedisplay":
                 return mLiveDisplayTileProvider.get();
+            case "locale":
+                return mLocaleTileProvider.get();
             case "mono":
                 return mMonoToggleTileProvider.get();
             case "music":
