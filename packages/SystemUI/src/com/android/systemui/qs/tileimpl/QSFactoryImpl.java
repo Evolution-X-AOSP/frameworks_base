@@ -47,6 +47,7 @@ import com.android.systemui.qs.tiles.HWKeysTile;
 import com.android.systemui.qs.tiles.ImmersiveTile;
 import com.android.systemui.qs.tiles.IntentTile;
 import com.android.systemui.qs.tiles.LiveDisplayTile;
+import com.android.systemui.qs.tiles.LocaleTile;
 import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.LteTile;
 import com.android.systemui.qs.tiles.MusicTile;
@@ -120,6 +121,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<GamingModeTile> mGamingModeTileProvider;
     private final Provider<DataSwitchTile> mDataSwitchTileProvider;
     private final Provider<ImmersiveTile> mImmersiveTileProvider;
+    private final Provider<LocaleTile> mLocaleTileProvider;
 
     private QSTileHost mHost;
 
@@ -164,7 +166,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<HWKeysTile> hWKeysTileProvider,
             Provider<GamingModeTile> gamingModeTileProvider,
             Provider<DataSwitchTile> dataSwitchTileProvider,
-            Provider<ImmersiveTile> immersiveTileProvider) {
+            Provider<ImmersiveTile> immersiveTileProvider,
+            Provider<LocaleTile> localeTileProvider) {
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
         mCellularTileProvider = cellularTileProvider;
@@ -207,6 +210,7 @@ public class QSFactoryImpl implements QSFactory {
         mGamingModeTileProvider = gamingModeTileProvider;
         mDataSwitchTileProvider = dataSwitchTileProvider;
         mImmersiveTileProvider = immersiveTileProvider;
+        mLocaleTileProvider = localeTileProvider;
     }
 
     public void setHost(QSTileHost host) {
@@ -305,6 +309,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mDataSwitchTileProvider.get();
             case "immersive":
                 return mImmersiveTileProvider.get();
+            case "locale":
+                return mLocaleTileProvider.get();
         }
 
         // Intent tiles.
