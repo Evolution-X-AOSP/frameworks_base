@@ -7430,7 +7430,8 @@ message MetricsEvent {
     // END OF AOSP CONSTANTS
 
     // Evolution X
-    EVO = 1999;
+    EVO = 1998;
+    EVOLVER = 1999;
     EVO_SETTINGS = 2000;
     EVO_QS_TILES = 2001;
 
