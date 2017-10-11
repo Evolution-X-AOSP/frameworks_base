@@ -13,4 +13,9 @@
 
     <!-- Whether Pixel props is enabled -->
     <java-symbol type="bool" name="config_enablePixelProps" />
+
+    <!-- Device keyhandlers -->
+    <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
+    <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
+
 </resources>
