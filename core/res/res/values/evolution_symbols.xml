@@ -16,4 +16,9 @@
 
     <!-- Whether device has Google Tensor SoC -->
     <java-symbol type="bool" name="config_hasTensorSoC" />
+
+    <!-- Device keyhandlers -->
+    <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
+    <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
+
 </resources>
