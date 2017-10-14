@@ -86,6 +86,7 @@ import android.view.Display;
 import android.view.HapticFeedbackConstants;
 import android.view.IRemoteAnimationRunner;
 import android.view.IWindowManager;
+import android.view.MotionEvent;
 import android.view.ThreadedRenderer;
 import android.view.View;
 import android.view.ViewConfiguration;
