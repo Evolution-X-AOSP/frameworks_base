@@ -11565,6 +11565,14 @@ public final class Settings {
 
         private static final Validator AWARE_LOCK_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
 
+        /**
+         * Controls whether tap gesture is enabled.
+         * @hide
+         */
+        public static final String TAP_GESTURE = "tap_gesture";
+
+        private static final Validator TAP_GESTURE_VALIDATOR = BOOLEAN_VALIDATOR;
+
         /************************************
          * Evolution X Secure Settings start
          ************************************/
@@ -11699,6 +11707,12 @@ public final class Settings {
         public static final String ADB_NOTIFY = "adb_notify";
 
         /**
+         * Which port to use for ADB Over Network
+         * @hide
+         */
+        public static final String ADB_PORT = "adb_port";
+
+        /**
          * @hide
          */
         public static final String DEVICE_HOSTNAME = "device_hostname";
@@ -11724,14 +11738,6 @@ public final class Settings {
         /************************************
          * Evolution X Secure Settings end
          ************************************/
-
-        /**
-         * Controls whether tap gesture is enabled.
-         * @hide
-         */
-        public static final String TAP_GESTURE = "tap_gesture";
-
-        private static final Validator TAP_GESTURE_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
          * This are the settings to be backed up.
