@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Copyright (C) 2014 The Android Open Source Project
-    Copyright (C) 2019 The Evolution X Project
+    Copyright (C) 2019-2020 The Evolution X Project
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -15,6 +14,7 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
+
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Compass directions for the compass tile -->
     <string-array name="cardinal_directions">
@@ -27,5 +27,4 @@
         <item>@string/quick_settings_compass_W</item>  <!-- West -->
         <item>@string/quick_settings_compass_NW</item> <!-- North west -->
     </string-array>
-
 </resources>

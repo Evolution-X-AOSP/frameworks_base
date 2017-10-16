@@ -6238,6 +6238,40 @@ public final class Settings {
         private static final Validator DATA_DISABLED_ICON_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * Whether to show the notification ticker on the status bar
+         * @hide
+         */
+        public static final String STATUS_BAR_SHOW_TICKER = "status_bar_show_ticker";
+
+        /** @hide */
+        private static final Validator STATUS_BAR_SHOW_TICKER_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
+         * Ticker animation
+         * 0: Fade animation
+         * 1: Scrolling ticker
+         * @hide
+         */
+        public static final String STATUS_BAR_TICKER_ANIMATION_MODE =
+                "status_bar_ticker_animation_mode";
+
+        /** @hide */
+        private static final Validator STATUS_BAR_TICKER_ANIMATION_MODE_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /**
+         * Status bar ticker duration in milliseconds.
+         *
+         * @hide
+         */
+        public static final String STATUS_BAR_TICKER_TICK_DURATION =
+                "status_bar_ticker_tick_duration";
+
+        /** @hide */
+        private static final Validator STATUS_BAR_TICKER_TICK_DURATION_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6394,6 +6428,9 @@ public final class Settings {
             VOLTE_ICON,
             VOLTE_ICON_STYLE,
             DATA_DISABLED_ICON,
+            STATUS_BAR_SHOW_TICKER,
+            STATUS_BAR_TICKER_ANIMATION_MODE,
+            STATUS_BAR_TICKER_TICK_DURATION,
         };
 
         /**
@@ -6623,6 +6660,9 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_FW);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_ACCENT);
             PRIVATE_SETTINGS.add(DATA_DISABLED_ICON);
+            PRIVATE_SETTINGS.add(STATUS_BAR_SHOW_TICKER);
+            PRIVATE_SETTINGS.add(STATUS_BAR_TICKER_ANIMATION_MODE);
+            PRIVATE_SETTINGS.add(STATUS_BAR_TICKER_TICK_DURATION);
         }
 
         /**
@@ -6835,6 +6875,11 @@ public final class Settings {
             VALIDATORS.put(QS_PANEL_BG_USE_FW, QS_PANEL_BG_USE_FW_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_USE_ACCENT, QS_PANEL_BG_USE_ACCENT_VALIDATOR);
             VALIDATORS.put(DATA_DISABLED_ICON, DATA_DISABLED_ICON_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_SHOW_TICKER, STATUS_BAR_SHOW_TICKER_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_TICKER_ANIMATION_MODE,
+                    STATUS_BAR_TICKER_ANIMATION_MODE_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_TICKER_TICK_DURATION,
+                    STATUS_BAR_TICKER_TICK_DURATION_VALIDATOR);
         }
 
         /**

@@ -28,7 +28,7 @@ import android.view.ViewGroup;
  *
  * A TextSwitcher is useful to animate a label on screen. Whenever
  * {@link #setText(CharSequence)} is called, TextSwitcher animates the current text
- * out and animates the new text in. 
+ * out and animates the new text in.
  */
 public class TextSwitcher extends ViewSwitcher {
     /**
@@ -92,5 +92,15 @@ public class TextSwitcher extends ViewSwitcher {
     @Override
     public CharSequence getAccessibilityClassName() {
         return TextSwitcher.class.getName();
+    }
+
+    /**
+     * Sets the color of the text view that is currently showing.
+     *
+     * @param color the text color to display
+     * @hide
+     */
+    public void setTextColor(int color) {
+        ((TextView)getCurrentView()).setTextColor(color);
     }
 }
