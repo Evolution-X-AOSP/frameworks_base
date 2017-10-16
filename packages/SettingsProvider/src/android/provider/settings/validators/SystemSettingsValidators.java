@@ -217,5 +217,6 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.NAVIGATION_BAR_INVERSE, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.USE_OLD_MOBILETYPE, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.VOLUME_KEY_CURSOR_CONTROL, new InclusiveIntegerRangeValidator(0, 2));
+        VALIDATORS.put(System.STATUS_BAR_BRIGHTNESS_CONTROL, BOOLEAN_VALIDATOR);
     }
 }
