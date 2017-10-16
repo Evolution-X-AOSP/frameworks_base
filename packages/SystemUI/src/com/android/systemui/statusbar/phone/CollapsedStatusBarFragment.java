@@ -32,6 +32,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
+import android.widget.ImageSwitcher;
 import android.widget.LinearLayout;
 
 import com.android.systemui.Dependency;
@@ -43,6 +44,7 @@ import com.android.systemui.statusbar.StatusBarState;
 import com.android.systemui.BatteryMeterView;
 import com.android.systemui.statusbar.phone.StatusBarIconController.DarkIconManager;
 import com.android.systemui.statusbar.phone.StatusIconContainer;
+import com.android.systemui.statusbar.phone.TickerView;
 import com.android.systemui.statusbar.policy.Clock;
 import com.android.systemui.statusbar.policy.EncryptionHelper;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
@@ -109,6 +111,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private SettingsObserver mSettingsObserver = new SettingsObserver(mHandler);
     private ContentResolver mContentResolver;
 
+    private View mTickerViewFromStub;
+
     private SignalCallback mSignalCallback = new SignalCallback() {
         @Override
         public void setIsAirplaneMode(NetworkController.IconState icon) {
@@ -172,6 +176,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         initEmergencyCryptkeeperText();
         animateHide(mClockView, false, false);
         initOperatorName();
+        initTickerView();
         mSettingsObserver.observe();
         updateSettings(false);
     }
@@ -454,6 +459,17 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     @Override
     public void onDozingChanged(boolean isDozing) {
         disable(getContext().getDisplayId(), mDisabled1, mDisabled1, false /* animate */);
+    }
+
+    private void initTickerView() {
+        View tickerStub = mStatusBar.findViewById(R.id.ticker_stub);
+        if (mTickerViewFromStub == null && tickerStub != null) {
+            mTickerViewFromStub = ((ViewStub) tickerStub).inflate();
+        }
+        TickerView tickerView = (TickerView) mStatusBar.findViewById(R.id.tickerText);
+        ImageSwitcher tickerIcon = (ImageSwitcher) mStatusBar.findViewById(R.id.tickerIcon);
+        mStatusBarComponent.createTicker(
+                getContext(), mStatusBar, tickerView, tickerIcon, mTickerViewFromStub);
     }
 
     public void updateSettings(boolean animate) {
