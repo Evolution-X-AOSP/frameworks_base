@@ -97,5 +97,6 @@ public class SystemSettings {
         Settings.System.NAVIGATION_BAR_INVERSE,
         Settings.System.USE_OLD_MOBILETYPE,
         Settings.System.VOLUME_KEY_CURSOR_CONTROL,
+        Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL,
     };
 }
