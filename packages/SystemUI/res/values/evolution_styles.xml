@@ -59,4 +59,10 @@
         <item name="android:textColor">@*android:color/accent_device_default_light</item>
         <item name="android:textAllCaps">false</item>
     </style>
+
+    <!-- Status bar notification ticker -->
+    <style name="TextAppearance.StatusBar.PhoneTicker" parent="@*android:style/TextAppearance.StatusBar">
+        <!-- Note: must be dp to fit in status bar -->
+        <item name="android:textSize">14dp</item>
+    </style>
 </resources>

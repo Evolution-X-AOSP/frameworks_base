@@ -6777,6 +6777,39 @@ public final class Settings {
          */
         public static final String ADAPTIVE_PLAYBACK_TIMEOUT = "adaptive_playback_timeout";
 
+        /**
+         * Whether to show the notification ticker on the status bar
+         * @hide
+         */
+        public static final String STATUS_BAR_SHOW_TICKER = "status_bar_show_ticker";
+
+        /** @hide */
+        private static final Validator STATUS_BAR_SHOW_TICKER_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
+        /**
+         * Ticker animation
+         * 0: Fade animation
+         * 1: Scrolling ticker
+         * @hide
+         */
+        public static final String STATUS_BAR_TICKER_ANIMATION_MODE =
+                "status_bar_ticker_animation_mode";
+
+        /** @hide */
+        private static final Validator STATUS_BAR_TICKER_ANIMATION_MODE_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /**
+         * Status bar ticker duration in milliseconds.
+         * @hide
+         */
+        public static final String STATUS_BAR_TICKER_TICK_DURATION =
+                "status_bar_ticker_tick_duration";
+
+        /** @hide */
+        private static final Validator STATUS_BAR_TICKER_TICK_DURATION_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
@@ -6990,6 +7023,9 @@ public final class Settings {
             BACK_GESTURE_BLOCK_IME,
             ASPECT_RATIO_APPS_ENABLED,
             ASPECT_RATIO_APPS_LIST,
+            STATUS_BAR_SHOW_TICKER,
+            STATUS_BAR_TICKER_ANIMATION_MODE,
+            STATUS_BAR_TICKER_TICK_DURATION,
             // Evolution X Settings end
         };
 
@@ -7250,6 +7286,9 @@ public final class Settings {
             PRIVATE_SETTINGS.add(CAMERA_LAUNCH);
             PRIVATE_SETTINGS.add(POPUP_CAMERA_LED_ENABLED);
             PRIVATE_SETTINGS.add(POPUP_CAMERA_BATTERY_LED_BLOCKED);
+            PRIVATE_SETTINGS.add(STATUS_BAR_SHOW_TICKER);
+            PRIVATE_SETTINGS.add(STATUS_BAR_TICKER_ANIMATION_MODE);
+            PRIVATE_SETTINGS.add(STATUS_BAR_TICKER_TICK_DURATION);
             // Evolution X Settings end
         }
 
@@ -7527,6 +7566,11 @@ public final class Settings {
             VALIDATORS.put(CAMERA_LAUNCH, CAMERA_LAUNCH_VALIDATOR);
             VALIDATORS.put(POPUP_CAMERA_LED_ENABLED, POPUP_CAMERA_LED_ENABLED_VALIDATOR);
             VALIDATORS.put(POPUP_CAMERA_BATTERY_LED_BLOCKED, POPUP_CAMERA_BATTERY_LED_BLOCKED_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_SHOW_TICKER, STATUS_BAR_SHOW_TICKER_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_TICKER_ANIMATION_MODE,
+                    STATUS_BAR_TICKER_ANIMATION_MODE_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_TICKER_TICK_DURATION,
+                    STATUS_BAR_TICKER_TICK_DURATION_VALIDATOR);
             // Evolution X Settings end
         }
 
