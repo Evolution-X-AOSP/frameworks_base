@@ -23,6 +23,7 @@ import android.app.Fragment;
 import android.app.StatusBarManager;
 import android.content.ContentResolver;
 import android.database.ContentObserver;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
@@ -49,6 +50,11 @@ import com.android.systemui.statusbar.policy.KeyguardMonitor;
 import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.NetworkController.SignalCallback;
 import com.android.systemui.tuner.TunerService;
+
+import android.widget.ImageView;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 
 /**
  * Contains the collapsed status bar and handles hiding/showing based on disable flags
@@ -88,6 +94,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     // Evolution X Logo
     private ImageView mEvolutionLogo;
     private boolean mShowLogo;
+    private int mLogoStyle;
 
     private class SettingsObserver extends ContentObserver {
        SettingsObserver(Handler handler) {
@@ -104,12 +111,20 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             mContentResolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_LOGO),
                     false, this, UserHandle.USER_ALL);
+
+         mContentResolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_LOGO_STYLE),
+                    false, this, UserHandle.USER_ALL);
        }
 
-       @Override
-       public void onChange(boolean selfChange) {
-           updateSettings(true);
-       }
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            if ((uri.equals(Settings.System.getUriFor(Settings.System.STATUS_BAR_LOGO))) ||
+                (uri.equals(Settings.System.getUriFor(Settings.System.STATUS_BAR_LOGO_STYLE)))){
+                 updateStatusBarLogo(true);
+        }
+            updateSettings(true);
+        }
     }
     private SettingsObserver mSettingsObserver = new SettingsObserver(mHandler);
 
@@ -416,15 +431,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mShowLogo = Settings.System.getIntForUser(
                 mContentResolver, Settings.System.STATUS_BAR_LOGO, 0,
                 UserHandle.USER_CURRENT) == 1;
-        if (mNotificationIconAreaInner != null) {
-            if (mShowLogo) {
-                if (mNotificationIconAreaInner.getVisibility() == View.VISIBLE) {
-                    animateShow(mEvolutionLogo, animate);
-                }
-            } else {
-                animateHide(mEvolutionLogo, animate, false);
-            }
-      }
+        updateStatusBarLogo(animate);
         updateClockStyle(animate);
         mHasCarrierLabel = (mShowCarrierLabel == 2 || mShowCarrierLabel == 3);
         setCarrierLabel(animate);
@@ -443,6 +450,205 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             animateShow(mCustomCarrierLabel, animate);
         } else {
             animateHide(mCustomCarrierLabel, animate, false);
+        }
+    }
+
+    private void updateStatusBarLogo(boolean animate) {
+        Drawable logo = null;
+        if (mStatusBar == null) return;
+        if (getContext() == null) {
+            return;
+        }
+
+        mShowLogo = Settings.System.getIntForUser(
+                getContext().getContentResolver(), Settings.System.STATUS_BAR_LOGO, 0,
+                UserHandle.USER_CURRENT) == 1;
+        mLogoStyle = Settings.System.getIntForUser(
+                getContext().getContentResolver(), Settings.System.STATUS_BAR_LOGO_STYLE, 0,
+                UserHandle.USER_CURRENT);
+
+        switch(mLogoStyle) {
+                // Default HOME logo, first time
+            case 0:
+                logo = getContext().getResources().getDrawable(R.drawable.ic_status_bar_evolution_logo);
+                break;
+                // Khloe
+            case 1:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_khloe);
+                break;
+                // Kronic
+            case 2:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_kronic);
+                break;
+                // Kronic 3.0
+            case 3:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_kronic3);
+                break;
+                // OwlsNest
+            case 4:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_nest);
+                break;
+                // MDI Android Head
+            case 5:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_android_head);
+                break;
+                // MDI brain
+            case 6:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_brain);
+                break;
+                // MDI Alien
+            case 7:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_alien);
+                break;
+                // MDI Clippy
+            case 8:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_clippy);
+                break;
+                // MDI Diamond stone
+            case 9:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_diamond_stone);
+                break;
+                // MDI Drama Masks
+            case 10:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_drama_masks);
+                break;
+                // MDI emoji cool glasses
+            case 11:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_emoticon_cool_outline);
+                break;
+                // MDI Fingerprint
+            case 12:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_fingerprint);
+                break;
+                // MDI Football Helmet
+            case 13:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_football_helmet);
+                break;
+                // MDI Gamepad
+            case 14:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_gamepad);
+                break;
+                // MDI Ghost
+            case 15:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_ghost);
+                break;
+                // MDI Github
+            case 16:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_github_face);
+                break;
+                // MDI Glass Cocktail
+            case 17:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_glass_cocktail);
+                break;
+                // MDI Glass Wine
+            case 18:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_glass_wine);
+                break;
+                // MDI Glitter (creative)
+            case 19:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_glitter);
+                break;
+                // MDI GController
+            case 20:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_google_controller);
+                break;
+                // MDI GraphQL
+            case 21:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_graphql);
+                break;
+                // MDI Guitar
+            case 22:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_guitar_electric);
+                break;
+                // MDI Guitar Pick
+            case 23:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_guitar_pick);
+                break;
+                // MDI Hand Okay
+            case 24:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_hand_okay);
+                break;
+                // MDI Heart
+            case 25:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_heart);
+                break;
+                // Linux
+            case 26:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_linux);
+                break;
+                // MDI Mushroom
+            case 27:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_mushroom);
+                break;
+                // nice logo >:]
+            case 28:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_nice_logo);
+                break;
+                // MDI Ornament
+            case 29:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_ornament);
+                break;
+                // MDI owl
+            case 30:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_owl);
+                break;
+                // MDI Pac-man
+            case 31:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_pac_man);
+                break;
+                // MDI Pine Tree
+            case 32:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_pine_tree);
+                break;
+                // MDI Space invaders
+            case 33:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_space_invaders);
+                break;
+                // MDI Sunglasses
+            case 34:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_sunglasses);
+                break;
+                // MDI timer sand
+            case 35:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_timer_sand);
+                break;
+                // Themeable Statusbar icon 01
+            case 36:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_themeicon01);
+                break;
+                // Themeable Statusbar icon 02
+            case 37:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_themeicon02);
+                break;
+                // Themeable Statusbar icon 03
+            case 38:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_themeicon03);
+                break;
+                // Default Evolution X HOME logo, once again
+            default:
+                logo = getContext().getResources().getDrawable(R.drawable.ic_status_bar_evolution_logo);
+                break;
+        }
+
+        if (mEvolutionLogo != null) {
+            if (logo == null) {
+                // Something wrong. Do not show anything
+                mEvolutionLogo.setImageDrawable(logo);
+                mShowLogo = false;
+                return;
+            }
+
+            mEvolutionLogo.setImageDrawable(logo);
+        }
+
+        if (mNotificationIconAreaInner != null) {
+            if (mShowLogo) {
+                if (mNotificationIconAreaInner.getVisibility() == View.VISIBLE) {
+                    animateShow(mEvolutionLogo, animate);
+                }
+            } else {
+                animateHide(mEvolutionLogo, animate, false);
+            }
         }
     }
 }
