@@ -111,8 +111,6 @@ import com.android.server.power.batterysaver.BatterySaverPolicy;
 import com.android.server.power.batterysaver.BatterySaverStateMachine;
 import com.android.server.power.batterysaver.BatterySavingStats;
 
-import com.android.internal.util.custom.NavbarUtils;
-
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -912,7 +910,7 @@ public final class PowerManagerService extends SystemService
     private static native int nativeGetFeature(int featureId);
     private static native boolean nativeForceSuspend();
 
-    private boolean mNavbarEnabled;
+    private boolean mHardwareKeysEnable = true;
 
     public PowerManagerService(Context context) {
         this(context, new Injector());
@@ -1261,7 +1259,7 @@ public final class PowerManagerService extends SystemService
                 Settings.System.BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED),
                 false, mSettingsObserver, UserHandle.USER_ALL);
         resolver.registerContentObserver(Settings.System.getUriFor(
-                Settings.System.NAVIGATION_BAR_SHOW),
+                Settings.System.HARDWARE_KEYS_ENABLE),
                 false, mSettingsObserver, UserHandle.USER_ALL);
 
         IVrManager vrManager = IVrManager.Stub.asInterface(getBinderService(Context.VR_SERVICE));
@@ -1466,7 +1464,9 @@ public final class PowerManagerService extends SystemService
                 Settings.Secure.KEYBOARD_BRIGHTNESS, mKeyboardBrightnessSettingDefault,
                 UserHandle.USER_CURRENT);
 
-        mNavbarEnabled = NavbarUtils.isEnabled(mContext);
+        mHardwareKeysEnable = Settings.System.getIntForUser(resolver,
+                Settings.System.HARDWARE_KEYS_ENABLE, 1,
+                UserHandle.USER_CURRENT) == 1;
 
         mDirty |= DIRTY_SETTINGS;
     }
@@ -2559,7 +2559,7 @@ public final class PowerManagerService extends SystemService
                         if (getWakefulnessLocked() == WAKEFULNESS_AWAKE) {
                             if (mButtonsLight != null) {
                                 float buttonBrightness = PowerManager.BRIGHTNESS_OFF_FLOAT;
-                                if (!mNavbarEnabled) {
+                                if (mHardwareKeysEnable) {
                                     if (isValidBrightness(
                                             mButtonBrightnessOverrideFromWindowManager)) {
                                         if (mButtonBrightnessOverrideFromWindowManager >

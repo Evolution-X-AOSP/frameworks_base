@@ -562,6 +562,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     int mMetaState;
     int mInitialMetaState;
 
+    boolean mHardwareKeysEnable = false;
+
     // Tracks user-customisable behavior for certain key events
     private Action mHomeLongPressAction;
     private Action mHomeDoubleTapAction;
@@ -971,6 +973,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                         Settings.Secure.SWAP_CAPACITIVE_KEYS), false, this,
                         UserHandle.USER_ALL);
             }
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.HARDWARE_KEYS_ENABLE), false, this,
+                    UserHandle.USER_ALL);
             updateSettings();
         }
 
@@ -2161,7 +2166,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         mCameraManager.registerTorchCallback(new TorchModeCallback(), mHandler);
         mWakeGestureListener = new MyWakeGestureListener(mContext, mHandler);
         mSettingsObserver = new SettingsObserver(mHandler);
-
         mShortcutManager = new ShortcutManager(context);
         mUiMode = context.getResources().getInteger(
                 com.android.internal.R.integer.config_defaultUiModeType);
@@ -2577,6 +2581,13 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             if (mWakeGestureEnabledSetting != wakeGestureEnabledSetting) {
                 mWakeGestureEnabledSetting = wakeGestureEnabledSetting;
                 updateWakeGestureListenerLp();
+            }
+
+            if (mLineageHardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE)) {
+                mHardwareKeysEnable = Settings.System.getIntForUser(resolver,
+                        Settings.System.HARDWARE_KEYS_ENABLE, 1,
+                        UserHandle.USER_CURRENT) == 1;
+                mLineageHardware.set(LineageHardwareManager.FEATURE_KEY_DISABLE, !mHardwareKeysEnable);
             }
 
             updateKeyAssignments();
@@ -5761,6 +5772,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         if (mVrManagerInternal != null) {
             mVrManagerInternal.addPersistentVrModeStateListener(mPersistentVrModeListener);
         }
+
+        mLineageHardware = LineageHardwareManager.getInstance(mContext);
+        // Ensure observe happens in systemReady() since we need
+        // LineageHardwareService to be up and running
+        mSettingsObserver.observe();
 
         if (mHasAlertSlider) {
             mAlertSliderObserver = new AlertSliderObserver(mContext);
