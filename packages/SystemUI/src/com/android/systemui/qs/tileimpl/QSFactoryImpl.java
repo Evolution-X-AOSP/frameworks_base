@@ -42,6 +42,7 @@ import com.android.systemui.qs.tiles.FlashlightTile;
 import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.IntentTile;
+import com.android.systemui.qs.tiles.LiveDisplayTile;
 import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.LteTile;
 import com.android.systemui.qs.tiles.MusicTile;
@@ -108,6 +109,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<VpnTile> mVpnTileProvider;
     private final Provider<RebootTile> mRebootTileProvider;
     private final Provider<LteTile> mLteTileProvider;
+    private final Provider<LiveDisplayTile> mLiveDisplayTileProvider;
 
     private QSTileHost mHost;
 
@@ -146,7 +148,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<SleepScreenTile> sleepScreenTileProvider,
             Provider<VpnTile> vpnTileProvider,
             Provider<RebootTile> rebootTileProvider,
-            Provider<LteTile> lteTileProvider) {
+            Provider<LteTile> lteTileProvider,
+            Provider<LiveDisplayTile> liveDisplayTileProvider) {
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
         mCellularTileProvider = cellularTileProvider;
@@ -183,6 +186,7 @@ public class QSFactoryImpl implements QSFactory {
         mVpnTileProvider = vpnTileProvider;
         mRebootTileProvider = rebootTileProvider;
         mLteTileProvider = lteTileProvider;
+        mLiveDisplayTileProvider = liveDisplayTileProvider;
     }
 
     public void setHost(QSTileHost host) {
@@ -269,6 +273,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mRebootTileProvider.get();
             case "lte":
                 return mLteTileProvider.get();
+            case "livedisplay":
+                return mLiveDisplayTileProvider.get();
         }
 
         // Intent tiles.
