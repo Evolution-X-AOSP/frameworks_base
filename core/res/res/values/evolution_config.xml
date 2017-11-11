@@ -58,4 +58,7 @@
 
     <!-- Whether device supports in-display fingerprint -->
     <bool name="config_supportsUdfps">false</bool>
+
+    <!-- Whether device supports an alt. ambient display -->
+    <bool name="config_alt_ambient_display">false</bool>
 </resources>
