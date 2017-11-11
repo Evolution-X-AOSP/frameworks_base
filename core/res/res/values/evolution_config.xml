@@ -40,4 +40,7 @@
     <!-- Whether to show a custom view for FOD -->
     <bool name="config_needCustomFODView">false</bool>
 
+    <!-- Whether device supports an alt. ambient display -->
+    <bool name="config_alt_ambient_display">false</bool>
+
 </resources>
