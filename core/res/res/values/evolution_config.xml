@@ -89,4 +89,7 @@
 
     <!-- Whether device supports in-display fingerprint when screen is off -->
     <bool name="config_supportsScreenOffUdfps">false</bool>
+
+    <!-- Whether device supports an alt. ambient display -->
+    <bool name="config_alt_ambient_display">false</bool>
 </resources>
