@@ -23,6 +23,7 @@ import com.android.systemui.qs.tiles.AntiFlickerTile
 import com.android.systemui.qs.tiles.HeadsUpTile
 import com.android.systemui.qs.tiles.PowerShareTile
 import com.android.systemui.qs.tiles.ReadingModeTile
+import com.android.systemui.qs.tiles.RebootTile
 import com.android.systemui.qs.tiles.SoundTile
 import com.android.systemui.qs.tiles.SoundSearchTile
 import com.android.systemui.qs.tiles.SyncTile
@@ -94,4 +95,10 @@ interface EvolutionXModule {
     @IntoMap
     @StringKey(SoundSearchTile.TILE_SPEC)
     fun bindSoundSearchTile(soundSearchTile: SoundSearchTile): QSTileImpl<*>
+
+    /** Inject RebootTile into tileMap in QSModule */
+    @Binds
+    @IntoMap
+    @StringKey(RebootTile.TILE_SPEC)
+    fun bindRebootTile(rebootTile: RebootTile): QSTileImpl<*>
 }
