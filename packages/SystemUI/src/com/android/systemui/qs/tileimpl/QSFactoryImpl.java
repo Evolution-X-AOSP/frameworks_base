@@ -30,6 +30,7 @@ import com.android.systemui.qs.tiles.AirplaneModeTile;
 import com.android.systemui.qs.tiles.AODTile;
 import com.android.systemui.qs.tiles.BatterySaverTile;
 import com.android.systemui.qs.tiles.BluetoothTile;
+import com.android.systemui.qs.tiles.CaffeineTile;
 import com.android.systemui.qs.tiles.CastTile;
 import com.android.systemui.qs.tiles.CellularTile;
 import com.android.systemui.qs.tiles.ColorInversionTile;
@@ -86,6 +87,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<UsbTetherTile> mUsbTetherTileProvider;
     private final Provider<AODTile> mAODTileProvider;
     private final Provider<SoundTile> mSoundTileProvider;
+    private final Provider<CaffeineTile> mCaffeineTileProvider;
 
     private QSTileHost mHost;
 
@@ -113,7 +115,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<SoundSearchTile> soundSearchTileProvider,
             Provider<UsbTetherTile> usbTetherTileProvider,
             Provider<AODTile> aodTileProvider,
-            Provider<SoundTile> soundTileProvider) {
+            Provider<SoundTile> soundTileProvider,
+            Provider<CaffeineTile> caffeineTileProvider) {
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
         mCellularTileProvider = cellularTileProvider;
@@ -139,6 +142,7 @@ public class QSFactoryImpl implements QSFactory {
         mUsbTetherTileProvider = usbTetherTileProvider;
         mAODTileProvider = aodTileProvider;
         mSoundTileProvider = soundTileProvider;
+        mCaffeineTileProvider = caffeineTileProvider;
     }
 
     public void setHost(QSTileHost host) {
@@ -203,6 +207,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mAODTileProvider.get();
             case "sound":
                 return mSoundTileProvider.get();
+            case "caffeine":
+                return mCaffeineTileProvider.get();
         }
 
         // Intent tiles.
