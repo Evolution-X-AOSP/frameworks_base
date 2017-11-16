@@ -220,4 +220,7 @@
     <string name="tristate_rotation_90">Landscape (90°)</string>
     <string name="tristate_rotation_270">Landscape (270°)</string>
 
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Screenshot deleted</string>
+
 </resources>
