@@ -156,4 +156,7 @@
 
     <string name="lockscreen_default">Default</string>
     <string name="lockscreen_hidden">None</string>
+
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Screenshot deleted</string>
 </resources>
