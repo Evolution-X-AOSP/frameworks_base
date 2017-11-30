@@ -84,6 +84,9 @@ public class HardkeyActionHandler {
     private HardKeyButton mMenuButton;
     private HardKeyButton mAssistButton;
 
+    boolean mHapOnAction;
+
+
     // Behavior of HOME button during incomming call ring.
     // (See Settings.Secure.RING_HOME_BUTTON_BEHAVIOR.)
 //    int mRingHomeBehavior;
@@ -202,7 +205,7 @@ public class HardkeyActionHandler {
                     mHomeButton.postDTTimeout();
                     return true;
                 }
-
+	        if (mHapOnAction) mHandler.sendEmptyMessage(MSG_DO_HAPTIC_FB);
                 mHomeButton.fireSingleTap();
                 return true;
             }
@@ -245,6 +248,7 @@ public class HardkeyActionHandler {
                 if (mHomeButton.isDoubleTapPending()) {
                     mHomeButton.setDoubleTapPending(false);
                     mHomeButton.cancelDTTimeout();
+	        if (mHapOnAction) mHandler.sendEmptyMessage(MSG_DO_HAPTIC_FB);
                     mHomeButton.fireDoubleTap();
                     mHomeButton.setWasConsumed(true);
                 } else if (mHomeButton.keyHasLongPressRecents()
@@ -293,6 +297,7 @@ public class HardkeyActionHandler {
                     ActionHandler.cancelPreloadRecentApps();
                 }
 
+		if (mHapOnAction) mHandler.sendEmptyMessage(MSG_DO_HAPTIC_FB);
                 mMenuButton.fireSingleTap();
                 return true;
             }
@@ -307,6 +312,7 @@ public class HardkeyActionHandler {
                 if (mMenuButton.isDoubleTapPending()) {
                     mMenuButton.setDoubleTapPending(false);
                     mMenuButton.cancelDTTimeout();
+		if (mHapOnAction) mHandler.sendEmptyMessage(MSG_DO_HAPTIC_FB);
                     mMenuButton.fireDoubleTap();
                     mMenuButton.setWasConsumed(true);
                 } else if (mMenuButton.keyHasLongPressRecents()
@@ -356,6 +362,7 @@ public class HardkeyActionHandler {
                     ActionHandler.cancelPreloadRecentApps();
                 }
 
+		if (mHapOnAction) mHandler.sendEmptyMessage(MSG_DO_HAPTIC_FB);
                 mRecentButton.fireSingleTap();
                 return true;
             }
@@ -370,6 +377,7 @@ public class HardkeyActionHandler {
                 if (mRecentButton.isDoubleTapPending()) {
                     mRecentButton.setDoubleTapPending(false);
                     mRecentButton.cancelDTTimeout();
+		if (mHapOnAction) mHandler.sendEmptyMessage(MSG_DO_HAPTIC_FB);
                     mRecentButton.fireDoubleTap();
                     mRecentButton.setWasConsumed(true);
                 } else if (mRecentButton.keyHasLongPressRecents()
@@ -477,6 +485,7 @@ public class HardkeyActionHandler {
                     return true;
                 }
 
+		if (mHapOnAction) mHandler.sendEmptyMessage(MSG_DO_HAPTIC_FB);
                 mBackButton.fireSingleTap();
                 return true;
             }
@@ -491,6 +500,7 @@ public class HardkeyActionHandler {
                 if (mBackButton.isDoubleTapPending()) {
                     mBackButton.setDoubleTapPending(false);
                     mBackButton.cancelDTTimeout();
+		if (mHapOnAction) mHandler.sendEmptyMessage(MSG_DO_HAPTIC_FB);
                     mBackButton.fireDoubleTap();
                     mBackButton.setWasConsumed(true);
                 } else if (mBackButton.keyHasLongPressRecents()
@@ -669,7 +679,9 @@ public class HardkeyActionHandler {
             resolver.registerContentObserver(
                     Settings.Secure.getUriFor(Settings.Secure.HARDWARE_KEYS_DISABLE), false, this,
                     UserHandle.USER_ALL);
-
+	    resolver.registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.HAPTIC_ON_ACTION_KEY), false, this,
+                    UserHandle.USER_ALL);
             updateKeyAssignments();
         }
 
@@ -734,6 +746,8 @@ public class HardkeyActionHandler {
 //                    Settings.Secure.RING_HOME_BUTTON_BEHAVIOR,
 //                    Settings.Secure.RING_HOME_BUTTON_BEHAVIOR_DEFAULT,
 //                    UserHandle.USER_CURRENT);
+	    mHapOnAction = (Settings.System.getIntForUser(cr,
+                    Settings.System.HAPTIC_ON_ACTION_KEY, 0, UserHandle.USER_CURRENT) == 1);
         }
     }
 }
