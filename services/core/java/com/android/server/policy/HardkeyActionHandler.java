@@ -199,6 +199,9 @@ public class HardkeyActionHandler {
                     return true;
                 }
 
+	        // We suggest that device (gemini) has capacitivity Menu button mapped on mechanical key Home 
+	        // and we don't need any events from Menu button, when Home is pressed
+	    	mMenuButton.setWasConsumed(true);
                 if (mHomeButton.isDoubleTapEnabled()) {
                     mHomeButton.cancelDTTimeout();
                     mHomeButton.setDoubleTapPending(true);
@@ -577,6 +580,9 @@ public class HardkeyActionHandler {
 
         final Runnable mLPRunnable = new Runnable() {
             public void run() {
+	    if (HardKeyButton.this == mHomeButton) mMenuButton.setWasConsumed(true);
+        	HardKeyButton.this.setWasConsumed(true);
+		if (mHapOnAction) mHandler.sendEmptyMessage(MSG_DO_HAPTIC_FB);
                 mActionReceiver.onActionDispatched(HardKeyButton.this, mConfig.getActionConfig(ActionConfig.SECOND).getAction());
             }
         };
