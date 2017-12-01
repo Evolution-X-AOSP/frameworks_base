@@ -4,7 +4,6 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
-
     <!-- Device keyhandlers -->
     <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
     <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
@@ -21,4 +20,12 @@
     <!-- For dynamic default font styles -->
     <java-symbol type="string" name="config_bodyFontFamily" />
 
+    <!-- Proximity check on screen on -->
+    <java-symbol type="bool" name="config_proximityCheckOnWake" />
+
+    <!-- Proximity check timeout -->
+    <java-symbol type="integer" name="config_proximityCheckTimeout" />
+
+    <!-- Proximity check on screen on default -->
+    <java-symbol type="bool" name="config_proximityCheckOnWakeEnabledByDefault" />
 </resources>

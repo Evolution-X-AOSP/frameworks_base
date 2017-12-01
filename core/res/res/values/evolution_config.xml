@@ -4,7 +4,6 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
-
     <!-- Paths to the libraries that contain device specific key handlers -->
     <string-array name="config_deviceKeyHandlerLibs" translatable="false">
     </string-array>
@@ -24,4 +23,9 @@
     <!-- Whether key handler sends intent when changing slider position -->
     <string name="config_alertSliderIntent"></string>
 
+    <!-- Default value for proximity check on screen wake
+     NOTE ! - Enable for devices that have a fast response proximity sensor (ideally < 300ms)-->
+    <bool name="config_proximityCheckOnWake">false</bool>
+    <integer name="config_proximityCheckTimeout">250</integer>
+    <bool name="config_proximityCheckOnWakeEnabledByDefault">false</bool>
 </resources>
