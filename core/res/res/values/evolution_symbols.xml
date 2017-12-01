@@ -62,4 +62,9 @@
     <!-- Define device configs on boot -->
     <java-symbol type="array" name="global_device_configs_override" />
     <java-symbol type="array" name="device_configs_override" />
+
+    <!-- Proximity check on wake -->
+    <java-symbol type="bool" name="config_proximityCheckOnWake" />
+    <java-symbol type="integer" name="config_proximityCheckTimeout" />
+    <java-symbol type="bool" name="config_proximityCheckOnWakeEnabledByDefault" />
 </resources>
