@@ -345,6 +345,8 @@ public class LockscreenFragment extends PreferenceFragment {
         @Override
         public IntentButton create(Map<String, String> settings) {
             String buttonStr = settings.get(mKey);
+            // if buttonStr is not empty it means it's not the Default button,
+            // so we'll create a custom one
             if (!TextUtils.isEmpty(buttonStr)) {
                 if (buttonStr.contains("::")) {
                     return new ShortcutButton(mContext, buttonStr);
@@ -377,6 +379,7 @@ public class LockscreenFragment extends PreferenceFragment {
             mIconState.drawable = new ScalingDrawableWrapper(mIconState.drawable,
                     mSize / (float) mIconState.drawable.getIntrinsicWidth());
             mIconState.tint = false;
+            mIconState.isDefaultButton = false;
             init();
         }
 
@@ -432,6 +435,7 @@ public class LockscreenFragment extends PreferenceFragment {
             mIconState.drawable = new ScalingDrawableWrapper(mIconState.drawable,
                     mSize / (float) mIconState.drawable.getIntrinsicWidth());
             mIconState.tint = false;
+            mIconState.isDefaultButton = false;
             init();
         }
 
@@ -490,6 +494,7 @@ public class LockscreenFragment extends PreferenceFragment {
         public HiddenButton() {
             mIconState = new IconState();
             mIconState.isVisible = false;
+            mIconState.isDefaultButton = false;
         }
 
         @Override
