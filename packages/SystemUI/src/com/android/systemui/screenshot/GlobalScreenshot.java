@@ -882,6 +882,7 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
         data.image = mScreenBitmap;
         data.finisher = finisher;
         data.mActionsReadyListener = actionsReadyListener;
+        data.appLabel = getForegroundAppLabel();
 
         if (mSaveInBgTask != null) {
             // just log success/failure for the pre-existing screenshot
