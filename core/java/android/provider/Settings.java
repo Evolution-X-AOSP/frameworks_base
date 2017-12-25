@@ -6906,6 +6906,13 @@ public final class Settings {
         public static final String ENABLE_FLOATING_ROTATION_BUTTON = "enable_floating_rotation_button";
 
         /**
+         * Whether to wake the screen with the volume key, the value is boolean.
+         * 0 = 0ff, 1 = on
+         * @hide
+         */
+        public static final String VOLUME_WAKE_SCREEN = "volume_wake_screen";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -7081,6 +7088,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(CAMERA_WAKE_SCREEN);
             PRIVATE_SETTINGS.add(CAMERA_SLEEP_ON_RELEASE);
             PRIVATE_SETTINGS.add(CAMERA_LAUNCH);
+            PRIVATE_SETTINGS.add(VOLUME_WAKE_SCREEN);
         }
 
         /**
