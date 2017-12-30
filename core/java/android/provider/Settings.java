@@ -5481,9 +5481,6 @@ public final class Settings {
          * @hide
          */
         public static final String POWERMENU_LOCKSCREEN = "powermenu_lockscreen";
-        /** @hide */
-        private static final Validator POWERMENU_LOCKSCREEN_VALIDATOR =
-                BOOLEAN_VALIDATOR;
 
         /**
          * Whether to display the torch option in the power menu
@@ -5956,7 +5953,6 @@ public final class Settings {
             POWERMENU_POWER,
             POWERMENU_USERS,
             POWERMENU_LOGOUT,
-            POWERMENU_LOCKSCREEN,
             POWERMENU_TORCH,
             DOZE_ON_CHARGE,
             STATUS_BAR_CLOCK,
@@ -6157,7 +6153,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(POWERMENU_POWER);
             PRIVATE_SETTINGS.add(POWERMENU_USERS);
             PRIVATE_SETTINGS.add(POWERMENU_LOGOUT);
-            PRIVATE_SETTINGS.add(POWERMENU_LOCKSCREEN);
             PRIVATE_SETTINGS.add(POWERMENU_TORCH);
             PRIVATE_SETTINGS.add(DOZE_ON_CHARGE);
             PRIVATE_SETTINGS.add(STATUS_BAR_CLOCK);
@@ -6335,7 +6330,6 @@ public final class Settings {
             VALIDATORS.put(POWERMENU_POWER, POWERMENU_POWER_VALIDATOR);
             VALIDATORS.put(POWERMENU_USERS, POWERMENU_USERS_VALIDATOR);
             VALIDATORS.put(POWERMENU_LOGOUT, POWERMENU_LOGOUT_VALIDATOR);
-            VALIDATORS.put(POWERMENU_LOCKSCREEN, POWERMENU_LOCKSCREEN_VALIDATOR);
             VALIDATORS.put(POWERMENU_TORCH, POWERMENU_TORCH_VALIDATOR);
             VALIDATORS.put(DOZE_ON_CHARGE, DOZE_ON_CHARGE_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_CLOCK, STATUS_BAR_CLOCK_VALIDATOR);
