@@ -402,4 +402,7 @@
     -->
     <integer name="config_deviceSupportsKeyboardBrightnessControl">0</integer>
     <dimen name="config_keyboardBrightnessSettingDefaultFloat">1.0</dimen>
+
+    <!-- Whether the device supports Smart Pixels -->
+    <bool name="config_supportSmartPixels">false</bool>
 </resources>
