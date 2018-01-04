@@ -287,4 +287,7 @@
 
     <!-- Boost Framework -->
     <java-symbol type="bool" name="config_supportsBoostFramework" />
+
+    <!-- Whether the device supports Smart Pixels -->
+    <java-symbol type="bool" name="config_supportSmartPixels" />
 </resources>
