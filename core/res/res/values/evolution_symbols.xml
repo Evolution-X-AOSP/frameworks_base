@@ -131,4 +131,7 @@
 
     <!-- Whether to cancel fingerprint operation if not idle -->
     <java-symbol type="bool" name="config_fpCancelIfNotIdle" />
+
+    <!-- Whether the device supports Smart Pixels -->
+    <java-symbol type="bool" name="config_supportSmartPixels" />
 </resources>
