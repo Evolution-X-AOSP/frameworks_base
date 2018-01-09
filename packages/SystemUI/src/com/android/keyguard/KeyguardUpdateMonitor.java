@@ -990,7 +990,8 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
     }
 
     public boolean isUnlockingWithBiometricAllowed() {
-        return mStrongAuthTracker.isUnlockingWithBiometricAllowed();
+        return mStrongAuthTracker.isUnlockingWithBiometricAllowed() || (Settings.System.getInt(mContext.getContentResolver(),
+        Settings.System.FP_UNLOCK_KEYSTORE, 0) == 1);
     }
 
     public boolean isUserInLockdown(int userId) {
