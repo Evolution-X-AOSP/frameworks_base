@@ -57,4 +57,19 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Modalità lettura attivata.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Modalità lettura disattivata.</string>
     <string name="global_action_restart_advanced">Avanzate</string>
+
+    <string name="screenrecord_notif_ticker">Lo schermo sta per essere registrato</string>
+    <string name="screenrecord_notif_title">Registrazione in corso</string>
+    <string name="screenrecord_notif_pointer_on">Mostra puntatore</string>
+    <string name="screenrecord_notif_pointer_off">Nascondi puntatore</string>
+    <string name="screenrecord_notif_error">Impossibile avviare la registrazione</string>
+    <string name="notification_channel_screenrecord">Registra schermo</string>
+    <string name="quick_settings_screenrecord_label">Registra schermo</string>
+    <string name="quick_settings_screenrecord_lq_label">Registra schermo 480p</string>
+    <string name="quick_settings_screenrecord_mq_label">Registra schermo 720p</string>
+    <string name="quick_settings_screenrecord_hq_label">Registra schermo 720p+</string>
+    <string name="screenrecord_hide_hint">Nascondi hint</string>
+    <string name="screenrecord_show_hint">Mostra hint</string>
+    <string name="screenrecord_notif_completed">Registrazione schermo completata</string>
+    <string name="screenrecord_notif_final_ticker">Registrazione schermo completata</string>
 </resources>
