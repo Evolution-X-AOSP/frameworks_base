@@ -223,6 +223,10 @@
     -->
     <integer name="config_longPressOnAssistBehaviorHwKeys">4</integer>
 
+    <!-- Indicates that the device has Single-stage Camera key
+         (without "Focus" state) instead of Dual-stage. -->
+    <bool name="config_singleStageCameraKey">false</bool>
+
     <!-- Whether device has notification LED -->
     <bool name="config_hasNotificationLed">true</bool>
 
