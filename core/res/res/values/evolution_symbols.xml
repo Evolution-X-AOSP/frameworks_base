@@ -138,6 +138,9 @@
     <java-symbol type="integer" name="config_longPressOnAppSwitchBehaviorHwKeys" />
     <java-symbol type="integer" name="config_longPressOnAssistBehaviorHwKeys" />
 
+    <!-- Camera key type -->
+    <java-symbol type="bool" name="config_singleStageCameraKey" />
+
     <java-symbol type="bool" name="config_hasNotificationLed" />
     <java-symbol type="bool" name="config_intrusiveBatteryLed" />
     <java-symbol type="bool" name="config_multiColorBatteryLed" />
