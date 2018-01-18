@@ -347,4 +347,7 @@
         <item>org.telegram.messenger.Telegram</item>
     </string-array>
 
+    <!-- Ambient display music ticker -->
+    <bool name="config_canForceDozeNotifications">true</bool>
+
 </resources>
