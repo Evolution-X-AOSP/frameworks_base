@@ -4973,6 +4973,11 @@ public final class Settings {
          */
         public static final String POWERMENU_TORCH = "powermenu_torch";
 
+        /**
+         * @hide
+         */
+        public static final String SCREENRECORD_QUALITY_MODE = "screenrecord_quality_mode";
+
         /** End of Evolution X system settings**/
 
         /**

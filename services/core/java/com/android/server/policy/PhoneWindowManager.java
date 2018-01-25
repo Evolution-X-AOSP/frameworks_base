@@ -2116,7 +2116,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     @Override
     public void screenRecordAction(int mode) {
-        mContext.enforceCallingOrSelfPermission(Manifest.permission.ACCESS_SURFACE_FLINGER,
+        mContext.enforceCallingOrSelfPermission(ACCESS_SURFACE_FLINGER,
                 TAG + "screenRecordAction permission denied");
         mHandler.removeCallbacks(mScreenrecordRunnable);
         mScreenrecordRunnable.setMode(mode);
