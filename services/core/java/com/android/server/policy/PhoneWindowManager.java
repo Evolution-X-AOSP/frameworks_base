@@ -2526,10 +2526,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mAppSwitchPressActionHwKeys = Action.fromSettings(resolver,
                     Settings.System.KEY_APP_SWITCH_ACTION,
                     mAppSwitchPressActionHwKeys);
-            mAppSwitchLongPressActionHwKeys = Action.fromSettings(resolver,
-                    Settings.System.KEY_APP_SWITCH_LONG_PRESS_ACTION,
-                    mAppSwitchLongPressActionHwKeys);
         }
+        mAppSwitchLongPressActionHwKeys = Action.fromSettings(resolver,
+                Settings.System.KEY_APP_SWITCH_LONG_PRESS_ACTION,
+                mAppSwitchLongPressActionHwKeys);
 
         mShortPressOnWindowBehavior = SHORT_PRESS_WINDOW_NOTHING;
         if (mContext.getPackageManager().hasSystemFeature(FEATURE_PICTURE_IN_PICTURE)) {
