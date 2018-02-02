@@ -1857,7 +1857,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 !mGlobalActionsOnLockScreen) {
                 behavior = LONG_PRESS_POWER_NOTHING;
             } else {
-                performHapticFeedbackLw(null, HapticFeedbackConstants.LONG_PRESS, false);
+                if (!(isKeyguardShowingAndNotOccluded() && isKeyguardSecure(mCurrentUserId) &&
+                        mGlobalActionsOnLockDisable)) {
+                    performHapticFeedbackLw(null, HapticFeedbackConstants.LONG_PRESS, false);
+                }
                 showGlobalActionsInternal();
             }
             break;
