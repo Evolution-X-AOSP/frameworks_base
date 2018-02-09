@@ -70,4 +70,6 @@
     <!-- Anti flicker QS tile -->
     <string name="quick_settings_anti_flicker">Anti flicker</string>
 
+    <!-- SoundSearch Tile -->
+    <string name="quick_settings_sound_search">Sound search</string>
 </resources>
