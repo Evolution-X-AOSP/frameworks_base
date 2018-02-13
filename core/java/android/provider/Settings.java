@@ -5087,6 +5087,17 @@ public final class Settings {
         public static final Validator STATUSBAR_CLOCK_AM_PM_STYLE_VALIDATOR =
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 2);
 
+         /**
+         * Position of date
+         * 0 - Left of clock
+         * 1 - Right of clock
+         * @hide
+         */
+        public static final String STATUSBAR_CLOCK_DATE_POSITION = "statusbar_clock_date_position";
+
+        /** @hide */
+        public static final Validator STATUSBAR_CLOCK_DATE_POSITION_VALIDATOR = BOOLEAN_VALIDATOR;
+
         /**
          * Shows custom date before clock time
          * 0 - No Date
