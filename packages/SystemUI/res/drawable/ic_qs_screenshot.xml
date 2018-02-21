@@ -1,39 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 2016 The ABC rom
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-          http://www.apache.org/licenses/LICENSE-2.0
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
--->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="32dp"
-    android:height="32dp"
-    android:viewportWidth="32"
-    android:viewportHeight="32">
-
+    android:viewportWidth="256"
+    android:viewportHeight="256"
+    android:width="256dp"
+    android:height="256dp">
     <path
-        android:fillColor="#ffffff"
-        android:pathData="M6.13531,15.9648 C6.13531,12.3536,6.13531,8.74244,6.13531,5.1312
-C6.13531,2.25987,7.86163,0.49832,10.7153,0.49832
-C14.2736,0.49832,17.8144,0.49832,21.3727,0.49832
-C24.0679,0.49832,25.8647,2.27749,25.8647,4.95504
-C25.8647,12.3184,25.8647,19.6816,25.8647,27.0449
-C25.8647,29.7225,24.0679,31.484,21.3727,31.5016
-C17.7967,31.5016,14.2208,31.5016,10.6272,31.5016
-C7.89679,31.5016,6.13524,29.7224,6.13524,26.9568
-C6.13524,23.2928,6.13524,19.6287,6.13524,15.9647 Z M8.67194,4.7613
-C8.67194,11.3847,8.67194,17.9025,8.67194,24.4202
-C13.6043,24.4202,18.4662,24.4202,23.3457,24.4202
-C23.3457,17.8496,23.3457,11.3319,23.3457,4.7613
-C18.431,4.7613,13.5691,4.7613,8.672,4.7613 Z M13.2167,28.6479
-C15.1192,28.6479,16.9336,28.6479,18.7656,28.6479
-C18.7656,28.1899,18.7656,27.7671,18.7656,27.3444
-C16.8807,27.3444,15.0487,27.3444,13.2167,27.3444
-C13.2167,27.7848,13.2167,28.1899,13.2167,28.6479 Z" />
+        android:pathData="M209.9 128.4c0 36 0 72 0 108 0 6 -2.2 10.8 -7 14.4 -2.8 2 -5.9 2.9 -9.3 2.9 -6.9 0 -13.9 0 -20.8 0 -36.1 0 -72.2 0 -108.4 0 -8.1 0 -14.6 -5.1 -16.3 -12.8 -0.3 -1.4 -0.4 -2.8 -0.4 -4.2 0 -72.2 0 -144.5 0 -216.7 -0.1 -10 7 -17 17 -17 42.7 0 85.4 0 128 0 10.1 0 17.1 7 17.1 17.1 0.1 36.1 0.1 72.2 0.1 108.3zM64.1 28.8c0 40.2 0 80.2 0 120.2 0.1 0.1 0.2 0.2 0.4 0.3 6.7 -7 13.4 -13.9 20.2 -20.9 4.6 3.7 9.3 7.3 13.9 11 8.4 -9.7 16.7 -19.2 24.8 -28.5 23.3 17.8 46.5 35.6 69.9 53.5 0 -45.5 0 -90.5 0 -135.5 -43 -0.1 -86 -0.1 -129.2 -0.1zM128 237.3c4.2 0 8.5 0 12.7 0 3.3 0 5.4 -2.2 5.5 -5.5 0 -3.4 -2.1 -5.7 -5.5 -5.7 -8.4 0 -16.9 0 -25.3 0 -3.2 0 -5.5 2.3 -5.5 5.6 0 3.3 2.2 5.6 5.4 5.6 4.4 0 8.6 0 12.7 0z"
+        android:fillColor="#000000" />
+    <path
+        android:pathData="M95.1 88.6c-8.7 0 -15.7 -6.9 -15.7 -15.3 0 -8.4 7.1 -15.3 15.8 -15.3 8.7 0 15.7 6.9 15.7 15.3 0 8.5 -7.1 15.3 -15.8 15.3z"
+        android:fillColor="#000000" />
 </vector>
