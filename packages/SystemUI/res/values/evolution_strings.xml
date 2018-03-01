@@ -198,4 +198,11 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display turned off.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display turned on.</string>
 
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Force stop?</string>
+    <string name="force_stop_dlg_text">If you force stop an app, it may misbehave.</string>
+    <string name="dlg_ok" translatable="false">@android:string/ok</string>
+    <string name="dlg_cancel" translatable="false">@android:string/cancel</string>
+    <string name="kill">Kill App</string>
+
 </resources>

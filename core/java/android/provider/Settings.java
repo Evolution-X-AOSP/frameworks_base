@@ -5466,6 +5466,11 @@ public final class Settings {
          */
         public static final String DATA_DISABLED_ICON = "data_disabled_icon";
 
+        /**
+         * @hide
+         */
+        public static final String NOTIFICATION_GUTS_KILL_APP_BUTTON = "notification_guts_kill_app_button";
+
         /** End of Evolution X system settings**/
 
         /**
