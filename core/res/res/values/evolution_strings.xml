@@ -61,7 +61,4 @@
     <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
     <string name="fontservice_incompatible_font">The font package you\'ve installed is not compatible due to missing fonts.xml on their files. Please contact the package developer for support.</string>
 
-    <!-- On-The-Go -->
-    <string name="global_action_onthego">On-The-Go</string>
-
 </resources>
