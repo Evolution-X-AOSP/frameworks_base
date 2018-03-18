@@ -21,10 +21,14 @@ import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
 
 import android.content.Context;
 import android.content.res.Configuration;
+import android.database.ContentObserver;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.TransitionDrawable;
 import android.graphics.Color;
+import android.net.Uri;
+import android.os.Handler;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.View;
@@ -88,9 +92,15 @@ public class QSContainerImpl extends FrameLayout implements
     private Drawable mCurrentBackground;
     private boolean mLandscape;
 
+    private Drawable mQsBackGround;
+    private int mQsBackGroundAlpha;
+
     public QSContainerImpl(Context context, AttributeSet attrs) {
         super(context, attrs);
         mStatusBarHeaderMachine = new StatusBarHeaderMachine(context);
+        Handler handler = new Handler();
+        SettingsObserver settingsObserver = new SettingsObserver(handler);
+        settingsObserver.observe();
     }
 
     @Override
@@ -118,8 +128,38 @@ public class QSContainerImpl extends FrameLayout implements
             }
         });
 
+        mQsBackGround = getContext().getDrawable(R.drawable.qs_background_primary);
 
         setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_NO);
+        updateSettings();
+    }
+
+    private class SettingsObserver extends ContentObserver {
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            getContext().getContentResolver().registerContentObserver(Settings.System
+                            .getUriFor(Settings.System.QS_PANEL_BG_ALPHA), false,
+                    this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            if (uri.equals(Settings.System.getUriFor(Settings.System.QS_PANEL_BG_ALPHA))) {
+                mQsBackGroundAlpha = Settings.System.getIntForUser(getContext().getContentResolver(),
+                        Settings.System.QS_PANEL_BG_ALPHA, 255, UserHandle.USER_CURRENT);
+                setQsBackground();
+            }
+        }
+    }
+
+    private void updateSettings() {
+        mQsBackGroundAlpha = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.QS_PANEL_BG_ALPHA, 255, UserHandle.USER_CURRENT);
+
+        setQsBackground();
     }
 
     private void setBackgroundBottom(int value) {
@@ -157,6 +197,13 @@ public class QSContainerImpl extends FrameLayout implements
 
         updateResources();
         mSizePoint.set(0, 0); // Will be retrieved on next measure pass.
+    }
+
+    private void setQsBackground() {
+        if (mQsBackGround != null) {
+            mQsBackGround.setAlpha(mQsBackGroundAlpha);
+            mBackground.setBackground(mQsBackGround);
+        }
     }
 
     @Override
