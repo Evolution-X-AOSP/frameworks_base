@@ -2234,6 +2234,7 @@
   <java-symbol type="string" name="config_defaultNetworkScorerPackageName" />
   <java-symbol type="string" name="config_persistentDataPackageName" />
   <java-symbol type="string" name="config_deviceConfiguratorPackageName" />
+  <java-symbol type="string" name="config_optionalPackageVerifierName" />
 
   <java-symbol type="layout" name="resolver_list" />
   <java-symbol type="id" name="resolver_list" />
@@ -3844,5 +3845,8 @@
   <java-symbol type="string" name="user_authentication_failed" />
   <java-symbol type="string" name="service_not_subscribed" />
   <java-symbol type="string" name="multi_conn_to_same_pdn_not_allowed" />
+
+  <java-symbol type="integer" name="config_sms_authorization_timeout_ms" />
+  <java-symbol type="bool" name="config_sms_authorization_enabled" />
 
 </resources>
