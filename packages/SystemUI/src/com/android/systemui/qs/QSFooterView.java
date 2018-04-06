@@ -57,6 +57,7 @@ import java.util.List;
 public class QSFooterView extends FrameLayout {
     private PageIndicator mPageIndicator;
     private TextView mUsageText;
+    private View mEditLayout;
     private View mEditButton;
 
     @Nullable
@@ -74,6 +75,7 @@ public class QSFooterView extends FrameLayout {
     private WifiManager mWifiManager;
     private SubscriptionManager mSubManager;
     private boolean mShouldShowDataUsage;
+    private boolean mShowEditIcon;
 
     public QSFooterView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -89,6 +91,7 @@ public class QSFooterView extends FrameLayout {
         mPageIndicator = findViewById(R.id.footer_page_indicator);
         mUsageText = findViewById(R.id.build);
         mEditButton = findViewById(android.R.id.edit);
+        mEditLayout = findViewById(R.id.edit_layout);
 
         updateResources();
         setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_YES);
@@ -237,11 +240,19 @@ public class QSFooterView extends FrameLayout {
                 Settings.System.QS_FOOTER_DATA_USAGE, 0,
                 UserHandle.USER_CURRENT) == 1;
 
+        mShowEditIcon = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.QS_FOOTER_SHOW_EDIT, 1,
+                UserHandle.USER_CURRENT) == 1;
+
         if (mExpanded && mShouldShowDataUsage) {
             mUsageText.setVisibility(View.VISIBLE);
+            mEditButton.setVisibility(mShowEditIcon ? View.VISIBLE : View.GONE);
+            mEditLayout.setVisibility(mShowEditIcon ? View.VISIBLE : View.GONE);
             setUsageText();
         } else {
             mUsageText.setVisibility(View.INVISIBLE);
+            mEditButton.setVisibility(mShowEditIcon ? View.VISIBLE : View.INVISIBLE);
+            mEditLayout.setVisibility(mShowEditIcon ? View.VISIBLE : View.INVISIBLE);
         }
     }
 }
