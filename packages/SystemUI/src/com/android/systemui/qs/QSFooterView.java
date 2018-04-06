@@ -45,6 +45,7 @@ public class QSFooterView extends FrameLayout {
     private PageIndicator mPageIndicator;
     private TextView mBuildText;
     private View mEditButton;
+    private View mEditLayout;
 
     @Nullable
     protected TouchAnimator mFooterAnimator;
@@ -54,6 +55,7 @@ public class QSFooterView extends FrameLayout {
     private float mExpansionAmount;
 
     private boolean mShouldShowBuildText;
+    private boolean mShowEditIcon;
 
     @Nullable
     private OnClickListener mExpandClickListener;
@@ -77,6 +79,7 @@ public class QSFooterView extends FrameLayout {
         mPageIndicator = findViewById(R.id.footer_page_indicator);
         mBuildText = findViewById(R.id.build);
         mEditButton = findViewById(android.R.id.edit);
+        mEditLayout = findViewById(R.id.edit_layout);
 
         updateResources();
         setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_YES);
@@ -175,6 +178,19 @@ public class QSFooterView extends FrameLayout {
     }
 
     private void updateVisibilities() {
-        mBuildText.setVisibility(mExpanded && mShouldShowBuildText ? View.VISIBLE : View.INVISIBLE);
+        mShowEditIcon = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.QS_FOOTER_SHOW_EDIT, 1,
+                UserHandle.USER_CURRENT) == 1;
+
+        if (mExpanded && mShouldShowBuildText) {
+            mBuildText.setVisibility(View.VISIBLE);
+            mEditButton.setVisibility(mShowEditIcon ? View.VISIBLE : View.INVISIBLE);
+            mEditLayout.setVisibility(mShowEditIcon ? View.VISIBLE : View.INVISIBLE);
+            setBuildText();
+        } else {
+            mBuildText.setVisibility(View.INVISIBLE);
+            mEditButton.setVisibility(mShowEditIcon ? View.VISIBLE : View.INVISIBLE);
+            mEditLayout.setVisibility(mShowEditIcon ? View.VISIBLE : View.INVISIBLE);
+        }
     }
 }
