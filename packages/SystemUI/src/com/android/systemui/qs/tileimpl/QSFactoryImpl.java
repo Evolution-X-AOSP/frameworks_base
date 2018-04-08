@@ -73,6 +73,7 @@ import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.ScreenRecordTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
 import com.android.systemui.qs.tiles.SleepModeTile;
+import com.android.systemui.qs.tiles.SmartPixelsTile;
 import com.android.systemui.qs.tiles.SoundSearchTile;
 import com.android.systemui.qs.tiles.SoundTile;
 import com.android.systemui.qs.tiles.SyncTile;
@@ -152,6 +153,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<SleepModeTile> mSleepModeTileProvider;
     private final Provider<DcDimmingTile> mDcDimmingTileProvider;
     private final Provider<LocaleTile> mLocaleTileProvider;
+    private final Provider<SmartPixelsTile> mSmartPixelsTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
     private final Provider<CustomTile.Builder> mCustomTileBuilderProvider;
@@ -216,7 +218,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<CompassTile> compassTileProvider,
             Provider<SleepModeTile> sleepModeTileProvider,
             Provider<DcDimmingTile> dcDimTileProvider,
-            Provider<LocaleTile> localeTileProvider) {
+            Provider<LocaleTile> localeTileProvider,
+            Provider<SmartPixelsTile> smartPixelsTileProvider) {
         mQsHostLazy = qsHostLazy;
         mCustomTileBuilderProvider = customTileBuilderProvider;
 
@@ -277,6 +280,7 @@ public class QSFactoryImpl implements QSFactory {
         mSleepModeTileProvider = sleepModeTileProvider;
         mDcDimmingTileProvider = dcDimTileProvider;
         mLocaleTileProvider = localeTileProvider;
+        mSmartPixelsTileProvider = smartPixelsTileProvider;
     }
 
     /** Creates a tile with a type based on {@code tileSpec} */
@@ -407,6 +411,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mDcDimmingTileProvider.get();
             case "locale":
                 return mLocaleTileProvider.get();
+            case "smartpixels":
+                return mSmartPixelsTileProvider.get();
         }
 
         // Custom tiles
