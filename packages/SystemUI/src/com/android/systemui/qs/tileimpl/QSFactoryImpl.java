@@ -59,6 +59,7 @@ import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.ScreenRecordTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
 import com.android.systemui.qs.tiles.SleepScreenTile;
+import com.android.systemui.qs.tiles.SmartPixelsTile;
 import com.android.systemui.qs.tiles.SoundSearchTile;
 import com.android.systemui.qs.tiles.SoundTile;
 import com.android.systemui.qs.tiles.SyncTile;
@@ -124,6 +125,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<ImmersiveTile> mImmersiveTileProvider;
     private final Provider<LocaleTile> mLocaleTileProvider;
     private final Provider<NavBarTile> mNavBarTileProvider;
+    private final Provider<SmartPixelsTile> mSmartPixelsTileProvider;
 
     private QSTileHost mHost;
 
@@ -170,7 +172,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<DataSwitchTile> dataSwitchTileProvider,
             Provider<ImmersiveTile> immersiveTileProvider,
             Provider<LocaleTile> localeTileProvider,
-            Provider<NavBarTile> navBarTileProvider) {
+            Provider<NavBarTile> navBarTileProvider,
+            Provider<SmartPixelsTile> smartPixelsTileProvider) {
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
         mCellularTileProvider = cellularTileProvider;
@@ -215,6 +218,7 @@ public class QSFactoryImpl implements QSFactory {
         mImmersiveTileProvider = immersiveTileProvider;
         mLocaleTileProvider = localeTileProvider;
         mNavBarTileProvider = navBarTileProvider;
+        mSmartPixelsTileProvider = smartPixelsTileProvider;
     }
 
     public void setHost(QSTileHost host) {
@@ -317,6 +321,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mLocaleTileProvider.get();
             case "navbar":
                 return mNavBarTileProvider.get();
+            case "smartpixels":
+                return mSmartPixelsTileProvider.get();
         }
 
         // Intent tiles.
