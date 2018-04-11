@@ -49,7 +49,9 @@ public class QSContainerImpl extends FrameLayout implements
         StatusBarHeaderMachine.IStatusBarHeaderMachineObserver, TunerService.Tunable {
 
     private static final String STATUS_BAR_CUSTOM_HEADER_SHADOW =
-                                Settings.System.STATUS_BAR_CUSTOM_HEADER_SHADOW;
+            "system:" + Settings.System.STATUS_BAR_CUSTOM_HEADER_SHADOW;
+    private static final String QS_PANEL_BG_ALPHA =
+            "system:" + Settings.System.QS_PANEL_BG_ALPHA;
 
     private final Point mSizePoint = new Point();
     private static final FloatPropertyCompat<QSContainerImpl> BACKGROUND_BOTTOM =
@@ -91,6 +93,8 @@ public class QSContainerImpl extends FrameLayout implements
     private Drawable mCurrentBackground;
     private boolean mLandscape;
     private int mHeaderShadow = 0;
+
+    private int mQsBackgroundAlpha = 255;
 
     public QSContainerImpl(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -144,6 +148,7 @@ public class QSContainerImpl extends FrameLayout implements
         super.onAttachedToWindow();
         final TunerService tunerService = Dependency.get(TunerService.class);
         tunerService.addTunable(this, STATUS_BAR_CUSTOM_HEADER_SHADOW);
+        tunerService.addTunable(this, QS_PANEL_BG_ALPHA);
 
         mStatusBarHeaderMachine.addObserver(this);
         mStatusBarHeaderMachine.updateEnablement();
@@ -173,9 +178,19 @@ public class QSContainerImpl extends FrameLayout implements
                         TunerService.parseInteger(newValue, 0);
                 applyHeaderBackgroundShadow();
                 break;
+            case QS_PANEL_BG_ALPHA:
+                mQsBackgroundAlpha =
+                        TunerService.parseInteger(newValue, 255);
+                updateAlpha();
+                break;
             default:
                 break;
         }
+    }
+
+    private void updateAlpha() {
+        mBackground.getBackground().setAlpha(mQsBackgroundAlpha);
+        mStatusBarBackground.getBackground().setAlpha(mQsBackgroundAlpha);
     }
 
     @Override
@@ -244,7 +259,6 @@ public class QSContainerImpl extends FrameLayout implements
         if (disabled == mQsDisabled) return;
         mQsDisabled = disabled;
         mBackground.setVisibility(mQsDisabled ? View.GONE : View.VISIBLE);
-        updateStatusbarVisibility();
     }
 
     private void updateResources() {
@@ -432,6 +446,7 @@ public class QSContainerImpl extends FrameLayout implements
         mStatusBarBackground.setBackgroundColor(Color.TRANSPARENT);
         mStatusBarBackground.setVisibility(hideStatusbar ? View.INVISIBLE : View.VISIBLE);
 
+        updateAlpha();
         applyHeaderBackgroundShadow();
     }
 }
