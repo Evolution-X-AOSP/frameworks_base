@@ -40,7 +40,7 @@ public class QSMobileGroup extends LinearLayout implements SignalCallback {
     private CarrierText mCarrierText;
 
     private boolean mListening;
-    
+
     private View mMobileGroup;
     private ImageView mMobileSignal;
     private ImageView mMobileRoaming;
@@ -49,7 +49,7 @@ public class QSMobileGroup extends LinearLayout implements SignalCallback {
 
     public QSMobileGroup(Context context, AttributeSet attrs) {
         super(context, attrs);
-        mColorForeground = Utils.getColorAttr(context, android.R.attr.colorForeground);
+        mColorForeground = Utils.getColorAttrDefaultColor(context, android.R.attr.colorForeground);
     }
 
     @Override
