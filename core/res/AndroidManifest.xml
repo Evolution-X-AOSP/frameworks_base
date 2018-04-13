@@ -677,6 +677,9 @@
     <!-- Used to force the state of battery led -->
     <protected-broadcast android:name="android.intent.action.BATTERY_LED_STATE_OVERRIDE" />
 
+    <!-- Font service -->
+    <protected-broadcast android:name="com.android.server.ACTION_FONT_CHANGED" />
+
     <!-- ====================================================================== -->
     <!--                          RUNTIME PERMISSIONS                           -->
     <!-- ====================================================================== -->
