@@ -71,6 +71,6 @@
 
     <!-- The default tiles to display in QuickSettings -->
     <string name="quick_settings_tiles_extra" translatable="false">
-        powershare,caffeine,ambient_display,usb_tether,sync,sound,heads_up,reboot,volume_panel,soundsearch,vpn,livedisplay,reading_mode,anti_flicker,dataswitch
+        ambient_display,anti_flicker,aod,caffeine,dataswitch,heads_up,livedisplay,powershare,reading_mode,reboot,sound,soundsearch,sync,usb_tether,volume_panel,vpn
     </string>
 </resources>
