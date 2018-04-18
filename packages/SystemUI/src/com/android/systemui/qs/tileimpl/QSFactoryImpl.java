@@ -27,6 +27,7 @@ import com.android.systemui.plugins.qs.QSTileView;
 import com.android.systemui.qs.QSTileHost;
 import com.android.systemui.qs.external.CustomTile;
 import com.android.systemui.qs.tiles.AirplaneModeTile;
+import com.android.systemui.qs.tiles.AODTile;
 import com.android.systemui.qs.tiles.BatterySaverTile;
 import com.android.systemui.qs.tiles.BluetoothTile;
 import com.android.systemui.qs.tiles.CastTile;
@@ -82,6 +83,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<ScreenshotTile> mScreenshotTileProvider;
     private final Provider<SoundSearchTile> mSoundSearchTileProvider;
     private final Provider<UsbTetherTile> mUsbTetherTileProvider;
+    private final Provider<AODTile> mAODTileProvider;
 
     private QSTileHost mHost;
 
@@ -107,7 +109,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<UiModeNightTile> uiModeNightTileProvider,
             Provider<ScreenshotTile> screenshotTileProvider,
             Provider<SoundSearchTile> soundSearchTileProvider,
-            Provider<UsbTetherTile> usbTetherTileProvider) {
+            Provider<UsbTetherTile> usbTetherTileProvider,
+            Provider<AODTile> aodTileProvider) {
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
         mCellularTileProvider = cellularTileProvider;
@@ -131,6 +134,7 @@ public class QSFactoryImpl implements QSFactory {
         mScreenshotTileProvider = screenshotTileProvider;
         mSoundSearchTileProvider = soundSearchTileProvider;
         mUsbTetherTileProvider = usbTetherTileProvider;
+        mAODTileProvider = aodTileProvider;
     }
 
     public void setHost(QSTileHost host) {
@@ -191,6 +195,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mSoundSearchTileProvider.get();
             case "usb_tether":
                 return mUsbTetherTileProvider.get();
+            case "aod":
+                return mAODTileProvider.get();
         }
 
         // Intent tiles.
