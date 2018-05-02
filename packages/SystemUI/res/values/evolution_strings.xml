@@ -106,7 +106,8 @@
     <string name="vpn_credentials_password">Password</string>
     <string name="vpn_credentials_dialog_connect">Connect</string>
 
-    <!-- Reboot/Recovery QS Tile -->
+    <!-- Power off/Reboot/Recovery QS Tile -->
+    <string name="quick_settings_poweroff_label">Power off</string>
     <string name="quick_settings_reboot_label">Reboot</string>
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
 
