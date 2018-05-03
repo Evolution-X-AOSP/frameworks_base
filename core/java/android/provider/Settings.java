@@ -5436,6 +5436,12 @@ public final class Settings {
         private static final Validator QS_PANEL_BG_ALPHA_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
 
+        /**
+         * Hide Statusbar on LockScreen
+         * @hide
+         */
+        public static final String HIDE_LOCKSCREEN_STATUS_BAR = "hide_lockscreen_status_bar";
+
         /** End of Evolution X system settings**/
 
         /**
@@ -5718,6 +5724,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(BOTTOM_GESTURE_SWIPE_LIMIT);
             PRIVATE_SETTINGS.add(DOZE_ON_CHARGE);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_ALPHA);
+            PRIVATE_SETTINGS.add(HIDE_LOCKSCREEN_STATUS_BAR);
         }
 
         /**
