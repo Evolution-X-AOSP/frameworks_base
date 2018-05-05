@@ -1921,6 +1921,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 mScreenshotRunnable.setScreenshotSource(SCREENSHOT_KEY_OTHER);
                 mHandler.post(mScreenshotRunnable);
                 break;
+            case CLOSE_APP:
+                Utils.killForegroundApp();
+                break;
             default:
                 break;
         }
