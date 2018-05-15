@@ -58,6 +58,10 @@
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay changed to outdoor mode.</string>
 
     <!-- Pocket Lock --> 
-    <string name="pocket_lock_message_long_press">Press and hold power button to unlock</string> 
+    <string name="pocket_lock_message_long_press">Press and hold power button to unlock</string>
+
+    <!-- Alert slider proc nodes paths. -->
+    <string name="alert_slider_state_path"></string>
+    <string name="alert_slider_uevent_match_path"></string>
 
 </resources>
