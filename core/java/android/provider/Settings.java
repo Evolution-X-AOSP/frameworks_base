@@ -5430,6 +5430,16 @@ public final class Settings {
                 ANY_INTEGER_VALIDATOR;
 
         /**
+         * Whether to change the color of the qs panel
+         * @hide
+         */
+        public static final String QS_PANEL_BG_COLOR = "qs_panel_bg_color";
+
+        /** @hide */
+        private static final Validator QS_PANEL_BG_COLOR_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /**
          * Hide Statusbar on LockScreen
          * @hide
          */
@@ -5723,6 +5733,7 @@ public final class Settings {
             DOZE_ON_CHARGE,
             STATUS_BAR_LOGO,
             QS_PANEL_BG_ALPHA,
+            QS_PANEL_BG_COLOR,
         };
 
         /**
@@ -5925,6 +5936,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_PANEL_BG_ALPHA);
             PRIVATE_SETTINGS.add(HIDE_LOCKSCREEN_STATUS_BAR);
             PRIVATE_SETTINGS.add(QS_TILE_STYLE);
+            PRIVATE_SETTINGS.add(QS_PANEL_BG_COLOR);
         }
 
         /**
@@ -6095,6 +6107,7 @@ public final class Settings {
             VALIDATORS.put(DOZE_ON_CHARGE, DOZE_ON_CHARGE_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_LOGO, STATUS_BAR_LOGO_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_ALPHA, QS_PANEL_BG_ALPHA_VALIDATOR);
+            VALIDATORS.put(QS_PANEL_BG_COLOR, QS_PANEL_BG_COLOR_VALIDATOR);
         }
 
         /**
