@@ -7444,5 +7444,11 @@ message MetricsEvent {
     // ---- End Q Constants, all Q constants go above this line ----
     // Add new aosp constants above this line.
     // END OF AOSP CONSTANTS
+
+    // EVOLUTION X Metrics
+    EVO = 2772;
+    EVOLVER = 2773;
+    EVO_SETTINGS = 2774;
+    EVO_QS_TILES = 2775;
   }
 }
