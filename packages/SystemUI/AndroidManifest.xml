@@ -277,7 +277,6 @@
     <!-- Permission to make accessibility service access Bubbles -->
     <uses-permission android:name="android.permission.ADD_TRUSTED_DISPLAY" />
 
-
     <!-- Asus Long screenshot -->
     <uses-permission android:name="com.asus.stitchimage.permission.EXPORTED_FOR_ASUS_APPS"/>
 
@@ -288,7 +287,6 @@
     <!-- QS Tiles -->
     <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
-    <uses-permission android:name="lineageos.permission.MANAGE_LIVEDISPLAY" />
 
     <!-- DataSwitch tile -->
     <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" />
@@ -313,6 +311,10 @@
     <protected-broadcast android:name="com.google.android.systemui.smartspace.ENABLE_UPDATE"/>
     <protected-broadcast android:name="com.google.android.systemui.smartspace.EXPIRE_EVENT"/>
     <protected-broadcast android:name="com.google.android.systemui.smartspace.CLICK_EVENT"/>
+
+    <!-- LiveDisplay -->
+    <uses-permission android:name="lineageos.permission.MANAGE_LIVEDISPLAY" />
+    <uses-permission android:name="lineageos.permission.HARDWARE_ABSTRACTION_ACCESS" />
 
     <application
         android:name=".SystemUIApplication"

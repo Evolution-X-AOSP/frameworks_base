@@ -59,6 +59,7 @@ import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.PowerMenuTile;
 import com.android.systemui.qs.tiles.PowerShareTile;
+import com.android.systemui.qs.tiles.ReadingModeTile;
 import com.android.systemui.qs.tiles.RebootTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
@@ -125,6 +126,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<MusicTile> mMusicTileProvider;
     private final Provider<PowerMenuTile> mPowerMenuTileProvider;
     private final Provider<PowerShareTile> mPowerShareTileProvider;
+    private final Provider<ReadingModeTile> mReadingModeTileProvider;
     private final Provider<RebootTile> mRebootTileProvider;
     private final Provider<ScreenshotTile> mScreenshotTileProvider;
     private final Provider<SleepScreenTile> mSleepScreenTileProvider;
@@ -177,6 +179,7 @@ public class QSFactoryImpl implements QSFactory {
             Provider<MusicTile> musicTileProvider,
             Provider<PowerMenuTile> powerMenuTileProvider,
             Provider<PowerShareTile> powerShareTileProvider,
+            Provider<ReadingModeTile> readingModeTileProvider,
             Provider<RebootTile> rebootTileProvider,
             Provider<ScreenshotTile> screenshotTileProvider,
             Provider<SleepScreenTile> sleepScreenTileProvider,
@@ -225,6 +228,7 @@ public class QSFactoryImpl implements QSFactory {
         mMusicTileProvider = musicTileProvider;
         mPowerMenuTileProvider = powerMenuTileProvider;
         mPowerShareTileProvider = powerShareTileProvider;
+        mReadingModeTileProvider = readingModeTileProvider;
         mRebootTileProvider = rebootTileProvider;
         mScreenshotTileProvider = screenshotTileProvider;
         mSleepScreenTileProvider = sleepScreenTileProvider;
@@ -323,6 +327,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mPowerMenuTileProvider.get();
             case "powershare":
                 return mPowerShareTileProvider.get();
+            case "reading_mode":
+                return mReadingModeTileProvider.get();
             case "reboot":
                 return mRebootTileProvider.get();
             case "screenshot":
