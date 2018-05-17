@@ -27,6 +27,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.UserHandle;
 import android.provider.Settings;
@@ -307,6 +308,16 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
         mRow.setDarkAmount(darkAmount);
         updateTextColors();
         showSlice();
+    }
+
+    public void setViewsTypeface(Typeface tf) {
+        int childCount = mRow.getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View v = mRow.getChildAt(i);
+            if (v instanceof Button) {
+                ((Button) v).setTypeface(tf);
+            }
+        }
     }
 
     private void updateTextColors() {
