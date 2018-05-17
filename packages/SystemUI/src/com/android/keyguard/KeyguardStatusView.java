@@ -260,6 +260,11 @@ public class KeyguardStatusView extends GridLayout implements
         return Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.LOCK_DATE_FONTS, 4);
     }
+
+    private int getLockOwnerFont() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.LOCK_OWNER_FONTS, 4);
+    }
     /**
      * Animate clock and its separator when necessary.
      */
@@ -801,6 +806,7 @@ public class KeyguardStatusView extends GridLayout implements
         boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
         int lockClockFont = isPrimary ? getLockClockFont() : 0;
         int lockDateFont = isPrimary ? getLockDateFont() : 0;
+        int lockOwnFont = isPrimary ? getLockOwnerFont() : 0;
 
         if (lockClockFont == 0) {
             mClockView.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
@@ -955,6 +961,46 @@ public class KeyguardStatusView extends GridLayout implements
         if (lockDateFont == 11) {
             mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
         }
+
+       // Lockscreen owner info
+
+        if (lockOwnFont == 0) {
+            mOwnerInfo.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
+        }
+        if (lockOwnFont == 1) {
+            mOwnerInfo.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+        }
+        if (lockOwnFont == 2) {
+            mOwnerInfo.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
+        }
+        if (lockOwnFont == 3) {
+            mOwnerInfo.setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
+        }
+        if (lockOwnFont == 4) {
+            mOwnerInfo.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
+        }
+        if (lockOwnFont == 5) {
+            mOwnerInfo.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
+        }
+        if (lockOwnFont == 6) {
+            mOwnerInfo.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
+        }
+        if (lockOwnFont == 7) {
+            mOwnerInfo.setTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
+        }
+        if (lockOwnFont == 8) {
+            mOwnerInfo.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
+        }
+        if (lockOwnFont == 9) {
+            mOwnerInfo.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
+        }
+        if (lockOwnFont == 10) {
+            mOwnerInfo.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+        }
+        if (lockOwnFont == 11) {
+            mOwnerInfo.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
+        }
+
     }
 
     // DateFormat.getBestDateTimePattern is extremely expensive, and refresh is called often.
