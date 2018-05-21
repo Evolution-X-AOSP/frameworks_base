@@ -18,6 +18,7 @@ package com.android.systemui.statusbar;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
 import android.app.admin.DevicePolicyManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -55,6 +56,8 @@ import com.android.systemui.statusbar.policy.UserInfoController;
 import com.android.systemui.util.wakelock.SettableWakeLock;
 import com.android.systemui.util.wakelock.WakeLock;
 
+import evolution.support.lottie.LottieAnimationView;
+
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.text.NumberFormat;
@@ -76,6 +79,7 @@ public class KeyguardIndicationController {
     private ViewGroup mIndicationArea;
     private KeyguardIndicationTextView mTextView;
     private KeyguardIndicationTextView mDisclosure;
+    private LottieAnimationView mChargingIndication;
     private final UserManager mUserManager;
     private final IBatteryStats mBatteryInfo;
     private final SettableWakeLock mWakeLock;
@@ -123,6 +127,8 @@ public class KeyguardIndicationController {
                 WakeLock wakeLock) {
         mContext = context;
         mIndicationArea = indicationArea;
+        mChargingIndication = (LottieAnimationView) indicationArea.findViewById(
+                R.id.charging_indication);
         mTextView = indicationArea.findViewById(R.id.keyguard_indication_text);
         mInitialTextColor = mTextView != null ? mTextView.getCurrentTextColor() : Color.WHITE;
         mDisclosure = indicationArea.findViewById(R.id.keyguard_indication_enterprise_disclosure);
@@ -311,6 +317,7 @@ public class KeyguardIndicationController {
                             .format(mBatteryLevel / 100f);
                     mTextView.switchIndication(percentage);
                 }
+                mChargingIndication.setVisibility(View.GONE);
                 return;
             }
 
@@ -348,6 +355,16 @@ public class KeyguardIndicationController {
                 mTextView.switchIndication(mRestingIndication);
                 mTextView.setTextColor(mInitialTextColor);
             }
+            updateChargingIndication();
+        }
+    }
+
+    private void updateChargingIndication() {
+        if (!mDozing && mPowerPluggedIn) {
+            mChargingIndication.setVisibility(View.VISIBLE);
+            mChargingIndication.playAnimation();
+        } else {
+            mChargingIndication.setVisibility(View.GONE);
         }
     }
 
