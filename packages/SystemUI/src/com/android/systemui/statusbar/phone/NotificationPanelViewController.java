@@ -634,6 +634,11 @@ public class NotificationPanelViewController extends PanelViewController {
                 if(pm != null) {
                     pm.goToSleep(e.getEventTime());
                 }
+                // quick pulldown can trigger those values
+                // on double tap - so reset them
+                mQsExpandImmediate = false;
+                requestPanelHeightUpdate();
+                setListening(false);
                 return true;
             }
         });
