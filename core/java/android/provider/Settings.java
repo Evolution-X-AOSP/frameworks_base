@@ -5695,6 +5695,13 @@ public final class Settings {
          */
         public static final String DOZE_TRIGGER_DOUBLETAP = "doze_trigger_doubletap";
 
+        /**
+         * Hide lockscreen icon
+         *
+         * @hide
+         */
+        public static final String HIDE_LOCKSCREEN_ICON = "hide_lockscreen_icon";
+
         /** End of Evolution X system settings**/
 
         /**
@@ -5985,6 +5992,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_PANEL_BG_COLOR_WALL);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_WALL);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_FW);
+	    PRIVATE_SETTINGS.add(HIDE_LOCKSCREEN_ICON);
         }
 
         /**
