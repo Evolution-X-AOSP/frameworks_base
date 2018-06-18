@@ -53,6 +53,7 @@ import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.MusicTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
+import com.android.systemui.qs.tiles.OnTheGoTile;
 import com.android.systemui.qs.tiles.ReadingModeTile;
 import com.android.systemui.qs.tiles.RebootTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
@@ -176,6 +177,8 @@ public class QSFactoryImpl implements QSFactory {
                 return new CallTile(mHost);
             case "sleepscreen":
                 return new SleepScreenTile(mHost);
+            case "onthego":
+                return new OnTheGoTile(mHost);
         }
 
         // Intent tiles.
