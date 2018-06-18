@@ -46,6 +46,7 @@ import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.MicrophoneToggleTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
+import com.android.systemui.qs.tiles.OnTheGoTile;
 import com.android.systemui.qs.tiles.QuickAccessWalletTile;
 import com.android.systemui.qs.tiles.RebootTile;
 import com.android.systemui.qs.tiles.ReduceBrightColorsTile;
@@ -123,6 +124,7 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
             Provider<VolumeTile> volumeTileProvider,
             Provider<CompassTile> compassTileProvider,
             Provider<FPSInfoTile> fpsInfoTileProvider,
+            Provider<OnTheGoTile> onTheGoTileProvider,
             Provider<OverlayToggleTile> overlayToggleTileProvider,
             Provider<ReverseChargingTile> reverseChargingTileProvider) {
         super(qsHostLazy,
@@ -167,7 +169,8 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
                 dataSwitchTileProvider,
                 volumeTileProvider,
                 compassTileProvider,
-                fpsInfoTileProvider);
+                fpsInfoTileProvider,
+                onTheGoTileProvider);
         this.mReverseChargingTileProvider = reverseChargingTileProvider;
         this.mBatterySaverTileGoogleProvider = batterySaverTileGoogleProvider;
         this.mOverlayToggleTileProvider = overlayToggleTileProvider;
