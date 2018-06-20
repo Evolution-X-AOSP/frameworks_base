@@ -291,7 +291,7 @@ public class NetworkTraffic extends TextView {
         }
         if (intTrafficDrawable != 0 && !mHideArrow) {
             Drawable d = getContext().getDrawable(intTrafficDrawable);
-            d.setColorFilter(mTintColor, Mode.SRC_ATOP);
+            d.setColorFilter(mTintColor, Mode.MULTIPLY);
             setCompoundDrawablePadding(txtImgPadding);
             setCompoundDrawablesWithIntrinsicBounds(null, null, d, null);
         } else {
