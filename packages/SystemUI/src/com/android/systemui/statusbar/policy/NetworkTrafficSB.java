@@ -364,7 +364,7 @@ public class NetworkTrafficSB extends TextView implements StatusIconDisplayable 
     }
 
     @Override
-    public void setVisibleState(int state) {
+    public void setVisibleState(int state, boolean animate) {
         if (state == mVisibleState) {
             return;
         }
