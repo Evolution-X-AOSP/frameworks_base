@@ -6233,6 +6233,12 @@ public final class Settings {
         public static final String QS_PANEL_BG_COLOR = "qs_panel_bg_color";
 
         /**
+         * Whether to use framework styles and resources on qs panel
+         * @hide
+         */
+        public static final String QS_PANEL_BG_USE_FW = "qs_panel_bg_use_fw";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -6442,6 +6448,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(HIGH_TOUCH_SENSITIVITY_ENABLE);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_ALPHA);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_COLOR);
+            PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_FW);
         }
 
         /**
