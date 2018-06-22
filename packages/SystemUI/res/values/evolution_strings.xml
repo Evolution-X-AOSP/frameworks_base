@@ -51,6 +51,13 @@
     <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
 
+    <!-- Immersive Mode QS Tile -->
+    <string name="quick_settings_immersive_tile">Immersive mode</string>
+    <string name="quick_settings_immersive_tile_off">Immersive off</string>
+    <string name="quick_settings_immersive_tile_statusbar">Immersive statusbar</string>
+    <string name="quick_settings_immersive_tile_navbar">Immersive navbar</string>
+    <string name="quick_settings_immersive_tile_full">Immersive full</string>
+
     <!-- Power off/Reboot/Recovery QS Tile -->
     <string name="quick_settings_poweroff_label">Power off</string>
     <string name="quick_settings_reboot_label">Reboot</string>
