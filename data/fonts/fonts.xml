@@ -202,6 +202,55 @@
         <font weight="300" style="normal">Union-Regular.ttf</font>
     </family>
 
+    <!-- La fontage v2.1 fonts -->
+    <family name="abelreg">
+        <font weight="300" style="normal">Abel-Regular.ttf</font>
+    </family>
+
+    <family name="archivonar">
+        <font weight="300" style="normal">ArchivoNarrow-Regular.ttf</font>
+    </family>
+
+    <family name="badscript">
+        <font weight="300" style="normal">BadScript-Regular.ttf</font>
+    </family>
+
+    <family name="cherryswash">
+        <font weight="300" style="normal">CherrySwash-Regular.ttf</font>
+    </family>
+
+    <family name="ibmplex-light">
+        <font weight="300" style="normal">IBMPlexMono-Light.ttf</font>
+    </family>
+
+    <family name="kellyslab">
+        <font weight="300" style="normal">KellySlab-Regular.ttf</font>
+    </family>
+
+    <family name="pompiere">
+        <font weight="300" style="normal">Pompiere-Regular.ttf</font>
+    </family>
+
+    <family name="raleway-light">
+        <font weight="300" style="normal">Raleway-Light.ttf</font>
+    </family>
+
+    <family name="reemkufi">
+        <font weight="300" style="normal">ReemKufi-Regular.ttf</font>
+    </family>
+
+    <family name="satisfy">
+        <font weight="300" style="normal">Satisfy-Regular</font>
+    </family>
+
+    <family name="seaweedsc">
+        <font weight="300" style="normal">SeaweedScript-Regular</font>
+    </family>
+
+    <family name="voltaire">
+        <font weight="300" style="normal">Voltaire.ttf</font>
+    </family>
+
     <!-- fallback fonts -->
     <family lang="und-Arab" variant="elegant">
         <font weight="400" style="normal">NotoNaskhArabic-Regular.ttf</font>
