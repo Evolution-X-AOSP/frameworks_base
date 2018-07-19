@@ -240,11 +240,11 @@
     </family>
 
     <family name="satisfy">
-        <font weight="300" style="normal">Satisfy-Regular</font>
+        <font weight="300" style="normal">Satisfy-Regular.ttf</font>
     </family>
 
     <family name="seaweedsc">
-        <font weight="300" style="normal">SeaweedScript-Regular</font>
+        <font weight="300" style="normal">SeaweedScript-Regular.ttf</font>
     </family>
 
     <family name="voltaire">
