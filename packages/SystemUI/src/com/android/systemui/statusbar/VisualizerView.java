@@ -19,18 +19,24 @@ package com.android.systemui.statusbar;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.content.ContentResolver;
+import android.database.ContentObserver;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.media.audiofx.Visualizer;
+import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Handler;
 import android.os.UserHandle;
+import android.provider.Settings;
 import android.support.v7.graphics.Palette;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
+import com.android.internal.utils.UserContentObserver;
 import com.android.systemui.Dependency;
 import com.android.systemui.tuner.TunerService;
 
@@ -60,6 +66,9 @@ public class VisualizerView extends View
     private boolean mDisplaying = false; // the state we're animating to
     private boolean mDozing = false;
     private boolean mOccluded = false;
+    private boolean mAmbientVisualizerEnabled = false;
+
+    private SettingsObserver mObserver;
 
     private int mColor;
     private Bitmap mCurrentBitmap;
@@ -177,6 +186,9 @@ public class VisualizerView extends View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         Dependency.get(TunerService.class).addTunable(this, LOCKSCREEN_VISUALIZER_ENABLED);
+        mObserver = new SettingsObserver(new Handler());
+        mObserver.observe();
+        mObserver.update();
     }
 
     @Override
@@ -184,6 +196,8 @@ public class VisualizerView extends View
         super.onDetachedFromWindow();
         Dependency.get(TunerService.class).removeTunable(this);
         mCurrentBitmap = null;
+        mObserver.unobserve();
+        mObserver = null;
     }
 
     @Override
@@ -337,11 +351,33 @@ public class VisualizerView extends View
     }
 
     private void checkStateChanged() {
-        if (getVisibility() == View.VISIBLE && mVisible && mPlaying && !mDozing && !mPowerSaveMode
+        if (getVisibility() == View.VISIBLE && mVisible && mPlaying && mDozing && mAmbientVisualizerEnabled && !mPowerSaveMode
+                 && mVisualizerEnabled && !mOccluded) {
+            if (!mDisplaying) {
+                mDisplaying = true;
+                AsyncTask.execute(mLinkVisualizer);
+                animate()
+                        .alpha(0.40f)
+                        .withEndAction(null)
+                        .setDuration(800);
+            } else {
+                mPaint.setColor(mColor);
+                animate()
+                        .alpha(0.40f)
+                        .withEndAction(null)
+                        .setDuration(800);
+            }
+        } else if (getVisibility() == View.VISIBLE && mVisible && mPlaying && !mDozing && !mPowerSaveMode
                 && mVisualizerEnabled && !mOccluded) {
             if (!mDisplaying) {
                 mDisplaying = true;
                 AsyncTask.execute(mLinkVisualizer);
+                animate()
+                        .alpha(1f)
+                        .withEndAction(null)
+                        .setDuration(800);
+            } else {
+                mPaint.setColor(mColor);
                 animate()
                         .alpha(1f)
                         .withEndAction(null)
@@ -351,7 +387,7 @@ public class VisualizerView extends View
             if (mDisplaying) {
                 unlink();
                 mDisplaying = false;
-                if (mVisible) {
+                if (mVisible && !mAmbientVisualizerEnabled) {
                     animate()
                             .alpha(0f)
                             .setDuration(600);
@@ -363,4 +399,35 @@ public class VisualizerView extends View
             }
         }
     }
+
+    private class SettingsObserver extends UserContentObserver {
+
+        public SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        @Override
+        protected void update() {
+            mAmbientVisualizerEnabled = Settings.Secure.getIntForUser(
+                getContext().getContentResolver(), Settings.Secure.AMBIENT_VISUALIZER_ENABLED, 0,
+                UserHandle.USER_CURRENT) == 1;
+            checkStateChanged();
+            updateViewVisibility();
+        }
+
+        @Override
+        protected void observe() {
+            super.observe();
+            getContext().getContentResolver().registerContentObserver(Settings.Secure.getUriFor(
+                    Settings.Secure.AMBIENT_VISUALIZER_ENABLED),
+                    false, this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        protected void unobserve() {
+            super.unobserve();
+            getContext().getContentResolver().unregisterContentObserver(this);
+        }
+    }
+
 }
