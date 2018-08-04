@@ -6080,6 +6080,19 @@ public final class Settings {
                 "screen_flash_notification_color_global";
 
         /**
+         * IMPORTANT: If you add a new public settings you also have to add it to
+         * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
+         * it to PRIVATE_SETTINGS below. Also add a validator that can validate
+         * the setting value. See an example above.
+         */
+
+        /**
+         * Stores the array name of the values currently used for SpoofBuildGms
+         * @hide
+         */
+        public static final String PPU_SPOOF_BUILD_GMS_ARRAY = "ppu_spoof_build_gms_array";
+
+        /**
          * Force full screen for devices with cutout
          * @hide
          */
@@ -6123,17 +6136,12 @@ public final class Settings {
         public static final String STATUS_BAR_CLOCK_AUTO_HIDE = "status_bar_clock_auto_hide";
 
         /**
-         * IMPORTANT: If you add a new public settings you also have to add it to
-         * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
-         * it to PRIVATE_SETTINGS below. Also add a validator that can validate
-         * the setting value. See an example above.
-         */
-
-        /**
-         * Stores the array name of the values currently used for SpoofBuildGms
+         * Whether to show seconds next to clock in status bar
+         * 0 - hide (default)
+         * 1 - show
          * @hide
          */
-        public static final String PPU_SPOOF_BUILD_GMS_ARRAY = "ppu_spoof_build_gms_array";
+        public static final String STATUS_BAR_CLOCK_SECONDS = "status_bar_clock_seconds";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to
