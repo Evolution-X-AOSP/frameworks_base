@@ -207,8 +207,16 @@
         <font weight="300" style="normal">Abel-Regular.ttf</font>
     </family>
 
+    <family name="adventpro">
+        <font weight="300" style="normal">AdventPro-Regular.ttf</font>
+    </family>
+
     <family name="archivonar">
         <font weight="300" style="normal">ArchivoNarrow-Regular.ttf</font>
+    </family>
+
+    <family name="autourone">
+        <font weight="300" style="normal">AutourOne-Regular.ttf</font>
     </family>
 
     <family name="badscript">
@@ -219,8 +227,20 @@
         <font weight="300" style="normal">CherrySwash-Regular.ttf</font>
     </family>
 
+    <family name="codystar">
+        <font weight="300" style="normal">Codystar.ttf</font>
+    </family>
+
+    <family name="ibmplex-mono">
+        <font weight="300" style="normal">IBMPlexMono.ttf</font>
+    </family>
+
     <family name="ibmplex-light">
         <font weight="300" style="normal">IBMPlexMono-Light.ttf</font>
+    </family>
+
+    <family name="jura-reg">
+        <font weight="300" style="normal">Jura-Regular.ttf</font>
     </family>
 
     <family name="kellyslab">
@@ -245,6 +265,14 @@
 
     <family name="seaweedsc">
         <font weight="300" style="normal">SeaweedScript-Regular.ttf</font>
+    </family>
+
+    <family name="sedgwick-ave">
+        <font weight="300" style="normal">SedgwickAveDisplay-Regular.ttf</font>
+    </family>
+
+    <family name="vibur">
+        <font weight="300" style="normal">Vibur.ttf</font>
     </family>
 
     <family name="voltaire">
