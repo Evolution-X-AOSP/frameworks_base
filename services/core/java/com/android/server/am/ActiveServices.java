@@ -6294,6 +6294,10 @@ public final class ActiveServices {
                 mPendingServices.remove(i);
                 size = mPendingServices.size();
                 i--;
+                if (proc.isPersistent() && !proc.isolated) {
+                    mRestartingServices.add(sr);
+                    continue;
+                }
                 needOomAdj = true;
                 bringDownServiceLocked(sr, true);
             }
