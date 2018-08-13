@@ -114,9 +114,9 @@ public class TileQueryHelper {
                 possibleTiles.add(spec);
             }
         }
-        if (Build.IS_DEBUGGABLE && !current.contains(GarbageMonitor.MemoryTile.TILE_SPEC)) {
+        /*if (Build.IS_DEBUGGABLE && !current.contains(GarbageMonitor.MemoryTile.TILE_SPEC)) {
             possibleTiles.add(GarbageMonitor.MemoryTile.TILE_SPEC);
-        }
+        }*/
 
         final ArrayList<QSTile> tilesToAdd = new ArrayList<>();
         possibleTiles.remove("cell");
