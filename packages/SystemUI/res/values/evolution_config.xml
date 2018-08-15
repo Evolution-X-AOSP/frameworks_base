@@ -68,4 +68,9 @@
           <item>255,33</item>
           -->
     </string-array>
+
+    <!-- The default tiles to display in QuickSettings -->
+    <string name="quick_settings_tiles_extra" translatable="false">
+        powershare,caffeine,ambient_display,usb_tether,sync,sound,heads_up,reboot,volume_panel,soundsearch,vpn,livedisplay,reading_mode,anti_flicker
+    </string>
 </resources>
