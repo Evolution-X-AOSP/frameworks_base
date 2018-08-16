@@ -1034,6 +1034,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.CAMERA_LAUNCH), false, this,
                     UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.FORCE_SHOW_NAVBAR), false, this,
+                    UserHandle.USER_ALL);
             updateSettings();
         }
 
@@ -2674,6 +2677,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                             com.android.internal.R.integer.config_veryLongPressOnPowerBehavior));
             mKillAppLongpressBack = Settings.Secure.getInt(resolver,
                     Settings.Secure.KILL_APP_LONGPRESS_BACK, 0) == 1;
+
+            mDefaultDisplayPolicy.updatehasNavigationBar();
         }
         if (updateRotation) {
             updateRotation(true);
