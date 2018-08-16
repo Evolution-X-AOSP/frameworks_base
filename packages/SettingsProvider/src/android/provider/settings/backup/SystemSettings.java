@@ -103,5 +103,6 @@ public class SystemSettings {
         Settings.System.STATUS_BAR_LOGO_STYLE,
         Settings.System.TORCH_POWER_BUTTON_GESTURE,
         Settings.System.QS_SHOW_BATTERY_ESTIMATE,
+        Settings.System.LOCKSCREEN_BATTERY_INFO,
     };
 }
