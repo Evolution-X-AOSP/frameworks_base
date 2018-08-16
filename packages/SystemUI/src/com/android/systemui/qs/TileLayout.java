@@ -168,7 +168,7 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
                 mContext.getContentResolver(), Settings.System.QS_LAYOUT_COLUMNS_LANDSCAPE, defaultColumns,
                 UserHandle.USER_CURRENT);
         boolean showTitles = Settings.System.getIntForUser(
-                mContext.getContentResolver(), Settings.System.QS_TILE_TITLE_VISIBILITY, 1,
+                mContext.getContentResolver(), Settings.System.QS_TILE_HIDE_TITLE, 1,
                 UserHandle.USER_CURRENT) == 1;
 
         if (showTitles) {
