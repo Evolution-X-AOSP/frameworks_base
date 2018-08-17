@@ -5465,6 +5465,13 @@ public final class Settings {
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 14);
 
         /**
+         * Change fonts for the system lockscreen clock widget
+         *
+         * @hide
+         */
+        public static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";
+
+        /**
          * Whether to display cross sign for a data disabled connection
          * @hide
          */
