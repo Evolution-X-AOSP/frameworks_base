@@ -61,4 +61,7 @@
 
     <dimen name="quick_status_bar_system_icons_margin_top">8dp</dimen>
 
+    <!-- Sets a custom extra padding for the QS icons and statusbar date -->
+    <dimen name="qs_items_padding">8dp</dimen>
+
 </resources>
