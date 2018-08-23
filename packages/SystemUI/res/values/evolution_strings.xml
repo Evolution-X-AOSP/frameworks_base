@@ -241,5 +241,6 @@
     <string name="alarm_title_tile">Alarm</string>
     <string name="calc_title_tile">Calculator</string>
     <string name="calendar_title_tile">Add Event</string>
+    <string name="camera_title_tile">Camera</string>
 
 </resources>
