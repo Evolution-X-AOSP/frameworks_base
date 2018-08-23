@@ -26,12 +26,17 @@ import com.android.systemui.plugins.qs.QSTile;
 import com.android.systemui.plugins.qs.QSTileView;
 import com.android.systemui.qs.QSTileHost;
 import com.android.systemui.qs.external.CustomTile;
-import com.android.systemui.qs.tiles.AirplaneModeTile;
-import com.android.systemui.qs.tiles.AmbientDisplayTile;
 import com.android.systemui.qs.tiles.AODTile;
+import com.android.systemui.qs.tiles.AirplaneModeTile;
+import com.android.systemui.qs.tiles.AlarmTile;
+import com.android.systemui.qs.tiles.AmbientDisplayTile;
 import com.android.systemui.qs.tiles.BatterySaverTile;
 import com.android.systemui.qs.tiles.BluetoothTile;
 import com.android.systemui.qs.tiles.CaffeineTile;
+import com.android.systemui.qs.tiles.CalcTile;
+import com.android.systemui.qs.tiles.CalendarTile;
+import com.android.systemui.qs.tiles.CallTile;
+import com.android.systemui.qs.tiles.CameraTile;
 import com.android.systemui.qs.tiles.CastTile;
 import com.android.systemui.qs.tiles.CellularTile;
 import com.android.systemui.qs.tiles.ColorInversionTile;
@@ -41,9 +46,9 @@ import com.android.systemui.qs.tiles.DataSwitchTile;
 import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
 import com.android.systemui.qs.tiles.GamingModeTile;
+import com.android.systemui.qs.tiles.HWKeysTile;
 import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
-import com.android.systemui.qs.tiles.HWKeysTile;
 import com.android.systemui.qs.tiles.ImmersiveTile;
 import com.android.systemui.qs.tiles.IntentTile;
 import com.android.systemui.qs.tiles.LiveDisplayTile;
@@ -102,32 +107,37 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<GarbageMonitor.MemoryTile> mMemoryTileProvider;
     private final Provider<UiModeNightTile> mUiModeNightTileProvider;
     // Evolution X Additions
-    private final Provider<ScreenshotTile> mScreenshotTileProvider;
-    private final Provider<SoundSearchTile> mSoundSearchTileProvider;
-    private final Provider<UsbTetherTile> mUsbTetherTileProvider;
+    private final Provider<AlarmTile> mAlarmTileProvider;
     private final Provider<AODTile> mAODTileProvider;
-    private final Provider<SoundTile> mSoundTileProvider;
-    private final Provider<CaffeineTile> mCaffeineTileProvider;
-    private final Provider<HeadsUpTile> mHeadsUpTileProvider;
-    private final Provider<SyncTile> mSyncTileProvider;
-    private final Provider<VolumeTile> mVolumeTileProvider;
-    private final Provider<CompassTile> mCompassTileProvider;
     private final Provider<AmbientDisplayTile> mAmbientDisplayTileProvider;
-    private final Provider<SleepScreenTile> mSleepScreenTileProvider;
-    private final Provider<VpnTile> mVpnTileProvider;
-    private final Provider<RebootTile> mRebootTileProvider;
+    private final Provider<CaffeineTile> mCaffeineTileProvider;
+    private final Provider<CalcTile> mCalcTileProvider;
+    private final Provider<CalendarTile> mCalendarTileProvider;
+    private final Provider<CallTile> mCallTileProvider;
+    private final Provider<CameraTile> mCameraTileProvider;
+    private final Provider<CompassTile> mCompassTileProvider;
+    private final Provider<DataSwitchTile> mDataSwitchTileProvider;
+    private final Provider<GamingModeTile> mGamingModeTileProvider;
+    private final Provider<HWKeysTile> mHWKeysTileProvider;
+    private final Provider<HeadsUpTile> mHeadsUpTileProvider;
+    private final Provider<ImmersiveTile> mImmersiveTileProvider;
     private final Provider<LiveDisplayTile> mLiveDisplayTileProvider;
+    private final Provider<LocaleTile> mLocaleTileProvider;
+    private final Provider<MusicTile> mMusicTileProvider;
+    private final Provider<NavBarTile> mNavBarTileProvider;
     private final Provider<PowerShareTile> mPowerShareTileProvider;
     private final Provider<ReadingModeTile> mReadingModeTileProvider;
+    private final Provider<RebootTile> mRebootTileProvider;
     private final Provider<ScreenRecordTile> mScreenRecordTileProvider;
-    private final Provider<HWKeysTile> mHWKeysTileProvider;
-    private final Provider<GamingModeTile> mGamingModeTileProvider;
-    private final Provider<DataSwitchTile> mDataSwitchTileProvider;
-    private final Provider<ImmersiveTile> mImmersiveTileProvider;
-    private final Provider<LocaleTile> mLocaleTileProvider;
-    private final Provider<NavBarTile> mNavBarTileProvider;
+    private final Provider<ScreenshotTile> mScreenshotTileProvider;
+    private final Provider<SleepScreenTile> mSleepScreenTileProvider;
     private final Provider<SmartPixelsTile> mSmartPixelsTileProvider;
-    private final Provider<MusicTile> mMusicTileProvider;
+    private final Provider<SoundSearchTile> mSoundSearchTileProvider;
+    private final Provider<SoundTile> mSoundTileProvider;
+    private final Provider<SyncTile> mSyncTileProvider;
+    private final Provider<UsbTetherTile> mUsbTetherTileProvider;
+    private final Provider<VolumeTile> mVolumeTileProvider;
+    private final Provider<VpnTile> mVpnTileProvider;
 
     private QSTileHost mHost;
 
@@ -176,7 +186,12 @@ public class QSFactoryImpl implements QSFactory {
             Provider<LocaleTile> localeTileProvider,
             Provider<NavBarTile> navBarTileProvider,
             Provider<SmartPixelsTile> smartPixelsTileProvider,
-            Provider<MusicTile> musicTileProvider) {
+            Provider<MusicTile> musicTileProvider,
+            Provider<AlarmTile> alarmTileProvider,
+            Provider<CalcTile> calcTileProvider,
+            Provider<CalendarTile> calendarTileProvider,
+            Provider<CameraTile> cameraTileProvider,
+            Provider<CallTile> callTileProvider) {
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
         mCellularTileProvider = cellularTileProvider;
@@ -197,32 +212,37 @@ public class QSFactoryImpl implements QSFactory {
         mMemoryTileProvider = memoryTileProvider;
         mUiModeNightTileProvider = uiModeNightTileProvider;
         // Evolution X Additions
-        mScreenshotTileProvider = screenshotTileProvider;
-        mSoundSearchTileProvider = soundSearchTileProvider;
-        mUsbTetherTileProvider = usbTetherTileProvider;
+        mAlarmTileProvider = alarmTileProvider;
         mAODTileProvider = aodTileProvider;
-        mSoundTileProvider = soundTileProvider;
-        mCaffeineTileProvider = caffeineTileProvider;
-        mHeadsUpTileProvider = headsUpTileProvider;
-        mSyncTileProvider = syncTileProvider;
-        mVolumeTileProvider = volumeTileProvider;
-        mCompassTileProvider = compassTileProvider;
         mAmbientDisplayTileProvider = ambientDisplayTileProvider;
-        mSleepScreenTileProvider = sleepScreenTileProvider;
-        mVpnTileProvider = vpnTileProvider;
-        mRebootTileProvider = rebootTileProvider;
+        mCaffeineTileProvider = caffeineTileProvider;
+        mCalcTileProvider = calcTileProvider;
+        mCalendarTileProvider = calendarTileProvider;
+        mCallTileProvider = callTileProvider;
+        mCameraTileProvider = cameraTileProvider;
+        mCompassTileProvider = compassTileProvider;
+        mDataSwitchTileProvider = dataSwitchTileProvider;
+        mGamingModeTileProvider = gamingModeTileProvider;
+        mHWKeysTileProvider = hWKeysTileProvider;
+        mHeadsUpTileProvider = headsUpTileProvider;
+        mImmersiveTileProvider = immersiveTileProvider;
         mLiveDisplayTileProvider = liveDisplayTileProvider;
+        mLocaleTileProvider = localeTileProvider;
+        mMusicTileProvider = musicTileProvider;
+        mNavBarTileProvider = navBarTileProvider;
         mPowerShareTileProvider = powerShareTileProvider;
         mReadingModeTileProvider = readingModeTileProvider;
+        mRebootTileProvider = rebootTileProvider;
         mScreenRecordTileProvider = screenRecordTileProvider;
-        mHWKeysTileProvider = hWKeysTileProvider;
-        mGamingModeTileProvider = gamingModeTileProvider;
-        mDataSwitchTileProvider = dataSwitchTileProvider;
-        mImmersiveTileProvider = immersiveTileProvider;
-        mLocaleTileProvider = localeTileProvider;
-        mNavBarTileProvider = navBarTileProvider;
+        mScreenshotTileProvider = screenshotTileProvider;
+        mSleepScreenTileProvider = sleepScreenTileProvider;
         mSmartPixelsTileProvider = smartPixelsTileProvider;
-        mMusicTileProvider = musicTileProvider;
+        mSoundSearchTileProvider = soundSearchTileProvider;
+        mSoundTileProvider = soundTileProvider;
+        mSyncTileProvider = syncTileProvider;
+        mUsbTetherTileProvider = usbTetherTileProvider;
+        mVolumeTileProvider = volumeTileProvider;
+        mVpnTileProvider = vpnTileProvider;
     }
 
     public void setHost(QSTileHost host) {
@@ -329,6 +349,16 @@ public class QSFactoryImpl implements QSFactory {
                 return mSmartPixelsTileProvider.get();
             case "music":
                 return mMusicTileProvider.get();
+            case "alarm":
+                return mAlarmTileProvider.get();
+            case "calc":
+                return mCalcTileProvider.get();
+            case "calendar":
+                return mCalendarTileProvider.get();
+            case "camera":
+                return mCameraTileProvider.get();
+            case "call":
+                return mCallTileProvider.get();
         }
 
         // Intent tiles.

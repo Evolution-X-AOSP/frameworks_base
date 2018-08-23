@@ -274,4 +274,11 @@
 
     <!-- QS Tuner Config -->
     <string name="tuner_qs_long_press_action">Dont show panels on long press</string>
+
+    <!-- Other QS tiles -->
+    <string name="alarm_title_tile">Alarm</string>
+    <string name="calc_title_tile">Calculator</string>
+    <string name="calendar_title_tile">Add Event</string>
+    <string name="camera_title_tile">Camera</string>
+    <string name="call_title_tile">Dialer</string>
 </resources>
