@@ -239,5 +239,6 @@
 
     <!-- Other QS tiles -->
     <string name="alarm_title_tile">Alarm</string>
+    <string name="calc_title_tile">Calculator</string>
 
 </resources>
