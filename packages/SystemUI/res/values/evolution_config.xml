@@ -11,4 +11,8 @@
          Possible values: 3, 3.1, 3.2, 4, 4.1, 4.2
     -->
     <string name="config_screenRecorderAVCProfileLevel" translatable="false">4.2</string>
+
+    <!-- Max visible notification icons -->
+    <integer name="config_maxVisibleNotificationIcons">4</integer>
+    <integer name="config_maxVisibleNotificationIconsOnLock">5</integer>
 </resources>
