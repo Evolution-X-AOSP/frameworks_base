@@ -26,4 +26,8 @@
     -->
     <integer name="config_udfps_hbm_type">1</integer>
 
+    <!-- Max visible notification icons -->
+    <integer name="config_maxVisibleNotificationIcons">4</integer>
+    <integer name="config_maxVisibleNotificationIconsOnLock">5</integer>
+
 </resources>
