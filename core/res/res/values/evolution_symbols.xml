@@ -74,4 +74,7 @@
     <!-- SystemUI Restart -->
     <java-symbol type="string" name="systemui_restart_title" />
     <java-symbol type="string" name="systemui_restart_message" />
+
+    <!-- Whether to allow process with media UID to access CameraServiceProxy -->
+    <java-symbol type="bool" name="config_allowMediaUidForCameraServiceProxy" />
 </resources>
