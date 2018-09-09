@@ -116,5 +116,7 @@ public class GlobalSettings {
         Settings.Global.BLUETOOTH_OFF_TIMEOUT,
         Settings.Global.WAKELOCK_BLOCKING_ENABLED,
         Settings.Global.WAKELOCK_BLOCKING_LIST,
+        Settings.Global.ALARM_BLOCKING_ENABLED,
+        Settings.Global.ALARM_BLOCKING_LIST,
     };
 }
