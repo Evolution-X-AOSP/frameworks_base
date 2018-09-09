@@ -145,4 +145,6 @@
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Volume panel</string>
 
+    <string name="tuner_show_info_header_title">Show information header</string>
+
 </resources>
