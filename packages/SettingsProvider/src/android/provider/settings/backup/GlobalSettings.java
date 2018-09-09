@@ -80,6 +80,8 @@ public class GlobalSettings {
         Settings.Global.ADVANCED_BATTERY_USAGE_AMOUNT,
         Settings.Global.POWER_BUTTON_LONG_PRESS_DURATION_MS,
         Settings.Global.WAKELOCK_BLOCKING_ENABLED,
-        Settings.Global.WAKELOCK_BLOCKING_LIST
+        Settings.Global.WAKELOCK_BLOCKING_LIST,
+        Settings.Global.ALARM_BLOCKING_ENABLED,
+        Settings.Global.ALARM_BLOCKING_LIST
     };
 }
