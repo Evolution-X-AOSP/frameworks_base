@@ -85,6 +85,8 @@ public class GlobalSettings {
         Settings.Global.USER_PREFERRED_RESOLUTION_WIDTH,
         Settings.Global.POWER_BUTTON_LONG_PRESS,
         Settings.Global.WAKELOCK_BLOCKING_ENABLED,
-        Settings.Global.WAKELOCK_BLOCKING_LIST
+        Settings.Global.WAKELOCK_BLOCKING_LIST,
+        Settings.Global.ALARM_BLOCKING_ENABLED,
+        Settings.Global.ALARM_BLOCKING_LIST
     };
 }
