@@ -615,7 +615,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     public void setupHost(final QSTileHost host) {
         mHost = host;
         //host.setHeaderView(mExpandIndicator);
-        mHeaderQsPanel.setQSPanelAndHeader(mQsPanel, this);
+        mHeaderQsPanel.setQSPanel(mQsPanel);
         mHeaderQsPanel.setHost(host, null /* No customization in header */);
 
         if (mBatteryInQS) {
