@@ -5809,6 +5809,12 @@ public final class Settings {
          */
         public static final String FORCE_EXPANDED_NOTIFICATIONS = "force_expanded_notifications";
 
+        /**
+         * Whether to use partial screenshot when using volume keys
+         * @hide
+         */
+        public static final String SCREENSHOT_TYPE = "screenshot_type";
+
         /** End of Evolution X system settings**/
 
         /**
