@@ -39,6 +39,7 @@ import com.android.settingslib.graph.SignalDrawable;
 import com.android.systemui.DualToneHandler;
 import com.android.systemui.R;
 import com.android.systemui.plugins.DarkIconDispatcher.DarkReceiver;
+import com.android.systemui.statusbar.phone.StatusBar;
 import com.android.systemui.statusbar.phone.StatusBarSignalPolicy.MobileIconState;
 
 public class StatusBarMobileView extends FrameLayout implements DarkReceiver,
@@ -104,7 +105,7 @@ public class StatusBarMobileView extends FrameLayout implements DarkReceiver,
         mDualToneHandler = new DualToneHandler(getContext());
         mMobileGroup = findViewById(R.id.mobile_group);
         mMobile = findViewById(R.id.mobile_signal);
-        mMobileType = findViewById(R.id.mobile_type);
+        mMobileType = findViewById(StatusBar.USE_OLD_MOBILETYPE ? R.id.mobile_type_old : R.id.mobile_type);
         mMobileRoaming = findViewById(R.id.mobile_roaming);
         mMobileRoamingSpace = findViewById(R.id.mobile_roaming_space);
         mIn = findViewById(R.id.mobile_in);
@@ -116,6 +117,21 @@ public class StatusBarMobileView extends FrameLayout implements DarkReceiver,
         mMobile.setImageDrawable(mMobileDrawable);
 
         initDotView();
+    }
+
+    private void updateMobileTypeView(boolean useOldStyle) {
+        int visOld = mMobileType.getVisibility();
+        mMobileType.setVisibility(View.GONE);
+        mMobileType = findViewById(useOldStyle ? R.id.mobile_type_old : R.id.mobile_type);
+        mMobileType.setVisibility(visOld);
+        int wideTypeIconStartPadding = mContext.getResources().getDimensionPixelSize(R.dimen.wide_type_icon_start_padding);
+        mMobile.setPaddingRelative(
+          useOldStyle &&
+          mState.typeId != 0 &&
+          mState.typeId != R.drawable.stat_sys_data_fully_connected_g &&
+          mState.typeId != R.drawable.stat_sys_data_fully_connected_e &&
+          mState.typeId != R.drawable.stat_sys_data_fully_connected_h
+            ? wideTypeIconStartPadding : 0, 0, 0, 0);
     }
 
     private void initDotView() {
@@ -145,9 +161,11 @@ public class StatusBarMobileView extends FrameLayout implements DarkReceiver,
         if (requestLayout) {
             requestLayout();
         }
+        updateMobileTypeView(StatusBar.USE_OLD_MOBILETYPE);
     }
 
     private void initViewState() {
+        updateMobileTypeView(StatusBar.USE_OLD_MOBILETYPE);
         setContentDescription(mState.contentDescription);
         if (!mState.visible) {
             mMobileGroup.setVisibility(View.GONE);

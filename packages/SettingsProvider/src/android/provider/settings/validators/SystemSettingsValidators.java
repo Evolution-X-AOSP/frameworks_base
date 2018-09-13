@@ -243,5 +243,6 @@ public class SystemSettingsValidators {
                 });
         VALIDATORS.put(System.NOTIFICATION_HEADERS, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.ACCENT_COLOR, ANY_INTEGER_VALIDATOR);
+        VALIDATORS.put(System.USE_OLD_MOBILETYPE, BOOLEAN_VALIDATOR);
     }
 }

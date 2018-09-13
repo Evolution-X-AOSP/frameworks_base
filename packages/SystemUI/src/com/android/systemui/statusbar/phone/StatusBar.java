@@ -253,6 +253,7 @@ import com.android.systemui.statusbar.policy.OnHeadsUpChangedListener;
 import com.android.systemui.statusbar.policy.PulseController;
 import com.android.systemui.statusbar.policy.RemoteInputQuickSettingsDisabler;
 import com.android.systemui.statusbar.policy.TaskHelper;
+import com.android.systemui.statusbar.policy.TelephonyIcons;
 import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
 import com.android.systemui.volume.VolumeComponent;
@@ -345,6 +346,8 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     /** If true, the lockscreen will show a distinct wallpaper */
     public static final boolean ENABLE_LOCKSCREEN_WALLPAPER = true;
+
+    public static boolean USE_OLD_MOBILETYPE = false;
 
     private static final UiEventLogger sUiEventLogger = new UiEventLoggerImpl();
 
@@ -2219,6 +2222,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_TILES_BG_DISCO),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.USE_OLD_MOBILETYPE),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -2249,6 +2255,8 @@ public class StatusBar extends SystemUI implements DemoMode,
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_PANEL_BG_USE_NEW_TINT)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.QS_TILES_BG_DISCO))) {
                 mQSPanel.getHost().reloadAllTiles();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.USE_OLD_MOBILETYPE))) {
+                setOldMobileType();
             }
         }
 
@@ -2264,6 +2272,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             setScreenBrightnessMode();
             updateNavigationBar(false);
             setGamingMode();
+            setOldMobileType();
         }
     }
 
@@ -2338,6 +2347,13 @@ public class StatusBar extends SystemUI implements DemoMode,
                 UserHandle.USER_CURRENT) == 1;
         if (mNotificationInterruptStateProvider != null)
             mNotificationInterruptStateProvider.setGamingPeekMode(mGamingModeActivated && mHeadsUpDisabled);
+    }
+
+    private void setOldMobileType() {
+        USE_OLD_MOBILETYPE = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.USE_OLD_MOBILETYPE, 0,
+                UserHandle.USER_CURRENT) != 0;
+        TelephonyIcons.updateIcons(USE_OLD_MOBILETYPE);
     }
 
     /**
