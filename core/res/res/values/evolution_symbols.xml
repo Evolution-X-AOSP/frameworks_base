@@ -255,4 +255,10 @@
     <!-- Whether to show a custom view for FOD -->
     <java-symbol type="bool" name="config_needCustomFODView" />
 
+  <!-- FireHound Gaming -->
+  <java-symbol type="string" name="gaming_notif_title" />
+  <java-symbol type="string" name="gaming_notif_ticker" />
+  <java-symbol type="string" name="notification_channel_gaming" />
+  <java-symbol type="drawable" name="ic_gaming_notif" />
+
 </resources>
