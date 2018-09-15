@@ -5388,6 +5388,13 @@ public final class Settings {
          */
         public static final String ENABLE_SUGGESTIONS = "enable_suggestions";
 
+        /**
+         * Whether to enable gaming mode or not
+         *
+         * @hide
+         */
+        public static final String ENABLE_GAMING_MODE = "enable_gaming_mode";
+
         /** End of Evolution X system settings**/
 
         /**
