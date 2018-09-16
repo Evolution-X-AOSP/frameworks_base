@@ -90,6 +90,7 @@ public class MobileSignalController extends SignalController<
     private int mShow4GUserConfig;
     private boolean mVoLTEicon;
     private boolean mHasNotch;
+    private boolean mDataDisabledIcon;
 
     private ImsManager mImsManager;
     private boolean mRoamingIconAllowed;
@@ -161,6 +162,9 @@ public class MobileSignalController extends SignalController<
            resolver.registerContentObserver(Settings.System.getUriFor(
                    Settings.System.ROAMING_INDICATOR_ICON),
                   false, this, UserHandle.USER_ALL);
+           resolver.registerContentObserver(Settings.System.getUriFor(
+                   Settings.System.DATA_DISABLED_ICON),
+                  false, this, UserHandle.USER_ALL);
            updateSettings();
         }
 
@@ -184,6 +188,10 @@ public class MobileSignalController extends SignalController<
 
         mRoamingIconAllowed = Settings.System.getIntForUser(resolver,
                 Settings.System.ROAMING_INDICATOR_ICON, 1,
+                UserHandle.USER_CURRENT) == 1;
+
+        mDataDisabledIcon = Settings.System.getIntForUser(resolver,
+                Settings.System.DATA_DISABLED_ICON, 1,
                 UserHandle.USER_CURRENT) == 1;
 
         mapIconSets();
@@ -600,7 +608,7 @@ public class MobileSignalController extends SignalController<
         mCurrentState.roaming = isRoaming() && mRoamingIconAllowed;
         if (isCarrierNetworkChangeActive()) {
             mCurrentState.iconGroup = TelephonyIcons.CARRIER_NETWORK_CHANGE;
-        } else if (isDataDisabled() && !mConfig.alwaysShowDataRatIcon) {
+        } else if (isDataDisabled() && !mConfig.alwaysShowDataRatIcon && mDataDisabledIcon) {
             mCurrentState.iconGroup = TelephonyIcons.DATA_DISABLED;
         }
         if (isEmergencyOnly() != mCurrentState.isEmergency) {
