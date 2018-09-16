@@ -72,7 +72,6 @@
         android:ellipsize="marquee"
         android:marqueeRepeatLimit="marquee_forever"
         android:textDirection="locale"
-        android:textAppearance="@style/TextAppearance.StatusBar.CarrierLabel"
         android:singleLine="true"
         systemui:showMissingSim="true"
         systemui:showAirplaneMode="true" />
