@@ -270,4 +270,7 @@
     <!-- Ambient display music ticker -->
     <java-symbol type="bool" name="config_canForceDozeNotifications" />
 
+    <java-symbol type="anim" name="inv_app_in" />
+    <java-symbol type="anim" name="inv_app_out" />
+
 </resources>
