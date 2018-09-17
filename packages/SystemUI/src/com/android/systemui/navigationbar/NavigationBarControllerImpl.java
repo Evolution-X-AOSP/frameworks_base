@@ -61,6 +61,7 @@ import com.android.systemui.statusbar.phone.AutoHideController;
 import com.android.systemui.statusbar.phone.BarTransitions.TransitionMode;
 import com.android.systemui.statusbar.phone.LightBarController;
 import com.android.systemui.statusbar.policy.ConfigurationController;
+import com.android.internal.util.custom.NavbarUtils;
 import com.android.systemui.util.settings.SecureSettings;
 import com.android.wm.shell.back.BackAnimation;
 import com.android.wm.shell.pip.Pip;
@@ -382,6 +383,9 @@ public class NavigationBarControllerImpl implements
         final Context context = isOnDefaultDisplay
                 ? mContext
                 : mContext.createDisplayContext(display);
+        if (!hasSoftNavigationBar(context, displayId)) {
+            return;
+        }
         NavigationBarComponent component = mNavigationBarComponentFactory.create(
                 context, savedState);
         NavigationBar navBar = component.getNavigationBar();
@@ -403,6 +407,13 @@ public class NavigationBarControllerImpl implements
                 v.removeOnAttachStateChangeListener(this);
             }
         });
+
+        try {
+            final IWindowManager wms = WindowManagerGlobal.getWindowManagerService();
+            wms.onOverlayChanged();
+        } catch (RemoteException e) {
+            // Do nothing.
+        }
     }
 
     @Override
@@ -476,6 +487,23 @@ public class NavigationBarControllerImpl implements
             return navBarView.isOverviewEnabled();
         } else {
             return mTaskbarDelegate.isOverviewEnabled();
+        }
+    }
+
+    /**
+     * @param displayId the id of display to check if there is a software navigation bar.
+     *
+     * @return whether there is a soft nav bar on specific display.
+     */
+    private boolean hasSoftNavigationBar(Context context, int displayId) {
+        if (displayId == Display.DEFAULT_DISPLAY && NavbarUtils.isEnabled(context)) {
+            return true;
+        }
+        try {
+            return WindowManagerGlobal.getWindowManagerService().hasNavigationBar(displayId);
+        } catch (RemoteException e) {
+            Log.e(TAG, "Failed to check soft navigation bar", e);
+            return false;
         }
     }
 
