@@ -24,6 +24,8 @@ import static android.app.StatusBarManager.windowStateToString;
 import static android.view.WindowInsetsController.APPEARANCE_LOW_PROFILE_BARS;
 import static android.view.WindowInsetsController.APPEARANCE_OPAQUE_STATUS_BARS;
 import static android.view.WindowInsetsController.APPEARANCE_SEMI_TRANSPARENT_STATUS_BARS;
+import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_3BUTTON_OVERLAY;
+import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_GESTURAL_OVERLAY;
 
 import static androidx.core.view.ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_AUTO;
 import static androidx.core.view.ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS;
@@ -62,6 +64,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.om.IOverlayManager;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
@@ -271,6 +274,7 @@ import com.android.systemui.volume.VolumeComponent;
 import com.android.wm.shell.bubbles.Bubbles;
 import com.android.wm.shell.startingsurface.SplashscreenContentDrawer;
 import com.android.wm.shell.startingsurface.StartingSurface;
+import com.android.internal.util.custom.NavbarUtils;
 
 import dagger.Lazy;
 
@@ -308,6 +312,8 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
             "system:" + Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL;
     private static final String PULSE_ON_NEW_TRACKS =
             Settings.Secure.PULSE_ON_NEW_TRACKS;
+    private static final String NAVIGATION_BAR_SHOW =
+            "system:" + Settings.System.NAVIGATION_BAR_SHOW;
 
     private static final String BANNER_ACTION_CANCEL =
             "com.android.systemui.statusbar.banner_action_cancel";
@@ -662,6 +668,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
     private final UserSwitcherController mUserSwitcherController;
     private final LifecycleRegistry mLifecycle = new LifecycleRegistry(this);
     protected final BatteryController mBatteryController;
+    private IOverlayManager mOverlayManager;
     private UiModeManager mUiModeManager;
     private LogMaker mStatusBarStateLog;
     protected final NotificationIconAreaController mNotificationIconAreaController;
@@ -1012,6 +1019,8 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
     public void start() {
         mScreenLifecycle.addObserver(mScreenObserver);
         mWakefulnessLifecycle.addObserver(mWakefulnessObserver);
+        mOverlayManager = IOverlayManager.Stub.asInterface(
+                ServiceManager.getService(Context.OVERLAY_SERVICE));
         mUiModeManager = mContext.getSystemService(UiModeManager.class);
         mBubblesOptional.ifPresent(this::initBubbles);
 
@@ -1025,6 +1034,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
 
         mTunerService.addTunable(this, STATUS_BAR_BRIGHTNESS_CONTROL);
         mTunerService.addTunable(this, PULSE_ON_NEW_TRACKS);
+        mTunerService.addTunable(this, NAVIGATION_BAR_SHOW);
 
         mDisplay = mContext.getDisplay();
         mDisplayId = mDisplay.getDisplayId();
@@ -1054,6 +1064,8 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         } catch (RemoteException ex) {
             ex.rethrowFromSystemServer();
         }
+
+        initCoreOverlays();
 
         createAndAddWindows(result);
 
@@ -1292,6 +1304,13 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
             // expanded. To prevent that we can close QS which resets QS and some parts of
             // the shade to its default state. Read more in b/201537421
             mCloseQsBeforeScreenOff = true;
+        }
+    }
+
+    private void initCoreOverlays(){
+        boolean navbarEnabled = NavbarUtils.isEnabled(mContext);
+        if (!navbarEnabled) {
+            setNavBarInteractionMode(NAV_BAR_MODE_3BUTTON_OVERLAY);
         }
     }
 
@@ -3668,6 +3687,28 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         return mStatusBarKeyguardViewManager.isSecure();
     }
 
+    private void setNavBarInteractionMode(String overlayPackage) {
+        try {
+            mOverlayManager.setEnabledExclusiveInCategory(overlayPackage, UserHandle.USER_CURRENT);
+        } catch (Exception e) {
+        }
+    }
+
+    private void saveNavBarCurrentModeOverlay() {
+        String navigationBarModeOverlay = NavbarUtils.getNavigationBarModeOverlay(mContext, mOverlayManager);
+        Settings.System.putString(mContext.getContentResolver(),
+                Settings.System.NAVIGATION_BAR_MODE_OVERLAY, navigationBarModeOverlay);
+    }
+
+    private String getOldNavBarModeOverlay() {
+        String navigationBarModeOverlay = Settings.System.getStringForUser(mContext.getContentResolver(),
+                Settings.System.NAVIGATION_BAR_MODE_OVERLAY, UserHandle.USER_CURRENT);
+        if (TextUtils.isEmpty(navigationBarModeOverlay)){
+            navigationBarModeOverlay = NAV_BAR_MODE_GESTURAL_OVERLAY;
+        }
+        return navigationBarModeOverlay;
+    }
+
     @Override
     public void onTuningChanged(String key, String newValue) {
         switch (key) {
@@ -3683,6 +3724,23 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
                 KeyguardSliceProvider sliceProvider = KeyguardSliceProvider.getAttachedInstance();
                 if (sliceProvider != null)
                     sliceProvider.setPulseOnNewTracks(showPulseOnNewTracks);
+                break;
+            case NAVIGATION_BAR_SHOW:
+                if (mDisplayId != Display.DEFAULT_DISPLAY
+                    || mWindowManagerService == null) {
+                    break;
+                }
+                boolean navbarEnabled = NavbarUtils.isEnabled(mContext);
+                boolean hasNavbar = getNavigationBarView() != null;
+                if (navbarEnabled) {
+                    if (!hasNavbar) {
+                        mNavigationBarController.onDisplayReady(mDisplayId);
+                    }
+                } else {
+                    if (hasNavbar) {
+                        mNavigationBarController.onDisplayRemoved(mDisplayId);
+                    }
+                }
                 break;
             default:
                 break;
