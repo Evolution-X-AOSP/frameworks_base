@@ -50,6 +50,9 @@ import static com.android.systemui.statusbar.phone.BarTransitions.MODE_TRANSPARE
 import static com.android.systemui.statusbar.phone.BarTransitions.MODE_WARNING;
 import static com.android.systemui.statusbar.phone.BarTransitions.TransitionMode;
 
+import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_3BUTTON_OVERLAY;
+import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_GESTURAL_OVERLAY;
+
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.app.ActivityManager;
@@ -108,6 +111,7 @@ import android.provider.Settings;
 import android.service.dreams.DreamService;
 import android.service.dreams.IDreamManager;
 import android.service.notification.StatusBarNotification;
+import android.text.TextUtils;
 import android.util.ArraySet;
 import android.util.DisplayMetrics;
 import android.util.EventLog;
@@ -250,7 +254,10 @@ import com.android.systemui.statusbar.policy.RemoteInputQuickSettingsDisabler;
 import com.android.systemui.statusbar.policy.TaskHelper;
 import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.volume.VolumeComponent;
+
+import com.android.internal.util.custom.NavbarUtils;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -271,7 +278,8 @@ public class StatusBar extends SystemUI implements DemoMode,
         OnHeadsUpChangedListener, CommandQueue.Callbacks,
         ColorExtractor.OnColorsChangedListener, ConfigurationListener,
         StatusBarStateController.StateListener, ActivityLaunchAnimator.Callback,
-        LifecycleOwner, BatteryController.BatteryStateChangeCallback {
+        LifecycleOwner, BatteryController.BatteryStateChangeCallback,
+        TunerService.Tunable {
     public static final boolean MULTIUSER_DEBUG = false;
 
     protected static final int MSG_HIDE_RECENT_APPS = 1020;
@@ -284,6 +292,9 @@ public class StatusBar extends SystemUI implements DemoMode,
     public static final String SYSTEM_DIALOG_REASON_HOME_KEY = "homekey";
     public static final String SYSTEM_DIALOG_REASON_RECENT_APPS = "recentapps";
     static public final String SYSTEM_DIALOG_REASON_SCREENSHOT = "screenshot";
+
+    private static final String NAVIGATION_BAR_SHOW =
+            "system:" + Settings.System.NAVIGATION_BAR_SHOW;
 
     private static final String BANNER_ACTION_CANCEL =
             "com.android.systemui.statusbar.banner_action_cancel";
@@ -425,6 +436,7 @@ public class StatusBar extends SystemUI implements DemoMode,
     private final ExtensionController mExtensionController;
     private final UserInfoControllerImpl mUserInfoControllerImpl;
     private final DismissCallbackRegistry mDismissCallbackRegistry;
+    private final TunerService mTunerService;
     private NotificationsController mNotificationsController;
 
     protected TaskHelper mTaskHelper;
@@ -830,7 +842,8 @@ public class StatusBar extends SystemUI implements DemoMode,
             StatusBarTouchableRegionManager statusBarTouchableRegionManager,
             FlashlightController flashlightController,
             TaskHelper taskHelper,
-            FODCircleViewImpl fodCircleViewImpl) {
+            FODCircleViewImpl fodCircleViewImpl,
+            TunerService tunerService) {
         super(context);
         mNotificationsController = notificationsController;
         mLightBarController = lightBarController;
@@ -910,6 +923,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         mFlashlightController = flashlightController;
         mTaskHelper = taskHelper;
         mFODCircleViewImpl = fodCircleViewImpl;
+        mTunerService = tunerService;
 
         mBubbleExpandListener =
                 (isExpanding, key) -> {
@@ -939,6 +953,7 @@ public class StatusBar extends SystemUI implements DemoMode,
                 SysuiStatusBarStateController.RANK_STATUS_BAR);
 
         mDisplayManager = mContext.getSystemService(DisplayManager.class);
+        mTunerService.addTunable(this, NAVIGATION_BAR_SHOW);
 
         mWindowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
         mDreamManager = IDreamManager.Stub.asInterface(
@@ -978,6 +993,8 @@ public class StatusBar extends SystemUI implements DemoMode,
         } catch (RemoteException ex) {
             ex.rethrowFromSystemServer();
         }
+
+        initCoreOverlays();
 
         createAndAddWindows(result);
 
@@ -1113,6 +1130,13 @@ public class StatusBar extends SystemUI implements DemoMode,
                 }, OverlayPlugin.class, true /* Allow multiple plugins */);
                 mActivityManager = mContext.getSystemService(ActivityManager.class);
                 mFODCircleViewImpl.registerCallback(mFODCircleViewImplCallback);
+    }
+
+    private void initCoreOverlays(){
+        boolean navbarEnabled = NavbarUtils.isEnabled(mContext);
+        if (!navbarEnabled) {
+            setNavBarInteractionMode(NAV_BAR_MODE_3BUTTON_OVERLAY);
+        }
     }
 
     // ================================================================================
@@ -4921,6 +4945,49 @@ public class StatusBar extends SystemUI implements DemoMode,
     @Override
     public void startAssist(Bundle args) {
         mAssistManagerLazy.get().startAssist(args);
+    }
+
+    private void setNavBarInteractionMode(String overlayPackage) {
+        try {
+            mOverlayManager.setEnabledExclusiveInCategory(overlayPackage, UserHandle.USER_CURRENT);
+        } catch (Exception e) {
+        }
+    }
+
+    private void saveNavBarCurrentModeOverlay() {
+        String navigationBarModeOverlay = NavbarUtils.getNavigationBarModeOverlay(mContext, mOverlayManager);
+        Settings.System.putString(mContext.getContentResolver(),
+                Settings.System.NAVIGATION_BAR_MODE_OVERLAY, navigationBarModeOverlay);
+    }
+
+    private String getOldNavBarModeOverlay() {
+        String navigationBarModeOverlay = Settings.System.getStringForUser(mContext.getContentResolver(),
+                Settings.System.NAVIGATION_BAR_MODE_OVERLAY, UserHandle.USER_CURRENT);
+        if (TextUtils.isEmpty(navigationBarModeOverlay)){
+            navigationBarModeOverlay = NAV_BAR_MODE_GESTURAL_OVERLAY;
+        }
+        return navigationBarModeOverlay;
+    }
+
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        if (NAVIGATION_BAR_SHOW.equals(key) && mDisplayId == Display.DEFAULT_DISPLAY &&
+                mWindowManagerService != null) {
+            boolean navbarEnabled = NavbarUtils.isEnabled(mContext);
+            boolean hasNavbar = getNavigationBarView() != null;
+            if (navbarEnabled) {
+                if (!hasNavbar) {
+                    mNavigationBarController.onDisplayReady(mDisplayId);
+                    setNavBarInteractionMode(getOldNavBarModeOverlay());
+                }
+            } else {
+                saveNavBarCurrentModeOverlay();
+                setNavBarInteractionMode(NAV_BAR_MODE_3BUTTON_OVERLAY);
+                if (hasNavbar) {
+                    mNavigationBarController.onDisplayRemoved(mDisplayId);
+                }
+            }
+        }
     }
     // End Extra BaseStatusBarMethods.
 
