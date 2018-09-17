@@ -225,4 +225,7 @@
   <!-- Smart cutoff temperature -->
   <java-symbol type="integer" name="config_smartCutoffTemperature" />
   <java-symbol type="integer" name="config_smartCutoffResumeTemperature" />
+
+  <!-- Whether device can force navbar disabling -->
+  <java-symbol type="bool" name="config_canForceDisableNavigationBar" />
 </resources>
