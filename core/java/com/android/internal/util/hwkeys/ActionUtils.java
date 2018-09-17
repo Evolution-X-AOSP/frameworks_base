@@ -143,7 +143,8 @@ public final class ActionUtils {
     }
 
     public static boolean hasNavbarByDefault(Context context) {
-        boolean needsNav = (Boolean)getValue(context, "config_showNavigationBar", BOOL, PACKAGE_ANDROID);
+        boolean needsNav = context.getResources().getBoolean(
+                com.android.internal.R.bool.config_showNavigationBar);
         String navBarOverride = SystemProperties.get("qemu.hw.mainkeys");
         if ("1".equals(navBarOverride)) {
             needsNav = false;
