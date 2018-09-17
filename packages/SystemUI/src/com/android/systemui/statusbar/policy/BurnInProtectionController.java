@@ -16,10 +16,13 @@
 
 package com.android.systemui.statusbar.policy;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.Log;
 
 import com.android.systemui.dagger.SysUISingleton;
@@ -45,8 +48,8 @@ public class BurnInProtectionController {
     private final Context mContext;
     private final Handler mUiHandler;
     private final Object mLock = new Object();
-    private final boolean mShiftEnabled;
-    private final int mShiftInterval;
+    private boolean mShiftEnabled;
+    private int mShiftInterval;
 
     private StatusBar mStatusBar;
     private PhoneStatusBarView mPhoneStatusBarView;
@@ -64,8 +67,6 @@ public class BurnInProtectionController {
         mUiHandler = new Handler(Looper.getMainLooper());
 
         final Resources res = mContext.getResources();
-        mShiftEnabled = res.getBoolean(R.bool.config_statusBarBurnInProtection);
-        mShiftInterval = res.getInteger(R.integer.config_shift_interval) * 1000;
         logD("mShiftEnabled = " + mShiftEnabled + ", mShiftInterval = " + mShiftInterval);
         loadResources(res);
 
@@ -77,6 +78,21 @@ public class BurnInProtectionController {
                 loadResources(mContext.getResources());
             }
         });
+
+        updateSettings();
+    }
+
+    public void updateSettings() {
+        final Resources res = mContext.getResources();
+        ContentResolver resolver = mContext.getContentResolver();
+
+        mShiftEnabled = Settings.System.getIntForUser(resolver,
+                Settings.System.BURN_IN_PROTECTION, 1,
+                UserHandle.USER_CURRENT) == 1;
+
+        mShiftInterval = Settings.System.getIntForUser(resolver,
+                Settings.System.BURN_IN_PROTECTION_INTERVAL, 60,
+                UserHandle.USER_CURRENT) * 1000;
     }
 
     public void setStatusBar(StatusBar statusBar) {
