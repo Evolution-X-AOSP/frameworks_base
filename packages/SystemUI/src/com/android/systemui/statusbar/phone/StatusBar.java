@@ -4931,6 +4931,12 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.PULSE_ON_NEW_TRACKS),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.BURN_IN_PROTECTION),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.BURN_IN_PROTECTION_INTERVAL),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -4963,6 +4969,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.PULSE_ON_NEW_TRACKS))) {
                 setPulseOnNewTracks();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.BURN_IN_PROTECTION)) ||
+                uri.equals(Settings.System.getUriFor(Settings.System.BURN_IN_PROTECTION_INTERVAL))) {
+                updateBurnInSets();
             }
             update();
         }
@@ -4979,6 +4988,13 @@ public class StatusBar extends SystemUI implements DemoMode,
             setUseLessBoringHeadsUp();
             updateNavigationBarVisibility();
             setPulseOnNewTracks();
+            updateBurnInSets();
+        }
+    }
+
+    private void updateBurnInSets() {
+        if (mBurnInProtectionController != null) {
+            mBurnInProtectionController.updateSettings();
         }
     }
 
@@ -5073,10 +5089,10 @@ public class StatusBar extends SystemUI implements DemoMode,
                     try {
                         mNavigationBarController.onDisplayRemoved(mDisplayId);
                     } catch (Exception e) { }
+                }
             }
         }
     }
-}
 
     private final BroadcastReceiver mBannerActionBroadcastReceiver = new BroadcastReceiver() {
         @Override
