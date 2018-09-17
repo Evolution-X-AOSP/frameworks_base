@@ -98,9 +98,11 @@ import android.app.ActivityManager;
 import android.app.ActivityThread;
 import android.app.LoadedApk;
 import android.app.ResourcesManager;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.database.ContentObserver;
 import android.graphics.Insets;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
@@ -114,6 +116,7 @@ import android.os.Message;
 import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.ArraySet;
 import android.util.PrintWriterPrinter;
 import android.util.Slog;
@@ -148,6 +151,7 @@ import com.android.internal.protolog.common.ProtoLog;
 import com.android.internal.statusbar.LetterboxDetails;
 import com.android.internal.util.ScreenshotHelper;
 import com.android.internal.util.function.TriConsumer;
+import com.android.internal.util.hwkeys.ActionUtils;
 import com.android.internal.view.AppearanceRegion;
 import com.android.internal.widget.PointerLocationView;
 import com.android.server.LocalServices;
@@ -241,6 +245,7 @@ public class DisplayPolicy {
 
     private volatile boolean mHasStatusBar;
     private volatile boolean mHasNavigationBar;
+    private volatile int mForceNavbar = -1;
     // Can the navigation bar ever move to the side?
     private volatile boolean mNavigationBarCanMove;
     private volatile boolean mNavigationBarLetsThroughTaps;
@@ -367,6 +372,8 @@ public class DisplayPolicy {
 
     private RefreshRatePolicy mRefreshRatePolicy;
 
+    private SettingsObserver mSettingsObserver;
+
     /**
      * If true, attach the navigation bar to the current transition app.
      * The value is read from config_attachNavBarToAppDuringTransition and could be overlaid by RRO
@@ -414,6 +421,24 @@ public class DisplayPolicy {
                     disablePointerLocation();
                     break;
             }
+        }
+    }
+
+    private class SettingsObserver extends ContentObserver {
+        public SettingsObserver(Handler handler) {
+            super(handler);
+
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.FORCE_SHOW_NAVBAR), false, this,
+                    UserHandle.USER_ALL);
+
+            updateSettings();
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            updateSettings();
         }
     }
 
@@ -636,16 +661,10 @@ public class DisplayPolicy {
 
         if (mDisplayContent.isDefaultDisplay) {
             mHasStatusBar = true;
-            mHasNavigationBar = mContext.getResources().getBoolean(R.bool.config_showNavigationBar);
+            mHasNavigationBar = ActionUtils.hasNavbarByDefault(mContext);
 
-            // Allow a system property to override this. Used by the emulator.
-            // See also hasNavigationBar().
-            String navBarOverride = SystemProperties.get("qemu.hw.mainkeys");
-            if ("1".equals(navBarOverride)) {
-                mHasNavigationBar = false;
-            } else if ("0".equals(navBarOverride)) {
-                mHasNavigationBar = true;
-            }
+            // Register content observer only for main display
+            mSettingsObserver = new SettingsObserver(mHandler);
         } else {
             mHasStatusBar = false;
             mHasNavigationBar = mDisplayContent.supportsSystemDecorations();
@@ -722,6 +741,14 @@ public class DisplayPolicy {
         }
     }
 
+    public void updateSettings() {
+        ContentResolver resolver = mContext.getContentResolver();
+
+        mForceNavbar = Settings.System.getIntForUser(resolver,
+                Settings.System.FORCE_SHOW_NAVBAR, mHasNavigationBar ? 1 : 0,
+                UserHandle.USER_CURRENT);
+    }
+
     private int getDisplayId() {
         return mDisplayContent.getDisplayId();
     }
@@ -770,7 +797,7 @@ public class DisplayPolicy {
     }
 
     public boolean hasNavigationBar() {
-        return mHasNavigationBar;
+        return mHasNavigationBar || mForceNavbar == 1;
     }
 
     public boolean hasStatusBar() {
