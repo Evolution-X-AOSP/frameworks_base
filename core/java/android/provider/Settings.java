@@ -5595,6 +5595,18 @@ public final class Settings {
          */
         public static final String STATUS_BAR_CARRIER_FONT_STYLE = "status_bar_carrier_font_style";
 
+        /**
+         * Clock font size
+         * @hide
+         */
+        public static final String STATUS_BAR_CLOCK_SIZE = "status_bar_clock_size";
+
+        /**
+         * Clock font style
+         * @hide
+         */
+        public static final String STATUS_BAR_CLOCK_FONT_STYLE = "status_bar_clock_font_style";
+
         /** End of Evolution X system settings**/
 
         /**
