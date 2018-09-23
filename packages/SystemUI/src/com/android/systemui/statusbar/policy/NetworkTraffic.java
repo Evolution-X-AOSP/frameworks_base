@@ -43,6 +43,10 @@ import com.android.systemui.R;
 public class NetworkTraffic extends TextView {
 
     private static final int INTERVAL = 1500; //ms
+    private static final int BOTH = 0;
+    private static final int UP = 1;
+    private static final int DOWN = 2;
+    private static final int DYNAMIC = 3;
     private static final int KB = 1024;
     private static final int MB = KB * KB;
     private static final int GB = MB * KB;
@@ -53,6 +57,8 @@ public class NetworkTraffic extends TextView {
     private long totalRxBytes;
     private long totalTxBytes;
     private long lastUpdateTime;
+    private int txtImgPadding;
+    private int mTrafficType;
     private int mAutoHideThreshold;
     protected int mTintColor;
 
@@ -84,28 +90,37 @@ public class NetworkTraffic extends TextView {
             long rxData = newTotalRxBytes - totalRxBytes;
             long txData = newTotalTxBytes - totalTxBytes;
 
+            CharSequence output = "";
+
             if (shouldHide(rxData, txData, timeDelta)) {
-                setText("");
+                setText(output);
                 setVisibility(View.GONE);
                 mVisible = false;
-            } else if (shouldShowUpload(rxData, txData, timeDelta)) {
-                // Show information for uplink if it's called for
-                CharSequence output = formatOutput(timeDelta, txData, symbol);
-
-                // Update view if there's anything new to show
-                if (output != getText()) {
-                    setText(output);
+            } else if (mTrafficType == UP) {
+                // Add information for uplink
+                output = formatOutput(timeDelta, txData, symbol);
+            } else if (mTrafficType == DOWN) {
+                // Add information for downlink
+                output = formatOutput(timeDelta, rxData, symbol);
+            } else if (mTrafficType == BOTH) {
+                // Add information for uplink and downlink
+                output = formatOutput(timeDelta, txData, symbol);
+                output += "\n" + formatOutput(timeDelta, rxData, symbol);
+            } else if (mTrafficType == DYNAMIC){
+                if (shouldShowUpload(rxData, txData, timeDelta)) {
+                    // Show information for uplink if it's called for
+                    output = formatOutput(timeDelta, txData, symbol);
+                } else {
+                    // Add information for downlink if it's called for
+                    output = formatOutput(timeDelta, rxData, symbol);
                 }
-            } else {
-                // Add information for downlink if it's called for
-                CharSequence output = formatOutput(timeDelta, rxData, symbol);
-
-                // Update view if there's anything new to show
-                if (output != getText()) {
-                    setText(output);
-                }
-                updateVisibility();
             }
+            // Update view if there's anything new to show
+            if (output != getText()) {
+                setText(output);
+            }
+            updateVisibility();
+            updateTextSize();
 
             // Post delayed message to refresh in ~1000ms
             totalRxBytes = newTotalRxBytes;
@@ -163,15 +178,25 @@ public class NetworkTraffic extends TextView {
             spanUnitString = new SpannableString(unit + symbol);
             spanUnitString.setSpan(getUnitRelativeSizeSpan(), 0, (unit + symbol).length(),
                     Spanned.SPAN_INCLUSIVE_INCLUSIVE);
-            return TextUtils.concat(spanSpeedString, "\n", spanUnitString);
+            if (mTrafficType == BOTH) {
+                return TextUtils.concat(spanSpeedString, " ", spanUnitString);
+            } else {
+                return TextUtils.concat(spanSpeedString, "\n", spanUnitString);
+            }
         }
 
         private boolean shouldHide(long rxData, long txData, long timeDelta) {
             long speedRxKB = (long)(rxData / (timeDelta / 1000f)) / KB;
             long speedTxKB = (long)(txData / (timeDelta / 1000f)) / KB;
-            return !getConnectAvailable() ||
-                    (speedRxKB < mAutoHideThreshold &&
-                    speedTxKB < mAutoHideThreshold);
+            if (mTrafficType == UP) {
+                return !getConnectAvailable() || speedTxKB < mAutoHideThreshold;
+            } else if (mTrafficType == DOWN) {
+                return !getConnectAvailable() || speedRxKB < mAutoHideThreshold;
+            } else {
+                return !getConnectAvailable() ||
+                        (speedRxKB < mAutoHideThreshold &&
+                        speedTxKB < mAutoHideThreshold);
+            }
         }
 
         private boolean shouldShowUpload(long rxData, long txData, long timeDelta) {
@@ -216,6 +241,7 @@ public class NetworkTraffic extends TextView {
     public NetworkTraffic(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         final Resources resources = getResources();
+        txtImgPadding = resources.getDimensionPixelSize(R.dimen.net_traffic_txt_img_padding);
         mTintColor = resources.getColor(android.R.color.white);
         setMode();
         Handler mHandler = new Handler();
@@ -280,6 +306,9 @@ public class NetworkTraffic extends TextView {
             resolver.registerContentObserver(Settings.System
                     .getUriFor(Settings.System.NETWORK_TRAFFIC_VIEW_LOCATION), false,
                     this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.NETWORK_TRAFFIC_TYPE), false,
+                    this, UserHandle.USER_ALL);
         }
 
         /*
@@ -320,6 +349,7 @@ public class NetworkTraffic extends TextView {
                 Settings.System.NETWORK_TRAFFIC_VIEW_LOCATION, 0,
                 UserHandle.USER_CURRENT) == 1;
         updateVisibility();
+        updateTextSize();
         if (mIsEnabled) {
             if (mAttached) {
                 totalRxBytes = TrafficStats.getTotalRxBytes();
@@ -345,6 +375,9 @@ public class NetworkTraffic extends TextView {
         mTrafficInHeaderView = Settings.System.getIntForUser(resolver,
                 Settings.System.NETWORK_TRAFFIC_VIEW_LOCATION, 0,
                 UserHandle.USER_CURRENT) == 1;
+        mTrafficType = Settings.System.getIntForUser(resolver,
+                Settings.System.NETWORK_TRAFFIC_TYPE, 0,
+                UserHandle.USER_CURRENT);
         setGravity(Gravity.CENTER);
         setMaxLines(2);
         setSpacingAndFonts();
@@ -364,9 +397,19 @@ public class NetworkTraffic extends TextView {
         setTextColor(mTintColor);
     }
 
-    protected void setSpacingAndFonts() {
+    private void updateTextSize() {
+        final Resources resources = getResources();
+        setTextSize(TypedValue.COMPLEX_UNIT_PX, mTrafficType == BOTH
+                ? (float)resources.getDimensionPixelSize(R.dimen.net_traffic_multi_text_size)
+                : (float)resources.getDimensionPixelSize(R.dimen.net_traffic_single_text_size));
         setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
         setLineSpacing(0.80f, 0.80f);
+    }
+
+    protected void setSpacingAndFonts() {
+        txtImgPadding = getResources().getDimensionPixelSize(R.dimen.net_traffic_multi_text_size);
+        setCompoundDrawablePadding(txtImgPadding);
+        updateTextSize();
     }
 
     public void onDensityOrFontScaleChanged() {
