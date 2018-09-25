@@ -6088,6 +6088,12 @@ public final class Settings {
         public static final String SENSOR_BLOCKED_APP_DUMMY = "sensor_blocked_app_dummy";
 
         /**
+         * Unlock keystore with fingerprint after reboot
+         * @hide
+         */
+        public static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -6279,6 +6285,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_TILES_BG_DISCO);
             PRIVATE_SETTINGS.add(SCREENSHOT_TYPE);
             PRIVATE_SETTINGS.add(FORCE_FULLSCREEN_CUTOUT_APPS);
+            PRIVATE_SETTINGS.add(FP_UNLOCK_KEYSTORE);
         }
 
         /**
