@@ -4872,11 +4872,17 @@ public final class Settings {
          */
         public static final String HEADS_UP_STOPLIST_VALUES = "heads_up_stoplist_values";
 
-         /**
+        /**
          * Which applications to disable heads up notifications for
          * @hide
          */
         public static final String HEADS_UP_BLACKLIST_VALUES = "heads_up_blacklist_values";
+
+        /**
+         * Unlock keystore with fingerprint after reboot
+         * @hide
+         */
+        public static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
 
         /**
          * IMPORTANT: If you add a new public settings you also have to add it to
@@ -5017,6 +5023,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(BATTERY_LIGHT_REALLYFULL_COLOR);
             PRIVATE_SETTINGS.add(HEADS_UP_STOPLIST_VALUES);
             PRIVATE_SETTINGS.add(HEADS_UP_BLACKLIST_VALUES);
+            PRIVATE_SETTINGS.add(FP_UNLOCK_KEYSTORE);
         }
 
         /**
