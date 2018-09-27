@@ -111,7 +111,6 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
 
         Dependency.get(TunerService.class).addTunable(this,
                 StatusBarIconController.ICON_BLACKLIST);
-        mSettingsObserver.observe();
     }
 
     @Override
@@ -138,6 +137,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         showSystemIconArea(false);
         initEmergencyCryptkeeperText();
         initOperatorName();
+        mSettingsObserver.observe();
+        updateSettings(true);
     }
 
     @Override
