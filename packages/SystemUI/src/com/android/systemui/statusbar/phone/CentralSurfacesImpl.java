@@ -973,17 +973,6 @@ public class CentralSurfacesImpl extends CoreStartable implements
         mStatusBarStateController.addCallback(mStateListener,
                 SysuiStatusBarStateController.RANK_STATUS_BAR);
 
-        mNeedsNavigationBar = mContext.getResources().getBoolean(
-                com.android.internal.R.bool.config_showNavigationBar);
-        // Allow a system property to override this. Used by the emulator.
-        // See also hasNavigationBar().
-        String navBarOverride = SystemProperties.get("qemu.hw.mainkeys");
-        if ("1".equals(navBarOverride)) {
-            mNeedsNavigationBar = false;
-        } else if ("0".equals(navBarOverride)) {
-            mNeedsNavigationBar = true;
-        }
-
         mTunerService.addTunable(this, STATUS_BAR_BRIGHTNESS_CONTROL);
         mTunerService.addTunable(this, NOTIFICATION_MATERIAL_DISMISS);
         mTunerService.addTunable(this, NOTIFICATION_MATERIAL_DISMISS_STYLE);
@@ -4616,10 +4605,10 @@ public class CentralSurfacesImpl extends CoreStartable implements
             case FORCE_SHOW_NAVBAR:
                 if (mDisplayId != Display.DEFAULT_DISPLAY || mWindowManagerService == null)
                     return;
-                boolean forcedVisibility = mNeedsNavigationBar ||
-                        TunerService.parseIntegerSwitch(newValue, false);
+                boolean mNavbarVisible =
+                        TunerService.parseIntegerSwitch(newValue, ActionUtils.hasNavbarByDefault(mContext));
                 boolean hasNavbar = getNavigationBarView() != null;
-                if (forcedVisibility) {
+                if (mNavbarVisible) {
                     if (!hasNavbar) {
                         mNavigationBarController.onDisplayReady(mDisplayId);
                     }
