@@ -46,6 +46,7 @@ import androidx.annotation.Nullable;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.statusbar.RegisterStatusBarResult;
+import com.android.internal.util.hwkeys.ActionUtils;
 import com.android.settingslib.applications.InterestingConfigChanges;
 import com.android.systemui.Dumpable;
 import com.android.systemui.dagger.SysUISingleton;
@@ -452,11 +453,10 @@ public class NavigationBarController implements
      * @return whether there is a soft nav bar on specific display.
      */
     private boolean hasSoftNavigationBar(Context context, int displayId) {
-        if (displayId == DEFAULT_DISPLAY &&
-                Settings.System.getIntForUser(context.getContentResolver(),
-                        Settings.System.FORCE_SHOW_NAVBAR, 0,
-                        UserHandle.USER_CURRENT) == 1) {
-            return true;
+        if (displayId == DEFAULT_DISPLAY) {
+            return Settings.System.getIntForUser(context.getContentResolver(),
+                            Settings.System.FORCE_SHOW_NAVBAR, ActionUtils.hasNavbarByDefault(context) ? 1 : 0,
+                            UserHandle.USER_CURRENT) == 1;
         }
         try {
             return WindowManagerGlobal.getWindowManagerService().hasNavigationBar(displayId);
