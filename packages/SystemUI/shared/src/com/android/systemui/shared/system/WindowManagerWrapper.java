@@ -38,6 +38,7 @@ import android.view.WindowManager;
 import android.view.WindowManagerGlobal;
 import android.view.animation.Interpolator;
 
+import com.android.internal.util.hwkeys.ActionUtils;
 import com.android.systemui.shared.recents.view.AppTransitionAnimationSpecsFuture;
 import com.android.systemui.shared.recents.view.RecentsTransition;
 
@@ -193,11 +194,10 @@ public class WindowManagerWrapper {
      * @return whether there is a soft nav bar on specific display.
      */
     public boolean hasSoftNavigationBar(Context context, int displayId) {
-        if (displayId == Display.DEFAULT_DISPLAY &&
-                Settings.System.getIntForUser(context.getContentResolver(),
-                        Settings.System.FORCE_SHOW_NAVBAR, 0,
-                        UserHandle.USER_CURRENT) == 1) {
-            return true;
+        if (displayId == Display.DEFAULT_DISPLAY) {
+            return Settings.System.getIntForUser(context.getContentResolver(),
+                            Settings.System.FORCE_SHOW_NAVBAR, ActionUtils.hasNavbarByDefault(context) ? 1 : 0,
+                            UserHandle.USER_CURRENT) == 1;
         }
         try {
             return WindowManagerGlobal.getWindowManagerService().hasNavigationBar(displayId);
