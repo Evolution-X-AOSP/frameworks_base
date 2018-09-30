@@ -111,6 +111,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private final NotificationPanelViewController mNotificationPanelViewController;
     private final NetworkController mNetworkController;
     private LinearLayout mSystemIconArea;
+    private LinearLayout mCustomIconArea;
+    private LinearLayout mCenterClockLayout;
     private View mStatusBarLogo, mStatusBarLogoRight;
     private View mOngoingCallChip;
     private View mNotificationIconAreaInner;
@@ -257,6 +259,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         updateBlockedIcons();
         mStatusBarIconController.addIconGroup(mDarkIconManager);
         mSystemIconArea = mStatusBar.findViewById(R.id.system_icon_area);
+        mCustomIconArea = mStatusBar.findViewById(R.id.left_icon_area);
+        mCenterClockLayout = mStatusBar.findViewById(R.id.centered_area);
         mClockController = mStatusBar.getClockController();
         mSignalClusterEndPadding = getResources().getDimensionPixelSize(R.dimen.signal_cluster_battery_padding);
         mStatusIcons = mStatusBar.findViewById(R.id.statusIcons);
@@ -533,6 +537,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
 
     private void hideSystemIconArea(boolean animate) {
         animateHide(mSystemIconArea, animate);
+        animateHide(mCustomIconArea, animate);
+        animateHide(mCenterClockLayout, animate);
         animateHide(mStatusBarLogoRight, animate);
     }
 
@@ -541,6 +547,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         int state = mAnimationScheduler.getAnimationState();
         if (state == IDLE || state == SHOWING_PERSISTENT_DOT) {
             animateShow(mSystemIconArea, animate);
+            animateShow(mCustomIconArea, animate);
+            animateShow(mCenterClockLayout, animate);
             animateShow(mStatusBarLogoRight, animate);
         }
     }
