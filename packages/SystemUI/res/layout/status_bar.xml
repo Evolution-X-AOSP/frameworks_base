@@ -72,27 +72,36 @@
                     android:layout_height="match_parent"
                     android:layout="@layout/operator_name" />
 
-                <com.android.systemui.evolution.carrierlabel.CarrierLabel
-                    android:id="@+id/statusbar_carrier_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="start|center_vertical"
-                    android:paddingEnd="@dimen/status_bar_left_clock_end_padding"
-                    android:visibility="gone"
-                    android:singleLine="true"/>
 
-                <com.android.systemui.statusbar.policy.Clock
-                    android:id="@+id/clock"
+                <com.android.keyguard.AlphaOptimizedLinearLayout
+                    android:id="@+id/left_icon_area"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:textAppearance="@style/TextAppearance.StatusBar.Clock"
-                    android:singleLine="true"
-                    android:visibility="gone"
-                    android:paddingStart="@dimen/status_bar_left_clock_starting_padding"
-                    android:paddingEnd="@dimen/status_bar_left_clock_end_padding"
-                    android:gravity="center_vertical|start"
-                />
+                    android:orientation="horizontal" >
+
+                    <com.android.systemui.evolution.carrierlabel.CarrierLabel
+                        android:id="@+id/statusbar_carrier_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="start|center_vertical"
+                        android:paddingEnd="@dimen/status_bar_left_clock_end_padding"
+                        android:visibility="gone"
+                        android:singleLine="true"/>
+
+                    <com.android.systemui.statusbar.policy.Clock
+                        android:id="@+id/clock"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textAppearance="@style/TextAppearance.StatusBar.Clock"
+                        android:singleLine="true"
+                        android:visibility="gone"
+                        android:paddingStart="@dimen/status_bar_left_clock_starting_padding"
+                        android:paddingEnd="@dimen/status_bar_left_clock_end_padding"
+                        android:gravity="center_vertical|start"
+                    />
+
+                </com.android.keyguard.AlphaOptimizedLinearLayout>
 
                 <com.android.systemui.statusbar.AlphaOptimizedFrameLayout
                     android:id="@+id/notification_icon_area"
