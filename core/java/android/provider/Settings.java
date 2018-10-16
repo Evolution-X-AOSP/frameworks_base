@@ -5260,7 +5260,7 @@ public final class Settings {
          * @hide
          */
         public static final String QS_ROWS_PORTRAIT = "qs_rows_portrait";
-		
+
         /** @hide */
         private static final Validator QS_ROWS_PORTRAIT_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
@@ -5280,7 +5280,7 @@ public final class Settings {
          * @hide
          */
         public static final String QS_COLUMNS_PORTRAIT = "qs_columns_portrait";
-		
+
         /** @hide */
         private static final Validator QS_COLUMNS_PORTRAIT_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
@@ -5290,7 +5290,7 @@ public final class Settings {
          * @hide
          */
         public static final String QS_COLUMNS_LANDSCAPE = "qs_columns_landscape";
-		
+
         /** @hide */
         private static final Validator QS_COLUMNS_LANDSCAPE_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
@@ -5305,7 +5305,7 @@ public final class Settings {
          * @hide
          */
         public static final String QS_TILE_TITLE_VISIBILITY = "qs_tile_title_visibility";
-		
+
         /** @hide */
         private static final Validator QS_TILE_TITLE_VISIBILITY_VALIDATOR =
                 BOOLEAN_VALIDATOR;
@@ -7108,6 +7108,19 @@ public final class Settings {
         public static final String SENSOR_BLOCKED_APP = "sensor_blocked_app";
         public static final String SENSOR_BLOCKED_APP_DUMMY = "sensor_blocked_app_dummy";
 
+        /**
+         * 0 - Default
+         * 1 - Round with ring
+         * 2 - Two-toned round with ring
+         * 3 - Squircle with ring
+         * @hide
+         */
+        public static final String QS_TILE_STYLE = "qs_tile_style";
+
+        /** @hide */
+        private static final Validator QS_TILE_STYLE_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
@@ -7313,6 +7326,7 @@ public final class Settings {
             QS_ROWS_LANDSCAPE,
             QS_ROWS_PORTRAIT,
             QS_SHOW_BRIGHTNESS_ICON,
+            QS_TILE_STYLE,
             QS_TILE_TITLE_VISIBILITY,
             SCREEN_OFF_ANIMATION,
             SCREENSHOT_SOUND,
@@ -7611,6 +7625,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_ROWS_LANDSCAPE);
             PRIVATE_SETTINGS.add(QS_ROWS_PORTRAIT);
             PRIVATE_SETTINGS.add(QS_SHOW_BRIGHTNESS_ICON);
+            PRIVATE_SETTINGS.add(QS_TILE_STYLE);
             PRIVATE_SETTINGS.add(QS_TILE_TITLE_VISIBILITY);
             PRIVATE_SETTINGS.add(SCREEN_OFF_ANIMATION);
             PRIVATE_SETTINGS.add(SCREENSHOT_SOUND);
@@ -7902,6 +7917,7 @@ public final class Settings {
             VALIDATORS.put(QS_ROWS_LANDSCAPE, QS_ROWS_LANDSCAPE_VALIDATOR);
             VALIDATORS.put(QS_ROWS_PORTRAIT, QS_ROWS_PORTRAIT_VALIDATOR);
             VALIDATORS.put(QS_SHOW_BRIGHTNESS_ICON, QS_SHOW_BRIGHTNESS_ICON_VALIDATOR);
+            VALIDATORS.put(QS_TILE_STYLE, QS_TILE_STYLE_VALIDATOR);
             VALIDATORS.put(QS_TILE_TITLE_VISIBILITY, QS_TILE_TITLE_VISIBILITY_VALIDATOR);
             VALIDATORS.put(SCREEN_OFF_ANIMATION, SCREEN_OFF_ANIMATION_VALIDATOR);
             VALIDATORS.put(SCREENSHOT_SOUND, SCREENSHOT_SOUND_VALIDATOR);
