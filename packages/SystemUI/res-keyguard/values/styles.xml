@@ -57,10 +57,8 @@
 
     <!-- Built-in clock widget stuff -->
     <style name="widget_label">
-        <item name="android:textSize">@dimen/widget_label_font_size</item>
     </style>
     <style name="widget_big">
-        <item name="android:textSize">@dimen/widget_big_font_size</item>
         <item name="android:paddingBottom">@dimen/bottom_text_spacing_digital</item>
         <item name="android:fontFeatureSettings">@*android:string/config_headlineFontFeatureSettings</item>
         <item name="android:ellipsize">none</item>

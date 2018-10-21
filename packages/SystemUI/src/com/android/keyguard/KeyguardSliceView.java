@@ -28,12 +28,16 @@ import android.animation.PropertyValuesHolder;
 import android.annotation.ColorInt;
 import android.annotation.StyleRes;
 import android.app.PendingIntent;
+import android.content.ContentResolver;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Handler;
 import android.os.Trace;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.text.TextUtils.TruncateAt;
@@ -110,7 +114,7 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
     private boolean mHasHeader;
     private final int mRowWithHeaderPadding;
     private final int mRowPadding;
-    private float mRowTextSize;
+    private int mRowTextSize;
     private float mRowWithHeaderTextSize;
 
     @Inject
@@ -146,10 +150,10 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
         mTitle = findViewById(R.id.title);
         mRow = findViewById(R.id.row);
         mTextColor = Utils.getColorAttrDefaultColor(mContext, R.attr.wallpaperTextColor);
-        mIconSize = (int) mContext.getResources().getDimension(R.dimen.widget_icon_size);
+        mIconSize = mRowTextSize;
         mIconSizeWithHeader = (int) mContext.getResources().getDimension(R.dimen.header_icon_size);
         mRowTextSize = mContext.getResources().getDimensionPixelSize(
-                R.dimen.widget_label_font_size);
+                R.dimen.lock_date_font_size_18);
         mRowWithHeaderTextSize = mContext.getResources().getDimensionPixelSize(
                 R.dimen.header_row_font_size);
         mTitle.setOnClickListener(this);
@@ -184,6 +188,11 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
     public void onVisibilityAggregated(boolean isVisible) {
         super.onVisibilityAggregated(isVisible);
         setLayoutTransition(isVisible ? mLayoutTransition : null);
+    }
+
+    private int getLockDateSize() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+               Settings.System.LOCKDATE_FONT_SIZE, 18);
     }
 
     /**
@@ -394,10 +403,10 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
 
     @Override
     public void onDensityOrFontScaleChanged() {
-        mIconSize = mContext.getResources().getDimensionPixelSize(R.dimen.widget_icon_size);
+        mIconSize = mRowTextSize;
         mIconSizeWithHeader = (int) mContext.getResources().getDimension(R.dimen.header_icon_size);
         mRowTextSize = mContext.getResources().getDimensionPixelSize(
-                R.dimen.widget_label_font_size);
+                R.dimen.lock_date_font_size_18);
         mRowWithHeaderTextSize = mContext.getResources().getDimensionPixelSize(
                 R.dimen.header_row_font_size);
     }
@@ -420,6 +429,46 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
         }
         onChanged(slice);
         Trace.endSection();
+    }
+
+    public void refreshdatesize() {
+        final Resources res = getContext().getResources();
+        boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
+        int lockDateSize = isPrimary ? getLockDateSize() : 18;
+
+        if (lockDateSize == 10) {
+        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_10);
+        } else if (lockDateSize == 11) {
+        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_11);
+        } else if (lockDateSize == 12) {
+        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_12);
+        } else if (lockDateSize == 13) {
+        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_13);
+        } else if (lockDateSize == 14) {
+        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_14);
+        } else if (lockDateSize == 15) {
+        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_15);
+        } else if (lockDateSize == 16) {
+        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_16);
+        } else if (lockDateSize == 17) {
+        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_17);
+        } else if (lockDateSize == 18) {
+        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_18);
+        } else if (lockDateSize == 19) {
+        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_19);
+        } else if (lockDateSize == 20) {
+        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_20);
+        } else if (lockDateSize == 21) {
+        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_21);
+        } else if (lockDateSize == 22) {
+        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_22);
+        } else if (lockDateSize == 23) {
+        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_23);
+        } else if (lockDateSize == 24) {
+        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_24);
+        } else if (lockDateSize == 25) {
+        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_25);
+        }
     }
 
     public void dump(FileDescriptor fd, PrintWriter pw, String[] args) {
