@@ -4503,6 +4503,8 @@ public final class Settings {
          * the setting value. See an example above.
          */
 
+        /** Beginning of Pixel Experience system settings**/
+
         /**
          * Display cutout
          * @hide
@@ -4858,6 +4860,24 @@ public final class Settings {
 
         /** @hide */
         public static final Validator THEME_DARK_STYLE_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /** End of Pixel Experience system settings**/
+
+        /** Beginning of Evolution X system settings**/
+
+        /**
+         * Custom Ambient handwave gesture
+         * @hide
+         */
+        public static final String CUSTOM_AMBIENT_HANDWAVE_GESTURE = "custom_ambient_handwave_gesture";
+
+        /**
+         * Custom Ambient pocketmode gesture
+         * @hide
+         */
+        public static final String CUSTOM_AMBIENT_POCKETMODE_GESTURE = "custom_ambient_pocketmode_gesture";
+
+        /** End of Evolution X system settings**/
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
