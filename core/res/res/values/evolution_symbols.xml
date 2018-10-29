@@ -212,4 +212,7 @@
 
     <!-- Location indicator -->
     <java-symbol type="drawable" name="stat_sys_location" />
+
+    <!-- Whether device supports gestures on fingerprint sensor -->
+    <java-symbol type="bool" name="config_supportsGesturesOnFingerprintSensor" />
 </resources>
