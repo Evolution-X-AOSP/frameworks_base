@@ -178,6 +178,15 @@ public class FODCircleView extends ImageView implements OnTouchListener {
             super.onFingerprintAuthenticated(userId);
             mInsideCircle = false;
         }
+
+        @Override
+        public void onFingerprintError(int msgId, String errString) {
+            super.onFingerprintError(msgId, errString);
+            int mMsgId = msgId;
+            if ((viewAdded) && (mMsgId == 7)) {
+                hide();
+            }
+        }
     };
 
     public FODCircleView(Context context) {
