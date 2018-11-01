@@ -158,4 +158,5 @@ oneway interface IStatusBar
      * Evolution X
      */
     void toggleCameraFlash();
+    void leftInLandscapeChanged(boolean isLeft);
 }
