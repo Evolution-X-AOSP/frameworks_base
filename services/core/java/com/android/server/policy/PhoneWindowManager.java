@@ -1912,6 +1912,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case CLOSE_APP:
                 ActionUtils.killForegroundApp();
                 break;
+            case TORCH:
+                ActionUtils.toggleCameraFlash(/*(false for no proximity check)*/);
+                break;
             default:
                 break;
         }
