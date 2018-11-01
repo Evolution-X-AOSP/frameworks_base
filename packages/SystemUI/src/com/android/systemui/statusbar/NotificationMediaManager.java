@@ -58,6 +58,7 @@ public class NotificationMediaManager implements Dumpable {
     // callback into NavigationFragment for Pulse
     public interface MediaUpdateListener {
         public void onMediaUpdated(boolean playing);
+        public void setPulseColors(boolean isColorizedMEdia, int[] colors);
     }
 
     private final MediaController.Callback mMediaListener = new MediaController.Callback() {
@@ -76,9 +77,7 @@ public class NotificationMediaManager implements Dumpable {
                     mStatusBar.getVisualizer().setPlaying(state.getState()
                             == PlaybackState.STATE_PLAYING);
                 }
-                if (mListener != null) {
-                    mListener.onMediaUpdated(isPlaybackActive(state.getState()));
-                }
+                setMediaPlaying();
             }
         }
 
@@ -90,17 +89,13 @@ public class NotificationMediaManager implements Dumpable {
             }
             mMediaMetadata = metadata;
             mPresenter.updateMediaMetaData(true, true);
-            if (mListener != null) {
-                mListener.onMediaUpdated(isPlaybackActive());
-            }
+            setMediaPlaying();
         }
 
         @Override
         public void onSessionDestroyed() {
             super.onSessionDestroyed();
-            if (mListener != null) {
-                mListener.onMediaUpdated(isPlaybackActive());
-            }
+            setMediaPlaying();
         }
     };
 
@@ -212,9 +207,8 @@ public class NotificationMediaManager implements Dumpable {
                 clearCurrentMediaNotificationSession();
                 mMediaController = controller;
                 mMediaController.registerCallback(mMediaListener);
-                if (mListener != null) {
-                    mListener.onMediaUpdated(isPlaybackActive());
-                }
+                mMediaMetadata = mMediaController.getMetadata();
+                setMediaPlaying();
                 if (DEBUG_MEDIA) {
                     Log.v(TAG, "DEBUG_MEDIA: insert listener, found new controller: "
                             + mMediaController + ", receive metadata: " + mMediaMetadata);
@@ -313,10 +307,56 @@ public class NotificationMediaManager implements Dumpable {
                         + mMediaController.getPackageName());
             }
             mMediaController.unregisterCallback(mMediaListener);
-            if (mListener != null) {
-                mListener.onMediaUpdated(isPlaybackActive());
-            }
+            setMediaPlaying();
         }
         mMediaController = null;
+    }
+
+    public void setMediaPlaying() {
+        if (PlaybackState.STATE_PLAYING ==
+                getMediaControllerPlaybackState(mMediaController)
+                || PlaybackState.STATE_BUFFERING ==
+                getMediaControllerPlaybackState(mMediaController)) {
+             ArrayList<NotificationData.Entry> activeNotifications =
+                    mEntryManager.getNotificationData().getAllNotifications();
+            int N = activeNotifications.size();
+            final String pkg = mMediaController.getPackageName();
+            boolean dontPulse = false;
+            boolean mediaNotification= false;
+            for (int i = 0; i < N; i++) {
+                final NotificationData.Entry entry = activeNotifications.get(i);
+                if (entry.notification.getPackageName().equals(pkg)) {
+                    // NotificationEntryManager onAsyncInflationFinished will get called
+                    // when colors and album are loaded for the notification, then we can send
+                    // those info to Pulse
+                    mEntryManager.setEntryToRefresh(entry, dontPulse);
+                    mediaNotification = true;
+                    break;
+                }
+            }
+            if (!mediaNotification) {
+                // no notification for this mediacontroller thus no artwork or track info,
+                // clean up Ambient Music and Pulse albumart color
+                mEntryManager.setEntryToRefresh(null, true);
+                mPresenter.setAmbientMusicInfo(null, null);
+            }
+             if (!dontPulse && mListener != null) {
+                mListener.onMediaUpdated(true);
+            }
+        } else {
+            mEntryManager.setEntryToRefresh(null, true);
+            mPresenter.setAmbientMusicInfo(null, null);
+            if (mListener != null) {
+                mListener.onMediaUpdated(false);
+            }
+        }
+    }
+     public void setMediaNotificationText(String notificationText) {
+        mPresenter.setAmbientMusicInfo(mMediaMetadata, notificationText);
+    }
+     public void setPulseColors(boolean isColorizedMEdia, int[] colors) {
+        if (mListener != null) {
+            mListener.setPulseColors(isColorizedMEdia, colors);
+        }
     }
 }
