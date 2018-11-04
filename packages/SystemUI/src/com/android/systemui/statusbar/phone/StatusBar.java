@@ -5936,6 +5936,9 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.FORCE_AMBIENT_FOR_MEDIA),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.PULSE_APPS_BLACKLIST),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -5987,6 +5990,9 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.FORCE_AMBIENT_FOR_MEDIA))) {
                 setForceAmbient();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.PULSE_APPS_BLACKLIST))) {
+                setPulseBlacklist();
             }
         }
 
@@ -6005,6 +6011,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             updateKeyguardStatusSettings();
             updateCorners();
             setForceAmbient();
+            setPulseBlacklist();
         }
     }
 
@@ -6123,6 +6130,12 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
 
     private boolean isAmbientContainerAvailable() {
         return mAmbientMediaPlaying && mAmbientIndicationContainer != null;
+    }
+
+    private void setPulseBlacklist() {
+        String blacklist = Settings.System.getStringForUser(mContext.getContentResolver(),
+                Settings.System.PULSE_APPS_BLACKLIST, UserHandle.USER_CURRENT);
+        getMediaManager().setPulseBlacklist(blacklist);
     }
 
     private final BroadcastReceiver mBannerActionBroadcastReceiver = new BroadcastReceiver() {
