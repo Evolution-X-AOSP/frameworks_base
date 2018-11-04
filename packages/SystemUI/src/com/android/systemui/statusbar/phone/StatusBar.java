@@ -362,6 +362,10 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         "com.android.systemui.qstile.ninja", // 8
         "com.android.systemui.qstile.dottedcircle", // 9
         "com.android.systemui.qstile.attemptmountain", // 10
+	"com.android.systemui.qstile.squaremedo", // 11
+        "com.android.systemui.qstile.oreo", // 12
+        "com.android.systemui.qstile.oreocircletrim", // 13
+        "com.android.systemui.qstile.oreosquircletrim", // 14
     };
 
     /** If true, the system is in the half-boot-to-decryption-screen state.
