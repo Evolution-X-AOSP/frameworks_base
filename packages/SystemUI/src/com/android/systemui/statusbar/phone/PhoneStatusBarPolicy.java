@@ -484,7 +484,8 @@ public class PhoneStatusBarPolicy
                         int batteryLevel = device.getBatteryLevel();
                         BluetoothClass type = device.getBtClass();
                         contentDescription = mContext.getString(R.string.accessibility_bluetooth_connected);
-                        if (batteryLevel != BluetoothDevice.BATTERY_LEVEL_UNKNOWN && showBatteryForThis(type)) {
+                        if (batteryLevel != BluetoothDevice.BATTERY_LEVEL_UNKNOWN && showBatteryForThis(type)
+                              && mShowBluetoothBattery) {
                             final int padding = mContext.getResources().getDimensionPixelSize(R.dimen.bt_battery_padding);
                             Drawable d = BluetoothDeviceLayerDrawable.createLayerDrawable(mContext,
                                     R.drawable.ic_bluetooth_connected, batteryLevel, 1, -padding, padding, 0);
