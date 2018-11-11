@@ -65,9 +65,6 @@
     <string name="screenrecord_notif_error">Impossibile avviare la registrazione</string>
     <string name="notification_channel_screenrecord">Registra schermo</string>
     <string name="quick_settings_screenrecord_label">Registra schermo</string>
-    <string name="quick_settings_screenrecord_lq_label">Registra schermo 480p</string>
-    <string name="quick_settings_screenrecord_mq_label">Registra schermo 720p</string>
-    <string name="quick_settings_screenrecord_hq_label">Registra schermo 720p+</string>
     <string name="screenrecord_hide_hint">Nascondi hint</string>
     <string name="screenrecord_show_hint">Mostra hint</string>
     <string name="screenrecord_notif_completed">Registrazione schermo completata</string>
