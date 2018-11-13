@@ -6,8 +6,10 @@ import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.app.WallpaperManager;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.transition.Fade;
 import android.transition.Transition;
@@ -60,6 +62,9 @@ public class KeyguardClockSwitch extends RelativeLayout {
      * Animation fraction when text is transitioned to/from bold.
      */
     private static final float TO_BOLD_TRANSITION_FRACTION = 0.7f;
+
+
+    private static final String FONT_FAMILY = "sans-serif";
 
     /**
      * Controller used to track StatusBar state to know when to show the big_clock_container.
@@ -216,6 +221,17 @@ public class KeyguardClockSwitch extends RelativeLayout {
         mStatusBarStateController.removeCallback(mStateListener);
         mSysuiColorExtractor.removeOnColorsChangedListener(mColorsListener);
         setClockPlugin(null);
+    }
+
+    @Override
+    protected void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Typeface tf = Typeface.create(FONT_FAMILY, Typeface.NORMAL);
+        mClockView.setTypeface(tf);
+        mClockViewBold.setTypeface(tf);
+        if (mClockPlugin != null) {
+            mClockPlugin.setTypeface(tf);
+        }
     }
 
     private void setClockPlugin(ClockPlugin plugin) {
