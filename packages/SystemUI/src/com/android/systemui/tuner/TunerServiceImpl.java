@@ -312,7 +312,7 @@ public class TunerServiceImpl extends TunerService {
         mContext.sendBroadcast(intent);
 
         for (String key : mTunableLookup.keySet()) {
-            if (ArrayUtils.contains(RESET_BLACKLIST, key)) {
+            if (ArrayUtils.contains(RESET_BLACKLIST, key) || key.startsWith("system:")) {
                 continue;
             }
             setValue(key, null);
