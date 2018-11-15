@@ -89,6 +89,7 @@ public class QSContainerImpl extends FrameLayout {
         super.onConfigurationChanged(newConfig);
         setBackgroundGradientVisibility(newConfig);
         updateResources();
+        updateSettings();
         mSizePoint.set(0, 0); // Will be retrieved on next measure pass.
     }
 
