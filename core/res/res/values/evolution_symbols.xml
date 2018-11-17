@@ -170,4 +170,9 @@
   <java-symbol type="style" name="Animation.Toast.Translucent" />
   <java-symbol type="style" name="Animation.Toast.SlideRightLeft" />
   <java-symbol type="style" name="Animation.Toast.SlideLeftRight" />
+
+  <!-- Powermenu animations -->
+  <java-symbol type="style" name="GlobalActionsAnimation" />
+  <java-symbol type="style" name="GlobalActionsAnimationTop" />
+  <java-symbol type="style" name="GlobalActionsAnimationEnter" />
 </resources>
