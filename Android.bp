@@ -478,6 +478,13 @@ filegroup {
     path: "core/java",
 }
 
+filegroup {
+    name: "fontservice_aidl",
+    srcs: ["core/java/android/content/IFontService.aidl"],
+    path: "core/java",
+
+}
+
 java_library {
     name: "framework-minus-apex",
     defaults: ["framework-defaults"],

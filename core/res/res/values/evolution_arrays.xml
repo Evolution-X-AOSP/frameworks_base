@@ -66,4 +66,8 @@
         <item>@string/accessibility_quick_settings_live_display_changed_night</item>
         <item>@string/accessibility_quick_settings_live_display_changed_outdoor</item>
     </string-array>
+
+    <!-- System font packages (overlay in vendor) -->
+    <string-array name="config_fontPackages" translatable="false">
+    </string-array>
 </resources>
