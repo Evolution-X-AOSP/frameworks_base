@@ -247,7 +247,7 @@ public final class SystemFonts {
             final FontConfig fontConfig = FontListParser.parse(fontsIn, fontDir);
 
             final HashMap<String, ByteBuffer> bufferCache = new HashMap<String, ByteBuffer>();
-            final FontConfig.Family[] xmlFamilies = fontConfig.getFamilies();
+            final List<FontConfig.Family> xmlFamilies = fontConfig.getFamilies();
 
             final ArrayMap<String, ArrayList<FontFamily>> fallbackListMap = new ArrayMap<>();
             // First traverse families which have a 'name' attribute to create fallback map.
@@ -265,8 +265,8 @@ public final class SystemFonts {
             }
 
             // Then, add fallback fonts to the each fallback map.
-            for (int i = 0; i < xmlFamilies.length; i++) {
-                final FontConfig.Family xmlFamily = xmlFamilies[i];
+            for (int i = 0; i < xmlFamilies.size(); i++) {
+                final FontConfig.Family xmlFamily = xmlFamilies.get(i);
                 // The first family (usually the sans-serif family) is always placed immediately
                 // after the primary family in the fallback.
                 if (i == 0 || xmlFamily.getName() == null) {
@@ -284,7 +284,7 @@ public final class SystemFonts {
             }
 
             final ArrayList<FontConfig.Alias> list = new ArrayList<>();
-            list.addAll(Arrays.asList(fontConfig.getAliases()));
+            list.addAll(fontConfig.getAliases());
             list.addAll(oemCustomization.mAdditionalAliases);
             return list.toArray(new FontConfig.Alias[list.size()]);
         } catch (IOException | XmlPullParserException e) {

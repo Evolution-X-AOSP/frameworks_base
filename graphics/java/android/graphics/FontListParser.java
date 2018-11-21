@@ -24,8 +24,12 @@ import android.util.Xml;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -41,6 +45,12 @@ public class FontListParser {
     @UnsupportedAppUsage
     public static FontConfig parse(InputStream in) throws XmlPullParserException, IOException {
         return parse(in, "/system/fonts");
+    }
+
+    public static FontConfig parse(File configFilename, String fontDir) throws XmlPullParserException, IOException {
+        FileInputStream in = null;
+        in = new FileInputStream(configFilename);
+        return FontListParser.parse(in, fontDir);
     }
 
     /**
@@ -75,8 +85,7 @@ public class FontListParser {
                 skip(parser);
             }
         }
-        return new FontConfig(families.toArray(new FontConfig.Family[families.size()]),
-                aliases.toArray(new FontConfig.Alias[aliases.size()]));
+        return new FontConfig(families, aliases);
     }
 
     /**
@@ -136,7 +145,7 @@ public class FontListParser {
             }
         }
         String sanitizedName = FILENAME_WHITESPACE_PATTERN.matcher(filename).replaceAll("");
-        return new FontConfig.Font(fontDir + sanitizedName, index, axes.toArray(
+        return new FontConfig.Font(Paths.get(fontDir, sanitizedName).toString(), index, axes.toArray(
                 new FontVariationAxis[axes.size()]), weight, isItalic, fallbackFor);
     }
 

@@ -362,6 +362,7 @@ public class ZygoteProcess {
                                                           whitelistedDataInfoMap,
                                                   boolean bindMountAppsData,
                                                   boolean bindMountAppStorageDirs,
+                                                  boolean refreshTheme,
                                                   @Nullable String[] zygoteArgs) {
         // TODO (chriswailes): Is there a better place to check this value?
         if (fetchUsapPoolEnabledPropWithMinInterval()) {
@@ -374,7 +375,7 @@ public class ZygoteProcess {
                     abi, instructionSet, appDataDir, invokeWith, /*startChildZygote=*/ false,
                     packageName, zygotePolicyFlags, isTopApp, disabledCompatChanges,
                     pkgDataInfoMap, whitelistedDataInfoMap, bindMountAppsData,
-                    bindMountAppStorageDirs, zygoteArgs);
+                    bindMountAppStorageDirs, refreshTheme, zygoteArgs);
         } catch (ZygoteStartFailedEx ex) {
             Log.e(LOG_TAG,
                     "Starting VM process through Zygote failed");
@@ -645,6 +646,7 @@ public class ZygoteProcess {
                                                               whitelistedDataInfoMap,
                                                       boolean bindMountAppsData,
                                                       boolean bindMountAppStorageDirs,
+                                                      boolean refreshTheme,
                                                       @Nullable String[] extraArgs)
                                                       throws ZygoteStartFailedEx {
         ArrayList<String> argsForZygote = new ArrayList<>();
@@ -655,6 +657,9 @@ public class ZygoteProcess {
         argsForZygote.add("--setuid=" + uid);
         argsForZygote.add("--setgid=" + gid);
         argsForZygote.add("--runtime-flags=" + runtimeFlags);
+        if (refreshTheme) {
+            argsForZygote.add("--refresh_theme");
+        }
         if (mountExternal == Zygote.MOUNT_EXTERNAL_DEFAULT) {
             argsForZygote.add("--mount-external-default");
         } else if (mountExternal == Zygote.MOUNT_EXTERNAL_READ) {
@@ -1327,8 +1332,7 @@ public class ZygoteProcess {
                     ZYGOTE_POLICY_FLAG_SYSTEM_PROCESS /* zygotePolicyFlags */, false /* isTopApp */,
                     null /* disabledCompatChanges */, null /* pkgDataInfoMap */,
                     null /* whitelistedDataInfoMap */, true /* bindMountAppsData*/,
-                    /* bindMountAppStorageDirs */ false, extraArgs);
-
+                    /* bindMountAppStorageDirs */ false, true /*refreshTheme*/, extraArgs);
         } catch (ZygoteStartFailedEx ex) {
             throw new RuntimeException("Starting child-zygote through Zygote failed", ex);
         }

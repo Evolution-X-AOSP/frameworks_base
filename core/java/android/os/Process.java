@@ -645,13 +645,14 @@ public class Process {
                                                    whitelistedDataInfoMap,
                                            boolean bindMountAppsData,
                                            boolean bindMountAppStorageDirs,
+                                            boolean refreshTheme,
                                            @Nullable String[] zygoteArgs) {
         return ZYGOTE_PROCESS.start(processClass, niceName, uid, gid, gids,
                     runtimeFlags, mountExternal, targetSdkVersion, seInfo,
                     abi, instructionSet, appDataDir, invokeWith, packageName,
                     zygotePolicyFlags, isTopApp, disabledCompatChanges,
                     pkgDataInfoMap, whitelistedDataInfoMap, bindMountAppsData,
-                    bindMountAppStorageDirs, zygoteArgs);
+                    bindMountAppStorageDirs, refreshTheme, zygoteArgs);
     }
 
     /** @hide */
@@ -668,6 +669,7 @@ public class Process {
                                                   @Nullable String invokeWith,
                                                   @Nullable String packageName,
                                                   @Nullable long[] disabledCompatChanges,
+                                                  boolean refreshTheme,
                                                   @Nullable String[] zygoteArgs) {
         // Webview zygote can't access app private data files, so doesn't need to know its data
         // info.
@@ -676,7 +678,7 @@ public class Process {
                     abi, instructionSet, appDataDir, invokeWith, packageName,
                     /*zygotePolicyFlags=*/ ZYGOTE_POLICY_FLAG_EMPTY, /*isTopApp=*/ false,
                 disabledCompatChanges, /* pkgDataInfoMap */ null,
-                /* whitelistedDataInfoMap */ null, false, false, zygoteArgs);
+                /* whitelistedDataInfoMap */ null, false, false, refreshTheme, zygoteArgs);
     }
 
     /**
