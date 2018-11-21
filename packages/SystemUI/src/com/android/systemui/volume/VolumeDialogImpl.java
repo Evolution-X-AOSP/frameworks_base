@@ -161,6 +161,8 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
 
     private static final String VOLUME_PANEL_ON_LEFT =
             Settings.Secure.VOLUME_PANEL_ON_LEFT;
+    public static final String VOLUME_DIALOG_TIMEOUT =
+            "system:" + Settings.System.VOLUME_DIALOG_TIMEOUT;
 
     private static final long USER_ATTEMPT_GRACE_PERIOD = 1000;
     private static final int UPDATE_ANIMATION_DURATION = 80;
@@ -315,6 +317,8 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
     // Number of animating rows
     private int mAnimatingRows = 0;
 
+    private int mTimeOutDesired, mTimeOut;
+
     public VolumeDialogImpl(
             Context context,
             VolumeDialogController volumeDialogController,
@@ -371,6 +375,7 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
         if (!mShowActiveStreamOnly) {
             mTunerService.addTunable(mTunable, VOLUME_PANEL_ON_LEFT);
         }
+        mTunerService.addTunable(mTunable, VOLUME_DIALOG_TIMEOUT);
 
         initDimens();
     }
@@ -773,6 +778,9 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
                         mControllerCallbackH.onConfigurationChanged();
                     });
                 }
+            } else if (VOLUME_DIALOG_TIMEOUT.equals(key)) {
+                mTimeOutDesired = TunerService.parseInteger(newValue, 3);
+                mTimeOut = mTimeOutDesired * 1000;
             }
         }
     };
@@ -1683,8 +1691,7 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
                     AccessibilityManager.FLAG_CONTENT_TEXT
                             | AccessibilityManager.FLAG_CONTENT_CONTROLS);
         }
-        return mAccessibilityMgr.getRecommendedTimeoutMillis(DIALOG_TIMEOUT_MILLIS,
-                AccessibilityManager.FLAG_CONTENT_CONTROLS);
+        return mTimeOut;
     }
 
     protected void dismissH(int reason) {
