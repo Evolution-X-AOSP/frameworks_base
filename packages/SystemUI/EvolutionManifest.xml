@@ -43,4 +43,7 @@
     <!-- To broadcast status of the GameSpaceManager -->
     <uses-permission android:name="android.permission.MANAGE_GAME_MODE" />
 
+    <!-- Kill button in notification guts -->
+    <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES" />
+
 </manifest>
