@@ -247,6 +247,7 @@ public class NotificationMediaManager implements Dumpable {
 
     public void clearCurrentMediaNotification() {
         mMediaNotificationKey = null;
+        mPresenter.setAmbientMusicInfo(null, null);
         clearCurrentMediaNotificationSession();
     }
 
