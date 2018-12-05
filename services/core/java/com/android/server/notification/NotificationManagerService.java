@@ -6984,18 +6984,18 @@ public class NotificationManagerService extends SystemService {
             return false;
         }
         // Suppressed because it's a silent update
-        final Notification notification = record.getNotification();
+        /*final Notification notification = record.getNotification();
         if (record.isUpdate && (notification.flags & FLAG_ONLY_ALERT_ONCE) != 0) {
             return false;
         }
         // Suppressed because another notification in its group handles alerting
         if (record.getSbn().isGroup() && record.getNotification().suppressAlertingDueToGrouping()) {
             return false;
-        }
-        // not if in call or the screen's on
-        if (isInCall() || mScreenOn) {
+        }*/
+        // not if the screen's on
+        /*if (isInCall() || mScreenOn) {
             return false;
-        }
+        }*/
 
         return true;
     }
