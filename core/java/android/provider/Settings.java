@@ -5014,6 +5014,12 @@ public final class Settings {
         public static final String PULSE_ON_NEW_TRACKS = "pulse_on_new_tracks";
 
         /**
+         * Whether to display the 4g or lte network icon in the statusbar
+         * @hide
+         */
+        public static final String SHOW_LTE_FOURGEE = "show_lte_fourgee";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate

@@ -16,14 +16,18 @@
 package com.android.systemui.statusbar.policy;
 
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.net.NetworkCapabilities;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.provider.Settings.Global;
 import android.telephony.NetworkRegistrationInfo;
 import android.telephony.ims.ImsReasonInfo;
@@ -91,6 +95,9 @@ public class MobileSignalController extends SignalController<
     private ImsManager mImsManager;
     private ImsManager.Connector mImsManagerConnector;
 
+    // Show lte/4g switch
+    private boolean mShowLteFourGee;
+
     // TODO: Reduce number of vars passed in, if we have the NetworkController, probably don't
     // need listener lists anymore.
     public MobileSignalController(Context context, Config config, boolean hasMobileData,
@@ -144,6 +151,37 @@ public class MobileSignalController extends SignalController<
                 updateTelephony();
             }
         };
+
+        Handler mHandler = new Handler();
+        SettingsObserver settingsObserver = new SettingsObserver(mHandler);
+        settingsObserver.observe();
+    }
+
+    protected class SettingsObserver extends ContentObserver {
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+           ContentResolver resolver = mContext.getContentResolver();
+           resolver.registerContentObserver(Settings.System.getUriFor(
+                  Settings.System.SHOW_LTE_FOURGEE),
+                  false, this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            super.onChange(selfChange, uri);
+            if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.SHOW_LTE_FOURGEE))) {
+                    mShowLteFourGee = Settings.System.getIntForUser(
+                            mContext.getContentResolver(),
+                            Settings.System.SHOW_LTE_FOURGEE,
+                            0, UserHandle.USER_CURRENT) == 1;
+                    mapIconSets();
+                    updateTelephony();
+            }
+        }
     }
 
     private void setListeners() {
@@ -303,7 +341,8 @@ public class MobileSignalController extends SignalController<
         mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_HSPA, hGroup);
         mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_HSPAP, hPlusGroup);
 
-        if (mConfig.show4gForLte) {
+        if (Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.SHOW_LTE_FOURGEE, 0, UserHandle.USER_CURRENT) == 1) {
             mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_LTE, TelephonyIcons.FOUR_G);
             if (mConfig.hideLtePlus) {
                 mNetworkToIconLookup.put(TelephonyManager.NETWORK_TYPE_LTE_CA,
