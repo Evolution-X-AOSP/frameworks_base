@@ -315,19 +315,19 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
                 break;
             case R.id.menu_item_qs_columns_six:
                 Settings.System.putIntForUser(mContext.getContentResolver(),
-                        Settings.System.OMNI_QS_QUICKBAR_COLUMNS, 6, UserHandle.USER_CURRENT);
+                        Settings.System.QS_QUICKBAR_COLUMNS, 6, UserHandle.USER_CURRENT);
                 break;
             case R.id.menu_item_qs_columns_seven:
                 Settings.System.putIntForUser(mContext.getContentResolver(),
-                        Settings.System.OMNI_QS_QUICKBAR_COLUMNS, 7, UserHandle.USER_CURRENT);
+                        Settings.System.QS_QUICKBAR_COLUMNS, 7, UserHandle.USER_CURRENT);
                 break;
             case R.id.menu_item_qs_columns_eight:
                 Settings.System.putIntForUser(mContext.getContentResolver(),
-                        Settings.System.OMNI_QS_QUICKBAR_COLUMNS, 8, UserHandle.USER_CURRENT);
+                        Settings.System.QS_QUICKBAR_COLUMNS, 8, UserHandle.USER_CURRENT);
                 break;
             case R.id.menu_item_qs_columns_auto:
                 Settings.System.putIntForUser(mContext.getContentResolver(),
-                        Settings.System.OMNI_QS_QUICKBAR_COLUMNS, -1, UserHandle.USER_CURRENT);
+                        Settings.System.QS_QUICKBAR_COLUMNS, -1, UserHandle.USER_CURRENT);
                 break;
             }
         updateSettings();
@@ -480,7 +480,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         menuItemEight.setChecked(columnsLandscape == 8);
 
         int qsColumns = Settings.System.getIntForUser(
-                mContext.getContentResolver(), Settings.System.OMNI_QS_QUICKBAR_COLUMNS,
+                mContext.getContentResolver(), Settings.System.QS_QUICKBAR_COLUMNS,
                 QuickQSPanel.NUM_QUICK_TILES_DEFAULT, UserHandle.USER_CURRENT);
         menuItemSix = mToolbar.getMenu().findItem(R.id.menu_item_qs_columns_six);
         menuItemSix.setChecked(qsColumns == 6);
