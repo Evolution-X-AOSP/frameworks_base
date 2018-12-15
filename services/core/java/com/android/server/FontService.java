@@ -70,6 +70,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Slog;
 import android.util.Xml;
+import android.widget.Toast;
 
 /** @hide */
 public class FontService extends IFontService.Stub {
@@ -292,6 +293,12 @@ public class FontService extends IFontService.Stub {
             // get fonts.xml from zip
             File fontXmlFile = new File(currentFontPreviewDir, FONTS_XML);
             unzipFile(fontZipFile, fontXmlFile, FONTS_XML);
+            // TODO: find a appropiate method to use a fallback xml and avoid this
+            if (!fontXmlFile.exists()) {
+                 Toast.makeText(mContext,mContext.getResources()
+                    .getString(com.android.internal.R.string.fontservice_incompatible_font),Toast.LENGTH_LONG).show();
+                 return;
+            }
 
             // parse fonts.xml for name of preview typeface
             String fontFileName = getPreviewFontNameFromXml(fontXmlFile,
