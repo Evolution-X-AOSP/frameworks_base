@@ -6067,6 +6067,12 @@ public final class Settings {
         public static final String INCREASING_RING_RAMP_UP_TIME = "increasing_ring_ramp_up_time";
 
         /**
+         * Whether to show volume dialog at left side in portrait mode
+         * @hide
+         */
+        public static final String LEFT_VOLUME_DIALOG = "left_volume_dialog";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
