@@ -58,4 +58,7 @@
     <!-- Whether alertslider is on the left edge of the device -->
     <bool name="config_alertSliderOnLeft">false</bool>
 
+    <!-- Allow devices override audio panel location to the left side -->
+    <bool name="config_audioPanelOnLeftSide">false</bool>
+
 </resources>
