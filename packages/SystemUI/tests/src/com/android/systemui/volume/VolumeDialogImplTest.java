@@ -93,6 +93,8 @@ public class VolumeDialogImplTest extends SysuiTestCase {
     InteractionJankMonitor mInteractionJankMonitor;
     @Mock
     private DumpManager mDumpManager;
+    @Mock
+    TunerService mTunerService;
 
     @Before
     public void setup() throws Exception {
@@ -110,7 +112,8 @@ public class VolumeDialogImplTest extends SysuiTestCase {
                 mVolumePanelFactory,
                 mActivityStarter,
                 mInteractionJankMonitor,
-                mDumpManager
+                mDumpManager,
+                mTunerService
             );
         mDialog.init(0, null);
         State state = createShellState();
