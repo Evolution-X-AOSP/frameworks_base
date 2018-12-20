@@ -107,21 +107,11 @@
     <java-symbol type="drawable" name="weather_thunderstorms" />
     <java-symbol type="drawable" name="weather_windy" />
 
-    <!-- Ambient play -->
-    <java-symbol type="string" name="ambient_recognition_notification" />
-    <java-symbol type="string" name="ambient_recognition_information" />
-
     <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
     <java-symbol type="bool" name="config_cleanupUnusedFingerprints" />
 
     <!-- Whether auto face unlock is enabled by default -->
     <java-symbol type="bool" name="config_autoFaceUnlockEnabledByDefault" />
-
-    <!-- Default start time for Ambient Play quiet period -->
-    <java-symbol type="integer" name="config_defaultAmbientPlayQuitPeriodStartTime" />
-
-    <!-- Default end time for Ambient Play quiet period -->
-    <java-symbol type="integer" name="config_defaultAmbientPlayQuitPeriodEndTime" />
 
     <!-- Whether to allow process with media UID to access CameraServiceProxy -->
     <java-symbol type="bool" name="config_allowMediaUidForCameraServiceProxy" />
