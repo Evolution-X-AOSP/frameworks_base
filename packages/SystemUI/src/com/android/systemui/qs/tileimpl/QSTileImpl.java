@@ -32,6 +32,7 @@ import com.android.systemui.R;
 import android.annotation.CallSuper;
 import android.annotation.NonNull;
 import android.app.ActivityManager;
+import android.app.WallpaperManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -42,6 +43,7 @@ import android.os.Message;
 import android.os.UserHandle;
 import android.os.Vibrator;
 import android.provider.Settings;
+import android.provider.Settings.System;
 import android.service.quicksettings.Tile;
 import android.text.format.DateUtils;
 import android.util.ArraySet;
@@ -62,6 +64,7 @@ import com.android.settingslib.Utils;
 import com.android.systemui.Dependency;
 import com.android.systemui.Dumpable;
 import com.android.systemui.Prefs;
+import com.android.systemui.colorextraction.SysuiColorExtractor;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.qs.DetailAdapter;
 import com.android.systemui.plugins.qs.QSIconView;
@@ -523,13 +526,29 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
      */
     public abstract CharSequence getTileLabel();
 
+    private static int getWallpaperColor() {
+        final SysuiColorExtractor colorExtractor = Dependency.get(SysuiColorExtractor.class);
+        // TODO: Find a way to trigger setBackground on lock event, and use FLAG_LOCK there
+        return colorExtractor.getWallpaperColors(WallpaperManager.FLAG_SYSTEM).getPrimaryColor().toArgb();
+    }
+
     public static int getColorForState(Context context, int state) {
+        int activeDefault = Utils.getColorAttrDefaultColor(context, android.R.attr.colorPrimary);
         int setQsUseNewTint = Settings.System.getIntForUser(context.getContentResolver(),
-                Settings.System.QS_PANEL_BG_USE_NEW_TINT, 0, UserHandle.USER_CURRENT);
+                System.QS_PANEL_BG_USE_NEW_TINT, 0, UserHandle.USER_CURRENT);
         int qsTileStyle = Settings.System.getIntForUser(context.getContentResolver(),
-                Settings.System.QS_TILE_STYLE, 0, UserHandle.USER_CURRENT);
+                System.QS_TILE_STYLE, 0, UserHandle.USER_CURRENT);
         boolean shouldDisco = Settings.System.getIntForUser(context.getContentResolver(),
-                Settings.System.QS_TILES_BG_DISCO, 0, UserHandle.USER_CURRENT) == 1;
+                System.QS_TILES_BG_DISCO, 0, UserHandle.USER_CURRENT) == 1;
+        boolean setQsFromWall = System.getIntForUser(context.getContentResolver(),
+                System.SYSUI_COLORS_ACTIVE, 0, UserHandle.USER_CURRENT) == 1;
+        boolean setQsFromResources = System.getIntForUser(context.getContentResolver(),
+                System.QS_PANEL_BG_USE_FW, 1, UserHandle.USER_CURRENT) == 1;
+
+        int qsBackGroundColor = System.getIntForUser(context.getContentResolver(),
+                System.QS_PANEL_BG_COLOR, activeDefault, UserHandle.USER_CURRENT);
+        int qsBackGroundColorWall = getWallpaperColor();
+
         switch (state) {
             case Tile.STATE_UNAVAILABLE:
                 return Utils.getDisabled(context,
@@ -546,7 +565,7 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
                 if (qsTileStyle == 7 || qsTileStyle == 9 || qsTileStyle == 10 || qsTileStyle == 12 ||
                         qsTileStyle == 13 || qsTileStyle == 14) {
                     return Utils.getColorAttrDefaultColor(context, android.R.attr.colorAccent);
-                } else {
+                } else if (setQsFromResources) {
                     if (shouldDisco) {
                         return Utils.getColorAttrDefaultColor(context, android.R.attr.colorPrimary);
                     } else if (setQsUseNewTint == 1 && !shouldDisco) {
@@ -555,6 +574,12 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
                         return context.getResources().getColor(R.color.qs_tile_oos);
                     } else {
                         return Utils.getColorAttrDefaultColor(context, android.R.attr.colorPrimary);
+                    }
+                } else {
+                    if (setQsFromWall) {
+                        return qsBackGroundColorWall;
+                    } else {
+                        return qsBackGroundColor;
                     }
                 }
             default:
