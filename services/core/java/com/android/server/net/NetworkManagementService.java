@@ -270,7 +270,7 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
         void sendCallback(INetworkManagementEventObserver o) throws RemoteException;
     }
 
-    private void invokeForAllObservers(NetworkManagementEventCallback eventCallback) {
+    private synchronized void invokeForAllObservers(NetworkManagementEventCallback eventCallback) {
         final int length = mObservers.beginBroadcast();
         try {
             for (int i = 0; i < length; i++) {
