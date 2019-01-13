@@ -11,4 +11,7 @@
 
     <!-- Our custom clock values -->
     <dimen name="widget_shishu_accent_font_size">45dp</dimen>
+
+     <!-- Font size for inmensity clock -->
+     <dimen name="widget_shishu_inmensity_font_size">35dp</dimen>
 </resources>
