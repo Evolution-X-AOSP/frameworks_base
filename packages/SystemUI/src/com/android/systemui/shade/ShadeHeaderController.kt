@@ -71,6 +71,7 @@ import com.android.systemui.statusbar.phone.StatusIconContainer
 import com.android.systemui.statusbar.phone.StatusOverlayHoverListenerFactory
 import com.android.systemui.statusbar.policy.Clock
 import com.android.systemui.statusbar.policy.ConfigurationController
+import com.android.systemui.statusbar.policy.NetworkTraffic
 import com.android.systemui.statusbar.policy.NextAlarmController
 import com.android.systemui.statusbar.policy.VariableDateView
 import com.android.systemui.statusbar.policy.VariableDateViewController
@@ -161,6 +162,7 @@ constructor(
     private val date: TextView = header.requireViewById(R.id.date)
     private val iconContainer: StatusIconContainer = header.requireViewById(R.id.statusIcons)
     private val mShadeCarrierGroup: ShadeCarrierGroup = header.requireViewById(R.id.carrier_group)
+    private val networkTraffic: NetworkTraffic = header.findViewById(R.id.networkTraffic)
     private val systemIcons: View = header.requireViewById(R.id.shade_header_system_icons)
     private val vibrator: Vibrator = header.context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
 
@@ -171,6 +173,7 @@ constructor(
 
     private var privacyChipVisible = false
     private var qsDisabled = false
+    private var privacyVisible = false
     private var visible = false
         set(value) {
             if (field == value) {
@@ -274,6 +277,8 @@ constructor(
                 header.updateAllConstraints(update)
                 privacyChipVisible = visible
                 setBatteryClickable(qsExpandedFraction == 1f || !visible)
+                setNetworkTrafficVisible(qsExpandedFraction == 1f && !visible)
+                privacyVisible = visible
             }
         }
 
@@ -348,6 +353,8 @@ constructor(
             shadeCarrierGroupControllerBuilder.setShadeCarrierGroup(mShadeCarrierGroup).build()
 
         privacyIconsController.onParentVisible()
+
+        setNetworkTrafficVisible(false)
 
         tunerService.addTunable(object : TunerService.Tunable {
             override fun onTuningChanged(key: String?, value: String?) {
@@ -432,6 +439,8 @@ constructor(
         systemIcons.setOnHoverListener(
             statusOverlayHoverListenerFactory.createListener(systemIcons)
         )
+
+        privacyVisible = privacyIconsController.getIsChipVisible()
     }
 
     override fun onViewDetached() {
@@ -590,6 +599,7 @@ constructor(
             header.progress = qsExpandedFraction
         }
         setBatteryClickable(qsExpandedFraction == 1f || !privacyChipVisible)
+        setNetworkTrafficVisible(qsExpandedFraction == 1f && !privacyVisible && visible)
     }
 
     private fun logInstantEvent(message: String) {
@@ -643,6 +653,10 @@ constructor(
     private fun setBatteryClickable(clickable: Boolean) {
         batteryIcon.setOnClickListener(if (clickable) this else null)
         batteryIcon.setClickable(clickable)
+    }
+
+    private fun setNetworkTrafficVisible(visible: Boolean) {
+        networkTraffic.setAlpha(if (visible) 1f else 0f)
     }
 
     override fun dump(pw: PrintWriter, args: Array<out String>) {

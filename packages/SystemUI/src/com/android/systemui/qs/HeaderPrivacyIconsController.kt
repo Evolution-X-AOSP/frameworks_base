@@ -199,6 +199,10 @@ class HeaderPrivacyIconsController @Inject constructor(
         setChipVisibility(false)
     }
 
+    fun getIsChipVisible(): Boolean {
+        return privacyChip.visibility == View.VISIBLE
+    }
+
     private fun setChipVisibility(visible: Boolean) {
         if (visible && getChipEnabled()) {
             privacyLogger.logChipVisible(true)

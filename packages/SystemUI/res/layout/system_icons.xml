@@ -23,15 +23,34 @@
     android:paddingTop="@dimen/status_bar_icons_padding_top"
     android:paddingStart="@dimen/status_bar_icons_padding_start"
     android:paddingEnd="@dimen/status_bar_icons_padding_end"
-    android:gravity="center_vertical">
+    android:gravity="center_vertical|end">
+
+    <com.android.keyguard.AlphaOptimizedLinearLayout
+        android:id="@+id/network_traffic_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:gravity="center_vertical|end"
+        >
+
+        <com.android.systemui.statusbar.policy.NetworkTrafficSB
+            android:id="@+id/networkTraffic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:gravity="center_vertical|end"
+            android:autoSizeTextType="uniform" />
+
+    </com.android.keyguard.AlphaOptimizedLinearLayout>
 
     <com.android.systemui.statusbar.phone.StatusIconContainer android:id="@+id/statusIcons"
-        android:layout_width="0dp"
-        android:layout_weight="1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingEnd="@dimen/signal_cluster_battery_padding"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"/>
+        android:gravity="center_vertical|end"
+        android:orientation="horizontal" />
 
     <com.android.systemui.battery.BatteryMeterView android:id="@+id/battery"
         android:layout_height="wrap_content"

@@ -108,5 +108,11 @@ public class SystemSettings {
         Settings.System.MAX_CALL_VOLUME,
         Settings.System.MAX_MUSIC_VOLUME,
         Settings.System.MAX_ALARM_VOLUME,
+        Settings.System.NETWORK_TRAFFIC_STATE,
+        Settings.System.NETWORK_TRAFFIC_TYPE,
+        Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD,
+        Settings.System.NETWORK_TRAFFIC_ARROW,
+        Settings.System.NETWORK_TRAFFIC_FONT_SIZE,
+        Settings.System.NETWORK_TRAFFIC_VIEW_LOCATION,
     };
 }
