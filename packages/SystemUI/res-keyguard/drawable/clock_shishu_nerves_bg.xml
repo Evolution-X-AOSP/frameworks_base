@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="105dip"
+    android:height="175dip">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@*android:color/background_material_dark"/>
+        </shape>
+    </item>
+    <item>
+        <bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+            android:gravity="clip_horizontal"
+            android:alpha="0.25"
+            android:src="@*android:drawable/bootleg_theme_nerves_bg01"
+            android:tileMode="repeat"
+            android:tint="@color/clock_gradient_general_gradient_end" />
+    </item>
+    <item>
+        <bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+            android:src="@*android:drawable/bootleg_theme_nerves_bg02"
+            android:tileMode="repeat"
+            android:gravity="clip_horizontal"
+            android:tint="@*android:color/accent_material_light"
+            android:alpha="0.40" />
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#00ffffff"/>
+            <stroke android:color="@*android:color/accent_material_light" android:width="4dp"/>
+        </shape>
+    </item>
+</layer-list>

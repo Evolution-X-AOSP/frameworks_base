@@ -245,4 +245,8 @@
    <java-symbol type="id" name="notification_media_elapsed_time" />
    <java-symbol type="id" name="notification_media_total_time" />
 
+   <!-- Shishu Nerves -->
+   <java-symbol type="drawable" name="bootleg_theme_nerves_bg01" />
+   <java-symbol type="drawable" name="bootleg_theme_nerves_bg02" />
+
 </resources>

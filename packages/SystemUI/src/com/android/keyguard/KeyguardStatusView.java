@@ -536,6 +536,18 @@ public class KeyguardStatusView extends GridLayout implements
                 mClockView.setPadding(20,20,20,20);
                 mCustomClockView.setVisibility(View.GONE);
                 break;
+            case 9: // shishu nerves
+                mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
+                       View.GONE) : View.VISIBLE);
+                mClockView.setBackground(getResources().getDrawable(R.drawable.clock_shishu_nerves_bg));
+                mClockView.getLayoutParams().width = getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_nerves_width);
+                mClockView.getLayoutParams().height = getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_nerves_height);
+                mClockView.setLineSpacing(0,1f);
+                mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_nerves_font_size));
+                mClockView.setPadding(0,20,0,20);
+                mCustomClockView.setVisibility(View.GONE);
+                break;
         }
     }
 
@@ -593,7 +605,12 @@ public class KeyguardStatusView extends GridLayout implements
                 mClockView.setSingleLine(false);
                 mClockView.setGravity(Gravity.CENTER);
                 break;
-            case 9: // shishu diamond
+            case 8: // shishu diamond
+                params.addRule(RelativeLayout.BELOW, R.id.clock_view);
+                mClockView.setSingleLine(false);
+                mClockView.setGravity(Gravity.CENTER);
+                break;
+            case 9: // shishu nerves
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 mClockView.setSingleLine(false);
                 mClockView.setGravity(Gravity.CENTER);
