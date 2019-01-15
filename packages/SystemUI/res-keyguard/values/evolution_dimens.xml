@@ -20,4 +20,7 @@
     <dimen name="widget_clock_shishu_nerves_height">@dimen/widget_clock_shishu_size</dimen>
     <dimen name="widget_clock_shishu_nerves_font_size">52dp</dimen>
 
+    <!-- padding for date view -->
+    <dimen name="widget_clock_shishu_date_padding">8dp</dimen>
+
 </resources>
