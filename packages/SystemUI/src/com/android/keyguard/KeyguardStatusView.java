@@ -313,8 +313,8 @@ public class KeyguardStatusView extends GridLayout implements
     public void onDensityOrFontScaleChanged() {
         mWidgetPadding = getResources().getDimension(R.dimen.widget_vertical_padding);
         if (mClockView != null) {
-            mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                    getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
+            //mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+            //        getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
             mClockView.getPaint().setStrokeWidth(
                     getResources().getDimensionPixelSize(R.dimen.widget_small_font_stroke));
         }
