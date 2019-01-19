@@ -249,4 +249,7 @@
 
     <!-- Whether notify fingerprint client of successful cancelled authentication -->
     <java-symbol type="bool" name="config_notifyClientOnFingerprintCancelSuccess" />
+
+    <!-- Toast animation -->
+    <java-symbol type="style" name="Animation.Toast.Material" />
 </resources>
