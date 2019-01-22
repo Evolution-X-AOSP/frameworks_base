@@ -1006,18 +1006,8 @@ public class Build {
     /** A string that uniquely identifies this build.  Do not attempt to parse this value. */
     public static final String FINGERPRINT = deriveFingerprint();
 
-    /**
-     * Evolution X fingerprint
-     * @hide
-     */
-    public static final String PROP_EVOLUTION_FINGERPRINT = "org.evolution.fingerprint";
-
-    /**
-     * Evolution X fingerprint
-     * @hide
-     */
-    public static final String EVOLUTION_FINGERPRINT = SystemProperties.get(PROP_EVOLUTION_FINGERPRINT,
-            deriveFingerprint());
+    /** @hide */
+    public static final String EVOLUTION_FINGERPRINT = getString("ro.build.date");
 
     /**
      * Some devices split the fingerprint components between multiple
