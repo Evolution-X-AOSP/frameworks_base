@@ -1355,6 +1355,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener,
         if (mFingerprintRunningState == FINGERPRINT_STATE_RUNNING && !shouldListenForFingerprint) {
             stopListeningForFingerprint();
         } else if (mFingerprintRunningState != FINGERPRINT_STATE_RUNNING
+                && mFingerprintRunningState != FINGERPRINT_STATE_CANCELLING
                 && shouldListenForFingerprint) {
             startListeningForFingerprint();
         }
