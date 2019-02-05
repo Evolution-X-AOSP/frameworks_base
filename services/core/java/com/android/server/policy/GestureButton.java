@@ -59,7 +59,6 @@ public class GestureButton implements PointerEventListener {
     private long mDownTime;
     private float mFromX;
     private float mFromY;
-    private boolean mIsKeyguardShowing;
     private float mLastX;
     private float mLastY;
     private int mNavigationBarPosition = 0;
@@ -158,11 +157,6 @@ public class GestureButton implements PointerEventListener {
             float rawY = event.getRawY();
             switch (action) {
                 case MotionEvent.ACTION_DOWN:
-                    mIsKeyguardShowing = mPwm.isKeyguardLocked();
-                    if (mIsKeyguardShowing) {
-                        break;
-                    }
-
                     mPreparedKeycode = -1;
                     if (mNavigationBarPosition == 0) {
                         if (rawY >= ((float) (mScreenHeight - mSwipeStartThreshold))) {
@@ -195,7 +189,7 @@ public class GestureButton implements PointerEventListener {
                     }
                     break;
                 case MotionEvent.ACTION_UP:
-                    if (!mIsKeyguardShowing && mPreparedKeycode != -1) {
+                    if (mPreparedKeycode != -1) {
                         if (DEBUG)
                             Slog.i(TAG, "ACTION_UP " + mPreparedKeycode + " " + mRecentsTriggered + " " + mKeyEventHandled + " " + mLongSwipePossible);
                         mGestureButtonHandler.removeMessages(MSG_SEND_SWITCH_KEY);
@@ -217,7 +211,7 @@ public class GestureButton implements PointerEventListener {
                     }
                     break;
                 case MotionEvent.ACTION_MOVE:
-                    if (!mKeyEventHandled && !mRecentsTriggered && !mIsKeyguardShowing && mPreparedKeycode != -1) {
+                    if (!mKeyEventHandled && !mRecentsTriggered && mPreparedKeycode != -1) {
                         float moveDistanceSinceDown;
                         if (mNavigationBarPosition == 0) {
                             moveDistanceSinceDown = Math.abs(mFromY - rawY);
