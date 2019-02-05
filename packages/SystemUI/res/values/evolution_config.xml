@@ -12,4 +12,7 @@
     <!-- Allow devices override audio panel location to the left side -->
     <bool name="config_audioPanelOnLeftSide">false</bool>
 
+    <!-- Whether to show HD icon in the status bar for volte -->
+    <bool name="config_display_hd_volte">false</bool>
+
 </resources>
