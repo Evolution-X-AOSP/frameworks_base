@@ -325,6 +325,9 @@ public class KeyguardIndicationController {
             int userId = KeyguardUpdateMonitor.getCurrentUser();
             String trustGrantedIndication = getTrustGrantedIndication();
             String trustManagedIndication = getTrustManagedIndication();
+
+            updateChargingIndication();
+
             if (!mUserManager.isUserUnlocked(userId)) {
                 mTextView.switchIndication(com.android.internal.R.string.lockscreen_storage_locked);
                 mTextView.setTextColor(mInitialTextColor);
@@ -355,7 +358,6 @@ public class KeyguardIndicationController {
                 mTextView.switchIndication(mRestingIndication);
                 mTextView.setTextColor(mInitialTextColor);
             }
-            updateChargingIndication();
         }
     }
 
