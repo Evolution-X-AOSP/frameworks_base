@@ -69,6 +69,8 @@ import com.android.systemui.statusbar.policy.ZenModeController;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.tuner.TunerService.Tunable;
 
+import com.android.systemui.statusbar.policy.NetworkTraffic;
+
 import java.util.Locale;
 import java.util.Objects;
 
@@ -133,6 +135,9 @@ public class QuickStatusBarHeader extends RelativeLayout implements
 
     private boolean mBatteryInQS;
     private boolean mShowEstimate;
+
+    // Statusbar Traffic
+    private NetworkTraffic mTraffic;
 
     private final BroadcastReceiver mRingerReceiver = new BroadcastReceiver() {
         @Override
@@ -215,6 +220,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mClockView = findViewById(R.id.clock);
         mClockView.setOnClickListener(this);
         mDateView = findViewById(R.id.date);
+	mTraffic = findViewById(R.id.networkTraffic);
     }
 
     private void updateStatusText() {
@@ -295,6 +301,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
             mBatteryMeterView.useWallpaperTextColor(shouldUseWallpaperTextColor);
         }
         mClockView.useWallpaperTextColor(shouldUseWallpaperTextColor);
+	mTraffic.useWallpaperTextColor(shouldUseWallpaperTextColor);
     }
 
     @Override
