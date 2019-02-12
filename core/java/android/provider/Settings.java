@@ -5712,6 +5712,14 @@ public final class Settings {
          */
         public static final String SHOW_BATTERY_ESTIMATE = "show_battery_estimate";
 
+        /**
+         * @hide
+         */
+        public static final String BOTTOM_GESTURE_FEEDBACK_DURATION = "bottom_gesture_navigation_feedback_duration";
+
+        /** @hide */
+        private static final Validator BOTTOM_GESTURE_FEEDBACK_DURATION_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
         /** End of Evolution X system settings**/
 
         /**
@@ -5791,6 +5799,7 @@ public final class Settings {
             VOLUME_KEYS_CONTROL_RING_TONE,
             BOTTOM_GESTURE_TRIGGER_TIMEOUT,
             BOTTOM_GESTURE_SWIPE_LIMIT,
+            BOTTOM_GESTURE_FEEDBACK_DURATION,
             DOZE_ON_CHARGE,
             STATUS_BAR_LOGO,
             QS_PANEL_BG_ALPHA,
@@ -5996,6 +6005,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(USE_BOTTOM_GESTURE_NAVIGATION);
             PRIVATE_SETTINGS.add(BOTTOM_GESTURE_TRIGGER_TIMEOUT);
             PRIVATE_SETTINGS.add(BOTTOM_GESTURE_SWIPE_LIMIT);
+            PRIVATE_SETTINGS.add(BOTTOM_GESTURE_FEEDBACK_DURATION);
             PRIVATE_SETTINGS.add(DOZE_ON_CHARGE);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_ALPHA);
             PRIVATE_SETTINGS.add(HIDE_LOCKSCREEN_STATUS_BAR);
@@ -6171,6 +6181,7 @@ public final class Settings {
                     BOTTOM_GESTURE_TRIGGER_TIMEOUT_VALIDATOR);
             VALIDATORS.put(BOTTOM_GESTURE_SWIPE_LIMIT,
                     BOTTOM_GESTURE_SWIPE_LIMIT_VALIDATOR);
+            VALIDATORS.put(BOTTOM_GESTURE_FEEDBACK_DURATION, BOTTOM_GESTURE_FEEDBACK_DURATION_VALIDATOR);
             VALIDATORS.put(DOZE_ON_CHARGE, DOZE_ON_CHARGE_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_LOGO, STATUS_BAR_LOGO_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_ALPHA, QS_PANEL_BG_ALPHA_VALIDATOR);
