@@ -764,6 +764,10 @@ public class KeyguardIndicationController implements StateListener,
                         (mChargingCurrent * 1000) : (mChargingCurrent < 4000 ?
                         mChargingCurrent : (mChargingCurrent / 1000))) + "mA";
             }
+            if (mChargingWattage > 0) {
+                batteryInfo = (batteryInfo == "" ? "" : batteryInfo + " · ") +
+                        String.format("%.1f" , (mChargingWattage / 1000 / 1000)) + "W";
+            }
             if (mChargingVoltage > 0) {
                 batteryInfo = (batteryInfo == "" ? "" : batteryInfo + " · ") +
                         String.format("%.1f", (float) (mChargingVoltage / 1000 / 1000)) + "V";
