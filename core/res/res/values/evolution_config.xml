@@ -374,4 +374,7 @@
 
     <!-- Whether to show settings for hiding notch fill -->
     <bool name="config_showHideNotchSettings">false</bool>
+
+    <!-- Whether to enable OnePlus Camera hack -->
+    <bool name="config_enableOnePlusCameraHack">false</bool>
 </resources>
