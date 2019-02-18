@@ -343,4 +343,20 @@ public class EvolutionUtils {
             }
         }
     }
+
+    // Cycle ringer modes
+    public static void toggleRingerModes (Context context) {
+        AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+        switch (am.getRingerMode()) {
+            case AudioManager.RINGER_MODE_SILENT:
+                am.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                break;
+            case AudioManager.RINGER_MODE_VIBRATE:
+                am.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+                break;
+            case AudioManager.RINGER_MODE_NORMAL:
+                am.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+                break;
+        }
+    }
 }
