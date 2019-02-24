@@ -5450,7 +5450,6 @@ public final class Settings {
             STATUSBAR_HIDE_NOTCH,
             STATUS_BAR_BRIGHTNESS_CONTROL,
             VOLUME_KEYS_CONTROL_RING_TONE,
-            USE_BOTTOM_GESTURE_NAVIGATION,
             BOTTOM_GESTURE_TRIGGER_TIMEOUT,
             BOTTOM_GESTURE_SWIPE_LIMIT,
         };
