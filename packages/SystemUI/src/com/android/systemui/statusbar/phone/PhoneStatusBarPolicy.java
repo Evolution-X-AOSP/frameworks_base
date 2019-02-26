@@ -463,9 +463,9 @@ public class PhoneStatusBarPolicy implements Callback, Callbacks,
         int iconId = R.drawable.stat_sys_data_bluetooth;
         String contentDescription =
                 mContext.getString(R.string.accessibility_quick_settings_bluetooth_on);
-        boolean bluetoothEnabled = false;
+        boolean bluetoothConnected = false;
         if (mBluetooth != null) {
-            bluetoothEnabled = mBluetooth.isBluetoothEnabled();
+            bluetoothConnected = mBluetooth.isBluetoothConnected();
             final Collection<CachedBluetoothDevice> devices = mBluetooth.getDevices();
             if (devices != null) {
                 // get battery level for the first device with battery level support
@@ -489,7 +489,7 @@ public class PhoneStatusBarPolicy implements Callback, Callbacks,
         }
 
         mIconController.setIcon(mSlotBluetooth, iconId, contentDescription);
-        mIconController.setIconVisibility(mSlotBluetooth, bluetoothEnabled);
+        mIconController.setIconVisibility(mSlotBluetooth, bluetoothConnected);
     }
 
     private int getBtLevelIconRes(int batteryLevel) {
