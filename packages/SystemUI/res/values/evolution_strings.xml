@@ -264,4 +264,7 @@
     <!-- OnTheGo QS Tile -->
     <string name="quick_settings_onthego_label">On-The-Go</string>
 
+    <!-- OneHand mode QS tile -->
+    <string name="qs_onehand_label">OneHand mode</string>
+
 </resources>
