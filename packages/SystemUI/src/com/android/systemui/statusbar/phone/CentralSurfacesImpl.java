@@ -2116,6 +2116,14 @@ public class CentralSurfacesImpl extends CoreStartable implements
         mMessageRouter.sendMessage(MSG_OPEN_SETTINGS_PANEL);
     }
 
+    public void toggleSettingsPanel() {
+        if (mPanelExpanded) {
+            mShadeController.animateCollapsePanels();
+        } else {
+            animateExpandSettingsPanel(null);
+        }
+    }
+
     @Override
     public boolean isExpandedVisible() {
         return mExpandedVisible;

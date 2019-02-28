@@ -164,7 +164,8 @@ public class CommandQueue extends IStatusBar.Stub implements
     private static final int MSG_REGISTER_NEARBY_MEDIA_DEVICE_PROVIDER = 66 << MSG_SHIFT;
     private static final int MSG_UNREGISTER_NEARBY_MEDIA_DEVICE_PROVIDER = 67 << MSG_SHIFT;
     private static final int MSG_TILE_SERVICE_REQUEST_LISTENING_STATE = 68 << MSG_SHIFT;
-    private static final int MSG_TOGGLE_CAMERA_FLASH  = 69 << MSG_SHIFT;
+    private static final int MSG_TOGGLE_CAMERA_FLASH = 69 << MSG_SHIFT;
+    private static final int MSG_TOGGLE_SETTINGS_PANEL = 70 << MSG_SHIFT;
 
     public static final int FLAG_EXCLUDE_NONE = 0;
     public static final int FLAG_EXCLUDE_SEARCH_PANEL = 1 << 0;
@@ -209,6 +210,7 @@ public class CommandQueue extends IStatusBar.Stub implements
         default void animateExpandNotificationsPanel() { }
         default void animateCollapsePanels(int flags, boolean force) { }
         default void togglePanel() { }
+        default void toggleSettingsPanel() { }
         default void animateExpandSettingsPanel(String obj) { }
 
         /**
@@ -645,6 +647,13 @@ public class CommandQueue extends IStatusBar.Stub implements
         synchronized (mLock) {
             mHandler.removeMessages(MSG_TOGGLE_PANEL);
             mHandler.obtainMessage(MSG_TOGGLE_PANEL, 0, 0).sendToTarget();
+        }
+    }
+
+    public void toggleSettingsPanel() {
+        synchronized (mLock) {
+            mHandler.removeMessages(MSG_TOGGLE_SETTINGS_PANEL);
+            mHandler.obtainMessage(MSG_TOGGLE_SETTINGS_PANEL, 0, 0).sendToTarget();
         }
     }
 
@@ -1324,6 +1333,11 @@ public class CommandQueue extends IStatusBar.Stub implements
                 case MSG_TOGGLE_PANEL:
                     for (int i = 0; i < mCallbacks.size(); i++) {
                         mCallbacks.get(i).togglePanel();
+                    }
+                    break;
+                case MSG_TOGGLE_SETTINGS_PANEL:
+                    for (int i = 0; i < mCallbacks.size(); i++) {
+                        mCallbacks.get(i).toggleSettingsPanel();
                     }
                     break;
                 case MSG_EXPAND_SETTINGS:
