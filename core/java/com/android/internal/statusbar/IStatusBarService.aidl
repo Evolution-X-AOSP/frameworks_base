@@ -49,6 +49,7 @@ interface IStatusBarService
     @UnsupportedAppUsage
     void collapsePanels();
     void togglePanel();
+    void toggleSettingsPanel();
     @UnsupportedAppUsage
     void disable(int what, IBinder token, String pkg);
     void disableForUser(int what, IBinder token, String pkg, int userId);
