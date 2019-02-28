@@ -216,6 +216,8 @@ public interface CentralSurfaces extends Dumpable, LifecycleOwner {
 
     NotificationPresenter getPresenter();
 
+    void toggleSettingsPanel();
+
     /**
      * Used to dispatch initial touch events before crossing the threshold to pull down the
      * notification shade. After that, since the launcher window is set to slippery, input

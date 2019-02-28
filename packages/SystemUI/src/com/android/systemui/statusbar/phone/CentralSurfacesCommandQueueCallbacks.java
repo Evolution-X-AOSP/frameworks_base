@@ -573,6 +573,22 @@ public class CentralSurfacesCommandQueueCallbacks implements CommandQueue.Callba
         mCentralSurfaces.setBlockedGesturalNavigation(blocked);
     }
 
+    @Override
+    public void toggleCameraFlash() {
+        if (mFlashlightController.isAvailable()) {
+            mFlashlightController.setFlashlight(!mFlashlightController.isEnabled());
+        }
+    }
+
+    @Override
+    public void toggleSettingsPanel() {
+        if (mShadeViewController.isPanelExpanded()) {
+            mShadeController.animateCollapseShade();
+        } else {
+            animateExpandSettingsPanel(null);
+        }
+    }
+
     private boolean isGoingToSleep() {
         return mWakefulnessLifecycle.getWakefulness()
                 == WakefulnessLifecycle.WAKEFULNESS_GOING_TO_SLEEP;
@@ -624,13 +640,6 @@ public class CentralSurfacesCommandQueueCallbacks implements CommandQueue.Callba
             );
         } else {
             mVibratorHelper.vibrate(VibrationEffect.EFFECT_TICK);
-        }
-    }
-
-    @Override
-    public void toggleCameraFlash() {
-        if (mFlashlightController.isAvailable()) {
-            mFlashlightController.setFlashlight(!mFlashlightController.isEnabled());
         }
     }
 }
