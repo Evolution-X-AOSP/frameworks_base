@@ -9785,6 +9785,13 @@ public final class Settings {
         public static final String SQUEEZE_SELECTION_SMART_ACTIONS = "squeeze_selection_smart_actions";
 
         /**
+         * Select various actions for long squeeze gesture
+         *
+         * @hide
+         */
+        public static final String LONG_SQUEEZE_SELECTION_SMART_ACTIONS = "long_squeeze_selection_smart_actions";
+
+        /**
          * Display style of the status bar battery information
          * 0: Display the battery an icon in portrait mode
          * 2: Display the battery as a circle
