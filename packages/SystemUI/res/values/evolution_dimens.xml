@@ -21,7 +21,7 @@
 
     <!-- Network traffic monitor -->
     <dimen name="net_traffic_multi_text_size">14dp</dimen>
-    <dimen name="net_traffic_txt_img_padding">2dp</dimen>
+    <dimen name="net_traffic_txt_img_padding">1dp</dimen>
 
     <!-- Bottom margin size when fingerprint in display is active -->
     <dimen name="keyguard_indication_margin_bottom_fingerprint_in_display">30dp</dimen>
