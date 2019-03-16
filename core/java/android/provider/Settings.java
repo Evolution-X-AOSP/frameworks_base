@@ -6737,6 +6737,16 @@ public final class Settings {
          */
         public static final String ADAPTIVE_PLAYBACK_TIMEOUT = "adaptive_playback_timeout";
 
+        /**
+         * Display cutout
+         * @hide
+         */
+        public static final String DISPLAY_CUTOUT_HIDDEN = "display_cutout_hidden";
+
+        /** @hide */
+        private static final Validator DISPLAY_CUTOUT_HIDDEN_VALIDATOR = new
+                SettingsValidators.InclusiveIntegerRangeValidator(0, 1);
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
@@ -7204,6 +7214,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(CAMERA_WAKE_SCREEN);
             PRIVATE_SETTINGS.add(CAMERA_SLEEP_ON_RELEASE);
             PRIVATE_SETTINGS.add(CAMERA_LAUNCH);
+            PRIVATE_SETTINGS.add(DISPLAY_CUTOUT_HIDDEN);
             // Evolution X Settings end
         }
 
@@ -7477,6 +7488,7 @@ public final class Settings {
             VALIDATORS.put(CAMERA_WAKE_SCREEN, CAMERA_WAKE_SCREEN_VALIDATOR);
             VALIDATORS.put(CAMERA_SLEEP_ON_RELEASE, CAMERA_SLEEP_ON_RELEASE_VALIDATOR);
             VALIDATORS.put(CAMERA_LAUNCH, CAMERA_LAUNCH_VALIDATOR);
+            VALIDATORS.put(DISPLAY_CUTOUT_HIDDEN, DISPLAY_CUTOUT_HIDDEN_VALIDATOR);
             // Evolution X Settings end
         }
 
