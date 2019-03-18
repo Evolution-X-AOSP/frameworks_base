@@ -3591,4 +3591,7 @@
     <!-- Component name for default assistant on this device -->
     <string name="config_defaultAssistantComponentName"></string>
 
+    <!-- Set interval to trigger idleMaint -->
+    <integer name="config_idleMaintSecs">0</integer>
+
 </resources>
