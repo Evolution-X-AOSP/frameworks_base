@@ -5395,6 +5395,15 @@ public final class Settings {
          */
         public static final String ENABLE_GAMING_MODE = "enable_gaming_mode";
 
+        /**
+         * modify how the album art shows up on lockscreen
+         * 0 - default
+         * 1 - grayscale
+         * 2 - blurry
+         * @hide
+         */
+        public static final String LOCKSCREEN_ALBUM_ART_FILTER = "lockscreen_album_art_filter";
+
         /** End of Evolution X system settings**/
 
         /**
