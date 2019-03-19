@@ -34,6 +34,10 @@ import android.graphics.RectF;
 import android.graphics.Shader.TileMode;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.renderscript.Element;
+import android.renderscript.Allocation;
+import android.renderscript.ScriptIntrinsicBlur;
+import android.renderscript.RenderScript;
 import android.util.TypedValue;
 
 public class ImageHelper {
@@ -142,6 +146,50 @@ public class ImageHelper {
         canvas.drawCircle(width/2, height/2, width/2, paint);
 
         return output;
+    }
+
+    public static Bitmap getBlurredImage(Context context, Bitmap image) {
+        return getBlurredImage(context, image, 3.5f);
+    }
+
+    public static Bitmap getBlurredImage(Context context, Bitmap image, float radius) {
+        try {
+            image = RGB565toARGB888(image);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Bitmap bitmap = Bitmap.createBitmap(
+                image.getWidth(), image.getHeight(),
+                Bitmap.Config.ARGB_8888);
+        RenderScript renderScript = RenderScript.create(context);
+        Allocation blurInput = Allocation.createFromBitmap(renderScript, image);
+        Allocation blurOutput = Allocation.createFromBitmap(renderScript, bitmap);
+
+        ScriptIntrinsicBlur blur = ScriptIntrinsicBlur.create(renderScript,
+                Element.U8_4(renderScript));
+        blur.setInput(blurInput);
+        blur.setRadius(radius); // radius must be 0 < r <= 25
+        blur.forEach(blurOutput);
+        blurOutput.copyTo(bitmap);
+        renderScript.destroy();
+
+        return bitmap;
+   }
+
+    private static Bitmap RGB565toARGB888(Bitmap img) throws Exception {
+        int numPixels = img.getWidth() * img.getHeight();
+        int[] pixels = new int[numPixels];
+
+        //Get JPEG pixels.  Each int is the color values for one pixel.
+        img.getPixels(pixels, 0, img.getWidth(), 0, 0, img.getWidth(), img.getHeight());
+
+        //Create a Bitmap of the appropriate format.
+        Bitmap result = Bitmap.createBitmap(img.getWidth(), img.getHeight(), Bitmap.Config.ARGB_8888);
+
+        //Set RGB pixels.
+        result.setPixels(pixels, 0, result.getWidth(), 0, 0, result.getWidth(), result.getHeight());
+        return result;
     }
 
 }
