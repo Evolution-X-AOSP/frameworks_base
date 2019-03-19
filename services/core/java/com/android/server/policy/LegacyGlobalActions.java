@@ -48,6 +48,7 @@ import android.telephony.TelephonyManager;
 import android.util.ArraySet;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -207,6 +208,8 @@ class LegacyGlobalActions implements DialogInterface.OnDismissListener, DialogIn
                 mDialog.show();
                 mDialog.getWindow().getDecorView().setSystemUiVisibility(
                         View.STATUS_BAR_DISABLE_EXPAND);
+
+                rescheduleBurninTimeout();
             }
         }
     }
@@ -324,7 +327,14 @@ class LegacyGlobalActions implements DialogInterface.OnDismissListener, DialogIn
         params.mOnClickListener = this;
         params.mForceInverseBackground = true;
 
-        ActionsDialog dialog = new ActionsDialog(mContext, params);
+        ActionsDialog dialog = new ActionsDialog(mContext, params) {
+            @Override
+            public boolean dispatchTouchEvent(MotionEvent event) {
+                rescheduleBurninTimeout();
+                return super.dispatchTouchEvent(event);
+            }
+        };
+
         dialog.setCanceledOnTouchOutside(false); // Handled by the custom class.
 
         dialog.getListView().setItemsCanFocus(true);
@@ -348,6 +358,11 @@ class LegacyGlobalActions implements DialogInterface.OnDismissListener, DialogIn
         dialog.setOnDismissListener(this);
 
         return dialog;
+    }
+
+    private void rescheduleBurninTimeout() {
+        mHandler.removeMessages(MESSAGE_DISMISS);
+        mHandler.sendEmptyMessageDelayed(MESSAGE_DISMISS, BURNIN_DISMISS_DELAY);
     }
 
     private class BugReportAction extends SinglePressAction implements LongPressAction {
@@ -791,6 +806,7 @@ class LegacyGlobalActions implements DialogInterface.OnDismissListener, DialogIn
     private static final int MESSAGE_REFRESH = 1;
     private static final int MESSAGE_SHOW = 2;
     private static final int DIALOG_DISMISS_DELAY = 300; // ms
+    private static final int BURNIN_DISMISS_DELAY = 60000; // ms
 
     private Handler mHandler = new Handler() {
         @Override
