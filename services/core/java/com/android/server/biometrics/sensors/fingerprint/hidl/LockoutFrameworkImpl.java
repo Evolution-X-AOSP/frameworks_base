@@ -106,26 +106,11 @@ public class LockoutFrameworkImpl implements LockoutTracker {
     }
 
     @Override
-    public void addFailedAttemptForUser(int userId) {
-        mFailedAttempts.put(userId, mFailedAttempts.get(userId, 0) + 1);
-        mTimedLockoutCleared.put(userId, false);
-
-        if (getLockoutModeForUser(userId) != LOCKOUT_NONE) {
-            scheduleLockoutResetForUser(userId);
-        }
-    }
+    public void addFailedAttemptForUser(int userId) {}
 
     @Override
     @LockoutMode
     public int getLockoutModeForUser(int userId) {
-        final int failedAttempts = mFailedAttempts.get(userId, 0);
-        if (failedAttempts >= MAX_FAILED_ATTEMPTS_LOCKOUT_PERMANENT) {
-            return LOCKOUT_PERMANENT;
-        } else if (failedAttempts > 0
-                && !mTimedLockoutCleared.get(userId, false)
-                && (failedAttempts % MAX_FAILED_ATTEMPTS_LOCKOUT_TIMED == 0)) {
-            return LOCKOUT_TIMED;
-        }
         return LOCKOUT_NONE;
     }
 
