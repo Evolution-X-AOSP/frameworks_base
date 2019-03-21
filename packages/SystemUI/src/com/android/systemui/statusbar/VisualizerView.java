@@ -36,11 +36,8 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
-import com.android.internal.utils.UserContentObserver;
 import com.android.systemui.Dependency;
 import com.android.systemui.tuner.TunerService;
-
-import android.provider.Settings;
 
 public class VisualizerView extends View
         implements Palette.PaletteAsyncListener, TunerService.Tunable {
@@ -48,12 +45,12 @@ public class VisualizerView extends View
     private static final String TAG = VisualizerView.class.getSimpleName();
     private static final boolean DEBUG = false;
 
-    private static final String LOCKSCREEN_VISUALIZER_ENABLED =
-            Settings.Secure.LOCKSCREEN_VISUALIZER_ENABLED;
-
     private Paint mPaint;
     private Visualizer mVisualizer;
     private ObjectAnimator mVisualizerColorAnimator;
+
+    private Context mContext;
+    private SettingObserver mSettingObserver;
 
     private ValueAnimator[] mValueAnimators;
     private float[] mFFTPoints;
@@ -67,8 +64,6 @@ public class VisualizerView extends View
     private boolean mDozing = false;
     private boolean mOccluded = false;
     private boolean mAmbientVisualizerEnabled = false;
-
-    private SettingsObserver mObserver;
 
     private int mColor;
     private Bitmap mCurrentBitmap;
@@ -185,10 +180,8 @@ public class VisualizerView extends View
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        Dependency.get(TunerService.class).addTunable(this, LOCKSCREEN_VISUALIZER_ENABLED);
-        mObserver = new SettingsObserver(new Handler());
-        mObserver.observe();
-        mObserver.update();
+        mSettingObserver.observe();
+        mSettingObserver.update();
     }
 
     @Override
@@ -196,18 +189,10 @@ public class VisualizerView extends View
         super.onDetachedFromWindow();
         Dependency.get(TunerService.class).removeTunable(this);
         mCurrentBitmap = null;
-        mObserver.unobserve();
-        mObserver = null;
     }
 
     @Override
     public void onTuningChanged(String key, String newValue) {
-        if (!LOCKSCREEN_VISUALIZER_ENABLED.equals(key)) {
-            return;
-        }
-        mVisualizerEnabled = newValue == null || Integer.parseInt(newValue) != 0;
-        checkStateChanged();
-        updateViewVisibility();
     }
 
     @Override
@@ -396,33 +381,35 @@ public class VisualizerView extends View
         }
     }
 
-    private class SettingsObserver extends UserContentObserver {
-
-        public SettingsObserver(Handler handler) {
+    private final class SettingObserver extends ContentObserver {
+        public SettingObserver(Handler handler) {
             super(handler);
         }
-
+        void observe() {
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(Settings.Secure.getUriFor(
+                Settings.Secure.LOCKSCREEN_VISUALIZER_ENABLED),
+                false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.Secure.getUriFor(
+                Settings.Secure.AMBIENT_VISUALIZER_ENABLED),
+                false, this, UserHandle.USER_ALL);
+            update();
+        }
         @Override
-        protected void update() {
-            mAmbientVisualizerEnabled = Settings.Secure.getIntForUser(
-                getContext().getContentResolver(), Settings.Secure.AMBIENT_VISUALIZER_ENABLED, 0,
+        public void onChange(boolean selfChange, Uri uri) {
+            super.onChange(selfChange, uri);
+            update();
+        }
+        public void update() {
+            boolean visualizerEnabled = Settings.Secure.getIntForUser(
+            mContext.getContentResolver(), Settings.Secure.LOCKSCREEN_VISUALIZER_ENABLED,
+                0, UserHandle.USER_CURRENT) == 1;
+            mVisualizerEnabled = visualizerEnabled ? true : false;
+            boolean mAmbientVisualizerEnabled = Settings.Secure.getIntForUser(
+            mContext.getContentResolver(), Settings.Secure.AMBIENT_VISUALIZER_ENABLED, 0,
                 UserHandle.USER_CURRENT) == 1;
             checkStateChanged();
             updateViewVisibility();
-        }
-
-        @Override
-        protected void observe() {
-            super.observe();
-            getContext().getContentResolver().registerContentObserver(Settings.Secure.getUriFor(
-                    Settings.Secure.AMBIENT_VISUALIZER_ENABLED),
-                    false, this, UserHandle.USER_ALL);
-        }
-
-        @Override
-        protected void unobserve() {
-            super.unobserve();
-            getContext().getContentResolver().unregisterContentObserver(this);
         }
     }
 
