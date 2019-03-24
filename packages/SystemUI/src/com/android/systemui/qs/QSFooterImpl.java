@@ -180,6 +180,7 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
                 .addFloat(mPageIndicator, "alpha", 0, 1)
                 .addFloat(mDragHandle, "alpha", 1, 0, 0)
                 .addFloat(mRunningServicesButton, "alpha", 0, 1)
+                .addFloat(mMultiUserSwitch, "alpha", 0, 1)
                 .setStartDelay(0.15f)
                 .build();
     }
