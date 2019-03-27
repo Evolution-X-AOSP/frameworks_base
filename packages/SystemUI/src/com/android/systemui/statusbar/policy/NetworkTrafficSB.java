@@ -22,7 +22,6 @@ public class NetworkTrafficSB extends NetworkTraffic implements DarkReceiver, St
 
     public static final String SLOT = "networktraffic";
     private int mVisibleState = -1;
-    private boolean mTrafficVisible = false;
     private boolean mSystemIconVisible = true;
     private boolean mStatusbarExpanded;
     private boolean mKeyguardShowing;
@@ -126,8 +125,8 @@ public class NetworkTrafficSB extends NetworkTraffic implements DarkReceiver, St
     }
 
     @Override
-    protected void makeVisible() {
-        boolean show = !mStatusbarExpanded && mSystemIconVisible && !mKeyguardShowing;
+    protected void updateVisibility() {
+        boolean show = !mStatusbarExpanded && mSystemIconVisible && !mKeyguardShowing && mIsEnabled && !mTrafficInHeaderView;
         setVisibility(show ? View.VISIBLE
                 : View.GONE);
         mVisible = show;
