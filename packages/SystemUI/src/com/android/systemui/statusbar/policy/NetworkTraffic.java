@@ -56,6 +56,8 @@ public class NetworkTraffic extends TextView {
     private int mAutoHideThreshold;
     private boolean mAutoHide;
     private int mTintColor;
+    private boolean mTrafficInHeaderView;
+    private boolean mScreenOn = true;
 
     private Handler mTrafficHandler = new Handler() {
         @Override
@@ -96,7 +98,8 @@ public class NetworkTraffic extends TextView {
                     setTextSize(TypedValue.COMPLEX_UNIT_PX, (float)txtSize);
                     setText(output);
                 }
-                setVisibility(View.VISIBLE);
+                setVisibility(
+                mTrafficInHeaderView ? View.GONE : View.VISIBLE);
             }
 
             // Post delayed message to refresh in ~1000ms
@@ -154,7 +157,10 @@ public class NetworkTraffic extends TextView {
             resolver.registerContentObserver(Settings.System
                     .getUriFor(Settings.System.NETWORK_TRAFFIC_HIDEARROW), false,
                     this, UserHandle.USER_ALL);
-        }
+            resolver.registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.NETWORK_TRAFFIC_VIEW_LOCATION), false,
+                    this, UserHandle.USER_ALL); 
+       }
 
         /*
          *  @hide
@@ -235,6 +241,9 @@ public class NetworkTraffic extends TextView {
     }
 
     private void updateSettings() {
+        mTrafficInHeaderView = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.NETWORK_TRAFFIC_VIEW_LOCATION, 1,
+                UserHandle.USER_CURRENT) == 0;
         mAutoHide = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.NETWORK_TRAFFIC_AUTOHIDE, 0,
                 UserHandle.USER_CURRENT) == 1;
