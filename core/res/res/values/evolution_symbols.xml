@@ -163,4 +163,7 @@
 
   <!-- Default value for FOD animation package resources -->
   <java-symbol type="string" name="config_fodAnimationPackage" />
+
+  <!-- Smart charging battery percentage -->
+  <java-symbol type="integer" name="config_smartChargingBatteryLevel" />
 </resources>
