@@ -110,4 +110,7 @@
     <bool name="config_deviceHasVariableButtonBrightness">false</bool>
 
     <bool name="config_has_Soli">false</bool>
+
+    <!-- Smart charging battery percentage -->
+    <integer name="config_smartChargingBatteryLevel">80</integer>
 </resources>

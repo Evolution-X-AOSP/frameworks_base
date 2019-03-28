@@ -87,4 +87,7 @@
   <java-symbol type="bool" name="config_deviceHasVariableButtonBrightness" />
 
   <java-symbol type="bool" name="config_has_Soli" />
+
+  <!-- Smart charging battery percentage -->
+  <java-symbol type="integer" name="config_smartChargingBatteryLevel" />
 </resources>
