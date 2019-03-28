@@ -345,4 +345,7 @@
     <!-- min height for gesture action start -->
     <integer name="nav_gesture_swipe_start">20</integer>
 
+    <!-- Smart charging battery percentage -->
+    <integer name="config_smartChargingBatteryLevel">80</integer>
+
 </resources>

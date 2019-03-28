@@ -5883,6 +5883,16 @@ public final class Settings {
          */
         public static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
 
+        /**
+         * @hide
+         */
+        public static final String SMART_CHARGING = "smart_charging";
+
+        /**
+         * @hide
+         */
+        public static final String SMART_CHARGING_LEVEL = "smart_charging_level";
+
         /** End of Evolution X system settings**/
 
         /**
