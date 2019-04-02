@@ -1801,7 +1801,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                         artworkDrawable = new BitmapDrawable(mBackdropBack.getResources(), ImageHelper.toGrayscale(artworkBitmap));
                         break;
                     case 2:
-                        artworkDrawable = new BitmapDrawable(mBackdropBack.getResources(), ImageHelper.getBlurredImage(mContext, artworkBitmap));
+                        artworkDrawable = new BitmapDrawable(mBackdropBack.getResources(), ImageHelper.getBlurredImage(mContext, artworkBitmap, 7.0f));
                         break;
                     case 0:
                     default:
