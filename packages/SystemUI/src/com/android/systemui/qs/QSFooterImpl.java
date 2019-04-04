@@ -148,8 +148,8 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
     }
 
     private void updateAnimator(int width) {
-        int endMargin = mContext.getResources().getDimensionPixelSize(R.dimen.qs_footer_mobilegroup_margin_end);
-        int sum = endMargin + mMobileGroup.getWidth();
+        int endMargin = (mInfo.visible ? mContext.getResources().getDimensionPixelSize(R.dimen.qs_footer_mobilegroup_margin_end) : 0);
+        int sum = endMargin + (mInfo.visible ? mMobileGroup.getWidth() : 0);
 
         mSettingsCogAnimator = new Builder()
                 .addFloat(mCarrierText, "translationX", -sum, 0)
