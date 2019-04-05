@@ -5460,6 +5460,10 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_CLOCK_SELECTION = "lockscreen_clock_selection";
 
+        /** @hide */
+        public static final Validator LOCKSCREEN_CLOCK_SELECTION_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 14);
+
         /**
          * Whether to display cross sign for a data disabled connection
          * @hide
