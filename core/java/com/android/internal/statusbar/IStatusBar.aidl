@@ -160,6 +160,10 @@ oneway interface IStatusBar
      */
     void toggleCameraFlash();
 
+    // Used to show or hide in display fingerprint view
+    void showInDisplayFingerprintView();
+    void hideInDisplayFingerprintView();
+
     // Start SmartNav API
     void screenPinningStateChanged(boolean enabled);
     void leftInLandscapeChanged(boolean isLeft);
