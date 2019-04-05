@@ -339,4 +339,7 @@
     <!-- Ambient display music ticker -->
     <bool name="config_canForceDozeNotifications">true</bool>
 
+    <!-- Whether to show a custom view for FOD -->
+    <bool name="config_needCustomFODView">false</bool>
+
 </resources>
