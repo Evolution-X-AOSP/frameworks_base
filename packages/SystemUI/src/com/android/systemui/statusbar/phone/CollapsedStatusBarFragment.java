@@ -84,6 +84,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     // custom carrier label
     private View mCustomCarrierLabel;
     private int mShowCarrierLabel;
+    private boolean mHasCarrierLabel;
 
     private class SettingsObserver extends ContentObserver {
        SettingsObserver(Handler handler) {
@@ -234,7 +235,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             if ((state1 & DISABLE_NOTIFICATION_ICONS) != 0) {
                 hideNotificationIconArea(animate);
                 hideCarrierName(animate);
-                animateHide(mClockView, animate, false);
+                animateHide(mClockView, animate, mClockStyle == 0);
             } else {
                 showNotificationIconArea(animate);
                 updateClockStyle(animate);
@@ -350,7 +351,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
 
     public void hideCarrierName(boolean animate) {
         if (mCustomCarrierLabel != null) {
-            animateHide(mCustomCarrierLabel, animate, false);
+            animateHide(mCustomCarrierLabel, animate, mHasCarrierLabel);
         }
     }
 
@@ -447,6 +448,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mShowClock = Settings.System.getIntForUser(mContentResolver,
                 Settings.System.STATUS_BAR_CLOCK, 1,
                 UserHandle.USER_CURRENT) == 1;
+        mHasCarrierLabel = (mShowCarrierLabel == 2 || mShowCarrierLabel == 3);
         if (!mShowClock) {
             mClockStyle = 1; // internally switch to centered clock layout because
                              // left & right will show up again after QS pulldown
@@ -472,7 +474,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     }
 
     private void setCarrierLabel(boolean animate) {
-        if (mShowCarrierLabel == 2 || mShowCarrierLabel == 3) {
+        if (mHasCarrierLabel) {
             animateShow(mCustomCarrierLabel, animate);
         } else {
             animateHide(mCustomCarrierLabel, animate, false);
