@@ -78,7 +78,7 @@
                     android:layout_height="@dimen/status_bar_icon_size"
                     android:src="@drawable/ic_status_bar_evolution_logo"
                     android:scaleType="centerInside"
-                    android:paddingEnd="4dp"
+                    android:paddingEnd="@dimen/status_bar_left_clock_end_padding"
                     android:layout_gravity="center"
                     android:gravity="center_vertical"
                     android:visibility="gone" />
@@ -108,7 +108,6 @@
 
                 <com.android.systemui.statusbar.AlphaOptimizedFrameLayout
                     android:id="@+id/notification_icon_area"
-                    android:paddingStart="2dp"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
