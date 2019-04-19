@@ -63,4 +63,7 @@
     <dimen name="keyguard_charging_indication_height">64dp</dimen>
     <dimen name="keyguard_charging_indication_width">32dp</dimen>
 
+    <!-- Padding needed on bottom of lockscreen for FoD devices -->
+    <dimen name="op_keyguard_indication_margin_bottom">415.0px</dimen>
+
 </resources>
