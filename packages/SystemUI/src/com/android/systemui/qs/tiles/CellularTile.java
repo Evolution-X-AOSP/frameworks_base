@@ -77,7 +77,7 @@ public class CellularTile extends QSTileImpl<SignalState> {
         mController = networkController;
         mActivityStarter = activityStarter;
         mKeyguardMonitor = keyguardMonitor;
-        mUnlockMethodCache = UnlockMethodCache.getInstance(mContext);
+        mUnlockMethodCache = UnlockMethodCache.getInstance(mHost.getContext());
         mDataController = mController.getMobileDataController();
         mDetailAdapter = new CellularDetailAdapter();
         mController.observe(getLifecycle(), mSignalCallback);
@@ -154,6 +154,9 @@ public class CellularTile extends QSTileImpl<SignalState> {
 
     @Override
     protected void handleSecondaryClick() {
+        if (getState().state == Tile.STATE_UNAVAILABLE) {
+            return;
+        }
         if (mDataController.isMobileDataSupported()) {
             if (mKeyguardMonitor.isSecure() && !mUnlockMethodCache.canSkipBouncer()) {
                 mActivityStarter.postQSRunnableDismissingKeyguard(() -> {
