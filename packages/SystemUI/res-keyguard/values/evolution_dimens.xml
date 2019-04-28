@@ -14,13 +14,8 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
+
 <resources>
-
-    <dimen name="binary_clock_dot_size">8dp</dimen>
-    <dimen name="binary_clock_stroke_width">2dp</dimen>
-    <dimen name="binary_clock_width">100dp</dimen>
-    <dimen name="binary_clock_height">100dp</dimen>
-
     <!-- Lock date font size parameters -->
     <dimen name="lock_date_font_size_1">1dp</dimen>
     <dimen name="lock_date_font_size_2">2dp</dimen>
@@ -202,4 +197,16 @@
     <dimen name="lock_clock_font_size_107">107dp</dimen>
     <dimen name="lock_clock_font_size_108">108dp</dimen>
 
+    <!-- Binary Clock Style -->
+    <dimen name="binary_clock_dot_size">8dp</dimen>
+    <dimen name="binary_clock_stroke_width">2dp</dimen>
+    <dimen name="binary_clock_width">100dp</dimen>
+    <dimen name="binary_clock_height">100dp</dimen>
+
+    <!-- padding for date view -->
+    <dimen name="widget_clock_normal_clock_padding">4dp</dimen>
+
+    <!-- Date styles padding-->
+    <dimen name="widget_date_box_padding_hor">8dp</dimen>
+    <dimen name="widget_date_box_padding_ver">4dp</dimen>
 </resources>
