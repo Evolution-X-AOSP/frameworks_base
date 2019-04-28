@@ -5513,6 +5513,12 @@ public final class Settings {
         public static final String LOCK_DATE_FONTS = "lock_date_fonts";
 
         /**
+         * Select which lockscreen date style to display
+         * @hide
+         */
+        public static final String LOCKSCREEN_DATE_SELECTION = "lockscreen_date_selection";
+
+        /**
          * Change fonts for the owner info text
          *
          * @hide
