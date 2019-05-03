@@ -5050,6 +5050,13 @@
     <permission android:name="android.permission.ACCESS_LOCUS_ID_USAGE_STATS"
                 android:protectionLevel="signature|appPredictor" />
 
+    <!-- @hide  -->
+    <permission android:name="lineageos.permission.HARDWARE_ABSTRACTION_ACCESS"
+                android:protectionLevel="signature|privileged" />
+    <!-- @hide  -->
+    <permission android:name="lineageos.permission.MANAGE_LIVEDISPLAY"
+                android:protectionLevel="signature|privileged" />
+
     <!-- Attribution for Country Detector. -->
     <attribution android:tag="CountryDetector" android:label="@string/country_detector"/>
     <!-- Attribution for Location service. -->
@@ -5061,6 +5068,9 @@
     <attribution android:tag="TwilightService" android:label="@string/twilight_service"/>
 
     <!-- LineageOS additions -->
+    <!-- Live display -->
+    <protected-broadcast android:name="lineageos.intent.action.INITIALIZE_LINEAGE_HARDWARE" />
+    <protected-broadcast android:name="lineageos.platform.intent.action.UPDATE_TWILIGHT_STATE" />
 
     <!-- Allows an application to override the power key action
          @hide <p>Not for use by third-party applications.
