@@ -138,7 +138,8 @@ public class NetworkTrafficSB extends TextView implements StatusIconDisplayable 
         private boolean shouldHide(long rxData, long txData, long timeDelta) {
             long speedTxKB = (long)(txData / (timeDelta / 1000f)) / KB;
             long speedRxKB = (long)(rxData / (timeDelta / 1000f)) / KB;
-            return mAutoHide && !getConnectAvailable() ||
+            return mAutoHide &&
+                    !getConnectAvailable() ||
                     (speedRxKB < mAutoHideThreshold &&
                     speedTxKB < mAutoHideThreshold);
         }
@@ -244,9 +245,7 @@ public class NetworkTrafficSB extends TextView implements StatusIconDisplayable 
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
-            if (action == null) return;
-
-            if (action.equals(ConnectivityManager.CONNECTIVITY_ACTION) && mScreenOn) {
+            if (action != null && action.equals(ConnectivityManager.CONNECTIVITY_ACTION) && mScreenOn) {
                 updateSettings();
             } else if (action.equals(Intent.ACTION_SCREEN_ON)) {
                 mScreenOn = true;
@@ -266,12 +265,16 @@ public class NetworkTrafficSB extends TextView implements StatusIconDisplayable 
     }
 
     private void updateSettings() {
-        final ContentResolver resolver = getContext().getContentResolver();
-
-        mTrafficInStatusBar = Settings.System.getIntForUser(resolver,
-                Settings.System.NETWORK_TRAFFIC_VIEW_LOCATION, 1, UserHandle.USER_CURRENT) == 0;
-
         updateVisibility();
+        mTrafficInStatusBar = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.NETWORK_TRAFFIC_VIEW_LOCATION, 1,
+                UserHandle.USER_CURRENT) == 0;
+        mAutoHide = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.NETWORK_TRAFFIC_AUTOHIDE, 0,
+                UserHandle.USER_CURRENT) == 1;
+        mHideArrow = Settings.System.getIntForUser(mContext.
+                getContentResolver(), Settings.System.NETWORK_TRAFFIC_HIDEARROW,
+                0, UserHandle.USER_CURRENT) == 1;
         if (mIsEnabled) {
             if (mAttached) {
                 totalRxBytes = TrafficStats.getTotalRxBytes();
@@ -290,15 +293,9 @@ public class NetworkTrafficSB extends TextView implements StatusIconDisplayable 
         mIsEnabled = Settings.System.getIntForUser(resolver,
                 Settings.System.NETWORK_TRAFFIC_STATE, 0,
                 UserHandle.USER_CURRENT) == 1;
-        mAutoHide = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.NETWORK_TRAFFIC_AUTOHIDE, 0,
-                UserHandle.USER_CURRENT) == 1;
         mAutoHideThreshold = Settings.System.getIntForUser(resolver,
-                Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, 0,
+                Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, 1,
                 UserHandle.USER_CURRENT);
-        mHideArrow = Settings.System.getIntForUser(resolver,
-                Settings.System.NETWORK_TRAFFIC_HIDEARROW, 0,
-                UserHandle.USER_CURRENT) == 1;
         mTrafficInStatusBar = Settings.System.getIntForUser(resolver,
                 Settings.System.NETWORK_TRAFFIC_VIEW_LOCATION, 1,
                 UserHandle.USER_CURRENT) == 1;
@@ -380,7 +377,7 @@ public class NetworkTrafficSB extends TextView implements StatusIconDisplayable 
 
     private void updateVisibility() {
         if (mIsEnabled && mTrafficVisible && mSystemIconVisible && mTrafficInStatusBar) {
-			setVisibility(View.VISIBLE);
+            setVisibility(View.VISIBLE);
         } else {
             setVisibility(View.GONE);
         }
