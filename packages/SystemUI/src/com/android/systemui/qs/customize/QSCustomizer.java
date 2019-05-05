@@ -370,6 +370,10 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
                         Settings.System.QS_TILE_HIDE_TITLE, item.isChecked() ? 0 : 1,
                         UserHandle.USER_CURRENT);
                 break;
+            case R.id.menu_item_qs_columns_five:
+                Settings.System.putIntForUser(mContext.getContentResolver(),
+                        Settings.System.QS_QUICKBAR_COLUMNS, 5, UserHandle.USER_CURRENT);
+                break;
             case R.id.menu_item_qs_columns_six:
                 Settings.System.putIntForUser(mContext.getContentResolver(),
                         Settings.System.QS_QUICKBAR_COLUMNS, 6, UserHandle.USER_CURRENT);
@@ -556,6 +560,8 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         int qsColumns = Settings.System.getIntForUser(
                 mContext.getContentResolver(), Settings.System.QS_QUICKBAR_COLUMNS,
                 QuickQSPanel.NUM_QUICK_TILES_DEFAULT, UserHandle.USER_CURRENT);
+        menuItemFive = mToolbar.getMenu().findItem(R.id.menu_item_qs_columns_five);
+        menuItemFive.setChecked(qsColumns == 5);
         menuItemSix = mToolbar.getMenu().findItem(R.id.menu_item_qs_columns_six);
         menuItemSix.setChecked(qsColumns == 6);
         menuItemSeven = mToolbar.getMenu().findItem(R.id.menu_item_qs_columns_seven);
