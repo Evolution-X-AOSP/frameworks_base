@@ -264,4 +264,7 @@
     <!-- Ambient Display Pixel-Like string -->
     <string name="ambientmusic_songinfo">%s by %s</string>
 
+    <!-- AOD media indication -->
+    <string name="music_controls_no_title">No title</string>
+
 </resources>
