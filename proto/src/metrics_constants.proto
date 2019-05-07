@@ -6505,5 +6505,9 @@ message MetricsEvent {
     // CustomSettings constant
     CUSTOM_SETTINGS = 1554;
 
+    // Evolution X constants
+    EVO = 1555;
+    EVO_SETTINGS = 1556;
+
   }
 }
