@@ -968,7 +968,7 @@ public class Build {
      * Custom fingerprint
      * @hide
      */
-    public static final String CUSTOM_FINGERPRINT = SystemProperties.get("org.pixelexperience.fingerprint",
+    public static final String CUSTOM_FINGERPRINT = SystemProperties.get("org.evolutionx.fingerprint",
             deriveFingerprint());
 
     /**
