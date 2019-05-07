@@ -2961,4 +2961,8 @@ public class NotificationPanelView extends PanelView implements
         return mLockPatternUtils.isSecure(KeyguardUpdateMonitor.getCurrentUser()) && mQsSecureExpandDisabled &&
                 keyguardOrShadeShowing;
     }
+
+    public KeyguardStatusView getKeyguardStatusView() {
+        return mKeyguardStatusView;
+    }
 }
