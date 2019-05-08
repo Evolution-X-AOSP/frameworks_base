@@ -5527,6 +5527,12 @@ public final class Settings {
         public static final String ALERT_SLIDER_NOTIFICATIONS = "alert_slider_notifications";
 
         /**
+         * Swipe to screenshot
+         * @hide
+         */
+        public static final String SWIPE_TO_SCREENSHOT = "swipe_to_screenshot";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -5649,6 +5655,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_MODE);
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_MODE_VENDOR_HINT);
             PRIVATE_SETTINGS.add(DESKTOP_MODE);
+            // Evolution X additions
+            PRIVATE_SETTINGS.add(SWIPE_TO_SCREENSHOT);
         }
 
         /**
