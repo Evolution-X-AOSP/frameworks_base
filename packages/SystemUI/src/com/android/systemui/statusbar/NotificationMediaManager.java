@@ -59,15 +59,14 @@ public class NotificationMediaManager implements Dumpable {
     private MediaController mMediaController;
     private String mMediaNotificationKey;
     private MediaMetadata mMediaMetadata;
-    private List<MediaUpdateListener> mListeners = new ArrayList<>();
+    private final List<MediaUpdateListener> mListeners = new ArrayList<MediaUpdateListener>();
 
     private String mNowPlayingNotificationKey;
     private Set<String> mBlacklist = new HashSet<String>();
 
-    // callback into NavigationFragment for Pulse
     public interface MediaUpdateListener {
-        public void onMediaUpdated(boolean playing);
-        public void setPulseColors(boolean isColorizedMEdia, int[] colors);
+        public default void onMediaUpdated(boolean playing) {}
+        public default void setPulseColors(boolean isColorizedMedia, int[] colors) {}
     }
 
     private final MediaController.Callback mMediaListener = new MediaController.Callback() {
@@ -388,17 +387,14 @@ public class NotificationMediaManager implements Dumpable {
                 mEntryManager.setEntryToRefresh(null, true);
                 setMediaNotificationText(null, false);
             }
+
             if (!dontPulse) {
-                for (MediaUpdateListener listener : mListeners) {
-                    listener.onMediaUpdated(true);
-                }
+                updateListenersMediaUpdated(true);
             }
         } else {
             mEntryManager.setEntryToRefresh(null, true);
             setMediaNotificationText(null, false);
-            for (MediaUpdateListener listener : mListeners) {
-                listener.onMediaUpdated(true);
-            }
+            updateListenersMediaUpdated(false);
         }
     }
 
@@ -406,9 +402,19 @@ public class NotificationMediaManager implements Dumpable {
         mPresenter.setAmbientMusicInfo(notificationText, nowPlaying);
     }
 
-     public void setPulseColors(boolean isColorizedMEdia, int[] colors) {
+    private void updateListenersMediaUpdated(boolean isPlaying) {
         for (MediaUpdateListener listener : mListeners) {
-            listener.setPulseColors(isColorizedMEdia, colors);
+            if (listener != null) {
+                listener.onMediaUpdated(isPlaying);
+            }
+        }
+    }
+
+    public void setPulseColors(boolean isColorizedMEdia, int[] colors) {
+        for (MediaUpdateListener listener : mListeners) {
+            if (listener != null) {
+                listener.setPulseColors(isColorizedMEdia, colors);
+            }
         }
     }
 

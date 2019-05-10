@@ -191,6 +191,7 @@ import com.android.systemui.keyguard.KeyguardViewMediator;
 import com.android.systemui.keyguard.ScreenLifecycle;
 import com.android.systemui.keyguard.WakefulnessLifecycle;
 import com.android.systemui.navigation.Navigator;
+import com.android.systemui.navigation.pulse.PulseController;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.qs.QS;
 import com.android.systemui.plugins.statusbar.NotificationSwipeActionHelper.SnoozeOption;
@@ -789,6 +790,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         mLockscreenUserManager = Dependency.get(NotificationLockscreenUserManager.class);
         mGutsManager = Dependency.get(NotificationGutsManager.class);
         mMediaManager = Dependency.get(NotificationMediaManager.class);
+        mMediaManager.addCallback(Dependency.get(PulseController.class));
         mEntryManager = Dependency.get(NotificationEntryManager.class);
         mViewHierarchyManager = Dependency.get(NotificationViewHierarchyManager.class);
         mAppOpsListener = Dependency.get(AppOpsListener.class);

@@ -87,14 +87,12 @@ import com.android.systemui.Interpolators;
 import com.android.systemui.OverviewProxyService;
 import com.android.systemui.R;
 import com.android.systemui.SysUiServiceProvider;
-import com.android.systemui.navigation.pulse.PulseController;
 import com.android.systemui.assist.AssistManager;
 import com.android.systemui.fragments.FragmentHostManager;
 import com.android.systemui.fragments.FragmentHostManager.FragmentListener;
 import com.android.systemui.navigation.Editor;
 import com.android.systemui.navigation.NavbarOverlayResources;
 import com.android.systemui.navigation.Navigator;
-import com.android.systemui.navigation.pulse.PulseController;
 import com.android.systemui.navigation.smartbar.SmartBarView;
 import com.android.systemui.recents.Recents;
 import com.android.systemui.recents.misc.SysUiTaskStackChangeListener;
@@ -188,7 +186,6 @@ Navigator.OnVerticalChangedListener, KeyguardMonitor.Callback, NotificationMedia
     private Animator mRotateHideAnimator;
     private ViewRippler mViewRippler = new ViewRippler();
 
-    private PulseController mPulseController;
     private NavbarOverlayResources mResourceMap;
     private NavbarObserver mNavbarObserver;
     private KeyguardMonitor mKeyguardMonitor;
@@ -296,7 +293,6 @@ Navigator.OnVerticalChangedListener, KeyguardMonitor.Callback, NotificationMedia
         ActivityManagerWrapper.getInstance().registerTaskStackListener(mTaskStackListener);
         mConfiguration = new Configuration();
         mConfiguration.updateFrom(getContext().getResources().getConfiguration());
-        mPulseController = new PulseController(getContext(), new Handler());
         mMediaManager = mStatusBar.getMediaManager();
         mResourceMap = new NavbarOverlayResources(getContext(), getContext().getResources());
         mBarMode = Settings.Secure.getIntForUser(mContentResolver,
@@ -339,7 +335,6 @@ Navigator.OnVerticalChangedListener, KeyguardMonitor.Callback, NotificationMedia
         super.onViewCreated(view, savedInstanceState);
         mNavigationBarView = (Navigator) view;
         mNavigationBarView.setResourceMap(mResourceMap);
-        mNavigationBarView.setControllers(mPulseController);
         mNavigationBarView.setLeftInLandscape(mLeftInLandscape);
         mNavigationBarView.setDisabledFlags(mDisabledFlags1);
         mNavigationBarView.setComponents(mRecents, mDivider, mStatusBar.getPanel());
@@ -785,12 +780,6 @@ Navigator.OnVerticalChangedListener, KeyguardMonitor.Callback, NotificationMedia
         return (disable2Flags & StatusBarManager.DISABLE2_ROTATE_SUGGESTIONS) != 0;
     }
 
-    public void setPulseColors(boolean colorizedMedia, int[] colors) {
-        if (mNavigationBarView != null) {
-            mNavigationBarView.setPulseColors(colorizedMedia, colors);
-        }
-    }
-
     // ----- Internal stuffz -----
 
     private void refreshLayout(int layoutDirection) {
@@ -1226,15 +1215,15 @@ Navigator.OnVerticalChangedListener, KeyguardMonitor.Callback, NotificationMedia
             String action = intent.getAction();
             if (Intent.ACTION_SCREEN_OFF.equals(action)) {
                 notifyNavigationBarScreenOn();
-                mPulseController.notifyScreenOn(false);
             } else if (Intent.ACTION_SCREEN_ON.equals(action)) {
                 notifyNavigationBarScreenOn();
-                mPulseController.notifyScreenOn(true);
             } else if (Intent.ACTION_USER_SWITCHED.equals(action)) {
                 // The accessibility settings may be different for the new user
                 updateAccessibilityServicesState(mAccessibilityManager);
             }
-            mPulseController.onReceive(intent);
+            if (mNavigationBarView != null) {
+                mNavigationBarView.onReceive(intent);
+            }
         }
     };
 
@@ -1430,12 +1419,11 @@ Navigator.OnVerticalChangedListener, KeyguardMonitor.Callback, NotificationMedia
             return;
         if (mIsAttached) {
             ViewGroup vg = (ViewGroup) mNavigationBarView.getBaseView().getParent();
-            vg.removeAllViews();
+            vg.removeView(mNavigationBarView.getBaseView());
             mNavigationBarView.dispose();
             mNavigationBarView = null;
             mNavigationBarView = createNavigator();
             mNavigationBarView.setResourceMap(mResourceMap);
-            mNavigationBarView.setControllers(mPulseController);
             mNavigationBarView.setLeftInLandscape(mLeftInLandscape);
             mNavigationBarView.setDisabledFlags(mDisabledFlags1);
             mNavigationBarView.setComponents(mRecents, mDivider, mStatusBar.getPanel());
