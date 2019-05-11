@@ -20,4 +20,8 @@
     <color name="binary_clock_empty_dot_color">#ffffff</color>
     <color name="binary_clock_ambient_dot_color">#ffffff</color>
     <color name="binary_clock_ambient_empty_dot_color">#ffffff</color>
+
+    <!-- Date styles requires clock -->
+    <color name="date_style_system_bg">@*android:color/background_material_dark</color>
+    <color name="date_style_system_accent_follow">@*android:color/transparent</color>
 </resources>
