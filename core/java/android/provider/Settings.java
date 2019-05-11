@@ -4652,6 +4652,11 @@ public final class Settings {
         public static final Validator POCKET_JUDGE_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * @hide
+         */
+        public static final String POCKET_JUDGE_ALLOW_FP = "pocket_judge_allow_fp";
+
+        /**
          * Automatic outdoor mode
          * 0 = 0ff, 1 = on
          */
