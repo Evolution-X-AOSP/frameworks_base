@@ -1791,6 +1791,7 @@ public class KeyguardStatusView extends GridLayout implements
         mCustomClockView.setDark(dark);
         if (mClockSelection == 14) {
             mTextClock.setTextColor(blendedTextColor);
+            mTextClock.setDarkAmount(mDarkAmount);
         }
         updateVisibilities();
     }
