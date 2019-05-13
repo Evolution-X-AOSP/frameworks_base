@@ -414,4 +414,7 @@
 
     <!-- Ambient notification light color -->
     <integer name="config_ambientNotificationDefaultColor">0xFF1A73E8</integer>
+
+    <!-- Default state for LiveDisplay -->
+    <bool name="config_liveDisplayAvailable">false</bool>
 </resources>
