@@ -159,4 +159,5 @@ interface IStatusBarService
      * Evolution X extensions
      */
     void toggleCameraFlash();
+    void toggleCameraFlashState(boolean enable);
 }

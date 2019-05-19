@@ -238,4 +238,5 @@ oneway interface IStatusBar
      * Evolution X extensions
      */
     void toggleCameraFlash();
+    void toggleCameraFlashState(boolean enable);
 }
