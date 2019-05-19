@@ -1,7 +1,21 @@
-<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval" android:width="175dp" android:height="175dp" android:tint="@color/sammy_minutes_accent">
-    <gradient
-        android:type="linear"
-        android:startColor="#ffffffff"
-        android:endColor="#5cffffff"
-        android:angle="45"/>
-</shape>
+<layer-list>
+    <item>
+        <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval" android:width="42dp" android:height="42dp">
+            <solid android:color="#000" />
+        </shape>
+    </item>
+    <item>
+        <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval" android:width="42dp" android:height="42dp">
+            <solid android:color="@*android:color/background_material_dark" />
+        </shape>
+    </item>
+    <item>
+		<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval" android:width="175dp" android:height="175dp" android:tint="@color/sammy_minutes_accent">
+		    <gradient
+		        android:type="linear"
+		        android:startColor="#ffffffff"
+		        android:endColor="#5cffffff"
+		        android:angle="45"/>
+		</shape>
+	</item>
+</layer-list>
