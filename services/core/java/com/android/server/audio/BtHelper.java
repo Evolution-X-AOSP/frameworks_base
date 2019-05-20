@@ -642,6 +642,12 @@ public class BtHelper {
             address = "";
         }
         String btDeviceName =  getName(btDevice);
+        if (btDeviceName == null) {
+            Log.i(TAG, "handleBtScoActiveDeviceChange: btDeviceName is null," +
+                       " sending empty string");
+            btDeviceName = "";
+        }
+
         boolean result = false;
         if (isActive) {
             result |= mDeviceBroker.handleDeviceConnection(
