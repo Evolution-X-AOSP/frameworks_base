@@ -15,6 +15,7 @@
 package com.android.systemui.qs;
 
 import static android.app.StatusBarManager.DISABLE2_QUICK_SETTINGS;
+import static android.provider.Settings.System.BATTERY_ESTIMATE_POSITION;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -32,6 +33,7 @@ import android.graphics.Rect;
 import android.media.AudioManager;
 import android.os.Handler;
 import android.provider.AlarmClock;
+import android.provider.Settings;
 import android.service.notification.ZenModeConfig;
 import android.support.annotation.VisibleForTesting;
 import android.widget.FrameLayout;
@@ -132,6 +134,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     private int mShownCount;
 
     private boolean mBatteryInQS;
+    private int mUser;
 
     // Statusbar Traffic
     private NetworkTraffic mTraffic;
@@ -193,21 +196,30 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mBatteryMeterView = findViewById(R.id.battery);
         mBatteryRemainingIcon = findViewById(R.id.batteryRemainingIcon);
 
-        mBatteryInQS = getResources().getBoolean(R.bool.config_batteryInQSPanel);
-        if (mBatteryInQS) {
-            ((ViewGroup) mBatteryMeterView.getParent()).removeView(mBatteryMeterView);
-            mBatteryMeterView = null;
+        mUser = ActivityManager.getCurrentUser();
 
-            mBatteryRemainingIcon.isQsbHeader();
-            mBatteryRemainingIcon.setShowEstimate(true);
-            mBatteryRemainingIcon.setOnClickListener(this);
+        int estimatepos = Settings.System.getIntForUser(getContext().getContentResolver(),
+                BATTERY_ESTIMATE_POSITION, 0, mUser);
+        if ( estimatepos == 0 ) {
+            mBatteryInQS = false;
         } else {
+            mBatteryInQS = true;
+        }
+
+        if (!mBatteryInQS) {
             ((ViewGroup) mBatteryRemainingIcon.getParent()).removeView(mBatteryRemainingIcon);
             mBatteryRemainingIcon = null;
 
             mBatteryMeterView.isQsbHeader();
             mBatteryMeterView.setShowEstimate(true);
             mBatteryMeterView.setOnClickListener(this);
+        } else {
+            ((ViewGroup) mBatteryMeterView.getParent()).removeView(mBatteryMeterView);
+            mBatteryMeterView = null;
+
+            mBatteryRemainingIcon.isQsbHeader();
+            mBatteryRemainingIcon.setShowEstimate(true);
+            mBatteryRemainingIcon.setOnClickListener(this);
         }
 
         mClockView = findViewById(R.id.clock);
@@ -632,16 +644,16 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mHeaderQsPanel.setQSPanel(mQsPanel);
         mHeaderQsPanel.setHost(host, null /* No customization in header */);
 
-        if (mBatteryInQS) {
+        if (!mBatteryInQS) {
+            // Use SystemUI context to get battery meter colors, and let it use the default tint (white)
+            mBatteryMeterView.setColorsFromContext(mHost.getContext());
+            mBatteryMeterView.onDarkChanged(new Rect(), 0, DarkIconDispatcher.DEFAULT_ICON_TINT);
+        } else {
             Rect tintArea = new Rect(0, 0, 0, 0);
             float colorIntensity = getColorIntensity(Utils.getColorAttr(getContext(), android.R.attr.colorForeground));
             int fillColorForIntensity = fillColorForIntensity(colorIntensity, getContext());
             mBatteryRemainingIcon.setColorsFromContext(mHost.getContext());
             mBatteryRemainingIcon.onDarkChanged(tintArea, colorIntensity, fillColorForIntensity);
-        } else {
-            // Use SystemUI context to get battery meter colors, and let it use the default tint (white)
-            mBatteryMeterView.setColorsFromContext(mHost.getContext());
-            mBatteryMeterView.onDarkChanged(new Rect(), 0, DarkIconDispatcher.DEFAULT_ICON_TINT);
         }
     }
 

@@ -5810,6 +5810,18 @@ public final class Settings {
          */
         public static final String SCREENSHOT_TYPE = "screenshot_type";
 
+        /**
+         * Battery Estimate
+         * @hide
+         */
+        public static final String SHOW_BATTERY_ESTIMATE = "show_battery_estimate";
+
+        /**
+         * Battery Estimate Position
+         * @hide
+         */
+        public static final String BATTERY_ESTIMATE_POSITION = "battery_estimate_position";
+
         /** End of Evolution X system settings**/
 
         /**
