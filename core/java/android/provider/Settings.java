@@ -5720,6 +5720,12 @@ public final class Settings {
         /** @hide */
         private static final Validator BOTTOM_GESTURE_FEEDBACK_DURATION_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
+        /**
+         * Whether to show charging animation on lock screen
+         * @hide
+         */
+        public static final String LOCKSCREEN_CHARGING_ANIMATION = "lockscreen_charging_animation";
+
         /** End of Evolution X system settings**/
 
         /**
