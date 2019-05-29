@@ -8255,12 +8255,13 @@ public class AudioService extends IAudioService.Stub
             synchronized (mMixes) {
                 AudioSystem.registerPolicyMixes(mMixes, false);
                 this.remove(mixes);
-                AudioSystem.registerPolicyMixes(mMixes, true);
             }
         }
 
         void connectMixes() {
             final long identity = Binder.clearCallingIdentity();
+            // TODO optimize to not have to unregister the mixes already in place
+            AudioSystem.registerPolicyMixes(mMixes, false);
             AudioSystem.registerPolicyMixes(mMixes, true);
             Binder.restoreCallingIdentity(identity);
         }
