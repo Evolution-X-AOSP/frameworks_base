@@ -209,4 +209,6 @@
     <!-- Date styles padding-->
     <dimen name="widget_date_box_padding_hor">8dp</dimen>
     <dimen name="widget_date_box_padding_ver">4dp</dimen>
+    <dimen name="q_nowplay_pill_padding_hor">17.0sp</dimen>
+    <dimen name="q_nowplay_pill_padding_ver">8.0sp</dimen>
 </resources>
