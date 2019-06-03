@@ -935,117 +935,155 @@ public class KeyguardStatusView extends GridLayout implements
 
         if (lockClockFont == 0) {
             mClockView.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
         }
         if (lockClockFont == 1) {
             mClockView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+            mTextClock.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
         }
         if (lockClockFont == 2) {
             mClockView.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
+            mTextClock.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
         }
         if (lockClockFont == 3) {
             mClockView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
+            mTextClock.setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
         }
         if (lockClockFont == 4) {
             mClockView.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
+            mTextClock.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
         }
         if (lockClockFont == 5) {
             mClockView.setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
+            mTextClock.setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
         }
         if (lockClockFont == 6) {
             mClockView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
         }
         if (lockClockFont == 7) {
             mClockView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
+            mTextClock.setTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
         }
         if (lockClockFont == 8) {
             mClockView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
+            mTextClock.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
         }
         if (lockClockFont == 9) {
             mClockView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
+            mTextClock.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
         }
         if (lockClockFont == 10) {
             mClockView.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
         }
         if (lockClockFont == 11) {
             mClockView.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
+            mTextClock.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
         }
         if (lockClockFont == 12) {
             mClockView.setTypeface(Typeface.create("abelreg", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("abelreg", Typeface.NORMAL));
         }
         if (lockClockFont == 13) {
             mClockView.setTypeface(Typeface.create("adventpro", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("adventpro", Typeface.NORMAL));
         }
         if (lockClockFont == 14) {
             mClockView.setTypeface(Typeface.create("alien-league", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("alien-league", Typeface.NORMAL));
         }
         if (lockClockFont == 15) {
             mClockView.setTypeface(Typeface.create("bignoodle-italic", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("bignoodle-italic", Typeface.NORMAL));
         }
         if (lockClockFont == 16) {
             mClockView.setTypeface(Typeface.create("biko", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("biko", Typeface.NORMAL));
         }
         if (lockClockFont == 17) {
             mClockView.setTypeface(Typeface.create("blern", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("blern", Typeface.NORMAL));
         }
         if (lockClockFont == 18) {
             mClockView.setTypeface(Typeface.create("cherryswash", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("cherryswash", Typeface.NORMAL));
         }
         if (lockClockFont == 19) {
             mClockView.setTypeface(Typeface.create("codystar", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("codystar", Typeface.NORMAL));
         }
         if (lockClockFont == 20) {
             mClockView.setTypeface(Typeface.create("ginora-sans", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("ginora-sans", Typeface.NORMAL));
         }
         if (lockClockFont == 21) {
             mClockView.setTypeface(Typeface.create("gobold-light-sys", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("gobold-light-sys", Typeface.NORMAL));
         }
         if (lockClockFont == 22) {
             mClockView.setTypeface(Typeface.create("googlesans-sys", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("googlesans-sys", Typeface.NORMAL));
         }
         if (lockClockFont == 23) {
             mClockView.setTypeface(Typeface.create("inkferno", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("inkferno", Typeface.NORMAL));
         }
         if (lockClockFont == 24) {
             mClockView.setTypeface(Typeface.create("jura-reg", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("jura-reg", Typeface.NORMAL));
         }
         if (lockClockFont == 25) {
             mClockView.setTypeface(Typeface.create("kellyslab", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("kellyslab", Typeface.NORMAL));
         }
         if (lockClockFont == 26) {
             mClockView.setTypeface(Typeface.create("metropolis1920", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("metropolis1920", Typeface.NORMAL));
         }
         if (lockClockFont == 27) {
             mClockView.setTypeface(Typeface.create("neonneon", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("neonneon", Typeface.NORMAL));
         }
         if (lockClockFont == 28) {
             mClockView.setTypeface(Typeface.create("pompiere", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("pompiere", Typeface.NORMAL));
         }
         if (lockClockFont == 29) {
             mClockView.setTypeface(Typeface.create("reemkufi", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("reemkufi", Typeface.NORMAL));
         }
         if (lockClockFont == 30) {
             mClockView.setTypeface(Typeface.create("riviera", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("riviera", Typeface.NORMAL));
         }
         if (lockClockFont == 31) {
             mClockView.setTypeface(Typeface.create("roadrage-sys", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("roadrage-sys", Typeface.NORMAL));
         }
         if (lockClockFont == 32) {
             mClockView.setTypeface(Typeface.create("sedgwick-ave", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("sedgwick-ave", Typeface.NORMAL));
         }
         if (lockClockFont == 33) {
             mClockView.setTypeface(Typeface.create("snowstorm-sys", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("snowstorm-sys", Typeface.NORMAL));
         }
         if (lockClockFont == 34) {
             mClockView.setTypeface(Typeface.create("themeable-clock", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("themeable-clock", Typeface.NORMAL));
         }
         if (lockClockFont == 35) {
             mClockView.setTypeface(Typeface.create("unionfont", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("unionfont", Typeface.NORMAL));
         }
         if (lockClockFont == 36) {
             mClockView.setTypeface(Typeface.create("vibur", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("vibur", Typeface.NORMAL));
         }
         if (lockClockFont == 37) {
             mClockView.setTypeface(Typeface.create("voltaire", Typeface.NORMAL));
+            mTextClock.setTypeface(Typeface.create("voltaire", Typeface.NORMAL));
         }
         
         // Lockscreen date
