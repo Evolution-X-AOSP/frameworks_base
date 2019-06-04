@@ -86,7 +86,6 @@ public class NetworkTraffic extends TextView {
     private int mIconTint = Color.WHITE;
     private SettingsObserver mObserver;
     private Drawable mDrawable;
-    private boolean mHasNotch;
 
     public NetworkTraffic(Context context) {
         this(context, null);
@@ -102,8 +101,6 @@ public class NetworkTraffic extends TextView {
         final Resources resources = getResources();
         mTextSizeSingle = resources.getDimensionPixelSize(R.dimen.net_traffic_single_text_size);
         mTextSizeMulti = resources.getDimensionPixelSize(R.dimen.net_traffic_multi_text_size);
-        mHasNotch = resources.getBoolean(
-                com.android.internal.R.bool.config_physicalDisplayCutout);
 
         mNetworkTrafficIsVisible = false;
 
@@ -283,9 +280,6 @@ public class NetworkTraffic extends TextView {
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.NETWORK_TRAFFIC_SHOW_UNITS),
                     false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.DISPLAY_CUTOUT_HIDDEN),
-                    false, this, UserHandle.USER_ALL);
         }
 
         void unobserve() {
@@ -304,20 +298,11 @@ public class NetworkTraffic extends TextView {
         return cm.getActiveNetworkInfo() != null;
     }
 
-    private boolean isNotchHidden(){
-        if (mHasNotch){
-            return Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.DISPLAY_CUTOUT_HIDDEN, 0, UserHandle.USER_CURRENT) == 1;
-        }else{
-            return true;
-        }
-    }
-
     private void updateSettings() {
         ContentResolver resolver = mContext.getContentResolver();
 
-        mMode = isNotchHidden() ? Settings.System.getIntForUser(resolver,
-                Settings.System.NETWORK_TRAFFIC_MODE, 0, UserHandle.USER_CURRENT) : MODE_DISABLED;
+        mMode = Settings.System.getIntForUser(resolver,
+                Settings.System.NETWORK_TRAFFIC_MODE, 0, UserHandle.USER_CURRENT);
         mAutoHide = Settings.System.getIntForUser(resolver,
                 Settings.System.NETWORK_TRAFFIC_AUTOHIDE, 0, UserHandle.USER_CURRENT) == 1;
         mUnits = Settings.System.getIntForUser(resolver,
