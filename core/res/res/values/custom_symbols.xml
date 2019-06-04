@@ -120,9 +120,6 @@
     <java-symbol type="color" name="toast_bg_color" />
     <java-symbol type="color" name="toast_text_color" />
 
-    <!-- Defines the actions shown in advanced reboot submenu -->
-    <java-symbol type="array" name="config_restartActionsList" />
-
     <!-- True if the notifications should dynamically tint the app icon -->
     <java-symbol type="bool" name="config_allowNotificationIconTinting" />
 

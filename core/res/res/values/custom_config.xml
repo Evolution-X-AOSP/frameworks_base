@@ -223,13 +223,6 @@
     <!-- Whether to show battery percentage inside icon -->
     <bool name="config_battery_percentage_show_inside_icon">false</bool>
 
-    <!-- Defines the actions shown in advanced reboot submenu -->
-    <string-array name="config_restartActionsList">
-        <item>restart</item>
-        <item>restart_recovery</item>
-        <item>restart_bootloader</item>
-     </string-array>
-
     <!-- True if the notifications should dynamically tint the app icon -->
     <bool name="config_allowNotificationIconTinting">true</bool>
 
