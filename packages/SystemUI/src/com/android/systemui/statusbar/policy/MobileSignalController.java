@@ -625,7 +625,7 @@ public class MobileSignalController extends SignalController<
     }
 
     private boolean isDataDisabled() {
-        return !mPhone.getDataEnabled(mSubscriptionInfo.getSubscriptionId());
+        return !mPhone.isDataCapable();
     }
 
     @VisibleForTesting
@@ -645,6 +645,7 @@ public class MobileSignalController extends SignalController<
         pw.println("  mSignalStrength=" + mSignalStrength + ",");
         pw.println("  mDataState=" + mDataState + ",");
         pw.println("  mDataNetType=" + mDataNetType + ",");
+        pw.println("  isDataDisabled=" + isDataDisabled() + ",");
     }
 
     class MobilePhoneStateListener extends PhoneStateListener {
