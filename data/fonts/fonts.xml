@@ -99,6 +99,16 @@
         <font weight="400" style="normal">CarroisGothicSC-Regular.ttf</font>
     </family>
 
+    <family name="source-sans-pro">
+        <font weight="400" style="normal">SourceSansPro-Regular.ttf</font>
+        <font weight="400" style="italic">SourceSansPro-Italic.ttf</font>
+        <font weight="600" style="normal">SourceSansPro-SemiBold.ttf</font>
+        <font weight="600" style="italic">SourceSansPro-SemiBoldItalic.ttf</font>
+        <font weight="700" style="normal">SourceSansPro-Bold.ttf</font>
+        <font weight="700" style="italic">SourceSansPro-BoldItalic.ttf</font>
+    </family>
+    <alias name="source-sans-pro-semi-bold" to="source-sans-pro" weight="600" />
+
     <family name="gobold-sys">
         <font weight="300" style="normal">GoboldThinLight.ttf</font>
         <font weight="300" style="italic">GoboldThinLight-Italic.ttf</font>
