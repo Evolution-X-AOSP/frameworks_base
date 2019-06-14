@@ -253,4 +253,7 @@
   <java-symbol type="array" name="config_fontPackages" />
   <java-symbol type="string" name="fontservice_incompatible_font" />
 
+    <!-- Custom styles -->
+    <java-symbol type="style" name="CustomThemeDeviceDefaultDialogAlert" />
+
 </resources>
