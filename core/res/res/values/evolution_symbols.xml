@@ -266,6 +266,7 @@
 
   <!-- Smart charging battery percentage -->
   <java-symbol type="integer" name="config_smartChargingBatteryLevel" />
+  <java-symbol type="integer" name="config_smartChargingBatteryResumeLevel" />
 
   <!-- Smart charge sysfs node and value for suspend/resume charging-->
   <java-symbol type="string" name="config_SmartChargingSysfsNode" />
