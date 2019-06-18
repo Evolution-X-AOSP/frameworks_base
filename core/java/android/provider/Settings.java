@@ -5379,6 +5379,13 @@ public final class Settings {
         public static final String ENABLE_SUGGESTIONS = "enable_suggestions";
 
         /**
+         * Gaming Mode master switch
+         *
+         * @hide
+         */
+        public static final String GAMING_MODE_MASTER_SWITCH = "gaming_mode_master_switch";
+
+        /**
          * Whether to enable gaming mode or not
          *
          * @hide
