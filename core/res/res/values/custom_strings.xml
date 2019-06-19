@@ -47,9 +47,8 @@
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_toggleNavigationEditor">Allows an application to control the navigation bar editor.</string>
 
-    <!-- FireHound Gaming -->
+    <!-- Gaming mode -->
     <string name="notification_channel_gaming">Gaming Mode</string>
-    <string name="gaming_notif_title">Gaming Mode On</string>
     <string name="gaming_notif_ticker">Gaming Mode enabled</string>
     <string name="gaming_mode_enabled_toast">Gaming Mode activated</string>
     <string name="gaming_mode_disabled_toast">Gaming Mode deactivated</string>
