@@ -5932,7 +5932,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
 
     private void updateLockscreenFilter() {
         mAlbumArtFilter = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.LOCKSCREEN_ALBUM_ART_FILTER, 0,
+                Settings.System.LOCKSCREEN_ALBUM_ART_FILTER, 3,
                 UserHandle.USER_CURRENT);
       }
 

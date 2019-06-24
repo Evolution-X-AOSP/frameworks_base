@@ -417,7 +417,7 @@ public class CarrierLabel extends TextView implements DarkReceiver {
 
     private void updateStyle() {
         mCarrierLabelFontStyle = Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.STATUS_BAR_CARRIER_FONT_STYLE, FONT_NORMAL);
+                Settings.System.STATUS_BAR_CARRIER_FONT_STYLE, FONT_GOOGLESANS);
         getFontStyle(mCarrierLabelFontStyle);
     }
 }

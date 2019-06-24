@@ -543,7 +543,7 @@ public class BatteryMeterView extends LinearLayout implements
 
     private void updateBatteryStyle(String styleStr) {
         final int style = styleStr == null ?
-                BatteryMeterDrawableBase.BATTERY_STYLE_PORTRAIT : Integer.parseInt(styleStr);
+                BatteryMeterDrawableBase.BATTERY_STYLE_Q : Integer.parseInt(styleStr);
         mDrawable.setMeterStyle(style);
         useWallpaperTextColor(mUseWallpaperTextColors, true);
 
