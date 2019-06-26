@@ -19,9 +19,9 @@ import com.android.internal.R;
 
 import java.util.List;
 
-public class ActionUtils {
+public class CustomActionUtils {
     private static final boolean DEBUG = false;
-    private static final String TAG = ActionUtils.class.getSimpleName();
+    private static final String TAG = CustomActionUtils.class.getSimpleName();
     private static final String SYSTEMUI_PACKAGE = "com.android.systemui";
 
     /**

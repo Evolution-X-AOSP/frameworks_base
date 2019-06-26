@@ -319,7 +319,7 @@ import com.android.server.wm.WindowManagerInternal;
 import com.android.server.wm.WindowManagerInternal.AppTransitionListener;
 import com.android.internal.widget.LockPatternUtils;
 
-import com.android.internal.util.custom.hwkeys.ActionUtils;
+import com.android.internal.util.custom.hwkeys.CustomActionUtils;
 import static com.android.internal.util.custom.hwkeys.DeviceKeysConstants.*;
 
 import java.io.File;
@@ -2375,7 +2375,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 mPowerManager.goToSleep(SystemClock.uptimeMillis());
                 break;
             case LAST_APP:
-                ActionUtils.switchToLastApp(mContext, mCurrentUserId);
+                CustomActionUtils.switchToLastApp(mContext, mCurrentUserId);
                 break;
             case SPLIT_SCREEN:
                 toggleSplitScreen();
