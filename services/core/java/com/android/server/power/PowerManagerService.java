@@ -638,6 +638,7 @@ public final class PowerManagerService extends SystemService
 
     // Smart charging
     private boolean mSmartChargingEnabled;
+    private boolean mSmartChargingResetStats;
     private boolean mPowerInputSuspended = false;
     private int mSmartChargingLevel;
     private int mSmartChargingResumeLevel;
@@ -1183,6 +1184,9 @@ public final class PowerManagerService extends SystemService
         resolver.registerContentObserver(Settings.System.getUriFor(
                 Settings.System.SMART_CHARGING_RESUME_LEVEL),
                 false, mSettingsObserver, UserHandle.USER_ALL);
+        resolver.registerContentObserver(Settings.System.getUriFor(
+                Settings.System.SMART_CHARGING_RESET_STATS),
+                false, mSettingsObserver, UserHandle.USER_ALL);
         IVrManager vrManager = IVrManager.Stub.asInterface(getBinderService(Context.VR_SERVICE));
         if (vrManager != null) {
             try {
@@ -1267,6 +1271,8 @@ public final class PowerManagerService extends SystemService
                 com.android.internal.R.string.config_SmartChargingSuspendValue);
         mPowerInputResumeValue = resources.getString(
                 com.android.internal.R.string.config_SmartChargingResumeValue);
+        mSmartChargingResetStats = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.SMART_CHARGING_RESET_STATS, 0) == 1;
     }
 
     private void updateSettingsLocked() {
@@ -1327,6 +1333,8 @@ public final class PowerManagerService extends SystemService
         mSmartChargingResumeLevel = Settings.System.getInt(resolver,
                 Settings.System.SMART_CHARGING_RESUME_LEVEL,
                 mSmartChargingResumeLevelDefaultConfig);
+        mSmartChargingResetStats = Settings.System.getInt(resolver,
+                Settings.System.SMART_CHARGING_RESET_STATS, 0) == 1;
 
         if (mSupportsDoubleTapWakeConfig) {
             boolean doubleTapWakeEnabled = Settings.Secure.getIntForUser(resolver,
@@ -2153,6 +2161,15 @@ public final class PowerManagerService extends SystemService
         }
 
         if (mSmartChargingEnabled && !mPowerInputSuspended && (mBatteryLevel >= mSmartChargingLevel)) {
+            Slog.i(TAG, "Smart charging reset stats: " + mSmartChargingResetStats);
+            if (mSmartChargingResetStats) {
+                try {
+                     mBatteryStats.resetStatistics();
+                } catch (RemoteException e) {
+                         Slog.e(TAG, "failed to reset battery statistics");
+                }
+            }
+
             try {
                 FileUtils.stringToFile(mPowerInputSuspendSysfsNode, mPowerInputSuspendValue);
                 mPowerInputSuspended = true;
