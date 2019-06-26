@@ -5681,6 +5681,12 @@ public final class Settings {
          */
         public static final String SENSOR_BLOCK = "sensor_block";
 
+        /**
+         * Whether to show or hide the edit icon
+         * @hide
+         */
+        public static final String QS_EDIT_TOGGLE = "qs_edit_toggle";
+
         /** End of Evolution X system settings**/
 
         /**
