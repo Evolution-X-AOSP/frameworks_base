@@ -31,6 +31,7 @@ import android.database.ContentObserver;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Handler;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.ArraySet;
 import android.util.AttributeSet;
@@ -248,15 +249,11 @@ public class BatteryMeterView extends LinearLayout implements
         mBatteryController = Dependency.get(BatteryController.class);
         mBatteryController.addCallback(this);
         mUser = ActivityManager.getCurrentUser();
-        getContext().getContentResolver().registerContentObserver(
-                Settings.System.getUriFor(SHOW_BATTERY_PERCENT), false, mSettingObserver, mUser);
-        getContext().getContentResolver().registerContentObserver(
-                Settings.System.getUriFor(DISPLAY_CUTOUT_HIDDEN), false, mSettingObserver, mUser);
-        updateShouldEnablePercentInsideIcon();
-        updateShowPercent();
         Dependency.get(TunerService.class).addTunable(this, STATUS_BAR_BATTERY_STYLE);
         Dependency.get(ConfigurationController.class).addCallback(this);
         mUserTracker.startTracking();
+        mSettingObserver.observe();
+        mSettingObserver.update();
     }
 
     @Override
@@ -264,9 +261,10 @@ public class BatteryMeterView extends LinearLayout implements
         super.onDetachedFromWindow();
         mUserTracker.stopTracking();
         mBatteryController.removeCallback(this);
-        getContext().getContentResolver().unregisterContentObserver(mSettingObserver);
         Dependency.get(TunerService.class).removeTunable(this);
         Dependency.get(ConfigurationController.class).removeCallback(this);
+        mSettingObserver.unobserve();
+        mSettingObserver = null;
     }
 
     @Override
@@ -349,7 +347,7 @@ public class BatteryMeterView extends LinearLayout implements
         int percentageStyle = Settings.System.getIntForUser(getContext().getContentResolver(),
                 SHOW_BATTERY_PERCENT, 1, mUser);
         mShowPercent = percentageStyle;
-        boolean showAnyway = alwaysShowPercentage() || mShowEstimate;
+        boolean showAnyway = alwaysShowPercentage();
         if (!showAnyway
                 && getMeterStyle() == BatteryMeterDrawableBase.BATTERY_STYLE_HIDDEN) {
             // don't show percentage
@@ -517,11 +515,39 @@ public class BatteryMeterView extends LinearLayout implements
             super(handler);
         }
 
+        protected void observe() {
+            getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
+                    SHOW_BATTERY_PERCENT), false, this, mUser);
+            getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SHOW_BATTERY_ESTIMATE), false, this, UserHandle.USER_CURRENT);
+            getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
+                    DISPLAY_CUTOUT_HIDDEN), false, this, mUser);
+            update();
+        }
+
+        protected void unobserve() {
+            getContext().getContentResolver().unregisterContentObserver(this);
+        }
+
         @Override
         public void onChange(boolean selfChange, Uri uri) {
             super.onChange(selfChange, uri);
+            if (uri.equals(Settings.System.getUriFor(
+                    SHOW_BATTERY_PERCENT))) {
+                updateShowPercent();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.SHOW_BATTERY_ESTIMATE))) {
+                setShowEstimate();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    DISPLAY_CUTOUT_HIDDEN))) {
+                updateShouldEnablePercentInsideIcon();
+            }
+        }
+
+        protected void update() {
             updateShouldEnablePercentInsideIcon();
             updateShowPercent();
+            setShowEstimate();
         }
     }
 
@@ -529,8 +555,9 @@ public class BatteryMeterView extends LinearLayout implements
         misQsbHeader = true;
     }
 
-    public void setShowEstimate(boolean showEstimate) {
-        mShowEstimate = showEstimate;
+    public void setShowEstimate() {
+        mShowEstimate = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.SHOW_BATTERY_ESTIMATE, 0, UserHandle.USER_CURRENT) == 1;
     }
 
     private boolean alwaysShowPercentage() {

@@ -5707,6 +5707,11 @@ public final class Settings {
          */
         public static final String FORCE_AMBIENT_FOR_MEDIA = "force_ambient_for_media";
 
+        /**
+         * @hide
+         */
+        public static final String SHOW_BATTERY_ESTIMATE = "show_battery_estimate";
+
         /** End of Evolution X system settings**/
 
         /**
