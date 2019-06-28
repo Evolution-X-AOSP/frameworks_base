@@ -513,8 +513,8 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
             int childCount = getChildCount();
             for (int i = 0; i < childCount; i++) {
                 View child = getChildAt(i);
-                if (child instanceof KeyguardSliceTextView) {
-                    ((KeyguardSliceTextView) child).setMaxWidth(width / 3);
+                if (child instanceof KeyguardSliceTextView && childCount > 5) {
+                    ((KeyguardSliceTextView) child).setMaxWidth(width / childCount);
                 }
             }
             super.onMeasure(widthMeasureSpec, heightMeasureSpec);
