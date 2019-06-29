@@ -255,9 +255,12 @@
     <!-- Whether to show a custom view for FOD -->
     <java-symbol type="bool" name="config_needCustomFODView" />
 
-  <!-- Gaming Mode -->
-  <java-symbol type="string" name="gaming_notif_ticker" />
-  <java-symbol type="string" name="notification_channel_gaming" />
+  <!-- Gaming mode -->
   <java-symbol type="drawable" name="ic_gaming_notif" />
+  <java-symbol type="string" name="notification_channel_gaming" />
+  <java-symbol type="string" name="gaming_mode_notification_title" />
+  <java-symbol type="string" name="gaming_mode_notification_content" />
+  <java-symbol type="string" name="gaming_mode_enabled_toast" />
+  <java-symbol type="string" name="gaming_mode_disabled_toast" />
 
 </resources>
