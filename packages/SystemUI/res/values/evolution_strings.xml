@@ -185,4 +185,12 @@
     <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Peeking notification are snoozing for 1 minute.</string>
     <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Peeking notifications are snoozing for <xliff:g id="number">%d</xliff:g> minutes.</string>
 
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">Gaming mode is disabled in settings</string>
+    <string name="quick_settings_gaming_mode_label">Gaming mode</string>
+    <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_gaming_mode_disabled">Gaming mode turned off.</string>
+    <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_gaming_mode_enabled">Gaming mode turned on.</string>
+
 </resources>
