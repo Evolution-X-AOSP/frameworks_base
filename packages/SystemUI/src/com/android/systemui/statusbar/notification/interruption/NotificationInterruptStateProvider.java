@@ -57,6 +57,16 @@ public interface NotificationInterruptStateProvider {
      */
     void addSuppressor(NotificationInterruptSuppressor suppressor);
 
+    /**
+     * Whether heads-up notification should be skipped when Gaming mode is active.
+     */
+    void setGamingPeekMode(boolean skipHeadsUp);
+
+    /**
+     * Whether heads-up notification should be skipped when Less Boring heads up is enabled.
+     */
+    void setUseLessBoringHeadsUp(boolean lessBoring);
+
     void setHeadsUpStoplist();
     void setHeadsUpBlacklist();
 }
