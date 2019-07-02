@@ -29,4 +29,7 @@
     <!-- Whether to show HD icon in the status bar for volte -->
     <bool name="config_display_hd_volte">false</bool>
 
+    <!-- Color of the FOD view -->
+    <color name="config_fodColor">#00ff00</color>
+
 </resources>
