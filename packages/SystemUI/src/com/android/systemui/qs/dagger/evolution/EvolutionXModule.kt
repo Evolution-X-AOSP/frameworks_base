@@ -40,6 +40,7 @@ import com.android.systemui.qs.tiles.SoundSearchTile
 import com.android.systemui.qs.tiles.SyncTile
 import com.android.systemui.qs.tiles.UsbTetherTile
 import com.android.systemui.qs.tiles.VolumeTile
+import com.android.systemui.qs.tiles.VpnTile
 import com.android.systemui.qs.tiles.WifiTile
 
 import dagger.Binds
@@ -162,6 +163,12 @@ interface EvolutionXModule {
     @IntoMap
     @StringKey(UsbTetherTile.TILE_SPEC)
     fun bindUsbTetherTile(usbTetherTile: UsbTetherTile): QSTileImpl<*>
+
+    /** Inject VpnTile into tileMap in QSModule */
+    @Binds  
+    @IntoMap
+    @StringKey(VpnTile.TILE_SPEC)
+    fun bindVpnTile(vpnTile: VpnTile): QSTileImpl<*>
 
     /** Inject VolumeTile into tileMap in QSModule */
     @Binds
