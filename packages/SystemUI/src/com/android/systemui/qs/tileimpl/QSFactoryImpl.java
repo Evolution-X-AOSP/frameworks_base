@@ -67,6 +67,7 @@ import com.android.systemui.qs.tiles.SoundTile;
 import com.android.systemui.qs.tiles.UsbTetherTile;
 import com.android.systemui.qs.tiles.UserTile;
 import com.android.systemui.qs.tiles.VolumeTile;
+import com.android.systemui.qs.tiles.VpnTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
 import com.android.systemui.qs.QSTileHost;
@@ -182,6 +183,8 @@ public class QSFactoryImpl implements QSFactory {
                 return new HWKeysTile(mHost);
             case "lte":
                 return new LteTile(mHost);
+            case "vpn":
+                return new VpnTile(mHost);
         }
 
         // Intent tiles.
