@@ -444,12 +444,20 @@ public class KeyguardIndicationController implements StateListener,
     }
 
     private void updateChargingIndication() {
-        if (mChargingIndication && !mDozing && mPowerPluggedIn) {
+        if (mChargingIndication && !mDozing && mPowerPluggedIn && !hasActiveInDisplayFp()) {
             mChargingIndicationView.setVisibility(View.VISIBLE);
             mChargingIndicationView.playAnimation();
         } else {
             mChargingIndicationView.setVisibility(View.GONE);
         }
+    }
+
+    private boolean hasActiveInDisplayFp() {
+        boolean hasInDisplayFingerprint = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_needCustomFODView);
+        int userId = KeyguardUpdateMonitor.getCurrentUser();
+        FingerprintManager fpm = (FingerprintManager) mContext.getSystemService(Context.FINGERPRINT_SERVICE);
+        return hasInDisplayFingerprint && fpm.getEnrolledFingerprints(userId).size() > 0;
     }
 
     // animates textView - textView moves up and bounces down
