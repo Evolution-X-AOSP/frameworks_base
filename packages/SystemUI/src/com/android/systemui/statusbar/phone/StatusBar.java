@@ -543,6 +543,8 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
     private SmartPackageMonitor mPackageMonitor;
     private FlashlightController mFlashlightController;
 
+    private boolean mHeadsUpDisabled, mGamingModeActivated;
+
     // XXX: gesture research
     private final GestureRecorder mGestureRec = DEBUG_GESTURES
         ? new GestureRecorder("/sdcard/statusbar_gestures.dat")
@@ -5368,6 +5370,14 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         }
     }
 
+    private void updateGamingPeekMode() {
+        mGamingModeActivated = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.GAMING_MODE_ACTIVE, 1) == 1;
+        mHeadsUpDisabled = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.GAMING_MODE_HEADSUP_TOGGLE, 1) == 1;
+        mEntryManager.setGamingPeekMode(mGamingModeActivated && mHeadsUpDisabled);
+    }
+
     public int getWakefulnessState() {
         return mWakefulnessLifecycle.getWakefulness();
     }
@@ -6011,6 +6021,12 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.LOCKSCREEN_CHARGING_ANIMATION),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.GAMING_MODE_ACTIVE),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.GAMING_MODE_HEADSUP_TOGGLE),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -6068,6 +6084,10 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.LOCKSCREEN_CHARGING_ANIMATION))) {
                 updateChargingAnimation();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.GAMING_MODE_ACTIVE)) ||
+                    uri.equals(Settings.System.getUriFor(Settings.System.GAMING_MODE_HEADSUP_TOGGLE))) {
+                updateGamingPeekMode();
             }
         }
 
@@ -6088,6 +6108,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             setForceAmbient();
             setPulseBlacklist();
             updateChargingAnimation();
+            updateGamingPeekMode();
         }
     }
 
