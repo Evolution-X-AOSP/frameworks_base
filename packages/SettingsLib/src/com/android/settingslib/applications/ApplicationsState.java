@@ -1674,6 +1674,7 @@ public class ApplicationsState {
                 "com.android.settings.intelligence.theme.dark",
                 "com.android.wellbeing.theme",
                 "com.android.system.theme.dark",
+                "com.android.settings.theme.dark",
                 "org.evolutionx.ota.theme.dark",
                 "com.android.documentsui.theme.black",
                 "com.android.systemui.custom.theme.black",
