@@ -214,6 +214,7 @@
     <java-symbol type="integer" name="nav_gesture_swipe_min_length" />
     <java-symbol type="integer" name="nav_gesture_swipe_timout" />
     <java-symbol type="integer" name="nav_gesture_move_threshold" />
+    <java-symbol type="integer" name="nav_gesture_swipe_start" />
 
    <!-- Media notification seekbar control -->
    <java-symbol type="id" name="notification_media_seekbar_container" />

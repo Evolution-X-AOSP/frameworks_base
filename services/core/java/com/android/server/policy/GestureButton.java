@@ -70,6 +70,7 @@ public class GestureButton implements PointerEventListener {
     private int mScreenHeight = -1;
     private int mScreenWidth = -1;
     private boolean mSwipeStartFromEdge;
+    private int mSwipeStartThreshold;
     private boolean mKeyEventHandled;
     private boolean mRecentsTriggered;
     private boolean mLongSwipePossible;
@@ -98,9 +99,6 @@ public class GestureButton implements PointerEventListener {
             vibrator.vibrate(VibrationEffect.createOneShot(mHapticDuration, VibrationEffect.DEFAULT_AMPLITUDE));
        }
     };
-
-    private final int mSwipeStartThreshold =
-                    SystemProperties.getInt("ro.bottom_gesture.swipe_start.threshold", 20);
 
     private class GestureButtonHandler extends Handler {
 
@@ -142,6 +140,7 @@ public class GestureButton implements PointerEventListener {
         windowManager.getDefaultDisplay().getRealMetrics(displayMetrics);
         mScreenHeight = Math.max(displayMetrics.widthPixels, displayMetrics.heightPixels);
         mScreenWidth = Math.min(displayMetrics.widthPixels, displayMetrics.heightPixels);
+        mSwipeStartThreshold = context.getResources().getInteger(R.integer.nav_gesture_swipe_start);
         mSwipeMinLength = getSwipeLengthInPixel(context.getResources().getInteger(R.integer.nav_gesture_swipe_min_length));
         mMoveTolerance = context.getResources().getInteger(R.integer.nav_gesture_move_threshold);
         mSwipeTriggerTimeout  = context.getResources().getInteger(R.integer.nav_gesture_swipe_timout);
@@ -343,6 +342,11 @@ public class GestureButton implements PointerEventListener {
         mHapticDuration = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.BOTTOM_GESTURE_FEEDBACK_DURATION, 50,
                 UserHandle.USER_CURRENT);
+        mSwipeStartThreshold = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.BOTTOM_GESTURE_SWIPE_START,
+                getSwipeLengthInPixel(mContext.getResources().getInteger(R.integer.nav_gesture_swipe_start)),
+                UserHandle.USER_CURRENT);
+
         if (DEBUG) Slog.i(TAG, "updateSettings mSwipeTriggerTimeout = " + mSwipeTriggerTimeout + " mSwipeMinLength = " + mSwipeMinLength);
     }
 
