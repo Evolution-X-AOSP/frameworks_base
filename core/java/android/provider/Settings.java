@@ -5832,14 +5832,24 @@ public final class Settings {
 	 */
         public static final String SMART_CHARGING_RESUME_LEVEL = "smart_charging_resume_level";
 
-        /** End of Evolution X system settings**/
-
         /**
          * Whether to enable gaming mode or not
          *
          * @hide
          */
         public static final String ENABLE_GAMING_MODE = "enable_gaming_mode";
+
+        /**
+         * Enable face auto unlock on secure lock screens
+         *
+         * @hide
+         */
+        public static final String DISPLAY_MODE = "display_mode";
+
+        private static final Validator DISPLAY_MODE_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /** End of Evolution X system settings**/
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
@@ -5932,6 +5942,7 @@ public final class Settings {
             STATUS_BAR_SHOW_TICKER,
             STATUS_BAR_TICKER_ANIMATION_MODE,
             STATUS_BAR_TICKER_TICK_DURATION,
+            DISPLAY_MODE,
         };
 
         /**
@@ -6142,6 +6153,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_SHOW_TICKER);
             PRIVATE_SETTINGS.add(STATUS_BAR_TICKER_ANIMATION_MODE);
             PRIVATE_SETTINGS.add(STATUS_BAR_TICKER_TICK_DURATION);
+            PRIVATE_SETTINGS.add(DISPLAY_MODE);
         }
 
         /**
@@ -6320,6 +6332,7 @@ public final class Settings {
                     STATUS_BAR_TICKER_ANIMATION_MODE_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_TICKER_TICK_DURATION,
                     STATUS_BAR_TICKER_TICK_DURATION_VALIDATOR);
+            VALIDATORS.put(DISPLAY_MODE, DISPLAY_MODE_VALIDATOR);
         }
 
         /**
