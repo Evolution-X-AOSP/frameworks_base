@@ -82,8 +82,11 @@ constructor(
                 iconInteractor.isDefaultDataEnabled,
                 iconInteractor.isDefaultConnectionFailed,
                 iconInteractor.isInService,
-            ) { isDefaultDataEnabled, isDefaultConnectionFailed, isInService ->
-                !isDefaultDataEnabled || isDefaultConnectionFailed || !isInService
+                iconInteractor.shouldShowExclamationMark,
+            ) { isDefaultDataEnabled, isDefaultConnectionFailed,
+                isInService, shouldShowExclamationMark ->
+                (!isDefaultDataEnabled || isDefaultConnectionFailed || !isInService)
+                && shouldShowExclamationMark
             }
             .stateIn(scope, SharingStarted.WhileSubscribed(), true)
 
