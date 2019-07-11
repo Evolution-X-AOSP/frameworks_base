@@ -5784,6 +5784,13 @@ public final class Settings {
                 "screen_flash_notification_color_global";
 
         /**
+         * IMPORTANT: If you add a new public settings you also have to add it to
+         * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
+         * it to PRIVATE_SETTINGS below. Also add a validator that can validate
+         * the setting value. See an example above.
+         */
+
+        /**
           * Volume keys control cursor in text fields (default is 0)
           * 0 - Disabled
           * 1 - Volume up/down moves cursor left/right
@@ -6098,13 +6105,6 @@ public final class Settings {
         public static final String LEFT_VOLUME_DIALOG = "left_volume_dialog";
 
         /**
-         * IMPORTANT: If you add a new public settings you also have to add it to
-         * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
-         * it to PRIVATE_SETTINGS below. Also add a validator that can validate
-         * the setting value. See an example above.
-         */
-
-        /**
          * GameSpace: List of added games by user
          * @hide
          */
@@ -6129,6 +6129,12 @@ public final class Settings {
          * @hide
          */
         public static final String QS_BRIGHTNESS_SLIDER_HAPTIC = "qs_brightness_slider_haptic";
+
+        /**
+         * Whether to display cross sign for a data disabled connection
+         * @hide
+         */
+        public static final String DATA_DISABLED_ICON = "data_disabled_icon";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to
