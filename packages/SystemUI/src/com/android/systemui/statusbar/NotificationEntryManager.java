@@ -967,7 +967,8 @@ public class NotificationEntryManager implements Dumpable, NotificationInflater.
         boolean isImportantHeadsUp = false;
         String notificationPackageName = sbn.getPackageName().toLowerCase();
         isImportantHeadsUp = notificationPackageName.contains("dialer") ||
-                notificationPackageName.contains("messaging");
+                notificationPackageName.contains("messaging") ||
+                notificationPackageName.contains("clock");
         return !mPresenter.isDozing() && mLessBoringHeadsUp && !isImportantHeadsUp;
     }
 
