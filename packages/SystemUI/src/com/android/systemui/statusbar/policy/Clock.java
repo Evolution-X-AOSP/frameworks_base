@@ -124,32 +124,33 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
     public static final int FONT_MEDIUM = 10;
     public static final int FONT_MEDIUM_ITALIC = 11;
     public static final int FONT_ABELREG = 12;
-    public static final int FONT_ADVENTPRO = 13;
-    public static final int FONT_ALIEN = 14;
-    public static final int FONT_BIGNOODLE = 15;
-    public static final int FONT_BIKO = 16;
-    public static final int FONT_BLERN = 17;
-    public static final int FONT_CHERRYSWASH = 18;
-    public static final int FONT_CODYSTAR = 19;
-    public static final int FONT_GINORA = 20;
-    public static final int FONT_GOBOLD_LIGHT = 21;
-    public static final int FONT_GOOGLESANS = 22;
-    public static final int FONT_INKFERNO = 23;
-    public static final int FONT_JURA = 24;
-    public static final int FONT_KELLYSLAB = 25;
-    public static final int FONT_METROPOLIS = 26;
-    public static final int FONT_NEONNEON = 27;
-    public static final int FONT_POMPIERE = 28;
-    public static final int FONT_REEMKUFI = 29;
-    public static final int FONT_RIVIERA = 30;
-    public static final int FONT_ROADRAGE = 31;
-    public static final int FONT_SEDGWICK = 32;
-    public static final int FONT_SOURCESANSPRO = 33;
-    public static final int FONT_SNOWSTORM = 34;
-    public static final int FONT_THEMEABLE = 35;
-    public static final int FONT_UNION = 36;
-    public static final int FONT_VIBUR = 37;
-    public static final int FONT_VOLTAIRE = 38;
+    public static final int FONT_ADAMCG = 13;
+    public static final int FONT_ADVENTPRO = 14;
+    public static final int FONT_ALIEN = 15;
+    public static final int FONT_ARCHIVONAR = 16;
+    public static final int FONT_AUTOURONE = 17;
+    public static final int FONT_BADSCRIPT = 18;
+    public static final int FONT_BIGNOODLE = 19;
+    public static final int FONT_BIKO = 20;
+    public static final int FONT_CHERRYSWASH = 21;
+    public static final int FONT_GINORA = 22;
+    public static final int FONT_GOOGLESANS = 23;
+    public static final int FONT_IBMPLEX = 24;
+    public static final int FONT_INKFERNO = 25;
+    public static final int FONT_INSTRUCTION = 26;
+    public static final int FONT_JACK = 27;
+    public static final int FONT_KELLYSLAB = 28;
+    public static final int FONT_MONAD = 29;
+    public static final int FONT_NOIR = 30;
+    public static final int FONT_OUTRUN = 31;
+    public static final int FONT_POMPIERE = 32;
+    public static final int FONT_REEMKUFI = 33;
+    public static final int FONT_RIVIERA = 34;
+    public static final int FONT_SOURCESANSPRO = 35;
+    public static final int FONT_OUTBOX = 36;
+    public static final int FONT_THEMEABLE = 37;
+    public static final int FONT_VIBUR = 38;
+    public static final int FONT_VOLTAIRE = 39;
     public int DEFAULT_CLOCK_SIZE = 14;
     public int DEFAULT_CLOCK_COLOR = 0xffffffff;
 
@@ -781,12 +782,28 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
                 setTypeface(Typeface.create("abelreg",
                     Typeface.NORMAL));
                 break;
+            case FONT_ADAMCG:
+                setTypeface(Typeface.create("adamcg-pro",
+                    Typeface.NORMAL));
+                break;
             case FONT_ADVENTPRO:
                 setTypeface(Typeface.create("adventpro",
                     Typeface.NORMAL));
                 break;
             case FONT_ALIEN:
                 setTypeface(Typeface.create("alien-league",
+                    Typeface.NORMAL));
+                break;
+            case FONT_ARCHIVONAR:
+                setTypeface(Typeface.create("archivonar",
+                    Typeface.NORMAL));
+                break;
+            case FONT_AUTOURONE:
+                setTypeface(Typeface.create("autourone",
+                    Typeface.NORMAL));
+                break;
+            case FONT_BADSCRIPT:
+                setTypeface(Typeface.create("badscript",
                     Typeface.NORMAL));
                 break;
             case FONT_BIGNOODLE:
@@ -797,48 +814,48 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
                 setTypeface(Typeface.create("biko",
                     Typeface.NORMAL));
                 break;
-            case FONT_BLERN:
-                setTypeface(Typeface.create("blern",
-                    Typeface.NORMAL));
-                break;
             case FONT_CHERRYSWASH:
                 setTypeface(Typeface.create("cherryswash",
-                    Typeface.NORMAL));
-                break;
-            case FONT_CODYSTAR:
-                setTypeface(Typeface.create("codystar",
                     Typeface.NORMAL));
                 break;
             case FONT_GINORA:
                 setTypeface(Typeface.create("ginora-sans",
                     Typeface.NORMAL));
                 break;
-            case FONT_GOBOLD_LIGHT:
-                setTypeface(Typeface.create("gobold-light-sys",
-                    Typeface.NORMAL));
-                break;
             case FONT_GOOGLESANS:
                 setTypeface(Typeface.create("google-sans-medium",
+                    Typeface.NORMAL));
+                break;
+            case FONT_IBMPLEX:
+                setTypeface(Typeface.create("ibmplex-mono",
                     Typeface.NORMAL));
                 break;
             case FONT_INKFERNO:
                 setTypeface(Typeface.create("inkferno",
                     Typeface.NORMAL));
                 break;
-            case FONT_JURA:
-                setTypeface(Typeface.create("jura-reg",
+            case FONT_INSTRUCTION:
+                setTypeface(Typeface.create("instruction",
+                    Typeface.NORMAL));
+                break;
+            case FONT_JACK:
+                setTypeface(Typeface.create("jack-lane",
                     Typeface.NORMAL));
                 break;
             case FONT_KELLYSLAB:
                 setTypeface(Typeface.create("kellyslab",
                     Typeface.NORMAL));
                 break;
-            case FONT_METROPOLIS:
-                setTypeface(Typeface.create("metropolis1920",
+            case FONT_MONAD:
+                setTypeface(Typeface.create("monad",
                     Typeface.NORMAL));
                 break;
-            case FONT_NEONNEON:
-                setTypeface(Typeface.create("neonneon",
+            case FONT_NOIR:
+                setTypeface(Typeface.create("noir",
+                    Typeface.NORMAL));
+                break;
+            case FONT_OUTRUN:
+                setTypeface(Typeface.create("outrun-future",
                     Typeface.NORMAL));
                 break;
             case FONT_POMPIERE:
@@ -853,28 +870,16 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
                 setTypeface(Typeface.create("riviera",
                     Typeface.NORMAL));
                 break;
-            case FONT_ROADRAGE:
-                setTypeface(Typeface.create("roadrage-sys",
-                    Typeface.NORMAL));
-                break;
-            case FONT_SEDGWICK:
-                setTypeface(Typeface.create("sedgwick-ave",
-                    Typeface.NORMAL));
-                break;
             case FONT_SOURCESANSPRO:
                 setTypeface(Typeface.create("source-sans-pro",
                     Typeface.NORMAL));
                 break;
-            case FONT_SNOWSTORM:
-                setTypeface(Typeface.create("snowstorm-sys",
+            case FONT_OUTBOX:
+                setTypeface(Typeface.create("the-outbox",
                     Typeface.NORMAL));
                 break;
             case FONT_THEMEABLE:
-                setTypeface(Typeface.create("themeable-clock",
-                    Typeface.NORMAL));
-                break;
-            case FONT_UNION:
-                setTypeface(Typeface.create("unionfont",
+                setTypeface(Typeface.create("themeable-date",
                     Typeface.NORMAL));
                 break;
             case FONT_VIBUR:
