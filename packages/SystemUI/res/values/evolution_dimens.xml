@@ -71,4 +71,8 @@
     <!-- Bottom margin size when fingerprint in display is active -->
     <dimen name="keyguard_indication_margin_bottom_fingerprint_in_display">53dp</dimen>
 
+    <!-- Ambient Indication -->
+    <dimen name="ambient_indication_margin_bottom">71dp</dimen>
+    <dimen name="ambient_indication_margin_bottom_fingerprint_in_display">97dp</dimen>
+
 </resources>
