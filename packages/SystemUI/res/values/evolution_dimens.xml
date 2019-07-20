@@ -68,4 +68,7 @@
     <!-- Padding needed on bottom of lockscreen for FoD devices -->
     <dimen name="op_keyguard_indication_margin_bottom">415.0px</dimen>
 
+    <!-- Bottom margin size when fingerprint in display is active -->
+    <dimen name="keyguard_indication_margin_bottom_fingerprint_in_display">53dp</dimen>
+
 </resources>
