@@ -133,6 +133,7 @@ import android.view.ThreadedRenderer;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
+import android.view.ViewGroup.MarginLayoutParams;
 import android.view.ViewParent;
 import android.view.ViewTreeObserver;
 import android.view.WindowManager;
@@ -721,6 +722,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
     private IOverlayManager mOverlayManager;
     private boolean mKeyguardRequested;
     private boolean mIsKeyguard;
+    private boolean mIsFingerprintRunning;
     private LogMaker mStatusBarStateLog;
     private final LockscreenGestureLogger mLockscreenGestureLogger = new LockscreenGestureLogger();
     protected NotificationIconAreaController mNotificationIconAreaController;
@@ -749,6 +751,12 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                     if (dreaming) {
                         maybeEscalateHeadsUp();
                     }
+                }
+
+                @Override
+                public void onFingerprintRunningStateChanged(boolean running) {
+                    mIsFingerprintRunning = running;
+                    updateAmbientIndicationArea();
                 }
 
                 @Override
@@ -1122,6 +1130,9 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         if (mAmbientIndicationContainer != null) {
             ((AmbientIndicationContainer) mAmbientIndicationContainer).initializeView(this, mHandler);
         }
+
+        // set the initial padding for ambient indication
+        updateAmbientIndicationArea();
 
         // set the initial view visibility
         setAreThereNotifications();
@@ -1701,6 +1712,28 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             }
         }
         setAreThereNotifications();
+    }
+
+    private void updateAmbientIndicationArea() {
+        if (mAmbientIndicationContainer == null) return;
+        int indicationBottomMargin = mContext.getResources().getDimensionPixelSize(
+                R.dimen.ambient_indication_margin_bottom);
+        int indicationBottomMarginFod = mContext.getResources().getDimensionPixelSize(
+                R.dimen.ambient_indication_margin_bottom_fingerprint_in_display);
+        MarginLayoutParams mlp = (MarginLayoutParams) mAmbientIndicationContainer.getLayoutParams();
+
+        int bottomMargin = hasInDisplayFingerprint() ? indicationBottomMarginFod : indicationBottomMargin;
+        boolean newLp = mlp.bottomMargin != bottomMargin;
+        if (newLp) {
+            mlp.bottomMargin = bottomMargin;
+            mAmbientIndicationContainer.setLayoutParams(mlp);
+        }
+    }
+
+    private boolean hasInDisplayFingerprint() {
+        return mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_needCustomFODView)
+                && mIsFingerprintRunning;
     }
 
     /**
