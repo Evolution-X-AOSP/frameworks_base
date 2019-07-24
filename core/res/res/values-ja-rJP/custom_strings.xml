@@ -21,6 +21,10 @@
     <string name="disable_navkeys_summary">画面内ナビゲーションを有効にしてハードウェアボタンを無効にする</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">電源ボタンを押し続けてロック解除</string>
+    <string name="reboot_to_recovery_title">リカバリー</string>
+    <string name="reboot_to_recovery_message">リカバリーへ再起動中...</string>
+    <string name="reboot_to_bootloader_title">ブートローダー</string>
+    <string name="reboot_to_bootloader_message">ブートローダーへ再起動中...</string>
     <string name="reboot_title">再起動</string>
     <string name="reboot_message">システムを再起動中...</string>
     <!-- Font service -->

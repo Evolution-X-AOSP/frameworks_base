@@ -10,7 +10,7 @@
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">Chcete-li tuto obrazovku uvolnit, dotkněte se &amp; podržte snímač otisků prstů</string>
     <!-- 4G LTE switch -->
-    <string name="show_fourg_title">Zobrazit 4G místo LTE</string>
+    <string name="show_fourg_title">Zobrazit 4G namísto LTE</string>
     <string name="show_fourg_summary">Nahradí indikátor LTE ve stavové liště ukazatelem 4G</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Kofein</string>
@@ -202,7 +202,7 @@
     <!-- OnTheGo QS Tile -->
     <string name="quick_settings_onthego_label">On-The-Go</string>
     <!-- OneHand mode QS tile -->
-    <string name="qs_onehand_label">Režim jedné ruky</string>
+    <string name="qs_onehand_label">Ovládání jednou rukou</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
     <string name="accessibility_quick_settings_running_services">Otevřít obrazovku spuštěných služeb.</string>
     <!-- Ambient Display Pixel-Like string -->

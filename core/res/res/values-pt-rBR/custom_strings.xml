@@ -21,6 +21,10 @@
     <string name="disable_navkeys_summary">Ativar barra de navegação na tela e desativar botões físicos</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Pressione e segure o botão liga/desliga para desbloquear</string>
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Rebooting to recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Rebooting to bootloader</string>
     <string name="reboot_title">Reiniciar</string>
     <string name="reboot_message">Reiniciando o sistema</string>
     <!-- Font service -->

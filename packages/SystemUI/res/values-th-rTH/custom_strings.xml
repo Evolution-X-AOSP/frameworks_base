@@ -110,7 +110,7 @@
     <string name="tuner_show_info_header_title">แสดงข้อมูลที่ส่วนหัว</string>
     <string name="tuner_show_secure_title">แสดงความปลอดภัยที่ส่วนท้าย</string>
     <!-- AOD QS tile -->
-    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_label">เปิดหน้าจอเสมอ (AOD)</string>
     <!-- Music tile -->
     <string name="quick_settings_music_label">เพลง</string>
     <string name="quick_settings_music_play">เล่น</string>

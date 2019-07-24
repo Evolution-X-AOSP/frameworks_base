@@ -21,6 +21,10 @@
     <string name="disable_navkeys_summary">Attivare barra navigazione sullo schermo e disattiva i pulsanti fisici</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Premi e tieni premuto il pulsante di spegnimento per sbloccare</string>
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Rebooting to recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Rebooting to bootloader</string>
     <string name="reboot_title">Riavvia</string>
     <string name="reboot_message">Riavvio del sistema</string>
     <!-- Font service -->

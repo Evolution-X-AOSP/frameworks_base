@@ -21,6 +21,10 @@
     <string name="disable_navkeys_summary">Activer la barre de navigation à l\'écran et désactiver les touches physiques</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Appuyez et maintenez l\'écran pour déverrouiller</string>
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Rebooting to recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Rebooting to bootloader</string>
     <string name="reboot_title">Redémarrer</string>
     <string name="reboot_message">Redémarrer le système</string>
     <!-- Font service -->

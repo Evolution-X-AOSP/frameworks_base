@@ -21,6 +21,10 @@
     <string name="disable_navkeys_summary">བརྙན་ཤེལ་གྱི་ཕྱོགས་ཁྲིད་མཐེབ་སྤྱོད་པ་མ་ཟད་མཐེབ་གནོན་གཞན་དག་འགོག་པ།</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">གློག་སྒའི་མཐེབ་མནན་ནས་ཟྭ་ཕྱེ་བ།</string>
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Rebooting to recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Rebooting to bootloader</string>
     <string name="reboot_title">Reboot</string>
     <string name="reboot_message">Rebooting system</string>
     <!-- Font service -->

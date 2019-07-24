@@ -21,6 +21,10 @@
     <string name="disable_navkeys_summary">অন-স্ক্রীন নেভিগেশন বার সক্রিয় করুন এবং হার্ডওয়্যার বাটন নিষ্ক্রিয় করুন</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Press and hold power button to unlock</string>
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Rebooting to recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Rebooting to bootloader</string>
     <string name="reboot_title">Reboot</string>
     <string name="reboot_message">Rebooting system</string>
     <!-- Font service -->

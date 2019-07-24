@@ -21,31 +21,35 @@
     <string name="disable_navkeys_summary">Ativar os botões virtuais e desativar os botões físicos</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Para desbloquear pressione e mantenha pressionado o botão de ligar</string>
-    <string name="reboot_title">Reboot</string>
-    <string name="reboot_message">Rebooting system</string>
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Rebooting to recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Rebooting to bootloader</string>
+    <string name="reboot_title">Reiniciar</string>
+    <string name="reboot_message">A reiniciar o sistema</string>
     <!-- Font service -->
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_accessFontManager">access font manager</string>
+    <string name="permlab_accessFontManager">aceder ao gestor de tipos de letra</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_accessFontManager">Allows an application to access the font manager.</string>
+    <string name="permdesc_accessFontManager">Permite que uma aplicação aceda aos tipos de fonte.</string>
     <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
-    <string name="fontservice_incompatible_font">The font package you\'ve installed is not compatible due to missing fonts.xml on their files. Please contact the package developer for support.</string>
+    <string name="fontservice_incompatible_font">O tipo de letra que instalou não é compatível devido à inexistência do ficheiro fonts.xml nos seus ficheiros. Por favor, contacte o criador do pacote para obter ajuda.</string>
     <!-- Button that copies the url to the log of a crashed application -->
-    <string name="aerr_copy">Copy crash log URL</string>
-    <string name="url_copy_success">URL copied successfully</string>
-    <string name="url_copy_failed">An error occured while uploading the log to dogbin</string>
+    <string name="aerr_copy">Copiar o URL do registo da falha</string>
+    <string name="url_copy_success">URL copiado com sucesso</string>
+    <string name="url_copy_failed">Ocorreu um erro ao enviar o registo para o dogbin</string>
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_toggleNavigationEditor">control navigation editor</string>
+    <string name="permlab_toggleNavigationEditor">controlar o editor de navegação</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_toggleNavigationEditor">Allows an application to control the navigation bar editor.</string>
+    <string name="permdesc_toggleNavigationEditor">Permite que uma aplicação controle o editor da barra de navegação.</string>
     <!-- Gaming mode -->
-    <string name="notification_channel_gaming">Gaming Mode</string>
-    <string name="gaming_mode_notification_title">Gaming mode enabled</string>
-    <string name="gaming_mode_notification_content">Tap to turn off Gaming mode</string>
-    <string name="gaming_mode_enabled_toast">Gaming mode turned on</string>
-    <string name="gaming_mode_disabled_toast">Gaming mode turned off</string>
+    <string name="notification_channel_gaming">Modo de jogo</string>
+    <string name="gaming_mode_notification_title">Modo de jogo ativado</string>
+    <string name="gaming_mode_notification_content">Toque para desativar o modo de jogo</string>
+    <string name="gaming_mode_enabled_toast">O modo de jogo foi ativado</string>
+    <string name="gaming_mode_disabled_toast">O modo de jogo foi desativado</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_fakePackageSignature">Spoof package signature</string>
+    <string name="permlab_fakePackageSignature">Falsificar a assinatura do pacote</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_fakePackageSignature">Allows the app to pretend to be a different app. Malicious applications might be able to use this to access private application data. Grant this permission with caution only!</string>
+    <string name="permdesc_fakePackageSignature">Permite que a aplicação se faça passar por uma aplicação diferente. As aplicações maliciosas podem ser capazes de usar isto para aceder a dados privados da aplicação. Conceda permissão com cautela!</string>
 </resources>

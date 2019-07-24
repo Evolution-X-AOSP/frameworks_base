@@ -21,6 +21,10 @@
     <string name="disable_navkeys_summary">Habilita la barra de navegación en pantalla y deshabilita los botones físicos</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Pulse y mantenga el botón de encendido para desbloquear</string>
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Rebooting to recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Rebooting to bootloader</string>
     <string name="reboot_title">Reiniciar</string>
     <string name="reboot_message">Reiniciando sistema</string>
     <!-- Font service -->

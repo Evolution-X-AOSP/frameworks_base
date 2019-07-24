@@ -226,7 +226,7 @@
     <string name="accessibility_quick_settings_hwkeys_off">实体按键关闭</string>
     <string name="quick_settings_hwkeys_label">实体按键</string>
     <!-- LTE QS Tile -->
-    <string name="qs_lte_label">LTE</string>
+    <string name="qs_lte_label">4G</string>
     <string name="lte_on">LTE 已开启 </string>
     <string name="lte_off">LTE 已关闭</string>
     <!-- VPN QS tile -->

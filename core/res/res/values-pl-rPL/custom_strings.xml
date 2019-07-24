@@ -21,6 +21,10 @@
     <string name="disable_navkeys_summary">Włącz pasek nawigacji oraz wyłącz przyciski systemowe</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Przytrzymaj przycisk aby odblokować</string>
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Rebooting to recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Rebooting to bootloader</string>
     <string name="reboot_title">Zrestartuj</string>
     <string name="reboot_message">Restartowanie systemu</string>
     <!-- Font service -->

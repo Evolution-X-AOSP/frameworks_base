@@ -21,6 +21,10 @@
     <string name="disable_navkeys_summary">Bật thanh điều hướng trên màn hình và tắt các phím cứng</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Bấm và giữ nút nguồn để mở khoá</string>
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Rebooting to recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Rebooting to bootloader</string>
     <string name="reboot_title">Khởi động lại</string>
     <string name="reboot_message">Đang khởi động lại hệ thống</string>
     <!-- Font service -->

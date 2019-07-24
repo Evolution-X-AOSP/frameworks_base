@@ -21,6 +21,10 @@
     <string name="disable_navkeys_summary">තිරය මත nav bar සක්‍රීය කර දෘඪාංගමය යතුරු අක්‍රීය කරන්න</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">අගුළු ඇරීමට බල බොත්තම මදක් ඔබාගෙන සිටින්න</string>
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Rebooting to recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Rebooting to bootloader</string>
     <string name="reboot_title">Reboot</string>
     <string name="reboot_message">Rebooting system</string>
     <!-- Font service -->

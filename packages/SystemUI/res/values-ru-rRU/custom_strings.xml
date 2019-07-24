@@ -4,11 +4,11 @@
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Приложение останется активным, пока вы не отмените блокировку долгим нажатием кнопки «Назад».</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
-    <string name="screen_pinning_toast_no_navbar">Чтобы открепить этот экран, нажмите &amp; и удерживайте кнопку \"Назад\"</string>
+    <string name="screen_pinning_toast_no_navbar">Чтобы открепить этот экран, нажмите &amp; удерживайте кнопку \"Назад\"</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
-    <string name="screen_pinning_description_no_navbar_fpsensor">Приложение остаётся активным, до тех пор, пока вы не отмените блокировку. Нажмите &amp; и удерживайте палец на сканере отпечатков, чтобы отменить блокировку.</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Приложение остаётся активным, до тех пор, пока вы не отмените блокировку. Нажмите &amp; удерживайте палец на сканере отпечатков, чтобы отменить блокировку.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
-    <string name="screen_pinning_toast_no_navbar_fpsensor">Что бы открепить этот экран, нажмите &amp; и удерживайте сканер отпечатков пальцев</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Что бы открепить этот экран, нажмите &amp; удерживайте сканер отпечатков пальцев</string>
     <!-- 4G LTE switch -->
     <string name="show_fourg_title">Отображать 4G вместо LTE</string>
     <string name="show_fourg_summary">Заменяет иконку LTE на 4G</string>
@@ -35,14 +35,14 @@
     <string name="accessibility_quick_settings_reading_mode_off">Режим чтения выключен.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">Режим чтения активирован.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Режим чтения выключен.</string>
-    <string name="screenshot_abort_title">Снимок экрана не был создан</string>
+    <string name="screenshot_abort_title">Скриншот не был создан</string>
     <string name="screenshot_abort_text">Операция прервана.</string>
     <!-- Screenshot QS tile -->
-    <string name="quick_settings_screenshot_label">Снимок экрана</string>
-    <string name="quick_settings_region_screenshot_label">Частичный снимок экрана</string>
+    <string name="quick_settings_screenshot_label">Скриншот</string>
+    <string name="quick_settings_region_screenshot_label">Частичный скриншот</string>
     <!-- Screenshot Delete Toast -->
-    <string name="delete_screenshot_toast">Снимок экрана удален</string>
-    <string name="global_action_restart_advanced">Варианты\nперезагрузки</string>
+    <string name="delete_screenshot_toast">Скриншот удален</string>
+    <string name="global_action_restart_advanced">Варианты перезагрузки</string>
     <string name="global_action_restart_recovery">Рекавери</string>
     <string name="global_action_restart_bootloader">Загрузчик</string>
     <string name="global_action_restart_ui">Интерфейс системы</string>

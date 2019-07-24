@@ -21,6 +21,10 @@
     <string name="disable_navkeys_summary">Povolit navigační panel na obrazovce a zakázat hardwarová tlačítka</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Stisknutím a podržením tlačítka napájení zapnout obrazovku</string>
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Rebooting to recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Rebooting to bootloader</string>
     <string name="reboot_title">Restartovat</string>
     <string name="reboot_message">Restartování systému</string>
     <!-- Font service -->
@@ -29,15 +33,15 @@
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_accessFontManager">Umožňuje aplikaci přístup ke správci písem.</string>
     <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
-    <string name="fontservice_incompatible_font">Balíček písem, který jste nainstalovali, není kompatibilní kvůli chybějícím souboru fonts.xml. Pro podporu se obraťte se na vývojáře balíčku.</string>
+    <string name="fontservice_incompatible_font">Balíček písem, který jste nainstalovali, není kompatibilní kvůli chybějícímu souboru fonts.xml. Pro podporu se obraťte na vývojáře balíčku.</string>
     <!-- Button that copies the url to the log of a crashed application -->
     <string name="aerr_copy">Kopírovat URL protokolu o selhání</string>
     <string name="url_copy_success">URL úspěšně zkopírována</string>
-    <string name="url_copy_failed">Při nahrávání protokolu o selhání došlo k chybě</string>
+    <string name="url_copy_failed">Při nahrávání protokolu o selhání na dogbin došlo k chybě</string>
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_toggleNavigationEditor">ovládání navigačního editoru</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_toggleNavigationEditor">Umožní aplikaci provádět změny v editoru navigačního panelu.</string>
+    <string name="permdesc_toggleNavigationEditor">Umožňuje aplikaci provádět změny v editoru navigačního panelu.</string>
     <!-- Gaming mode -->
     <string name="notification_channel_gaming">Herní režim</string>
     <string name="gaming_mode_notification_title">Herní režim povolen</string>

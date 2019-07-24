@@ -21,6 +21,10 @@
     <string name="disable_navkeys_summary">မျက်နှာပြင်အတွင်း ခလုတ်များကို သုံခြင်းနှင့် ရိုးရိုးခလုတ်များကို သုံးမရစေရန် ပြုလုပ်ခြင်း</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">ပါ၀ါခလုတ်ကို ကြာကြာဖိပီး ဖွင့်ပါ</string>
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Rebooting to recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Rebooting to bootloader</string>
     <string name="reboot_title">Reboot</string>
     <string name="reboot_message">Rebooting system</string>
     <!-- Font service -->
