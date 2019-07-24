@@ -5750,11 +5750,6 @@ public final class Settings {
         /**
          * @hide
          */
-        public static final String SHOW_BATTERY_ESTIMATE = "show_battery_estimate";
-
-        /**
-         * @hide
-         */
         public static final String BOTTOM_GESTURE_FEEDBACK_DURATION = "bottom_gesture_navigation_feedback_duration";
 
         /** @hide */
