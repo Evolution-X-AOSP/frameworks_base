@@ -5765,12 +5765,6 @@ public final class Settings {
                 ANY_INTEGER_VALIDATOR;
 
         /**
-         * Whether to show charging animation on lock screen
-         * @hide
-         */
-        public static final String LOCKSCREEN_CHARGING_ANIMATION = "lockscreen_charging_animation";
-
-        /**
          * Use doubletap as doze pulse triggers
          * @hide
          */
