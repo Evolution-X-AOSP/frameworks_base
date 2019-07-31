@@ -21,10 +21,10 @@
     <string name="disable_navkeys_summary">เปิดใช้งานแถบนำทางบนหน้าจอและปิดการใช้งานปุ่มฮาร์ดแวร์</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">กด ปุ่มเปิด/ปิดเครื่อง ค้างไว้เพื่อปลดล็อค</string>
-    <string name="reboot_to_recovery_title">Recovery</string>
-    <string name="reboot_to_recovery_message">Rebooting to recovery</string>
-    <string name="reboot_to_bootloader_title">Bootloader</string>
-    <string name="reboot_to_bootloader_message">Rebooting to bootloader</string>
+    <string name="reboot_to_recovery_title">กู้คืนระบบ</string>
+    <string name="reboot_to_recovery_message">รีบูตไปยังโหมดกู้คืนระบบ</string>
+    <string name="reboot_to_bootloader_title">บูตโหลดเดอร์</string>
+    <string name="reboot_to_bootloader_message">รีบูตไปยัง บูตโหลดเดอร์</string>
     <string name="reboot_title">เริ่มระบบใหม่</string>
     <string name="reboot_message">กำลังรีบูตระบบ</string>
     <!-- Font service -->

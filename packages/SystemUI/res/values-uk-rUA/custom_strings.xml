@@ -110,7 +110,7 @@
     <string name="tuner_show_info_header_title">Показати заголовок</string>
     <string name="tuner_show_secure_title">Інформація про безпеку</string>
     <!-- AOD QS tile -->
-    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_label">Екран сповіщень</string>
     <!-- Music tile -->
     <string name="quick_settings_music_label">Музика</string>
     <string name="quick_settings_music_play">Грати</string>

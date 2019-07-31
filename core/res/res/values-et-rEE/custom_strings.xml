@@ -21,35 +21,35 @@
     <string name="disable_navkeys_summary">Luba navigeerimisriba ekraanil ja keela riistvara nupud</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Avamiseks vajutage ja hoidke all toitenuppu</string>
-    <string name="reboot_to_recovery_title">Recovery</string>
-    <string name="reboot_to_recovery_message">Rebooting to recovery</string>
-    <string name="reboot_to_bootloader_title">Bootloader</string>
-    <string name="reboot_to_bootloader_message">Rebooting to bootloader</string>
-    <string name="reboot_title">Reboot</string>
-    <string name="reboot_message">Rebooting system</string>
+    <string name="reboot_to_recovery_title">Taastus</string>
+    <string name="reboot_to_recovery_message">Taastamis režiimi taaskäivitamine</string>
+    <string name="reboot_to_bootloader_title">Algkäivitus</string>
+    <string name="reboot_to_bootloader_message">Algkäivitus režiimi taaskäivitamine</string>
+    <string name="reboot_title">Taaskäivita</string>
+    <string name="reboot_message">Süsteemi taaskäivitus</string>
     <!-- Font service -->
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_accessFontManager">access font manager</string>
+    <string name="permlab_accessFontManager">juurdepääs fondihaldurile</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_accessFontManager">Allows an application to access the font manager.</string>
+    <string name="permdesc_accessFontManager">Võimaldab rakendusel juurdepääsu fondihaldurile.</string>
     <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
-    <string name="fontservice_incompatible_font">The font package you\'ve installed is not compatible due to missing fonts.xml on their files. Please contact the package developer for support.</string>
+    <string name="fontservice_incompatible_font">Teie installitud fondipakett ei ole ühilduv, kuna nende failides puuduvad fonts.xml. Palun võtke ühendust pakendi arendajaga.</string>
     <!-- Button that copies the url to the log of a crashed application -->
-    <string name="aerr_copy">Copy crash log URL</string>
-    <string name="url_copy_success">URL copied successfully</string>
-    <string name="url_copy_failed">An error occured while uploading the log to dogbin</string>
+    <string name="aerr_copy">Kopeeri rikke logi URL</string>
+    <string name="url_copy_success">URL kopeeritud</string>
+    <string name="url_copy_failed">Logi laadimisel dogbin-ile ilmnes viga</string>
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_toggleNavigationEditor">control navigation editor</string>
+    <string name="permlab_toggleNavigationEditor">navigatsiooni redaktori kontroll</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_toggleNavigationEditor">Allows an application to control the navigation bar editor.</string>
+    <string name="permdesc_toggleNavigationEditor">Võimaldab rakendusel navigeerimisriba redaktorit juhtida.</string>
     <!-- Gaming mode -->
-    <string name="notification_channel_gaming">Gaming Mode</string>
-    <string name="gaming_mode_notification_title">Gaming mode enabled</string>
-    <string name="gaming_mode_notification_content">Tap to turn off Gaming mode</string>
-    <string name="gaming_mode_enabled_toast">Gaming mode turned on</string>
-    <string name="gaming_mode_disabled_toast">Gaming mode turned off</string>
+    <string name="notification_channel_gaming">Mängurežiim</string>
+    <string name="gaming_mode_notification_title">Mängurežiim on lubatud</string>
+    <string name="gaming_mode_notification_content">Mängimisrežiimi väljalülitamiseks koputage</string>
+    <string name="gaming_mode_enabled_toast">Mängurežiim sisselülitatud</string>
+    <string name="gaming_mode_disabled_toast">Mängurežiim välja lülitatud</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_fakePackageSignature">Spoof package signature</string>
+    <string name="permlab_fakePackageSignature">Pettepaketi allkiri</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_fakePackageSignature">Allows the app to pretend to be a different app. Malicious applications might be able to use this to access private application data. Grant this permission with caution only!</string>
+    <string name="permdesc_fakePackageSignature">Lubab rakendusel teeselda teistsugust rakendust. Pahatahtlikud tarkvarad võivad saada seda kasutada, et tungida rakenduse privaatsetesse andmetesse. Anna seda luba ainult, kui sa oled selles täiesti kindel!</string>
 </resources>

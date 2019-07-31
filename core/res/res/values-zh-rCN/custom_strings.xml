@@ -21,10 +21,10 @@
     <string name="disable_navkeys_summary">启用屏幕上的导航栏并禁用实体按钮</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">长按电源键来解锁</string>
-    <string name="reboot_to_recovery_title">Recovery</string>
-    <string name="reboot_to_recovery_message">Rebooting to recovery</string>
-    <string name="reboot_to_bootloader_title">Bootloader</string>
-    <string name="reboot_to_bootloader_message">Rebooting to bootloader</string>
+    <string name="reboot_to_recovery_title">恢复模式</string>
+    <string name="reboot_to_recovery_message">正在重启至恢复模式</string>
+    <string name="reboot_to_bootloader_title">引导模式</string>
+    <string name="reboot_to_bootloader_message">正在重启至引导模式</string>
     <string name="reboot_title">重启</string>
     <string name="reboot_message">正在重新启动</string>
     <!-- Font service -->

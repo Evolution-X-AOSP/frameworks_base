@@ -123,14 +123,14 @@
     <string name="accessibility_quick_settings_compass_on">Pusula açık.</string>
     <string name="accessibility_quick_settings_compass_changed_off">Pusula kapatıldı.</string>
     <string name="accessibility_quick_settings_compass_changed_on">Pusula açıldı.</string>
-    <string name="quick_settings_compass_N">N</string>
-    <string name="quick_settings_compass_NE">NE</string>
-    <string name="quick_settings_compass_E">E</string>
-    <string name="quick_settings_compass_SE">SE</string>
-    <string name="quick_settings_compass_S">S</string>
-    <string name="quick_settings_compass_SW">SW</string>
-    <string name="quick_settings_compass_W">W</string>
-    <string name="quick_settings_compass_NW">NW</string>
+    <string name="quick_settings_compass_N">K</string>
+    <string name="quick_settings_compass_NE">KD</string>
+    <string name="quick_settings_compass_E">D</string>
+    <string name="quick_settings_compass_SE">GD</string>
+    <string name="quick_settings_compass_S">G</string>
+    <string name="quick_settings_compass_SW">GB</string>
+    <string name="quick_settings_compass_W">B</string>
+    <string name="quick_settings_compass_NW">KB</string>
     <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Ortam ekranı</string>
     <string name="accessibility_quick_settings_ambient_display_off">Ortam ekranı kapalı.</string>

@@ -46,7 +46,7 @@
     <string name="global_action_restart_recovery">Рекавери</string>
     <string name="global_action_restart_bootloader">Загрузчик</string>
     <string name="global_action_restart_ui">Интерфейс системы</string>
-    <string name="global_action_restart_soft">Мягкая перезагрузка</string>
+    <string name="global_action_restart_soft">Быстрая перезагрузка</string>
     <!-- Screenrecord Notification Ticker -->
     <string name="screenrecord_notif_ticker">Идёт запись экрана</string>
     <string name="screenrecord_notif_final_ticker">Экран записан успешно</string>
@@ -110,7 +110,7 @@
     <string name="tuner_show_info_header_title">Показать заголовок</string>
     <string name="tuner_show_secure_title">Информация о безопасности</string>
     <!-- AOD QS tile -->
-    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_label">Активный дисплей</string>
     <!-- Music tile -->
     <string name="quick_settings_music_label">Музыка</string>
     <string name="quick_settings_music_play">Играть</string>
@@ -132,7 +132,7 @@
     <string name="quick_settings_compass_W">З</string>
     <string name="quick_settings_compass_NW">СЗ</string>
     <!-- Ambient display QS tile -->
-    <string name="quick_settings_ambient_display_label">Ambient display</string>
+    <string name="quick_settings_ambient_display_label">Автоматич. включение экрана</string>
     <string name="accessibility_quick_settings_ambient_display_off">Ambient display выкл.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Ambient display вкл.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display отключен.</string>

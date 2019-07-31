@@ -21,10 +21,10 @@
     <string name="disable_navkeys_summary">Aktifkan navigasi layar dan matikan tombol navigasi perangkat keras</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Tekan dan tahan tombol daya untuk membuka</string>
-    <string name="reboot_to_recovery_title">Recovery</string>
-    <string name="reboot_to_recovery_message">Rebooting to recovery</string>
+    <string name="reboot_to_recovery_title">Pemulihan</string>
+    <string name="reboot_to_recovery_message">Memulai ulang ke recovery</string>
     <string name="reboot_to_bootloader_title">Bootloader</string>
-    <string name="reboot_to_bootloader_message">Rebooting to bootloader</string>
+    <string name="reboot_to_bootloader_message">Memulai ulang ke bootloader</string>
     <string name="reboot_title">Mulai ulang</string>
     <string name="reboot_message">Memulai ulang sistem</string>
     <!-- Font service -->

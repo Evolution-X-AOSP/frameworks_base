@@ -49,7 +49,7 @@
     <string name="global_action_restart_soft">Γρήγορη επανεκκίνηση</string>
     <!-- Screenrecord Notification Ticker -->
     <string name="screenrecord_notif_ticker">Πραγματοποιείται βιντεοσκόπηση της οθόνης</string>
-    <string name="screenrecord_notif_final_ticker">Οθόνη καταγράφηκε με επιτυχία</string>
+    <string name="screenrecord_notif_final_ticker">Η Οθόνη καταγράφηκε με επιτυχία</string>
     <!-- Screenrecord notification title -->
     <string name="screenrecord_notif_title">Βιντεοσκόπηση οθόνης</string>
     <!-- Screenrecord notification action: Stop -->

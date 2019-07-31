@@ -5,3 +5,5 @@ files:
     translation: /%original_path%-%android_code%/%original_file_name%
   - source: /**/**/res-keyguard/values/evolution_arrays.xml
     translation: /%original_path%-%android_code%/%original_file_name%
+  - source: /**/**/res-keyguard/values/evolution_strings.xml
+    translation: /%original_path%-%android_code%/%original_file_name%

@@ -14,5 +14,5 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- For estimated battery in QuickQS -->
-    <string name="power_discharge_by_only_short">Until %1$s</string>
+    <string name="power_discharge_by_only_short">Kuni %1$s</string>
 </resources>

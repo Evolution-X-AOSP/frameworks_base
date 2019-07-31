@@ -104,7 +104,7 @@
     <string name="quick_settings_usb_tether_label">USB tethering</string>
     <!-- Heads up snooze toast -->
     <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Plovoucí oznámení jsou odložena na dobu 1 minuty.</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%s </xliff:g> - Plovoucí oznámení jsou odložena po dobu <xliff:g id="number">%d </xliff:g> minut.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s </xliff:g> - Plovoucí oznámení jsou odložena na dobu <xliff:g id="number">%d </xliff:g> minut.</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Panel hlasitosti</string>
     <string name="tuner_show_info_header_title">Zobrazit záhlaví informací</string>

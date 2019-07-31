@@ -22,9 +22,9 @@
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Bấm và giữ nút nguồn để mở khoá</string>
     <string name="reboot_to_recovery_title">Recovery</string>
-    <string name="reboot_to_recovery_message">Rebooting to recovery</string>
+    <string name="reboot_to_recovery_message">Khởi động vào Recovery</string>
     <string name="reboot_to_bootloader_title">Bootloader</string>
-    <string name="reboot_to_bootloader_message">Rebooting to bootloader</string>
+    <string name="reboot_to_bootloader_message">Khởi động vào Bootloader</string>
     <string name="reboot_title">Khởi động lại</string>
     <string name="reboot_message">Đang khởi động lại hệ thống</string>
     <!-- Font service -->
