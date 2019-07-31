@@ -4534,16 +4534,6 @@ public final class Settings {
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 2);
 
         /**
-         *  Enable statusbar double tap gesture on to put device to sleep
-         * @hide
-         */
-        public static final String DOUBLE_TAP_SLEEP_GESTURE = "double_tap_sleep_gesture";
-
-        /** @hide */
-        public static final Validator DOUBLE_TAP_SLEEP_GESTURE_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
          * Whether to show media art on lockscreen
          * Boolean setting. 0 = off, 1 = on.
          * @hide
@@ -6072,7 +6062,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(BATTERY_LIGHT_LOW_BLINKING);
             PRIVATE_SETTINGS.add(FP_SUCCESS_AUTH_VIB);
             PRIVATE_SETTINGS.add(STATUS_BAR_QUICK_QS_PULLDOWN);
-            PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_GESTURE);
             PRIVATE_SETTINGS.add(LOCKSCREEN_MEDIA_METADATA);
             PRIVATE_SETTINGS.add(NAV_BAR_INVERSE);
             PRIVATE_SETTINGS.add(VOLUME_WAKE_SCREEN);
@@ -6250,7 +6239,6 @@ public final class Settings {
             VALIDATORS.put(BATTERY_LIGHT_LOW_BLINKING, BATTERY_LIGHT_LOW_BLINKING_VALIDATOR);
             VALIDATORS.put(FP_SUCCESS_AUTH_VIB, FP_SUCCESS_AUTH_VIB_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_QUICK_QS_PULLDOWN, STATUS_BAR_QUICK_QS_PULLDOWN_VALIDATOR);
-            VALIDATORS.put(DOUBLE_TAP_SLEEP_GESTURE, DOUBLE_TAP_SLEEP_GESTURE_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_MEDIA_METADATA, LOCKSCREEN_MEDIA_METADATA_VALIDATOR);
             VALIDATORS.put(NAV_BAR_INVERSE, NAV_BAR_INVERSE_VALIDATOR);
             VALIDATORS.put(VOLUME_WAKE_SCREEN, VOLUME_WAKE_SCREEN_VALIDATOR);
