@@ -109,6 +109,14 @@
     <string name="quick_settings_volume_panel_label">音量パネル</string>
     <string name="tuner_show_info_header_title">情報ヘッダーを表示</string>
     <string name="tuner_show_secure_title">セキュリティヘッダーを表示</string>
+    <!-- Advance location quick setting tile -->
+    <string name="quick_settings_secondary_location_off"></string>
+    <string name="quick_settings_location_secondary_battery_saving">バッテリー節約</string>
+    <string name="accessibility_quick_settings_location_battery_saving">位置情報レポート: バッテリー節約モード</string>
+    <string name="quick_settings_location_secondary_gps_only">センサーのみ</string>
+    <string name="accessibility_quick_settings_location_gps_only">位置情報レポート: 端末のみモード</string>
+    <string name="quick_settings_location_secondary_high_accuracy">高精度</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">位置情報レポート: 高精度モード</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Always On Display</string>
     <!-- Music tile -->
@@ -141,37 +149,6 @@
     <string name="force_stop_dlg_title">強制停止しますか?</string>
     <string name="force_stop_dlg_text">アプリを強制停止するとアプリが正常に機能しないことがあります</string>
     <string name="kill">アプリを終了</string>
-    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_battery_saving">位置情報レポート: バッテリー節約モード</string>
-    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_gps_only">位置情報レポート: 端末のみモード</string>
-    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_high_accuracy">位置情報レポート: 高精度モード</string>
-    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_battery_saving_label">バッテリー節約</string>
-    <string name="quick_settings_location_battery_saving_label_twoline">バッテリー\n節約</string>
-    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_gps_only_label">GPS のみ</string>
-    <string name="quick_settings_location_gps_only_label_twoline">GPS のみ</string>
-    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_high_accuracy_label">高精度</string>
-    <string name="quick_settings_location_high_accuracy_label_twoline">高精度</string>
-    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_title">位置情報</string>
-    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_menu_title">選択モード:</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_title">高精度</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_title">バッテリー節約</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_title">端末のみ</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_description">GPS・Wi‑Fi・Bluetooth・モバイルネットワークで現在地を特定する</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_description">Wi‑Fi・Bluetooth・モバイルネットワークで現在地を特定する</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_description">GPS で現在地を特定する</string>
     <!-- Expanded Desktop QS Tile -->
     <string name="quick_settings_expanded_desktop_label">拡張\nデスクトップ</string>
     <string name="quick_settings_expanded_desktop">拡張済み</string>
@@ -213,14 +190,6 @@
     <string name="lockscreen_hidden">なし</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">アイコンをスワイプして起動</string>
-    <!-- Gaming Mode -->
-    <string name="notification_channel_gaming">ゲームモード</string>
-    <string name="gaming_mode_not_enabled">ゲームモードが設定で無効になっています</string>
-    <string name="quick_settings_gaming_mode_label">ゲームモード</string>
-    <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_disabled">ゲームモードを無効化しました</string>
-    <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_enabled">ゲームモードを有効化しました</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">ハードウェアキー ON</string>
     <string name="accessibility_quick_settings_hwkeys_off">ハードウェアキー OFF</string>
@@ -237,4 +206,18 @@
     <string name="vpn_credentials_password">パスワード</string>
     <string name="vpn_credentials_dialog_connect">接続</string>
     <string name="status_bar_vpn">VPN</string>
+    <!-- NavBar QS Tile -->
+    <string name="quick_settings_navbar_title">ナビゲーション\nバー</string>
+    <string name="accessibility_quick_settings_navbar_off">同期 OFF</string>
+    <string name="accessibility_quick_settings_navbar_on">同期 ON</string>
+    <string name="accessibility_quick_settings_navbar_changed_off">ナビゲーションバーを OFF にしました</string>
+    <string name="accessibility_quick_settings_navbar_changed_on">ナビゲーションバーを ON にしました</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">ゲームモード</string>
+    <string name="gaming_mode_tile_toast">ゲームモードが有効です</string>
+    <string name="gaming_mode_tile_toast_disabled">ゲームモードが無効です</string>
+    <string name="gaming_mode_dialog_title">ゲームモード</string>
+    <string name="gaming_mode_dialog_message">ゲームモードが有効になると、Heads Up メッセージは全て無効になりハードウェアキーは OFF になります。無効にした設定はゲームモードを終了すると全て規定値にリセットされます。</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">ゲームモード ON</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">ゲームモード OFF</string>
 </resources>

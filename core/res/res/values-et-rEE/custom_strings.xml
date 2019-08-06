@@ -42,12 +42,6 @@
     <string name="permlab_toggleNavigationEditor">navigatsiooni redaktori kontroll</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_toggleNavigationEditor">Võimaldab rakendusel navigeerimisriba redaktorit juhtida.</string>
-    <!-- Gaming mode -->
-    <string name="notification_channel_gaming">Mängurežiim</string>
-    <string name="gaming_mode_notification_title">Mängurežiim on lubatud</string>
-    <string name="gaming_mode_notification_content">Mängimisrežiimi väljalülitamiseks koputage</string>
-    <string name="gaming_mode_enabled_toast">Mängurežiim sisselülitatud</string>
-    <string name="gaming_mode_disabled_toast">Mängurežiim välja lülitatud</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_fakePackageSignature">Pettepaketi allkiri</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->

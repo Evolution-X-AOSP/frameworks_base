@@ -109,6 +109,14 @@
     <string name="quick_settings_volume_panel_label">音量面板</string>
     <string name="tuner_show_info_header_title">Show information header</string>
     <string name="tuner_show_secure_title">Show security footer</string>
+    <!-- Advance location quick setting tile -->
+    <string name="quick_settings_secondary_location_off"></string>
+    <string name="quick_settings_location_secondary_battery_saving">Battery Saving</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Location reporting: battery saving mode.</string>
+    <string name="quick_settings_location_secondary_gps_only">Sensors Only</string>
+    <string name="accessibility_quick_settings_location_gps_only">Location reporting: sensors only mode.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">High Accuracy</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Location reporting: high accuracy mode.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">息屏顯示</string>
     <!-- Music tile -->
@@ -141,37 +149,6 @@
     <string name="force_stop_dlg_title">您要強制停止嗎？</string>
     <string name="force_stop_dlg_text">如果您強制停止應用程式，應用程式可能無法正常運作。</string>
     <string name="kill">強制結束應用程式</string>
-    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_battery_saving">Location reporting: battery saving mode.</string>
-    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_gps_only">Location reporting: sensors only mode.</string>
-    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_high_accuracy">Location reporting: high accuracy mode.</string>
-    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_battery_saving_label">節約耗電量</string>
-    <string name="quick_settings_location_battery_saving_label_twoline">節約\n耗電量</string>
-    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_gps_only_label">僅限裝置</string>
-    <string name="quick_settings_location_gps_only_label_twoline">僅限裝置</string>
-    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_high_accuracy_label">高精確度</string>
-    <string name="quick_settings_location_high_accuracy_label_twoline">高\n精確度</string>
-    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_title">位置</string>
-    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_menu_title">選擇模式：</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_title">高精確度</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_title">節約耗電量</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_title">僅限裝置</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_description">使用 GPS、Wi-Fi、藍牙或行動數據判斷位置 </string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_description">使用 Wi-Fi、藍牙或行動數據判斷位置</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_description">使用 GPS 判斷位置</string>
     <!-- Expanded Desktop QS Tile -->
     <string name="quick_settings_expanded_desktop_label">延伸桌面</string>
     <string name="quick_settings_expanded_desktop">延伸</string>
@@ -213,14 +190,6 @@
     <string name="lockscreen_hidden">無</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">滑動圖示以啟動</string>
-    <!-- Gaming Mode -->
-    <string name="notification_channel_gaming">遊戲模式</string>
-    <string name="gaming_mode_not_enabled">遊戲模式已在設定關閉</string>
-    <string name="quick_settings_gaming_mode_label">遊戲模式</string>
-    <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_disabled">遊戲模式已關閉.</string>
-    <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_enabled">遊戲模式已開啟.</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">開啟實體按鍵</string>
     <string name="accessibility_quick_settings_hwkeys_off">關閉實體按鍵</string>
@@ -237,4 +206,18 @@
     <string name="vpn_credentials_password">密碼</string>
     <string name="vpn_credentials_dialog_connect">已連線</string>
     <string name="status_bar_vpn">VPN</string>
+    <!-- NavBar QS Tile -->
+    <string name="quick_settings_navbar_title">Navigation Bar</string>
+    <string name="accessibility_quick_settings_navbar_off">Sync off</string>
+    <string name="accessibility_quick_settings_navbar_on">Sync on</string>
+    <string name="accessibility_quick_settings_navbar_changed_off">Navigation bar turned off</string>
+    <string name="accessibility_quick_settings_navbar_changed_on">Navigation bar turned on</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">Gaming Mode</string>
+    <string name="gaming_mode_tile_toast">Gaming mode enabled</string>
+    <string name="gaming_mode_tile_toast_disabled">Gaming mode disabled</string>
+    <string name="gaming_mode_dialog_title">Gaming Mode</string>
+    <string name="gaming_mode_dialog_message">When gaming mode is enabled, all heads-up messages will be disabled and hardware keys will be turned off. All the disabled settings will be reset to default once you exit Gaming Mode.</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">Gaming mode on</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">Gaming mode off</string>
 </resources>

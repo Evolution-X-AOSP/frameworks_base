@@ -42,12 +42,6 @@
     <string name="permlab_toggleNavigationEditor">ovládání navigačního editoru</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_toggleNavigationEditor">Umožňuje aplikaci provádět změny v editoru navigačního panelu.</string>
-    <!-- Gaming mode -->
-    <string name="notification_channel_gaming">Herní režim</string>
-    <string name="gaming_mode_notification_title">Herní režim povolen</string>
-    <string name="gaming_mode_notification_content">Klepněte sem pro vypnutí Herního režimu</string>
-    <string name="gaming_mode_enabled_toast">Herní režim je zapnutý</string>
-    <string name="gaming_mode_disabled_toast">Herní režim je vypnutý</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_fakePackageSignature">Napodobit podpis balíčku</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->

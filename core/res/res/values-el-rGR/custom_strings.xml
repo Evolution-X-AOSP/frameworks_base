@@ -43,12 +43,6 @@
     <string name="permlab_toggleNavigationEditor">επεξεργαστής ελέγχου πλοήγησης</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_toggleNavigationEditor">Επιτρέπει σε μια εφαρμογή να ελέγχει την επεξεργασία της γραμμής πλοήγησης.</string>
-    <!-- Gaming mode -->
-    <string name="notification_channel_gaming">Λειτουργία Παιχνιδιού</string>
-    <string name="gaming_mode_notification_title">Λειτουργία παιχνιδιού ενεργή</string>
-    <string name="gaming_mode_notification_content">Πατήστε για απενεργοποίηση της λειτ. παιχνιδιού</string>
-    <string name="gaming_mode_enabled_toast">Η λειτ. παιχνιδιού ενεργοποιήθηκε</string>
-    <string name="gaming_mode_disabled_toast">Η λειτ. παιχνιδιού απενεργοποιήθηκε</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_fakePackageSignature">Ψεύδης υπογραφή πακέτου</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->

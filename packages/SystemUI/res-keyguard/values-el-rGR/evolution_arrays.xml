@@ -21,10 +21,10 @@
 <resources>
     <string-array name="type_clock_hours">
         <item>Δώδεκα</item>
-        <item>Ένα</item>
+        <item>Μία</item>
         <item>Δύο</item>
-        <item>Τρία</item>
-        <item>Τέσσερα</item>
+        <item>Τρείς</item>
+        <item>Τέσσερις</item>
         <item>Πέντε</item>
         <item>Έξι</item>
         <item>Επτά</item>
@@ -35,10 +35,10 @@
     </string-array>
     <string-array name="type_clock_minutes">
         <item>Ακριβώς</item>
-        <item>Μία</item>
+        <item>Ένα</item>
         <item>Δύο</item>
-        <item>Τρεις</item>
-        <item>Τέσσερις</item>
+        <item>Τρία</item>
+        <item>Τέσσερα</item>
         <item>Πέντε</item>
         <item>Έξι</item>
         <item>Επτά</item>

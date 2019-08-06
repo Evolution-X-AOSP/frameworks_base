@@ -20,7 +20,7 @@
 -->
 <resources>
     <plurals name="type_clock_header">
-        <item quantity="other"><annotation name="color">It’s</annotation>\"\n^1\n^2\"</item>
+        <item quantity="other"><annotation name="color">มันคือ</annotation>\n^1\n^2</item>
     </plurals>
     <!-- Skeleton string format for displaying the date with number. -->
     <!-- Skeleton string format for displaying the date. -->

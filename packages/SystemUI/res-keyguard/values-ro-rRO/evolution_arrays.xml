@@ -20,21 +20,21 @@
 -->
 <resources>
     <string-array name="type_clock_hours">
-        <item>बारह</item>
-        <item>एक</item>
-        <item>दो</item>
-        <item>तीन</item>
-        <item>चार</item>
-        <item>पाँच</item>
-        <item>छे</item>
-        <item>सात</item>
-        <item>आठ</item>
-        <item>नौ</item>
-        <item>दस</item>
-        <item>ग्यारह</item>
+        <item>Twelve</item>
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+        <item>Four</item>
+        <item>Five</item>
+        <item>Six</item>
+        <item>Seven</item>
+        <item>Eight</item>
+        <item>Nine</item>
+        <item>Ten</item>
+        <item>Eleven</item>
     </string-array>
     <string-array name="type_clock_minutes">
-        <item>बजे</item>
+        <item>O’Clock</item>
         <item>O’One</item>
         <item>O’Two</item>
         <item>O’Three</item>
@@ -44,18 +44,19 @@
         <item>O’Seven</item>
         <item>O’Eight</item>
         <item>O’Nine</item>
-        <item>दस</item>
-        <item>ग्यारह</item>
-        <item>बारह</item>
-        <item>तेरह</item>
-        <item>चौदह</item>
-        <item>पंद्रह</item>
-        <item>सोलह</item>
-        <item>सत्रह</item>
-        <item>अठारह</item>
-        <item>उन्नीस</item>
-        <item>बीस</item>
-        <item>इक्कीस</item>
+        <item>Ten</item>
+        <item>Eleven</item>
+        <item>Twelve</item>
+        <item>Thirteen</item>
+        <item>Fourteen</item>
+        <item>Fifteen</item>
+        <item>Sixteen</item>
+        <item>Seventeen</item>
+        <item>Eighteen</item>
+        <item>Nineteen</item>
+        <item>Twenty</item>
+        <item>Twenty
+One</item>
         <item>Twenty
 Two</item>
         <item>Twenty

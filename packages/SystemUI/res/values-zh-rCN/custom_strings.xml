@@ -70,7 +70,7 @@
     <string name="quick_settings_sound_search_no_app">抱歉，您没有声音搜索应用。</string>
     <!-- QS Colums & rows -->
     <string name="qs_menu_item_columns">列数</string>
-    <string name="qs_menu_item_columns_landscape">行数</string>
+    <string name="qs_menu_item_columns_landscape">横屏列数</string>
     <string name="qs_menu_item_columns_three">3</string>
     <string name="qs_menu_item_columns_four">4</string>
     <string name="qs_menu_item_columns_five">5</string>
@@ -82,8 +82,8 @@
     <string name="qs_menu_item_titles">隐藏标签</string>
     <string name="qs_menu_item_qs_columns">快速设置栏列数</string>
     <string name="qs_menu_item_columns_auto">自动</string>
-    <string name="qs_menu_item_rows_landscape">行 (横屏)</string>
-    <string name="qs_menu_item_rows">行</string>
+    <string name="qs_menu_item_rows_landscape">横屏行数</string>
+    <string name="qs_menu_item_rows">行数</string>
     <string name="qs_menu_item_rows_one">1</string>
     <string name="qs_menu_item_rows_two">2</string>
     <string name="qs_menu_item_rows_three">3</string>
@@ -109,6 +109,14 @@
     <string name="quick_settings_volume_panel_label">音量面板</string>
     <string name="tuner_show_info_header_title">显示信息标题</string>
     <string name="tuner_show_secure_title">显示安全页脚</string>
+    <!-- Advance location quick setting tile -->
+    <string name="quick_settings_secondary_location_off"></string>
+    <string name="quick_settings_location_secondary_battery_saving">节省电量</string>
+    <string name="accessibility_quick_settings_location_battery_saving">位置报告：省电模式</string>
+    <string name="quick_settings_location_secondary_gps_only">仅传感器</string>
+    <string name="accessibility_quick_settings_location_gps_only">位置报告：仅限设备</string>
+    <string name="quick_settings_location_secondary_high_accuracy">高精准度</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">位置报告：高精准度</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">息屏显示</string>
     <!-- Music tile -->
@@ -132,7 +140,7 @@
     <string name="quick_settings_compass_W">西</string>
     <string name="quick_settings_compass_NW">西北</string>
     <!-- Ambient display QS tile -->
-    <string name="quick_settings_ambient_display_label">息屏显示</string>
+    <string name="quick_settings_ambient_display_label">通知唤醒</string>
     <string name="accessibility_quick_settings_ambient_display_off">关闭息屏显示</string>
     <string name="accessibility_quick_settings_ambient_display_on">开启息屏显示</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">息屏显示已关闭</string>
@@ -141,37 +149,6 @@
     <string name="force_stop_dlg_title">强制终止此应用吗？</string>
     <string name="force_stop_dlg_text">强行停止某个应用可能会导致其出现异常</string>
     <string name="kill">终止应用</string>
-    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_battery_saving">位置报告：省电模式</string>
-    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_gps_only">位置报告：仅限设备</string>
-    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_high_accuracy">位置报告：高精准度</string>
-    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_battery_saving_label">省电模式</string>
-    <string name="quick_settings_location_battery_saving_label_twoline">省电模式</string>
-    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_gps_only_label">仅限 GPS</string>
-    <string name="quick_settings_location_gps_only_label_twoline">仅限 GPS</string>
-    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_high_accuracy_label">高精准度</string>
-    <string name="quick_settings_location_high_accuracy_label_twoline">高精准度</string>
-    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_title">地理位置</string>
-    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_menu_title">选择模式：</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_title">高精准度</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_title">省电模式</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_title">仅限设备</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_description">使用 GPS、WLAN、蓝牙或移动网络确定位置</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_description">使用 WLAN、蓝牙或移动网络确定位置</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_description">使用 GPS 来确定你的位置</string>
     <!-- Expanded Desktop QS Tile -->
     <string name="quick_settings_expanded_desktop_label">扩展桌面</string>
     <string name="quick_settings_expanded_desktop">扩展桌面</string>
@@ -213,14 +190,6 @@
     <string name="lockscreen_hidden">无</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">滑动图标以启动</string>
-    <!-- Gaming Mode -->
-    <string name="notification_channel_gaming">游戏模式</string>
-    <string name="gaming_mode_not_enabled">游戏模式在设置中被禁用</string>
-    <string name="quick_settings_gaming_mode_label">游戏模式</string>
-    <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_disabled">游戏模式已关闭</string>
-    <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_enabled">游戏模式已开启</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">实体按键开启</string>
     <string name="accessibility_quick_settings_hwkeys_off">实体按键关闭</string>
@@ -237,4 +206,18 @@
     <string name="vpn_credentials_password">密码</string>
     <string name="vpn_credentials_dialog_connect">连接</string>
     <string name="status_bar_vpn">VPN</string>
+    <!-- NavBar QS Tile -->
+    <string name="quick_settings_navbar_title">导航栏</string>
+    <string name="accessibility_quick_settings_navbar_off">同步关闭</string>
+    <string name="accessibility_quick_settings_navbar_on">同步开启</string>
+    <string name="accessibility_quick_settings_navbar_changed_off">导航栏已停用</string>
+    <string name="accessibility_quick_settings_navbar_changed_on">导航栏已启用</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">游戏模式</string>
+    <string name="gaming_mode_tile_toast">游戏模式已启用</string>
+    <string name="gaming_mode_tile_toast_disabled">游戏模式已停用</string>
+    <string name="gaming_mode_dialog_title">游戏模式</string>
+    <string name="gaming_mode_dialog_message">当启用游戏模式时，所有浮动消息将被禁用，实体按键将被屏蔽。所有禁用的设置将在退出游戏模式后重置为默认设置。</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">游戏模式开启</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">游戏模式关闭</string>
 </resources>

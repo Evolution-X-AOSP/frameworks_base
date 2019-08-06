@@ -20,12 +20,10 @@
 -->
 <resources>
     <plurals name="type_clock_header">
-        <item quantity="other"><annotation name="color">Сейчас</annotation>\" ^1 ^2\"</item>
-        <item quantity="one"><annotation name="color">Сейчас</annotation>\"
-^1
-^2\"</item>
-        <item quantity="few"><annotation name="color">Сейчас</annotation>\" ^1 ^2\"</item>
-        <item quantity="many"><annotation name="color">Сейчас</annotation>\" ^1 ^2\"</item>
+        <item quantity="other"><annotation name="color">Сейчас</annotation>\n^1\n^2</item>
+        <item quantity="one"><annotation name="color">Сейчас</annotation>\n^1\n^2</item>
+        <item quantity="few"><annotation name="color">Сейчас</annotation>\n^1\n^2</item>
+        <item quantity="many"><annotation name="color">Сейчас</annotation>\n^1\n^2</item>
     </plurals>
     <!-- Skeleton string format for displaying the date with number. -->
     <!-- Skeleton string format for displaying the date. -->

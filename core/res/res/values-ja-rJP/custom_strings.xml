@@ -42,12 +42,6 @@
     <string name="permlab_toggleNavigationEditor">ナビゲーションエディターの制御</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_toggleNavigationEditor">アプリのナビゲーションバーエディターの制御を許可する</string>
-    <!-- Gaming mode -->
-    <string name="notification_channel_gaming">ゲームモード</string>
-    <string name="gaming_mode_notification_title">ゲームモード有効</string>
-    <string name="gaming_mode_notification_content">タップでゲームモードを無効化</string>
-    <string name="gaming_mode_enabled_toast">ゲームモードを有効化しました</string>
-    <string name="gaming_mode_disabled_toast">ゲームモードを無効化しました</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_fakePackageSignature">パッケージ署名を偽装</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->

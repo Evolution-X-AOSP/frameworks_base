@@ -42,12 +42,6 @@
     <string name="permlab_toggleNavigationEditor">导航栏编辑器</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_toggleNavigationEditor">允许应用程序控制导航栏编辑器</string>
-    <!-- Gaming mode -->
-    <string name="notification_channel_gaming">游戏模式</string>
-    <string name="gaming_mode_notification_title">游戏模式已启用</string>
-    <string name="gaming_mode_notification_content">点击关闭游戏模式</string>
-    <string name="gaming_mode_enabled_toast">游戏模式已开启</string>
-    <string name="gaming_mode_disabled_toast">游戏模式已关闭</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_fakePackageSignature">允许软件签名欺骗</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->

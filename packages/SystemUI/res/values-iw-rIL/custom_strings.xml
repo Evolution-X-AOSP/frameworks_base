@@ -109,6 +109,14 @@
     <string name="quick_settings_volume_panel_label">לוח עוצמת השמע</string>
     <string name="tuner_show_info_header_title">הצג כותרת מידע עליונה</string>
     <string name="tuner_show_secure_title">הצג כותרת אבטחה תחתונה</string>
+    <!-- Advance location quick setting tile -->
+    <string name="quick_settings_secondary_location_off"></string>
+    <string name="quick_settings_location_secondary_battery_saving">Battery Saving</string>
+    <string name="accessibility_quick_settings_location_battery_saving">דיווח מיקום: מצב חסכון סוללה.</string>
+    <string name="quick_settings_location_secondary_gps_only">Sensors Only</string>
+    <string name="accessibility_quick_settings_location_gps_only">דיווח מיקום: GPS בלבד.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">High Accuracy</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">דיווח מיקום: מצב מדוייק.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
     <!-- Music tile -->
@@ -141,37 +149,6 @@
     <string name="force_stop_dlg_title">לאלץ עצירה?</string>
     <string name="force_stop_dlg_text">אם אתה מאלץ עצירה של יישום, ייתכן שהוא לא יפעל כהלכה.</string>
     <string name="kill">הפסק יישום</string>
-    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_battery_saving">דיווח מיקום: מצב חסכון סוללה.</string>
-    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_gps_only">דיווח מיקום: GPS בלבד.</string>
-    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_high_accuracy">דיווח מיקום: מצב מדוייק.</string>
-    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_battery_saving_label">חסכון בסוללה</string>
-    <string name="quick_settings_location_battery_saving_label_twoline">חיסכון\nבסוללה</string>
-    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_gps_only_label">GPS בלבד</string>
-    <string name="quick_settings_location_gps_only_label_twoline">GPS בלבד</string>
-    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_high_accuracy_label">רמת דיוק גבוהה</string>
-    <string name="quick_settings_location_high_accuracy_label_twoline">דיוק\nמרבי</string>
-    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_title">מיקום</string>
-    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_menu_title">בחר מצב:</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_title">רמת דיוק גבוהה</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_title">חסכון בסוללה</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_title">במכשיר בלבד</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_description">‏השתמש ב-GPS‏, Wi\u2011Fi‏, Bluetooth או רשתות סלולריות כדי לקבוע מיקום </string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_description">‏השתמש ב-Wi\u2011Fi‏, Bluetooth או רשתות סלולריות כדי לקבוע מיקום</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_description">‏השתמש ב-GPS לקביעת המיקום</string>
     <!-- Expanded Desktop QS Tile -->
     <string name="quick_settings_expanded_desktop_label">שולחן עבודה מורחב</string>
     <string name="quick_settings_expanded_desktop">מורחב</string>
@@ -213,14 +190,6 @@
     <string name="lockscreen_hidden">ללא</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">החלק מהסמל כדי להפעיל</string>
-    <!-- Gaming Mode -->
-    <string name="notification_channel_gaming">מצב משחק</string>
-    <string name="gaming_mode_not_enabled">מצב משחק מושבת בהגדרות</string>
-    <string name="quick_settings_gaming_mode_label">מצב משחק</string>
-    <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_disabled">מצב משחק כובה.</string>
-    <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_enabled">מצב משחק הופעל.</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">מקשי חומרה פעילים</string>
     <string name="accessibility_quick_settings_hwkeys_off">מקשי חומרה מושבתים</string>
@@ -237,4 +206,18 @@
     <string name="vpn_credentials_password">Password</string>
     <string name="vpn_credentials_dialog_connect">Connect</string>
     <string name="status_bar_vpn">VPN</string>
+    <!-- NavBar QS Tile -->
+    <string name="quick_settings_navbar_title">Navigation Bar</string>
+    <string name="accessibility_quick_settings_navbar_off">Sync off</string>
+    <string name="accessibility_quick_settings_navbar_on">Sync on</string>
+    <string name="accessibility_quick_settings_navbar_changed_off">Navigation bar turned off</string>
+    <string name="accessibility_quick_settings_navbar_changed_on">Navigation bar turned on</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">Gaming Mode</string>
+    <string name="gaming_mode_tile_toast">Gaming mode enabled</string>
+    <string name="gaming_mode_tile_toast_disabled">Gaming mode disabled</string>
+    <string name="gaming_mode_dialog_title">Gaming Mode</string>
+    <string name="gaming_mode_dialog_message">When gaming mode is enabled, all heads-up messages will be disabled and hardware keys will be turned off. All the disabled settings will be reset to default once you exit Gaming Mode.</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">Gaming mode on</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">Gaming mode off</string>
 </resources>

@@ -109,6 +109,14 @@
     <string name="quick_settings_volume_panel_label">Helipaneel</string>
     <string name="tuner_show_info_header_title">Kuva teabe päis</string>
     <string name="tuner_show_secure_title">Kuva turvainfo</string>
+    <!-- Advance location quick setting tile -->
+    <string name="quick_settings_secondary_location_off"></string>
+    <string name="quick_settings_location_secondary_battery_saving">Aku säästmine</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Asukoha teatamine: aku säästmise režiim.</string>
+    <string name="quick_settings_location_secondary_gps_only">Ainult andurid</string>
+    <string name="accessibility_quick_settings_location_gps_only">Asukoha teatamine: ainult andurite režiim.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Kõrge täpsus</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Asukoha teatamine: kõrge täpsusega režiim.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
     <!-- Music tile -->
@@ -141,37 +149,6 @@
     <string name="force_stop_dlg_title">Sunni peatumine?</string>
     <string name="force_stop_dlg_text">Kui sunnite rakenduse peatuma, võib see valesti käituda.</string>
     <string name="kill">Sulge rakendus</string>
-    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_battery_saving">Asukoha teatamine: aku säästmise režiim.</string>
-    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_gps_only">Asukoha teatamine: ainult andurite režiim.</string>
-    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_high_accuracy">Asukoha teatamine: kõrge täpsusega režiim.</string>
-    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_battery_saving_label">Aku säästmine</string>
-    <string name="quick_settings_location_battery_saving_label_twoline">Akut\nsäästev</string>
-    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_gps_only_label">Ainult GPS</string>
-    <string name="quick_settings_location_gps_only_label_twoline">Ainult GPS</string>
-    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_high_accuracy_label">Väga täpne</string>
-    <string name="quick_settings_location_high_accuracy_label_twoline">Kõrge\ntäpsusega</string>
-    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_title">Asukoht</string>
-    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_menu_title">Vali režiim:</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_title">Suur täpsus</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_title">Energiasääst</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_title">Seadmelt ainult</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_description">Kasutage asukoha määramiseks GPS, Wi\u2011Fi, Bluetooth või mobiilsidevõrke</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_description">Kasutage asukoha määramiseks Wi\u2011Fi, Bluetooth või mobiilsidevõrke</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Kasutage asukoha määramiseks GPS-i</string>
     <!-- Expanded Desktop QS Tile -->
     <string name="quick_settings_expanded_desktop_label">Laiendatud töölaud</string>
     <string name="quick_settings_expanded_desktop">Laiendatud</string>
@@ -213,14 +190,6 @@
     <string name="lockscreen_hidden">Mitte ükski</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Viibake alates ikoonist, et käivitada</string>
-    <!-- Gaming Mode -->
-    <string name="notification_channel_gaming">Mängurežiim</string>
-    <string name="gaming_mode_not_enabled">Mängurežiim on seadetes keelatud</string>
-    <string name="quick_settings_gaming_mode_label">Mängurežiim</string>
-    <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_disabled">Mängurežiim välja lülitatud.</string>
-    <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_enabled">Mängurežiim sisselülitatud.</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">Füüsilised nupud on sisse lülitatud</string>
     <string name="accessibility_quick_settings_hwkeys_off">Füüsilised nupud on välja lülitatud</string>
@@ -237,4 +206,18 @@
     <string name="vpn_credentials_password">Parool</string>
     <string name="vpn_credentials_dialog_connect">Ühendamine</string>
     <string name="status_bar_vpn">VPN</string>
+    <!-- NavBar QS Tile -->
+    <string name="quick_settings_navbar_title">Navigeerimisriba</string>
+    <string name="accessibility_quick_settings_navbar_off">Sünk. väljas</string>
+    <string name="accessibility_quick_settings_navbar_on">Sünk. sees</string>
+    <string name="accessibility_quick_settings_navbar_changed_off">Navigeerimisriba on välja lülitatud</string>
+    <string name="accessibility_quick_settings_navbar_changed_on">Navigeerimisriba on sisse lülitatud</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">Mängurežiim</string>
+    <string name="gaming_mode_tile_toast">Mängurežiim on lubatud</string>
+    <string name="gaming_mode_tile_toast_disabled">Mängurežiim on keelatud</string>
+    <string name="gaming_mode_dialog_title">Mängurežiim</string>
+    <string name="gaming_mode_dialog_message">Kui mängurežiim on lubatud, keelatakse kõik päiseteated ja riistvaraklahvid. Pärast mängurežiimist väljumist lähtestatakse kõik keelatud seaded vaikeseadetele.</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">Mängurežiim on sisse lülitatud</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">Mängurežiim on välja lülitatud</string>
 </resources>

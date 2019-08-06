@@ -109,6 +109,14 @@
     <string name="quick_settings_volume_panel_label">Panel de volumen</string>
     <string name="tuner_show_info_header_title">Información de cabecera</string>
     <string name="tuner_show_secure_title">Mostrar pie de seguridad</string>
+    <!-- Advance location quick setting tile -->
+    <string name="quick_settings_secondary_location_off"></string>
+    <string name="quick_settings_location_secondary_battery_saving">Ahorro de batería</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Informes de ubicación: modo de ahorro de batería.</string>
+    <string name="quick_settings_location_secondary_gps_only">Solo sensores</string>
+    <string name="accessibility_quick_settings_location_gps_only">Informes de ubicación: modo de solo sensores.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Alta precisión</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Informes de ubicación: modo de alta precisión.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Pantalla siempre encendida</string>
     <!-- Music tile -->
@@ -128,9 +136,9 @@
     <string name="quick_settings_compass_E">E</string>
     <string name="quick_settings_compass_SE">SE</string>
     <string name="quick_settings_compass_S">S</string>
-    <string name="quick_settings_compass_SW">SW</string>
-    <string name="quick_settings_compass_W">W</string>
-    <string name="quick_settings_compass_NW">NW</string>
+    <string name="quick_settings_compass_SW">SO</string>
+    <string name="quick_settings_compass_W">O</string>
+    <string name="quick_settings_compass_NW">NO</string>
     <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Ajustes de Pantalla Ambiente</string>
     <string name="accessibility_quick_settings_ambient_display_off">Pantalla ambiente desactivada.</string>
@@ -141,37 +149,6 @@
     <string name="force_stop_dlg_title">¿Deseas forzar la detención?</string>
     <string name="force_stop_dlg_text">Si fuerzas la detención de una aplicación, es posible que funcione incorrectamente.</string>
     <string name="kill">Matar app</string>
-    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_battery_saving">Informes de ubicación: modo de ahorro de batería.</string>
-    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_gps_only">Informes de ubicación: modo de solo sensores.</string>
-    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_high_accuracy">Informes de ubicación: modo de alta precisión.</string>
-    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_battery_saving_label">Ahorro de batería</string>
-    <string name="quick_settings_location_battery_saving_label_twoline">Ahorro\nde batería</string>
-    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_gps_only_label">Sólo GPS</string>
-    <string name="quick_settings_location_gps_only_label_twoline">Sólo GPS</string>
-    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_high_accuracy_label">Alta precisión</string>
-    <string name="quick_settings_location_high_accuracy_label_twoline">Alta\nprecisión</string>
-    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_title">Ubicación</string>
-    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_menu_title">Seleccionar modo:</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_title">Alta precisión</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_title">Ahorro de batería</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_title">Sólo dispositivo</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_description">Usa GPS, Wi\u2011Fi, Bluetooth o redes móviles para determinar la ubicación </string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_description">Usa Wi\u2011Fi, Bluetooth o redes móviles para determinar la ubicación</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Usar GPS para determinar tu localización</string>
     <!-- Expanded Desktop QS Tile -->
     <string name="quick_settings_expanded_desktop_label">Escritorio expandido</string>
     <string name="quick_settings_expanded_desktop">Expandido</string>
@@ -213,21 +190,13 @@
     <string name="lockscreen_hidden">Ninguno</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Desliza desde el icono para abrir</string>
-    <!-- Gaming Mode -->
-    <string name="notification_channel_gaming">Modo Juego</string>
-    <string name="gaming_mode_not_enabled">Modo de juego está desactivado en la configuración</string>
-    <string name="quick_settings_gaming_mode_label">Modo Juego</string>
-    <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_disabled">Modo de juego desactivado.</string>
-    <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_enabled">Modo de juego activado.</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">Teclas físicas encendidas</string>
     <string name="accessibility_quick_settings_hwkeys_off">Teclas físicas desactivadas</string>
     <string name="quick_settings_hwkeys_label">Teclas físicas</string>
     <!-- LTE QS Tile -->
     <string name="qs_lte_label">LTE</string>
-    <string name="lte_on">LTE ON </string>
+    <string name="lte_on">LTE activado </string>
     <string name="lte_off">LTE APAGADO</string>
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
@@ -237,4 +206,18 @@
     <string name="vpn_credentials_password">Contraseña</string>
     <string name="vpn_credentials_dialog_connect">Conectar</string>
     <string name="status_bar_vpn">VPN</string>
+    <!-- NavBar QS Tile -->
+    <string name="quick_settings_navbar_title">Barra de navegación</string>
+    <string name="accessibility_quick_settings_navbar_off">Sincronización desactivada</string>
+    <string name="accessibility_quick_settings_navbar_on">Sincronización activada</string>
+    <string name="accessibility_quick_settings_navbar_changed_off">Barra de navegación desactivada</string>
+    <string name="accessibility_quick_settings_navbar_changed_on">Barra de navegación activada</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">Modo Juego</string>
+    <string name="gaming_mode_tile_toast">Modo juego activado</string>
+    <string name="gaming_mode_tile_toast_disabled">Modo juego deshabilitado</string>
+    <string name="gaming_mode_dialog_title">Modo Juego</string>
+    <string name="gaming_mode_dialog_message">Cuando el Modo Juego está habilitado, se desactivarán todas las notificaciones y botones físicos. Todas las opciones deshabilitadas se activarán una vez salgas del Modo Juego.</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">Modo juego activado</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">Modo juego desactivado</string>
 </resources>

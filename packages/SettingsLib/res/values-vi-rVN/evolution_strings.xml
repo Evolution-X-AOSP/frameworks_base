@@ -15,4 +15,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- For estimated battery in QuickQS -->
     <string name="power_discharge_by_only_short">Hết pin lúc %1$s</string>
+    <!-- Bluetooth Audio Codec Channel Mode -->
+    <string name="bluetooth_a2dp_codec_channel_mode_default">Sử dụng lựa chọn hệ thống (Mặc định)</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_mono">Mono</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_stereo">Stereo</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_dual_channel">Kênh đôi</string>
 </resources>

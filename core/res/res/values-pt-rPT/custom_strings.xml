@@ -21,10 +21,10 @@
     <string name="disable_navkeys_summary">Ativar os botões virtuais e desativar os botões físicos</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Para desbloquear pressione e mantenha pressionado o botão de ligar</string>
-    <string name="reboot_to_recovery_title">Recovery</string>
-    <string name="reboot_to_recovery_message">Rebooting to recovery</string>
+    <string name="reboot_to_recovery_title">Recuperação</string>
+    <string name="reboot_to_recovery_message">Reiniciar para recuperação</string>
     <string name="reboot_to_bootloader_title">Bootloader</string>
-    <string name="reboot_to_bootloader_message">Rebooting to bootloader</string>
+    <string name="reboot_to_bootloader_message">Reiniciar para bootloader</string>
     <string name="reboot_title">Reiniciar</string>
     <string name="reboot_message">A reiniciar o sistema</string>
     <!-- Font service -->
@@ -42,12 +42,6 @@
     <string name="permlab_toggleNavigationEditor">controlar o editor de navegação</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_toggleNavigationEditor">Permite que uma aplicação controle o editor da barra de navegação.</string>
-    <!-- Gaming mode -->
-    <string name="notification_channel_gaming">Modo de jogo</string>
-    <string name="gaming_mode_notification_title">Modo de jogo ativado</string>
-    <string name="gaming_mode_notification_content">Toque para desativar o modo de jogo</string>
-    <string name="gaming_mode_enabled_toast">O modo de jogo foi ativado</string>
-    <string name="gaming_mode_disabled_toast">O modo de jogo foi desativado</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_fakePackageSignature">Falsificar a assinatura do pacote</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->

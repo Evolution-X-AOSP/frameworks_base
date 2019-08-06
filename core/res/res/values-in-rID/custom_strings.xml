@@ -17,39 +17,33 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Buttons - Enable navbar (used by Settings and device parts app) -->
-    <string name="disable_navkeys_title">Aktifkan navigasi dalam layar</string>
-    <string name="disable_navkeys_summary">Aktifkan navigasi layar dan matikan tombol navigasi perangkat keras</string>
+    <string name="disable_navkeys_title">Aktifkan tombol navigasi dalam layar</string>
+    <string name="disable_navkeys_summary">Aktifkan tombol navigasi dalam layar dan matikan tombol navigasi fisik</string>
     <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Tekan dan tahan tombol daya untuk membuka</string>
+    <string name="pocket_lock_message_long_press">Tekan dan tahan tombol daya untuk membuka kunci</string>
     <string name="reboot_to_recovery_title">Pemulihan</string>
-    <string name="reboot_to_recovery_message">Memulai ulang ke recovery</string>
+    <string name="reboot_to_recovery_message">Memulai ulang ke mode pemulihan</string>
     <string name="reboot_to_bootloader_title">Bootloader</string>
     <string name="reboot_to_bootloader_message">Memulai ulang ke bootloader</string>
     <string name="reboot_title">Mulai ulang</string>
     <string name="reboot_message">Memulai ulang sistem</string>
     <!-- Font service -->
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_accessFontManager">mengakses pengelola font</string>
+    <string name="permlab_accessFontManager">akses pengelola font</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_accessFontManager">Izinkan aplikasi untuk melakukan akses ke pengelola huruf.</string>
+    <string name="permdesc_accessFontManager">Izinkan aplikasi untuk mengakses pengelola huruf.</string>
     <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
-    <string name="fontservice_incompatible_font">Paket font yang anda install tidak kompatibel karena kehilangan fonts.xml di file nya. Hubungi penyedia paket font untuk dukungan bantuan.</string>
+    <string name="fontservice_incompatible_font">Paket font yang anda install tidak kompatibel karena file fonts.xml tidak tersedia pada paket font tersebut. Hubungi penyedia paket font untuk dukungan dan bantuan.</string>
     <!-- Button that copies the url to the log of a crashed application -->
-    <string name="aerr_copy">Salin riwayat kerusakan URL</string>
+    <string name="aerr_copy">Salin URL log malfungsi</string>
     <string name="url_copy_success">URL berhasil disalin</string>
     <string name="url_copy_failed">Terjadi kesalahan saat mengunggah log ke aicp haste</string>
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_toggleNavigationEditor">mengontrol navigasi editor</string>
+    <string name="permlab_toggleNavigationEditor">mengubah tombol navigasi</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_toggleNavigationEditor">Mengizinkan aplikasi untuk mengontrol editor bar navigasi.</string>
-    <!-- Gaming mode -->
-    <string name="notification_channel_gaming">Mode Permainan</string>
-    <string name="gaming_mode_notification_title">Mode Permainan hidup</string>
-    <string name="gaming_mode_notification_content">Tekan untuk mematikan mode Gaming</string>
-    <string name="gaming_mode_enabled_toast">Mode permainan dihidupkan</string>
-    <string name="gaming_mode_disabled_toast">Mode permainan dimatikan</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_fakePackageSignature">Memalsukan paket tandatangan</string>
+    <string name="permlab_fakePackageSignature">Memalsukan identitas paket</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_fakePackageSignature">Membolehkan aplikasi untuk berpura-pura sebagai aplikasi lain. Aplikasi jahat mungkin dapat menggunakan ini untuk mengakses data aplikasi. Bolehkan perizinan ini dengan hati-hati!</string>
 </resources>

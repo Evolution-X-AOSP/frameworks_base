@@ -42,12 +42,6 @@
     <string name="permlab_toggleNavigationEditor">controlar editor de navegação</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_toggleNavigationEditor">Permite que um aplicativo controle o editor da barra de navegação.</string>
-    <!-- Gaming mode -->
-    <string name="notification_channel_gaming">Modo de Jogo</string>
-    <string name="gaming_mode_notification_title">Modo jogo ativado</string>
-    <string name="gaming_mode_notification_content">Toque para desativar o modo de jogo</string>
-    <string name="gaming_mode_enabled_toast">O modo de jogo foi ativado</string>
-    <string name="gaming_mode_disabled_toast">O modo de jogo foi desativado</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_fakePackageSignature">Falsificação de assinatura</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->

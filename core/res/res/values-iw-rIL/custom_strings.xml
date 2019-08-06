@@ -42,12 +42,6 @@
     <string name="permlab_toggleNavigationEditor">שליטה בעורך הניווט</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_toggleNavigationEditor">לאפשר ליישומון לשלוט בעורך סרגל ניווט.</string>
-    <!-- Gaming mode -->
-    <string name="notification_channel_gaming">מצב משחק</string>
-    <string name="gaming_mode_notification_title">מצב משחק פעיל</string>
-    <string name="gaming_mode_notification_content">הקש כדי לכבות מצב משחק</string>
-    <string name="gaming_mode_enabled_toast">מצב משחק הופעל</string>
-    <string name="gaming_mode_disabled_toast">מצב משחק כובה</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_fakePackageSignature">זייף חתימת חבילה</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->

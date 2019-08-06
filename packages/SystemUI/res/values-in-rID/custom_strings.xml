@@ -13,9 +13,9 @@
     <string name="show_fourg_title">Tampilkan 4G daripada LTE</string>
     <string name="show_fourg_summary">Mengganti indikator LTE dengan 4G di statusbar</string>
     <!-- Caffeine QS tile -->
-    <string name="quick_settings_caffeine_label">Mode Kafein</string>
-    <string name="accessibility_quick_settings_caffeine_off">Mode kafein dinonaktifkan</string>
-    <string name="accessibility_quick_settings_caffeine_on">Mode kafein diaktifkan</string>
+    <string name="quick_settings_caffeine_label">Mode Tetap Bangun</string>
+    <string name="accessibility_quick_settings_caffeine_off">Mode tetap bangun dinonaktifkan.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Mode tetap bangun diaktifkan.</string>
     <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">Pemberitahuan yg mengambang</string>
     <string name="accessibility_quick_settings_heads_up_off">Matikan pemberitahuan mengambang</string>
@@ -109,6 +109,14 @@
     <string name="quick_settings_volume_panel_label">Panel suara</string>
     <string name="tuner_show_info_header_title">Tampilkan tajuk informasi</string>
     <string name="tuner_show_secure_title">Tampilkan footer keamanan</string>
+    <!-- Advance location quick setting tile -->
+    <string name="quick_settings_secondary_location_off"></string>
+    <string name="quick_settings_location_secondary_battery_saving">Hemat Baterai</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Laporkan lokasi: Mode hemat baterai.</string>
+    <string name="quick_settings_location_secondary_gps_only">Hanya Sensor</string>
+    <string name="accessibility_quick_settings_location_gps_only">Laporkan lokasi: mode hanya sensor.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Akurasi Tinggi</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Laporkan lokasi: mode akurasi tinggi.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
     <!-- Music tile -->
@@ -141,37 +149,6 @@
     <string name="force_stop_dlg_title">Paksa berhenti?</string>
     <string name="force_stop_dlg_text">Jika anda menghentikan paksa aplikasi, akan menyebabkan gagal fungsi.</string>
     <string name="kill">Tutup Aplikasi</string>
-    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_battery_saving">Laporkan lokasi: Mode hemat baterai.</string>
-    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_gps_only">Laporkan lokasi: mode hanya sensor.</string>
-    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_high_accuracy">Laporkan lokasi: mode akurasi tinggi.</string>
-    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_battery_saving_label">Penghemat baterai</string>
-    <string name="quick_settings_location_battery_saving_label_twoline">Hemat\nbaterai</string>
-    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_gps_only_label">Hanya GPS</string>
-    <string name="quick_settings_location_gps_only_label_twoline">Hanya GPS</string>
-    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_high_accuracy_label">Akurasi Tinggi</string>
-    <string name="quick_settings_location_high_accuracy_label_twoline">Akurasi\ntinggi</string>
-    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_title">Lokasi</string>
-    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_menu_title">Pilih Mode:</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_title">Akurasi tinggi</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_title">Penghemat baterai</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_title">Hanya perangkat</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_description">Menggunakan GPS, Wi\u2011Fi, Bluetooth, atau jaringan untuk menentukan lokasi </string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_description">Menggunakan Wi\u2011Fi, Bluetooth, atau jaringan seluler untuk menentukan lokasi</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Menggunakan GPS untuk menentukan lokasi anda</string>
     <!-- Expanded Desktop QS Tile -->
     <string name="quick_settings_expanded_desktop_label">Desktop diperluas</string>
     <string name="quick_settings_expanded_desktop">Diperluas</string>
@@ -213,14 +190,6 @@
     <string name="lockscreen_hidden">Tidak ada</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Geser dari ikon untuk diluncurkan</string>
-    <!-- Gaming Mode -->
-    <string name="notification_channel_gaming">Mode Permainan</string>
-    <string name="gaming_mode_not_enabled">Mode permainan dinonaktifkan di pengaturan</string>
-    <string name="quick_settings_gaming_mode_label">Mode permainan</string>
-    <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_disabled">Mode permainan dimatikan.</string>
-    <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_enabled">Mode permainan dihidupkan.</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">Tombol HW aktif</string>
     <string name="accessibility_quick_settings_hwkeys_off">Tombol HW mati</string>
@@ -237,4 +206,18 @@
     <string name="vpn_credentials_password">Kata Sandi</string>
     <string name="vpn_credentials_dialog_connect">Menghubungkan</string>
     <string name="status_bar_vpn">VPN</string>
+    <!-- NavBar QS Tile -->
+    <string name="quick_settings_navbar_title">Bilah Navigasi</string>
+    <string name="accessibility_quick_settings_navbar_off">Sync Mati</string>
+    <string name="accessibility_quick_settings_navbar_on">Sync Aktif</string>
+    <string name="accessibility_quick_settings_navbar_changed_off">Bilah navigasi dinonaktifkan</string>
+    <string name="accessibility_quick_settings_navbar_changed_on">Bilah navigasi diaktifkan</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">Mode Permainan</string>
+    <string name="gaming_mode_tile_toast">Mode permainan dihidupkan</string>
+    <string name="gaming_mode_tile_toast_disabled">Mode permainan dimatikan</string>
+    <string name="gaming_mode_dialog_title">Mode Permainan</string>
+    <string name="gaming_mode_dialog_message">Ketika mode permainan diaktifkan, semua pesan utama akan dimatikan dan tombol perangkat keras akan dinonaktifkan. Semua pengaturan yang dinonaktifkan akan diatur ulang ketika anda keluar dari mode permainan.</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">Mode permainan hidup</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">Mode permainan nonaktif</string>
 </resources>

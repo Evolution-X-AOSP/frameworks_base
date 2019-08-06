@@ -42,12 +42,6 @@
     <string name="permlab_toggleNavigationEditor">แก้ไขตัวควบคุมการนำทาง</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_toggleNavigationEditor">อนุญาตให้แอปพลิเคชันควบคุมเครื่องมือแก้ไขแถบนำทาง</string>
-    <!-- Gaming mode -->
-    <string name="notification_channel_gaming">โหมดเกมมิ่ง</string>
-    <string name="gaming_mode_notification_title">เปิดใช้งานโหมดเกมมิ่ง</string>
-    <string name="gaming_mode_notification_content">แตะเพื่อปิดโหมดเกมมิ่ง</string>
-    <string name="gaming_mode_enabled_toast">เปิดโหมดเกมมิ่งแล้ว</string>
-    <string name="gaming_mode_disabled_toast">โหมดเกมมิ่งปิดอยู่</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_fakePackageSignature">ได้ตรวจพบลายเซ็นปลอมในแพคเกจ</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->

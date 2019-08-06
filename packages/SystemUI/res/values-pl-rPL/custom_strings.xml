@@ -109,6 +109,14 @@
     <string name="quick_settings_volume_panel_label">Panel głośności</string>
     <string name="tuner_show_info_header_title">Pokaż nagłówek informacji</string>
     <string name="tuner_show_secure_title">Pokaż stopę bezpieczeństwa</string>
+    <!-- Advance location quick setting tile -->
+    <string name="quick_settings_secondary_location_off"></string>
+    <string name="quick_settings_location_secondary_battery_saving">Battery Saving</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Lokalizacja: oszczędzanie baterii.</string>
+    <string name="quick_settings_location_secondary_gps_only">Sensors Only</string>
+    <string name="accessibility_quick_settings_location_gps_only">Lokalizacja: tylko urządzenie.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">High Accuracy</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Lokalizacja: wysoka dokładność.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Tryb Always-On-Display</string>
     <!-- Music tile -->
@@ -141,37 +149,6 @@
     <string name="force_stop_dlg_title">Wymusić zatrzymanie?</string>
     <string name="force_stop_dlg_text">Jeśli wymusisz zatrzymanie aplikacji, może ona działać nieprawidłowo.</string>
     <string name="kill">Zabij aplikacje</string>
-    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_battery_saving">Lokalizacja: oszczędzanie baterii.</string>
-    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_gps_only">Lokalizacja: tylko urządzenie.</string>
-    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_high_accuracy">Lokalizacja: wysoka dokładność.</string>
-    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_battery_saving_label">Oszczędzanie baterii</string>
-    <string name="quick_settings_location_battery_saving_label_twoline">Oszczędzanie\nbaterii</string>
-    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_gps_only_label">Tylko GPS</string>
-    <string name="quick_settings_location_gps_only_label_twoline">Tylko GPS</string>
-    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_high_accuracy_label">Wysoka dokładność</string>
-    <string name="quick_settings_location_high_accuracy_label_twoline">Wysoka\ndokładność</string>
-    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_title">Lokalizacja</string>
-    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_menu_title">Wybierz tryb:</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_title">Wysoka dokładność</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_title">Oszczędzanie baterii</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_title">Tylko urządzenie</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_description">Ustalaj lokalizację przez GPS, Wi‑Fi, Bluetooth lub sieci komórkowe </string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_description">Ustalaj lokalizację przez Wi‑Fi, Bluetooth lub sieci komórkowe</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Ustalaj lokalizację przez GPS</string>
     <!-- Expanded Desktop QS Tile -->
     <string name="quick_settings_expanded_desktop_label">Rozszerzony pulpit</string>
     <string name="quick_settings_expanded_desktop">Rozszerzony</string>
@@ -213,14 +190,6 @@
     <string name="lockscreen_hidden">Brak</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Przesuń palcem od ikony, aby uruchomić</string>
-    <!-- Gaming Mode -->
-    <string name="notification_channel_gaming">Tryb grania</string>
-    <string name="gaming_mode_not_enabled">Tryb gry jest wyłączony w ustawieniach</string>
-    <string name="quick_settings_gaming_mode_label">Tryb gry</string>
-    <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_disabled">Tryb gry wyłączony.</string>
-    <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_enabled">Tryb gry włączony.</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">Klawisze sprzętowe włączone</string>
     <string name="accessibility_quick_settings_hwkeys_off">Klawisze sprzętowe wyłączone</string>
@@ -237,4 +206,18 @@
     <string name="vpn_credentials_password">Hasło</string>
     <string name="vpn_credentials_dialog_connect">Połącz</string>
     <string name="status_bar_vpn">VPN</string>
+    <!-- NavBar QS Tile -->
+    <string name="quick_settings_navbar_title">Navigation Bar</string>
+    <string name="accessibility_quick_settings_navbar_off">Sync off</string>
+    <string name="accessibility_quick_settings_navbar_on">Sync on</string>
+    <string name="accessibility_quick_settings_navbar_changed_off">Navigation bar turned off</string>
+    <string name="accessibility_quick_settings_navbar_changed_on">Navigation bar turned on</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">Gaming Mode</string>
+    <string name="gaming_mode_tile_toast">Gaming mode enabled</string>
+    <string name="gaming_mode_tile_toast_disabled">Gaming mode disabled</string>
+    <string name="gaming_mode_dialog_title">Gaming Mode</string>
+    <string name="gaming_mode_dialog_message">When gaming mode is enabled, all heads-up messages will be disabled and hardware keys will be turned off. All the disabled settings will be reset to default once you exit Gaming Mode.</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">Gaming mode on</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">Gaming mode off</string>
 </resources>

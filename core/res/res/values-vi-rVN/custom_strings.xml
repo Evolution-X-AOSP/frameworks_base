@@ -20,11 +20,11 @@
     <string name="disable_navkeys_title">Bật thanh điều hướng trên màn hình</string>
     <string name="disable_navkeys_summary">Bật thanh điều hướng trên màn hình và tắt các phím cứng</string>
     <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Bấm và giữ nút nguồn để mở khoá</string>
+    <string name="pocket_lock_message_long_press">Nhấn và giữ nút nguồn để mở khoá</string>
     <string name="reboot_to_recovery_title">Recovery</string>
-    <string name="reboot_to_recovery_message">Khởi động vào Recovery</string>
+    <string name="reboot_to_recovery_message">Đang khởi động lại vào Recovery</string>
     <string name="reboot_to_bootloader_title">Bootloader</string>
-    <string name="reboot_to_bootloader_message">Khởi động vào Bootloader</string>
+    <string name="reboot_to_bootloader_message">Đang khởi động lại vào Bootloader</string>
     <string name="reboot_title">Khởi động lại</string>
     <string name="reboot_message">Đang khởi động lại hệ thống</string>
     <!-- Font service -->
@@ -42,12 +42,6 @@
     <string name="permlab_toggleNavigationEditor">điều khiển trình chỉnh sửa thanh điều hướng</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_toggleNavigationEditor">Cho phép ứng dụng điều khiển trình chỉnh sửa thanh điều hướng.</string>
-    <!-- Gaming mode -->
-    <string name="notification_channel_gaming">Chế độ Trò chơi</string>
-    <string name="gaming_mode_notification_title">Chế độ trò chơi đã bật</string>
-    <string name="gaming_mode_notification_content">Nhấn để tắt chế độ trò chơi</string>
-    <string name="gaming_mode_enabled_toast">Chế độ trò chơi đã bật</string>
-    <string name="gaming_mode_disabled_toast">Chế độ trò chơi đã tắt</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_fakePackageSignature">Giả mạo chữ ký gói</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->

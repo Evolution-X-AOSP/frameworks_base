@@ -34,101 +34,101 @@
         <item>Onze</item>
     </string-array>
     <string-array name="type_clock_minutes">
-        <item>Em ponto</item>
+        <item>Em Ponto</item>
         <item>Um</item>
-        <item>Dois</item>
-        <item>Três</item>
-        <item>Quatro</item>
+        <item>e Dois</item>
+        <item>e Três</item>
+        <item>e Quatro</item>
         <item>Cinco</item>
-        <item>Seis</item>
-        <item>Sete</item>
-        <item>Oito</item>
-        <item>Nove</item>
-        <item>Dez</item>
-        <item>Onze</item>
-        <item>Doze</item>
-        <item>Treze</item>
-        <item>Catorze</item>
-        <item>Quinze</item>
-        <item>Dezesseis</item>
-        <item>Dezessete</item>
-        <item>Dezoito</item>
-        <item>Dezenove</item>
-        <item>Vinte</item>
-        <item>Vinte
-e um</item>
-        <item>Vinte
-e dois</item>
-        <item>Vinte
-e três</item>
-        <item>Vinte
-e quatro</item>
-        <item>Vinte
-e cinco</item>
-        <item>Vinte
-e seis</item>
-        <item>Vinte
-e sete</item>
-        <item>Vinte
-e oito</item>
-        <item>Vinte
-e nove</item>
-        <item>Trinta</item>
-        <item>Trinta
-e um</item>
-        <item>Trinta
-e dois</item>
-        <item>Trinta
-e três</item>
-        <item>Trinta
-e quatro</item>
-        <item>Trinta
-e cinco</item>
-        <item>Trinta
-e seis</item>
-        <item>Trinta
-e sete</item>
-        <item>Trinta
-e oito</item>
-        <item>Trinta
-e nove</item>
-        <item>Quarenta</item>
-        <item>Quarenta
-e um</item>
-        <item>Quarenta
-e dois</item>
-        <item>Quarenta
-e três</item>
-        <item>Quarenta
-e quatro</item>
-        <item>Quarenta
-e cinco</item>
-        <item>Quarenta
-e seis</item>
-        <item>Quarenta
-e sete</item>
-        <item>Quarenta
-e oito</item>
-        <item>Quarenta
-e nove</item>
-        <item>Cinquenta</item>
-        <item>Cinquenta
-e um</item>
-        <item>Cinquenta
-e dois</item>
-        <item>Cinquenta
-e três</item>
-        <item>Cinquenta
-e quatro</item>
-        <item>Cinquenta
-e cinco</item>
-        <item>Cinquenta
-e seis</item>
-        <item>Cinquenta
-e sete</item>
-        <item>Cinquenta
-e oito</item>
-        <item>Cinquenta
-e nove</item>
+        <item>e Seis</item>
+        <item>e Sete</item>
+        <item>e Oito</item>
+        <item>e Nove</item>
+        <item>e Dez</item>
+        <item>e Onze</item>
+        <item>e Doze</item>
+        <item>e Treze</item>
+        <item>e Quatorze</item>
+        <item>e Quinze</item>
+        <item>e Dezesseis</item>
+        <item>e Dezessete</item>
+        <item>e Dezoito</item>
+        <item>e Dezenove</item>
+        <item>e Vinte</item>
+        <item>e Vinte
+e Um</item>
+        <item>e Vinte
+e Dois</item>
+        <item>e Vinte
+e Três</item>
+        <item>e Vinte
+e Quatro</item>
+        <item>e Vinte
+e Cinco</item>
+        <item>e Vinte
+e Seis</item>
+        <item>e Vinte
+e Sete</item>
+        <item>e Vinte
+e Oito</item>
+        <item>e Vinte
+e Nove</item>
+        <item>e Trinta</item>
+        <item>e Trinta
+e Um</item>
+        <item>e Trinta
+e Dois</item>
+        <item>e Trinta
+e Três</item>
+        <item>e Trinta
+e Quatro</item>
+        <item>e Trinta
+e Cinco</item>
+        <item>e Trinta
+e Seis</item>
+        <item>e Trinta
+e Sete</item>
+        <item>e Trinta
+e Oito</item>
+        <item>e Trinta
+e Nove</item>
+        <item>e Quarenta</item>
+        <item>e Quarenta
+e Um</item>
+        <item>e Quarenta
+e Dois</item>
+        <item>e Quarenta
+e Três</item>
+        <item>e Quarenta
+e Quatro</item>
+        <item>e Quarenta
+e Cinco</item>
+        <item>e Quarenta
+e Seis</item>
+        <item>e Quarenta
+e Sete</item>
+        <item>e Quarenta
+e Oito</item>
+        <item>e Quarenta
+e Nove</item>
+        <item>e Cinquenta</item>
+        <item>e Cinquenta
+e Um</item>
+        <item>e Cinquenta
+e Dois</item>
+        <item>e Cinquenta
+e Três</item>
+        <item>e Cinquenta
+e Quatro</item>
+        <item>e Cinquenta
+e Cinco</item>
+        <item>e Cinquenta
+e Seis</item>
+        <item>e Cinquenta
+e Sete</item>
+        <item>e Cinquenta
+e Oito</item>
+        <item>e Cinquenta
+e Nove</item>
     </string-array>
 </resources>

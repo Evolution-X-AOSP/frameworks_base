@@ -34,16 +34,16 @@
         <item>Sebelas</item>
     </string-array>
     <string-array name="type_clock_minutes">
-        <item>O\'Jam</item>
-        <item>O’Satu</item>
-        <item>O’Dua</item>
-        <item>O’Tiga</item>
-        <item>O’Empat</item>
-        <item>O’Lima</item>
-        <item>O’Enam</item>
-        <item>O’Tujuh</item>
-        <item>O’Delapan</item>
-        <item>O’Sembilan</item>
+        <item>Tepat</item>
+        <item>Satu</item>
+        <item>Dua</item>
+        <item>Tiga</item>
+        <item>Empat</item>
+        <item>Lima</item>
+        <item>Enam</item>
+        <item>Tujuh</item>
+        <item>Delapan</item>
+        <item>Sembilan</item>
         <item>Sepuluh</item>
         <item>Sebelas</item>
         <item>Dua Belas</item>

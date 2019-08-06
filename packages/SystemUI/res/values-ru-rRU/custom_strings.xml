@@ -109,6 +109,14 @@
     <string name="quick_settings_volume_panel_label">Панель громкости</string>
     <string name="tuner_show_info_header_title">Показать заголовок</string>
     <string name="tuner_show_secure_title">Информация о безопасности</string>
+    <!-- Advance location quick setting tile -->
+    <string name="quick_settings_secondary_location_off"></string>
+    <string name="quick_settings_location_secondary_battery_saving">Энергосбережение</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Передача геоданных: режим энергосбережения.</string>
+    <string name="quick_settings_location_secondary_gps_only">Только GPS</string>
+    <string name="accessibility_quick_settings_location_gps_only">Передача геоданных: только GPS.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Высокая точность</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Передача геоданных: режим высокой точности.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Активный дисплей</string>
     <!-- Music tile -->
@@ -141,37 +149,6 @@
     <string name="force_stop_dlg_title">Остановить принудительно?</string>
     <string name="force_stop_dlg_text">Принудительное закрытие приложения может отразиться на его функциональности.</string>
     <string name="kill">Принудительно закрыть</string>
-    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_battery_saving">Передача геоданных: режим энергосбережения.</string>
-    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_gps_only">Передача геоданных: только GPS.</string>
-    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_high_accuracy">Передача геоданных: режим высокой точности.</string>
-    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_battery_saving_label">Энергосбережение</string>
-    <string name="quick_settings_location_battery_saving_label_twoline">Экономия\nбатареи</string>
-    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_gps_only_label">Только GPS</string>
-    <string name="quick_settings_location_gps_only_label_twoline">Только GPS</string>
-    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_high_accuracy_label">Высокая точность</string>
-    <string name="quick_settings_location_high_accuracy_label_twoline">Высокая\nточность</string>
-    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_title">Местоположение</string>
-    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_menu_title">Выберите режим:</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_title">Высокая точность</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_title">Энергосбережение</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_title">Только устройство</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_description">Использовать GPS, Wi‑Fi, Bluetooth и мобильные сети для определения местоположения </string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_description">Использовать Wi‑Fi, Bluetooth и мобильные сети для определения местоположения</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Использовать GPS для определения местоположения</string>
     <!-- Expanded Desktop QS Tile -->
     <string name="quick_settings_expanded_desktop_label">Режим расширенного экрана</string>
     <string name="quick_settings_expanded_desktop">Расширенный</string>
@@ -213,14 +190,6 @@
     <string name="lockscreen_hidden">Не показывать</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Потяните значок для запуска</string>
-    <!-- Gaming Mode -->
-    <string name="notification_channel_gaming">Игровой режим</string>
-    <string name="gaming_mode_not_enabled">Игровой режим отключен в настройках</string>
-    <string name="quick_settings_gaming_mode_label">Игровой режим</string>
-    <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_disabled">Игровой режим выключен.</string>
-    <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_enabled">Игровой режим включён.</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">Аппаратные кнопки включены</string>
     <string name="accessibility_quick_settings_hwkeys_off">Аппаратные кнопки выключены</string>
@@ -237,4 +206,18 @@
     <string name="vpn_credentials_password">Пароль</string>
     <string name="vpn_credentials_dialog_connect">Подключение</string>
     <string name="status_bar_vpn">VPN</string>
+    <!-- NavBar QS Tile -->
+    <string name="quick_settings_navbar_title">Панель навигации</string>
+    <string name="accessibility_quick_settings_navbar_off">Синхронизация выкл</string>
+    <string name="accessibility_quick_settings_navbar_on">Синхронизация вкл</string>
+    <string name="accessibility_quick_settings_navbar_changed_off">Панель навигации выключена</string>
+    <string name="accessibility_quick_settings_navbar_changed_on">Панель навигации включена</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">Игровой режим</string>
+    <string name="gaming_mode_tile_toast">Игровой режим включён</string>
+    <string name="gaming_mode_tile_toast_disabled">Игровой режим выключен</string>
+    <string name="gaming_mode_dialog_title">Игровой режим</string>
+    <string name="gaming_mode_dialog_message">Когда игровой режим включен, всплывающие уведомления и аппаратные кнопки будут отключены. Все отключенные настройки будут сброшены к значениями по умолчанию после выхода из игрового режима.</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">Включить Игровой режим</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">Выключить Игровой режим</string>
 </resources>

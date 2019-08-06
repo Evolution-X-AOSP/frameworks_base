@@ -42,12 +42,6 @@
     <string name="permlab_toggleNavigationEditor">управление редактором панели навигации</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_toggleNavigationEditor">Разрешать приложению управлять редактированием панели навигации.</string>
-    <!-- Gaming mode -->
-    <string name="notification_channel_gaming">Игровой режим</string>
-    <string name="gaming_mode_notification_title">Игровой режим включён</string>
-    <string name="gaming_mode_notification_content">Нажмите, чтобы выключить Игровой режим</string>
-    <string name="gaming_mode_enabled_toast">Игровой режим включён</string>
-    <string name="gaming_mode_disabled_toast">Игровой режим выключен</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_fakePackageSignature">Подмена подписи приложения</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
