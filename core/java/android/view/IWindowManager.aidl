@@ -471,4 +471,11 @@ interface IWindowManager
 
     boolean isGestureButtonEnabled();
     boolean isGestureButtonRegion(int i, int i2);
+
+    /**
+     * Long screenshot
+     * @hide
+     */
+    void takeOPScreenshot(int type, int reason);
+    void stopLongshotConnection();
 }
