@@ -7862,4 +7862,9 @@ public class WindowManagerService extends IWindowManager.Stub
                     0 /* configChanges */, !PRESERVE_WINDOWS, true /* notifyClients */);
         }
     }
+
+    @Override
+    public void takeAlternativeScreenshot() {
+        mPolicy.takeAlternativeScreenshot();
+    }
 }
