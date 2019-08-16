@@ -35619,6 +35619,7 @@ package android.provider {
     field public static final String SELECTED_INPUT_METHOD_SUBTYPE = "selected_input_method_subtype";
     field public static final String SETTINGS_CLASSNAME = "settings_classname";
     field public static final String SKIP_FIRST_USE_HINTS = "skip_first_use_hints";
+    field public static final String TETHERING_ALLOW_VPN_UPSTREAMS = "tethering_allow_vpn_upstreams";
     field public static final String TOUCH_EXPLORATION_ENABLED = "touch_exploration_enabled";
     field @Deprecated public static final String TTS_DEFAULT_COUNTRY = "tts_default_country";
     field @Deprecated public static final String TTS_DEFAULT_LANG = "tts_default_lang";
