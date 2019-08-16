@@ -212,5 +212,6 @@ public class SecureSettings {
         Settings.Secure.SECURE_LOCKSCREEN_QS_DISABLED,
         Settings.Secure.SCREEN_OFF_UDFPS_ENABLED,
         Settings.Secure.SHOW_BACK_ARROW_GESTURE,
+        Settings.Secure.TETHERING_ALLOW_VPN_UPSTREAMS,
     };
 }
