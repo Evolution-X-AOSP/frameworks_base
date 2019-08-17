@@ -137,8 +137,6 @@ public class NotificationEntryManager implements Dumpable, NotificationInflater.
 
     private String mTrackInfoSeparator;
 
-    private boolean mSkipHeadsUp;
-
     /**
      * Notifications with keys in this set are not actually around anymore. We kept them around
      * when they were canceled in response to a remote input interaction. This allows us to show
@@ -991,10 +989,6 @@ public class NotificationEntryManager implements Dumpable, NotificationInflater.
         return !mPresenter.isDozing() && mLessBoringHeadsUp && !isImportantHeadsUp;
     }
 
-    public void setGamingPeekMode(boolean skipHeadsUp) {
-        mSkipHeadsUp = skipHeadsUp;
-    }
-
     protected boolean shouldPeek(NotificationData.Entry entry) {
         return shouldPeek(entry, entry.notification);
     }
@@ -1003,7 +997,7 @@ public class NotificationEntryManager implements Dumpable, NotificationInflater.
         String defaultDialerApp = mTelecomManager != null ? mTelecomManager.getDefaultDialerPackage() : "";
         boolean isDialerApp = sbn.getPackageName().equals(defaultDialerApp);
         if ((!mUseHeadsUp && !mPresenter.isDozing() && !isDialerApp) || mPresenter.isDeviceInVrMode() || shouldSkipHeadsUp(sbn)) {
-            if (DEBUG) Log.d(TAG, "No peeking: no huns, vr mode, less boring headsup enabled or gaming mode");
+            if (DEBUG) Log.d(TAG, "No peeking: no huns or vr mode or less boring headsup enabled");
             return false;
         }
 

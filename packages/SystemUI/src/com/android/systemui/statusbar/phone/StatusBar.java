@@ -567,8 +567,6 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
     private SmartPackageMonitor mPackageMonitor;
     private FlashlightController mFlashlightController;
 
-    private boolean mHeadsUpDisabled, mGamingModeActivated;
-
     // XXX: gesture research
     private final GestureRecorder mGestureRec = DEBUG_GESTURES
         ? new GestureRecorder("/sdcard/statusbar_gestures.dat")
@@ -2311,7 +2309,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             }
         }
 
-        if(isPackageBlacklisted(sbn.getPackageName())) {
+         if(isPackageBlacklisted(sbn.getPackageName())) {
             return false;
         }
 
@@ -5628,14 +5626,6 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         }
     }
 
-    private void updateGamingPeekMode() {
-        mGamingModeActivated = Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.GAMING_MODE_ACTIVE, 1) == 1;
-        mHeadsUpDisabled = Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.GAMING_MODE_HEADSUP_TOGGLE, 1) == 1;
-        mEntryManager.setGamingPeekMode(mGamingModeActivated && mHeadsUpDisabled);
-    }
-
     public int getWakefulnessState() {
         return mWakefulnessLifecycle.getWakefulness();
     }
@@ -6279,12 +6269,6 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                     Settings.System.PULSE_APPS_BLACKLIST),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.GAMING_MODE_ACTIVE),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.GAMING_MODE_HEADSUP_TOGGLE),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_TICKER_ANIMATION_MODE),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
@@ -6345,10 +6329,6 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                     Settings.System.PULSE_APPS_BLACKLIST))) {
                 setPulseBlacklist();
             } else if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.GAMING_MODE_ACTIVE)) ||
-                    uri.equals(Settings.System.getUriFor(Settings.System.GAMING_MODE_HEADSUP_TOGGLE))) {
-                updateGamingPeekMode();
-            } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_TICKER_ANIMATION_MODE))) {
                 updateTickerAnimation();
             } else if (uri.equals(Settings.System.getUriFor(
@@ -6373,7 +6353,6 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             updateCorners();
             setForceAmbient();
             setPulseBlacklist();
-            updateGamingPeekMode();
             updateTickerAnimation();
             updateTickerTickDuration();
         }

@@ -230,15 +230,6 @@
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Swipe from icon to launch</string>
 
-    <!-- Gaming Mode -->
-    <string name="notification_channel_gaming">Gaming Mode</string>
-    <string name="gaming_mode_not_enabled">Gaming mode is disabled in settings</string>
-    <string name="quick_settings_gaming_mode_label">Gaming mode</string>
-    <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_disabled">Gaming mode turned off.</string>
-    <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_enabled">Gaming mode turned on.</string>
-
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">HW keys on</string>
     <string name="accessibility_quick_settings_hwkeys_off">HW keys off</string>

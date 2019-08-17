@@ -622,10 +622,6 @@
     <!-- Font service -->
     <protected-broadcast android:name="com.android.server.ACTION_FONT_CHANGED" />
 
-    <!-- Gaming mode -->
-    <protected-broadcast android:name="android.intent.action.GAMING_MODE_TURN_OFF" />
-    <protected-broadcast android:name="android.intent.action.GAMING_MODE_TURN_ON" />
-
     <!-- ====================================================================== -->
     <!--                          RUNTIME PERMISSIONS                           -->
     <!-- ====================================================================== -->

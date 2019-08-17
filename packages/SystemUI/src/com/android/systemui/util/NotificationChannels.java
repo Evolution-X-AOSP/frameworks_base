@@ -74,7 +74,6 @@ public class NotificationChannels extends SystemUI {
                 HINTS,
                 context.getString(R.string.notification_channel_hints),
                 NotificationManager.IMPORTANCE_DEFAULT);
-
         // No need to bypass DND.
 
         nm.createNotificationChannels(Arrays.asList(
