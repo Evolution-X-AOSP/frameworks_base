@@ -529,6 +529,7 @@ public class BatteryMeterDrawableBase extends Drawable {
                 // draw the warning text
                 final float x = mWidth * 0.5f;
                 final float y = (mHeight + mWarningTextHeight) * 0.48f + top;
+                mWarningTextPaint.setColor(mIconTint);
                 c.drawText(mWarningString, x, y, mWarningTextPaint);
             } else if (pctOpaque) {
                 // draw the percentage text
@@ -655,6 +656,7 @@ public class BatteryMeterDrawableBase extends Drawable {
                 pctX = mWidth * 0.5f;
                 pctY = (mHeight + mWarningTextHeight) * 0.47f;
                 mWarningTextPaint.setTextSize(mHeight * 0.5f);
+                mWarningTextPaint.setColor(mIconTint);
                 c.drawText(mWarningString, pctX, pctY, mWarningTextPaint);
             }
         }
