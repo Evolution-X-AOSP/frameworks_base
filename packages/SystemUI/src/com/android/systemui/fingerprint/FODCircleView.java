@@ -94,9 +94,7 @@ public class FODCircleView extends ImageView implements OnTouchListener {
 
             new Handler(Looper.getMainLooper()).post(() -> {
                 setDim(false);
-                setImageResource(mIsEnrolling
-                    ? R.drawable.fingerprint_in_screen_enrolling
-                    : R.drawable.fingerprint_in_screen_default);
+                setImageResource(R.drawable.fod_icon_default);
 
                 invalidate();
             });
@@ -197,9 +195,7 @@ public class FODCircleView extends ImageView implements OnTouchListener {
         mPaintFingerprint.setAntiAlias(true);
         mPaintFingerprint.setColor(res.getColor(R.color.config_fodColor));
 
-        setImageResource(mIsEnrolling
-            ? R.drawable.fingerprint_in_screen_enrolling
-            : R.drawable.fingerprint_in_screen_default);
+        setImageResource(R.drawable.fod_icon_default);
 
         mPaintShow.setAntiAlias(true);
         mPaintShow.setColor(res.getColor(R.color.config_fodColor));
@@ -268,9 +264,7 @@ public class FODCircleView extends ImageView implements OnTouchListener {
         if (event.getAction() == MotionEvent.ACTION_UP) {
             newInside = false;
             setDim(false);
-            setImageResource(mIsEnrolling
-                ? R.drawable.fingerprint_in_screen_enrolling
-                : R.drawable.fingerprint_in_screen_default);
+            setImageResource(R.drawable.fod_icon_default);
         }
 
         if (newInside == mInsideCircle) {
@@ -282,9 +276,7 @@ public class FODCircleView extends ImageView implements OnTouchListener {
         invalidate();
 
         if (!mInsideCircle) {
-            setImageResource(mIsEnrolling
-                ? R.drawable.fingerprint_in_screen_enrolling
-                : R.drawable.fingerprint_in_screen_default);
+            setImageResource(R.drawable.fod_icon_default);
             return false;
         }
 
@@ -336,9 +328,7 @@ public class FODCircleView extends ImageView implements OnTouchListener {
                 WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN;
         mParams.gravity = Gravity.TOP | Gravity.LEFT;
 
-        setImageResource(isEnrolling
-            ? R.drawable.fingerprint_in_screen_enrolling
-            : R.drawable.fingerprint_in_screen_default);
+        setImageResource(R.drawable.fod_icon_default);
 
         mWindowManager.addView(this, mParams);
         viewAdded = true;
