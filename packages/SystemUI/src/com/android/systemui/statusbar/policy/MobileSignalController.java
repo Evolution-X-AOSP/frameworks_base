@@ -48,6 +48,7 @@ import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.cdma.EriInfo;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneConstants.DataState;
+import com.android.internal.util.custom.cutout.CutoutUtils;
 import com.android.settingslib.graph.SignalDrawable;
 import com.android.systemui.R;
 import com.android.systemui.statusbar.policy.NetworkController.IconState;
@@ -59,6 +60,7 @@ import java.io.PrintWriter;
 import java.util.BitSet;
 import java.util.Objects;
 
+import com.android.internal.util.custom.cutout.CutoutUtils;
 
 public class MobileSignalController extends SignalController<
         MobileSignalController.MobileState, MobileSignalController.MobileIconGroup> {
@@ -89,7 +91,6 @@ public class MobileSignalController extends SignalController<
     // 4G instead of LTE
     private int mShow4GUserConfig;
     private boolean mVoLTEicon;
-    private boolean mHasNotch;
     private boolean mDataDisabledIcon;
 
     private ImsManager mImsManager;
@@ -114,8 +115,6 @@ public class MobileSignalController extends SignalController<
         mNetworkNameSeparator = getStringIfExists(R.string.status_bar_network_name_separator);
         mNetworkNameDefault = getStringIfExists(
                 com.android.internal.R.string.lockscreen_carrier_default);
-
-        mHasNotch = context.getResources().getBoolean(com.android.internal.R.bool.config_physicalDisplayCutout);
 
         mapIconSets();
 
@@ -828,11 +827,6 @@ public class MobileSignalController extends SignalController<
     }
 
     private boolean isNotchHidden(){
-        if (mHasNotch){
-            return Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.DISPLAY_CUTOUT_HIDDEN, 0, UserHandle.USER_CURRENT) == 1;
-        }else{
-            return true;
-        }
+        return !CutoutUtils.hasBigCutout(mContext);
     }
 }

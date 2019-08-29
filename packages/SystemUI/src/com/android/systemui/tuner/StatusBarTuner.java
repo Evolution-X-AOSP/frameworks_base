@@ -29,6 +29,8 @@ import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.systemui.R;
 
+import com.android.internal.util.custom.cutout.CutoutUtils;
+
 public class StatusBarTuner extends PreferenceFragment {
 
     private static final String SHOW_FOURG = "show_fourg";
@@ -109,11 +111,6 @@ public class StatusBarTuner extends PreferenceFragment {
     }
 
     private boolean isNotchHidden(){
-        if (getActivity().getResources().getBoolean(com.android.internal.R.bool.config_physicalDisplayCutout)){
-            return Settings.System.getIntForUser(getActivity().getContentResolver(),
-                Settings.System.DISPLAY_CUTOUT_HIDDEN, 0, UserHandle.USER_CURRENT) == 1;
-        }else{
-            return true;
-        }
+        return !CutoutUtils.hasBigCutout(getContext());
     }
 }
