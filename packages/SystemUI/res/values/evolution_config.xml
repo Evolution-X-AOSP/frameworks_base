@@ -57,4 +57,7 @@
 
     <!-- Allow devices to enforce the H265 encoder for screen recordings -->
     <bool name="config_useNewScreenRecEncoder">true</bool>
+
+    <!-- Max visible status icons -->
+    <integer name="config_maxVisibleStatusIcons">7</integer>
 </resources>
