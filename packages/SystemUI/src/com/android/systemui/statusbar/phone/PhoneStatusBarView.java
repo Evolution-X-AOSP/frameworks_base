@@ -54,6 +54,7 @@ public class PhoneStatusBarView extends PanelBar {
     private static final String TAG = "PhoneStatusBarView";
     private static final boolean DEBUG = StatusBar.DEBUG;
     private static final boolean DEBUG_GESTURES = false;
+    private boolean SHOW_NOTCH_VIEW;
     private static final int NO_VALUE = Integer.MIN_VALUE;
     private final CommandQueue mCommandQueue;
 
@@ -348,7 +349,12 @@ public class PhoneStatusBarView extends PanelBar {
         }
 
         mCenterIconSpace.setVisibility(View.GONE);
-        mCutoutSpace.setVisibility(View.VISIBLE);
+        SHOW_NOTCH_VIEW = getResources().getBoolean(R.bool.hide_view_behind_notch);
+        if (!SHOW_NOTCH_VIEW) {
+            mCutoutSpace.setVisibility(View.VISIBLE);
+        } else {
+            mCutoutSpace.setVisibility(View.GONE);
+        }
         LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) mCutoutSpace.getLayoutParams();
 
         Rect bounds = new Rect();

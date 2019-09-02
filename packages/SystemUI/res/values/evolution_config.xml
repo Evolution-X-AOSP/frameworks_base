@@ -53,4 +53,7 @@
 
     <!-- Max visible status icons -->
     <integer name="config_maxVisibleStatusIcons">7</integer>
+
+    <!-- Whether SystemUI ignores notch -->
+    <bool name="hide_view_behind_notch">false</bool>
 </resources>
