@@ -14,7 +14,7 @@
 
     <!-- Max visible notification icons -->
     <integer name="config_maxVisibleNotificationIcons">4</integer>
-    <integer name="config_maxVisibleNotificationIconsOnLock">5</integer>
+    <integer name="config_maxVisibleNotificationIconsOnLock">3</integer>
 
     <!-- The battery current divider, some kernel report current value in mA other in µA.
          Leave 1 if you have mA, put 1000 if you have µA-->
@@ -112,4 +112,7 @@
          the sensor embedded in the power key and listening all the time
          causes a poor experience. -->
     <bool name="config_fingerprintWakeAndUnlock">true</bool>
+
+    <!-- Max visible status icons -->
+    <integer name="config_maxVisibleStatusIcons">7</integer>
 </resources>

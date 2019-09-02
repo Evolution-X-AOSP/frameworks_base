@@ -52,7 +52,8 @@ public class StatusIconContainer extends AlphaOptimizedLinearLayout {
     private static final boolean DEBUG = false;
     private static final boolean DEBUG_OVERFLOW = false;
     // Max 8 status icons including battery
-    private static final int MAX_ICONS = 7;
+    public final int MAX_ICONS =
+            getResources().getInteger(R.integer.config_maxVisibleStatusIcons);
     private static final int MAX_DOTS = 1;
 
     private int mDotPadding;
