@@ -144,7 +144,6 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
 
     private boolean mUserSetupComplete;
     private boolean mPrewarmBound;
-    private boolean mIsFingerprintRunning;
     private Messenger mPrewarmMessenger;
     private final ServiceConnection mPrewarmConnection = new ServiceConnection() {
 
@@ -173,15 +172,12 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
     private boolean mDozing;
     private int mIndicationBottomMargin;
     private int mIndicationBottomMarginAmbient;
-    private int mIndicationBottomMarginFod;
     private float mDarkAmount;
     private int mBurnInXOffset;
     private int mBurnInYOffset;
     private boolean mIsPowerCameraGesture;
     private String mPreviousSource;
     private boolean mShowLockicon;
-
-    private boolean mDisplayFODView;
 
     public KeyguardBottomAreaView(Context context) {
         this(context, null);
@@ -251,20 +247,10 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
         mEnterpriseDisclosure = findViewById(
                 R.id.keyguard_indication_enterprise_disclosure);
         mIndicationText = findViewById(R.id.keyguard_indication_text);
-        mDisplayFODView = getResources()
-                .getBoolean(com.android.internal.R.bool.config_needCustomFODView);
-
-        if (mDisplayFODView) {
-            mIndicationBottomMargin = getResources().getDimensionPixelSize(
-                  R.dimen.op_keyguard_indication_margin_bottom);
-        } else {
-            mIndicationBottomMargin = getResources().getDimensionPixelSize(
-                  R.dimen.keyguard_indication_margin_bottom);
-        }
+        mIndicationBottomMargin = getResources().getDimensionPixelSize(
+                R.dimen.keyguard_indication_margin_bottom);
         mIndicationBottomMarginAmbient = getResources().getDimensionPixelSize(
                 R.dimen.keyguard_indication_margin_bottom_ambient);
-        mIndicationBottomMarginFod = getResources().getDimensionPixelSize(
-                R.dimen.keyguard_indication_margin_bottom_fingerprint_in_display);
         mBurnInYOffset = getResources().getDimensionPixelSize(
                 R.dimen.charging_indication_burn_in_prevention_offset_y);
         updateCameraVisibility();
@@ -290,7 +276,6 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
         mLockIcon.setAccessibilityController(mAccessibilityController);
         updateLeftAffordance();
         updateRightAffordance();
-        updateIndicationAreaPadding();
     }
 
     @Override
@@ -337,9 +322,17 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
     @Override
     protected void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-
-        // Update the bottom margin of the indication area
-        updateIndicationAreaPadding();
+        mIndicationBottomMargin = getResources().getDimensionPixelSize(
+                R.dimen.keyguard_indication_margin_bottom);
+        mIndicationBottomMarginAmbient = getResources().getDimensionPixelSize(
+                R.dimen.keyguard_indication_margin_bottom_ambient);
+        mBurnInYOffset = getResources().getDimensionPixelSize(
+                R.dimen.charging_indication_burn_in_prevention_offset_y);
+        MarginLayoutParams mlp = (MarginLayoutParams) mIndicationArea.getLayoutParams();
+        if (mlp.bottomMargin != mIndicationBottomMargin) {
+            mlp.bottomMargin = mIndicationBottomMargin;
+            mIndicationArea.setLayoutParams(mlp);
+        }
 
         // Respect font size setting.
         mEnterpriseDisclosure.setTextSize(TypedValue.COMPLEX_UNIT_PX,
@@ -423,25 +416,6 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
                 ? View.VISIBLE : View.GONE);
     }
 
-    private void updateIndicationAreaPadding() {
-        mIndicationBottomMargin = getResources().getDimensionPixelSize(
-                R.dimen.keyguard_indication_margin_bottom);
-        mIndicationBottomMarginAmbient = getResources().getDimensionPixelSize(
-                R.dimen.keyguard_indication_margin_bottom_ambient);
-        mIndicationBottomMarginFod = getResources().getDimensionPixelSize(
-                R.dimen.keyguard_indication_margin_bottom_fingerprint_in_display);
-        mBurnInYOffset = getResources().getDimensionPixelSize(
-                R.dimen.charging_indication_burn_in_prevention_offset_y);
-        MarginLayoutParams mlp = (MarginLayoutParams) mIndicationArea.getLayoutParams();
-
-        int bottomMargin = hasInDisplayFingerprint() ? mIndicationBottomMarginFod : mIndicationBottomMargin;
-        boolean newLp = mlp.bottomMargin != bottomMargin;
-        if (newLp) {
-            mlp.bottomMargin = bottomMargin;
-            mIndicationArea.setLayoutParams(mlp);
-        }
-    }
-
     /**
      * Set an alternate icon for the left assist affordance (replace the mic icon)
      */
@@ -458,12 +432,6 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
                     state.isDefaultButton ? false : true);
             mLeftAffordanceView.setContentDescription(state.contentDescription);
         }
-    }
-
-    private boolean hasInDisplayFingerprint() {
-        return mContext.getResources().getBoolean(
-                com.android.internal.R.bool.config_needCustomFODView)
-                && mIsFingerprintRunning;
     }
 
     public boolean isLeftVoiceAssist() {
@@ -635,8 +603,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
         mDarkAmount = darkAmount;
         mIndicationArea.setAlpha(MathUtils.lerp(1f, 0.7f, darkAmount));
         mIndicationArea.setTranslationY(MathUtils.lerp(0,
-                hasInDisplayFingerprint() ? mIndicationBottomMarginFod : mIndicationBottomMargin
-                - mIndicationBottomMarginAmbient, darkAmount));
+                mIndicationBottomMargin - mIndicationBottomMarginAmbient, darkAmount));
     }
 
     private static boolean isSuccessfulLaunch(int result) {
@@ -850,9 +817,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
 
                 @Override
                 public void onFingerprintRunningStateChanged(boolean running) {
-                    mIsFingerprintRunning = running;
                     mLockIcon.update();
-                    updateIndicationAreaPadding();
                 }
 
                 @Override
@@ -929,8 +894,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
     public void dozeTimeTick() {
         if (mDarkAmount == 1) {
             // Move indication every minute to avoid burn-in
-            int dozeTranslation = hasInDisplayFingerprint() ?
-                mIndicationBottomMarginFod : mIndicationBottomMargin - mIndicationBottomMarginAmbient;
+            int dozeTranslation = mIndicationBottomMargin - mIndicationBottomMarginAmbient;
             int burnInYOffset = (int) (-mBurnInYOffset + Math.random() * mBurnInYOffset * 2);
             mIndicationArea.setTranslationY(dozeTranslation + burnInYOffset);
         }

@@ -32,7 +32,4 @@
     <!-- QS -->
     <color name="qs_status_bar_background">#ff000000</color>
 
-    <!-- Color of the FOD view -->
-    <color name="config_fodColor">#00ffff</color>
-
 </resources>

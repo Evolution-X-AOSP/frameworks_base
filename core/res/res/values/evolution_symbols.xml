@@ -256,9 +256,6 @@
     <java-symbol type="anim" name="inv_app_in" />
     <java-symbol type="anim" name="inv_app_out" />
 
-    <!-- Whether to show a custom view for FOD -->
-    <java-symbol type="bool" name="config_needCustomFODView" />
-
   <!-- Smart charging battery percentage -->
   <java-symbol type="integer" name="config_smartChargingBatteryLevel" />
   <java-symbol type="integer" name="config_smartChargingBatteryResumeLevel" />
