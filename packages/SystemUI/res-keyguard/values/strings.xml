@@ -76,6 +76,14 @@
     <string name="keyguard_plugged_in_charging_fast"><xliff:g id="percentage">%s</xliff:g> • Charging rapidly</string>
 
     <!-- When the lock screen is showing and the phone plugged in, and the battery
+         is not fully charged, and it's plugged into a dash charger, say that it's dash charging.  -->
+    <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Dash Charging</string>
+
+    <!-- When the lock screen is showing and the phone plugged in, and the battery
+         is not fully charged, and it's plugged into a warp charger, say that it's warp charging.  -->
+    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="percentage">%s</xliff:g> • Warp Charging</string>
+
+    <!-- When the lock screen is showing and the phone plugged in, and the battery
          is not fully charged, and it's plugged into a slow charger, say that it's charging slowly.  -->
     <string name="keyguard_plugged_in_charging_slowly"><xliff:g id="percentage">%s</xliff:g> • Charging slowly</string>
 
