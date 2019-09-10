@@ -193,4 +193,8 @@
     <!-- Whether to use scaled brightness (set -1 to disable) -->
     <integer name="config_useScaleBrightness">-1</integer>
 
+    <!-- Whether to post reset runnable for all clients. Needed for some older
+         vendor fingerprint HAL implementations. -->
+    <bool name="config_fingerprintPostResetRunnableForAllClients">false</bool>
+
 </resources>
