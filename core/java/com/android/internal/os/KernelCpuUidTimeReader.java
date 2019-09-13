@@ -18,6 +18,7 @@ package com.android.internal.os;
 import static com.android.internal.os.KernelCpuProcStringReader.asLongs;
 
 import android.annotation.Nullable;
+import android.os.Build;
 import android.os.StrictMode;
 import android.util.IntArray;
 import android.util.Slog;
@@ -485,7 +486,11 @@ public abstract class KernelCpuUidTimeReader<T> {
                 CharBuffer buf;
                 while ((buf = iter.nextLine()) != null) {
                     if (asLongs(buf, mBuffer) != mBuffer.length) {
-                        Slog.wtf(mTag, "Invalid line: " + buf.toString());
+                        if (Build.IS_ENG) {
+                            Slog.wtf(mTag, "Invalid line: " + buf.toString());
+                        } else {
+                            Slog.w(mTag, "Invalid line: " + buf.toString());
+                        }
                         continue;
                     }
                     processUidDelta(cb);
