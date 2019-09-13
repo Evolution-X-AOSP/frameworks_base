@@ -220,4 +220,6 @@
     <string name="gaming_mode_dialog_message">Quando è attivata la modalità di gioco, tutte le notifiche di heads up verranno disabilitate e i tasti fisici verranno disattivati. Tutto tornerà alla impostazione predefinita una volta usciti dalla modalità di gioco.</string>
     <string name="accessibility_quick_settings_gaming_mode_on">Modalità gaming attiva</string>
     <string name="accessibility_quick_settings_gaming_mode_off">Modalità gaming disattiva</string>
+    <!-- Text for switch default data sub in expanded CellularTile -->
+    <string name="use_data">Use %s for data</string>
 </resources>

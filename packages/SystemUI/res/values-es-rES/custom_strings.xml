@@ -78,66 +78,66 @@
     <string name="qs_menu_item_columns_seven">7</string>
     <string name="qs_menu_item_columns_eight">8</string>
     <string name="qs_menu_item_columns_nine">9</string>
-    <string name="qs_menu_item_reset">Reset</string>
-    <string name="qs_menu_item_titles">Hide labels</string>
-    <string name="qs_menu_item_qs_columns">Quickbar columns</string>
-    <string name="qs_menu_item_columns_auto">Automatic</string>
-    <string name="qs_menu_item_rows_landscape">Rows landscape</string>
-    <string name="qs_menu_item_rows">Rows</string>
+    <string name="qs_menu_item_reset">Restablecer</string>
+    <string name="qs_menu_item_titles">Ocultar etiquetas</string>
+    <string name="qs_menu_item_qs_columns">Columnas de ajustes rápidos</string>
+    <string name="qs_menu_item_columns_auto">Automático</string>
+    <string name="qs_menu_item_rows_landscape">Filas (horizontal)</string>
+    <string name="qs_menu_item_rows">Filas</string>
     <string name="qs_menu_item_rows_one">1</string>
     <string name="qs_menu_item_rows_two">2</string>
     <string name="qs_menu_item_rows_three">3</string>
     <string name="qs_menu_item_rows_four">4</string>
     <!-- Sound QS Tile -->
-    <string name="quick_settings_sound_label">Sound</string>
-    <string name="quick_settings_sound_ring">Ring</string>
-    <string name="quick_settings_sound_vibrate">Vibrate</string>
-    <string name="quick_settings_sound_dnd">Do not disturb</string>
+    <string name="quick_settings_sound_label">Sonido</string>
+    <string name="quick_settings_sound_ring">Tono de llamada</string>
+    <string name="quick_settings_sound_vibrate">Vibrar</string>
+    <string name="quick_settings_sound_dnd">No molestar</string>
     <!-- Reboot/Recovery QS Tile -->
-    <string name="quick_settings_reboot_label">Reboot</string>
-    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <string name="quick_settings_reboot_label">Reiniciar</string>
+    <string name="quick_settings_reboot_recovery_label">Recuperación</string>
     <!-- USB Tethering tile -->
-    <string name="accessibility_quick_settings_usb_tether_off">USB tethering off</string>
-    <string name="accessibility_quick_settings_usb_tether_on">USB tethering on</string>
-    <string name="accessibility_quick_settings_usb_tether_changed_off">USB tethering turned off</string>
-    <string name="accessibility_quick_settings_usb_tether_changed_on">USB tethering turned on</string>
-    <string name="quick_settings_usb_tether_label">USB tethering</string>
+    <string name="accessibility_quick_settings_usb_tether_off">Anclaje USB desactivado</string>
+    <string name="accessibility_quick_settings_usb_tether_on">Anclaje USB activado</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">El anclaje USB ha sido desactivado</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">El anclaje USB ha sido activado</string>
+    <string name="quick_settings_usb_tether_label">Anclaje USB</string>
     <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Peeking notification are snoozing for 1 minute.</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Peeking notifications are snoozing for <xliff:g id="number">%d</xliff:g> minutes.</string>
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Notificaciones flotantes pospuestas por 1 minuto.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Las notificaciones flotantes están aplazadas durante <xliff:g id="number">%d</xliff:g> minutos.</string>
     <!-- Volume panel QS tile -->
-    <string name="quick_settings_volume_panel_label">Volume panel</string>
-    <string name="tuner_show_info_header_title">Show information header</string>
-    <string name="tuner_show_secure_title">Show security footer</string>
+    <string name="quick_settings_volume_panel_label">Panel de volumen</string>
+    <string name="tuner_show_info_header_title">Mostrar encabezado de información</string>
+    <string name="tuner_show_secure_title">Mostrar pie de seguridad</string>
     <!-- Advance location quick setting tile -->
     <string name="quick_settings_secondary_location_off"></string>
-    <string name="quick_settings_location_secondary_battery_saving">Battery Saving</string>
+    <string name="quick_settings_location_secondary_battery_saving">Ahorro de Batería</string>
     <string name="accessibility_quick_settings_location_battery_saving">Informe de localización: modo ahorro de batería.</string>
-    <string name="quick_settings_location_secondary_gps_only">Sensors Only</string>
+    <string name="quick_settings_location_secondary_gps_only">Sólo sensores</string>
     <string name="accessibility_quick_settings_location_gps_only">Informe de localización: modo sólo sensores.</string>
-    <string name="quick_settings_location_secondary_high_accuracy">High Accuracy</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Alta precisión</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Informes de ubicación: modo de alta precisión.</string>
     <!-- AOD QS tile -->
-    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_label">AOD (Pantalla siempre encendida)</string>
     <!-- Music tile -->
-    <string name="quick_settings_music_label">Music</string>
-    <string name="quick_settings_music_play">Play</string>
-    <string name="quick_settings_music_pause">Pause</string>
+    <string name="quick_settings_music_label">Música</string>
+    <string name="quick_settings_music_play">Reproducir</string>
+    <string name="quick_settings_music_pause">Pausar</string>
     <!-- Compass QS Tile -->
-    <string name="quick_settings_compass_label">Compass</string>
-    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
-    <string name="quick_settings_compass_init">Initializing\u2026</string>
-    <string name="accessibility_quick_settings_compass_off">Compass off.</string>
-    <string name="accessibility_quick_settings_compass_on">Compass on.</string>
-    <string name="accessibility_quick_settings_compass_changed_off">Compass turned off.</string>
-    <string name="accessibility_quick_settings_compass_changed_on">Compass turned on.</string>
+    <string name="quick_settings_compass_label">Brújula</string>
+    <string name="quick_settings_compass_value"><xliff:g id="grados">%1$.0f</xliff:g>\u00b0 <xliff:g id="dirección">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Inicializando\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Brújula deshabilitada.</string>
+    <string name="accessibility_quick_settings_compass_on">Brújula habilitada.</string>
+    <string name="accessibility_quick_settings_compass_changed_off">La brújula ha sido deshabilitada.</string>
+    <string name="accessibility_quick_settings_compass_changed_on">La brújula ha sido habilitada.</string>
     <string name="quick_settings_compass_N">N</string>
     <string name="quick_settings_compass_NE">NE</string>
     <string name="quick_settings_compass_E">E</string>
     <string name="quick_settings_compass_SE">SE</string>
     <string name="quick_settings_compass_S">S</string>
-    <string name="quick_settings_compass_SW">SW</string>
-    <string name="quick_settings_compass_W">W</string>
+    <string name="quick_settings_compass_SW">SO</string>
+    <string name="quick_settings_compass_W">O</string>
     <string name="quick_settings_compass_NW">NO</string>
     <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Pantalla ambiente</string>
@@ -177,47 +177,49 @@
     <string name="onthego_channel_name">Principal</string>
     <string name="global_action_onthego">Modo en marcha</string>
     <!-- OnTheGo QS Tile -->
-    <string name="quick_settings_onthego_label">On-The-Go</string>
+    <string name="quick_settings_onthego_label">Modo En Marcha</string>
     <!-- OneHand mode QS tile -->
-    <string name="qs_onehand_label">OneHand mode</string>
+    <string name="qs_onehand_label">Modo de una sola mano</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_running_services">Open Running Services screen.</string>
+    <string name="accessibility_quick_settings_running_services">Abrir pantalla de Servicios en Ejecución.</string>
     <!-- Ambient Display Pixel-Like string -->
-    <string name="ambientmusic_songinfo">%s by %s</string>
+    <string name="ambientmusic_songinfo">%s de %s</string>
     <!-- AOD media indication -->
-    <string name="music_controls_no_title">No title</string>
-    <string name="lockscreen_default">Default</string>
-    <string name="lockscreen_hidden">None</string>
+    <string name="music_controls_no_title">Sin título</string>
+    <string name="lockscreen_default">Por defecto</string>
+    <string name="lockscreen_hidden">Ninguno</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Swipe from icon to launch</string>
+    <string name="custom_hint">Deslizar desde el icono para abrir</string>
     <!-- HW Keys Tile -->
-    <string name="accessibility_quick_settings_hwkeys_on">HW keys on</string>
-    <string name="accessibility_quick_settings_hwkeys_off">HW keys off</string>
-    <string name="quick_settings_hwkeys_label">HW keys</string>
+    <string name="accessibility_quick_settings_hwkeys_on">Teclas físicas encendidas</string>
+    <string name="accessibility_quick_settings_hwkeys_off">Teclas físicas apagadas</string>
+    <string name="quick_settings_hwkeys_label">Teclas físicas</string>
     <!-- LTE QS Tile -->
     <string name="qs_lte_label">LTE</string>
-    <string name="lte_on">LTE ON </string>
-    <string name="lte_off">LTE OFF</string>
+    <string name="lte_on">LTE Activado </string>
+    <string name="lte_off">LTE Desactivado</string>
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
-    <string name="quick_settings_vpn_connect_dialog_title">Connect to\u2026</string>
-    <string name="vpn_credentials_hint">Please enter your credentials for connecting to <xliff:g id="name">%s</xliff:g></string>
-    <string name="vpn_credentials_username">Username</string>
-    <string name="vpn_credentials_password">Password</string>
-    <string name="vpn_credentials_dialog_connect">Connect</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Conectar a\u2026</string>
+    <string name="vpn_credentials_hint">Por favor, introduzca sus credenciales para conectarse a <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Nombre de usuario</string>
+    <string name="vpn_credentials_password">Contraseña</string>
+    <string name="vpn_credentials_dialog_connect">Conectar</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- NavBar QS Tile -->
-    <string name="quick_settings_navbar_title">Navigation Bar</string>
-    <string name="accessibility_quick_settings_navbar_off">Sync off</string>
-    <string name="accessibility_quick_settings_navbar_on">Sync on</string>
-    <string name="accessibility_quick_settings_navbar_changed_off">Navigation bar turned off</string>
-    <string name="accessibility_quick_settings_navbar_changed_on">Navigation bar turned on</string>
+    <string name="quick_settings_navbar_title">Barra de Navegación</string>
+    <string name="accessibility_quick_settings_navbar_off">Sincronización desactivada</string>
+    <string name="accessibility_quick_settings_navbar_on">Sincronización activada</string>
+    <string name="accessibility_quick_settings_navbar_changed_off">Barra de navegación desactivada</string>
+    <string name="accessibility_quick_settings_navbar_changed_on">Barra de navegación activada</string>
     <!-- Gaming Mode -->
-    <string name="gaming_mode_tile_title">Gaming Mode</string>
-    <string name="gaming_mode_tile_toast">Gaming mode enabled</string>
-    <string name="gaming_mode_tile_toast_disabled">Gaming mode disabled</string>
-    <string name="gaming_mode_dialog_title">Gaming Mode</string>
-    <string name="gaming_mode_dialog_message">When gaming mode is enabled, all heads-up messages will be disabled and hardware keys will be turned off. All the disabled settings will be reset to default once you exit Gaming Mode.</string>
-    <string name="accessibility_quick_settings_gaming_mode_on">Gaming mode on</string>
-    <string name="accessibility_quick_settings_gaming_mode_off">Gaming mode off</string>
+    <string name="gaming_mode_tile_title">Modo Juego</string>
+    <string name="gaming_mode_tile_toast">Modo Juego habilitado</string>
+    <string name="gaming_mode_tile_toast_disabled">Modo Juego deshabilitado</string>
+    <string name="gaming_mode_dialog_title">Modo Juego</string>
+    <string name="gaming_mode_dialog_message">Cuando el Modo Juego está habilitado, se desactivarán todas las notificaciones emergentes y los botones físicos. Todas las opciones deshabilitadas se activarán una vez salgas del Modo Juego.</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">Modo Juego activado</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">Modo Juego desactivado</string>
+    <!-- Text for switch default data sub in expanded CellularTile -->
+    <string name="use_data">Usar %s para datos</string>
 </resources>

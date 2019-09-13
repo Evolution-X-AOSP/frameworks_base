@@ -220,4 +220,6 @@
     <string name="gaming_mode_dialog_message">Pokud je Herní režim povolen, budou všechny zprávy Plovoucích oznámení a hardwarová tlačítka vypnuty. Po ukončení Herního režimu budou všechna vypnutá nastavení obnovena na výchozí.</string>
     <string name="accessibility_quick_settings_gaming_mode_on">Herní režim zap.</string>
     <string name="accessibility_quick_settings_gaming_mode_off">Herní režim vyp.</string>
+    <!-- Text for switch default data sub in expanded CellularTile -->
+    <string name="use_data">Použít %s pro data</string>
 </resources>

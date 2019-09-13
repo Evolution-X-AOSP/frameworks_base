@@ -220,4 +220,6 @@
     <string name="gaming_mode_dialog_message">Όταν η λειτουργία παιχνιδιού είναι ενεργοποιημένη, όλες οι ειδοποιήσεις θα απενεργοποιηθούν και τα φυσικά πλήκτρα θα σβήσουν. Όλες οι απενεργοποιημένες ρυθμίσεις θα επανέρθουν στην προεπιλογή όταν απενεργοποιήσετε την λειτουργία παιχνιδιού.</string>
     <string name="accessibility_quick_settings_gaming_mode_on">Λειτουργία παιχνιδιού ενεργή</string>
     <string name="accessibility_quick_settings_gaming_mode_off">Λειτουργία παιχνιδιού ανενεργή</string>
+    <!-- Text for switch default data sub in expanded CellularTile -->
+    <string name="use_data">Χρήση %s για δεδομένα</string>
 </resources>

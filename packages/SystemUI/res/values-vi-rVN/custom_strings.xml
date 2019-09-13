@@ -220,4 +220,6 @@
     <string name="gaming_mode_dialog_message">Khi Chế độ Trò chơi được bật, mọi thông báo nổi sẽ bị ẩn và các phím cứng sẽ bị vô hiệu hoá. Mọi thứ sẽ được đặt lại mặc định khi bạn tắt Chế độ Trò chơi.</string>
     <string name="accessibility_quick_settings_gaming_mode_on">Chế độ Trò chơi bật</string>
     <string name="accessibility_quick_settings_gaming_mode_off">Chế độ trò chơi tắt</string>
+    <!-- Text for switch default data sub in expanded CellularTile -->
+    <string name="use_data">Sử dụng %s cho dữ liệu</string>
 </resources>

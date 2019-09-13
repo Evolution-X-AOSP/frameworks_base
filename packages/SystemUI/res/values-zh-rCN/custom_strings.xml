@@ -220,4 +220,6 @@
     <string name="gaming_mode_dialog_message">当启用游戏模式时，所有浮动消息将被禁用，实体按键将被屏蔽。所有禁用的设置将在退出游戏模式后重置为默认设置。</string>
     <string name="accessibility_quick_settings_gaming_mode_on">游戏模式开启</string>
     <string name="accessibility_quick_settings_gaming_mode_off">游戏模式关闭</string>
+    <!-- Text for switch default data sub in expanded CellularTile -->
+    <string name="use_data">使用 %s 数据</string>
 </resources>

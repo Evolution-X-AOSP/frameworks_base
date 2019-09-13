@@ -220,4 +220,6 @@
     <string name="gaming_mode_dialog_message">Ketika mode permainan diaktifkan, semua pesan utama akan dimatikan dan tombol perangkat keras akan dinonaktifkan. Semua pengaturan yang dinonaktifkan akan diatur ulang ketika anda keluar dari mode permainan.</string>
     <string name="accessibility_quick_settings_gaming_mode_on">Mode permainan hidup</string>
     <string name="accessibility_quick_settings_gaming_mode_off">Mode permainan nonaktif</string>
+    <!-- Text for switch default data sub in expanded CellularTile -->
+    <string name="use_data">Use %s for data</string>
 </resources>

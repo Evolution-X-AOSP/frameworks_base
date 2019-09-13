@@ -16,8 +16,8 @@
     <!-- For estimated battery in QuickQS -->
     <string name="power_discharge_by_only_short">直到 %1$s</string>
     <!-- Bluetooth Audio Codec Channel Mode -->
-    <string name="bluetooth_a2dp_codec_channel_mode_default">Use System Selection (Default)</string>
-    <string name="bluetooth_a2dp_codec_channel_mode_mono">Mono</string>
-    <string name="bluetooth_a2dp_codec_channel_mode_stereo">Stereo</string>
-    <string name="bluetooth_a2dp_codec_channel_mode_dual_channel">Dual Channel</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_default">使用系统选择 (默认)</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_mono">单声道</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_stereo">立体声</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_dual_channel">双声道</string>
 </resources>

@@ -220,4 +220,6 @@
     <string name="gaming_mode_dialog_message">เมื่อเปิดใช้งานโหมดเกมมิ่งข้อความแจ้งเตือนทั้งหมดจะถูกปิดใช้งานและคีย์ฮาร์ดแวร์จะถูกปิด และทั้งหมดจะถูกรีเซ็ตเป็นค่าเริ่มต้นเมื่อคุณออกจากโหมดเกม</string>
     <string name="accessibility_quick_settings_gaming_mode_on">เปิดโหมดเกมมิ่ง</string>
     <string name="accessibility_quick_settings_gaming_mode_off">ปิดโหมดเกมมิ่ง</string>
+    <!-- Text for switch default data sub in expanded CellularTile -->
+    <string name="use_data">ใช้ %s สำหรับข้อมูล</string>
 </resources>

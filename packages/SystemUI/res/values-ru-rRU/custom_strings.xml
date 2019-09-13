@@ -220,4 +220,6 @@
     <string name="gaming_mode_dialog_message">Когда игровой режим включен, всплывающие уведомления и аппаратные кнопки будут отключены. Все отключенные настройки будут сброшены к значениями по умолчанию после выхода из игрового режима.</string>
     <string name="accessibility_quick_settings_gaming_mode_on">Включить Игровой режим</string>
     <string name="accessibility_quick_settings_gaming_mode_off">Выключить Игровой режим</string>
+    <!-- Text for switch default data sub in expanded CellularTile -->
+    <string name="use_data">Использовать %s для мобильных данных</string>
 </resources>

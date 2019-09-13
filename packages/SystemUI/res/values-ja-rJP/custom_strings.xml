@@ -220,4 +220,6 @@
     <string name="gaming_mode_dialog_message">ゲームモードが有効になると、Heads Up メッセージは全て無効になりハードウェアキーは OFF になります。無効にした設定はゲームモードを終了すると全て規定値にリセットされます。</string>
     <string name="accessibility_quick_settings_gaming_mode_on">ゲームモード ON</string>
     <string name="accessibility_quick_settings_gaming_mode_off">ゲームモード OFF</string>
+    <!-- Text for switch default data sub in expanded CellularTile -->
+    <string name="use_data">データ通信に %s 使用</string>
 </resources>

@@ -220,4 +220,6 @@
     <string name="gaming_mode_dialog_message">Quando o modo de jogo estiver ativado, todas as mensagens flutuantes serão desativadas e os botões físicos serão desativados. Todas as configurações desativadas serão redefinidas para o padrão quando você sair do \"Modo jogo\".</string>
     <string name="accessibility_quick_settings_gaming_mode_on">Modo de jogo ativado</string>
     <string name="accessibility_quick_settings_gaming_mode_off">Modo de jogo desativado</string>
+    <!-- Text for switch default data sub in expanded CellularTile -->
+    <string name="use_data">Usar %s para dados</string>
 </resources>

@@ -220,4 +220,6 @@
     <string name="gaming_mode_dialog_message">Коли ігровий режим увімкнений, спливаючі повідомлення і апаратні кнопки будуть відключені. Всі відключені настройки будуть скинуті до значеннями за замовчуванням після виходу з ігрового режиму.</string>
     <string name="accessibility_quick_settings_gaming_mode_on">Ігровий режим увімк.</string>
     <string name="accessibility_quick_settings_gaming_mode_off">Ігровий режим вимк.</string>
+    <!-- Text for switch default data sub in expanded CellularTile -->
+    <string name="use_data">Використано %s даних</string>
 </resources>

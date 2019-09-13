@@ -220,4 +220,6 @@
     <string name="gaming_mode_dialog_message">Cuando el Modo Juego está habilitado, se desactivarán todas las notificaciones y botones físicos. Todas las opciones deshabilitadas se activarán una vez salgas del Modo Juego.</string>
     <string name="accessibility_quick_settings_gaming_mode_on">Modo juego activado</string>
     <string name="accessibility_quick_settings_gaming_mode_off">Modo juego desactivado</string>
+    <!-- Text for switch default data sub in expanded CellularTile -->
+    <string name="use_data">Usar %s para datos</string>
 </resources>

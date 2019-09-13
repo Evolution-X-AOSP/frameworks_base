@@ -23,11 +23,11 @@
     <string name="accessibility_quick_settings_heads_up_changed_off">Bildirim pencereleri kapatıldı.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Bildirim pencereleri açıldı.</string>
     <!-- Sync QS tile -->
-    <string name="quick_settings_sync_label">Eşitleme</string>
-    <string name="accessibility_quick_settings_sync_off">Eşitleme kapalı.</string>
-    <string name="accessibility_quick_settings_sync_on">Eşitleme açık.</string>
-    <string name="accessibility_quick_settings_sync_changed_off">Eşitleme kapatıldı.</string>
-    <string name="accessibility_quick_settings_sync_changed_on">Eşitleme açıldı.</string>
+    <string name="quick_settings_sync_label">Senkronizasyon</string>
+    <string name="accessibility_quick_settings_sync_off">Senkronizasyon kapalı.</string>
+    <string name="accessibility_quick_settings_sync_on">Senkronizasyon açık.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Senkronizasyon kapatıldı</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Senkronizasyon açıldı</string>
     <!-- VoLTE switch -->
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Okuma modu</string>
@@ -220,4 +220,6 @@
     <string name="gaming_mode_dialog_message">Oyun modu etkinleştirildiğinde, tüm bildirim pencereleri mesajları devre dışı bırakılacak ve donanım tuşları kapatılacaktır. Oyun modundan çıktıktan sonra tüm devre dışı ayarlar varsayılan ayarlara getirilecektir.</string>
     <string name="accessibility_quick_settings_gaming_mode_on">Oyun modu açık</string>
     <string name="accessibility_quick_settings_gaming_mode_off">Oyun modu kapalı</string>
+    <!-- Text for switch default data sub in expanded CellularTile -->
+    <string name="use_data">Veri için %s kullan</string>
 </resources>

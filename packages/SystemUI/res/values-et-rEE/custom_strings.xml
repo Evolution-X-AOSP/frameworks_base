@@ -220,4 +220,6 @@
     <string name="gaming_mode_dialog_message">Kui mängurežiim on lubatud, keelatakse kõik päiseteated ja riistvaraklahvid. Pärast mängurežiimist väljumist lähtestatakse kõik keelatud seaded vaikeseadetele.</string>
     <string name="accessibility_quick_settings_gaming_mode_on">Mängurežiim on sisse lülitatud</string>
     <string name="accessibility_quick_settings_gaming_mode_off">Mängurežiim on välja lülitatud</string>
+    <!-- Text for switch default data sub in expanded CellularTile -->
+    <string name="use_data">Kasutage %s andmeid</string>
 </resources>

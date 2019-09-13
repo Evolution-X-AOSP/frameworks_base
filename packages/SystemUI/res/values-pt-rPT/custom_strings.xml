@@ -220,4 +220,6 @@
     <string name="gaming_mode_dialog_message">Quando o modo de jogo estiver ativado, todas as mensagens de aviso e teclas de hardware serão desativadas. Todas as definições desativadas serão redefinidas para o para quando saíres do Modo de Jogo.</string>
     <string name="accessibility_quick_settings_gaming_mode_on">Modo de Jogo ligado</string>
     <string name="accessibility_quick_settings_gaming_mode_off">Modo de Jogo desligado</string>
+    <!-- Text for switch default data sub in expanded CellularTile -->
+    <string name="use_data">Use %s for data</string>
 </resources>
