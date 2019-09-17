@@ -6464,6 +6464,13 @@ public final class Settings {
          */
         public static final String FOD_RECOGNIZING_ANIMATION = "fod_recognizing_animation";
 
+        /**
+         * Setting to hold the current set overlay for color bucket.
+         * overlay package name (String)
+         * @hide
+         */
+        public static final String COLOR_BUCKET_OVERLAY = "color_bucket_overlay";
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
@@ -6909,6 +6916,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LOCKSCREEN_CLOCK);
             PRIVATE_SETTINGS.add(LOCKSCREEN_INFO);
             PRIVATE_SETTINGS.add(HEADSET_CONNECT_PLAYER);
+            PRIVATE_SETTINGS.add(COLOR_BUCKET_OVERLAY);
             // Evolution X Settings end
         }
 
