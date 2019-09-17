@@ -176,6 +176,9 @@
     <!-- Sensor block -->
     <java-symbol type="array" name="config_blockPackagesSensorDrain" />
 
-    <!-- Smart charging battery percentage -->
+    <!-- Smart charging -->
     <java-symbol type="integer" name="config_smartChargingBatteryLevel" />
+    <java-symbol type="string" name="config_SmartChargingSysfsNode" />
+    <java-symbol type="string" name="config_SmartChargingSuspendValue" />
+    <java-symbol type="string" name="config_SmartChargingResumeValue" />
 </resources>
