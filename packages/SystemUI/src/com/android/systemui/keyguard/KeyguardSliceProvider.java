@@ -65,18 +65,15 @@ import androidx.slice.builders.ListBuilder.HeaderBuilder;
 import androidx.slice.builders.ListBuilder.RowBuilder;
 import androidx.slice.builders.SliceAction;
 
-import com.android.internal.util.custom.weather.WeatherClient;
-
 /**
  * Simple Slice provider that shows the current date.
  */
 public class KeyguardSliceProvider extends SliceProvider implements
         NextAlarmController.NextAlarmChangeCallback, ZenModeController.Callback,
-        WeatherClient.WeatherObserver, NotificationMediaManager.MediaUpdateListener {
+        NotificationMediaManager.MediaUpdateListener {
 
     public static final String KEYGUARD_SLICE_URI = "content://com.android.systemui.keyguard/main";
     public static final String KEYGUARD_DATE_URI = "content://com.android.systemui.keyguard/date";
-    public static final String KEYGUARD_WEATHER_URI = "content://com.android.systemui.keyguard/weather";
     public static final String KEYGUARD_NEXT_ALARM_URI =
             "content://com.android.systemui.keyguard/alarm";
     public static final String KEYGUARD_DND_URI = "content://com.android.systemui.keyguard/dnd";
@@ -95,7 +92,6 @@ public class KeyguardSliceProvider extends SliceProvider implements
 
     protected final Uri mSliceUri;
     protected final Uri mDateUri;
-    protected final Uri mWeatherUri;
     protected final Uri mAlarmUri;
     protected final Uri mDndUri;
     protected final Uri mMediaUri;
@@ -161,7 +157,6 @@ public class KeyguardSliceProvider extends SliceProvider implements
         mHandler = handler;
         mSliceUri = Uri.parse(KEYGUARD_SLICE_URI);
         mDateUri = Uri.parse(KEYGUARD_DATE_URI);
-        mWeatherUri = Uri.parse(KEYGUARD_WEATHER_URI);
         mAlarmUri = Uri.parse(KEYGUARD_NEXT_ALARM_URI);
         mDndUri = Uri.parse(KEYGUARD_DND_URI);
         mMediaUri = Uri.parse(KEYGUARD_MEDIA_URI);
@@ -180,7 +175,6 @@ public class KeyguardSliceProvider extends SliceProvider implements
             addMedia(builder);
         } else {
             builder.addRow(new RowBuilder(builder, mDateUri).setTitle(mLastText));
-            addWeather(builder);
             addNextAlarm(builder);
             addZenMode(builder);
             reloadLastTrack();
@@ -235,47 +229,14 @@ public class KeyguardSliceProvider extends SliceProvider implements
         return mZenModeController.getZen() != Settings.Global.ZEN_MODE_OFF;
     }
 
-    private WeatherClient mWeatherClient;
-    private WeatherClient.WeatherInfo mWeatherInfo;
-    private boolean useMetricUnit;
+    private EvolutionSettingsObserver mEvolutionSettingsObserver;
 
-    protected void addWeather(ListBuilder builder) {
-        if (mWeatherInfo == null || mWeatherInfo.getStatus() != WeatherClient.WEATHER_UPDATE_SUCCESS) {
-            return;
-        }
-        if (mWeatherInfo.getWeatherConditionImage() == 0){
-            Log.d("WeatherClient", "addWeather: Not adding because weather condition image is unknown");
-            return;
-        }
-        int temperatureMetric = mWeatherInfo.getTemperature(true);
-        int temperatureImperial = mWeatherInfo.getTemperature(false);
-        String temperatureText = useMetricUnit ?
-                                 Integer.toString(temperatureMetric) + "°C" :
-                                 Integer.toString(temperatureImperial) + "°F";
-        Icon conditionIcon = Icon.createWithResource(getContext(), mWeatherInfo.getWeatherConditionImage());
-        RowBuilder weatherRowBuilder = new RowBuilder(builder, mWeatherUri)
-                .setTitle(temperatureText)
-                .addEndItem(conditionIcon);
-        builder.addRow(weatherRowBuilder);
-    }
-
-    @Override
-    public void onWeatherUpdated(WeatherClient.WeatherInfo weatherInfo) {
-        mWeatherInfo = weatherInfo;
-        mContentResolver.notifyChange(mSliceUri, null /* observer */);
-    }
-
-    private WeatherSettingsObserver mWeatherSettingsObserver;
-
-    private class WeatherSettingsObserver extends ContentObserver {
-        WeatherSettingsObserver(Handler handler) {
+    private class EvolutionSettingsObserver extends ContentObserver {
+        EvolutionSettingsObserver (Handler handler) {
             super(handler);
         }
 
         void observe() {
-            mContentResolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.WEATHER_LOCKSCREEN_UNIT),
-                    false, this, UserHandle.USER_ALL);
             mContentResolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.LOCKSCREEN_DATE_SELECTION),
                     false, this, UserHandle.USER_ALL);
@@ -284,17 +245,10 @@ public class KeyguardSliceProvider extends SliceProvider implements
         @Override
         public void onChange(boolean selfChange, Uri uri) {
             super.onChange(selfChange, uri);
-            if (uri.equals(Settings.System.getUriFor(Settings.System.WEATHER_LOCKSCREEN_UNIT))) {
-                updateLockscreenUnit();
-                mContentResolver.notifyChange(mSliceUri, null /* observer */);
-            } else if (uri.equals(Settings.System.getUriFor(Settings.System.LOCKSCREEN_DATE_SELECTION))) {
+            if (uri.equals(Settings.System.getUriFor(Settings.System.LOCKSCREEN_DATE_SELECTION))) {
                 updateDateSkeleton();
                 mContentResolver.notifyChange(mSliceUri, null /* observer */);
             }
-        }
-
-        public void updateLockscreenUnit() {
-            useMetricUnit = Settings.System.getIntForUser(mContentResolver, Settings.System.WEATHER_LOCKSCREEN_UNIT, getContext().getResources().getInteger(com.android.internal.R.integer.weather_lockscreen_default_unit), UserHandle.USER_CURRENT) == 0;
         }
 
         public void updateDateSkeleton() {
@@ -402,12 +356,9 @@ public class KeyguardSliceProvider extends SliceProvider implements
         mNextAlarmController.addCallback(this);
         mZenModeController = new ZenModeControllerImpl(getContext(), mHandler);
         mZenModeController.addCallback(this);
-        mWeatherSettingsObserver = new WeatherSettingsObserver(mHandler);
-        mWeatherSettingsObserver.observe();
-        mWeatherSettingsObserver.updateLockscreenUnit();
-        mWeatherSettingsObserver.updateDateSkeleton();
-        mWeatherClient = new WeatherClient(getContext());
-        mWeatherClient.addObserver(this, false /*withQuery*/);
+        mEvolutionSettingsObserver = new EvolutionSettingsObserver(mHandler);
+        mEvolutionSettingsObserver.observe();
+        mEvolutionSettingsObserver.updateDateSkeleton();
         mDatePattern = getContext().getString(R.string.system_ui_aod_date_pattern);
         sInstance = this;
         registerClockUpdate();
