@@ -92,7 +92,7 @@ public class FODCircleView extends ImageView implements OnTouchListener, Configu
 
             mHandler.post(() -> {
                 setDim(true);
-                setImageDrawable(null);
+                setImageResource(R.drawable.fod_icon_pressed);
 
                 invalidate();
             });
@@ -284,6 +284,7 @@ public class FODCircleView extends ImageView implements OnTouchListener, Configu
                 }
                 mIsPressed = true;
             }
+            setImageResource(R.drawable.fod_icon_pressed);
         } else {
             setAlpha(mIsDreaming ? 0.5f : 1.0f);
             if (mIsPressed) {
@@ -333,7 +334,7 @@ public class FODCircleView extends ImageView implements OnTouchListener, Configu
 
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             setDim(true);
-            setImageDrawable(null);
+            setImageResource(R.drawable.fod_icon_pressed);
         }
 
         return true;
