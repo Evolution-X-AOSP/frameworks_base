@@ -45,6 +45,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.MathUtils;
 import android.view.LayoutInflater;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
@@ -366,6 +367,9 @@ public class NotificationPanelView extends PanelView implements
             Dependency.get(ShadeController.class);
     private int mDisplayId;
 
+    private int mStatusBarHeaderHeight;
+    private GestureDetector mDoubleTapGesture;
+
     /**
      * Cache the resource id of the theme to avoid unnecessary work in onThemeChanged.
      *
@@ -422,6 +426,16 @@ public class NotificationPanelView extends PanelView implements
         });
         mBottomAreaShadeAlphaAnimator.setDuration(160);
         mBottomAreaShadeAlphaAnimator.setInterpolator(Interpolators.ALPHA_OUT);
+        mDoubleTapGesture = new GestureDetector(mContext, new GestureDetector.SimpleOnGestureListener() {
+            @Override
+            public boolean onDoubleTap(MotionEvent e) {
+                PowerManager pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
+                if(pm != null) {
+                    pm.goToSleep(e.getEventTime());
+                }
+                return true;
+            }
+        });
     }
 
     /**
@@ -527,6 +541,8 @@ public class NotificationPanelView extends PanelView implements
                 com.android.internal.R.dimen.status_bar_height);
         mHeadsUpInset = statusbarHeight + getResources().getDimensionPixelSize(
                 R.dimen.heads_up_status_bar_padding);
+        mStatusBarHeaderHeight = getResources().getDimensionPixelSize(
+                R.dimen.status_bar_height);
     }
 
     /**
@@ -1170,6 +1186,11 @@ public class NotificationPanelView extends PanelView implements
         // pull down QS or expand the shade.
         if (mStatusBar.isBouncerShowingScrimmed()) {
             return false;
+	}
+        if (!mQsExpanded
+                && mDoubleTapToSleepEnabled
+                && event.getY() < mStatusBarHeaderHeight) {
+            mDoubleTapGesture.onTouchEvent(event);
         }
 
         // Make sure the next touch won't the blocked after the current ends.
@@ -3424,4 +3445,7 @@ public class NotificationPanelView extends PanelView implements
         mOnReinflationListener = onReinflationListener;
     }
 
+    public void updateDoubleTapToSleep(boolean doubleTapToSleepEnabled) {
+        mDoubleTapToSleepEnabled = doubleTapToSleepEnabled;
+    }
 }
