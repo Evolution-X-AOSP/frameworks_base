@@ -85,5 +85,6 @@ public class SystemSettings {
         Settings.System.ALARM_ALERT,
         Settings.System.NOTIFICATION_LIGHT_PULSE,
         // Evolution X Customization
+        Settings.System.DOUBLE_TAP_SLEEP_GESTURE,
     };
 }
