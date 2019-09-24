@@ -651,27 +651,26 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         void observe() {
             ContentResolver resolver = mContext.getContentResolver();
-            /*resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.XXX),
-                    false, this, UserHandle.USER_ALL);*/
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.DOUBLE_TAP_SLEEP_GESTURE),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
         public void onChange(boolean selfChange) {
-            /*if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.XXX))) {
-                doXXX();
-            }*/
+            update();
         }
 
         public void update() {
-            //doXXX();
+            setStatusDoubleTapToSleep();
         }
     }
 
-    /*private void doXXX() {
-
-    }*/
+    private void setStatusDoubleTapToSleep() {
+        if (mNotificationShadeWindowViewController != null) {
+            mNotificationShadeWindowViewController.updateSettings();
+        }
+    }
 
     private CustomSettingsObserver mCustomSettingsObserver;
 
