@@ -1893,6 +1893,11 @@ public class NavigationBar extends ViewController<NavigationBarView> implements 
             setNavBarMode(mode);
             mView.setShouldShowSwipeUpUi(mOverviewProxyService.shouldShowSwipeUpUI());
         }
+
+        @Override
+        public void onSettingsChanged() {
+            mEdgeBackGestureHandler.onSettingsChanged();
+        }
     };
 
     private final Gefingerpoken mTouchHandler = new Gefingerpoken() {
