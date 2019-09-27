@@ -268,7 +268,4 @@
     <!-- Whether device supports internal audio recording -->
     <java-symbol type="bool" name="config_hasInternalAudioRecordingSupport" />
 
-    <!-- Whether to show a custom view for FOD -->
-    <java-symbol type="bool" name="config_needCustomFODView" />
-
 </resources>

@@ -59,8 +59,7 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     SystemUI-proto \
     trail-drawing \
     rebound \
-    guava \
-    vendor.lineage.biometrics.fingerprint.inscreen-V1.0-java
+    guava
 
 LOCAL_JAVA_LIBRARIES := telephony-common \
     android.car \

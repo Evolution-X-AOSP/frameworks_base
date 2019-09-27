@@ -65,14 +65,4 @@
     <dimen name="ticker_text_top_padding">2dp</dimen>
     <dimen name="ticker_text_end_padding">10dp</dimen>
 
-    <!-- Padding needed on bottom of lockscreen for FoD devices -->
-    <dimen name="op_keyguard_indication_margin_bottom">415.0px</dimen>
-
-    <!-- Bottom margin size when fingerprint in display is active -->
-    <dimen name="keyguard_indication_margin_bottom_fingerprint_in_display">53dp</dimen>
-
-    <!-- Ambient Indication -->
-    <dimen name="ambient_indication_margin_bottom">71dp</dimen>
-    <dimen name="ambient_indication_margin_bottom_fingerprint_in_display">97dp</dimen>
-
 </resources>
