@@ -119,4 +119,13 @@
     <!-- Status bar DT2S gesture -->
     <java-symbol type="bool" name="config_dt2sGestureAvailable" />
     <java-symbol type="bool" name="config_dt2sGestureEnabledByDefault" />
+
+    <!-- Whether device has physical tri state switch -->
+    <java-symbol type="bool" name="config_hasAlertSlider" />
+
+    <!-- The location of the devices physical tri state switch -->
+    <java-symbol type="integer" name="config_alertSliderLocation" />
+
+    <!-- Whether key handler sends intent when changing slider position -->
+    <java-symbol type="string" name="config_alertSliderIntent" />
 </resources>
