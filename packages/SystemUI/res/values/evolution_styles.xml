@@ -4,5 +4,8 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
-
+    <!-- Tri-state UI -->
+    <style name="qs_theme" parent="Theme.SystemUI.QuickSettings">
+        <item name="android:windowIsFloating">true</item>
+    </style>
 </resources>
