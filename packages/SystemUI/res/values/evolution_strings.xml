@@ -180,6 +180,7 @@
     <string name="accessibility_quick_settings_gaming_mode_off">Gaming mode off</string>
 
     <!-- Status bar icons -->
+    <string name="status_bar_data_disabled">Data disabled</string>
     <string name="status_bar_data_saver">Data saver</string>
     <string name="status_bar_nfc">NFC</string>
     <string name="status_bar_roaming">Roaming</string>

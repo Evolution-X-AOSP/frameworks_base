@@ -51,10 +51,13 @@ import com.android.settingslib.Utils;
 import com.android.settingslib.graph.SignalDrawable;
 import com.android.settingslib.net.SignalStrengthUtil;
 import com.android.systemui.R;
+import com.android.systemui.Dependency;
 import com.android.systemui.statusbar.policy.NetworkController.IconState;
 import com.android.systemui.statusbar.policy.NetworkController.SignalCallback;
 import com.android.systemui.statusbar.policy.NetworkControllerImpl.Config;
 import com.android.systemui.statusbar.policy.NetworkControllerImpl.SubscriptionDefaults;
+import com.android.systemui.tuner.TunerService;
+
 
 import java.io.PrintWriter;
 import java.util.BitSet;
@@ -64,7 +67,7 @@ import java.util.regex.Pattern;
 
 
 public class MobileSignalController extends SignalController<
-        MobileSignalController.MobileState, MobileSignalController.MobileIconGroup> {
+        MobileSignalController.MobileState, MobileSignalController.MobileIconGroup> implements TunerService.Tunable {
     private final TelephonyManager mPhone;
     private final SubscriptionDefaults mDefaults;
     private final String mNetworkNameDefault;
@@ -99,6 +102,7 @@ public class MobileSignalController extends SignalController<
     private boolean mShowLteFourGee;
     // Volte Icon
     private boolean mVoLTEicon;
+    private boolean mDataDisabledIcon;
 
     // TODO: Reduce number of vars passed in, if we have the NetworkController, probably don't
     // need listener lists anymore.
@@ -153,6 +157,7 @@ public class MobileSignalController extends SignalController<
                 updateTelephony();
             }
         };
+        Dependency.get(TunerService.class).addTunable(this, "data_disabled");
 
         Handler mHandler = new Handler();
         SettingsObserver settingsObserver = new SettingsObserver(mHandler);
@@ -192,6 +197,18 @@ public class MobileSignalController extends SignalController<
             }
             mapIconSets();
             updateTelephony();
+        }
+    }
+
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        switch (key) {
+            case "data_disabled":
+                     mDataDisabledIcon  =
+                        TunerService.parseIntegerSwitch(newValue, true);
+                     updateTelephony();
+            default:
+                break;
         }
     }
 
@@ -636,7 +653,7 @@ public class MobileSignalController extends SignalController<
         mCurrentState.roaming = isRoaming();
         if (isCarrierNetworkChangeActive()) {
             mCurrentState.iconGroup = TelephonyIcons.CARRIER_NETWORK_CHANGE;
-        } else if (isDataDisabled() && !mConfig.alwaysShowDataRatIcon) {
+        } else if (isDataDisabled() && mDataDisabledIcon) {
             if (mSubscriptionInfo.getSubscriptionId()
                     != mDefaults.getDefaultDataSubId()) {
                 mCurrentState.iconGroup = TelephonyIcons.NOT_DEFAULT_DATA;
