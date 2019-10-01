@@ -145,6 +145,7 @@
 
     <!-- Tuner items -->
     <string name="statusbar_items_title">Statusbar icon</string>
+    <string name="status_bar_data_disabled">Data disabled</string>
     <string name="status_bar_data_saver">Data saver</string>
     <string name="status_bar_vpn">VPN</string>
     <string name="status_bar_roaming">Roaming</string>
