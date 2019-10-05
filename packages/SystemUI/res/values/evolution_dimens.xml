@@ -53,7 +53,7 @@
     <dimen name="keyguard_charging_indication_width">35dp</dimen>
 
     <!-- Bottom margin size when fingerprint in display is active -->
-    <dimen name="keyguard_indication_margin_bottom_fingerprint_in_display">30dp</dimen>
+    <dimen name="keyguard_indication_margin_bottom_fingerprint_in_display">@dimen/keyguard_indication_margin_bottom</dimen>
 
     <!-- Tri-state UI -->
     <dimen name="tri_state_down_dialog_position">0px</dimen>
