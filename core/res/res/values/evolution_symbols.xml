@@ -229,4 +229,6 @@
     <java-symbol type="string" name="config_SmartChargingSupspendValue" />
     <java-symbol type="string" name="config_SmartChargingResumeValue" />
 
+    <java-symbol type="integer" name="config_screenBrightnessPulse" />
+
 </resources>
