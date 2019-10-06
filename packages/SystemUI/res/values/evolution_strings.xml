@@ -122,6 +122,8 @@
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
     <string name="accessibility_status_bar_nfc">Nfc</string>
 
-    <!-- SystemUI tuner -->
-    <string name="systemui_tuner_navbar_title">Stock navbar</string>
+    <!-- Navbar -->
+    <string name="systemui_tuner_navbar_title">Layout</string>
+    <string name="navigation_bar_format_title">Navbar format</string>
+
 </resources>
