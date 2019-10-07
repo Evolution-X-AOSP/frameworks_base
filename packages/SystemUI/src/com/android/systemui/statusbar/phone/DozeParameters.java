@@ -51,7 +51,6 @@ import com.android.systemui.statusbar.policy.BatteryController;
 import com.android.systemui.statusbar.policy.BatteryController.BatteryStateChangeCallback;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.DevicePostureController;
-import com.android.systemui.tuner.TunerService;
 import com.android.systemui.unfold.FoldAodAnimationController;
 import com.android.systemui.unfold.SysUIUnfoldComponent;
 
@@ -65,7 +64,6 @@ import javax.inject.Inject;
  */
 @SysUISingleton
 public class DozeParameters implements
-        TunerService.Tunable,
         com.android.systemui.plugins.statusbar.DozeParameters,
         Dumpable, ConfigurationController.ConfigurationListener,
         StatusBarStateController.StateListener, FoldAodAnimationController.FoldAodAnimationStatus {
@@ -87,7 +85,6 @@ public class DozeParameters implements
     private final UnlockedScreenOffAnimationController mUnlockedScreenOffAnimationController;
     private final UserTracker mUserTracker;
 
-    private boolean mDozeAlwaysOn;
     private boolean mControlScreenOffAnimation;
     private boolean mIsQuickPickupEnabled;
 
@@ -121,7 +118,6 @@ public class DozeParameters implements
             AlwaysOnDisplayPolicy alwaysOnDisplayPolicy,
             PowerManager powerManager,
             BatteryController batteryController,
-            TunerService tunerService,
             DumpManager dumpManager,
             ScreenOffAnimationController screenOffAnimationController,
             Optional<SysUIUnfoldComponent> sysUiUnfoldComponent,
@@ -146,10 +142,6 @@ public class DozeParameters implements
         mDozeInteractor = dozeInteractor;
 
         keyguardUpdateMonitor.registerCallback(mKeyguardVisibilityCallback);
-        tunerService.addTunable(
-                this,
-                Settings.Secure.DOZE_ALWAYS_ON,
-                Settings.Secure.ACCESSIBILITY_DISPLAY_INVERSION_ENABLED);
         configurationController.addCallback(this);
         statusBarStateController.addCallback(this);
 
@@ -264,7 +256,8 @@ public class DozeParameters implements
      * @return {@code true} if enabled and available.
      */
     public boolean getAlwaysOn() {
-        return mDozeAlwaysOn && !mBatteryController.isAodPowerSave();
+        return mAmbientDisplayConfiguration.alwaysOnEnabled(UserHandle.USER_CURRENT)
+                && !mBatteryController.isAodPowerSave();
     }
 
     /**
@@ -412,17 +405,6 @@ public class DozeParameters implements
      */
     public String[] brightnessNames() {
         return mResources.getStringArray(R.array.doze_brightness_sensor_name_posture_mapping);
-    }
-
-    @Override
-    public void onTuningChanged(String key, String newValue) {
-        mDozeAlwaysOn = mAmbientDisplayConfiguration.alwaysOnEnabled(mUserTracker.getUserId());
-
-        if (key.equals(Settings.Secure.DOZE_ALWAYS_ON)) {
-            updateControlScreenOff();
-        }
-
-        dispatchAlwaysOnEvent();
     }
 
     @Override
