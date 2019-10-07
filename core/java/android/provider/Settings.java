@@ -5364,6 +5364,20 @@ public final class Settings {
         private static final Validator POWERMENU_TORCH_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
+        /*
+        * Whether to enable DOZE only when charging
+        * @hide
+        */
+       public static final String DOZE_ON_CHARGE = "doze_on_charge";
+
+       private static final Validator DOZE_ON_CHARGE_VALIDATOR = BOOLEAN_VALIDATOR;
+
+       /**
+        * hidden stting of the current atate of DOZE only when charging
+        * @hide
+        */
+       public static final String DOZE_ON_CHARGE_NOW = "doze_on_charge_now";
+
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
@@ -5477,6 +5491,7 @@ public final class Settings {
             POWERMENU_LOGOUT,
             POWERMENU_LOCKSCREEN,
             POWERMENU_TORCH,
+            DOZE_ON_CHARGE,
         };
 
         /**
@@ -5662,6 +5677,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(POWERMENU_LOGOUT);
             PRIVATE_SETTINGS.add(POWERMENU_LOCKSCREEN);
             PRIVATE_SETTINGS.add(POWERMENU_TORCH);
+            PRIVATE_SETTINGS.add(DOZE_ON_CHARGE);
         }
 
         /**
@@ -5824,6 +5840,7 @@ public final class Settings {
             VALIDATORS.put(POWERMENU_LOGOUT, POWERMENU_LOGOUT_VALIDATOR);
             VALIDATORS.put(POWERMENU_LOCKSCREEN, POWERMENU_LOCKSCREEN_VALIDATOR);
             VALIDATORS.put(POWERMENU_TORCH, POWERMENU_TORCH_VALIDATOR);
+            VALIDATORS.put(DOZE_ON_CHARGE, DOZE_ON_CHARGE_VALIDATOR);
         }
 
         /**
