@@ -213,5 +213,6 @@ public class SecureSettings {
         Settings.Secure.SCREEN_OFF_UDFPS_ENABLED,
         Settings.Secure.SHOW_BACK_ARROW_GESTURE,
         Settings.Secure.TETHERING_ALLOW_VPN_UPSTREAMS,
+        Settings.Secure.DOZE_ON_CHARGE
     };
 }
