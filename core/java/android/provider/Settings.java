@@ -13110,6 +13110,20 @@ public final class Settings {
                 "launcher_taskbar_education_showing";
 
         /**
+         * Whether to enable DOZE only when charging
+         * @hide
+         */
+        @Readable
+        public static final String DOZE_ON_CHARGE = "doze_on_charge";
+
+        /**
+         * hidden stting of the current atate of DOZE only when charging
+         * @hide
+         */
+        @Readable
+        public static final String DOZE_ON_CHARGE_NOW = "doze_on_charge_now";
+
+        /**
          * Whether or not adaptive charging feature is enabled by user.
          * Type: int (0 for false, 1 for true)
          * Default: 1
