@@ -225,5 +225,6 @@ public class SecureSettings {
         Settings.Secure.GESTURE_NAVBAR_LENGTH_MODE,
         Settings.Secure.SECURE_LOCKSCREEN_QS_DISABLED,
         Settings.Secure.TETHERING_ALLOW_VPN_UPSTREAMS,
+        Settings.Secure.DOZE_ON_CHARGE
     };
 }
