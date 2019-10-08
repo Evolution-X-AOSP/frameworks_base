@@ -70,9 +70,9 @@
 
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Sound</string>
+    <string name="quick_settings_sound_mute">Mute</string>
     <string name="quick_settings_sound_ring">Ring</string>
     <string name="quick_settings_sound_vibrate">Vibrate</string>
-    <string name="quick_settings_sound_dnd">Do not disturb</string>
 
     <!-- Sound Search tile -->
     <string name="quick_settings_sound_search">Sound search</string>
