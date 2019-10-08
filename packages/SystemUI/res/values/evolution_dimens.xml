@@ -64,4 +64,9 @@
 
     <!-- the padding on the start and the end of the statusbar -->
     <dimen name="status_bar_extra_padding">0dp</dimen>
+
+    <!-- Custom header -->
+    <dimen name="qs_header_image_offset">25dp</dimen>
+    <dimen name="qs_header_image_side_margin">4dp</dimen>
+    <dimen name="qs_header_image_bottom_margin">4dp</dimen>
 </resources>
