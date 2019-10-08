@@ -47,7 +47,7 @@
     <string name="quick_settings_sound_label">Sound</string>
     <string name="quick_settings_sound_ring">Ring</string>
     <string name="quick_settings_sound_vibrate">Vibrate</string>
-    <string name="quick_settings_sound_dnd">Do not disturb</string>
+    <string name="quick_settings_sound_mute">Mute</string>
 
     <!-- SystemUI Tuner -->
     <string name="statusbar_items_title">Statusbar icon</string>
