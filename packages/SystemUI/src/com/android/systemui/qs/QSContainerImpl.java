@@ -22,21 +22,34 @@ import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.graphics.Point;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.TransitionDrawable;
+import android.graphics.Color;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import androidx.dynamicanimation.animation.FloatPropertyCompat;
 import androidx.dynamicanimation.animation.SpringForce;
 
+import com.android.systemui.Dependency;
 import com.android.systemui.R;
+import com.android.systemui.evolution.header.StatusBarHeaderMachine;
 import com.android.systemui.qs.customize.QSCustomizer;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.animation.PhysicsAnimator;
 
 /**
  * Wrapper view with background which contains {@link QSPanel} and {@link BaseStatusBarHeader}
  */
-public class QSContainerImpl extends FrameLayout {
+public class QSContainerImpl extends FrameLayout implements
+        StatusBarHeaderMachine.IStatusBarHeaderMachineObserver, TunerService.Tunable {
+
+    private static final String STATUS_BAR_CUSTOM_HEADER_SHADOW =
+                                Settings.System.STATUS_BAR_CUSTOM_HEADER_SHADOW;
 
     private final Point mSizePoint = new Point();
     private static final FloatPropertyCompat<QSContainerImpl> BACKGROUND_BOTTOM =
@@ -64,7 +77,6 @@ public class QSContainerImpl extends FrameLayout {
     private View mQSPanelContainer;
 
     private View mBackground;
-    private View mBackgroundGradient;
     private View mStatusBarBackground;
 
     private int mSideMargins;
@@ -73,8 +85,16 @@ public class QSContainerImpl extends FrameLayout {
     private int mContentPaddingEnd = -1;
     private boolean mAnimateBottomOnNextLayout;
 
+    private boolean mHeaderImageEnabled;
+    private ImageView mBackgroundImage;
+    private StatusBarHeaderMachine mStatusBarHeaderMachine;
+    private Drawable mCurrentBackground;
+    private boolean mLandscape;
+    private int mHeaderShadow = 0;
+
     public QSContainerImpl(Context context, AttributeSet attrs) {
         super(context, attrs);
+        mStatusBarHeaderMachine = new StatusBarHeaderMachine(context);
     }
 
     @Override
@@ -87,7 +107,8 @@ public class QSContainerImpl extends FrameLayout {
         mQSCustomizer = findViewById(R.id.qs_customize);
         mBackground = findViewById(R.id.quick_settings_background);
         mStatusBarBackground = findViewById(R.id.quick_settings_status_bar_background);
-        mBackgroundGradient = findViewById(R.id.quick_settings_gradient_view);
+        mBackgroundImage = findViewById(R.id.qs_header_image_view);
+        mBackgroundImage.setClipToOutline(true);
         updateResources();
         mHeader.getHeaderQsPanel().setMediaVisibilityChangedListener((visible) -> {
             if (mHeader.getHeaderQsPanel().isShown()) {
@@ -119,11 +140,42 @@ public class QSContainerImpl extends FrameLayout {
     }
 
     @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        final TunerService tunerService = Dependency.get(TunerService.class);
+        tunerService.addTunable(this, STATUS_BAR_CUSTOM_HEADER_SHADOW);
+
+        mStatusBarHeaderMachine.addObserver(this);
+        mStatusBarHeaderMachine.updateEnablement();
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        mStatusBarHeaderMachine.removeObserver(this);
+        Dependency.get(TunerService.class).removeTunable(this);
+    }
+
+    @Override
     protected void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        setBackgroundGradientVisibility(newConfig);
+        mLandscape = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE;
+
         updateResources();
         mSizePoint.set(0, 0); // Will be retrieved on next measure pass.
+    }
+
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        switch (key) {
+            case STATUS_BAR_CUSTOM_HEADER_SHADOW:
+                mHeaderShadow =
+                        TunerService.parseInteger(newValue, 0);
+                applyHeaderBackgroundShadow();
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
@@ -191,14 +243,16 @@ public class QSContainerImpl extends FrameLayout {
         final boolean disabled = (state2 & DISABLE2_QUICK_SETTINGS) != 0;
         if (disabled == mQsDisabled) return;
         mQsDisabled = disabled;
-        setBackgroundGradientVisibility(getResources().getConfiguration());
         mBackground.setVisibility(mQsDisabled ? View.GONE : View.VISIBLE);
+        updateStatusbarVisibility();
     }
 
     private void updateResources() {
-        LayoutParams layoutParams = (LayoutParams) mQSPanelContainer.getLayoutParams();
-        layoutParams.topMargin = mContext.getResources().getDimensionPixelSize(
+        int topMargin = mContext.getResources().getDimensionPixelSize(
                 com.android.internal.R.dimen.quick_qs_offset_height);
+
+        LayoutParams layoutParams = (LayoutParams) mQSPanelContainer.getLayoutParams();
+        layoutParams.topMargin = topMargin;
         mQSPanelContainer.setLayoutParams(layoutParams);
 
         mSideMargins = getResources().getDimensionPixelSize(R.dimen.notification_side_paddings);
@@ -211,6 +265,16 @@ public class QSContainerImpl extends FrameLayout {
         if (marginsChanged) {
             updatePaddingsAndMargins();
         }
+
+        int statusBarSideMargin = mHeaderImageEnabled ? mContext.getResources().getDimensionPixelSize(
+                R.dimen.qs_header_image_side_margin) : 0;
+
+        ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) mStatusBarBackground.getLayoutParams();
+        lp.height = topMargin;
+        lp.setMargins(statusBarSideMargin, 0, statusBarSideMargin, 0);
+        mStatusBarBackground.setLayoutParams(lp);
+
+        updateStatusbarVisibility();
     }
 
     /**
@@ -257,16 +321,6 @@ public class QSContainerImpl extends FrameLayout {
                 + mHeader.getHeight();
     }
 
-    private void setBackgroundGradientVisibility(Configuration newConfig) {
-        if (newConfig.orientation == ORIENTATION_LANDSCAPE) {
-            mBackgroundGradient.setVisibility(View.INVISIBLE);
-            mStatusBarBackground.setVisibility(View.INVISIBLE);
-        } else {
-            mBackgroundGradient.setVisibility(mQsDisabled ? View.INVISIBLE : View.VISIBLE);
-            mStatusBarBackground.setVisibility(View.VISIBLE);
-        }
-    }
-
     public void setExpansion(float expansion) {
         mQsExpansion = expansion;
         updateExpansion();
@@ -275,8 +329,7 @@ public class QSContainerImpl extends FrameLayout {
     private void updatePaddingsAndMargins() {
         for (int i = 0; i < getChildCount(); i++) {
             View view = getChildAt(i);
-            if (view == mStatusBarBackground || view == mBackgroundGradient
-                    || view == mQSCustomizer) {
+            if (view == mStatusBarBackground || view == mQSCustomizer) {
                 // Some views are always full width
                 continue;
             }
@@ -305,5 +358,80 @@ public class QSContainerImpl extends FrameLayout {
             getDisplay().getRealSize(mSizePoint);
         }
         return mSizePoint.y;
+    }
+
+    @Override
+    public void updateHeader(final Drawable headerImage, final boolean force) {
+        post(new Runnable() {
+            public void run() {
+                doUpdateStatusBarCustomHeader(headerImage, force);
+            }
+        });
+    }
+
+    @Override
+    public void disableHeader() {
+        post(new Runnable() {
+            public void run() {
+                mCurrentBackground = null;
+                mBackgroundImage.setVisibility(View.GONE);
+                mHeaderImageEnabled = false;
+                updateResources();
+            }
+        });
+    }
+
+    @Override
+    public void refreshHeader() {
+        post(new Runnable() {
+            public void run() {
+                doUpdateStatusBarCustomHeader(mCurrentBackground, true);
+            }
+        });
+    }
+
+    private void doUpdateStatusBarCustomHeader(final Drawable next, final boolean force) {
+        if (next != null) {
+            mBackgroundImage.setVisibility(View.VISIBLE);
+            mCurrentBackground = next;
+            setNotificationPanelHeaderBackground(next, force);
+            mHeaderImageEnabled = true;
+        } else {
+            mCurrentBackground = null;
+            mBackgroundImage.setVisibility(View.GONE);
+            mHeaderImageEnabled = false;
+        }
+        updateResources();
+    }
+
+    private void setNotificationPanelHeaderBackground(final Drawable dw, final boolean force) {
+        if (mBackgroundImage.getDrawable() != null && !force) {
+            Drawable[] arrayDrawable = new Drawable[2];
+            arrayDrawable[0] = mBackgroundImage.getDrawable();
+            arrayDrawable[1] = dw;
+
+            TransitionDrawable transitionDrawable = new TransitionDrawable(arrayDrawable);
+            transitionDrawable.setCrossFadeEnabled(true);
+            mBackgroundImage.setImageDrawable(transitionDrawable);
+            transitionDrawable.startTransition(1000);
+        } else {
+            mBackgroundImage.setImageDrawable(dw);
+        }
+        applyHeaderBackgroundShadow();
+    }
+
+    private void applyHeaderBackgroundShadow() {
+        if (mCurrentBackground != null && mBackgroundImage.getDrawable() != null) {
+            mBackgroundImage.setImageAlpha(255 - mHeaderShadow);
+        }
+    }
+
+    private void updateStatusbarVisibility() {
+        boolean hideStatusbar = mLandscape && !mHeaderImageEnabled;
+
+        mStatusBarBackground.setBackgroundColor(Color.TRANSPARENT);
+        mStatusBarBackground.setVisibility(hideStatusbar ? View.INVISIBLE : View.VISIBLE);
+
+        applyHeaderBackgroundShadow();
     }
 }
