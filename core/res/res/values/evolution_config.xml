@@ -158,4 +158,7 @@
 
     <!-- Should we filter any display modes which are unampped? -->
     <bool name="config_filterDisplayModes">false</bool>
+
+    <!-- Default value for Ambient Pulse light color -->
+    <integer name="config_AmbientPulseLightColor">0x1A73E8</integer>
 </resources>
