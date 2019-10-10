@@ -254,4 +254,7 @@
     <java-symbol type="style" name="Animation.Toast.Material" />
 
   <java-symbol type="bool" name="config_has_Soli" />
+
+    <!-- Ambiant Pulse Light -->
+    <java-symbol type="integer" name="config_AmbiantPulseLightColor" />
 </resources>
