@@ -221,5 +221,8 @@ public class SystemSettingsValidators {
                     }
                 });
         VALIDATORS.put(System.FULLSCREEN_GESTURES, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.PULSE_AMBIENT_LIGHT, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.AMBIENT_NOTIFICATION_LIGHT_ENABLED, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.AMBIENT_NOTIFICATION_LIGHT, BOOLEAN_VALIDATOR);
     }
 }
