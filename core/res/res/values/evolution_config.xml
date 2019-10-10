@@ -422,4 +422,7 @@
     <string name="config_oemFastChargerStatusPath" translatable="false"></string>
     <!-- Expected value from fast charging status file  -->
     <string name="config_oemFastChargerStatusValue" translatable="false"></string>
+
+    <!-- Default value for Ambiant Pulse light color -->
+    <integer name="config_AmbiantPulseLightColor">0x1A73E8</integer>
 </resources>
