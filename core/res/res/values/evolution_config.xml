@@ -164,4 +164,7 @@
 
     <!-- Whether device has a big physical display cutout -->
     <bool name="config_physicalDisplayCutoutCentered">@bool/config_physicalDisplayCutout</bool>
+
+    <!-- Default value for Ambient Pulse light color -->
+    <integer name="config_AmbientPulseLightColor">0x3980FF</integer>
 </resources>
