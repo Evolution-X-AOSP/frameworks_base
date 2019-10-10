@@ -5477,6 +5477,30 @@ public final class Settings {
         public static final String BACK_GESTURE_HEIGHT = "back_gesture_height";
 
         /**
+         * Whether to enable PULSE Edge lights
+         * @hide
+         */
+        public static final String PULSE_AMBIENT_LIGHT = "pulse_ambient_light";
+
+        /**
+         * Whether to enable Ambient Edge lights
+         * @hide
+         */
+        public static final String AMBIENT_NOTIFICATION_LIGHT_ENABLED = "ambient_notification_light_enabled";
+
+        /**
+         * Whether to enable Ambient Edge lights
+         * @hide
+         */
+        public static final String AMBIENT_NOTIFICATION_LIGHT = "ambient_notification_light";
+
+        /**
+         * Whether Ambient Edge lights are activated
+         * @hide
+         */
+        public static final String AMBIENT_NOTIFICATION_LIGHT_ACTIVATED = "ambient_notification_light_activated";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
