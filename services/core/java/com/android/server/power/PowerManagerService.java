@@ -900,6 +900,8 @@ public final class PowerManagerService extends SystemService
         // set initial value
         Settings.System.putIntForUser(mContext.getContentResolver(),
                 Settings.System.DOZE_ON_CHARGE_NOW, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(mContext.getContentResolver(),
+                Settings.System.AMBIENT_NOTIFICATION_LIGHT_ACTIVATED, 0, UserHandle.USER_CURRENT);
 
         synchronized (mLock) {
             mSystemReady = true;
@@ -1039,6 +1041,13 @@ public final class PowerManagerService extends SystemService
         resolver.registerContentObserver(Settings.System.getUriFor(
                 Settings.System.SMART_CHARGING_RESET_STATS),
                 false, mSettingsObserver, UserHandle.USER_ALL);
+        resolver.registerContentObserver(Settings.System.getUriFor(
+                Settings.System.AMBIENT_NOTIFICATION_LIGHT),
+                false, mSettingsObserver, UserHandle.USER_ALL);
+        resolver.registerContentObserver(Settings.System.getUriFor(
+                Settings.System.AMBIENT_NOTIFICATION_LIGHT_ENABLED),
+                false, mSettingsObserver, UserHandle.USER_ALL);
+
         IVrManager vrManager = IVrManager.Stub.asInterface(getBinderService(Context.VR_SERVICE));
         if (vrManager != null) {
             try {
@@ -1158,7 +1167,6 @@ public final class PowerManagerService extends SystemService
                 Settings.Global.STAY_ON_WHILE_PLUGGED_IN, BatteryManager.BATTERY_PLUGGED_AC);
         mTheaterModeEnabled = Settings.Global.getInt(mContext.getContentResolver(),
                 Settings.Global.THEATER_MODE_ON, 0) == 1;
-        mAlwaysOnEnabled = mAmbientDisplayConfiguration.alwaysOnEnabled(UserHandle.USER_CURRENT);
         mDozeOnChargeEnabled = Settings.System.getIntForUser(resolver,
                 Settings.System.DOZE_ON_CHARGE, 0, UserHandle.USER_CURRENT) != 0;
         mWakeLockBlockingEnabled = Settings.Global.getInt(resolver,
@@ -1176,6 +1184,23 @@ public final class PowerManagerService extends SystemService
                 mSmartChargingResumeLevelDefaultConfig);
         mSmartChargingResetStats = Settings.System.getInt(resolver,
                 Settings.System.SMART_CHARGING_RESET_STATS, 0) == 1;
+        boolean mAmbientLights = Settings.System.getIntForUser(
+                mContext.getContentResolver(), Settings.System.AMBIENT_NOTIFICATION_LIGHT_ENABLED,
+                0, UserHandle.USER_CURRENT) != 0;
+        if (mAmbientLights) {
+            boolean dozeOnNotification = Settings.System.getIntForUser(resolver,
+                    Settings.System.AMBIENT_NOTIFICATION_LIGHT, 0, UserHandle.USER_CURRENT) != 0;
+            Settings.System.putIntForUser(mContext.getContentResolver(),
+                     Settings.System.AMBIENT_NOTIFICATION_LIGHT_ACTIVATED, dozeOnNotification ? 1 : 0,
+                     UserHandle.USER_CURRENT);
+        } else {
+             Settings.System.putIntForUser(mContext.getContentResolver(),
+                     Settings.System.AMBIENT_NOTIFICATION_LIGHT_ACTIVATED, 0,
+                     UserHandle.USER_CURRENT);
+        }
+        // depends on AMBIENT_NOTIFICATION_LIGHT_ACTIVATED - so MUST be afterwards
+        // no need to call us again
+        mAlwaysOnEnabled = mAmbientDisplayConfiguration.alwaysOnEnabled(UserHandle.USER_CURRENT);
 
         if (mSupportsDoubleTapWakeConfig) {
             boolean doubleTapWakeEnabled = Settings.Secure.getIntForUser(resolver,
