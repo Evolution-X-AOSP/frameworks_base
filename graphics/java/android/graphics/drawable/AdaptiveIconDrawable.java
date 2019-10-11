@@ -549,9 +549,13 @@ public class AdaptiveIconDrawable extends Drawable implements Drawable.Callback 
 
         final ChildDrawable[] layers = mLayerState.mChildren;
         for (int i = 0; i < mLayerState.N_CHILDREN; i++) {
-            if (layers[i].mDrawable != null && layers[i].mDrawable.isProjected()) {
-                return true;
+            if(layers[i].mDrawable != null) {
+                if (layers[i].mDrawable.isProjected()) {
+                    return true;
+                }
+                return false;
             }
+            
         }
         return false;
     }
