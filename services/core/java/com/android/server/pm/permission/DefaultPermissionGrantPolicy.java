@@ -859,9 +859,21 @@ public final class DefaultPermissionGrantPolicy {
                 CALENDAR_PERMISSIONS, CAMERA_PERMISSIONS, CONTACTS_PERMISSIONS, ALWAYS_LOCATION_PERMISSIONS,
                 MICROPHONE_PERMISSIONS, PHONE_PERMISSIONS, SMS_PERMISSIONS, STORAGE_PERMISSIONS);
 
+        // Persistent Google Play Services
+        grantSystemFixedPermissionsToSystemPackage(pm,"com.google.android.gms.persistent", userId, SENSORS_PERMISSIONS,
+                CALENDAR_PERMISSIONS, CAMERA_PERMISSIONS, CONTACTS_PERMISSIONS, ALWAYS_LOCATION_PERMISSIONS,
+                MICROPHONE_PERMISSIONS, PHONE_PERMISSIONS, SMS_PERMISSIONS, STORAGE_PERMISSIONS);
+
+        // Google Connectivity Services
+        grantSystemFixedPermissionsToSystemPackage(pm,"com.google.android.apps.gcs", userId, CONTACTS_PERMISSIONS,
+                ALWAYS_LOCATION_PERMISSIONS);
+
         // Google Contacts Sync
         grantSystemFixedPermissionsToSystemPackage(pm,"com.google.android.syncadapters.contacts", userId,
                 CONTACTS_PERMISSIONS);
+
+        // Google Backup Transport
+        grantSystemFixedPermissionsToSystemPackage(pm,"com.google.android.backuptransport", userId, CONTACTS_PERMISSIONS);
 
         // Google Play Framework
         grantSystemFixedPermissionsToSystemPackage(pm,"com.google.android.gsf", userId, CONTACTS_PERMISSIONS,
@@ -883,6 +895,10 @@ public final class DefaultPermissionGrantPolicy {
         // Google Play Store
         grantSystemFixedPermissionsToSystemPackage(pm,"com.android.vending", userId, CONTACTS_PERMISSIONS,
                 PHONE_PERMISSIONS, ALWAYS_LOCATION_PERMISSIONS, SMS_PERMISSIONS, STORAGE_PERMISSIONS);
+
+        // Project Fi
+        grantSystemFixedPermissionsToSystemPackage(pm,"com.google.android.apps.tycho", userId, CONTACTS_PERMISSIONS,
+                PHONE_PERMISSIONS, MICROPHONE_PERMISSIONS, ALWAYS_LOCATION_PERMISSIONS, SMS_PERMISSIONS);
 
         // ContactsProvider2
         grantSystemFixedPermissionsToSystemPackage(pm,
@@ -939,6 +955,9 @@ public final class DefaultPermissionGrantPolicy {
         // Settings Services
         grantSystemFixedPermissionsToSystemPackage(pm,"com.google.android.settings.intelligence", userId, PHONE_PERMISSIONS,
                 ALWAYS_LOCATION_PERMISSIONS);
+
+        // ThemePicker
+        grantSystemFixedPermissionsToSystemPackage(pm,"com.android.wallpaper", userId, STORAGE_PERMISSIONS);
     }
 
     private String getDefaultSystemHandlerActivityPackageForCategory(PackageManagerWrapper pm,
