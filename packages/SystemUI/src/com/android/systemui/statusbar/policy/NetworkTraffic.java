@@ -43,7 +43,7 @@ public class NetworkTraffic extends TextView {
     private static final int KB = 1024;
     private static final int MB = KB * KB;
     private static final int GB = MB * KB;
-    private static final String symbol = "/s";
+    private static final String symbol = "B/s";
 
     private static DecimalFormat decimalFormat = new DecimalFormat("##0.#");
     static {
