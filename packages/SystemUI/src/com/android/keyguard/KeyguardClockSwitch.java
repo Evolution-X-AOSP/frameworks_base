@@ -618,6 +618,42 @@ public class KeyguardClockSwitch extends RelativeLayout {
             mClockView.setTypeface(Typeface.create("oneplusslate-sys", Typeface.NORMAL));
             mClockViewBold.setTypeface(Typeface.create("oneplusslate-sys", Typeface.NORMAL));
         }
+        if (lockClockFont == 39) {
+            mClockView.setTypeface(Typeface.create("aclonica-sys", Typeface.NORMAL));
+            mClockViewBold.setTypeface(Typeface.create("aclonica-sys", Typeface.NORMAL));
+        }
+        if (lockClockFont == 40) {
+            mClockView.setTypeface(Typeface.create("amarante-sys", Typeface.NORMAL));
+            mClockViewBold.setTypeface(Typeface.create("amarante-sys", Typeface.NORMAL));
+        }
+        if (lockClockFont == 41) {
+            mClockView.setTypeface(Typeface.create("bariol-sys", Typeface.NORMAL));
+            mClockViewBold.setTypeface(Typeface.create("bariol-sys", Typeface.NORMAL));
+        }
+        if (lockClockFont == 42) {
+            mClockView.setTypeface(Typeface.create("cagliostro-sys", Typeface.NORMAL));
+            mClockViewBold.setTypeface(Typeface.create("cagliostro-sys", Typeface.NORMAL));
+        }
+        if (lockClockFont == 43) {
+            mClockView.setTypeface(Typeface.create("coolstory-sys", Typeface.NORMAL));
+            mClockViewBold.setTypeface(Typeface.create("coolstory-sys", Typeface.NORMAL));
+        }
+        if (lockClockFont == 44) {
+            mClockView.setTypeface(Typeface.create("lgsmartgothic-sys", Typeface.NORMAL));
+            mClockViewBold.setTypeface(Typeface.create("lgsmartgothic-sys", Typeface.NORMAL));
+        }
+        if (lockClockFont == 45) {
+            mClockView.setTypeface(Typeface.create("rosemary-sys", Typeface.NORMAL));
+            mClockViewBold.setTypeface(Typeface.create("rosemary-sys", Typeface.NORMAL));
+        }
+        if (lockClockFont == 46) {
+            mClockView.setTypeface(Typeface.create("sonysketch-sys", Typeface.NORMAL));
+            mClockViewBold.setTypeface(Typeface.create("sonysketch-sys", Typeface.NORMAL));
+        }
+        if (lockClockFont == 47) {
+            mClockView.setTypeface(Typeface.create("surfer-sys", Typeface.NORMAL));
+            mClockViewBold.setTypeface(Typeface.create("surfer-sys", Typeface.NORMAL));
+        }
     }
 
     public void refreshclocksize() {

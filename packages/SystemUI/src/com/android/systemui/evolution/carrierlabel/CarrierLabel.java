@@ -98,6 +98,15 @@ public class CarrierLabel extends TextView implements DarkReceiver {
     public static final int SOURCESANSPRO = 36;
     public static final int CIRCULARSTD = 37;
     public static final int ONEPLUSSLATE = 38;
+    public static final int ACLONICA = 39;
+    public static final int AMARANTE = 40;
+    public static final int BARIOL = 41;
+    public static final int CAGLIOSTRO = 42;
+    public static final int COOLSTORY = 43;
+    public static final int LGSMARTGOTHIC = 44;
+    public static final int ROSEMARY = 45;
+    public static final int SONYSKETCH = 46;
+    public static final int SURFER = 47;
 
     Handler mHandler;
 
@@ -396,6 +405,42 @@ public class CarrierLabel extends TextView implements DarkReceiver {
                 break;
             case ONEPLUSSLATE:
                 setTypeface(Typeface.create("oneplusslate-sys",
+                    Typeface.NORMAL));
+                break;
+            case ACLONICA:
+                setTypeface(Typeface.create("aclonica-sys",
+                    Typeface.NORMAL));
+                break;
+            case AMARANTE:
+                setTypeface(Typeface.create("amarante-sys",
+                    Typeface.NORMAL));
+                break;
+            case BARIOL:
+                setTypeface(Typeface.create("bariol-sys",
+                    Typeface.NORMAL));
+                break;
+            case CAGLIOSTRO:
+                setTypeface(Typeface.create("cagliostro-sys",
+                    Typeface.NORMAL));
+                break;
+            case COOLSTORY:
+                setTypeface(Typeface.create("coolstory-sys",
+                    Typeface.NORMAL));
+                break;
+            case LGSMARTGOTHIC:
+                setTypeface(Typeface.create("lgsmartgothic-sys",
+                    Typeface.NORMAL));
+                break;
+            case ROSEMARY:
+                setTypeface(Typeface.create("rosemary-sys",
+                    Typeface.NORMAL));
+                break;
+            case SONYSKETCH:
+                setTypeface(Typeface.create("sonysketch-sys",
+                    Typeface.NORMAL));
+                break;
+            case SURFER:
+                setTypeface(Typeface.create("surfer-sys",
                     Typeface.NORMAL));
                 break;
         }

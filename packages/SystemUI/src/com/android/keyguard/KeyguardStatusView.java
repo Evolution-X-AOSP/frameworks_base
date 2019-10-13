@@ -431,6 +431,33 @@ public class KeyguardStatusView extends GridLayout implements
         if (lockDateFont == 38) {
             mKeyguardSlice.setViewsTypeface(Typeface.create("oneplusslate-sys", Typeface.NORMAL));
         }
+        if (lockDateFont == 39) {
+            mKeyguardSlice.setViewsTypeface(Typeface.create("aclonica-sys", Typeface.NORMAL));
+        }
+        if (lockDateFont == 40) {
+            mKeyguardSlice.setViewsTypeface(Typeface.create("amarante-sys", Typeface.NORMAL));
+        }
+        if (lockDateFont == 41) {
+            mKeyguardSlice.setViewsTypeface(Typeface.create("bariol-sys", Typeface.NORMAL));
+        }
+        if (lockDateFont == 42) {
+            mKeyguardSlice.setViewsTypeface(Typeface.create("cagliostro-sys", Typeface.NORMAL));
+        }
+        if (lockDateFont == 43) {
+            mKeyguardSlice.setViewsTypeface(Typeface.create("coolstory-sys", Typeface.NORMAL));
+        }
+        if (lockDateFont == 44) {
+            mKeyguardSlice.setViewsTypeface(Typeface.create("lgsmartgothic-sys", Typeface.NORMAL));
+        }
+        if (lockDateFont == 45) {
+            mKeyguardSlice.setViewsTypeface(Typeface.create("rosemary-sys", Typeface.NORMAL));
+        }
+        if (lockDateFont == 46) {
+            mKeyguardSlice.setViewsTypeface(Typeface.create("sonysketch-sys", Typeface.NORMAL));
+        }
+        if (lockDateFont == 47) {
+            mKeyguardSlice.setViewsTypeface(Typeface.create("surfer-sys", Typeface.NORMAL));
+        }
     }
 
     public float getClockTextSize() {
@@ -692,6 +719,33 @@ public class KeyguardStatusView extends GridLayout implements
         }
         if (ownerinfoFont == 38) {
             mOwnerInfo.setTypeface(Typeface.create("oneplusslate-sys", Typeface.NORMAL));
+        }
+        if (ownerinfoFont == 39) {
+            mOwnerInfo.setTypeface(Typeface.create("aclonica-sys", Typeface.NORMAL));
+        }
+        if (ownerinfoFont == 40) {
+            mOwnerInfo.setTypeface(Typeface.create("amarante-sys", Typeface.NORMAL));
+        }
+        if (ownerinfoFont == 41) {
+            mOwnerInfo.setTypeface(Typeface.create("bariol-sys", Typeface.NORMAL));
+        }
+        if (ownerinfoFont == 42) {
+            mOwnerInfo.setTypeface(Typeface.create("cagliostro-sys", Typeface.NORMAL));
+        }
+        if (ownerinfoFont == 43) {
+            mOwnerInfo.setTypeface(Typeface.create("coolstory-sys", Typeface.NORMAL));
+        }
+        if (ownerinfoFont == 44) {
+            mOwnerInfo.setTypeface(Typeface.create("lgsmartgothic-sys", Typeface.NORMAL));
+        }
+        if (ownerinfoFont == 45) {
+            mOwnerInfo.setTypeface(Typeface.create("rosemary-sys", Typeface.NORMAL));
+        }
+        if (ownerinfoFont == 46) {
+            mOwnerInfo.setTypeface(Typeface.create("sonysketch-sys", Typeface.NORMAL));
+        }
+        if (ownerinfoFont == 47) {
+            mOwnerInfo.setTypeface(Typeface.create("surfer-sys", Typeface.NORMAL));
         }
     }
 
