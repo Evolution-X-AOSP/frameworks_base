@@ -75,6 +75,15 @@ LOCAL_REQUIRED_MODULES := \
 	FontRubikRubikOverlay \
 	FontSamOverlay \
 	FontVictorOverlay \
+	FontAclonicaSourceOverlay \
+	FontAmaranteSourceOverlay \
+	FontBariolSourceOverlay \
+	FontCagliostroSourceOverlay \
+	FontCoolstorySourceOverlay \
+	FontLGSmartGothicSourceOverlay \
+	FontRosemarySourceOverlay \
+	FontSonySketchSourceOverlay \
+	FontSurferSourceOverlay \
 	IconPackCircularAndroidOverlay \
 	IconPackCircularPixelLauncherOverlay \
 	IconPackCircularPixelThemePickerOverlay \
