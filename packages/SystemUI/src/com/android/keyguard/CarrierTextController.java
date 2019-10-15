@@ -16,6 +16,7 @@
 
 package com.android.keyguard;
 
+import com.android.systemui.evolution.carrierlabel.CarrierLabel;
 import com.android.systemui.util.ViewController;
 
 import javax.inject.Inject;
@@ -23,14 +24,14 @@ import javax.inject.Inject;
 /**
  * Controller for {@link CarrierText}.
  */
-public class CarrierTextController extends ViewController<CarrierText> {
+public class CarrierTextController extends ViewController<CarrierLabel> {
     private final CarrierTextManager mCarrierTextManager;
     private final KeyguardUpdateMonitor mKeyguardUpdateMonitor;
     private final CarrierTextManager.CarrierTextCallback mCarrierTextCallback =
             new CarrierTextManager.CarrierTextCallback() {
                 @Override
                 public void updateCarrierInfo(CarrierTextManager.CarrierTextCallbackInfo info) {
-                    mView.setText(info.carrierText);
+                    mView.setNetworkName(String.valueOf(info.carrierText));
                 }
 
                 @Override
@@ -45,14 +46,14 @@ public class CarrierTextController extends ViewController<CarrierText> {
             };
 
     @Inject
-    public CarrierTextController(CarrierText view,
+    public CarrierTextController(CarrierLabel view,
             CarrierTextManager.Builder carrierTextManagerBuilder,
             KeyguardUpdateMonitor keyguardUpdateMonitor) {
         super(view);
 
         mCarrierTextManager = carrierTextManagerBuilder
-                .setShowAirplaneMode(mView.getShowAirplaneMode())
-                .setShowMissingSim(mView.getShowMissingSim())
+                .setShowAirplaneMode(true)
+                .setShowMissingSim(true)
                 .build();
         mKeyguardUpdateMonitor = keyguardUpdateMonitor;
     }
