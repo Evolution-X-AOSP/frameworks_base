@@ -75,5 +75,12 @@
         android:lineSpacingMultiplier="1.2"
         android:gravity="right|center_vertical"/>
 
+    <com.android.systemui.BatteryMeterView
+        android:id="@+id/battery"
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        systemui:textAppearance="@style/TextAppearance.QS.Status"
+        android:gravity="right|end"/>
+
     </LinearLayout>
 </LinearLayout>
