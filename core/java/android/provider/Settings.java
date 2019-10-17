@@ -6353,6 +6353,11 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * @hide
+         */
+        public static final String FLASHLIGHT_ON_CALL_WAITING = "flashlight_on_call_waiting";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
