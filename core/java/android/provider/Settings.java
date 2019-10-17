@@ -5745,6 +5745,16 @@ public final class Settings {
         public static final String STATUS_BAR_CLOCK_AUTO_HIDE_SDURATION = "status_bar_clock_auto_hide_sduration";
 
         /**
+         * Whether footer #KeepEvolving text shows
+         * @hide
+         */
+        public static final String FOOTER_TEXT_SHOW = "footer_text_show";
+
+        /** @hide */
+        private static final Validator FOOTER_TEXT_SHOW_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
