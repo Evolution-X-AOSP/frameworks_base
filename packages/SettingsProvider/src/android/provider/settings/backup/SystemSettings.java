@@ -115,5 +115,6 @@ public class SystemSettings {
         Settings.System.STATUS_BAR_LOGO_POSITION,
         Settings.System.STATUS_BAR_LOGO_STYLE,
         Settings.System.QS_PANEL_STYLE,
+        Settings.System.QS_FOOTER_TEXT_SHOW,
     };
 }
