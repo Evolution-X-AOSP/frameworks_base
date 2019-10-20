@@ -361,9 +361,17 @@ public interface StatusBarIconController {
             mGroup.removeViewAt(viewIndex);
         }
 
+        // When changing ringer mode sometimes property "icon" is set to the network traffic icon
+        // Which is not of type StatusBarIcon.
         public void onSetIcon(int viewIndex, StatusBarIcon icon) {
-            StatusBarIconView view = (StatusBarIconView) mGroup.getChildAt(viewIndex);
-            view.set(icon);
+            try {
+              StatusBarIconView view = (StatusBarIconView) mGroup.getChildAt(viewIndex);
+              view.set(icon);
+            }
+            catch (Exception e) {
+              /* Ringer status icon on statusbar won't be shown for a split second
+                    No need to do anything */
+            }
         }
 
         public void onSetIconHolder(int viewIndex, StatusBarIconHolder holder) {
@@ -377,6 +385,7 @@ public interface StatusBarIconController {
 
                 case TYPE_MOBILE:
                     onSetMobileIcon(viewIndex, holder.getMobileState());
+
                 default:
                     break;
             }
