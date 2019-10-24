@@ -48,6 +48,7 @@ import android.os.Handler;
 import android.os.PowerManager;
 import android.os.SystemClock;
 import android.os.UserHandle;
+import android.os.VibrationEffect;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -93,6 +94,7 @@ import com.android.systemui.statusbar.NotificationShelf;
 import com.android.systemui.statusbar.PulseExpansionHandler;
 import com.android.systemui.statusbar.RemoteInputController;
 import com.android.systemui.statusbar.StatusBarState;
+import com.android.systemui.statusbar.VibratorHelper;
 import com.android.systemui.statusbar.notification.ActivityLaunchAnimator;
 import com.android.systemui.statusbar.notification.AnimatableProperty;
 import com.android.systemui.statusbar.notification.DynamicPrivacyController;
@@ -289,6 +291,8 @@ public class NotificationPanelView extends PanelView implements
     private float mEmptyDragAmount;
     private float mDownX;
     private float mDownY;
+    private boolean mVibrateOnOpening;
+    private final VibratorHelper mVibratorHelper;
 
     private final KeyguardClockPositionAlgorithm mClockPositionAlgorithm =
             new KeyguardClockPositionAlgorithm();
@@ -525,6 +529,9 @@ public class NotificationPanelView extends PanelView implements
                 return true;
             }
         });
+        mVibratorHelper = Dependency.get(VibratorHelper.class);
+        mVibrateOnOpening = mContext.getResources().getBoolean(
+                R.bool.config_vibrateOnIconAnimation);
     }
 
     /**
@@ -1337,6 +1344,9 @@ public class NotificationPanelView extends PanelView implements
             return true;
         }
         if (event.getActionMasked() == MotionEvent.ACTION_DOWN && isFullyCollapsed()) {
+            if (mVibrateOnOpening) {
+                mVibratorHelper.vibrate(VibrationEffect.EFFECT_TICK);
+            }
             MetricsLogger.count(mContext, COUNTER_PANEL_OPEN, 1);
             updateVerticalPanelPosition(event.getX());
             handled = true;
