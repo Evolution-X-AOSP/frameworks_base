@@ -18,6 +18,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.Matrix;
 import android.graphics.Paint;
@@ -26,6 +27,7 @@ import android.graphics.Paint.Style;
 import android.graphics.Path;
 import android.graphics.Path.Direction;
 import android.graphics.Path.Op;
+import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
@@ -38,32 +40,38 @@ import android.util.TypedValue;
 import com.android.settingslib.R;
 import com.android.settingslib.Utils;
 
-public class ThemedBatteryDrawable extends BatteryMeterDrawableBase {
-    private int backgroundColor = 0xFFFF00FF;
+public class ThemedBatteryDrawable extends Drawable {
     private final Path boltPath = new Path();
     private boolean charging;
     private int[] colorLevels;
-    private final Context context;
+    private final Context mContext;
     private int criticalLevel;
     private boolean dualTone;
-    private int fillColor = 0xFFFF00FF;
+    private int fillColor = Color.MAGENTA;
     private final Path fillMask = new Path();
     private final RectF fillRect = new RectF();
     private int intrinsicHeight;
     private int intrinsicWidth;
-    private boolean invertFillIcon;
-    private int levelColor = 0xFFFF00FF;
+    private int levelColor = Color.MAGENTA;
     private final Path levelPath = new Path();
     private final RectF levelRect = new RectF();
     private final Rect padding = new Rect();
+    private final Path errorPerimeterPath = new Path();
     private final Path perimeterPath = new Path();
-    private final Path plusPath = new Path();
     private boolean powerSaveEnabled;
     private final Matrix scaleMatrix = new Matrix();
     private final Path scaledBolt = new Path();
     private final Path scaledFill = new Path();
+    private final Path scaledErrorPerimeter = new Path();
     private final Path scaledPerimeter = new Path();
+
+    // Plus sign (used for power save mode)
+    private final Path plusPath = new Path();
     private final Path scaledPlus = new Path();
+
+    // To implement hysteresis, keep track of the need to invert the interior icon of the battery
+    private boolean invertFillIcon;
+
     private final Path unifiedPath = new Path();
     private final Path textPath = new Path();
     private final RectF iconRect = new RectF();
@@ -83,20 +91,18 @@ public class ThemedBatteryDrawable extends BatteryMeterDrawableBase {
     private boolean showPercent;
 
     public int getOpacity() {
-        return -1;
+        return PixelFormat.OPAQUE;
     }
 
     public void setAlpha(int i) {
     }
 
     public ThemedBatteryDrawable(Context context, int frameColor) {
-        super(context, frameColor);
-
-        this.context = context;
-        float f = this.context.getResources().getDisplayMetrics().density;
-        this.intrinsicHeight = (int) (mHeightDp * f);
-        this.intrinsicWidth = (int) (mWidthDp * f);
-        Resources res = this.context.getResources();
+        mContext = context;
+        float f = mContext.getResources().getDisplayMetrics().density;
+        intrinsicHeight = (int) (mHeightDp * f);
+        intrinsicWidth = (int) (mWidthDp * f);
+        Resources res = mContext.getResources();
 
         TypedArray levels = res.obtainTypedArray(R.array.batterymeter_color_levels);
         TypedArray colors = res.obtainTypedArray(R.array.batterymeter_color_values);
@@ -106,7 +112,7 @@ public class ThemedBatteryDrawable extends BatteryMeterDrawableBase {
         for (int i = 0; i < N; i++) {
             colorLevels[2 * i] = levels.getInt(i, 0);
             if (colors.getType(i) == TypedValue.TYPE_ATTRIBUTE) {
-                colorLevels[2 * i + 1] = Utils.getColorAttrDefaultColor(context, colors.getThemeAttributeId(i, 0));
+                colorLevels[2 * i + 1] = Utils.getColorAttrDefaultColor(mContext, colors.getThemeAttributeId(i, 0));
             } else {
                 colorLevels[2 * i + 1] = colors.getColor(i, 0);
             }
@@ -149,12 +155,10 @@ public class ThemedBatteryDrawable extends BatteryMeterDrawableBase {
         fillPaint.setStyle(Style.FILL_AND_STROKE);
 
         textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        Typeface font = Typeface.create("sans-serif-condensed", Typeface.BOLD);
-        textPaint.setTypeface(font);
         textPaint.setTextAlign(Paint.Align.CENTER);
 
         errorPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        errorPaint.setColor(Utils.getColorAttrDefaultColor(mContext, R.color.batterymeter_plus_color));
+        errorPaint.setColor(Utils.getColorStateListDefaultColor(mContext, R.color.batterymeter_plus_color));
         errorPaint.setAlpha(255);
         errorPaint.setAlpha(255);
         errorPaint.setDither(true);
@@ -166,136 +170,160 @@ public class ThemedBatteryDrawable extends BatteryMeterDrawableBase {
     }
 
     public void setCriticalLevel(int i) {
-        this.criticalLevel = i;
+        criticalLevel = i;
     }
 
-    public final void setCharging(boolean charging) {
-        this.charging = charging;
-        super.setCharging(charging);
+    public int getCriticalLevel() {
+        return criticalLevel;
+    }
+
+    public final void setCharging(boolean val) {
+        if (charging != val) {
+            charging = val;
+            postInvalidate();
+        }
     }
 
     public boolean getCharging() {
-        return this.charging;
+        return charging;
     }
 
     public final boolean getPowerSaveEnabled() {
-        return this.powerSaveEnabled;
+        return powerSaveEnabled;
     }
 
-    public final void setPowerSaveEnabled(boolean enabled) {
-        this.powerSaveEnabled = enabled;
-        super.setPowerSave(enabled);
+    public final void setPowerSaveEnabled(boolean val) {
+        if (powerSaveEnabled != val) {
+            powerSaveEnabled = val;
+            postInvalidate();
+        }
     }
 
     public void setShowPercent(boolean show) {
-        this.showPercent = show;
-        super.setShowPercent(show);
+        if (showPercent != show) {
+            showPercent = show;
+            postInvalidate();
+        }
+    }
+
+    // an approximation of View.postInvalidate()
+    protected void postInvalidate() {
+        unscheduleSelf(this::invalidateSelf);
+        scheduleSelf(this::invalidateSelf, 0);
     }
 
     public void draw(Canvas canvas) {
-        if (useSuper()) {
-            super.draw(canvas);
-            return;
-        }
-
-        boolean opaqueBolt = this.level <= 30;
+        boolean opaqueBolt = level <= 30;
         boolean drawText;
         float pctX = 0, pctY = 0, textHeight;
         String pctText = null;
-        boolean pctOpaque = false;
-        if (!this.charging && !this.powerSaveEnabled && this.showPercent) {
-            float baseHeight = (this.dualTone ? this.iconRect : this.fillRect).height();
-            this.textPaint.setColor(getColorForLevel(level));
-            final float full = 0.38f;
-            final float nofull = 0.5f;
-            this.textPaint.setTextSize(baseHeight * (this.level == 100 ? full : nofull));
-            textHeight = -mTextPaint.getFontMetrics().ascent;
+        boolean pctOpaque;
+        if (!charging && !powerSaveEnabled && showPercent) {
+            float baseHeight = (dualTone ? iconRect : fillRect).height();
+            textPaint.setColor(getColorForLevel(level));
+            textPaint.setTextSize(baseHeight * (level == 100 ? 0.38f : 0.5f));
+            textHeight = -textPaint.getFontMetrics().ascent;
             pctText = String.valueOf(level);
-            pctX = this.fillRect.width() * 0.5f + this.fillRect.left;
-            pctY = (this.fillRect.height() + textHeight) * 0.47f + this.fillRect.top;
-            this.textPath.reset();
-            this.textPaint.getTextPath(pctText, 0, pctText.length(), pctX, pctY, this.textPath);
+            pctX = fillRect.width() * 0.5f + fillRect.left;
+            pctY = (fillRect.height() + textHeight) * 0.47f + fillRect.top;
+            textPath.reset();
+            textPaint.getTextPath(pctText, 0, pctText.length(), pctX, pctY, textPath);
             drawText = true;
         } else {
             drawText = false;
         }
 
-        this.unifiedPath.reset();
-        this.levelPath.reset();
-        this.levelRect.set(this.fillRect);
-        float level = ((float) this.level) / 100.0f;
+        unifiedPath.reset();
+        levelPath.reset();
+        levelRect.set(fillRect);
+        float fillFraction = ((float) level) / 100.0f;
         float levelTop;
-        if (this.level >= 95) {
-            levelTop = this.fillRect.top;
+        if (level >= 95) {
+            levelTop = fillRect.top;
         } else {
-            RectF rectF = this.fillRect;
-            levelTop = (rectF.height() * (((float) 1) - level)) + rectF.top;
+            RectF rectF = fillRect;
+            levelTop = (rectF.height() * (((float) 1) - fillFraction)) + rectF.top;
         }
-        pctOpaque = this.dualTone && levelTop > pctY;
-        this.levelRect.top = (float) Math.floor(this.dualTone ? this.fillRect.top : levelTop);
-        this.levelPath.addRect(this.levelRect, Direction.CCW);
-        this.unifiedPath.addPath(this.scaledPerimeter);
-        this.unifiedPath.op(this.levelPath, Op.UNION);
-        if (drawText && !pctOpaque) {
-            this.unifiedPath.op(this.textPath, Op.DIFFERENCE);
-        }
-        this.fillPaint.setColor(this.levelColor);
-        if (this.charging) {
-            if (!this.dualTone || !opaqueBolt) {
-                this.unifiedPath.op(this.scaledBolt, Op.DIFFERENCE);
+        pctOpaque = levelTop > pctY;
+        levelRect.top = (float) Math.floor(dualTone ? fillRect.top : levelTop);
+        levelPath.addRect(levelRect, Direction.CCW);
+        unifiedPath.addPath(scaledPerimeter);
+        unifiedPath.op(levelPath, Op.UNION);
+        fillPaint.setColor(levelColor);
+        if (charging) {
+            if (!dualTone || !opaqueBolt) {
+                unifiedPath.op(scaledBolt, Op.DIFFERENCE);
             }
-            if (!this.dualTone && !this.invertFillIcon) {
-                canvas.drawPath(this.scaledBolt, this.fillPaint);
+            if (!dualTone && !invertFillIcon) {
+                canvas.drawPath(scaledBolt, fillPaint);
+            }
+        } else if (drawText) {
+            if (!dualTone || !pctOpaque) {
+                unifiedPath.op(textPath, Op.DIFFERENCE);
+            }
+            if (!dualTone && !invertFillIcon) {
+                canvas.drawPath(textPath, fillPaint);
             }
         }
-        if (this.dualTone) {
-            canvas.drawPath(this.unifiedPath, this.dualToneBackgroundFill);
+        if (dualTone) {
+            canvas.drawPath(unifiedPath, dualToneBackgroundFill);
             canvas.save();
-            float clipTop = getBounds().bottom - getBounds().height() * level;
+            float clipTop = getBounds().bottom - getBounds().height() * fillFraction;
             canvas.clipRect(0f, clipTop, (float) getBounds().right, (float) getBounds().bottom);
-            canvas.drawPath(this.unifiedPath, fillPaint);
+            canvas.drawPath(unifiedPath, fillPaint);
             canvas.restore();
-            if (this.charging && opaqueBolt) {
-                canvas.drawPath(this.scaledBolt, fillPaint);
+            if (charging && opaqueBolt) {
+                canvas.drawPath(scaledBolt, fillPaint);
+            } else if (drawText && pctOpaque) {
+                canvas.drawPath(textPath, fillPaint);
             }
-            if (drawText && pctOpaque) {
-                canvas.drawPath(this.textPath, fillPaint);
-            }
+            canvas.restore();
         } else {
-            this.fillPaint.setColor(this.fillColor);
-            canvas.drawPath(this.unifiedPath, this.fillPaint);
-            this.fillPaint.setColor(this.levelColor);
-            if (this.level <= 15 && !this.charging) {
+            // Non dual-tone means we draw the perimeter (with the level fill), and potentially
+            // draw the fill again with a critical color
+            fillPaint.setColor(fillColor);
+            canvas.drawPath(unifiedPath, fillPaint);
+            fillPaint.setColor(levelColor);
+
+            // Show colorError below this level
+            if (level <= 15 && !charging) {
                 canvas.save();
-                canvas.clipPath(this.scaledFill);
-                canvas.drawPath(this.levelPath, this.fillPaint);
+                canvas.clipPath(scaledFill);
+                canvas.drawPath(levelPath, fillPaint);
                 canvas.restore();
             }
-            if (drawText) {
-                this.textPath.op(this.levelPath, Op.DIFFERENCE);
-                canvas.drawPath(this.textPath, this.fillPaint);
-            }
         }
-        if (!this.dualTone && this.charging) {
-            canvas.clipOutPath(this.scaledBolt);
-            if (this.invertFillIcon) {
-                canvas.drawPath(this.scaledBolt, this.fillColorStrokePaint);
+
+        if (charging) {
+            canvas.clipOutPath(scaledBolt);
+            if (invertFillIcon) {
+                canvas.drawPath(scaledBolt, fillColorStrokePaint);
             } else {
-                canvas.drawPath(this.scaledBolt, this.fillColorStrokeProtection);
+                canvas.drawPath(scaledBolt, fillColorStrokeProtection);
             }
-        } else if (this.powerSaveEnabled) {
-            canvas.drawPath(this.scaledPerimeter, this.errorPaint);
-            canvas.drawPath(this.scaledPlus, this.errorPaint);
+        } else if (powerSaveEnabled) {
+            // If power save is enabled draw the perimeter path with colorError
+            canvas.drawPath(scaledErrorPerimeter, errorPaint);
+            // And draw the plus sign on top of the fill
+            canvas.drawPath(scaledPlus, errorPaint);
+        } else if (drawText) {
+            canvas.clipOutPath(textPath);
+            if (invertFillIcon) {
+                canvas.drawPath(textPath, fillColorStrokePaint);
+            } else {
+                canvas.drawPath(textPath, fillColorStrokeProtection);
+            }
         }
+        canvas.restore();
     }
 
     public int getBatteryLevel() {
-        return this.level;
+        return level;
     }
 
     protected int batteryColorForLevel(int level) {
-        return (this.charging || this.powerSaveEnabled)
-                ? this.fillColor
+        return (charging || powerSaveEnabled)
+                ? fillColor
                 : getColorForLevel(level);
     }
 
@@ -308,7 +336,7 @@ public class ThemedBatteryDrawable extends BatteryMeterDrawableBase {
 
                 // Respect tinting for "normal" level
                 if (i == colorLevels.length - 2) {
-                    return this.fillColor;
+                    return fillColor;
                 } else {
                     return color;
                 }
@@ -318,32 +346,26 @@ public class ThemedBatteryDrawable extends BatteryMeterDrawableBase {
     }
 
     public void setColorFilter(ColorFilter colorFilter) {
-        this.fillPaint.setColorFilter(colorFilter);
-        this.fillColorStrokePaint.setColorFilter(colorFilter);
-        this.dualToneBackgroundFill.setColorFilter(colorFilter);
+        fillPaint.setColorFilter(colorFilter);
+        fillColorStrokePaint.setColorFilter(colorFilter);
+        dualToneBackgroundFill.setColorFilter(colorFilter);
     }
 
     public int getIntrinsicHeight() {
-        if (!useSuper()) {
-            return this.intrinsicHeight;
-        } else {
-            return super.getIntrinsicHeight();
-        }
+        return intrinsicHeight;
     }
 
     public int getIntrinsicWidth() {
-        if (!useSuper()) {
-            return this.intrinsicWidth;
-        } else {
-            return super.getIntrinsicWidth();
-        }
+        return intrinsicWidth;
     }
 
     public void setBatteryLevel(int val) {
-        this.level = val;
-        this.invertFillIcon = val >= 67 ? true : val <= 33 ? false : this.invertFillIcon;
-        this.levelColor = batteryColorForLevel(this.level);
-        super.setBatteryLevel(val);
+        if (level != val) {
+            level = val;
+            invertFillIcon = val >= 67 ? true : val <= 33 ? false : invertFillIcon;
+            levelColor = batteryColorForLevel(level);
+            postInvalidate();
+        }
     }
 
     protected void onBoundsChange(Rect rect) {
@@ -351,42 +373,59 @@ public class ThemedBatteryDrawable extends BatteryMeterDrawableBase {
         updateSize();
     }
 
-    public void setColors(int fillColor, int backgroundColor, int singleToneColor) {
-        this.dualTone = false;
-        this.fillColor = this.dualTone ? fillColor : singleToneColor;
-        this.fillPaint.setColor(this.fillColor);
-        this.fillColorStrokePaint.setColor(this.fillColor);
-        this.backgroundColor = backgroundColor;
-        this.dualToneBackgroundFill.setColor(backgroundColor);
-        this.levelColor = batteryColorForLevel(this.level);
-        super.setColors(fillColor, backgroundColor);
+    public void setColors(int fgColor, int bgColor, int singleToneColor) {
+        fillColor = dualTone ? fgColor : singleToneColor;
+        fillPaint.setColor(fillColor);
+        fillColorStrokePaint.setColor(fillColor);
+        dualToneBackgroundFill.setColor(bgColor);
+        levelColor = batteryColorForLevel(level);
+        invalidateSelf();
     }
 
     private final void updateSize() {
         Rect bounds = getBounds();
         if (bounds.isEmpty()) {
-            this.scaleMatrix.setScale(1.0f, 1.0f);
+            scaleMatrix.setScale(1.0f, 1.0f);
         } else {
-            this.scaleMatrix.setScale(bounds.right / mWidthDp, bounds.bottom / mHeightDp);
+            scaleMatrix.setScale(bounds.right / mWidthDp, bounds.bottom / mHeightDp);
         }
-        this.perimeterPath.transform(this.scaleMatrix, this.scaledPerimeter);
-        this.fillMask.transform(this.scaleMatrix, this.scaledFill);
-        this.scaledFill.computeBounds(this.fillRect, true);
-        this.boltPath.transform(this.scaleMatrix, this.scaledBolt);
-        this.plusPath.transform(this.scaleMatrix, this.scaledPlus);
+        perimeterPath.transform(scaleMatrix, scaledPerimeter);
+        errorPerimeterPath.transform(scaleMatrix, scaledErrorPerimeter);
+        fillMask.transform(scaleMatrix, scaledFill);
+        scaledFill.computeBounds(fillRect, true);
+        boltPath.transform(scaleMatrix, scaledBolt);
+        plusPath.transform(scaleMatrix, scaledPlus);
         float max = Math.max(bounds.right / mWidthDp * 3f, 6f);
-        this.fillColorStrokePaint.setStrokeWidth(max);
-        this.fillColorStrokeProtection.setStrokeWidth(max);
-        this.iconRect.set(bounds);
+        fillColorStrokePaint.setStrokeWidth(max);
+        fillColorStrokeProtection.setStrokeWidth(max);
+        iconRect.set(bounds);
     }
 
     private final void loadPaths() {
-        this.perimeterPath.set(PathParser.createPathFromPathData("M3.5,2 v0 H1.33 C0.6,2 0,2.6 0,3.33 V13v5.67 C0,19.4 0.6,20 1.33,20 h9.33 C11.4,20 12,19.4 12,18.67 V13V3.33 C12,2.6 11.4,2 10.67,2 H8.5 V0 H3.5 z M2,18v-7V4h8v9v5H2L2,18z"));
-        this.perimeterPath.computeBounds(new RectF(), true);
-        this.fillMask.set(PathParser.createPathFromPathData("M2,18 v-14 h8 v14 z"));
-        this.fillMask.computeBounds(this.fillRect, true);
-        this.boltPath.set(PathParser.createPathFromPathData("M5,16.8 V12 H3 L7,5.2 V10 h2 L5,16.8 z"));
-        this.plusPath.set(PathParser.createPathFromPathData("M9,10l-2,0l0,-2l-2,0l0,2l-2,0l0,2l2,0l0,2l2,0l0,-2l2,0z"));
-        this.dualTone = false;
+        String pathString = mContext.getResources().getString(
+                com.android.internal.R.string.config_batterymeterPerimeterPath);
+        perimeterPath.set(PathParser.createPathFromPathData(pathString));
+        perimeterPath.computeBounds(new RectF(), true);
+
+        String errorPathString = mContext.getResources().getString(
+                com.android.internal.R.string.config_batterymeterErrorPerimeterPath);
+        errorPerimeterPath.set(PathParser.createPathFromPathData(errorPathString));
+        errorPerimeterPath.computeBounds(new RectF(), true);
+
+        String fillMaskString = mContext.getResources().getString(
+                com.android.internal.R.string.config_batterymeterFillMask);
+        fillMask.set(PathParser.createPathFromPathData(fillMaskString));
+        fillMask.computeBounds(fillRect, true);
+
+        String boltPathString = mContext.getResources().getString(
+                com.android.internal.R.string.config_batterymeterBoltPath);
+        boltPath.set(PathParser.createPathFromPathData(boltPathString));
+
+        String plusPathString = mContext.getResources().getString(
+                com.android.internal.R.string.config_batterymeterPowersavePath);
+        plusPath.set(PathParser.createPathFromPathData(plusPathString));
+
+        dualTone = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_batterymeterDualTone);
     }
 }

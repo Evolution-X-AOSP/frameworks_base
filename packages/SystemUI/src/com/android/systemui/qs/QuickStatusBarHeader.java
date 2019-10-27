@@ -22,18 +22,21 @@ import android.annotation.ColorInt;
 import android.app.ActivityManager;
 import android.app.AlarmManager;
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.database.ContentObserver;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.UserHandle;
 import android.provider.AlarmClock;
 import android.provider.CalendarContract;
 import android.provider.DeviceConfig;
@@ -150,6 +153,32 @@ public class QuickStatusBarHeader extends RelativeLayout implements
 
     private PrivacyItemController mPrivacyItemController;
 
+    private class SettingsObserver extends ContentObserver {
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            ContentResolver resolver = getContext().getContentResolver();
+            resolver.registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.QS_BATTERY_MODE), false,
+                    this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.STATUS_BAR_BATTERY_STYLE), false,
+                    this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.SHOW_QS_CLOCK), false,
+                    this, UserHandle.USER_ALL);
+            }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            updateSettings();
+        }
+    }
+
+    private SettingsObserver mSettingsObserver = new SettingsObserver(mHandler);
+
     private final BroadcastReceiver mRingerReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -195,6 +224,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mPrivacyItemController = privacyItemController;
         mDualToneHandler = new DualToneHandler(
                 new ContextThemeWrapper(context, R.style.QSHeaderTheme));
+        mSettingsObserver.observe();
     }
 
     @Override
@@ -244,7 +274,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
 
         mClockView = findViewById(R.id.clock);
         mClockView.setOnClickListener(this);
-	mClockView.setQsHeader();
+        mClockView.setQsHeader();
         mDateView = findViewById(R.id.date);
         mDateView.setOnClickListener(this);
         mSpace = findViewById(R.id.space);
@@ -253,12 +283,11 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mBatteryRemainingIcon = findViewById(R.id.batteryRemainingIcon);
         // Don't need to worry about tuner settings for this icon
         mBatteryRemainingIcon.setIgnoreTunerUpdates(true);
-        // QS will always show the estimate, and BatteryMeterView handles the case where
-        // it's unavailable or charging
-        mBatteryRemainingIcon.setPercentShowMode(BatteryMeterView.MODE_ESTIMATE);
+        mBatteryRemainingIcon.setPercentShowMode(BatteryMeterView.MODE_ON);
         mBatteryRemainingIcon.setOnClickListener(this);
         mRingerModeTextView.setSelected(true);
         mNextAlarmTextView.setSelected(true);
+        updateSettings();
 
         mPermissionsHubEnabled = PrivacyItemControllerKt.isPermissionsHubEnabled();
         // Change the ignored slots when DeviceConfig flag changes
@@ -414,6 +443,47 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         updateStatusIconAlphaAnimator();
         updateHeaderTextContainerAlphaAnimator();
         updatePrivacyChipAlphaAnimator();
+    }
+
+    private void updateSettings() {
+        updateQSBatteryMode();
+        updateSBBatteryStyle();
+        updateQSClock();
+        updateResources();
+    }
+
+    private void updateQSBatteryMode() {
+        int showEstimate = Settings.System.getInt(mContext.getContentResolver(),
+        Settings.System.QS_BATTERY_MODE, 0);
+        if (showEstimate == 0) {
+            mBatteryRemainingIcon.setShowPercent(0);
+            mBatteryRemainingIcon.setPercentShowMode(BatteryMeterView.MODE_OFF);
+        } else if (showEstimate == 1) {
+            mBatteryRemainingIcon.setShowPercent(0);
+            mBatteryRemainingIcon.setPercentShowMode(BatteryMeterView.MODE_ON);
+        } else if (showEstimate == 2) {
+            mBatteryRemainingIcon.setShowPercent(1);
+            mBatteryRemainingIcon.setPercentShowMode(BatteryMeterView.MODE_OFF);
+        } else if (showEstimate == 3) {
+            mBatteryRemainingIcon.setShowPercent(0);
+            mBatteryRemainingIcon.setPercentShowMode(BatteryMeterView.MODE_ESTIMATE);
+        }
+        mBatteryRemainingIcon.updatePercentView();
+        mBatteryRemainingIcon.updateVisibility();
+    }
+
+    private void updateSBBatteryStyle() {
+        mBatteryRemainingIcon.setBatteryStyle(Settings.System.getInt(mContext.getContentResolver(),
+        Settings.System.STATUS_BAR_BATTERY_STYLE, 0));
+        mBatteryRemainingIcon.updateBatteryStyle();
+        mBatteryRemainingIcon.updatePercentView();
+        mBatteryRemainingIcon.updateVisibility();
+    }
+
+    private void updateQSClock() {
+        int show = Settings.System.getInt(mContext.getContentResolver(),
+        Settings.System.SHOW_QS_CLOCK, 1);
+        mClockView.setClockVisibleByUser(show == 1);
     }
 
     private void updateStatusIconAlphaAnimator() {
