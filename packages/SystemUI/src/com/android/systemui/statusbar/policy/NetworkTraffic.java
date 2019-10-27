@@ -58,6 +58,7 @@ public class NetworkTraffic extends TextView {
     private long lastUpdateTime;
     private int txtSize;
     private int txtImgPadding;
+    private boolean mIsOnStatusBar;
     private int mAutoHideThreshold;
     private boolean mColorIsStatic = false;
     protected int mTintColor;
@@ -109,7 +110,7 @@ public class NetworkTraffic extends TextView {
                     indicatorUp = true;
                 }
                 mTrafficVisible = true;
-            } else {
+            } else if (!mIsOnStatusBar) {
                 // Add information for downlink if it's called for
                 String output = formatOutput(timeDelta, rxData, symbol);
 
@@ -185,6 +186,9 @@ public class NetworkTraffic extends TextView {
                     this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System
                     .getUriFor(Settings.System.NETWORK_TRAFFIC_ARROW), false,
+                    this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.NETWORK_TRAFFIC_LOCATION), false,
                     this, UserHandle.USER_ALL);
         }
 
@@ -302,6 +306,9 @@ public class NetworkTraffic extends TextView {
                 UserHandle.USER_CURRENT);
         mShowArrow = Settings.System.getIntForUser(resolver,
                 Settings.System.NETWORK_TRAFFIC_ARROW, 1,
+                UserHandle.USER_CURRENT) == 1;
+        mIsOnStatusBar = Settings.System.getIntForUser(resolver,
+                Settings.System.NETWORK_TRAFFIC_LOCATION, 0,
                 UserHandle.USER_CURRENT) == 1;
     }
 
