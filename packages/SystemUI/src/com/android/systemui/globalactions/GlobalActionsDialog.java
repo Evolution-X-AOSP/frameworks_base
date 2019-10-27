@@ -77,7 +77,7 @@ import android.transition.AutoTransition;
 import android.transition.TransitionManager;
 import android.transition.TransitionSet;
 import android.util.ArraySet;
-import android.util.FeatureFlagUtils;
+//import android.util.FeatureFlagUtils;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.IWindowManager;
@@ -1116,12 +1116,12 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
         @Override
         public boolean onLongPress() {
-            if (FeatureFlagUtils.isEnabled(mContext, FeatureFlagUtils.SCREENRECORD_LONG_PRESS)) {
+            //if (FeatureFlagUtils.isEnabled(mContext, FeatureFlagUtils.SCREENRECORD_LONG_PRESS)) {
                 mUiEventLogger.log(GlobalActionsEvent.GA_SCREENSHOT_LONG_PRESS);
                 mScreenRecordHelper.launchRecordPrompt();
-            } else {
+            /*} else {
                 onPress();
-            }
+            }*/
             return true;
         }
     }
