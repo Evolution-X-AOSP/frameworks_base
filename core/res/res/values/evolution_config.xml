@@ -107,6 +107,10 @@
     <string name="config_SmartChargingSuspendValue" translatable="false">0</string>
     <string name="config_SmartChargingResumeValue" translatable="false">1</string>
 
+    <!-- Defines the sysfs attribute path used by pocket bridge
+         to communicate pocket state to the pocket judge kernel driver. -->
+    <string name="config_pocketBridgeSysfsInpocket"></string>
+
     <!-- Whether device has dash charging support -->
     <bool name="config_hasDashCharger">false</bool>
     <!-- Path to dash charging status file -->
