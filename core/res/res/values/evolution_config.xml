@@ -578,4 +578,8 @@
     <!-- Delay in ms before invoking single tap gesture
          Should be set to dt2w max time / 2 when needed -->
     <integer name="config_singleTapDelay">0</integer>
+
+    <!-- Defines the sysfs attribute path used by pocket bridge
+         to communicate pocket state to the pocket judge kernel driver. -->
+    <string name="config_pocketBridgeSysfsInpocket"></string>
 </resources>
