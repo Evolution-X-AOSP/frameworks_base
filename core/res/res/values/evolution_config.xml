@@ -187,4 +187,14 @@
     <!-- Paths to fast charging status file to detect whether an oem fast charger is active -->
     <string-array name="config_oemFastChargerStatusPaths" translatable="false">
     </string-array>
+
+    <!-- Defines the sysfs attribute path used by pocket bridge
+         to communicate pocket state to the pocket judge kernel driver. -->
+    <string name="config_pocketBridgeSysfsInpocket"></string>
+
+    <!-- Pocket Lock -->
+    <bool name="config_pocketModeSupported">true</bool>
+
+    <!-- Defines custom OEM sensor for pocket detection. -->
+    <string name="config_pocketJudgeVendorSensorName"></string>
 </resources>
