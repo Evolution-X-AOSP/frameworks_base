@@ -5785,6 +5785,15 @@ public final class Settings {
          */
         public static final String BATTERY_LIGHT_LOW_BLINKING = "battery_light_low_blinking";
 
+	/**
+         * Whether allowing pocket service to register sensors and dispatch informations.
+         *   0 = disabled
+         *   1 = enabled
+         * @author Carlo Savignano
+         * @hide
+         */
+        public static final String POCKET_JUDGE = "pocket_judge";
+
         /**
          * Low battery charging color
          * @hide
@@ -6038,6 +6047,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(BATTERY_LIGHT_MEDIUM_COLOR);
             PRIVATE_SETTINGS.add(BATTERY_LIGHT_FULL_COLOR);
             PRIVATE_SETTINGS.add(BATTERY_LIGHT_REALLYFULL_COLOR);
+            PRIVATE_SETTINGS.add(POCKET_JUDGE);
         }
 
         /**
