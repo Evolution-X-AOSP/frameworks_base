@@ -299,7 +299,7 @@ public class NetworkTraffic extends TextView {
                 getSystemSettingKey(), 0,
                 UserHandle.USER_CURRENT) == 1;
         mTrafficType = Settings.System.getIntForUser(resolver,
-                Settings.System.NETWORK_TRAFFIC_TYPE, 0,
+                Settings.System.NETWORK_TRAFFIC_TYPE, 3,
                 UserHandle.USER_CURRENT);
         mAutoHideThreshold = Settings.System.getIntForUser(resolver,
                 Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, 1,
