@@ -484,7 +484,7 @@ public class StackStateAnimator {
     }
 
     public static void removeTransientView(ExpandableView viewToRemove) {
-        if (viewToRemove.getTransientContainer() != null) {
+        if (viewToRemove != null && viewToRemove.getTransientContainer() != null) {
             viewToRemove.getTransientContainer().removeTransientView(viewToRemove);
         }
     }
