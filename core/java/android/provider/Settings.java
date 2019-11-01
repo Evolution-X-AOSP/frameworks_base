@@ -3098,6 +3098,7 @@ public final class Settings {
 
             // At one time in System, then Global, but now back in Secure
             MOVED_TO_SECURE.add(Secure.INSTALL_NON_MARKET_APPS);
+            // Evolution X Customization
         }
 
         @UnsupportedAppUsage
@@ -4777,6 +4778,8 @@ public final class Settings {
          */
         public static final String MULTI_AUDIO_FOCUS_ENABLED = "multi_audio_focus_enabled";
 
+        /** Evolution X Customization **/
+
         /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
@@ -4903,6 +4906,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(EGG_MODE);
             PRIVATE_SETTINGS.add(SHOW_BATTERY_PERCENT);
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_MODE);
+            // Evolution X Customization
         }
 
         /**
@@ -5878,6 +5882,8 @@ public final class Settings {
                 int userHandle) {
             return putStringForUser(cr, name, Float.toString(value), userHandle);
         }
+
+        /** Evolution X Customization **/
 
         /**
          * Control whether to enable adaptive sleep mode.
