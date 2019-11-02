@@ -667,6 +667,8 @@ public class StatusBar extends SystemUI implements DemoMode,
     private ActivityIntentHelper mActivityIntentHelper;
     private ShadeController mShadeController;
 
+    private KeyguardSliceProvider mSliceProvider;
+
     @Override
     public void onActiveStateChanged(int code, int uid, String packageName, boolean active) {
         Dependency.get(MAIN_HANDLER).post(() -> {
@@ -719,9 +721,9 @@ public class StatusBar extends SystemUI implements DemoMode,
         mBubbleController = Dependency.get(BubbleController.class);
         mBubbleController.setExpandListener(mBubbleExpandListener);
         mActivityIntentHelper = new ActivityIntentHelper(mContext);
-        KeyguardSliceProvider sliceProvider = KeyguardSliceProvider.getAttachedInstance();
-        if (sliceProvider != null) {
-            sliceProvider.initDependencies(mMediaManager, mStatusBarStateController,
+        mSliceProvider = KeyguardSliceProvider.getAttachedInstance();
+        if (mSliceProvider != null) {
+            mSliceProvider.initDependencies(mMediaManager, mStatusBarStateController,
                     mKeyguardBypassController, DozeParameters.getInstance(mContext));
         } else {
             Log.w(TAG, "Cannot init KeyguardSliceProvider dependencies");
@@ -4028,6 +4030,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.PULSE_ON_NEW_TRACKS),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -4038,6 +4043,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         public void update() {
             setStatusDoubleTapToSleep();
             setScreenBrightnessMode();
+            setPulseOnNewTracks();
         }
     }
 
@@ -4056,6 +4062,13 @@ public class StatusBar extends SystemUI implements DemoMode,
     private void setStatusDoubleTapToSleep() {
         if (mStatusBarWindow != null) {
             mStatusBarWindow.updateSettings();
+        }
+    }
+
+    private void setPulseOnNewTracks() {
+        if (mSliceProvider != null) {
+            mSliceProvider.setPulseOnNewTracks(Settings.System.getIntForUser(mContext.getContentResolver(),
+                    Settings.System.PULSE_ON_NEW_TRACKS, 1, UserHandle.USER_CURRENT) == 1);
         }
     }
 
