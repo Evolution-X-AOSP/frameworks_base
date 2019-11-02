@@ -50,6 +50,7 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.TextView;
+import androidx.core.widget.TextViewCompat;
 
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
@@ -121,6 +122,7 @@ public class StatusBarNetworkTraffic extends NetworkTraffic implements StatusIco
                     setGravity(Gravity.CENTER);
                     setMaxLines(2);
                     setLineSpacing(0.75f, 0.75f);
+                    setAutoSizeTextTypeWithDefaults(AUTO_SIZE_TEXT_TYPE_UNIFORM);
                     setText(output);
                     indicatorUp = true;
                 }
@@ -135,6 +137,7 @@ public class StatusBarNetworkTraffic extends NetworkTraffic implements StatusIco
                     setGravity(Gravity.CENTER);
                     setMaxLines(2);
                     setLineSpacing(0.75f, 0.75f);
+                    setAutoSizeTextTypeWithDefaults(AUTO_SIZE_TEXT_TYPE_UNIFORM);
                     setText(output);
                     indicatorDown = true;
                 }
@@ -400,6 +403,7 @@ public class StatusBarNetworkTraffic extends NetworkTraffic implements StatusIco
         setGravity(Gravity.CENTER);
         setMaxLines(2);
         setLineSpacing(0.75f, 0.75f);
+        setAutoSizeTextTypeWithDefaults(AUTO_SIZE_TEXT_TYPE_UNIFORM);
     }
 
     @Override
