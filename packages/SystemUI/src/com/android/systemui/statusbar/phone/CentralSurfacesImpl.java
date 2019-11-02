@@ -150,6 +150,7 @@ import com.android.systemui.flags.Flags;
 import com.android.systemui.fragments.ExtensionFragmentListener;
 import com.android.systemui.fragments.FragmentHostManager;
 import com.android.systemui.fragments.FragmentService;
+import com.android.systemui.keyguard.KeyguardSliceProvider;
 import com.android.systemui.keyguard.KeyguardUnlockAnimationController;
 import com.android.systemui.keyguard.KeyguardViewMediator;
 import com.android.systemui.keyguard.ScreenLifecycle;
@@ -293,15 +294,17 @@ import javax.inject.Provider;
 @SysUISingleton
 public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, TunerService.Tunable {
 
-    private static final String STATUS_BAR_BRIGHTNESS_CONTROL =
-            "system:" + Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL;
-    private static final String NAVIGATION_BAR_SHOW =
-            "system:" + Settings.System.NAVIGATION_BAR_SHOW;
-
     private static final String BANNER_ACTION_CANCEL =
             "com.android.systemui.statusbar.banner_action_cancel";
     private static final String BANNER_ACTION_SETUP =
             "com.android.systemui.statusbar.banner_action_setup";
+
+    private static final String STATUS_BAR_BRIGHTNESS_CONTROL =
+            "system:" + Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL;
+    private static final String NAVIGATION_BAR_SHOW =
+            "system:" + Settings.System.NAVIGATION_BAR_SHOW;
+    private static final String PULSE_ON_NEW_TRACKS =
+            Settings.Secure.PULSE_ON_NEW_TRACKS;
 
     private static final int MSG_OPEN_SETTINGS_PANEL = 1002;
     private static final int MSG_LAUNCH_TRANSITION_TIMEOUT = 1003;
@@ -951,9 +954,6 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         mWindowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
         mDisplayManager = mContext.getSystemService(DisplayManager.class);
 
-        mTunerService.addTunable(this, STATUS_BAR_BRIGHTNESS_CONTROL);
-        mTunerService.addTunable(this, NAVIGATION_BAR_SHOW);
-
         mDisplay = mContext.getDisplay();
         mDisplayId = mDisplay.getDisplayId();
         updateDisplaySize();
@@ -986,6 +986,10 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         initCoreOverlays();
 
         createAndAddWindows(result);
+
+        mTunerService.addTunable(this, STATUS_BAR_BRIGHTNESS_CONTROL);
+        mTunerService.addTunable(this, NAVIGATION_BAR_SHOW);
+        mTunerService.addTunable(this, PULSE_ON_NEW_TRACKS);
 
         // Set up the initial notification state. This needs to happen before CommandQueue.disable()
         setUpPresenter();
@@ -3142,6 +3146,50 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
                 || mScreenOffAnimationController.shouldIgnoreKeyguardTouches();
     }
 
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        switch (key) {
+            case STATUS_BAR_BRIGHTNESS_CONTROL:
+                mBrightnessControl =
+                        TunerService.parseIntegerSwitch(newValue, false);
+                if (mPhoneStatusBarViewController != null)
+                    mPhoneStatusBarViewController.setBrightnessControlEnabled(mBrightnessControl);
+                break;
+            case NAVIGATION_BAR_SHOW:
+                if (mDisplayId != Display.DEFAULT_DISPLAY
+                    || mWindowManagerService == null) {
+                    break;
+                }
+                boolean navbarEnabled = NavbarUtils.isEnabled(mContext);
+                boolean hasNavbar = getNavigationBarView() != null;
+                if (navbarEnabled) {
+                    if (!hasNavbar) {
+                        RegisterStatusBarResult result = null;
+                        try {
+                            result = mBarService.registerStatusBar(mCommandQueue);
+                        } catch (RemoteException ex) {
+                            ex.rethrowFromSystemServer();
+                        }
+                        mNavigationBarController.createNavigationBars(true, result);
+                    }
+                } else {
+                    if (hasNavbar) {
+                        mNavigationBarController.removeNavigationBar(mDisplayId);
+                    }
+                }
+                break;
+            case PULSE_ON_NEW_TRACKS:
+                boolean showPulseOnNewTracks =
+                        TunerService.parseIntegerSwitch(newValue, false);
+                KeyguardSliceProvider sliceProvider = KeyguardSliceProvider.getAttachedInstance();
+                if (sliceProvider != null)
+                    sliceProvider.setPulseOnNewTracks(showPulseOnNewTracks);
+                break;
+            default:
+                break;
+        }
+    }
+
     // Begin Extra BaseStatusBar methods.
 
     protected final CommandQueue mCommandQueue;
@@ -3274,43 +3322,6 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
             navigationBarModeOverlay = NAV_BAR_MODE_GESTURAL_OVERLAY;
         }
         return navigationBarModeOverlay;
-    }
-
-    @Override
-    public void onTuningChanged(String key, String newValue) {
-        switch (key) {
-            case STATUS_BAR_BRIGHTNESS_CONTROL:
-                mBrightnessControl =
-                        TunerService.parseIntegerSwitch(newValue, false);
-                if (mPhoneStatusBarViewController != null)
-                    mPhoneStatusBarViewController.setBrightnessControlEnabled(mBrightnessControl);
-                break;
-            case NAVIGATION_BAR_SHOW:
-                if (mDisplayId != Display.DEFAULT_DISPLAY
-                    || mWindowManagerService == null) {
-                    break;
-                }
-                boolean navbarEnabled = NavbarUtils.isEnabled(mContext);
-                boolean hasNavbar = getNavigationBarView() != null;
-                if (navbarEnabled) {
-                    if (!hasNavbar) {
-                        RegisterStatusBarResult result = null;
-                        try {
-                            result = mBarService.registerStatusBar(mCommandQueue);
-                        } catch (RemoteException ex) {
-                            ex.rethrowFromSystemServer();
-                        }
-                        mNavigationBarController.createNavigationBars(true, result);
-                    }
-                } else {
-                    if (hasNavbar) {
-                        mNavigationBarController.removeNavigationBar(mDisplayId);
-                    }
-                }
-                break;
-            default:
-                break;
-        }
     }
 
     // End Extra BaseStatusBarMethods.
