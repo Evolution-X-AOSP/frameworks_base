@@ -156,6 +156,7 @@ public class ThemedBatteryDrawable extends Drawable {
 
         textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         textPaint.setTextAlign(Paint.Align.CENTER);
+        textPaint.setTypeface(Typeface.create("Roboto", Typeface.BOLD));
 
         errorPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         errorPaint.setColor(Utils.getColorStateListDefaultColor(mContext, R.color.batterymeter_plus_color));
@@ -221,7 +222,7 @@ public class ThemedBatteryDrawable extends Drawable {
         if (!charging && !powerSaveEnabled && showPercent) {
             float baseHeight = (dualTone ? iconRect : fillRect).height();
             textPaint.setColor(getColorForLevel(level));
-            textPaint.setTextSize(baseHeight * (level == 100 ? 0.38f : 0.5f));
+            textPaint.setTextSize(baseHeight * (level == 100 ? 0.38f : 0.65f));
             textHeight = -textPaint.getFontMetrics().ascent;
             pctText = String.valueOf(level);
             pctX = fillRect.width() * 0.5f + fillRect.left;
