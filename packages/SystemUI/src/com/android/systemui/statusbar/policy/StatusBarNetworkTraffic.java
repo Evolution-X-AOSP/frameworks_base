@@ -121,6 +121,7 @@ public class StatusBarNetworkTraffic extends NetworkTraffic implements StatusIco
                 if (output != getText()) {
                     setTypeface(Typeface.create(txtFont, Typeface.NORMAL));
                     setGravity(Gravity.CENTER);
+                    setMinLines(2);
                     setMaxLines(2);
                     setLineSpacing(0.75f, 0.75f);
                     setAutoSizeTextTypeWithDefaults(AUTO_SIZE_TEXT_TYPE_UNIFORM);
@@ -136,6 +137,7 @@ public class StatusBarNetworkTraffic extends NetworkTraffic implements StatusIco
                 if (output != getText()) {
                     setTypeface(Typeface.create(txtFont, Typeface.NORMAL));
                     setGravity(Gravity.CENTER);
+                    setMinLines(2);
                     setMaxLines(2);
                     setLineSpacing(0.75f, 0.75f);
                     setAutoSizeTextTypeWithDefaults(AUTO_SIZE_TEXT_TYPE_UNIFORM);
@@ -402,6 +404,7 @@ public class StatusBarNetworkTraffic extends NetworkTraffic implements StatusIco
         setCompoundDrawablePadding(txtImgPadding);
         setTypeface(Typeface.create(txtFont, Typeface.NORMAL));
         setGravity(Gravity.CENTER);
+        setMinLines(2);
         setMaxLines(2);
         setLineSpacing(0.75f, 0.75f);
         setAutoSizeTextTypeWithDefaults(AUTO_SIZE_TEXT_TYPE_UNIFORM);
