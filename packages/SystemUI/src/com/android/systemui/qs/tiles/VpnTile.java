@@ -42,6 +42,7 @@ import com.android.systemui.plugins.qs.QSTile.BooleanState;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
 import com.android.systemui.statusbar.phone.SystemUIDialog;
+import com.android.systemui.statusbar.phone.UnlockMethodCache;
 import com.android.systemui.statusbar.policy.SecurityController;
 import com.android.systemui.statusbar.policy.SecurityController.SecurityControllerCallback;
 import com.android.systemui.statusbar.policy.KeyguardMonitor;
@@ -55,6 +56,7 @@ import javax.inject.Inject;
 public class VpnTile extends QSTileImpl<BooleanState> {
     private final SecurityController mController;
     private final KeyguardMonitor mKeyguard;
+    private final UnlockMethodCache mUnlockMethodCache;
     private final Callback mCallback = new Callback();
     private final ActivityStarter mActivityStarter;
 
@@ -63,6 +65,7 @@ public class VpnTile extends QSTileImpl<BooleanState> {
         super(host);
         mController = Dependency.get(SecurityController.class);
         mKeyguard = Dependency.get(KeyguardMonitor.class);
+        mUnlockMethodCache = UnlockMethodCache.getInstance(mContext);
         mActivityStarter = Dependency.get(ActivityStarter.class);
     }
 
@@ -101,7 +104,7 @@ public class VpnTile extends QSTileImpl<BooleanState> {
 
     @Override
     protected void handleClick() {
-        if (mKeyguard.isSecure()) {
+        if (mKeyguard.isSecure() && !mUnlockMethodCache.canSkipBouncer()) {
             mActivityStarter.postQSRunnableDismissingKeyguard(() -> {
                 showConnectDialogOrDisconnect();
             });
