@@ -57,6 +57,7 @@ public class VisualizerView extends View
 
     private int mStatusBarState;
     private boolean mVisualizerEnabled = false;
+    private boolean mAmbientVisualizerEnabled = false;
     private boolean mVisible = false;
     private boolean mPlaying = false;
     private boolean mPowerSaveMode = false;
@@ -205,9 +206,9 @@ public class VisualizerView extends View
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        mSettingObserver = new SettingsObserver(new Handler());
-        mSettingObserver.observe();
-        mSettingObserver.update();
+        mObserver = new SettingsObserver(new Handler());
+        mObserver.observe();
+        mObserver.update();
     }
 
     @Override
@@ -547,6 +548,9 @@ public class VisualizerView extends View
         }
 
         protected void update() {
+            mAmbientVisualizerEnabled = Settings.System.getIntForUser(
+                getContext().getContentResolver(), Settings.System.AMBIENT_VISUALIZER_ENABLED, 0,
+                UserHandle.USER_CURRENT) == 1;
             setVisualizerEnabled();
             setLavaLampEnabled();
             setLavaLampSpeed();
