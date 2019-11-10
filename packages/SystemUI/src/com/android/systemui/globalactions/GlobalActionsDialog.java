@@ -188,6 +188,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     private static final String GLOBAL_ACTION_KEY_LOGOUT = "logout";
     static final String GLOBAL_ACTION_KEY_EMERGENCY = "emergency";
     static final String GLOBAL_ACTION_KEY_SCREENSHOT = "screenshot";
+    static final String GLOBAL_ACTION_KEY_SCREENRECORD = "screenrecord";
 
     private static final int RESTART_RECOVERY_BUTTON = 1;
     private static final int RESTART_BOOTLOADER_BUTTON = 2;
@@ -713,6 +714,10 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                 if (screenshotEnabled(mContext)) {
                     addIfShouldShowAction(tempActions, new ScreenshotAction());
                 }
+            } else if (GLOBAL_ACTION_KEY_SCREENRECORD.equals(actionKey)) {
+                if (screenrecordEnabled(mContext)) {
+                    addIfShouldShowAction(tempActions, new ScreenrecordAction());
+                }
             } else if (GLOBAL_ACTION_KEY_LOGOUT.equals(actionKey)) {
                 if (mDevicePolicyManager.isLogoutEnabled()
                         && currentUser.get() != null
@@ -847,6 +852,11 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     private boolean screenshotEnabled(Context context) {
         return Settings.Secure.getIntForUser(context.getContentResolver(),
                 Settings.Secure.SCREENSHOT_IN_POWER_MENU, 0, UserHandle.USER_CURRENT) == 1;
+    }
+
+    private boolean screenrecordEnabled(Context context) {
+        return Settings.Secure.getIntForUser(context.getContentResolver(),
+                Settings.Secure.SCREENRECORD_IN_POWER_MENU, 0, UserHandle.USER_CURRENT) == 1;
     }
 
     @VisibleForTesting
@@ -1123,6 +1133,33 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                 onPress();
             }*/
             return true;
+        }
+    }
+
+    private class ScreenrecordAction extends SinglePressAction implements LongPressAction {
+        public ScreenrecordAction() {
+            super(com.android.systemui.R.drawable.ic_screenrecord,
+            com.android.systemui.R.string.global_action_screenrecord);
+        }
+
+        @Override
+        public void onPress() {
+            mScreenRecordHelper.launchRecordPrompt();
+        }
+
+        @Override
+        public boolean showDuringKeyguard() {
+            return true;
+        }
+
+        @Override
+        public boolean showBeforeProvisioning() {
+            return false;
+        }
+
+        @Override
+        public boolean onLongPress() {
+            return false;
         }
     }
 
