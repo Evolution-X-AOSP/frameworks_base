@@ -58,4 +58,6 @@
     <dimen name="tri_state_up_top_left_radius">63.0px</dimen>
     <dimen name="tri_state_up_top_right_radius">63.0px</dimen>
 
+    <!-- Qs visibility -->
+    <dimen name="qs_tile_height_wo_label">64dp</dimen>
 </resources>
