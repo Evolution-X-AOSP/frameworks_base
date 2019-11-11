@@ -466,7 +466,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         } else if (showEstimate == 2) {
             mBatteryMeterView.setShowPercent(1);
             mBatteryMeterView.setPercentShowMode(BatteryMeterView.MODE_OFF);
-        } else if (showEstimate == 3) {
+        } else if (showEstimate == 3 || showEstimate == 4) {
             mBatteryMeterView.setShowPercent(0);
             mBatteryMeterView.setPercentShowMode(BatteryMeterView.MODE_ESTIMATE);
         }
