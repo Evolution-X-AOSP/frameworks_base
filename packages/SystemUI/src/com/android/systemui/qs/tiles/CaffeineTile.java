@@ -23,24 +23,37 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.ContentObserver;
 import android.net.Uri;
+import android.os.CountDownTimer;
 import android.os.PowerManager;
+import android.os.SystemClock;
 import android.provider.Settings;
+
 import android.service.quicksettings.Tile;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.systemui.qs.QSHost;
-import com.android.systemui.plugins.qs.QSTile.BooleanState;
-import com.android.systemui.qs.tileimpl.QSTileImpl;
+
 import com.android.systemui.R;
+import com.android.systemui.plugins.qs.QSTile.BooleanState;
+import com.android.systemui.qs.QSHost;
+import com.android.systemui.qs.tileimpl.QSTileImpl;
 
 import javax.inject.Inject;
 
 /** Quick settings tile: Caffeine **/
 public class CaffeineTile extends QSTileImpl<BooleanState> {
 
-    private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_caffeine_on);
-
     private final PowerManager.WakeLock mWakeLock;
+    private int mSecondsRemaining;
+    private int mDuration;
+    private static int[] DURATIONS = new int[] {
+        5 * 60,   // 5 min
+        10 * 60,  // 10 min
+        30 * 60,  // 30 min
+        -1,       // infinity
+    };
+    private CountDownTimer mCountdownTimer = null;
+    public long mLastClickTime = -1;
     private final Receiver mReceiver = new Receiver();
+    private boolean mListening;
 
     @Inject
     public CaffeineTile(QSHost host) {
@@ -58,10 +71,53 @@ public class CaffeineTile extends QSTileImpl<BooleanState> {
     @Override
     protected void handleDestroy() {
         super.handleDestroy();
+        stopCountDown();
         mReceiver.destroy();
-        if (mWakeLock.isHeld()) {
+      if (mWakeLock.isHeld()) {
             mWakeLock.release();
+      }
+    }
+
+    @Override
+    public void handleSetListening(boolean listening) {
+    }
+
+    @Override
+    public void handleClick() {
+        // If last user clicks < 5 seconds
+        // we cycle different duration
+        // otherwise toggle on/off
+        if (mWakeLock.isHeld() && (mLastClickTime != -1) &&
+                (SystemClock.elapsedRealtime() - mLastClickTime < 5000)) {
+            // cycle duration
+            mDuration++;
+            if (mDuration >= DURATIONS.length) {
+                // all durations cycled, turn if off
+                mDuration = -1;
+                stopCountDown();
+                if (mWakeLock.isHeld()) {
+                    mWakeLock.release();
+                }
+            } else {
+                // change duration
+                startCountDown(DURATIONS[mDuration]);
+                if (!mWakeLock.isHeld()) {
+                    mWakeLock.acquire();
+                }
+            }
+        } else {
+            // toggle
+            if (mWakeLock.isHeld()) {
+                mWakeLock.release();
+                stopCountDown();
+            } else {
+                mWakeLock.acquire();
+                mDuration = 0;
+                startCountDown(DURATIONS[mDuration]);
+            }
         }
+        mLastClickTime = SystemClock.elapsedRealtime();
+        refreshState();
     }
 
     @Override
@@ -79,18 +135,36 @@ public class CaffeineTile extends QSTileImpl<BooleanState> {
         return MetricsEvent.EVO_SETTINGS;
     }
 
-    @Override
-    public void handleSetListening(boolean listening) {}
-
-    @Override
-    public void handleClick() {
-        // toggle
-        if (mWakeLock.isHeld()) {
-            mWakeLock.release();
-        } else {
-            mWakeLock.acquire();
+    private void startCountDown(long duration) {
+        stopCountDown();
+        mSecondsRemaining = (int)duration;
+        if (duration == -1) {
+            // infinity timing, no need to start timer
+            return;
         }
-        refreshState();
+        mCountdownTimer = new CountDownTimer(duration * 1000, 1000) {
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+                mSecondsRemaining = (int) (millisUntilFinished / 1000);
+                refreshState();
+            }
+
+            @Override
+            public void onFinish() {
+                if (mWakeLock.isHeld())
+                    mWakeLock.release();
+                refreshState();
+            }
+
+        }.start();
+    }
+
+    private void stopCountDown() {
+        if (mCountdownTimer != null) {
+            mCountdownTimer.cancel();
+            mCountdownTimer = null;
+        }
     }
 
     @Override
@@ -99,24 +173,29 @@ public class CaffeineTile extends QSTileImpl<BooleanState> {
             "com.android.settings", "com.android.settings.Settings$DisplaySettingsActivity"));
     }
 
+    private String formatValueWithRemainingTime() {
+        if (mSecondsRemaining == -1) {
+            return "\u221E"; // infinity
+        }
+        return String.format("%02d:%02d",
+                        mSecondsRemaining / 60 % 60, mSecondsRemaining % 60);
+    }
+
     @Override
     protected void handleUpdateState(BooleanState state, Object arg) {
         if (mWakeLock == null) {
             return;
         }
-        if (state.slash == null) {
-            state.slash = new SlashState();
-        }
-        state.icon = mIcon;
         state.value = mWakeLock.isHeld();
-        state.label = mContext.getString(R.string.quick_settings_caffeine_label);
         if (state.value) {
-            state.slash.isSlashed = false;
+            state.label = formatValueWithRemainingTime();
+            state.icon = ResourceIcon.get(R.drawable.ic_qs_caffeine_on);
             state.contentDescription =  mContext.getString(
                     R.string.accessibility_quick_settings_caffeine_on);
             state.state = Tile.STATE_ACTIVE;
         } else {
-            state.slash.isSlashed = true;
+            state.label = mContext.getString(R.string.quick_settings_caffeine_label);
+            state.icon = ResourceIcon.get(R.drawable.ic_qs_caffeine_off);
             state.contentDescription =  mContext.getString(
                     R.string.accessibility_quick_settings_caffeine_off);
             state.state = Tile.STATE_INACTIVE;
@@ -140,9 +219,9 @@ public class CaffeineTile extends QSTileImpl<BooleanState> {
             String action = intent.getAction();
             if (Intent.ACTION_SCREEN_OFF.equals(action)) {
                 // disable caffeine if user force off (power button)
-                if (mWakeLock.isHeld()) {
+                stopCountDown();
+                if (mWakeLock.isHeld())
                     mWakeLock.release();
-                }
                 refreshState();
             }
         }
