@@ -173,7 +173,7 @@
     <integer name="config_screen_rotation_color_transition">200</integer>
 
     <!-- The duration (in milliseconds) of the tooltip show/hide animations. -->
-    <integer name="config_tooltipAnimTime">150</integer>
+    <integer name="config_tooltipAnimTime">140</integer>
 
     <!-- Duration for the dim animation behind a dialog.  This may be either
          a percentage, which is relative to the duration of the enter/open
