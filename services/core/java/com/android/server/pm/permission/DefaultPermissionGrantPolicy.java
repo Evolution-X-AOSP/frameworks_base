@@ -827,6 +827,10 @@ public final class DefaultPermissionGrantPolicy {
 
         // Google Markup
         grantSystemFixedPermissionsToSystemPackage("com.google.android.markup", userId, STORAGE_PERMISSIONS);
+
+        // Google Recorder
+        grantSystemFixedPermissionsToSystemPackage("com.google.android.apps.recorder", userId, MICROPHONE_PERMISSIONS,
+                ALWAYS_LOCATION_PERMISSIONS);
     }
 
     private String getDefaultSystemHandlerActivityPackageForCategory(String category, int userId) {
