@@ -127,6 +127,8 @@ public class NotificationShadeWindowViewController {
     private RectF mTempRect = new RectF();
     private boolean mIsTrackingBarGesture = false;
 
+    private boolean mDoubleTapEnabledNative;
+
     @Inject
     public NotificationShadeWindowViewController(
             InjectionInflationController injectionInflationController,
@@ -214,6 +216,10 @@ public class NotificationShadeWindowViewController {
                     case Settings.Secure.DOZE_TAP_SCREEN_GESTURE:
                         mSingleTapEnabled = configuration.tapGestureEnabled(UserHandle.USER_CURRENT);
                         break;
+                    case Settings.Secure.DOUBLE_TAP_TO_WAKE:
+                        mDoubleTapEnabledNative = Settings.Secure.getIntForUser(mView.getContext().getContentResolver(),
+                                Settings.Secure.DOUBLE_TAP_TO_WAKE, 0, UserHandle.USER_CURRENT) == 1;
+                        break;
                     case Settings.System.QS_SHOW_AUTO_BRIGHTNESS_BUTTON:
                         updateAutoBrightnessIconVisibility();
                         break;
@@ -226,6 +232,9 @@ public class NotificationShadeWindowViewController {
             contentObserver, UserHandle.USER_ALL);
         mSecureSettings.registerContentObserverForUser(
             Settings.Secure.DOZE_TAP_SCREEN_GESTURE,
+            contentObserver, UserHandle.USER_ALL);
+        mSecureSettings.registerContentObserverForUser(
+            Settings.Secure.DOUBLE_TAP_TO_WAKE,
             contentObserver, UserHandle.USER_ALL);
         if (mAutoBrightnessConfigEnabled) {
             updateAutoBrightnessIconVisibility();
@@ -248,7 +257,7 @@ public class NotificationShadeWindowViewController {
 
                     @Override
                     public boolean onDoubleTap(MotionEvent e) {
-                        if (mDoubleTapEnabled || mSingleTapEnabled) {
+                        if (mDoubleTapEnabled || mSingleTapEnabled|| mDoubleTapEnabledNative) {
                             mService.wakeUpIfDozing(
                                     SystemClock.uptimeMillis(), mView, "DOUBLE_TAP");
                             return true;
