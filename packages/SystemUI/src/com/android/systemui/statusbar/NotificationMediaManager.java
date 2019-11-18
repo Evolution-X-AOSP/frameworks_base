@@ -140,6 +140,8 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
 
     private final DelayableExecutor mMainExecutor;
 
+    private float mLockscreenMediaBlur;
+
     private final Context mContext;
     private final ArrayList<MediaListener> mMediaListeners;
     private final Lazy<Optional<StatusBar>> mStatusBarOptionalLazy;
@@ -897,23 +899,24 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
         switch (mAlbumArtFilter) {
             case 0:
             default:
-                return mMediaArtworkProcessor.processArtwork(mContext, artwork, getLockScreenMediaBlurLevel());
+                return mMediaArtworkProcessor.processArtwork(mContext, artwork, mLockscreenMediaBlur);
             case 1:
                 return Bitmap.createBitmap(ImageHelper.toGrayscale(artwork));
             case 2:
                 return Bitmap.createBitmap(ImageHelper.getColoredBitmap(new BitmapDrawable(mBackdropBack.getResources(), artwork), mContext.getResources().getColor(R.color.accent_device_default_light)));
             case 3:
-                return Bitmap.createBitmap(ImageHelper.getBlurredImage(mContext, artwork, getLockScreenMediaBlurLevel()));
+                return Bitmap.createBitmap(ImageHelper.getBlurredImage(mContext, artwork, mLockscreenMediaBlur));
             case 4:
-                return Bitmap.createBitmap(ImageHelper.getGrayscaleBlurredImage(mContext, artwork, getLockScreenMediaBlurLevel()));
+                return Bitmap.createBitmap(ImageHelper.getGrayscaleBlurredImage(mContext, artwork, mLockscreenMediaBlur));
         }
     }
 
-    private float getLockScreenMediaBlurLevel() {
-        float level = (float) Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.LOCKSCREEN_MEDIA_BLUR, 25,
+    public void setLockScreenMediaBlurLevel() {
+        /* divide for 100 so if we set 2500 on the seekbar we get 25, the stock aosp value
+        remember to set 2500 as default value to the seekbar! */
+        mLockscreenMediaBlur = (float) Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LOCKSCREEN_MEDIA_BLUR, 2500,
                 UserHandle.USER_CURRENT) / 100;
-        return level;
     }
 
     @MainThread
