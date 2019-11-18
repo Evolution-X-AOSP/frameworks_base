@@ -275,6 +275,8 @@ public class EdgeBackGestureHandler extends CurrentUserTracker
     private boolean mEdgeHapticEnabled;
     private static final int HAPTIC_DURATION = 20;
 
+    private boolean mIsBackGestureArrowEnabled;
+
     private final Vibrator mVibrator;
 
     // For debugging
@@ -413,6 +415,7 @@ public class EdgeBackGestureHandler extends CurrentUserTracker
         mEdgeHapticEnabled = mGestureNavigationSettingsObserver.getEdgeHaptic();
         mIsBackGestureAllowed =
                 !mGestureNavigationSettingsObserver.areNavigationButtonForcedVisible();
+        mIsBackGestureArrowEnabled = mGestureNavigationSettingsObserver.getBackArrowGesture();
 
         mTimeout = mGestureNavigationSettingsObserver.getLongSwipeTimeOut();
         mLeftLongSwipeAction = mGestureNavigationSettingsObserver.getLeftLongSwipeAction();
@@ -868,6 +871,7 @@ public class EdgeBackGestureHandler extends CurrentUserTracker
                     && isWithinTouchRegion((int) ev.getX(), (int) ev.getY());
             if (mAllowGesture) {
                 mEdgeBackPlugin.setIsLeftPanel(mIsOnLeftEdge);
+                mEdgeBackPlugin.setBackArrowVisibility(mIsBackGestureArrowEnabled);
                 mEdgeBackPlugin.onMotionEvent(ev);
             }
             if (mLogGesture) {
