@@ -146,15 +146,18 @@ public class GestureNavigationSettingsObserver extends ContentObserver {
                 Settings.Secure.getUriFor(Settings.Secure.BACK_GESTURE_INSET_SCALE_RIGHT),
                 false, this, UserHandle.USER_ALL);
         r.registerContentObserver(
-                Settings.Secure.getUriFor(Settings.Secure.USER_SETUP_COMPLETE),
+                Settings.Secure.getUriFor(Settings.Secure.SHOW_BACK_ARROW_GESTURE),
                 false, this, UserHandle.USER_ALL);
-        r.registerContentObserver(Settings.System.getUriFor(
-                Settings.System.BACK_GESTURE_HAPTIC),
+        r.registerContentObserver(
+                Settings.Secure.getUriFor(Settings.Secure.USER_SETUP_COMPLETE),
                 false, this, UserHandle.USER_ALL);
         DeviceConfig.addOnPropertiesChangedListener(
                 DeviceConfig.NAMESPACE_SYSTEMUI,
                 runnable -> mMainHandler.post(runnable),
                 mOnPropertiesChangedListener);
+        r.registerContentObserver(
+                Settings.System.getUriFor(Settings.System.BACK_GESTURE_HAPTIC),
+                false, this, UserHandle.USER_ALL);
         r.registerContentObserver(
                 Settings.System.getUriFor(Settings.System.NAVIGATION_BAR_IME_SPACE),
                 false, this, UserHandle.USER_ALL);
@@ -198,6 +201,12 @@ public class GestureNavigationSettingsObserver extends ContentObserver {
 
     public int getRightSensitivity(Resources userRes) {
         return getSensitivity(userRes, Settings.Secure.BACK_GESTURE_INSET_SCALE_RIGHT);
+    }
+
+    public boolean getBackArrowGesture() {
+        return Settings.Secure.getIntForUser(
+              mContext.getContentResolver(), Settings.Secure.SHOW_BACK_ARROW_GESTURE, 1,
+              UserHandle.USER_CURRENT) == 1;
     }
 
     public boolean areNavigationButtonForcedVisible() {
