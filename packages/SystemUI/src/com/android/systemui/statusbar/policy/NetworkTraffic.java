@@ -43,6 +43,7 @@ public class NetworkTraffic extends TextView {
     private static final int UP = 1;
     private static final int DOWN = 2;
     private static final int COMBINED = 3;
+    private static final int DYNAMIC = 4;
     private static final int KB = 1024;
     private static final int MB = KB * KB;
     private static final int GB = MB * KB;
@@ -116,8 +117,45 @@ public class NetworkTraffic extends TextView {
                     output += "\n";
                     // Add information for downlink if it's called for
                     output += formatOutput(timeDelta, rxData, symbol);
+                } else if (mTrafficType == DYNAMIC) {
+                    if (txData > rxData) {
+                        output = formatOutput(timeDelta, txData, symbol);
+                        if (!oBytes) {
+                            oBytes = false;
+                            iBytes = true;
+                        } else {
+                            oBytes = true;
+                            iBytes = true;
+                        }
+                    } else {
+                        output = formatOutput(timeDelta, rxData, symbol);
+                        if (!iBytes) {
+                            iBytes = false;
+                            oBytes = true;
+                        } else {
+                            iBytes = true;
+                            oBytes = true;
+                        }
+                    }
                 } else {
                     output = formatOutput(timeDelta, rxData + txData, symbol);
+                    if (txData > rxData) {
+                        if (!oBytes) {
+                            oBytes = false;
+                            iBytes = true;
+                        } else {
+                            oBytes = true;
+                            iBytes = true;
+                        }
+                    } else {
+                        if (!iBytes) {
+                            iBytes = false;
+                            oBytes = true;
+                        } else {
+                            iBytes = true;
+                            oBytes = true;
+                        }
+                    }
                 }
                 // Update view if there's anything new to show
                 if (! output.contentEquals(getText())) {
@@ -343,6 +381,14 @@ public class NetworkTraffic extends TextView {
                     intTrafficDrawable = R.drawable.stat_sys_network_traffic;
                 } else {
                     intTrafficDrawable = R.drawable.stat_sys_network_traffic_down;
+                }
+            } else if (mTrafficType == DYNAMIC || mTrafficType == COMBINED) {
+                if (iBytes && !oBytes) {
+                    intTrafficDrawable = R.drawable.stat_sys_network_traffic_up;
+                } else if (!iBytes && oBytes) {
+                    intTrafficDrawable = R.drawable.stat_sys_network_traffic_down;
+                } else {
+                    intTrafficDrawable = R.drawable.stat_sys_network_traffic;
                 }
             } else {
                 if (!iBytes && !oBytes) {
