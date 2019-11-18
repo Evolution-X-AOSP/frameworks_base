@@ -69,6 +69,8 @@ public class NetworkTraffic extends TextView {
     private int mRefreshInterval = 2;
 
     private boolean mScreenOn = true;
+    private boolean iBytes;
+    private boolean oBytes;
 
     protected static final String blank = "";
 
@@ -94,6 +96,9 @@ public class NetworkTraffic extends TextView {
             long newTotalTxBytes = TrafficStats.getTotalTxBytes();
             long rxData = newTotalRxBytes - totalRxBytes;
             long txData = newTotalTxBytes - totalTxBytes;
+
+            iBytes = (rxData <= (mAutoHideThreshold * 1024));
+            oBytes = (txData <= (mAutoHideThreshold * 1024));
 
             if (shouldHide(rxData, txData, timeDelta)) {
                 setText(blank);
@@ -121,6 +126,8 @@ public class NetworkTraffic extends TextView {
                 }
                 mTrafficVisible = true;
             }
+
+            updateTrafficDrawable();
             updateVisibility();
             updateTextSize();
 
@@ -326,11 +333,27 @@ public class NetworkTraffic extends TextView {
         int intTrafficDrawable;
         if (mIsEnabled && mHideArrow) {
             if (mTrafficType == UP) {
-                intTrafficDrawable = R.drawable.stat_sys_network_traffic_up;
+                if (oBytes) {
+                    intTrafficDrawable = R.drawable.stat_sys_network_traffic;
+                } else {
+                    intTrafficDrawable = R.drawable.stat_sys_network_traffic_up;
+                }
             } else if (mTrafficType == DOWN) {
-                intTrafficDrawable = R.drawable.stat_sys_network_traffic_down;
+                if (iBytes) {
+                    intTrafficDrawable = R.drawable.stat_sys_network_traffic;
+                } else {
+                    intTrafficDrawable = R.drawable.stat_sys_network_traffic_down;
+                }
             } else {
-                intTrafficDrawable = R.drawable.stat_sys_network_traffic_updown;
+                if (!iBytes && !oBytes) {
+                    intTrafficDrawable = R.drawable.stat_sys_network_traffic_updown;
+                } else if (!oBytes) {
+                    intTrafficDrawable = R.drawable.stat_sys_network_traffic_up;
+                } else if (!iBytes) {
+                    intTrafficDrawable = R.drawable.stat_sys_network_traffic_down;
+                } else {
+                    intTrafficDrawable = R.drawable.stat_sys_network_traffic;
+                }
             }
         } else {
             intTrafficDrawable = 0;
