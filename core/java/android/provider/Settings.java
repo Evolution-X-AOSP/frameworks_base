@@ -4606,16 +4606,6 @@ public final class Settings {
         private static final Validator QS_LAYOUT_COLUMNS_LANDSCAPE_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
 
-        /**
-         * Whether to display qs tile titles in the qs panel
-         * @hide
-         */
-        public static final String QS_TILE_TITLE_VISIBILITY = "qs_tile_title_visibility";
-
-        /** @hide */
-        private static final Validator QS_TILE_TITLE_VISIBILITY_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
         /** @hide */
         public static final String BACK_GESTURE_HEIGHT = "back_gesture_height";
 
@@ -5265,7 +5255,6 @@ public final class Settings {
             SCREENSHOT_SHUTTER_SOUND,
             QS_LAYOUT_COLUMNS_LANDSCAPE,
             QS_LAYOUT_COLUMNS,
-            QS_TILE_TITLE_VISIBILITY,
             BACK_GESTURE_HEIGHT,
             LOCKSCREEN_BATTERY_INFO,
             DOUBLE_TAP_SLEEP_GESTURE,
@@ -5426,7 +5415,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(SCREENSHOT_SHUTTER_SOUND);
             PRIVATE_SETTINGS.add(QS_LAYOUT_COLUMNS_LANDSCAPE);
             PRIVATE_SETTINGS.add(QS_LAYOUT_COLUMNS);
-            PRIVATE_SETTINGS.add(QS_TILE_TITLE_VISIBILITY);
             PRIVATE_SETTINGS.add(BACK_GESTURE_HEIGHT);
             PRIVATE_SETTINGS.add(SCREENSHOT_DEFAULT_MODE);
             PRIVATE_SETTINGS.add(LOCKSCREEN_BATTERY_INFO);
@@ -5577,7 +5565,6 @@ public final class Settings {
             VALIDATORS.put(QS_LAYOUT_COLUMNS_LANDSCAPE,
                     QS_LAYOUT_COLUMNS_LANDSCAPE_VALIDATOR);
             VALIDATORS.put(QS_LAYOUT_COLUMNS, QS_LAYOUT_COLUMNS_VALIDATOR);
-            VALIDATORS.put(QS_TILE_TITLE_VISIBILITY, QS_TILE_TITLE_VISIBILITY_VALIDATOR);
             VALIDATORS.put(BACK_GESTURE_HEIGHT, BACK_GESTURE_HEIGHT_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_BATTERY_INFO, LOCKSCREEN_BATTERY_INFO_VALIDATOR);
             VALIDATORS.put(DOUBLE_TAP_SLEEP_GESTURE,
