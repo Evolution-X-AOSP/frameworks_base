@@ -79,8 +79,10 @@ LOCAL_REQUIRED_MODULES := \
 	FontAmaranteSourceOverlay \
 	FontBariolSourceOverlay \
 	FontCagliostroSourceOverlay \
+	FontCircularStdOverlay \
 	FontCoolstorySourceOverlay \
 	FontLGSmartGothicSourceOverlay \
+	FontOnePlusSlateOverlay \
 	FontRosemarySourceOverlay \
 	FontSonySketchSourceOverlay \
 	FontSurferSourceOverlay \
