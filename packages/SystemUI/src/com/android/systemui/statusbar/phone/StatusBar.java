@@ -4123,9 +4123,6 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.QS_TILE_TITLE_VISIBILITY),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.LOCKSCREEN_MEDIA_BLUR),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.LOCKSCREEN_CHARGING_ANIMATION),
                     false, this, UserHandle.USER_ALL);
         }
@@ -4145,9 +4142,6 @@ public class StatusBar extends SystemUI implements DemoMode,
                     uri.equals(Settings.System.getUriFor(Settings.System.QS_TILE_TITLE_VISIBILITY))) {
                 updateQsPanelResources();
             } else if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.LOCKSCREEN_MEDIA_BLUR))) {
-                setLockScreenMediaBlurLevel();
-            } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.LOCKSCREEN_CHARGING_ANIMATION))) {
                 updateChargingAnimation();
             }
@@ -4162,14 +4156,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             setUseLessBoringHeadsUp();
             updatePocketJudgeFP();
             updateQsPanelResources();
-            setLockScreenMediaBlurLevel();
             updateChargingAnimation();
-        }
-    }
-
-    private void setLockScreenMediaBlurLevel() {
-        if (mMediaManager != null) {
-            mMediaManager.setLockScreenMediaBlurLevel();
         }
     }
 

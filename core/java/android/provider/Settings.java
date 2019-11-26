@@ -5005,15 +5005,6 @@ public final class Settings {
         public static final String ENABLE_GAMING_MODE = "enable_gaming_mode";
 
         /**
-         * Media artwork wallpaper blur level on lockscreen
-         * @hide
-         */
-        public static final String LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
-
-        /** @hide */
-        private static final Validator LOCKSCREEN_MEDIA_BLUR_VALIDATOR = ANY_INTEGER_VALIDATOR;
-
-        /**
          * Whether to pulse ambient on new music tracks
          * @hide
          */
@@ -5656,7 +5647,6 @@ public final class Settings {
             TORCH_LONG_PRESS_POWER_GESTURE,
             TORCH_LONG_PRESS_POWER_TIMEOUT,
             ANBI_ENABLED_OPTION,
-            LOCKSCREEN_MEDIA_BLUR,
             NOTIFICATION_GUTS_KILL_APP_BUTTON,
             LOCK_SHOW_STATUS_BAR,
             BATTERY_LIGHT_ENABLED,
@@ -5849,7 +5839,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(TORCH_LONG_PRESS_POWER_GESTURE);
             PRIVATE_SETTINGS.add(TORCH_LONG_PRESS_POWER_TIMEOUT);
             PRIVATE_SETTINGS.add(ANBI_ENABLED_OPTION);
-            PRIVATE_SETTINGS.add(LOCKSCREEN_MEDIA_BLUR);
             PRIVATE_SETTINGS.add(NOTIFICATION_GUTS_KILL_APP_BUTTON);
             PRIVATE_SETTINGS.add(LOCK_SHOW_STATUS_BAR);
             PRIVATE_SETTINGS.add(FORCE_FULLSCREEN_CUTOUT_APPS);
@@ -6019,7 +6008,6 @@ public final class Settings {
             VALIDATORS.put(TORCH_LONG_PRESS_POWER_GESTURE, TORCH_LONG_PRESS_POWER_GESTURE_VALIDATOR);
             VALIDATORS.put(TORCH_LONG_PRESS_POWER_TIMEOUT, TORCH_LONG_PRESS_POWER_TIMEOUT_VALIDATOR);
             VALIDATORS.put(ANBI_ENABLED_OPTION, ANBI_ENABLED_OPTION_VALIDATOR);
-            VALIDATORS.put(LOCKSCREEN_MEDIA_BLUR, LOCKSCREEN_MEDIA_BLUR_VALIDATOR);
             VALIDATORS.put(ACCELEROMETER_ROTATION_ANGLES, ACCELEROMETER_ROTATION_ANGLES_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_GUTS_KILL_APP_BUTTON, NOTIFICATION_GUTS_KILL_APP_BUTTON_VALIDATOR);
             VALIDATORS.put(LOCK_SHOW_STATUS_BAR,LOCK_SHOW_STATUS_BAR_VALIDATOR);
