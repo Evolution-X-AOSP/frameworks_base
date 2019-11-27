@@ -111,8 +111,8 @@
     <alias name="source-sans-pro-semi-bold" to="source-sans-pro" weight="600" />
 
     <!-- Lockscreen Fonts -->
-    <family name="gobold-sys">
-        <font weight="300" style="normal">Gobold.ttf</font>
+    <family name="gobold-light-sys">
+        <font weight="300" style="normal">GoboldThinLight.ttf</font>
     </family>
     <family name="roadrage-sys">
         <font weight="300" style="normal">RoadRage-Regular.ttf</font>
