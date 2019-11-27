@@ -164,6 +164,8 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
                 mBrightnessIcon,
                 findViewById(R.id.brightness_slider));
         mDumpController = dumpController;
+
+        updateSettings();
     }
 
     protected void addDivider() {
