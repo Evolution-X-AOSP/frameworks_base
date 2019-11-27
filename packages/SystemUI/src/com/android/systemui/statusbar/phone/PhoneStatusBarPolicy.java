@@ -72,6 +72,7 @@ import com.android.systemui.statusbar.policy.SensorPrivacyController;
 import com.android.systemui.statusbar.policy.UserInfoController;
 import com.android.systemui.statusbar.policy.ZenModeController;
 import com.android.systemui.tuner.TunerService;
+import com.android.systemui.tuner.TunerServiceImpl;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -298,7 +299,7 @@ public class PhoneStatusBarPolicy
         switch (key) {
             case BLUETOOTH_SHOW_BATTERY:
                 mShowBluetoothBattery =
-                        TunerService.parseIntegerSwitch(newValue, true);
+                        newValue == null || Integer.parseInt(newValue) != 0;
                 updateBluetooth();
                 break;
             default:
@@ -490,9 +491,7 @@ public class PhoneStatusBarPolicy
     }
 
     private int getBtLevelIconRes(int batteryLevel) {
-        if (!mShowBluetoothBattery) {
-            return R.drawable.stat_sys_data_bluetooth_connected;
-        } else if (batteryLevel == 100) {
+        if (batteryLevel == 100) {
             return R.drawable.stat_sys_data_bluetooth_connected_battery_9;
         } else if (batteryLevel >= 90) {
             return R.drawable.stat_sys_data_bluetooth_connected_battery_8;
