@@ -102,6 +102,10 @@ public class BoostFramework {
     public static final int UXE_EVENT_PKG_UNINSTALL = 7;
     public static final int UXE_EVENT_PKG_INSTALL = 8;
 
+    //perf opcodes
+    public static final int MPCTLV3_GPU_IS_APP_FG = 0X42820000;
+    public static final int MPCTLV3_GPU_IS_APP_BG = 0X42824000;
+
     public class Scroll {
         public static final int VERTICAL = 1;
         public static final int HORIZONTAL = 2;
