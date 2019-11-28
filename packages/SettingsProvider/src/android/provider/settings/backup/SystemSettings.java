@@ -114,5 +114,6 @@ public class SystemSettings {
         Settings.System.SENSOR_BLOCK,
         Settings.System.ENABLE_FLOATING_ROTATION_BUTTON,
         Settings.System.QS_FOOTER_TEXT_SHOW,
+        Settings.System.QS_FOOTER_TEXT_STRING,
     };
 }
