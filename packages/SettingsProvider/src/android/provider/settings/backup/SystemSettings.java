@@ -117,5 +117,6 @@ public class SystemSettings {
         Settings.System.QS_PANEL_STYLE,
         Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL,
         Settings.System.QS_FOOTER_TEXT_SHOW,
+        Settings.System.QS_FOOTER_TEXT_STRING,
     };
 }
