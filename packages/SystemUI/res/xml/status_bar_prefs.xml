@@ -105,6 +105,13 @@
         android:key="airplane"
         android:title="@string/status_bar_airplane" />
 
+    <!-- other weird signal stuff -->
+
+    <com.android.systemui.tuner.StatusBarSwitch
+        android:icon="@*android:drawable/ic_battery"
+        android:key="battery"
+        android:title="@string/battery" />
+
     <com.android.systemui.tuner.StatusBarSwitch
         android:icon="@drawable/ic_statusbar_alarm"
         android:key="alarm_clock"
