@@ -271,6 +271,10 @@ public class EvolutionUtils {
         FireActions.killForegroundApp();
     }
 
+    public static void setPartialScreenshot(boolean active) {
+        FireActions.setPartialScreenshot(active);
+    }
+
     private static final class FireActions {
         private static IStatusBarService mStatusBarService = null;
 
@@ -333,6 +337,15 @@ public class EvolutionUtils {
             if (service != null) {
                 try {
                     service.toggleSettingsPanel();
+                } catch (RemoteException e) {}
+            }
+        }
+
+        public static void setPartialScreenshot(boolean active) {
+            IStatusBarService service = getStatusBarService();
+            if (service != null) {
+                try {
+                    service.setPartialScreenshot(active);
                 } catch (RemoteException e) {}
             }
         }
