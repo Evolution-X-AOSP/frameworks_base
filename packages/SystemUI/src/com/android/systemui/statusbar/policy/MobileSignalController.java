@@ -193,7 +193,7 @@ public class MobileSignalController extends SignalController<
                     mVoLTEicon = Settings.System.getIntForUser(
                             mContext.getContentResolver(),
                             Settings.System.SHOW_VOLTE_ICON,
-                            0, UserHandle.USER_CURRENT) == 1;
+                            1, UserHandle.USER_CURRENT) == 1;
             }
             mapIconSets();
             updateTelephony();
