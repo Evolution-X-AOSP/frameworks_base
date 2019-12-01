@@ -742,6 +742,14 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     private boolean mShowNavBar;
 
+    @Override
+    public void setPartialScreenshot(boolean active) {
+        if (getNavigationBarView() != null) {
+            getNavigationBarView().setPartialScreenshot(active);
+        }
+        mNotificationInterruptionStateProvider.setPartialScreenshot(active);
+    }
+
     private int mRunningTaskId;
     private IntentFilter mDefaultHomeIntentFilter;
     private static final String[] DEFAULT_HOME_CHANGE_ACTIONS = new String[] {
@@ -754,6 +762,8 @@ public class StatusBar extends SystemUI implements DemoMode,
     @Nullable private ComponentName mDefaultHome;
     private boolean mIsLauncherShowing;
     private ComponentName mTaskComponentName = null;
+
+    private EvolutionSettingsObserver mEvolutionSettingsObserver;
 
     @Override
     public void onActiveStateChanged(int code, int uid, String packageName, boolean active) {
@@ -875,9 +885,6 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         createAndAddWindows(result);
 
-        mEvolutionSettingsObserver.observe();
-        mEvolutionSettingsObserver.update();
-
         if (mWallpaperSupported) {
             // Make sure we always have the most current wallpaper info.
             IntentFilter wallpaperChangedFilter = new IntentFilter(Intent.ACTION_WALLPAPER_CHANGED);
@@ -971,6 +978,10 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         // this will initialize Pulse and begin listening for media events
         mMediaManager.addCallback(Dependency.get(PulseController.class));
+
+        mEvolutionSettingsObserver = new EvolutionSettingsObserver(mHandler);
+        mEvolutionSettingsObserver.observe();
+        mEvolutionSettingsObserver.update();
     }
 
     private void initCoreOverlays(){
@@ -4463,9 +4474,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
     };
 
-    private EvolutionSettingsObserver mEvolutionSettingsObserver = new EvolutionSettingsObserver(mHandler);
     private class EvolutionSettingsObserver extends ContentObserver {
-
         EvolutionSettingsObserver(Handler handler) {
             super(handler);
         }
@@ -4579,7 +4588,8 @@ public class StatusBar extends SystemUI implements DemoMode,
                     false, this, UserHandle.USER_ALL);
         }
 
-        @Override public void onChange(boolean selfChange, Uri uri) {
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
             if (uri.equals(Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS_MODE)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL))) {
                 setScreenBrightnessMode();

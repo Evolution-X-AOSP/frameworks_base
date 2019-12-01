@@ -78,6 +78,7 @@ public class NotificationInterruptionStateProvider {
     private boolean mDisableNotificationAlerts;
 
     private boolean mLessBoringHeadsUp;
+    private boolean mPartialScreenshot;
 
     private boolean mGamingMode;
     private int mSkipHeadsUp;
@@ -251,7 +252,7 @@ public class NotificationInterruptionStateProvider {
 
         boolean isMediaPlayerNotification = isMediaPlayerNotification(entry);
 
-        if (entry.shouldSuppressPeek() || (shouldSkipHeadsUp(sbn) && !isMediaPlayerNotification)) {
+        if (entry.shouldSuppressPeek() || (shouldSkipHeadsUp(sbn) && !isMediaPlayerNotification) || mPartialScreenshot) {
             if (DEBUG_HEADS_UP) {
                 Log.d(TAG, "No heads up: suppressed by DND: " + sbn.getKey());
             }
@@ -375,6 +376,10 @@ public class NotificationInterruptionStateProvider {
     public void setGamingPeekMode(boolean gamingMode, int skipHeadsUp) {
         mGamingMode = gamingMode;
         mSkipHeadsUp = skipHeadsUp;
+    }
+
+    public void setPartialScreenshot(boolean active) {
+        mPartialScreenshot = active;
     }
 
     public boolean shouldSkipHeadsUp(StatusBarNotification sbn) {

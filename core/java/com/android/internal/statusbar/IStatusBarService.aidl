@@ -126,6 +126,7 @@ interface IStatusBarService
     void cancelPreloadRecentApps();
     void startAssist(in Bundle args);
     void killForegroundApp();
+    void setPartialScreenshot(boolean active);
     void screenPinningStateChanged(boolean enabled);
 
     // Used to block or unblock usage of gestural navigation
