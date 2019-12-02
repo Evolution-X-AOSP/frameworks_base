@@ -35,7 +35,6 @@ import static android.net.ConnectivityManager.TETHER_ERROR_NO_ERROR;
 import static android.net.ConnectivityManager.TETHER_ERROR_SERVICE_UNAVAIL;
 import static android.net.ConnectivityManager.TETHER_ERROR_UNAVAIL_IFACE;
 import static android.net.ConnectivityManager.TETHER_ERROR_UNKNOWN_IFACE;
-import static android.net.NetworkCapabilities.NET_CAPABILITY_NOT_VPN;
 import static android.net.wifi.WifiManager.EXTRA_WIFI_AP_INTERFACE_NAME;
 import static android.net.wifi.WifiManager.EXTRA_WIFI_AP_MODE;
 import static android.net.wifi.WifiManager.EXTRA_WIFI_AP_STATE;
@@ -61,7 +60,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Resources;
-import android.database.ContentObserver;
 import android.hardware.usb.UsbManager;
 import android.net.INetworkPolicyManager;
 import android.net.INetworkStatsService;
@@ -92,7 +90,6 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.os.UserManagerInternal;
 import android.os.UserManagerInternal.UserRestrictionsListener;
-import android.provider.Settings;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -306,18 +303,6 @@ public class Tethering extends BaseNetworkObserver {
         if (umi != null) {
             umi.addUserRestrictionsListener(new TetheringUserRestrictionListener(this));
         }
-
-        // Listen for allowing tethering upstream via VPN settings changes
-        final ContentObserver vpnSettingObserver = new ContentObserver(handler) {
-            @Override
-            public void onChange(boolean self) {
-                // Reconsider tethering upstream
-                mTetherMasterSM.sendMessage(TetherMasterSM.CMD_UPSTREAM_CHANGED);
-            }
-        };
-        mContext.getContentResolver().registerContentObserver(Settings.Secure.getUriFor(
-                Settings.Secure.TETHERING_ALLOW_VPN_UPSTREAMS), false, vpnSettingObserver,
-                UserHandle.USER_ALL);
     }
 
     private WifiManager getWifiManager() {
@@ -1615,12 +1600,6 @@ public class Tethering extends BaseNetworkObserver {
             }
 
             public void updateUpstreamNetworkState(NetworkState ns) {
-                // Disable hw offload on vpn upstream interfaces.
-                // setUpstreamLinkProperties() interprets null as disable.
-                if (ns != null && ns.networkCapabilities != null
-                        && !ns.networkCapabilities.hasCapability(NET_CAPABILITY_NOT_VPN)) {
-                    ns = null;
-                }
                 mOffloadController.setUpstreamLinkProperties(
                         (ns != null) ? ns.linkProperties : null);
             }
