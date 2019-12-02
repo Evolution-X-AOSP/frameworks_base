@@ -1354,6 +1354,12 @@ public class ActivityManagerService extends IActivityManager.Stub
     private int mCurResumedUid = -1;
 
     /**
+     * For Gaming Mode to temporarily hold app package name & uid
+     */
+    private String mCurResumedPackagex = null;
+    private int mCurResumedUidx = -1;
+
+    /**
      * For reporting to battery stats the apps currently running foreground
      * service.  The ProcessMap is package/uid tuples; each of these contain
      * an array of the currently foreground processes.
@@ -17951,12 +17957,18 @@ public class ActivityManagerService extends IActivityManager.Stub
                 if (mGamingModeController.topAppChanged(mCurResumedPackage) && !mGamingModeController.isGamingModeActivated()) {
                     Settings.System.putInt(mContext.getContentResolver(),
                         Settings.System.GAMING_MODE_ACTIVE, 1);
+                    mCurResumedPackagex = mCurResumedPackage;
+                    mCurResumedUidx = uid;
+                } else if (mCurResumedUidx == uid && mGamingModeController.topAppChanged(mCurResumedPackagex)) {
+                    if (!mGamingModeController.isGamingModeActivated())
+                        Settings.System.putInt(mContext.getContentResolver(),
+                                Settings.System.GAMING_MODE_ACTIVE, 1);
                 } else if (!mGamingModeController.topAppChanged(mCurResumedPackage) &&
                         mGamingModeController.isGamingModeActivated()) {
                     Settings.System.putInt(mContext.getContentResolver(),
                         Settings.System.GAMING_MODE_ACTIVE, 0);
                 }
-           }
+            }
         }
         return r;
     }
