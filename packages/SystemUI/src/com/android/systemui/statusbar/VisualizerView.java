@@ -68,6 +68,7 @@ public class VisualizerView extends View
     private SettingsObserver mObserver;
 
     private int mColor;
+    private int dColor;
     private Bitmap mCurrentBitmap;
 
     private ColorAnimator mLavaLamp;
@@ -174,7 +175,10 @@ public class VisualizerView extends View
         super(context, attrs, defStyle);
         mContext = context;
 
-        mColor = Color.TRANSPARENT;
+        if (dColor != 0)
+            mColor = dColor;
+        else
+            mColor = Color.TRANSPARENT;
 
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
@@ -288,6 +292,8 @@ public class VisualizerView extends View
     public void onColorChanged(ColorAnimator colorAnimator, int color) {
         if (mLavaLampEnabled)
             setColor(color);
+        else if (dColor != 0)
+            setColor(dColor);
     }
 
     @Override
@@ -326,6 +332,8 @@ public class VisualizerView extends View
             Palette.generateAsync(mCurrentBitmap, this);
         } else if (mCurrentBitmap != null) {
             setBitmap(null);
+        } else if (dColor != 0) {
+            setColor(dColor);
         } else {
             setColor(Color.TRANSPARENT);
         }
@@ -349,6 +357,16 @@ public class VisualizerView extends View
     private void setSolidUnitsOpacity() {
         mOpacity = Settings.Secure.getIntForUser(mContext.getContentResolver(),
                 Settings.Secure.LOCKSCREEN_SOLID_UNITS_OPACITY, 140, UserHandle.USER_CURRENT);
+    }
+
+    private void setDefaultColor() {
+        if (!mAutoColorEnabled && !mLavaLampEnabled) {
+            int color = Settings.Secure.getIntForUser(mContext.getContentResolver(),
+                    Settings.Secure.LOCKSCREEN_VISUALIZER_COLOR, 0xffffffff, UserHandle.USER_CURRENT);
+            dColor = color;
+            setColor(color);
+        } else
+            dColor = 0; // set color to 0 and check later just for extra safety
     }
 
     public void setVisible(boolean visible) {
@@ -416,6 +434,8 @@ public class VisualizerView extends View
             setColor(Color.TRANSPARENT);
         } else if (mAutoColorEnabled && !mLavaLampEnabled) {
             Palette.generateAsync(mCurrentBitmap, this);
+        } else if (dColor != 0) {
+            setColor(dColor);
         }
     }
 
@@ -423,15 +443,19 @@ public class VisualizerView extends View
     public void onGenerated(Palette palette) {
         int color = Color.TRANSPARENT;
 
-        color = palette.getVibrantColor(color);
-        if (color == Color.TRANSPARENT) {
-            color = palette.getLightVibrantColor(color);
+        if (mAutoColorEnabled) {
+            color = palette.getVibrantColor(color);
             if (color == Color.TRANSPARENT) {
-                color = palette.getDarkVibrantColor(color);
+                color = palette.getLightVibrantColor(color);
+                if (color == Color.TRANSPARENT) {
+                    color = palette.getDarkVibrantColor(color);
+                }
             }
-        }
-
-        setColor(color);
+        } else if (dColor != 0) {
+            color = dColor;
+            setColor(dColor);
+        } else
+            setColor(color);
     }
 
     private void setColor(int color) {
@@ -547,6 +571,9 @@ public class VisualizerView extends View
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                     Settings.Secure.LOCKSCREEN_SOLID_UNITS_OPACITY),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.Secure.getUriFor(
+                    Settings.Secure.LOCKSCREEN_VISUALIZER_COLOR),
+                    false, this, UserHandle.USER_ALL);
             update();
         }
 
@@ -581,6 +608,9 @@ public class VisualizerView extends View
             } else if (uri.equals(Settings.Secure.getUriFor(
                     Settings.Secure.LOCKSCREEN_SOLID_UNITS_OPACITY))) {
                 setSolidUnitsOpacity();
+            } else if (uri.equals(Settings.Secure.getUriFor(
+                    Settings.Secure.LOCKSCREEN_VISUALIZER_COLOR))) {
+                setDefaultColor();
             }
         }
 
@@ -598,6 +628,7 @@ public class VisualizerView extends View
             setSolidUnitsOpacity();
             checkStateChanged();
             updateViewVisibility();
+            setDefaultColor();
         }
     }
 }

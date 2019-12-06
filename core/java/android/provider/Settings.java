@@ -10689,6 +10689,12 @@ public final class Settings {
         public static final String LOCKSCREEN_VISUALIZER_AUTOCOLOR = "lockscreen_visualizer_autocolor";
 
         /**
+         * Default color of the visualizer
+         * @hide
+         */
+        public static final String LOCKSCREEN_VISUALIZER_COLOR = "lockscreen_visualizer_color";
+
+        /**
          * Number of bars shown in visualizer
          * @hide
          */
