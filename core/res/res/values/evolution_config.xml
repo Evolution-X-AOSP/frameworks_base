@@ -56,4 +56,8 @@
 
     <!-- Whether notify fingerprint client of successful cancelled authentication -->
     <bool name="config_notifyClientOnFingerprintCancelSuccess">false</bool>
+
+    <string-array translatable="false" name="config_customPermissionsList">
+        <!-- <item>more packages</item>-->
+    </string-array>
 </resources>
