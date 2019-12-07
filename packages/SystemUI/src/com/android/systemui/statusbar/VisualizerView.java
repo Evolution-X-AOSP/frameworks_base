@@ -175,10 +175,7 @@ public class VisualizerView extends View
         super(context, attrs, defStyle);
         mContext = context;
 
-        if (dColor != 0)
-            mColor = dColor;
-        else
-            mColor = Color.TRANSPARENT;
+        mColor = Color.TRANSPARENT;
 
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
@@ -292,8 +289,6 @@ public class VisualizerView extends View
     public void onColorChanged(ColorAnimator colorAnimator, int color) {
         if (mLavaLampEnabled)
             setColor(color);
-        else if (dColor != 0)
-            setColor(dColor);
     }
 
     @Override
@@ -317,6 +312,8 @@ public class VisualizerView extends View
     private void setLavaLampEnabled() {
         mLavaLampEnabled = Settings.Secure.getIntForUser(mContext.getContentResolver(),
                 Settings.Secure.LOCKSCREEN_LAVALAMP_ENABLED , 0, UserHandle.USER_CURRENT) == 1;
+        if (!mAutoColorEnabled && !mLavaLampEnabled)
+            setColor(dColor);
     }
 
     private void setLavaLampSpeed() {
@@ -332,8 +329,6 @@ public class VisualizerView extends View
             Palette.generateAsync(mCurrentBitmap, this);
         } else if (mCurrentBitmap != null) {
             setBitmap(null);
-        } else if (dColor != 0) {
-            setColor(dColor);
         } else {
             setColor(Color.TRANSPARENT);
         }
@@ -360,13 +355,9 @@ public class VisualizerView extends View
     }
 
     private void setDefaultColor() {
-        if (!mAutoColorEnabled && !mLavaLampEnabled) {
-            int color = Settings.Secure.getIntForUser(mContext.getContentResolver(),
-                    Settings.Secure.LOCKSCREEN_VISUALIZER_COLOR, 0xffffffff, UserHandle.USER_CURRENT);
-            dColor = color;
-            setColor(color);
-        } else
-            dColor = 0; // set color to 0 and check later just for extra safety
+        dColor = Settings.Secure.getIntForUser(mContext.getContentResolver(),
+                Settings.Secure.LOCKSCREEN_VISUALIZER_COLOR, 0xffffffff, UserHandle.USER_CURRENT);
+        setColor(dColor);
     }
 
     public void setVisible(boolean visible) {
@@ -434,8 +425,6 @@ public class VisualizerView extends View
             setColor(Color.TRANSPARENT);
         } else if (mAutoColorEnabled && !mLavaLampEnabled) {
             Palette.generateAsync(mCurrentBitmap, this);
-        } else if (dColor != 0) {
-            setColor(dColor);
         }
     }
 
@@ -443,25 +432,22 @@ public class VisualizerView extends View
     public void onGenerated(Palette palette) {
         int color = Color.TRANSPARENT;
 
-        if (mAutoColorEnabled) {
-            color = palette.getVibrantColor(color);
+        color = palette.getVibrantColor(color);
+        if (color == Color.TRANSPARENT) {
+            color = palette.getLightVibrantColor(color);
             if (color == Color.TRANSPARENT) {
-                color = palette.getLightVibrantColor(color);
-                if (color == Color.TRANSPARENT) {
-                    color = palette.getDarkVibrantColor(color);
-                }
+                color = palette.getDarkVibrantColor(color);
             }
-        } else if (dColor != 0) {
-            color = dColor;
-            setColor(dColor);
-        } else
-            setColor(color);
+        }
+
+        setColor(color);
     }
 
     private void setColor(int color) {
-        if (color == Color.TRANSPARENT) {
+        if (!mAutoColorEnabled && !mLavaLampEnabled)
+            color = dColor;
+        else if (color == Color.TRANSPARENT)
             color = Color.WHITE;
-        }
 
         color = Color.argb(mOpacity, Color.red(color), Color.green(color), Color.blue(color));
 
