@@ -5844,6 +5844,34 @@ public final class Settings {
          */
         public static final String SHOW_QS_CLOCK = "show_qs_clock";
 
+         /**
+         * Whether to display the power menu reboot option on a secured lockscreen
+         *
+         * @hide
+         */
+        public static final String POWERMENU_LS_REBOOT = "powermenu_ls_reboot";
+
+        /**
+         * Whether to display the power menu advanced reboot option on a secured lockscreen
+         *
+         * @hide
+         */
+        public static final String POWERMENU_LS_ADVANCED_REBOOT = "powermenu_ls_advanced_reboot";
+
+        /**
+         * Whether to display the power menu screenshot option on a secured lockscreen
+         *
+         * @hide
+         */
+        public static final String POWERMENU_LS_SCREENSHOT = "powermenu_ls_screenshot";
+
+        /**
+         * Whether to display the power menu torch option on a secured lockscreen
+         *
+         * @hide
+         */
+        public static final String POWERMENU_LS_TORCH = "powermenu_ls_torch";
+
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
