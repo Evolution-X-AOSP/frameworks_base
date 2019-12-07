@@ -58,6 +58,6 @@
     <bool name="config_notifyClientOnFingerprintCancelSuccess">false</bool>
 
     <string-array translatable="false" name="config_customPermissionsList">
-        <!-- <item>more packages</item>-->
+        <item>com.android.wallpaper.livepicker</item>
     </string-array>
 </resources>
