@@ -5866,6 +5866,13 @@ public final class Settings {
         public static final String POWERMENU_LS_SCREENSHOT = "powermenu_ls_screenshot";
 
         /**
+         * Whether to display the power menu screenrecord option on a secured lockscreen
+         *
+         * @hide
+         */
+        public static final String POWERMENU_LS_SCREENRECORD = "powermenu_ls_screenrecord";
+
+        /**
          * Whether to display the power menu torch option on a secured lockscreen
          *
          * @hide
