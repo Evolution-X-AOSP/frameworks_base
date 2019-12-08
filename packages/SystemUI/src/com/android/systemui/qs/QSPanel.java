@@ -248,10 +248,12 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
             if (newValue == null || Integer.parseInt(newValue) == 0) {
                 removeView(mBrightnessView);
                 mBrightnessPlaceholder.setVisibility(View.GONE);
+                mBrightnessPlaceholder.setLayoutParams(new LayoutParams(0, 0));
                 addView(mBrightnessView, 0);
                 mBrightnessBottom = false;
             } else {
                 removeView(mBrightnessView);
+                mBrightnessPlaceholder.setLayoutParams(new LayoutParams(0, 16));
                 mBrightnessPlaceholder.setVisibility(View.VISIBLE);
                 addView(mBrightnessView, getBrightnessViewPositionBottom());
                 mBrightnessBottom = true;
