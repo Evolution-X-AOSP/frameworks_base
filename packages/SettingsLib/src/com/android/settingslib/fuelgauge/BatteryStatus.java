@@ -64,7 +64,7 @@ public class BatteryStatus {
     public final int maxChargingCurrent;
     public final int maxChargingVoltage;
     public final int maxChargingWattage;
-    public final int temperature;
+    public final float temperature;
     public final boolean present;
 
     public final boolean dashChargeStatus;
@@ -74,7 +74,7 @@ public class BatteryStatus {
     public final boolean oemChargeStatus;
 
     public BatteryStatus(int status, int level, int plugged, int health,
-            int maxChargingCurrent, int maxChargingVoltage, int temperature,
+            int maxChargingCurrent, int maxChargingVoltage, float temperature,
             int maxChargingWattage, boolean dashChargeStatus, boolean warpChargeStatus,
             boolean voocChargeStatus, boolean turboPowerStatus,
             boolean oemChargeStatus, boolean present) {
