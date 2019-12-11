@@ -2225,6 +2225,11 @@ public final class ActivityRecord extends ConfigurationContainer {
 
         if (isActivityTypeHome()) {
             mStackSupervisor.updateHomeProcess(task.mActivities.get(0).app);
+            try {
+                mStackSupervisor.new PreferredAppsTask().execute();
+            } catch (Exception e) {
+                Slog.v (TAG, "Exception: " + e);
+            }
         }
 
         if (nowVisible) {
