@@ -40,8 +40,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto;
-import com.android.systemui.Dependency;
 import com.android.systemui.R;
+import com.android.systemui.keyguard.ScreenLifecycle;
 import com.android.systemui.plugins.qs.QS;
 import com.android.systemui.plugins.qs.QSTile;
 import com.android.systemui.qs.QSDetailClipper;
@@ -53,6 +53,8 @@ import com.android.systemui.statusbar.policy.KeyguardMonitor.Callback;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 /**
  * Allows full-screen customization of QS, through show() and hide().
@@ -68,6 +70,8 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
 
     private final QSDetailClipper mClipper;
     private final LightBarController mLightBarController;
+    private KeyguardMonitor mKeyguardMonitor;
+    private final ScreenLifecycle mScreenLifecycle;
     private final TileQueryHelper mTileQueryHelper;
     private final View mTransparentView;
 
@@ -85,7 +89,11 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
     private boolean mIsShowingNavBackdrop;
     private GridLayoutManager mGlm;
 
-    public QSCustomizer(Context context, AttributeSet attrs) {
+    @Inject
+    public QSCustomizer(Context context, AttributeSet attrs,
+            LightBarController lightBarController,
+            KeyguardMonitor keyguardMonitor,
+            ScreenLifecycle screenLifecycle) {
         super(new ContextThemeWrapper(context, R.style.edit_theme), attrs);
 
         LayoutInflater.from(getContext()).inflate(R.layout.qs_customize_panel_content, this);
@@ -118,7 +126,9 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         DefaultItemAnimator animator = new DefaultItemAnimator();
         animator.setMoveDuration(TileAdapter.MOVE_DURATION);
         mRecyclerView.setItemAnimator(animator);
-        mLightBarController = Dependency.get(LightBarController.class);
+        mLightBarController = lightBarController;
+        mKeyguardMonitor = keyguardMonitor;
+        mScreenLifecycle = screenLifecycle;
         updateNavBackDrop(getResources().getConfiguration());
     }
 
@@ -195,7 +205,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
             queryTiles();
             mNotifQsContainer.setCustomizerAnimating(true);
             mNotifQsContainer.setCustomizerShowing(true);
-            Dependency.get(KeyguardMonitor.class).addCallback(mKeyguardCallback);
+            mKeyguardMonitor.addCallback(mKeyguardCallback);
             updateNavColors();
         }
     }
@@ -211,7 +221,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
             queryTiles();
             mNotifQsContainer.setCustomizerAnimating(false);
             mNotifQsContainer.setCustomizerShowing(true);
-            Dependency.get(KeyguardMonitor.class).addCallback(mKeyguardCallback);
+            mKeyguardMonitor.addCallback(mKeyguardCallback);
             updateNavColors();
         }
     }
@@ -221,16 +231,21 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
     }
 
     public void hide() {
+        final boolean animate = mScreenLifecycle.getScreenState() != ScreenLifecycle.SCREEN_OFF;
         if (isShown) {
             MetricsLogger.hidden(getContext(), MetricsProto.MetricsEvent.QS_EDIT);
             isShown = false;
             mToolbar.dismissPopupMenus();
             setCustomizing(false);
             save();
-            mClipper.animateCircularClip(mX, mY, false, mCollapseAnimationListener);
-            mNotifQsContainer.setCustomizerAnimating(true);
+            if (animate) {
+                mClipper.animateCircularClip(mX, mY, false, mCollapseAnimationListener);
+            } else {
+                setVisibility(View.GONE);
+            }
+            mNotifQsContainer.setCustomizerAnimating(animate);
             mNotifQsContainer.setCustomizerShowing(false);
-            Dependency.get(KeyguardMonitor.class).removeCallback(mKeyguardCallback);
+            mKeyguardMonitor.removeCallback(mKeyguardCallback);
             updateNavColors();
         }
     }
@@ -286,7 +301,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
 
     public void saveInstanceState(Bundle outState) {
         if (isShown) {
-            Dependency.get(KeyguardMonitor.class).removeCallback(mKeyguardCallback);
+            mKeyguardMonitor.removeCallback(mKeyguardCallback);
         }
         outState.putBoolean(EXTRA_QS_CUSTOMIZING, mCustomizing);
     }
@@ -318,7 +333,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         @Override
         public void onKeyguardShowingChanged() {
             if (!isAttachedToWindow()) return;
-            if (Dependency.get(KeyguardMonitor.class).isShowing() && !mOpening) {
+            if (mKeyguardMonitor.isShowing() && !mOpening) {
                 hide();
             }
         }

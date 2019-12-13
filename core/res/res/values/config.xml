@@ -4290,4 +4290,9 @@
 
     <!-- Enable sms authorization framework-->
     <bool name="config_sms_authorization_enabled">false</bool>
+
+    <!-- Whether or not to hide the navigation bar when the soft keyboard is visible in order to
+         create additional screen real estate outside beyond the keyboard. Note that the user needs
+         to have a confirmed way to dismiss the keyboard when desired. -->
+    <bool name="config_automotiveHideNavBarForKeyboard">false</bool>
 </resources>

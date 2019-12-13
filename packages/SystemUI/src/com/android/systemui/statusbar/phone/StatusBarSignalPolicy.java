@@ -188,8 +188,9 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
     @Override
     public void setMobileDataIndicators(IconState statusIcon, IconState qsIcon, int statusType,
             int qsType, boolean activityIn, boolean activityOut, int volteId,
-            String typeContentDescription,
-            String description, boolean isWide, int subId, boolean roaming) {
+            CharSequence typeContentDescription,
+            CharSequence typeContentDescriptionHtml, CharSequence description,
+            boolean isWide, int subId, boolean roaming) {
         MobileIconState state = getState(subId);
         if (state == null) {
             return;
@@ -400,7 +401,7 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
         public int volteId;
         public boolean roaming;
         public boolean needsLeadingPadding;
-        public String typeContentDescription;
+        public CharSequence typeContentDescription;
 
         private MobileIconState(int subId) {
             super();

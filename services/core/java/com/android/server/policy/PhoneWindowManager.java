@@ -110,6 +110,7 @@ import android.app.ActivityTaskManager;
 import android.app.AlarmManager;
 import android.app.AppOpsManager;
 import android.app.IUiModeManager;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.KeyguardManager;
 import android.app.ProgressDialog;
@@ -2916,6 +2917,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         return (TelecomManager) mContext.getSystemService(Context.TELECOM_SERVICE);
     }
 
+    NotificationManager getNotificationService() {
+        return mContext.getSystemService(NotificationManager.class);
+    }
+
     static IAudioService getAudioService() {
         IAudioService audioService = IAudioService.Stub.asInterface(
                 ServiceManager.checkService(Context.AUDIO_SERVICE));
@@ -4266,6 +4271,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 }
                 if (down) {
                     sendSystemKeyToStatusBarAsync(event.getKeyCode());
+
+                    NotificationManager nm = getNotificationService();
+                    if (nm != null && !mHandleVolumeKeysInWM) {
+                        nm.silenceNotificationSound();
+                    }
 
                     TelecomManager telecomManager = getTelecommService();
                     if (telecomManager != null && !mHandleVolumeKeysInWM) {
