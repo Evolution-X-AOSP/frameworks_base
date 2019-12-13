@@ -884,10 +884,12 @@ public final class BluetoothDevice implements Parcelable {
     /*package*/
     @UnsupportedAppUsage
     static IBluetooth getService() {
+        BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
+        IBluetooth tService = adapter.getBluetoothService(sStateChangeCallback);
+
         synchronized (BluetoothDevice.class) {
             if (sService == null) {
-                BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
-                sService = adapter.getBluetoothService(sStateChangeCallback);
+                sService = tService;
             }
         }
         return sService;
@@ -898,9 +900,10 @@ public final class BluetoothDevice implements Parcelable {
         public void onBluetoothServiceUp(IBluetooth bluetoothService)
                 throws RemoteException {
             synchronized (BluetoothDevice.class) {
-                if (sService == null) {
-                    sService = bluetoothService;
+                if (sService != null) {
+                    Log.w(TAG, "sService is not NULL");
                 }
+                sService = bluetoothService;
             }
         }
 
