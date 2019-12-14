@@ -19,9 +19,14 @@ package com.android.systemui.omni;
 
 import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
+import android.app.WallpaperColors;
+import android.app.WallpaperManager;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.UserHandle;
 import android.provider.Settings;
@@ -33,6 +38,8 @@ import android.widget.ImageView;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
+import androidx.palette.graphics.Palette;
+
 import com.android.settingslib.Utils;
 import com.android.systemui.R;
 
@@ -43,6 +50,7 @@ public class NotificationLightsView extends RelativeLayout {
     private ValueAnimator mLightAnimator;
     private boolean mPulsing;
     private boolean mNotification;
+    private WallpaperManager mWallManager;
 
     public NotificationLightsView(Context context) {
         this(context, null);
@@ -84,12 +92,26 @@ public class NotificationLightsView extends RelativeLayout {
     }
 
     public void animateNotification(boolean mNotification) {
-        int defaultColor = Color.parseColor("#3980FF");
-        /*int color = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.OMNI_PULSE_AMBIANT_LIGHT_COLOR, 0x3980FF,
-                UserHandle.USER_CURRENT);*/
-        //int color = Color.parseColor("#3980FF");
-        int color = defaultColor;
+        int color = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.PULSE_AMBIENT_LIGHT_COLOR, 0xFF3980FF,
+                UserHandle.USER_CURRENT);
+        if (Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.PULSE_AMBIENT_AUTO_COLOR, 0,
+                UserHandle.USER_CURRENT) == 1) {
+            try {
+                WallpaperManager wallpaperManager = WallpaperManager.getInstance(mContext);
+                Drawable wallpaperDrawable = wallpaperManager.getDrawable();
+                Bitmap bitmap = ((BitmapDrawable)wallpaperDrawable).getBitmap();
+                if (bitmap != null) {
+                    Palette p = Palette.from(bitmap).generate();
+                    int wallColor = p.getDominantColor(color);
+                    if (color != wallColor)
+                        color = wallColor;
+                }
+            } catch (Exception e) {
+                // Nothing to do
+            }
+        }
         StringBuilder sb = new StringBuilder();
         sb.append("animateNotification color ");
         sb.append(Integer.toHexString(color));
