@@ -761,6 +761,8 @@ public class StatusBar extends SystemUI implements DemoMode,
         final TunerService tunerService = Dependency.get(TunerService.class);
         tunerService.addTunable(this, SYSUI_ROUNDED_FWVALS);
 
+        mDisplayManager = mContext.getSystemService(DisplayManager.class);
+
         mWindowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
         mDreamManager = IDreamManager.Stub.asInterface(
                 ServiceManager.checkService(DreamService.DREAM_SERVICE));
