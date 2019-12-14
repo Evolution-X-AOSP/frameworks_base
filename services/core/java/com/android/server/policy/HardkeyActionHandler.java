@@ -667,11 +667,8 @@ public class HardkeyActionHandler {
             resolver.registerContentObserver(
                     Settings.Secure.getUriFor(Settings.Secure.HARDWARE_KEYS_DISABLE), false, this,
                     UserHandle.USER_ALL);
-	          resolver.registerContentObserver(
-                    Settings.System.getUriFor(Settings.System.HAPTIC_ON_ACTION_KEY), false, this,
-                    UserHandle.USER_ALL);
             resolver.registerContentObserver(
-                    Settings.Secure.getUriFor(Settings.Secure.HARDWARE_KEYS_DISABLE), false, this,
+                    Settings.System.getUriFor(Settings.System.HAPTIC_ON_ACTION_KEY), false, this,
                     UserHandle.USER_ALL);
             updateKeyAssignments();
         }
