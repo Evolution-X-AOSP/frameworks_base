@@ -96,5 +96,6 @@ public class SystemSettings {
         Settings.System.NAVIGATION_BAR_INVERSE,
         Settings.System.USE_OLD_MOBILETYPE,
         Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL,
+        Settings.System.FLASHLIGHT_ON_CALL,
     };
 }
