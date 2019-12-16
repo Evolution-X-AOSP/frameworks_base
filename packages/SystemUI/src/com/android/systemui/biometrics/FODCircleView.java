@@ -16,6 +16,7 @@
 
 package com.android.systemui.biometrics;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -25,6 +26,7 @@ import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.Point;
 import android.os.Handler;
+import android.os.UserHandle;
 import android.os.Looper;
 import android.os.PowerManager;
 import android.os.RemoteException;
@@ -278,7 +280,7 @@ public class FODCircleView extends ImageView {
     public void hideCircle() {
         mIsCircleShowing = false;
 
-        setImageResource(R.drawable.fod_icon_default);
+        setFODIcon();
         invalidate();
 
         dispatchRelease();
@@ -287,6 +289,25 @@ public class FODCircleView extends ImageView {
         updateAlpha();
 
         setKeepScreenOn(false);
+    }
+
+    private int getFODIcon() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.FOD_ICON, 0);
+    }
+
+    private void setFODIcon() {
+        int fodicon = getFODIcon();
+
+        if (fodicon == 0) {
+            this.setImageResource(R.drawable.fod_icon_default);
+        } else if (fodicon == 1) {
+            this.setImageResource(R.drawable.fod_icon_default_1);
+        } else if (fodicon == 2) {
+            this.setImageResource(R.drawable.fod_icon_default_2);
+        } else if (fodicon == 3) {
+            this.setImageResource(R.drawable.fod_icon_default_3);
+        }
     }
 
     public void show() {
