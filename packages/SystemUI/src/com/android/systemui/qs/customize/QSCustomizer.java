@@ -89,6 +89,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
     private boolean mOpening;
     private boolean mIsShowingNavBackdrop;
     private GridLayoutManager mGlm;
+    private int mDefaultColumns;
     private boolean mHeaderImageEnabled;
     private int mHeaderImageHeight;
 
@@ -104,6 +105,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         mToolbar = findViewById(com.android.internal.R.id.action_bar);
         TypedValue value = new TypedValue();
         mContext.getTheme().resolveAttribute(android.R.attr.homeAsUpIndicator, value, true);
+        mDefaultColumns = Math.max(1, mContext.getResources().getInteger(R.integer.quick_settings_num_columns));
         mToolbar.setNavigationIcon(
                 getResources().getDrawable(value.resourceId, mContext.getTheme()));
         mToolbar.setNavigationOnClickListener(new OnClickListener() {
@@ -122,7 +124,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         mTileQueryHelper = new TileQueryHelper(context, mTileAdapter);
         mRecyclerView.setAdapter(mTileAdapter);
         mTileAdapter.getItemTouchHelper().attachToRecyclerView(mRecyclerView);
-        mGlm = new GridLayoutManager(getContext(), 5);
+        mGlm = new GridLayoutManager(getContext(), mDefaultColumns);
         mGlm.setSpanSizeLookup(mTileAdapter.getSizeLookup());
         mRecyclerView.setLayoutManager(mGlm);
         mRecyclerView.addItemDecoration(mTileAdapter.getItemDecoration());
@@ -133,6 +135,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         mKeyguardMonitor = keyguardMonitor;
         mScreenLifecycle = screenLifecycle;
         updateNavBackDrop(getResources().getConfiguration());
+        updateResources();
     }
 
     @Override
@@ -153,11 +156,11 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         int columns;
         if (mContext.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             columns = Settings.System.getIntForUser(mContext.getContentResolver(),
-                    Settings.System.QS_COLUMNS_PORTRAIT, 4,
+                    Settings.System.QS_COLUMNS_PORTRAIT, mDefaultColumns,
                     UserHandle.USER_CURRENT);
         } else {
             columns = Settings.System.getIntForUser(mContext.getContentResolver(),
-                    Settings.System.QS_COLUMNS_LANDSCAPE, 4,
+                    Settings.System.QS_COLUMNS_LANDSCAPE, mDefaultColumns,
                     UserHandle.USER_CURRENT);
         }
         if (columns < 1) {
@@ -175,6 +178,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
             navBackdrop.setVisibility(mIsShowingNavBackdrop ? View.VISIBLE : View.GONE);
         }
         updateNavColors();
+        updateResources();
         updateSettings();
     }
 
@@ -278,6 +282,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
                 reset();
                 break;
         }
+        updateResources();
         updateSettings();
         return false;
     }
@@ -353,6 +358,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         public void onAnimationEnd(Animator animation) {
             if (isShown) {
                 setCustomizing(true);
+                updateResources();
             }
             mOpening = false;
             mNotifQsContainer.setCustomizerAnimating(false);
