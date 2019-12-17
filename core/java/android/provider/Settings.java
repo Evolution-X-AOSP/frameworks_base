@@ -5259,13 +5259,6 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
-         * Whether to display the screenrecord option on the power menu
-         *
-         * @hide
-         */
-        public static final String POWERMENU_SCREENRECORD = "powermenu_screenrecord";
-
-        /**
          * Whether to display settings in the power menu
          *
          * @hide
@@ -5858,13 +5851,6 @@ public final class Settings {
          * @hide
          */
         public static final String POWERMENU_LS_SCREENSHOT = "powermenu_ls_screenshot";
-
-        /**
-         * Whether to display the power menu screenrecord option on a secured lockscreen
-         *
-         * @hide
-         */
-        public static final String POWERMENU_LS_SCREENRECORD = "powermenu_ls_screenrecord";
 
         /**
          * Whether to display the power menu torch option on a secured lockscreen
