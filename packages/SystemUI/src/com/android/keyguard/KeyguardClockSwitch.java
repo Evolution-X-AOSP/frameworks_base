@@ -606,6 +606,18 @@ public class KeyguardClockSwitch extends RelativeLayout {
             mClockView.setTypeface(Typeface.create("phantombold-sys", Typeface.NORMAL));
             mClockViewBold.setTypeface(Typeface.create("phantombold-sys", Typeface.NORMAL));
         }
+        if (lockClockFont == 36) {
+            mClockView.setTypeface(Typeface.create("sourcesanspro-sys", Typeface.NORMAL));
+            mClockViewBold.setTypeface(Typeface.create("sourcesanspro-sys", Typeface.NORMAL));
+        }
+        if (lockClockFont == 37) {
+            mClockView.setTypeface(Typeface.create("circularstd-sys", Typeface.NORMAL));
+            mClockViewBold.setTypeface(Typeface.create("circularstd-sys", Typeface.NORMAL));
+        }
+        if (lockClockFont == 38) {
+            mClockView.setTypeface(Typeface.create("oneplusslate-sys", Typeface.NORMAL));
+            mClockViewBold.setTypeface(Typeface.create("oneplusslate-sys", Typeface.NORMAL));
+        }
     }
 
     public void refreshclocksize() {

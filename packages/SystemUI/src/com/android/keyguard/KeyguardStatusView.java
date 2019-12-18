@@ -422,6 +422,15 @@ public class KeyguardStatusView extends GridLayout implements
         if (lockDateFont == 35) {
             mKeyguardSlice.setViewsTypeface(Typeface.create("phantombold-sys", Typeface.NORMAL));
         }
+        if (lockDateFont == 36) {
+            mKeyguardSlice.setViewsTypeface(Typeface.create("sourcesanspro-sys", Typeface.NORMAL));
+        }
+        if (lockDateFont == 37) {
+            mKeyguardSlice.setViewsTypeface(Typeface.create("circularstd-sys", Typeface.NORMAL));
+        }
+        if (lockDateFont == 38) {
+            mKeyguardSlice.setViewsTypeface(Typeface.create("oneplusslate-sys", Typeface.NORMAL));
+        }
     }
 
     public float getClockTextSize() {
@@ -674,6 +683,15 @@ public class KeyguardStatusView extends GridLayout implements
         }
         if (ownerinfoFont == 35) {
             mOwnerInfo.setTypeface(Typeface.create("phantombold-sys", Typeface.NORMAL));
+        }
+        if (ownerinfoFont == 36) {
+            mOwnerInfo.setTypeface(Typeface.create("sourcesanspro-sys", Typeface.NORMAL));
+        }
+        if (ownerinfoFont == 37) {
+            mOwnerInfo.setTypeface(Typeface.create("circularstd-sys", Typeface.NORMAL));
+        }
+        if (ownerinfoFont == 38) {
+            mOwnerInfo.setTypeface(Typeface.create("oneplusslate-sys", Typeface.NORMAL));
         }
     }
 
