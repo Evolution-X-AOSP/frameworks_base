@@ -95,6 +95,9 @@ public class CarrierLabel extends TextView implements DarkReceiver {
     public static final int BURNSTOWN = 33;
     public static final int DUMBLEDOR = 34;
     public static final int PHANTOMBOLD = 35;
+    public static final int SOURCESANSPRO = 36;
+    public static final int CIRCULARSTD = 37;
+    public static final int ONEPLUSSLATE = 38;
 
     Handler mHandler;
 
@@ -381,6 +384,18 @@ public class CarrierLabel extends TextView implements DarkReceiver {
                 break;
             case PHANTOMBOLD:
                 setTypeface(Typeface.create("phantombold-sys",
+                    Typeface.NORMAL));
+                break;
+            case SOURCESANSPRO:
+                setTypeface(Typeface.create("sourcesanspro-sys",
+                    Typeface.NORMAL));
+                break;
+            case CIRCULARSTD:
+                setTypeface(Typeface.create("circularstd-sys",
+                    Typeface.NORMAL));
+                break;
+            case ONEPLUSSLATE:
+                setTypeface(Typeface.create("oneplusslate-sys",
                     Typeface.NORMAL));
                 break;
         }

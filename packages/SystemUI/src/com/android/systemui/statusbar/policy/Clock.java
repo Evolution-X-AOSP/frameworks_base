@@ -153,6 +153,9 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
     public static final int BURNSTOWN = 33;
     public static final int DUMBLEDOR = 34;
     public static final int PHANTOMBOLD = 35;
+    public static final int SOURCESANSPRO = 36;
+    public static final int CIRCULARSTD = 37;
+    public static final int ONEPLUSSLATE = 38;
     public int DEFAULT_CLOCK_SIZE = 14;
     public int DEFAULT_CLOCK_COLOR = 0xffffffff;
 
@@ -924,6 +927,15 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
                 break;
             case PHANTOMBOLD:
                 setTypeface(Typeface.create("phantombold-sys", Typeface.NORMAL));
+                break;
+            case SOURCESANSPRO:
+                setTypeface(Typeface.create("sourcesanspro-sys", Typeface.NORMAL));
+                break;
+            case CIRCULARSTD:
+                setTypeface(Typeface.create("circularstd-sys", Typeface.NORMAL));
+                break;
+            case ONEPLUSSLATE:
+                setTypeface(Typeface.create("oneplusslate-sys", Typeface.NORMAL));
                 break;
         }
     }
