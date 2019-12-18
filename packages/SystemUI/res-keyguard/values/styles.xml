@@ -65,6 +65,15 @@
         <item name="android:shadowColor">@color/keyguard_shadow_color</item>
         <item name="android:shadowRadius">?attr/shadowRadius</item>
     </style>
+    <style name="widget_big_static">
+        <item name="android:textSize">@dimen/widget_big_font_size</item>
+        <item name="android:paddingBottom">@dimen/bottom_text_spacing_digital</item>
+        <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
+        <item name="android:fontFeatureSettings">@*android:string/config_headlineFontFeatureSettings</item>
+        <item name="android:ellipsize">none</item>
+        <item name="android:shadowColor">@color/keyguard_shadow_color</item>
+        <item name="android:shadowRadius">?attr/shadowRadius</item>
+    </style>
     <style name="widget_title_bold">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/widget_title_font_size</item>

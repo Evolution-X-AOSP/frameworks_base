@@ -6,7 +6,7 @@
     >
     <TextClock
         android:id="@+id/time"
-        style="@style/widget_big"
+        style="@style/widget_big_static"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/date"
@@ -18,7 +18,7 @@
 
     <TextClock
         android:id="@+id/date"
-        style="@stype/widget_big"
+        style="@stype/widget_big_static"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
