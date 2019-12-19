@@ -436,38 +436,100 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
         boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
         int lockDateSize = isPrimary ? getLockDateSize() : 18;
 
-        if (lockDateSize == 10) {
-        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_10);
-        } else if (lockDateSize == 11) {
-        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_11);
-        } else if (lockDateSize == 12) {
-        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_12);
-        } else if (lockDateSize == 13) {
-        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_13);
-        } else if (lockDateSize == 14) {
-        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_14);
-        } else if (lockDateSize == 15) {
-        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_15);
-        } else if (lockDateSize == 16) {
-        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_16);
-        } else if (lockDateSize == 17) {
-        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_17);
-        } else if (lockDateSize == 18) {
-        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_18);
-        } else if (lockDateSize == 19) {
-        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_19);
-        } else if (lockDateSize == 20) {
-        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_20);
-        } else if (lockDateSize == 21) {
-        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_21);
-        } else if (lockDateSize == 22) {
-        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_22);
-        } else if (lockDateSize == 23) {
-        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_23);
-        } else if (lockDateSize == 24) {
-        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_24);
-        } else if (lockDateSize == 25) {
-        mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_25);
+        switch (lockDateSize) {
+            case 10:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_10);
+                break;
+            case 11:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_11);
+                break;
+            case 12:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_12);
+                break;
+            case 13:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_13);
+                break;
+            case 14:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_14);
+                break;
+            case 15:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_15);
+                break;
+            case 16:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_16);
+                break;
+            case 17:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_17);
+                break;
+            case 18:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_18);
+                break;
+            case 19:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_19);
+                break;
+            case 20:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_20);
+                break;
+            case 21:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_21);
+                break;
+            case 22:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_22);
+                break;
+            case 23:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_23);
+                break;
+            case 24:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_24);
+                break;
+            case 25:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_25);
+                break;
+            case 26:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_26);
+                break;
+            case 27:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_27);
+                break;
+            case 28:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_28);
+                break;
+            case 29:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_29);
+                break;
+            case 30:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_30);
+                break;
+            case 31:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_31);
+                break;
+            case 32:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_32);
+                break;
+            case 33:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_33);
+                break;
+            case 34:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_34);
+                break;
+            case 35:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_35);
+                break;
+            case 36:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_36);
+                break;
+            case 37:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_37);
+                break;
+            case 38:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_38);
+                break;
+            case 39:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_39);
+                break;
+            case 40:
+                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_40);
+                break;
         }
     }
 
