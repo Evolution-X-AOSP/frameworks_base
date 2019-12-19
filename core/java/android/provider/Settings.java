@@ -5537,6 +5537,16 @@ public final class Settings {
         public static final String NOTIFICATION_PULSE_COLOR_AUTOMATIC = "ambient_notification_light_color_automatic";
 
         /**
+         * @hide
+         */
+        public static final String AMBIENT_LIGHT_DURATION = "ambient_light_duration";
+
+        /**
+         * @hide
+         */
+        public static final String AMBIENT_LIGHT_REPEAT_COUNT = "ambient_light_repeat_count";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
