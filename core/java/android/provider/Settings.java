@@ -5959,12 +5959,6 @@ public final class Settings {
         public static final String STATUS_BAR_LOGO_STYLE = "status_bar_logo_style";
 
         /**
-         ** Statusbar logo Color
-         ** @hide
-         **/
-        public static final String STATUS_BAR_LOGO_COLOR = "status_bar_logo_color";
-
-        /**
          * Sensor block per-package
          * @hide
          */
