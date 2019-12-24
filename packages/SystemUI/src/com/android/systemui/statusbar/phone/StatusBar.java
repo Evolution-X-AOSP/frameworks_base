@@ -485,7 +485,8 @@ public class StatusBar extends SystemUI implements DemoMode,
     private PackageMonitor mPackageMonitor;
 
     private boolean mSysuiRoundedFwvals;
-    private boolean mHeadsUpDisabled, mGamingModeActivated;
+    private boolean mGamingModeActivated;
+    private int mHeadsUpDisabled;
 
     // XXX: gesture research
     private final GestureRecorder mGestureRec = DEBUG_GESTURES
@@ -4290,8 +4291,8 @@ public class StatusBar extends SystemUI implements DemoMode,
                 UserHandle.USER_CURRENT) == 1;
         mHeadsUpDisabled = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.GAMING_MODE_HEADSUP_TOGGLE, 1,
-                UserHandle.USER_CURRENT) == 1;
-        mNotificationInterruptionStateProvider.setGamingPeekMode(mGamingModeActivated && mHeadsUpDisabled);
+                UserHandle.USER_CURRENT);
+        mNotificationInterruptionStateProvider.setGamingPeekMode(mGamingModeActivated, mHeadsUpDisabled);
     }
 
     private void setHideArrowForBackGesture() {

@@ -77,7 +77,8 @@ public class NotificationInterruptionStateProvider {
 
     private boolean mLessBoringHeadsUp;
 
-    private boolean mSkipHeadsUp;
+    private boolean mGamingMode;
+    private int mSkipHeadsUp;
 
     @Inject
     public NotificationInterruptionStateProvider(Context context, NotificationFilter filter,
@@ -363,7 +364,8 @@ public class NotificationInterruptionStateProvider {
         mLessBoringHeadsUp = lessBoring;
     }
 
-    public void setGamingPeekMode(boolean skipHeadsUp) {
+    public void setGamingPeekMode(boolean gamingMode, int skipHeadsUp) {
+        mGamingMode = gamingMode;
         mSkipHeadsUp = skipHeadsUp;
     }
 
@@ -371,10 +373,21 @@ public class NotificationInterruptionStateProvider {
         String notificationPackageName = sbn.getPackageName().toLowerCase();
 
         // Gaming mode takes precedence since messaging headsup is intrusive
-        if (mSkipHeadsUp) {
-            boolean isNonInstrusive = notificationPackageName.contains("dialer") ||
-                notificationPackageName.contains("clock");
-            return !mStatusBarStateController.isDozing() && mSkipHeadsUp && !isNonInstrusive;
+        if (mGamingMode && !mStatusBarStateController.isDozing()) {
+            boolean isNonInstrusive;
+            if (mSkipHeadsUp == 1) {
+                isNonInstrusive = notificationPackageName.contains("dialer") ||
+                    notificationPackageName.contains("clock");
+                return !isNonInstrusive;
+            } else if (mSkipHeadsUp == 2) {
+                isNonInstrusive = notificationPackageName.contains("clock");
+                return !isNonInstrusive;
+            } else if (mSkipHeadsUp == 3) {
+                isNonInstrusive = notificationPackageName.contains("dialer");
+                return !isNonInstrusive;
+            } else if (mSkipHeadsUp == 4) {
+                return true;
+            }
         }
 
         boolean isLessBoring = notificationPackageName.contains("dialer") ||
@@ -452,6 +465,9 @@ public class NotificationInterruptionStateProvider {
      * @return {@code true} if we should launch the full screen intent
      */
     public boolean shouldLaunchFullScreenIntentWhenAdded(NotificationEntry entry) {
+        if (mGamingMode && !mStatusBarStateController.isDozing())
+            return false; // Don't allow fullscreen intent if gaming mode is active
+
         return entry.notification.getNotification().fullScreenIntent != null
             && (!shouldHeadsUp(entry)
                 || mStatusBarStateController.getState() == StatusBarState.KEYGUARD);
