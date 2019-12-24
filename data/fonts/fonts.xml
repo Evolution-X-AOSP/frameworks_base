@@ -151,7 +151,7 @@
         <font weight="400" style="normal">CircularStd.ttf</font>
     </family>
     <family name="oneplusslate-sys">
-        <font weight="400" style="normal">OnePlusSlate.ttf</font>
+        <font weight="400" style="normal">SlateForOnePlus-Regular.ttf</font>
     </family>
 
     <!-- fallback fonts -->

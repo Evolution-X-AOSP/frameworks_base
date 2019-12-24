@@ -16,16 +16,16 @@
  */
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.theme.font.oneplusslate"
+    package="com.android.theme.font.slateforoneplus"
     android:versionCode="1"
     android:versionName="1.0">
     <overlay android:targetPackage="android"
         android:category="android.theme.customization.font"
         android:priority="1"/>
 
-    <application android:label="@string/font_oneplus_slate_overlay" android:hasCode="false">
+    <application android:label="@string/font_slate_for_oneplus_overlay" android:hasCode="false">
         <meta-data
             android:name="android.theme.customization.REQUIRED_SYSTEM_FONTS"
-            android:value="oneplus,slate,oneplusslate" />
+            android:value="Slate,Slate-thin,Slate-light,Slate-book,Slate-medium,Slate-bold,Slate-black" />
     </application>
 </manifest>
