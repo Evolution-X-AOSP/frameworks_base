@@ -77,8 +77,8 @@ LOCAL_REQUIRED_MODULES := \
 	FontCircularStdOverlay \
 	FontCoolstorySourceOverlay \
 	FontLGSmartGothicSourceOverlay \
-	FontOnePlusSlateOverlay \
 	FontRosemarySourceOverlay \
+	FontSlateForOnePlusOverlay \
 	FontSonySketchSourceOverlay \
 	FontSurferSourceOverlay \
 	IconPackCircularAndroidOverlay \
