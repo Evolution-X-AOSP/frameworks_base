@@ -137,8 +137,11 @@ public class PackageInstallerActivity extends Activity {
 
     private AlertDialog mDialog;
 
-    private void startInstallConfirm() {
-        TextView viewToEnable;
+    private void startInstallConfirm(PackageInfo oldInfo) {
+        mDialog.requireViewById(R.id.updating_app_view).setVisibility(View.VISIBLE); // the main layout
+        TextView viewToEnable; // which install_confirm view to show
+        View oldVersionView;
+        View newVersionView;
 
         if (mAppInfo != null) {
             viewToEnable = mDialog.requireViewById(R.id.install_confirm_question_update);
@@ -147,6 +150,13 @@ public class PackageInstallerActivity extends Activity {
             final CharSequence requestedUpdateOwnerLabel = getApplicationLabel(mCallingPackage);
             if (!TextUtils.isEmpty(existingUpdateOwnerLabel)
                     && mPendingUserActionReason == PackageInstaller.REASON_REMIND_OWNERSHIP) {
+                oldVersionView = mDialog.requireViewById(R.id.installed_app_version);
+                ((TextView)oldVersionView).setText(
+                        getString(R.string.install_confirm_question_update_owner_reminder,
+                                requestedUpdateOwnerLabel, existingUpdateOwnerLabel));
+                ((TextView)oldVersionView).setText(
+                        getString(R.string.old_version_number, oldInfo.versionName));
+                oldVersionView.setVisibility(View.VISIBLE);
                 String updateOwnerString =
                         getString(R.string.install_confirm_question_update_owner_reminder,
                                 requestedUpdateOwnerLabel, existingUpdateOwnerLabel);
@@ -155,14 +165,21 @@ public class PackageInstallerActivity extends Activity {
                 viewToEnable.setText(styledUpdateOwnerString);
                 mOk.setText(R.string.update_anyway);
             } else {
+                oldVersionView = mDialog.requireViewById(R.id.installed_app_version);
+                ((TextView)oldVersionView).setText(
+                        getString(R.string.old_version_number, oldInfo.versionName));
+                oldVersionView.setVisibility(View.VISIBLE);
                 mOk.setText(R.string.update);
             }
         } else {
             // This is a new application with no permissions.
             viewToEnable = mDialog.requireViewById(R.id.install_confirm_question);
         }
-
+        newVersionView = mDialog.requireViewById(R.id.updating_app_version);
+        ((TextView)newVersionView).setText(
+                getString(R.string.new_version_number, mPkgInfo.versionName));
         viewToEnable.setVisibility(View.VISIBLE);
+        newVersionView.setVisibility(View.VISIBLE);
 
         mEnableOk = true;
         mOk.setEnabled(true);
@@ -319,20 +336,22 @@ public class PackageInstallerActivity extends Activity {
             mPkgInfo.applicationInfo.packageName = pkgName;
         }
         // Check if package is already installed. display confirmation dialog if replacing pkg
+        PackageInfo oldPackageInfo = null;
         try {
             // This is a little convoluted because we want to get all uninstalled
             // apps, but this may include apps with just data, and if it is just
             // data we still want to count it as "installed".
-            mAppInfo = mPm.getApplicationInfo(pkgName,
+            oldPackageInfo = mPm.getPackageInfo(pkgName,
                     PackageManager.MATCH_UNINSTALLED_PACKAGES);
-            if ((mAppInfo.flags&ApplicationInfo.FLAG_INSTALLED) == 0) {
+            mAppInfo = oldPackageInfo.applicationInfo;
+            if (mAppInfo != null && (mAppInfo.flags & ApplicationInfo.FLAG_INSTALLED) == 0) {
                 mAppInfo = null;
             }
         } catch (NameNotFoundException e) {
             mAppInfo = null;
         }
 
-        startInstallConfirm();
+        startInstallConfirm(oldPackageInfo);
     }
 
     void setPmResult(int pmResult) {
@@ -385,7 +404,7 @@ public class PackageInstallerActivity extends Activity {
             final SessionInfo info = mInstaller.getSessionInfo(sessionId);
             String resolvedPath = info != null ? info.getResolvedBaseApkPath() : null;
             if (info == null || !info.isSealed() || resolvedPath == null) {
-                Log.w(TAG, "Session " + sessionId + " in funky state; ignoring");
+                Log.w(TAG, "Session " + mSessionId + " in funky state; ignoring");
                 finish();
                 return;
             }
@@ -400,7 +419,7 @@ public class PackageInstallerActivity extends Activity {
                     -1 /* defaultValue */);
             final SessionInfo info = mInstaller.getSessionInfo(sessionId);
             if (info == null || !info.isPreApprovalRequested()) {
-                Log.w(TAG, "Session " + sessionId + " in funky state; ignoring");
+                Log.w(TAG, "Session " + mSessionId + " in funky state; ignoring");
                 finish();
                 return;
             }
@@ -820,9 +839,7 @@ public class PackageInstallerActivity extends Activity {
                     // work for the multiple user case, i.e. the caller task user and started
                     // Activity user are not the same. To avoid having multiple PIAs in the task,
                     // finish the current PackageInstallerActivity
-                    // Because finish() is overridden to set the installation result, we must use
-                    // the original finish() method, or the confirmation dialog fails to appear.
-                    PackageInstallerActivity.super.finish();
+                    finish();
                 }
             }, 500);
 
