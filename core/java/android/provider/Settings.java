@@ -5655,6 +5655,12 @@ public final class Settings {
         public static final String GAMING_MODE_HEADSUP_TOGGLE = "gaming_mode_headsup_toggle";
 
         /**
+         * Whether to disable notifications feedback gaming mode
+         * @hide
+         */
+        public static final String GAMING_MODE_NOTIFICATIONS_FEEDBACK = "gaming_mode_notifications_feedback";
+
+        /**
          * Ringer in gaming mode (0:OFF, 1:Vibrate, 2:DND, 3:Silent)
          * @hide
          */
