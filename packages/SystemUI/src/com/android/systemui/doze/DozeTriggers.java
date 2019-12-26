@@ -168,9 +168,7 @@ public class DozeTriggers implements DozeMachine.Part {
 
         if (isWakeDisplay) {
             onWakeScreen(wakeEvent, mMachine.isExecutingTransition() ? null : mMachine.getState());
-        } else if (isLongPress
-                // whether to show ambient or lockscreen if AoD is disabled and we do a wake gesture like lift to wake or double tap
-                || (!mConfig.alwaysOnEnabled(UserHandle.USER_CURRENT) && mConfig.isAmbientGestureEnabled(UserHandle.USER_CURRENT))) {
+        } else if (isLongPress) {
             requestPulse(pulseReason, true /* alreadyPerformedProxCheck */,
                     null /* onPulseSupressedListener */);
         } else if (isWakeLockScreen) {
@@ -207,6 +205,10 @@ public class DozeTriggers implements DozeMachine.Part {
     }
 
     private void gentleWakeUp(int reason) {
+        if (!mConfig.alwaysOnEnabled(UserHandle.USER_CURRENT) && mConfig.isAmbientGestureEnabled(UserHandle.USER_CURRENT)) {
+            requestPulse(reason, true /* alreadyPerformedProxCheck */, null /* onPulseSupressedListener */);
+            return;
+        }
         // Log screen wake up reason (lift/pickup, tap, double-tap)
         mMetricsLogger.write(new LogMaker(MetricsEvent.DOZING)
                 .setType(MetricsEvent.TYPE_UPDATE)
