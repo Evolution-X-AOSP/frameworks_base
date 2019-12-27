@@ -17,6 +17,7 @@
 
 package com.android.systemui.qs.tiles;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.provider.Settings;
 import android.service.quicksettings.Tile;
@@ -80,7 +81,8 @@ public class AODTile extends QSTileImpl<BooleanState> implements
 
     @Override
     public Intent getLongClickIntent() {
-        return null;
+        return new Intent().setComponent(new ComponentName(
+            "com.android.settings", "com.android.settings.Settings$LockscreenDisplayActivity"));
     }
 
     private void setEnabled(boolean enabled) {
