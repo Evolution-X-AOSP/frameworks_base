@@ -66,7 +66,7 @@ public class AODTile extends QSTileImpl<BooleanState> {
     @Override
     public Intent getLongClickIntent() {
         return new Intent().setComponent(new ComponentName(
-            "org.lineageos.settings", "org.lineageos.settings.doze.DozeSettingsActivity"));
+            "com.android.settings", "com.android.settings.Settings$LockscreenDisplayActivity"));
     }
 
     @Override
