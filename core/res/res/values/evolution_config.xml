@@ -257,4 +257,6 @@
 
     <!-- Whether notify fingerprint client of successful cancelled authentication -->
     <bool name="config_notifyClientOnFingerprintCancelSuccess">false</bool>
+
+    <bool name="config_has_Soli">false</bool>
 </resources>

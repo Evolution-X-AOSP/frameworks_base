@@ -252,4 +252,6 @@
 
     <!-- Toast animation -->
     <java-symbol type="style" name="Animation.Toast.Material" />
+
+  <java-symbol type="bool" name="config_has_Soli" />
 </resources>
