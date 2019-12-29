@@ -35,12 +35,14 @@ public class AmbientDisplayConfiguration {
 
     private final Context mContext;
     private final boolean mAlwaysOnByDefault;
+    private final boolean mDeviceHasSoli;
 
     /** {@hide} */
     @TestApi
     public AmbientDisplayConfiguration(Context context) {
         mContext = context;
         mAlwaysOnByDefault = mContext.getResources().getBoolean(R.bool.config_dozeAlwaysOnEnabled);
+        mDeviceHasSoli = mContext.getResources().getBoolean(R.bool.config_has_Soli);
     }
 
     /** {@hide} */
@@ -241,7 +243,7 @@ public class AmbientDisplayConfiguration {
 
     /** {@hide} */
     public boolean isAmbientGestureEnabled(int user) {
-        return Settings.System.getIntForUser(mContext.getContentResolver(),
+        return !mDeviceHasSoli && Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.AMBIENT_WAKE_GESTURES, 0, user) != 0;
     }
 
@@ -249,5 +251,9 @@ public class AmbientDisplayConfiguration {
     public boolean isAmbientTickerEnabled(int user) {
         return Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.PULSE_ON_NEW_TRACKS, 1, user) != 0;
+    }
+
+    public boolean deviceHasSoli() {
+        return mDeviceHasSoli;
     }
 }
