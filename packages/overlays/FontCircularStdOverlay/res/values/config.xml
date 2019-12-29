@@ -19,9 +19,9 @@
      <!-- Name of a font family to use for body text. -->
     <string name="config_bodyFontFamily" translatable="false">circularstd</string>
     <!-- Name of a font family to use for medium body text. -->
-    <string name="config_bodyFontFamilyMedium" translatable="false">circularstd</string>
+    <string name="config_bodyFontFamilyMedium" translatable="false">circularstd-semi-bold</string>
     <!-- Name of a font family to use for headlines. If empty, falls back to platform default -->
     <string name="config_headlineFontFamily" translatable="false">circularstd</string>
     <!-- Name of the font family used for system surfaces where the font should use medium weight -->
-    <string name="config_headlineFontFamilyMedium" translatable="false">circularstd</string>
+    <string name="config_headlineFontFamilyMedium" translatable="false">circularstd-bold</string>
 </resources>

@@ -26,6 +26,6 @@
     <application android:label="@string/font_slate_for_oneplus_overlay" android:hasCode="false">
         <meta-data
             android:name="android.theme.customization.REQUIRED_SYSTEM_FONTS"
-            android:value="Slate,Slate-thin,Slate-light,Slate-book,Slate-medium,Slate-bold,Slate-black" />
+            android:value="Slate,Slate-thin,Slate-light,Slate-book,Slate-medium,Slate-semi-bold,Slate-bold,Slate-black" />
     </application>
 </manifest>
