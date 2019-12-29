@@ -17,5 +17,5 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Headline / Body font Noto Serif / Source Sans Pro overlay -->
-    <string name="font_circular_std_overlay" translatable="false">CircularStd</string>
+    <string name="font_circular_std_overlay" translatable="false">Circular Std</string>
 </resources>
