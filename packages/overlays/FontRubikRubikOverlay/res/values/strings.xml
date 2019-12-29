@@ -17,5 +17,5 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Headline / Body font Noto Serif / Source Sans Pro overlay -->
-    <string name="font_rubik_rubik_overlay" translatable="false">Rubik / Rubik</string>
+    <string name="font_rubik_rubik_overlay" translatable="false">Rubik</string>
 </resources>
