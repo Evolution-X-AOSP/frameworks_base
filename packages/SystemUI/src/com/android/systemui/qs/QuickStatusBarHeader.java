@@ -252,8 +252,9 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         // Tint for the battery icons are handled in setupHost()
         mBatteryRemainingIcon = findViewById(R.id.batteryRemainingIcon);
         mBatteryRemainingIcon.setIsQsHeader(true);
-        mBatteryRemainingIcon.setPercentShowMode(getBatteryPercentMode());
         mBatteryRemainingIcon.setOnClickListener(this);
+        updateQSBatteryPercent();
+        updateQSBatteryEstimate();
         mRingerModeTextView.setSelected(true);
         mNextAlarmTextView.setSelected(true);
         Dependency.get(TunerService.class).addTunable(this,
@@ -426,16 +427,18 @@ public class QuickStatusBarHeader extends RelativeLayout implements
                 .build();
     }
 
-    private int getBatteryPercentMode() {
-        boolean showBatteryPercent = Settings.System
-                .getIntForUser(getContext().getContentResolver(),
-                QS_SHOW_BATTERY_PERCENT, 0, UserHandle.USER_CURRENT) == 1;
-        return showBatteryPercent ?
-               BatteryMeterView.MODE_ON : BatteryMeterView.MODE_ESTIMATE;
+    public void updateQSBatteryPercent() {
+        mBatteryRemainingIcon.mShowBatteryPercentQS = Settings.System.getInt(mContext.getContentResolver(),
+        Settings.System.QS_SHOW_BATTERY_PERCENT, 2);
+        mBatteryRemainingIcon.updatePercentView();
+        mBatteryRemainingIcon.updateVisibility();
     }
 
-    public void setBatteryPercentMode() {
-        mBatteryRemainingIcon.setPercentShowMode(getBatteryPercentMode());
+    public void updateQSBatteryEstimate() {
+        mBatteryRemainingIcon.mShowBatteryEstimate = Settings.System.getInt(mContext.getContentResolver(),
+        Settings.System.QS_SHOW_BATTERY_ESTIMATE, 0);
+        mBatteryRemainingIcon.updatePercentView();
+        mBatteryRemainingIcon.updateVisibility();
     }
 
     public void setExpanded(boolean expanded) {

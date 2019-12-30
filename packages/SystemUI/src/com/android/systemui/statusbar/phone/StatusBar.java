@@ -2163,6 +2163,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.FORCE_SHOW_NAVBAR),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_SHOW_BATTERY_ESTIMATE),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -2170,9 +2173,10 @@ public class StatusBar extends SystemUI implements DemoMode,
             if (uri.equals(Settings.Secure.getUriFor(
                     Settings.Secure.FP_SWIPE_TO_DISMISS_NOTIFICATIONS))) {
                 setFpToDismissNotifications();
-            } else if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.QS_SHOW_BATTERY_PERCENT))) {
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_SHOW_BATTERY_PERCENT))) {
                 setQsBatteryPercentMode();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_SHOW_BATTERY_ESTIMATE))) {
+                setQsBatteryEstimate();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_ROWS_PORTRAIT)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.QS_ROWS_LANDSCAPE)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.QS_COLUMNS_PORTRAIT)) ||
@@ -2197,6 +2201,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             setHeadsUpBlacklist();
             setFpToDismissNotifications();
             setQsBatteryPercentMode();
+            setQsBatteryEstimate();
             updateQsPanelResources();
             setPulseOnNewTracks();
             updateChargingAnimation();
@@ -2231,7 +2236,13 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     private void setQsBatteryPercentMode() {
         if (mQSBarHeader != null) {
-            ((QuickStatusBarHeader) mQSBarHeader).setBatteryPercentMode();
+            ((QuickStatusBarHeader) mQSBarHeader).updateQSBatteryPercent();
+        }
+    }
+
+    private void setQsBatteryEstimate() {
+        if (mQSBarHeader != null) {
+            ((QuickStatusBarHeader) mQSBarHeader).updateQSBatteryEstimate();
         }
     }
 
