@@ -90,7 +90,7 @@ public class NotificationLightsView extends RelativeLayout {
 
     public void animateNotification() {
         int color = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.PULSE_AMBIENT_LIGHT_COLOR, 0xFF3980FF,
+                Settings.System.PULSE_AMBIENT_LIGHT_COLOR, 0xFF0060FF,
                 UserHandle.USER_CURRENT);
         int duration = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.PULSE_AMBIENT_LIGHT_DURATION, 2,
