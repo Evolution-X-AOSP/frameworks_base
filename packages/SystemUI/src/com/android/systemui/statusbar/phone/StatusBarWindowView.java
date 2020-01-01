@@ -282,7 +282,7 @@ public class StatusBarWindowView extends FrameLayout {
         boolean isAOD = Settings.Secure.getInt(mContext.getContentResolver(),
               Settings.Secure.DOZE_ALWAYS_ON, 1) == 1;
         if (mLockIcon != null && !isAOD) {
-            mLockIcon.setVisibility(pulsing ? View.GONE : View.VISIBLE);
+            mLockIcon.setPulsing(pulsing);
         }
     }
 
