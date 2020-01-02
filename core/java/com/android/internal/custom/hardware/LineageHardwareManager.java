@@ -73,47 +73,53 @@ public final class LineageHardwareManager {
     // the support library is properly handled in the platform, we should change this.
 
     /**
-     * Adaptive backlight support (this refers to technologies like NVIDIA SmartDimmer,
-     * QCOM CABL or Samsung CABC)
-     */
-    @VisibleForTesting
-    public static final int FEATURE_ADAPTIVE_BACKLIGHT = 0x1;
-
-    /**
-     * Color enhancement support
-     */
-    @VisibleForTesting
-    public static final int FEATURE_COLOR_ENHANCEMENT = 0x2;
-
-    /**
-     * Display RGB color calibration
-     */
-    @VisibleForTesting
-    public static final int FEATURE_DISPLAY_COLOR_CALIBRATION = 0x4;
-
-    /**
      * High touch sensitivity for touch panels
      */
     @VisibleForTesting
-    public static final int FEATURE_HIGH_TOUCH_SENSITIVITY = 0x10;
+    public static final int FEATURE_HIGH_TOUCH_SENSITIVITY = 0x1;
 
     /**
      * Hardware navigation key disablement
      */
     @VisibleForTesting
-    public static final int FEATURE_KEY_DISABLE = 0x20;
-
-    /**
-     * Increased display readability in bright light
-     */
-    @VisibleForTesting
-    public static final int FEATURE_SUNLIGHT_ENHANCEMENT = 0x100;
+    public static final int FEATURE_KEY_DISABLE = 0x2;
 
     /**
      * Touchscreen hovering
      */
     @VisibleForTesting
-    public static final int FEATURE_TOUCH_HOVERING = 0x800;
+    public static final int FEATURE_TOUCH_HOVERING = 0x4;
+
+    /**
+     * Touchscreen gesture
+     */
+    @VisibleForTesting
+    public static final int FEATURE_TOUCHSCREEN_GESTURES = 0x10;
+
+    /**
+     * Adaptive backlight support (this refers to technologies like NVIDIA SmartDimmer,
+     * QCOM CABL or Samsung CABC)
+     */
+    @VisibleForTesting
+    public static final int FEATURE_ADAPTIVE_BACKLIGHT = 0x20;
+
+    /**
+     * Color enhancement support
+     */
+    @VisibleForTesting
+    public static final int FEATURE_COLOR_ENHANCEMENT = 0x100;
+
+    /**
+     * Display RGB color calibration
+     */
+    @VisibleForTesting
+    public static final int FEATURE_DISPLAY_COLOR_CALIBRATION = 0x400;
+
+    /**
+     * Increased display readability in bright light
+     */
+    @VisibleForTesting
+    public static final int FEATURE_SUNLIGHT_ENHANCEMENT = 0x800;
 
     /**
      * Auto contrast
@@ -145,20 +151,14 @@ public final class LineageHardwareManager {
     @VisibleForTesting
     public static final int FEATURE_PICTURE_ADJUSTMENT = 0x40000;
 
-    /**
-     * Touchscreen gesture
-     */
-    @VisibleForTesting
-    public static final int FEATURE_TOUCHSCREEN_GESTURES = 0x80000;
-
     private static final List<Integer> BOOLEAN_FEATURES = Arrays.asList(
+        FEATURE_HIGH_TOUCH_SENSITIVITY,
+        FEATURE_KEY_DISABLE,
+        FEATURE_TOUCH_HOVERING,
         FEATURE_ADAPTIVE_BACKLIGHT,
         FEATURE_AUTO_CONTRAST,
         FEATURE_COLOR_ENHANCEMENT,
-        FEATURE_HIGH_TOUCH_SENSITIVITY,
-        FEATURE_KEY_DISABLE,
         FEATURE_SUNLIGHT_ENHANCEMENT,
-        FEATURE_TOUCH_HOVERING,
         FEATURE_READING_ENHANCEMENT
     );
 
@@ -261,6 +261,14 @@ public final class LineageHardwareManager {
     private IBase getHIDLService(int feature) {
         try {
             switch (feature) {
+                case FEATURE_HIGH_TOUCH_SENSITIVITY:
+                    return IGloveMode.getService(true);
+                case FEATURE_KEY_DISABLE:
+                    return IKeyDisabler.getService(true);
+                case FEATURE_TOUCH_HOVERING:
+                    return IStylusMode.getService(true);
+                case FEATURE_TOUCHSCREEN_GESTURES:
+                    return ITouchscreenGesture.getService(true);
                 case FEATURE_ADAPTIVE_BACKLIGHT:
                     return IAdaptiveBacklight.getService(true);
                 case FEATURE_AUTO_CONTRAST:
@@ -279,14 +287,6 @@ public final class LineageHardwareManager {
                     return IReadingEnhancement.getService(true);
                 case FEATURE_SUNLIGHT_ENHANCEMENT:
                     return ISunlightEnhancement.getService(true);
-                case FEATURE_HIGH_TOUCH_SENSITIVITY:
-                    return IGloveMode.getService(true);
-                case FEATURE_KEY_DISABLE:
-                    return IKeyDisabler.getService(true);
-                case FEATURE_TOUCH_HOVERING:
-                    return IStylusMode.getService(true);
-                case FEATURE_TOUCHSCREEN_GESTURES:
-                    return ITouchscreenGesture.getService(true);
             }
         } catch (NoSuchElementException | RemoteException e) {
         }
@@ -331,6 +331,15 @@ public final class LineageHardwareManager {
             if (isSupportedHIDL(feature)) {
                 IBase obj = mHIDLMap.get(feature);
                 switch (feature) {
+                    case FEATURE_HIGH_TOUCH_SENSITIVITY:
+                        IGloveMode gloveMode = (IGloveMode) obj;
+                        return gloveMode.isEnabled();
+                    case FEATURE_KEY_DISABLE:
+                        IKeyDisabler keyDisabler = (IKeyDisabler) obj;
+                        return keyDisabler.isEnabled();
+                    case FEATURE_TOUCH_HOVERING:
+                        IStylusMode stylusMode = (IStylusMode) obj;
+                        return stylusMode.isEnabled();
                     case FEATURE_ADAPTIVE_BACKLIGHT:
                         IAdaptiveBacklight adaptiveBacklight = (IAdaptiveBacklight) obj;
                         return adaptiveBacklight.isEnabled();
@@ -340,18 +349,9 @@ public final class LineageHardwareManager {
                     case FEATURE_COLOR_ENHANCEMENT:
                         IColorEnhancement colorEnhancement = (IColorEnhancement) obj;
                         return colorEnhancement.isEnabled();
-                    case FEATURE_HIGH_TOUCH_SENSITIVITY:
-                        IGloveMode gloveMode = (IGloveMode) obj;
-                        return gloveMode.isEnabled();
-                    case FEATURE_KEY_DISABLE:
-                        IKeyDisabler keyDisabler = (IKeyDisabler) obj;
-                        return keyDisabler.isEnabled();
                     case FEATURE_SUNLIGHT_ENHANCEMENT:
                         ISunlightEnhancement sunlightEnhancement = (ISunlightEnhancement) obj;
                         return sunlightEnhancement.isEnabled();
-                    case FEATURE_TOUCH_HOVERING:
-                        IStylusMode stylusMode = (IStylusMode) obj;
-                        return stylusMode.isEnabled();
                     case FEATURE_READING_ENHANCEMENT:
                         IReadingEnhancement readingEnhancement = (IReadingEnhancement) obj;
                         return readingEnhancement.isEnabled();
@@ -383,6 +383,15 @@ public final class LineageHardwareManager {
             if (isSupportedHIDL(feature)) {
                 IBase obj = mHIDLMap.get(feature);
                 switch (feature) {
+                    case FEATURE_HIGH_TOUCH_SENSITIVITY:
+                        IGloveMode gloveMode = (IGloveMode) obj;
+                        return gloveMode.setEnabled(enable);
+                    case FEATURE_KEY_DISABLE:
+                        IKeyDisabler keyDisabler = (IKeyDisabler) obj;
+                        return keyDisabler.setEnabled(enable);
+                    case FEATURE_TOUCH_HOVERING:
+                        IStylusMode stylusMode = (IStylusMode) obj;
+                        return stylusMode.setEnabled(enable);
                     case FEATURE_ADAPTIVE_BACKLIGHT:
                         IAdaptiveBacklight adaptiveBacklight = (IAdaptiveBacklight) obj;
                         return adaptiveBacklight.setEnabled(enable);
@@ -392,18 +401,9 @@ public final class LineageHardwareManager {
                     case FEATURE_COLOR_ENHANCEMENT:
                         IColorEnhancement colorEnhancement = (IColorEnhancement) obj;
                         return colorEnhancement.setEnabled(enable);
-                    case FEATURE_HIGH_TOUCH_SENSITIVITY:
-                        IGloveMode gloveMode = (IGloveMode) obj;
-                        return gloveMode.setEnabled(enable);
-                    case FEATURE_KEY_DISABLE:
-                        IKeyDisabler keyDisabler = (IKeyDisabler) obj;
-                        return keyDisabler.setEnabled(enable);
                     case FEATURE_SUNLIGHT_ENHANCEMENT:
                         ISunlightEnhancement sunlightEnhancement = (ISunlightEnhancement) obj;
                         return sunlightEnhancement.setEnabled(enable);
-                    case FEATURE_TOUCH_HOVERING:
-                        IStylusMode stylusMode = (IStylusMode) obj;
-                        return stylusMode.setEnabled(enable);
                     case FEATURE_READING_ENHANCEMENT:
                         IReadingEnhancement readingEnhancement = (IReadingEnhancement) obj;
                         return readingEnhancement.setEnabled(enable);
