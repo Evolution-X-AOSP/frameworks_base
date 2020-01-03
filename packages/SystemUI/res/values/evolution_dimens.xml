@@ -73,4 +73,10 @@
     <dimen name="qs_header_image_bottom_margin">4dp</dimen>
 
     <dimen name="screenrecord_dot_size">48dp</dimen>
+
+    <!-- Custom cutout overlay view sizes -->
+    <dimen name="config_customCutoutTopWidth">0.0px</dimen>
+    <dimen name="config_customCutoutTopHeight">0.0px</dimen>
+    <dimen name="config_customCutoutBottomWidth">0.0px</dimen>
+    <dimen name="config_customCutoutBottomHeight">0.0px</dimen>
 </resources>
