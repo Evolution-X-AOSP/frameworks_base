@@ -264,8 +264,4 @@
 
   <!-- Whether key handler sends intent when changing slider position -->
   <java-symbol type="string" name="config_alertSliderIntent" />
-
-  <!-- Time to give to the proximity sensor before toggling the flashlight with the Power button.
-       Set to -1 to disable the proximity sensor check at all-->
-  <java-symbol type="integer" name="config_flashlightProximityTimeout" />
 </resources>
