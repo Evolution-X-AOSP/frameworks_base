@@ -224,7 +224,7 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         return new TouchAnimator.Builder()
                 .addFloat(mActionsContainer, "alpha", 1, 1) // contains mRunningServicesButton
                 .addFloat(mEditContainer, "alpha", 0, 1)
-                .addFloat(mDragHandle, "alpha", 0, 0, 0)
+                .addFloat(mDragHandle, "alpha", 1, 0, 0)
                 .addFloat(mPageIndicator, "alpha", 0, 1)
                 .setStartDelay(0.15f)
                 .build();
