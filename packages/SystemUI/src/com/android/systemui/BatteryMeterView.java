@@ -367,12 +367,14 @@ public class BatteryMeterView extends LinearLayout implements
                         if (mBatteryPercentView != null) {
                             batteryPercentViewSetText(estimate);
                         }
-                        setContentDescription(getContext().getString(
-                                R.string.accessibility_battery_level_with_estimate,
-                                mLevel, estimate));
-                    } else {
+                    } else if (mShowPercentMode == MODE_ON || mShowBatteryPercent == 2) {
                         setPercentTextAtCurrentLevel();
+                    } else {
+                        batteryPercentViewSetText("");
                     }
+                    setContentDescription(getContext().getString(
+                            R.string.accessibility_battery_level_with_estimate,
+                            mLevel, estimate));
                 });
             } else {
                 setPercentTextAtCurrentLevel();
@@ -428,6 +430,7 @@ public class BatteryMeterView extends LinearLayout implements
                                 LayoutParams.WRAP_CONTENT,
                                 LayoutParams.MATCH_PARENT));
             }
+            updatePercentText();
             if (mBatteryStyle == BATTERY_STYLE_TEXT) {
                 mBatteryPercentView.setPaddingRelative(0, 0, 0, 0);
             } else {
