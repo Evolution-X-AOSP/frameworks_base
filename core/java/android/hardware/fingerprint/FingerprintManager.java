@@ -1344,13 +1344,15 @@ public class FingerprintManager implements BiometricAuthenticator, BiometricFing
      * @hide
      */
     public static String getErrorString(Context context, int errMsg, int vendorCode) {
+        final String retry = context.getString(
+                    com.android.internal.R.string.fingerprint_error_unable_to_process);
+
         switch (errMsg) {
             case FINGERPRINT_ERROR_HW_UNAVAILABLE:
                 return context.getString(
                         com.android.internal.R.string.fingerprint_error_hw_not_available);
             case FINGERPRINT_ERROR_UNABLE_TO_PROCESS:
-                return context.getString(
-                    com.android.internal.R.string.fingerprint_error_unable_to_process);
+                return retry;
             case FINGERPRINT_ERROR_TIMEOUT:
                 return context.getString(com.android.internal.R.string.fingerprint_error_timeout);
             case FINGERPRINT_ERROR_NO_SPACE:
@@ -1392,7 +1394,7 @@ public class FingerprintManager implements BiometricAuthenticator, BiometricFing
         // warn and use the default if all else fails.
         // TODO(b/196639965): update string
         Slog.w(TAG, "Invalid error message: " + errMsg + ", " + vendorCode);
-        return "";
+        return retry;
     }
 
     /**
