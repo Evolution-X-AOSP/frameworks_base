@@ -26,6 +26,7 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.provider.Settings;
 import android.util.StatsLog;
 import android.view.KeyEvent;
 import android.view.View;
@@ -273,6 +274,10 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
                 && !mNotificationPanelView.isQsExpanded();
         boolean lockVisible = (mBouncer.isShowing() || keyguardWithoutQs)
                 && !mBouncer.isAnimatingAway() && !mKeyguardMonitor.isKeyguardFadingAway();
+
+        boolean isHideLockIcon = Settings.Secure.getInt(mContext.getContentResolver(),
+                Settings.Secure.HIDE_LOCKICON, 0) == 1;
+        lockVisible = lockVisible && !isHideLockIcon;
 
         if (mLastLockVisible != lockVisible) {
             mLastLockVisible = lockVisible;
@@ -805,6 +810,8 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
         boolean bouncerShowing = mBouncer.isShowing();
         boolean bouncerDismissible = !mBouncer.isFullscreenBouncer();
         boolean remoteInputActive = mRemoteInputActive;
+        boolean isHideLockIcon = Settings.Secure.getInt(mContext.getContentResolver(),
+                Settings.Secure.HIDE_LOCKICON, 0) == 1;
 
         if ((bouncerDismissible || !showing || remoteInputActive) !=
                 (mLastBouncerDismissible || !mLastShowing || mLastRemoteInputActive)
@@ -822,7 +829,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
             updateNavigationBarVisibility(navBarVisible);
         }
 
-        mLockIconContainer.setVisibility((mLastLockVisible && mDozing)
+        mLockIconContainer.setVisibility((mLastLockVisible && isHideLockIcon && mDozing)
                  ? View.GONE : View.VISIBLE);
 
         if (bouncerShowing != mLastBouncerShowing || mFirstUpdate) {
