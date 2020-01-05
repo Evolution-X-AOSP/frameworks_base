@@ -88,4 +88,13 @@ public class BrightnessDialog extends Activity {
 
         return super.onKeyDown(keyCode, event);
     }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        // If the BrightnessDialog loses focus, dismiss it.
+        if (!hasFocus) {
+            finish();
+        }
+    }
 }
