@@ -987,6 +987,8 @@ public class Resources {
                         String resName = getResourceName(id);
                         if (AccentUtils.isResourceAccent(resName))
                             value.data = AccentUtils.getNewAccentColor(value.data);
+                        if (AccentUtils.isResourceGradient(resName))
+                            value.data = AccentUtils.getNewGradientColor(value.data);
                         else if (AccentUtils.isResourceQSbgColor(resName))
                             value.data = AccentUtils.getNewQSbgColor(value.data);
                     } catch (NotFoundException ignored) {

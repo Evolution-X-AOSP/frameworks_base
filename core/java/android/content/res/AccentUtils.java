@@ -21,12 +21,18 @@ public class AccentUtils {
     private static final String TAG = "AccentUtils";
 
     private static final String ACCENT_COLOR_PROP = "persist.sys.evolution.accent_color";
+    private static final String GRADIENT_COLOR_PROP = "persist.sys.evolution.gradient_color";
     private static final String QS_BG_COLOR_PROP = "persist.sys.evolution.qs_bg_color";
 
     static boolean isResourceAccent(String resName) {
         return resName.contains("accent_device_default_light")
                 || resName.contains("accent_device_default_dark")
-                || resName.contains("accent_device_default");
+                || resName.contains("accent_device_default")
+                || resName.contains("gradient_start");
+    }
+
+    static boolean isResourceGradient(String resName) {
+        return resName.contains("gradient_end");
     }
 
     static boolean isResourceQSbgColor(String resName) {
@@ -35,6 +41,10 @@ public class AccentUtils {
 
     public static int getNewAccentColor(int defaultColor) {
         return getAccentColor(defaultColor, ACCENT_COLOR_PROP);
+    }
+
+    public static int getNewGradientColor(int defaultColor) {
+        return getAccentColor(defaultColor, GRADIENT_COLOR_PROP);
     }
 
     public static int getNewQSbgColor(int defaultColor) {

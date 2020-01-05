@@ -6360,6 +6360,15 @@ public final class Settings {
         private static final Validator ACCENT_COLOR_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
         /**
+         * Gradient Color
+         * @hide
+         */
+        public static final String GRADIENT_COLOR = "gradient_color";
+
+        /** @hide */
+        private static final Validator GRADIENT_COLOR_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
+        /**
          * QS statusbar background color
          * @hide
          */
@@ -7012,6 +7021,7 @@ public final class Settings {
             STATUS_BAR_TICKER_ANIMATION_MODE,
             STATUS_BAR_TICKER_TICK_DURATION,
             ACCENT_COLOR,
+            GRADIENT_COLOR,
             QS_BG_COLOR,
             STATUS_BAR_CUSTOM_HEADER_HEIGHT,
             LOCKSCREEN_CLOCK,
@@ -7257,6 +7267,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_TICKER_ANIMATION_MODE);
             PRIVATE_SETTINGS.add(STATUS_BAR_TICKER_TICK_DURATION);
             PRIVATE_SETTINGS.add(ACCENT_COLOR);
+            PRIVATE_SETTINGS.add(GRADIENT_COLOR);
             PRIVATE_SETTINGS.add(QS_BG_COLOR);
             PRIVATE_SETTINGS.add(STATUS_BAR_CUSTOM_HEADER_HEIGHT);
             PRIVATE_SETTINGS.add(LOCKSCREEN_CLOCK);
@@ -7533,6 +7544,7 @@ public final class Settings {
             VALIDATORS.put(STATUS_BAR_TICKER_TICK_DURATION,
                     STATUS_BAR_TICKER_TICK_DURATION_VALIDATOR);
             VALIDATORS.put(ACCENT_COLOR, ACCENT_COLOR_VALIDATOR);
+            VALIDATORS.put(GRADIENT_COLOR, GRADIENT_COLOR_VALIDATOR);
             VALIDATORS.put(QS_BG_COLOR, QS_BG_COLOR_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_CUSTOM_HEADER_HEIGHT, STATUS_BAR_CUSTOM_HEADER_HEIGHT_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_CLOCK, LOCKSCREEN_CLOCK_VALIDATOR);
