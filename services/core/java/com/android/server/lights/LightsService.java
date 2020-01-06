@@ -89,13 +89,13 @@ public class LightsService extends SystemService {
                     SurfaceControl.setDisplayBrightness(mDisplayToken,
                             (float) brightness / mSurfaceControlMaximumBrightness);
                 } else {
-                    if (mUseScaleBrightness == -1){
-                        int color = brightness & 0x000000ff;
+                    int color = brightness & 0x000000ff;
+                    if (mUseScaleBrightness > 0) {
+                        color = brightness * mUseScaleBrightness / 255;
+                    } else {
                         color = 0xff000000 | (color << 16) | (color << 8) | color;
-                        setLightLocked(color, LIGHT_FLASH_NONE, 0, 0, brightnessMode);
-                    }else{
-                        setLightLocked(brightness * mUseScaleBrightness / 255, LIGHT_FLASH_NONE, 0, 0, brightnessMode);
                     }
+                    setLightLocked(color, LIGHT_FLASH_NONE, 0, 0, brightnessMode);
                 }
             }
         }
