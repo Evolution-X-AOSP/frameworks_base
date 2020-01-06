@@ -5849,6 +5849,16 @@ public final class Settings {
         public static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
 
         /**
+         * Whether or not to hide the battery icon and % from QS header
+         * @hide
+         */
+        public static final String QS_HIDE_BATTERY = "qs_hide_battery";
+
+        /** @hide */
+        private static final Validator QS_HIDE_BATTERY_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * Display style of the battery information in the quick status bar header
          *    0: Hide the battery percentage (default)
          *    1: Display the battery percentage next to the icon
@@ -6289,6 +6299,7 @@ public final class Settings {
             OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER,
             OMNI_STATUS_BAR_CUSTOM_HEADER_IMAGE,
             OMNI_STATUS_BAR_FILE_HEADER_IMAGE,
+            QS_HIDE_BATTERY,
         };
 
         /**
@@ -6711,6 +6722,7 @@ public final class Settings {
                     OMNI_STATUS_BAR_CUSTOM_HEADER_IMAGE_VALIDATOR);
             VALIDATORS.put(OMNI_STATUS_BAR_FILE_HEADER_IMAGE,
                     OMNI_STATUS_BAR_FILE_HEADER_IMAGE_VALIDATOR);
+            VALIDATORS.put(QS_HIDE_BATTERY, QS_HIDE_BATTERY_VALIDATOR);
         }
 
         /**
