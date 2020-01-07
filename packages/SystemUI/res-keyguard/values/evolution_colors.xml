@@ -21,4 +21,6 @@
     <color name="binary_clock_ambient_dot_color">#ffffff</color>
     <color name="binary_clock_ambient_empty_dot_color">#ffffff</color>
 
+    <!-- Sammy accented clock -->
+    <color name="sammy_minutes_accent">@*android:color/accent_device_default_light</color>
 </resources>
