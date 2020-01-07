@@ -291,6 +291,9 @@ public class KeyguardStatusView extends GridLayout implements
         } else if (mClockSelection == 4) {
             mClockView.setFormat12Hour("hh\nmm");
             mClockView.setFormat24Hour("kk\nmm");
+        } else if (mClockSelection == 6) {
+            mClockView.setFormat12Hour(Html.fromHtml("<strong>h:mm</strong>"));
+            mClockView.setFormat24Hour(Html.fromHtml("<strong>kk:mm</strong>"));
         } else {
             mClockView.setFormat12Hour(Html.fromHtml("<strong>hh</strong><br>mm"));
             mClockView.setFormat24Hour(Html.fromHtml("<strong>kk</strong><br>mm"));
@@ -776,6 +779,15 @@ public class KeyguardStatusView extends GridLayout implements
 
         mClockView = findViewById(R.id.keyguard_clock_container);
 
+        // Set smaller Clock, Date and OwnerInfo text size if the user selects the small clock type
+        if (mClockSelection == 6) {
+            mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                    getResources().getDimensionPixelSize(R.dimen.widget_small_font_size));
+        } else {
+            mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                    getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
+        }
+
         switch (mClockSelection) {
             case 1: // hidden
                 mClockView.setVisibility(View.GONE);
@@ -790,6 +802,9 @@ public class KeyguardStatusView extends GridLayout implements
                 mClockView.setVisibility(View.VISIBLE);
                 break;
             case 5: // sammy (bold)
+                mClockView.setVisibility(View.VISIBLE);
+                break;
+            case 6: // default (small font)
                 mClockView.setVisibility(View.VISIBLE);
                 break;
         }

@@ -49,6 +49,7 @@
     <dimen name="widget_label_font_size">18dp</dimen>
     <!-- Clock without header -->
     <dimen name="widget_big_font_size">54dp</dimen>
+    <dimen name="widget_small_font_size">40dp</dimen>
     <dimen name="bottom_text_spacing_digital">0dp</dimen>
     <dimen name="title_clock_padding">4dp</dimen>
     <!-- Clock with header -->
