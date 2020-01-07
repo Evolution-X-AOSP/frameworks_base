@@ -148,7 +148,7 @@ public final class ClockManager {
         LayoutInflater layoutInflater = injectionInflater.injectable(LayoutInflater.from(context));
 
         addBuiltinClock(() -> new DefaultClockController(res, layoutInflater, colorExtractor));
-        addBuiltinClock(() -> new BubbleClockController(res, layoutInflater, colorExtractor));
+        //addBuiltinClock(() -> new BubbleClockController(res, layoutInflater, colorExtractor));
         addBuiltinClock(() -> new AnalogClockController(res, layoutInflater, colorExtractor));
         addBuiltinClock(() -> new TypeClockController(res, layoutInflater, colorExtractor));
         addBuiltinClock(() -> new BinaryClockController(res, layoutInflater, colorExtractor));
@@ -331,7 +331,8 @@ public final class ClockManager {
                     .setTitle(plugin::getTitle)
                     .setId(id)
                     .setThumbnail(plugin::getThumbnail)
-                    .setPreview(() -> plugin.getPreview(mWidth, mHeight))
+                     // to make the preview bigger in ThemePicker
+                    .setPreview(() -> plugin.getPreview(mWidth / 2, mHeight / 2))
                     .build());
         }
 
