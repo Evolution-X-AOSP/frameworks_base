@@ -19,8 +19,13 @@ package com.android.systemui;
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable.Orientation;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.LightingColorFilter;
+import android.graphics.Matrix;
+import android.graphics.Paint;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.view.View;
@@ -69,7 +74,11 @@ public class ImageUtilities {
 /* blur routine */
     public static Bitmap blurImage(Context context, Bitmap image) {
         float BITMAP_SCALE = 0.4f;
-        float BLUR_RADIUS = 7.5f;
+        float BLUR_RADIUS = 25f;
+
+        Canvas canvas;
+        Paint paint;
+        ColorFilter tint;
 
         int width = Math.round(image.getWidth() * BITMAP_SCALE);       
         int height = Math.round(image.getHeight() * BITMAP_SCALE);
@@ -85,6 +94,12 @@ public class ImageUtilities {
         theIntrinsic.setInput(tmpIn);
         theIntrinsic.forEach(tmpOut);
         tmpOut.copyTo(outputBitmap);
+        canvas = new Canvas(outputBitmap);
+        paint = new Paint(Color.BLACK);
+        tint = new LightingColorFilter(Color.parseColor("#ff444444"), Color.parseColor("#ff000000"));
+        paint.setColorFilter(tint);
+        canvas.drawBitmap(outputBitmap, new Matrix(), paint);
+
         return outputBitmap;
    }
 }
