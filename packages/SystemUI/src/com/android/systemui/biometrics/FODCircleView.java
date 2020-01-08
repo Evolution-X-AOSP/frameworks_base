@@ -333,9 +333,9 @@ public class FODCircleView extends ImageView {
         } else if (fodicon == 9) {
             this.setImageResource(R.drawable.fod_icon_dragon_black_flat);
         } else if (fodicon == 10) {
-            this.setImageResource(R.drawable.fod_icon_future);
+            this.setImageResource(R.drawable.fod_icon_evo1);
         } else if (fodicon == 11) {
-            this.setImageResource(R.drawable.fod_icon_glow_circle);
+            this.setImageResource(R.drawable.fod_icon_evo2);
         } else if (fodicon == 12) {
             this.setImageResource(R.drawable.fod_icon_neon_arc);
         } else if (fodicon == 13) {
@@ -354,6 +354,10 @@ public class FODCircleView extends ImageView {
             this.setImageResource(R.drawable.fod_icon_spiral_blue);
         } else if (fodicon == 20) {
             this.setImageResource(R.drawable.fod_icon_sun_metro);
+        } else if (fodicon == 21) {
+            this.setImageResource(R.drawable.fod_icon_evo3);
+        } else if (fodicon == 22) {
+            this.setImageResource(R.drawable.fod_icon_evo4);
         }
 
         if (useWallpaperColor()) {
