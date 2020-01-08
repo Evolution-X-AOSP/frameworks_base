@@ -155,109 +155,109 @@
     <string name="clock_title_bubble" msgid="1286365278681892114">"Burbuja"</string>
     <string name="clock_title_analog" msgid="4047401488577315053">"Analógico"</string>
     <plurals name="type_clock_header" formatted="false" msgid="6782840450655632763">
-      <item quantity="other">"<annotation name="color">"Son las"</annotation>\n"^1\ny ^2</item>
-      <item quantity="one">"<annotation name="color">"Es"</annotation>\n"^1\ny ^2</item>
+      <item quantity="other"><annotation name="color">"Son las"</annotation>\^1\n^2\</item>
+      <item quantity="one"><annotation name="color">"Es"</annotation>\^1\n^2\</item>
     </plurals>
     <string-array name="type_clock_hours_12">
-      <item>Doce</item>
-      <item>La una</item>
-      <item>Dos</item>
-      <item>Tres</item>
-      <item>Cuatro</item>
-      <item>Cinco</item>
-      <item>Seis</item>
-      <item>Siete</item>
-      <item>Ocho</item>
-      <item>Nueve</item>
-      <item>Diez</item>
-      <item>Once</item>
+        <item>doce</item>
+        <item>la una</item>
+        <item>dos</item>
+        <item>tres</item>
+        <item>cuatro</item>
+        <item>cinco</item>
+        <item>seis</item>
+        <item>siete</item>
+        <item>ocho</item>
+        <item>nueve</item>
+        <item>diez</item>
+        <item>once</item>
     </string-array>
     <string-array name="type_clock_hours_24">
-      <item>Medianoche</item>
-      <item>La una</item>
-      <item>Dos</item>
-      <item>Tres</item>
-      <item>Cuatro</item>
-      <item>Cinco</item>
-      <item>Seis</item>
-      <item>Siete</item>
-      <item>Ocho</item>
-      <item>Nueve</item>
-      <item>Diez</item>
-      <item>Once</item>
-      <item>Doce</item>
-      <item>Trece</item>
-      <item>Catorce</item>
-      <item>Quince</item>
-      <item>Dieciséis</item>
-      <item>Diecisiete</item>
-      <item>Dieciocho</item>
-      <item>Diecinueve</item>
-      <item>Veinte</item>
-      <item>Veintiuno</item>
-      <item>Veintidós</item>
-      <item>Veintitrés</item>
+        <item>medianoche</item>
+        <item>la una</item>
+        <item>dos</item>
+        <item>tres</item>
+        <item>cuatro</item>
+        <item>cinco</item>
+        <item>seis</item>
+        <item>siete</item>
+        <item>ocho</item>
+        <item>nueve</item>
+        <item>diez</item>
+        <item>once</item>
+        <item>doce</item>
+        <item>trece</item>
+        <item>catorce</item>
+        <item>quince</item>
+        <item>dieciséis</item>
+        <item>diecisiete</item>
+        <item>dieciocho</item>
+        <item>diecinueve</item>
+        <item>veinte</item>
+        <item>veintiuno</item>
+        <item>veintidós</item>
+        <item>veintitrés</item>
     </string-array>
-    <string-array name="type_clock_minutes">
-      <item>En punto</item>
-      <item>Y uno</item>
-      <item>Y dos</item>
-      <item>Y tres</item>
-      <item>Y cuatro</item>
-      <item>Y cinco</item>
-      <item>Y seis</item>
-      <item>Y siete</item>
-      <item>Y ocho</item>
-      <item>Y nueve</item>
-      <item>Y diez</item>
-      <item>Y once</item>
-      <item>Y doce</item>
-      <item>Y trece</item>
-      <item>Y catorce</item>
-      <item>Y cuarto</item>
-      <item>Y dieciséis</item>
-      <item>Y diecisiete</item>
-      <item>Y dieciocho</item>
-      <item>Y diecinueve</item>
-      <item>Y veinte</item>
-      <item>Y veintiuno</item>
-      <item>Y veintidós</item>
-      <item>Y veintitrés</item>
-      <item>Y venticuatro</item>
-      <item>Y veinticinco</item>
-      <item>Y veintiséis</item>
-      <item>Y veintisiete</item>
-      <item>Y veintiocho</item>
-      <item>Y veintinueve</item>
-      <item>Y media</item>
-      <item>Treinta y uno</item>
-      <item>Treinta y dos</item>
-      <item>Treinta y tres</item>
-      <item>Treinta y cuatro</item>
-      <item>Treinta y cinco</item>
-      <item>Treinta y seis</item>
-      <item>Treinta y siete</item>
-      <item>Treinta y ocho</item>
-      <item>Treinta y nueve</item>
-      <item>Y cuarenta</item>
-      <item>Cuarenta y uno</item>
-      <item>Cuarenta y dos</item>
-      <item>Cuarenta y tres</item>
-      <item>Cuarenta y cuatro</item>
-      <item>Y tres cuartos</item>
-      <item>Cuarenta y seis</item>
-      <item>Cuarenta y siete</item>
-      <item>Cuarenta y ocho</item>
-      <item>Cuarenta y nueve</item>
-      <item>Y cincuenta</item>
-      <item>Cintuenta y uno</item>
-      <item>Cincuenta y dos</item>
-      <item>Cincuenta y tres</item>
-      <item>Cincuenta y cuatro</item>
-      <item>Cincuenta y cinco</item>
-      <item>Cincuenta y seis</item>
-      <item>Cincuenta y siete</item>
-      <item>Cincuenta y ocho</item>
-      <item>Cincuenta y nueve</item>
-    </string-array>
+  <string-array name="type_clock_minutes">
+    <item>en punto</item>
+    <item>y uno</item>
+    <item>y dos</item>
+    <item>y tres</item>
+    <item>y cuatro</item>
+    <item>y cinco</item>
+    <item>y seis</item>
+    <item>y siete</item>
+    <item>y ocho</item>
+    <item>y nueve</item>
+    <item>y diez</item>
+    <item>y once</item>
+    <item>y doce</item>
+    <item>y trece</item>
+    <item>y catorce</item>
+    <item>y cuarto</item>
+    <item>y dieciséis</item>
+    <item>y diecisiete</item>
+    <item>y dieciocho</item>
+    <item>y diecinueve</item>
+    <item>y veinte</item>
+    <item>y veintiuno</item>
+    <item>y veintidós</item>
+    <item>y veintitrés</item>
+    <item>y venticuatro</item>
+    <item>y veinticinco</item>
+    <item>y veintiséis</item>
+    <item>y veintisiete</item>
+    <item>y veintiocho</item>
+    <item>y veintinueve</item>
+    <item>y media</item>
+    <item>treinta y uno</item>
+    <item>treinta y dos</item>
+    <item>treinta y tres</item>
+    <item>treinta y cuatro</item>
+    <item>treinta y cinco</item>
+    <item>treinta y seis</item>
+    <item>treinta y siete</item>
+    <item>treinta y ocho</item>
+    <item>treinta y nueve</item>
+    <item>y cuarenta</item>
+    <item>cuarenta y uno</item>
+    <item>cuarenta y dos</item>
+    <item>cuarenta y tres</item>
+    <item>cuarenta y cuatro</item>
+    <item>y tres cuartos</item>
+    <item>cuarenta y seis</item>
+    <item>cuarenta y siete</item>
+    <item>cuarenta y ocho</item>
+    <item>cuarenta y nueve</item>
+    <item>y cincuenta</item>
+    <item>cintuenta y uno</item>
+    <item>cincuenta y dos</item>
+    <item>cincuenta y tres</item>
+    <item>cincuenta y cuatro</item>
+    <item>cincuenta y cinco</item>
+    <item>cincuenta y seis</item>
+    <item>cincuenta y siete</item>
+    <item>cincuenta y ocho</item>
+    <item>cincuenta y nueve</item>
+  </string-array>
 </resources>
