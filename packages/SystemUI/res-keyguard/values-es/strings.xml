@@ -155,8 +155,8 @@
     <string name="clock_title_bubble" msgid="1286365278681892114">"Burbuja"</string>
     <string name="clock_title_analog" msgid="4047401488577315053">"Analógico"</string>
     <plurals name="type_clock_header" formatted="false" msgid="6782840450655632763">
-      <item quantity="other"><annotation name="color">"Son las"</annotation>\^1\n^2\</item>
-      <item quantity="one"><annotation name="color">"Es"</annotation>\^1\n^2\</item>
+      <item quantity="other"><annotation name="color">Son las</annotation>\ ^1\n^2\</item>
+      <item quantity="one"><annotation name="color">Es</annotation>\ ^1\n^2\</item>
     </plurals>
     <string-array name="type_clock_hours_12">
         <item>doce</item>
