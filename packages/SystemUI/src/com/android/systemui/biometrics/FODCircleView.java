@@ -415,7 +415,9 @@ public class FODCircleView extends ImageView {
 
     private void updateAlpha() {
         if (mIsCircleShowing) {
-          if (mIsDreaming) mWakeLock.acquire(300);
+            if (mIsDreaming) {
+                mWakeLock.acquire(300);
+            }
             setAlpha(1.0f);
         } else {
             setAlpha(mIsDreaming ? 0.5f : 1.0f);
