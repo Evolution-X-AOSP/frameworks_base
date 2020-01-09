@@ -6181,6 +6181,51 @@ public final class Settings {
         private static final Validator GESTURE_PILL_TOGGLE_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * Whether to change the color of the qs panel
+         * @hide
+         */
+        public static final String QS_PANEL_BG_COLOR = "qs_panel_bg_color";
+
+        /** @hide */
+        private static final Validator QS_PANEL_BG_COLOR_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
+        /**
+         * Color of the qs panel evaluated from wallpaper
+         * @hide
+         */
+        public static final String QS_PANEL_BG_COLOR_WALL = "qs_panel_bg_color_wall";
+
+        /** @hide */
+        private static final Validator QS_PANEL_BG_COLOR_WALL_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
+        /**
+         * Whether to change the color of the qs panel based on wallpaper
+         * @hide
+         */
+        public static final String QS_PANEL_BG_USE_WALL = "qs_panel_bg_use_wall";
+
+        /** @hide */
+        private static final Validator QS_PANEL_BG_USE_WALL_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
+         * Whether to use framework styles and resources on qs panel
+         * @hide
+         */
+        public static final String QS_PANEL_BG_USE_FW = "qs_panel_bg_use_fw";
+
+        /** @hide */
+        private static final Validator QS_PANEL_BG_USE_FW_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
+         * Whether to use framework styles and resources on qs panel
+         * @hide
+         */
+        public static final String QS_PANEL_BG_USE_ACCENT = "qs_panel_bg_use_accent";
+
+        /** @hide */
+        private static final Validator QS_PANEL_BG_USE_ACCENT_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6329,6 +6374,11 @@ public final class Settings {
             OMNI_STATUS_BAR_FILE_HEADER_IMAGE,
             QS_HIDE_BATTERY,
             GESTURE_PILL_TOGGLE,
+            QS_PANEL_BG_COLOR,
+            QS_PANEL_BG_COLOR_WALL,
+            QS_PANEL_BG_USE_WALL,
+            QS_PANEL_BG_USE_FW,
+            QS_PANEL_BG_USE_ACCENT,
         };
 
         /**
@@ -6551,6 +6601,11 @@ public final class Settings {
             PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_CUSTOM_HEADER_IMAGE);
             PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_FILE_HEADER_IMAGE);
             PRIVATE_SETTINGS.add(GESTURE_PILL_TOGGLE);
+            PRIVATE_SETTINGS.add(QS_PANEL_BG_COLOR);
+            PRIVATE_SETTINGS.add(QS_PANEL_BG_COLOR_WALL);
+            PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_WALL);
+            PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_FW);
+            PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_ACCENT);
         }
 
         /**
@@ -6756,6 +6811,11 @@ public final class Settings {
                     OMNI_STATUS_BAR_FILE_HEADER_IMAGE_VALIDATOR);
             VALIDATORS.put(QS_HIDE_BATTERY, QS_HIDE_BATTERY_VALIDATOR);
             VALIDATORS.put(GESTURE_PILL_TOGGLE, GESTURE_PILL_TOGGLE_VALIDATOR);
+            VALIDATORS.put(QS_PANEL_BG_COLOR, QS_PANEL_BG_COLOR_VALIDATOR);
+            VALIDATORS.put(QS_PANEL_BG_COLOR_WALL, QS_PANEL_BG_COLOR_WALL_VALIDATOR);
+            VALIDATORS.put(QS_PANEL_BG_USE_WALL, QS_PANEL_BG_USE_WALL_VALIDATOR);
+            VALIDATORS.put(QS_PANEL_BG_USE_FW, QS_PANEL_BG_USE_FW_VALIDATOR);
+            VALIDATORS.put(QS_PANEL_BG_USE_ACCENT, QS_PANEL_BG_USE_ACCENT_VALIDATOR);
         }
 
         /**
