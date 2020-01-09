@@ -34,6 +34,11 @@
         android:key="cast"
         android:title="@string/quick_settings_cast_title" />
 
+    <SwitchPreference
+        android:key="data_disabled_icon"
+        android:title="@string/status_bar_data_disabled"
+        android:defaultValue="true" />
+
     <com.android.systemui.tuner.StatusBarSwitch
         android:key="ethernet"
         android:title="@string/status_bar_ethernet" />
@@ -61,10 +66,6 @@
     <com.android.systemui.tuner.StatusBarSwitch
         android:key="roaming"
         android:title="@string/status_bar_roaming" />
-
-    <com.android.systemui.tuner.TunerSwitch
-        android:key="data_disabled"
-        android:title="@string/status_bar_data_disabled" />
 
     <com.android.systemui.tuner.StatusBarSwitch
         android:key="data_saver"

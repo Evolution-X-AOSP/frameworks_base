@@ -55,12 +55,10 @@ import com.android.settingslib.Utils;
 import com.android.settingslib.graph.SignalDrawable;
 import com.android.settingslib.net.SignalStrengthUtil;
 import com.android.systemui.R;
-import com.android.systemui.Dependency;
 import com.android.systemui.statusbar.policy.NetworkController.IconState;
 import com.android.systemui.statusbar.policy.NetworkController.SignalCallback;
 import com.android.systemui.statusbar.policy.NetworkControllerImpl.Config;
 import com.android.systemui.statusbar.policy.NetworkControllerImpl.SubscriptionDefaults;
-import com.android.systemui.tuner.TunerService;
 
 
 import java.io.PrintWriter;
@@ -71,7 +69,7 @@ import java.util.regex.Pattern;
 
 
 public class MobileSignalController extends SignalController<
-        MobileSignalController.MobileState, MobileSignalController.MobileIconGroup> implements TunerService.Tunable {
+        MobileSignalController.MobileState, MobileSignalController.MobileIconGroup> {
 
     // The message to display Nr5G icon gracfully by CarrierConfig timeout
     private static final int MSG_DISPLAY_GRACE = 1;
@@ -167,7 +165,6 @@ public class MobileSignalController extends SignalController<
                 updateTelephony();
             }
         };
-        Dependency.get(TunerService.class).addTunable(this, "data_disabled");
 
         Handler mHandler = new Handler();
         SettingsObserver settingsObserver = new SettingsObserver(mHandler);
@@ -203,6 +200,9 @@ public class MobileSignalController extends SignalController<
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.USE_OLD_MOBILETYPE),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.DATA_DISABLED_ICON),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -211,7 +211,8 @@ public class MobileSignalController extends SignalController<
             if (uri.equals(Settings.System.getUriFor(Settings.System.SHOW_LTE_FOURGEE))
                     || uri.equals(Settings.System.getUriFor(Settings.System.VOLTE_ICON))
                     || uri.equals(Settings.System.getUriFor(Settings.System.VOLTE_ICON_STYLE))
-                    || uri.equals(Settings.System.getUriFor(Settings.System.USE_OLD_MOBILETYPE))) {
+                    || uri.equals(Settings.System.getUriFor(Settings.System.USE_OLD_MOBILETYPE))
+                    || uri.equals(Settings.System.getUriFor(Settings.System.DATA_DISABLED_ICON))) {
                 updateSettings();
             }
         }
@@ -234,16 +235,9 @@ public class MobileSignalController extends SignalController<
                 Settings.System.VOLTE_ICON_STYLE, 0, UserHandle.USER_CURRENT);
     }
 
-    @Override
-    public void onTuningChanged(String key, String newValue) {
-        switch (key) {
-            case "data_disabled":
-                     mDataDisabledIcon  =
-                        TunerService.parseIntegerSwitch(newValue, true);
-                     updateTelephony();
-            default:
-                break;
-        }
+    private boolean dataDisabledIcon() {
+        return Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.DATA_DISABLED_ICON, 1, UserHandle.USER_CURRENT) == 1;
     }
 
     public void setConfiguration(Config config) {
@@ -725,7 +719,7 @@ public class MobileSignalController extends SignalController<
         mCurrentState.roaming = isRoaming();
         if (isCarrierNetworkChangeActive()) {
             mCurrentState.iconGroup = TelephonyIcons.CARRIER_NETWORK_CHANGE;
-        } else if (isDataDisabled() && mDataDisabledIcon) {
+        } else if (isDataDisabled() && dataDisabledIcon()) {
             if (mSubscriptionInfo.getSubscriptionId()
                     != mDefaults.getDefaultDataSubId()) {
                 mCurrentState.iconGroup = TelephonyIcons.NOT_DEFAULT_DATA;
