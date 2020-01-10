@@ -93,7 +93,7 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
         int rows;
         if (res.getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             columns = Settings.System.getIntForUser(resolver,
-                    Settings.System.QS_COLUMNS_PORTRAIT, 4,
+                    Settings.System.QS_COLUMNS_PORTRAIT, 3,
                     UserHandle.USER_CURRENT);
             rows = Settings.System.getIntForUser(mContext.getContentResolver(),
                     Settings.System.QS_ROWS_PORTRAIT, 3,
