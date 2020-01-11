@@ -70,8 +70,6 @@ public class QSContainerImpl extends FrameLayout implements
     private boolean mLandscape;
     private boolean mQsBackgroundAlpha;
 
-    private Drawable mQsBackGround;
-
     public QSContainerImpl(Context context, AttributeSet attrs) {
         super(context, attrs);
         Handler mHandler = new Handler();
@@ -94,9 +92,8 @@ public class QSContainerImpl extends FrameLayout implements
         mSideMargins = getResources().getDimensionPixelSize(R.dimen.notification_side_paddings);
         mBackgroundImage = findViewById(R.id.qs_header_image_view);
         mBackgroundImage.setClipToOutline(true);
-        updateResources();
-        mQsBackGround = getContext().getDrawable(R.drawable.qs_background_primary);
         updateSettings();
+        updateResources();
 
         setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_NO);
         setMargins();
@@ -152,17 +149,20 @@ public class QSContainerImpl extends FrameLayout implements
     }
 
     private void updateSettings() {
-        int mQsBackGroundAlpha = Settings.System.getIntForUser(getContext().getContentResolver(),
+        int bgAlpha = Settings.System.getIntForUser(getContext().getContentResolver(),
                 Settings.System.QS_PANEL_BG_ALPHA, 255,
                 UserHandle.USER_CURRENT);
 
-        if (mQsBackGroundAlpha < 255 ) {
-            mBackground.setVisibility(View.INVISIBLE);
+        Drawable bg = mBackground.getBackground();
+        if (bgAlpha < 255 ) {
+            mQsBackgroundAlpha = true;
+            bg.setAlpha(bgAlpha);
+            mBackground.setBackground(bg);
             mBackgroundGradient.setVisibility(View.INVISIBLE);
-            mQsBackGround.setAlpha(mQsBackGroundAlpha);
-            setBackground(mQsBackGround);
         } else {
-            mBackground.setVisibility(View.VISIBLE);
+            mQsBackgroundAlpha = false;
+            bg.setAlpha(255);
+            mBackground.setBackground(bg);
             mBackgroundGradient.setVisibility(View.VISIBLE);
         }
     }
