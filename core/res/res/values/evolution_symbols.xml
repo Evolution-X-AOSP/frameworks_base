@@ -246,4 +246,6 @@
 
     <java-symbol type="array" name="config_blockPackagesSensorDrain" />
 
+    <!-- Device has OnePlus haptic motor -->
+    <java-symbol type="bool" name="config_hasOnePlusHapticMotor" />
 </resources>
