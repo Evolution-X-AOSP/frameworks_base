@@ -22,6 +22,14 @@
     <dimen name="binary_clock_height">100dp</dimen>
 
     <!-- Lock date font size parameters -->
+    <dimen name="lock_date_font_size_1">1dp</dimen>
+    <dimen name="lock_date_font_size_2">2dp</dimen>
+    <dimen name="lock_date_font_size_3">3dp</dimen>
+    <dimen name="lock_date_font_size_4">4dp</dimen>
+    <dimen name="lock_date_font_size_5">5dp</dimen>
+    <dimen name="lock_date_font_size_6">6dp</dimen>
+    <dimen name="lock_date_font_size_7">7dp</dimen>
+    <dimen name="lock_date_font_size_8">8dp</dimen>
     <dimen name="lock_date_font_size_9">9dp</dimen>
     <dimen name="lock_date_font_size_10">10dp</dimen>
     <dimen name="lock_date_font_size_11">11dp</dimen>

@@ -6273,6 +6273,14 @@ public final class Settings {
         private static final Validator QS_BG_COLOR_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
         /**
+         * Header height
+         * @hide
+         */
+        public static final String STATUS_BAR_CUSTOM_HEADER_HEIGHT = "status_bar_custom_header_height";
+
+        private static final Validator STATUS_BAR_CUSTOM_HEADER_HEIGHT_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6432,6 +6440,7 @@ public final class Settings {
             STATUS_BAR_TICKER_TICK_DURATION,
             ACCENT_COLOR,
             QS_BG_COLOR,
+            STATUS_BAR_CUSTOM_HEADER_HEIGHT,
         };
 
         /**
@@ -6664,6 +6673,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(FORCE_SHOW_NAVBAR);
             PRIVATE_SETTINGS.add(ACCENT_COLOR);
             PRIVATE_SETTINGS.add(QS_BG_COLOR);
+            PRIVATE_SETTINGS.add(STATUS_BAR_CUSTOM_HEADER_HEIGHT);
         }
 
         /**
@@ -6880,6 +6890,7 @@ public final class Settings {
                     STATUS_BAR_TICKER_TICK_DURATION_VALIDATOR);
             VALIDATORS.put(ACCENT_COLOR, ACCENT_COLOR_VALIDATOR);
             VALIDATORS.put(QS_BG_COLOR, QS_BG_COLOR_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_CUSTOM_HEADER_HEIGHT, STATUS_BAR_CUSTOM_HEADER_HEIGHT_VALIDATOR);
         }
 
         /**
