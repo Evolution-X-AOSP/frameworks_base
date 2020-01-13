@@ -106,13 +106,6 @@ public class MobileSignalController extends SignalController<
     // Some specific carriers have 5GE network which is special LTE CA network.
     private static final int NETWORK_TYPE_LTE_CA_5GE = TelephonyManager.MAX_NETWORK_TYPE + 1;
 
-    // Show lte/4g switch
-    private boolean mShowLteFourGee;
-    // Volte Icon
-    private boolean mVoLTEicon;
-    // Volte Icon Style
-    private int mVoLTEstyle;
-
     private boolean mDataDisabledIcon;
 
     private ImsManager mImsManager;
@@ -197,44 +190,48 @@ public class MobileSignalController extends SignalController<
         }
 
         void observe() {
-           ContentResolver resolver = mContext.getContentResolver();
-           resolver.registerContentObserver(Settings.System.getUriFor(
-                  Settings.System.SHOW_LTE_FOURGEE),
-                  false, this, UserHandle.USER_ALL);
-           resolver.registerContentObserver(Settings.System.getUriFor(
-                  Settings.System.SHOW_VOLTE_ICON),
-                  false, this, UserHandle.USER_ALL);
-           resolver.registerContentObserver(Settings.System.getUriFor(
-                  Settings.System.VOLTE_ICON_STYLE),
-                  false, this, UserHandle.USER_ALL);
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SHOW_LTE_FOURGEE),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.VOLTE_ICON),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.VOLTE_ICON_STYLE),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.USE_OLD_MOBILETYPE),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
         public void onChange(boolean selfChange, Uri uri) {
             super.onChange(selfChange, uri);
-            if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.SHOW_LTE_FOURGEE))) {
-                    mShowLteFourGee = Settings.System.getIntForUser(
-                            mContext.getContentResolver(),
-                            Settings.System.SHOW_LTE_FOURGEE,
-                            0, UserHandle.USER_CURRENT) == 1;
-            } else if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.SHOW_VOLTE_ICON))) {
-                    mVoLTEicon = Settings.System.getIntForUser(
-                            mContext.getContentResolver(),
-                            Settings.System.SHOW_VOLTE_ICON,
-                            0, UserHandle.USER_CURRENT) == 1;
-            } else if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.VOLTE_ICON_STYLE))) {
-                    mVoLTEstyle = Settings.System.getIntForUser(
-                            mContext.getContentResolver(),
-                            Settings.System.VOLTE_ICON_STYLE,
-                            0, UserHandle.USER_CURRENT);
+            if (uri.equals(Settings.System.getUriFor(Settings.System.SHOW_LTE_FOURGEE))
+                    || uri.equals(Settings.System.getUriFor(Settings.System.VOLTE_ICON))
+                    || uri.equals(Settings.System.getUriFor(Settings.System.VOLTE_ICON_STYLE))
+                    || uri.equals(Settings.System.getUriFor(Settings.System.USE_OLD_MOBILETYPE))) {
+                updateSettings();
             }
-            mapIconSets();
-            updateTelephony();
-            notifyListeners();
         }
+    }
+
+    private void updateSettings() {
+        mapIconSets();
+        notifyListeners();
+        notifyListenersIfNecessary();
+        updateTelephony();
+    }
+
+    private boolean volteEnabled() {
+        return Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.VOLTE_ICON, 1, UserHandle.USER_CURRENT) == 1;
+    }
+
+    private int volteStyle() {
+        return Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.VOLTE_ICON_STYLE, 0, UserHandle.USER_CURRENT);
     }
 
     @Override
@@ -431,9 +428,9 @@ public class MobileSignalController extends SignalController<
 
     private int getVolteResId() {
         int resId = 0;
-        if ( (mCurrentState.voiceCapable || mCurrentState.videoCapable)
-                &&  mCurrentState.imsRegistered && mVoLTEicon) {
-            switch(mVoLTEstyle) {
+        if ((mCurrentState.voiceCapable || mCurrentState.videoCapable)
+                &&  mCurrentState.imsRegistered && volteEnabled()) {
+            switch(volteStyle()) {
                 //Vo
                 case 0:
                 default:
@@ -556,7 +553,8 @@ public class MobileSignalController extends SignalController<
                 && mCurrentState.activityOut;
         showDataIcon &= mCurrentState.isDefault || dataDisabled;
         int typeIcon = (showDataIcon || mConfig.alwaysShowDataRatIcon) ? icons.mDataType : 0;
-        int volteIcon = mConfig.showVolteIcon && isVolteSwitchOn() ? getVolteResId() : 0;
+        int volteIcon = mConfig.showVolteIcon && isVolteSwitchOn() && volteEnabled()
+                ? getVolteResId() : 0;
         callback.setMobileDataIndicators(statusIcon, qsIcon, typeIcon, qsTypeIcon,
                 activityIn, activityOut, volteIcon, dataContentDescription, dataContentDescriptionHtml,
                 description, icons.mIsWide, mSubscriptionInfo.getSubscriptionId(),
