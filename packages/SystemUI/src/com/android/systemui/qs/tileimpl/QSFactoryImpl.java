@@ -50,7 +50,6 @@ import com.android.systemui.qs.tiles.LiveDisplayTile;
 import com.android.systemui.qs.tiles.LocaleTile;
 import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.LteTile;
-import com.android.systemui.qs.tiles.MusicTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.ReadingModeTile;
@@ -108,7 +107,6 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
     private final Provider<SyncTile> mSyncTileProvider;
     private final Provider<VolumeTile> mVolumeTileProvider;
-    private final Provider<MusicTile> mMusicTileProvider;
     private final Provider<CompassTile> mCompassTileProvider;
     private final Provider<AmbientDisplayTile> mAmbientDisplayTileProvider;
     private final Provider<SleepScreenTile> mSleepScreenTileProvider;
@@ -154,7 +152,6 @@ public class QSFactoryImpl implements QSFactory {
             Provider<HeadsUpTile> headsUpTileProvider,
             Provider<SyncTile> syncTileProvider,
             Provider<VolumeTile> volumeTileProvider,
-            Provider<MusicTile> musicTileProvider,
             Provider<CompassTile> compassTileProvider,
             Provider<AmbientDisplayTile> ambientDisplayTileProvider,
             Provider<SleepScreenTile> sleepScreenTileProvider,
@@ -197,7 +194,6 @@ public class QSFactoryImpl implements QSFactory {
         mHeadsUpTileProvider = headsUpTileProvider;
         mSyncTileProvider = syncTileProvider;
         mVolumeTileProvider = volumeTileProvider;
-        mMusicTileProvider = musicTileProvider;
         mCompassTileProvider = compassTileProvider;
         mAmbientDisplayTileProvider = ambientDisplayTileProvider;
         mSleepScreenTileProvider = sleepScreenTileProvider;
@@ -283,8 +279,6 @@ public class QSFactoryImpl implements QSFactory {
                 return mSyncTileProvider.get();
             case "volume_panel":
                 return mVolumeTileProvider.get();
-            case "music":
-                return mMusicTileProvider.get();
             case "compass":
                 return mCompassTileProvider.get();
             case "ambient_display":
