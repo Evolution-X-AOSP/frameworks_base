@@ -140,5 +140,7 @@
         <item name="android:shadowColor">@color/keyguard_shadow_color</item>
         <item name="android:shadowRadius">?attr/shadowRadius</item>
     </style>
-
+    <style name="customtextclock_big_thin">
+        <item name="android:paddingBottom">@dimen/bottom_text_spacing_digital</item>
+    </style>
 </resources>

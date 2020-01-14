@@ -38,12 +38,14 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextClock;
 import android.widget.TextView;
 
 import androidx.core.graphics.ColorUtils;
 
 import com.android.internal.widget.LockPatternUtils;
+import com.android.keyguard.clock.CustomTextClock;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.statusbar.policy.ConfigurationController;
@@ -65,11 +67,13 @@ public class KeyguardStatusView extends GridLayout implements
     private LinearLayout mStatusViewContainer;
     private TextView mLogoutView;
     private KeyguardClockSwitch mClockView;
+    private CustomTextClock mTextClock;
     private TextView mOwnerInfo;
     private TextClock mDefaultClockView;
     private KeyguardSliceView mKeyguardSlice;
     private View mNotificationIcons;
     private View mKeyguardSliceView;
+    private View mSmallClockView;
     private Runnable mPendingMarqueeStart;
     private Handler mHandler;
 
@@ -220,6 +224,7 @@ public class KeyguardStatusView extends GridLayout implements
 
         mClockView = findViewById(R.id.keyguard_clock_container);
         mClockView.setShowCurrentUserTime(true);
+        mTextClock = findViewById(R.id.custom_text_clock_view);
         mOwnerInfo = findViewById(R.id.owner_info);
         mKeyguardSlice = findViewById(R.id.keyguard_status_area);
         mKeyguardSliceView = findViewById(R.id.keyguard_status_area);
@@ -322,6 +327,8 @@ public class KeyguardStatusView extends GridLayout implements
         } else if (mClockSelection == 8) {
             mClockView.setFormat12Hour(Html.fromHtml("hh<br><font color=" + getResources().getColor(R.color.accent_device_default_light) + ">mm</font>"));
             mClockView.setFormat24Hour(Html.fromHtml("kk<br><font color=" + getResources().getColor(R.color.accent_device_default_light) + ">mm</font>"));
+        } else if (mClockSelection == 9 || mClockSelection == 10) {
+            mTextClock.onTimeChanged();
         }
     }
 
@@ -877,6 +884,8 @@ public class KeyguardStatusView extends GridLayout implements
     private void updateSettings() {
         final ContentResolver resolver = getContext().getContentResolver();
 
+        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams)
+                mKeyguardSlice.getLayoutParams();
         mClockSelection = Settings.Secure.getIntForUser(resolver,
                 Settings.Secure.LOCKSCREEN_CLOCK_SELECTION, 0, UserHandle.USER_CURRENT);
         final boolean mShowClock = Settings.System.getIntForUser(resolver,
@@ -886,11 +895,22 @@ public class KeyguardStatusView extends GridLayout implements
         mDefaultClockView = findViewById(R.id.default_clock_view);
         mClockView.setVisibility(mDarkAmount != 1
                 ? (mShowClock ? View.VISIBLE : View.GONE) : View.VISIBLE);
+        mSmallClockView = findViewById(R.id.clock_view);
+        mTextClock = findViewById(R.id.custom_text_clock_view);
 
         if (mClockSelection == 5 || mClockSelection == 6
                 || mClockSelection == 7 || mClockSelection == 8)
             mDefaultClockView.setLineSpacing(0, 0.8f);
 
+        if (mClockSelection != 9 && mClockSelection != 10) {
+            mTextClock.setVisibility(View.GONE);
+            mSmallClockView.setVisibility(View.VISIBLE);
+            params.addRule(RelativeLayout.BELOW, R.id.clock_view);
+        } else {
+            mTextClock.setVisibility(View.VISIBLE);
+            mSmallClockView.setVisibility(View.GONE);
+            params.addRule(RelativeLayout.BELOW, R.id.custom_text_clock_view);
+        }
         updateDateStyles();
     }
 

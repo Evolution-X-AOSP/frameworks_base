@@ -220,4 +220,8 @@
     <dimen name="analog_clock_height">100dp</dimen>
     <dimen name="digital_clock_two_line_spacing">-20dp</dimen>
     <dimen name="clock_bottom_margin">8dp</dimen>
+
+    <!-- Custom text clock -->
+    <dimen name="custom_clock_left_padding">55dp</dimen>
+    <dimen name="custom_clock_top_margin">80dp</dimen>
 </resources>
