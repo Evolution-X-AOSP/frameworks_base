@@ -106,6 +106,7 @@ public class ImageSwitcher extends ViewSwitcher
      */
     public void setImageDrawable(Drawable drawable) {
         ImageView image = (ImageView)this.getNextView();
+        image.setImageTintList(null);
         image.setImageDrawable(drawable);
         showNext();
     }
