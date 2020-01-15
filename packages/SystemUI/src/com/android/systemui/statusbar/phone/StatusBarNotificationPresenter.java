@@ -136,6 +136,8 @@ public class StatusBarNotificationPresenter implements NotificationPresenter,
     protected boolean mVrMode;
     private int mMaxKeyguardNotifications;
 
+    private StatusBar mStatusBar;
+
     ActivityManager mAm;
     private ArrayList<String> mStoplist = new ArrayList<String>();
     private ArrayList<String> mBlacklist = new ArrayList<String>();
@@ -250,6 +252,10 @@ public class StatusBarNotificationPresenter implements NotificationPresenter,
         setHeadsUpBlacklist();
     }
 
+    public void addCallback(StatusBar statusBar) {
+        mStatusBar = statusBar;
+    }
+
     @Override
     public void onDensityOrFontScaleChanged() {
         MessagingMessage.dropCache();
@@ -337,6 +343,12 @@ public class StatusBarNotificationPresenter implements NotificationPresenter,
         if (SPEW) Log.d(TAG, "removeNotification key=" + key + " old=" + old);
 
         if (old != null) {
+            // Cancel the ticker if it's still running
+            if (mStatusBar != null && mStatusBar.mTicker != null && mStatusBar.mTickerEnabled != 0) {
+                try {
+                    mStatusBar.mTicker.removeEntry(old);
+                } catch (Exception e) {}
+            }
             if (CLOSE_PANEL_WHEN_EMPTIED && !hasActiveNotifications()
                     && !mNotificationPanel.isTracking() && !mNotificationPanel.isQsExpanded()) {
                 if (mStatusBarStateController.getState() == StatusBarState.SHADE) {
