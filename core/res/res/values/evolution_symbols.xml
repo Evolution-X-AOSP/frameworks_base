@@ -236,6 +236,7 @@
   <java-symbol type="anim" name="ethans_launch_task_behind_target" />
 
     <!-- Smart charging -->
+    <java-symbol type="bool" name="config_SmartChargingAvailable" />
     <java-symbol type="integer" name="config_SmartChargingBatteryLevel" />
     <java-symbol type="integer" name="config_SmartChargingBatteryResumeLevel" />
     <java-symbol type="string" name="config_SmartChargingSysfsNode" />

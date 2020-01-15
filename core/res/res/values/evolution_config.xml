@@ -309,6 +309,7 @@
     <bool name="config_bigPhysicalDisplayCutout">false</bool>
 
     <!-- Smart charging -->
+    <bool name="config_SmartChargingAvailable">false</bool>
     <integer name="config_SmartChargingBatteryLevel">80</integer>
     <integer name="config_SmartChargingBatteryResumeLevel">60</integer>
     <string name="config_SmartChargingSysfsNode" translatable="false">/sys/class/power_supply/battery/charging_enabled</string>
