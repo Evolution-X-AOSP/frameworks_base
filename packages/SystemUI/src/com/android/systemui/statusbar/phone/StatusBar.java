@@ -4461,11 +4461,16 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         @Override
         public void onChange(boolean selfChange, Uri uri) {
-            if (uri.equals(Settings.Secure.getUriFor(
-                    Settings.Secure.FP_SWIPE_TO_DISMISS_NOTIFICATIONS))) {
+            if (uri.equals(Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS_MODE)) ||
+                    uri.equals(Settings.System.getUriFor(Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL))) {
+                setScreenBrightnessMode();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.PULSE_ON_NEW_TRACKS))) {
+                setPulseOnNewTracks();
+            } else if (uri.equals(Settings.Secure.getUriFor(Settings.Secure.FP_SWIPE_TO_DISMISS_NOTIFICATIONS))) {
                 setFpToDismissNotifications();
-            } else if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.POCKET_JUDGE_ALLOW_FP))) {
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.LESS_BORING_HEADS_UP))) {
+                setUseLessBoringHeadsUp();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.POCKET_JUDGE_ALLOW_FP))) {
                 updatePocketJudgeFP();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_ROWS_PORTRAIT)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.QS_ROWS_LANDSCAPE)) ||
@@ -4473,17 +4478,18 @@ public class StatusBar extends SystemUI implements DemoMode,
                     uri.equals(Settings.System.getUriFor(Settings.System.QS_COLUMNS_LANDSCAPE)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.QS_TILE_TITLE_VISIBILITY))) {
                 updateQsPanelResources();
-            } else if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.LOCKSCREEN_CHARGING_ANIMATION))) {
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.LOCKSCREEN_CHARGING_ANIMATION))) {
                 updateChargingAnimation();
-            } else if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.USE_OLD_MOBILETYPE))) {
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.GAMING_MODE_ACTIVE)) ||
+                    uri.equals(Settings.System.getUriFor(Settings.System.GAMING_MODE_HEADSUP_TOGGLE))) {
+                setGamingMode();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.USE_OLD_MOBILETYPE))) {
                 setOldMobileType();
-            } else if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.AMBIENT_VISUALIZER_ENABLED))) {
+            } else if (uri.equals(Settings.Secure.getUriFor(Settings.Secure.SHOW_BACK_ARROW_GESTURE))) {
+                setHideArrowForBackGesture();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.AMBIENT_VISUALIZER_ENABLED))) {
                 setAmbientVis();
-            } else if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.QS_PANEL_BG_USE_WALL))) {
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_PANEL_BG_USE_WALL))) {
                 updateQSPanel();
                 mQSPanel.getHost().reloadAllTiles();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_PANEL_BG_USE_FW)) ||
