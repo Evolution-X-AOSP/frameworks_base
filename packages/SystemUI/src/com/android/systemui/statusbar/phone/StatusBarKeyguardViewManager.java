@@ -30,6 +30,7 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.provider.Settings;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -159,6 +160,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
     private boolean mPulsing;
     private boolean mGesturalNav;
     private boolean mIsDocked;
+    private boolean isHideLockIcon;
 
     protected boolean mFirstUpdate = true;
     protected boolean mLastShowing;
@@ -237,7 +239,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
         mStatusBar = statusBar;
         mContainer = container;
         mLockIconContainer = lockIconContainer;
-        if (mLockIconContainer != null) {
+        if (mLockIconContainer != null && !isHideLockIcon) {
             mLastLockVisible = mLockIconContainer.getVisibility() == View.VISIBLE;
         }
         mBiometricUnlockController = biometricUnlockController;
@@ -312,7 +314,9 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
         }
         boolean keyguardWithoutQs = mStatusBarStateController.getState() == StatusBarState.KEYGUARD
                 && !mNotificationPanelViewController.isQsExpanded();
-        boolean lockVisible = (mBouncer.isShowing() || keyguardWithoutQs)
+        isHideLockIcon = Settings.Secure.getInt(mContext.getContentResolver(),
+                Settings.Secure.HIDE_LOCKICON, 1) == 1;
+        boolean lockVisible = (mBouncer.isShowing() || keyguardWithoutQs) && !isHideLockIcon
                 && !mBouncer.isAnimatingAway() && !mKeyguardStateController.isKeyguardFadingAway();
 
         if (mLastLockVisible != lockVisible) {
@@ -814,6 +818,8 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
         boolean bouncerInTransit = mBouncer.inTransit();
         boolean bouncerDismissible = !mBouncer.isFullscreenBouncer();
         boolean remoteInputActive = mRemoteInputActive;
+        isHideLockIcon = Settings.Secure.getInt(mContext.getContentResolver(),
+                Settings.Secure.HIDE_LOCKICON, 1) == 1;
 
         if ((bouncerDismissible || !showing || remoteInputActive) !=
                 (mLastBouncerDismissible || !mLastShowing || mLastRemoteInputActive)
