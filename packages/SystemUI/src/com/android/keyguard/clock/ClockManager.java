@@ -226,6 +226,9 @@ public final class ClockManager {
         mContentResolver.registerContentObserver(
                 Settings.Secure.getUriFor(Settings.Secure.DOCKED_CLOCK_FACE),
                 false, mContentObserver, UserHandle.USER_ALL);
+        mContentResolver.registerContentObserver(
+                Settings.System.getUriFor(Settings.System.LOCKSCREEN_INFO),
+                false, mContentObserver, UserHandle.USER_ALL);
         mCurrentUserObservable.getCurrentUser().observeForever(mCurrentUserObserver);
         if (mDockManager != null) {
             mDockManager.addListener(mDockEventListener);

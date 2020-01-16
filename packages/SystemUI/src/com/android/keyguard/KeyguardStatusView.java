@@ -282,31 +282,31 @@ public class KeyguardStatusView extends GridLayout implements
     private void refreshTime() {
         mClockView.refresh();
 
-        if (mClockSelection == 2) {
+        if (mClockSelection == 0) {
             mClockView.setFormat12Hour(Patterns.clockView12);
             mClockView.setFormat24Hour(Patterns.clockView24);
-        } else if (mClockSelection == 3) {
+        } else if (mClockSelection == 1) {
             mClockView.setFormat12Hour(Html.fromHtml("<strong>h</strong>:mm"));
             mClockView.setFormat24Hour(Html.fromHtml("<strong>kk</strong>:mm"));
-        } else if (mClockSelection == 4) {
+        } else if (mClockSelection == 2) {
             mClockView.setFormat12Hour(Html.fromHtml("<font color=" + getResources().getColor(R.color.clock_accent) + ">h:mm</font>"));
             mClockView.setFormat24Hour(Html.fromHtml("<font color=" + getResources().getColor(R.color.clock_accent) + ">kk:m</font>"));
-        } else if (mClockSelection == 5) {
+        } else if (mClockSelection == 3) {
             mClockView.setFormat12Hour(Html.fromHtml("<font color=" + getResources().getColor(R.color.clock_accent) + ">h</font>:mm"));
             mClockView.setFormat24Hour(Html.fromHtml("<font color=" + getResources().getColor(R.color.clock_accent) + ">kk</font>:mm"));
-        } else if (mClockSelection == 6) {
+        } else if (mClockSelection == 4) {
             mClockView.setFormat12Hour(Html.fromHtml("h<font color=" + getResources().getColor(R.color.clock_accent) + ">:mm</font>"));
             mClockView.setFormat24Hour(Html.fromHtml("kk<font color=" + getResources().getColor(R.color.clock_accent) + ">:mm</font>"));
-        } else if (mClockSelection == 7) {
+        } else if (mClockSelection == 5) {
             mClockView.setFormat12Hour("hh\nmm");
             mClockView.setFormat24Hour("kk\nmm");
-        } else if (mClockSelection == 8) {
+        } else if (mClockSelection == 6) {
             mClockView.setFormat12Hour(Html.fromHtml("<strong>hh</strong><br>mm"));
             mClockView.setFormat24Hour(Html.fromHtml("<strong>kk</strong><br>mm"));
-        } else if (mClockSelection == 9) {
+        } else if (mClockSelection == 7) {
             mClockView.setFormat12Hour(Html.fromHtml("<font color=" + getResources().getColor(R.color.clock_accent) + ">hh</font><br>mm"));
             mClockView.setFormat24Hour(Html.fromHtml("<font color=" + getResources().getColor(R.color.clock_accent) + ">kk</font><br>mm"));
-        } else if (mClockSelection == 10) {
+        } else if (mClockSelection == 8) {
             mClockView.setFormat12Hour(Html.fromHtml("hh<br><font color=" + getResources().getColor(R.color.clock_accent) + ">mm</font>"));
             mClockView.setFormat24Hour(Html.fromHtml("kk<br><font color=" + getResources().getColor(R.color.clock_accent) + ">mm</font>"));
         }
@@ -787,42 +787,16 @@ public class KeyguardStatusView extends GridLayout implements
         final ContentResolver resolver = getContext().getContentResolver();
 
         mClockSelection = Settings.Secure.getIntForUser(resolver,
-                Settings.Secure.LOCKSCREEN_CLOCK_SELECTION, 2, UserHandle.USER_CURRENT);
+                Settings.Secure.LOCKSCREEN_CLOCK_SELECTION, 0, UserHandle.USER_CURRENT);
+        final boolean mShowClock = Settings.System.getIntForUser(resolver,
+                Settings.System.LOCKSCREEN_CLOCK, 1, UserHandle.USER_CURRENT) == 1;
 
         mClockView = findViewById(R.id.keyguard_clock_container);
 
-        switch (mClockSelection) {
-            case 1: // hidden
-                mClockView.setVisibility(View.GONE);
-                break;
-            case 2: // default
-                mClockView.setVisibility(View.VISIBLE);
-                break;
-            case 3: // default (bold)
-                mClockView.setVisibility(View.VISIBLE);
-                break;
-            case 4: // default (accent)
-                mClockView.setVisibility(View.VISIBLE);
-                break;
-            case 5: // default (accent hr)
-                mClockView.setVisibility(View.VISIBLE);
-                break;
-            case 6: // default (accent min)
-                mClockView.setVisibility(View.VISIBLE);
-                break;
-            case 7: // sammy
-                mClockView.setVisibility(View.VISIBLE);
-                break;
-            case 8: // sammy (bold)
-                mClockView.setVisibility(View.VISIBLE);
-                break;
-            case 9: // sammy (accent)
-                mClockView.setVisibility(View.VISIBLE);
-                break;
-            case 10: // sammy (accent alt)
-                mClockView.setVisibility(View.VISIBLE);
-                break;
-        }
+        if (mShowClock)
+            mClockView.setVisibility(View.VISIBLE);
+        else
+            mClockView.setVisibility(View.GONE);
     }
 
     public void updateAll() {
