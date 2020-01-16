@@ -530,7 +530,9 @@ public class BtHelper {
             return true;
         }
         String address = btDevice.getAddress();
-        BluetoothClass btClass = btDevice.getBluetoothClass();
+        String dummyAddress = "00:00:00:00:00:00";
+        BluetoothClass btClass = dummyAddress.equals(address) ? null :
+                                 btDevice.getBluetoothClass();
         int inDevice = AudioSystem.DEVICE_IN_BLUETOOTH_SCO_HEADSET;
         int[] outDeviceTypes = {
                 AudioSystem.DEVICE_OUT_BLUETOOTH_SCO,
