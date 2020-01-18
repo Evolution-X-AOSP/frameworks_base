@@ -436,8 +436,6 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
                     Settings.System.QS_PANEL_BG_USE_WALL, 0, UserHandle.USER_CURRENT) == 1;
         boolean setQsFromResources = Settings.System.getIntForUser(context.getContentResolver(),
                     Settings.System.QS_PANEL_BG_USE_FW, 1, UserHandle.USER_CURRENT) == 1;
-        boolean setQsFromAccent = Settings.System.getIntForUser(context.getContentResolver(),
-                    Settings.System.QS_PANEL_BG_USE_ACCENT, 1, UserHandle.USER_CURRENT) == 1;
 
         int qsBackGroundColor = Settings.System.getIntForUser(context.getContentResolver(),
                 Settings.System.QS_PANEL_BG_COLOR, activeDefault, UserHandle.USER_CURRENT);
@@ -454,14 +452,10 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
                 if (setQsFromResources) {
                     return Utils.getColorAttrDefaultColor(context, android.R.attr.colorPrimary);
                 } else {
-                     if (setQsFromAccent) {
-                        return context.getResources().getColor(R.color.accent_device_default_light);
-                     } else {
-                         if (setQsFromWall)
-                            return qsBackGroundColorWall;
-                         else
-                            return qsBackGroundColor;
-                     }
+                    if (setQsFromWall)
+                        return qsBackGroundColorWall;
+                    else
+                        return qsBackGroundColor;
                 }
             default:
                 Log.e("QSTile", "Invalid state " + state);
