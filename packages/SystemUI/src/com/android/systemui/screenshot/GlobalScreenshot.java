@@ -407,6 +407,64 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
         }
     }
 
+    void hideScreenshotSelector() {
+        setLockedScreenOrientation(false);
+        mWindowManager.removeView(mScreenshotLayout);
+        mScreenshotSelectorView.stopSelection();
+        mScreenshotSelectorView.setVisibility(View.GONE);
+        mCaptureButton.setVisibility(View.GONE);
+        setBlockedGesturalNavigation(false);
+    }
+
+    void setBlockedGesturalNavigation(boolean blocked) {
+        IStatusBarService service = IStatusBarService.Stub.asInterface(
+                ServiceManager.getService(Context.STATUS_BAR_SERVICE));
+        if (service != null) {
+            try {
+                service.setBlockedGesturalNavigation(blocked);
+            } catch (RemoteException e) {
+                // end of the world
+            }
+        }
+    }
+
+    void setLockedScreenOrientation(boolean locked) {
+        mWindowLayoutParams.screenOrientation = locked
+                ? ActivityInfo.SCREEN_ORIENTATION_LOCKED
+                : ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED;
+    }
+
+    Rect getRotationAdjustedRect(Rect rect) {
+        Display defaultDisplay = mWindowManager.getDefaultDisplay();
+        Rect adjustedRect = new Rect(rect);
+
+        mDisplay.getRealMetrics(mDisplayMetrics);
+        int rotation = defaultDisplay.getRotation();
+        switch (rotation) {
+            case Surface.ROTATION_0:
+                // properly rotated
+                break;
+            case Surface.ROTATION_90:
+                adjustedRect.top = mDisplayMetrics.heightPixels - rect.bottom;
+                adjustedRect.bottom = mDisplayMetrics.heightPixels - rect.top;
+                break;
+            case Surface.ROTATION_180:
+                adjustedRect.left = mDisplayMetrics.widthPixels - rect.right;
+                adjustedRect.top = mDisplayMetrics.heightPixels - rect.bottom;
+                adjustedRect.right = mDisplayMetrics.widthPixels - rect.left;
+                adjustedRect.bottom = mDisplayMetrics.heightPixels - rect.top;
+                break;
+            case Surface.ROTATION_270:
+                adjustedRect.left = mDisplayMetrics.widthPixels - rect.right;
+                adjustedRect.right = mDisplayMetrics.widthPixels - rect.left;
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown rotation: " + rotation);
+        }
+
+        return adjustedRect;
+    }
+
     /**
      * Displays a screenshot selector
      */
@@ -459,20 +517,11 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
         });
     }
 
-    void hideScreenshotSelector() {
-        setLockedScreenOrientation(false);
-        mWindowManager.removeView(mScreenshotLayout);
-        mScreenshotSelectorView.stopSelection();
-        mScreenshotSelectorView.setVisibility(View.GONE);
-        mCaptureButton.setVisibility(View.GONE);
-        setBlockedGesturalNavigation(false);
-    }
-
     /**
      * Cancels screenshot request
      */
     void stopScreenshot() {
-        // If the selector layer still presents on screen, we remove it and resets its state.
+        // If the selector layer still presents on screen, we hide it.
         if (mScreenshotLayout.getParent() != null) {
             hideScreenshotSelector();
         }
@@ -710,57 +759,6 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
 
         // Start the post-screenshot animation
         startAnimation(finisher, screenRect, screenInsets, showFlash);
-    }
-
-    void setBlockedGesturalNavigation(boolean blocked) {
-        IStatusBarService service = IStatusBarService.Stub.asInterface(
-                ServiceManager.getService(Context.STATUS_BAR_SERVICE));
-        if (service != null) {
-            try {
-                service.setBlockedGesturalNavigation(blocked);
-            } catch (RemoteException e) {
-                // end of the world
-            }
-        }
-    }
-
-    Rect getRotationAdjustedRect(Rect rect) {
-        Display defaultDisplay = mWindowManager.getDefaultDisplay();
-        Rect adjustedRect = new Rect(rect);
-
-        mDisplay.getRealMetrics(mDisplayMetrics);
-        int rotation = defaultDisplay.getRotation();
-        switch (rotation) {
-            case Surface.ROTATION_0:
-                // properly rotated
-                break;
-            case Surface.ROTATION_90:
-                adjustedRect.top = mDisplayMetrics.heightPixels - rect.bottom;
-                adjustedRect.bottom = mDisplayMetrics.heightPixels - rect.top;
-                break;
-            case Surface.ROTATION_180:
-                adjustedRect.left = mDisplayMetrics.widthPixels - rect.right;
-                adjustedRect.top = mDisplayMetrics.heightPixels - rect.bottom;
-                adjustedRect.right = mDisplayMetrics.widthPixels - rect.left;
-                adjustedRect.bottom = mDisplayMetrics.heightPixels - rect.top;
-                break;
-            case Surface.ROTATION_270:
-                adjustedRect.left = mDisplayMetrics.widthPixels - rect.right;
-                adjustedRect.right = mDisplayMetrics.widthPixels - rect.left;
-                break;
-            default:
-                throw new IllegalArgumentException("Unknown rotation: " + rotation);
-        }
-
-        return adjustedRect;
-    }
-
-    void setLockedScreenOrientation(boolean locked) {
-        if (locked) {
-            mWindowLayoutParams.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_LOCKED;
-        } else {
-            mWindowLayoutParams.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED;
-        }
     }
 
     /**

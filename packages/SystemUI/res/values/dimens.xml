@@ -332,7 +332,6 @@
     <dimen name="screenshot_action_chip_text_size">14sp</dimen>
     <dimen name="screenshot_dismissal_height_delta">80dp</dimen>
 
-
     <!-- The width of the partial screenshot border resize handles -->
     <dimen name="global_screenshot_selector_border_width">4dp</dimen>
 
