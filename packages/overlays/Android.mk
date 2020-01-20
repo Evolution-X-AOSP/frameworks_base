@@ -46,9 +46,9 @@ LOCAL_REQUIRED_MODULES := \
 	AccentColorMatrixOverlay \
 	AccentColorNextbitOverlay \
 	AccentColorOnePlusOverlay \
+	AccentColorOrangeOverlay \
 	AccentColorParanoidOverlay \
 	AccentColorPepsiOverlay \
-	AccentColorPornhubOverlay \
 	AccentColorRazerOverlay \
 	AccentColorSalmonOverlay \
 	AccentColorStarbucksOverlay \
