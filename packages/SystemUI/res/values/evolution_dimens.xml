@@ -102,4 +102,7 @@
 
     <!-- Margin on the left side of the heads up notification -->
     <dimen name="heads_up_status_bar_padding_start">0dp</dimen>
+
+    <!-- Daily data usage -->
+    <dimen name="data_usage_padding_start">4dp</dimen>
 </resources>
