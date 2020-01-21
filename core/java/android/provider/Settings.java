@@ -4813,6 +4813,13 @@ public final class Settings {
         private static final Validator STATUS_BAR_BRIGHTNESS_CONTROL_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
+        /** @hide */
+        public static final String BACK_GESTURE_BLOCK_IME = "back_gesture_block_ime";
+
+        /** @hide */
+        private static final Validator BACK_GESTURE_BLOCK_IME_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
         /**
          * Whether the user has already accepted MediaProjection permission for the built-in screenrecorder
          * @hide
@@ -6730,7 +6737,8 @@ public final class Settings {
             TEXT_CLOCK_ALIGNMENT,
             TEXT_CLOCK_PADDING,
             QS_PANEL_BG_USE_NEW_TINT,
-            BACK_GESTURE_HAPTIC
+            BACK_GESTURE_HAPTIC,
+            BACK_GESTURE_BLOCK_IME,
             // Evolution X Settings end
         };
 
@@ -6968,6 +6976,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_NEW_TINT);
             PRIVATE_SETTINGS.add(BACK_GESTURE_HAPTIC);
             PRIVATE_SETTINGS.add(INCALL_FEEDBACK_VIBRATE);
+            PRIVATE_SETTINGS.add(BACK_GESTURE_BLOCK_IME);
             // Evolution X Settings end
         }
 
@@ -7223,6 +7232,7 @@ public final class Settings {
             VALIDATORS.put(QS_PANEL_BG_USE_NEW_TINT, QS_PANEL_BG_USE_NEW_TINT_VALIDATOR);
             VALIDATORS.put(BACK_GESTURE_HAPTIC, BACK_GESTURE_HAPTIC_VALIDATOR);
             VALIDATORS.put(INCALL_FEEDBACK_VIBRATE, INCALL_FEEDBACK_VIBRATE_VALIDATOR);
+            VALIDATORS.put(BACK_GESTURE_BLOCK_IME,BACK_GESTURE_BLOCK_IME_VALIDATOR);
             // Evolution X Settings end
         }
 
