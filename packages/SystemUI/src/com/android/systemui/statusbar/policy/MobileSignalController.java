@@ -450,6 +450,10 @@ public class MobileSignalController extends SignalController<
                 case 5:
                     resId = R.drawable.ic_volte3;
                     break;
+                // CAF HD Icon
+                case 6:
+                    resId = R.drawable.ic_hd_volte2;
+                    break;
             }
         }
         return resId;
