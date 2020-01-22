@@ -1240,8 +1240,10 @@ public class StatusBar extends SystemUI implements DemoMode,
     }
 
     public void updateBlurVisibility() {
-
-        int QSBlurAlpha = Math.round(255.0f * mStaticNotificationPanel.getExpandedFraction());
+        int QSUserAlpha = Settings.System.getInt(mContext.getContentResolver(),
+              Settings.System.QS_BLUR_ALPHA, 100);
+        int QSBlurAlpha = Math.round(255.0f *
+                mNotificationPanel.getExpandedFraction() * (float)((float) QSUserAlpha / 100.0));
 
         if (QSBlurAlpha > 0 && !blurperformed && !mIsKeyguard && isQSBlurEnabled()) {
             Bitmap bittemp = ImageUtilities.blurImage(mContext, ImageUtilities.screenshotSurface(mContext));
@@ -4493,6 +4495,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                     Settings.Secure.LOCKSCREEN_DATE_SELECTION),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_BLUR_ALPHA),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -4538,6 +4543,8 @@ public class StatusBar extends SystemUI implements DemoMode,
                     uri.equals(Settings.System.getUriFor(Settings.System.LOCKSCREEN_CLOCK)) ||
                     uri.equals(Settings.Secure.getUriFor(Settings.Secure.LOCKSCREEN_DATE_SELECTION))) {
                 updateKeyguardStatusSettings();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_BLUR_ALPHA))) {
+                updateBlurVisibility();
             }
             update();
         }
