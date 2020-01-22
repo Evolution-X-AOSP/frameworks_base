@@ -520,6 +520,8 @@ public class TypedArray {
                 int newColor = defValue;
                 if (AccentUtils.isResourceAccent(resName))
                     newColor = AccentUtils.getNewAccentColor(defValue);
+                else if (AccentUtils.isResourceQSbgColor(resName))
+                    newColor = AccentUtils.getNewQSbgColor(defValue);
                 if (newColor != defValue)
                     return newColor;
             }

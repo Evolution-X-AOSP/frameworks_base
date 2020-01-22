@@ -21,14 +21,23 @@ public class AccentUtils {
     private static final String TAG = "AccentUtils";
 
     private static final String ACCENT_COLOR_PROP = "persist.sys.evolution.accent_color";
+    private static final String QS_BG_COLOR_PROP = "persist.sys.evolution.qs_bg_color";
 
     static boolean isResourceAccent(String resName) {
         return resName.contains("accent_device_default_light")
                 || resName.contains("accent_device_default_dark");
     }
 
+    static boolean isResourceQSbgColor(String resName) {
+        return resName.contains("quick_settings_status_bar_background_color");
+    }
+
     public static int getNewAccentColor(int defaultColor) {
         return getAccentColor(defaultColor, ACCENT_COLOR_PROP);
+    }
+
+    public static int getNewQSbgColor(int defaultColor) {
+        return getQSbgColor(defaultColor, QS_BG_COLOR_PROP);
     }
 
     private static int getAccentColor(int defaultColor, String property) {
@@ -39,6 +48,19 @@ public class AccentUtils {
                     : Color.parseColor("#" + colorValue);
         } catch (Exception e) {
             Log.e(TAG, "Failed to set accent: " + e.getMessage() +
+                    "\nSetting default: " + defaultColor);
+            return defaultColor;
+        }
+    }
+
+    private static int getQSbgColor(int defaultColor, String property) {
+        try {
+            String colorValue = SystemProperties.get(property, "-1");
+            return "-1".equals(colorValue)
+                    ? defaultColor
+                    : Color.parseColor("#" + colorValue);
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to set QSbg color: " + e.getMessage() +
                     "\nSetting default: " + defaultColor);
             return defaultColor;
         }

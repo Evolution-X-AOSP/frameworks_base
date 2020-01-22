@@ -18,7 +18,7 @@
     android:shape="rectangle">
     <gradient
         android:angle="270"
-        android:startColor="#ff000000"
+        android:startColor="@color/quick_settings_status_bar_background_color"
         android:endColor="#00000000"
         android:type="linear" />
 </shape>

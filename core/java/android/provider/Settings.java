@@ -6264,6 +6264,15 @@ public final class Settings {
         private static final Validator ACCENT_COLOR_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
         /**
+         * QS statusbar background color
+         * @hide
+         */
+        public static final String QS_BG_COLOR = "qs_bg_color";
+
+        /** @hide */
+        private static final Validator QS_BG_COLOR_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6422,6 +6431,7 @@ public final class Settings {
             STATUS_BAR_TICKER_ANIMATION_MODE,
             STATUS_BAR_TICKER_TICK_DURATION,
             ACCENT_COLOR,
+            QS_BG_COLOR,
         };
 
         /**
@@ -6653,6 +6663,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_TICKER_TICK_DURATION);
             PRIVATE_SETTINGS.add(FORCE_SHOW_NAVBAR);
             PRIVATE_SETTINGS.add(ACCENT_COLOR);
+            PRIVATE_SETTINGS.add(QS_BG_COLOR);
         }
 
         /**
@@ -6868,6 +6879,7 @@ public final class Settings {
             VALIDATORS.put(STATUS_BAR_TICKER_TICK_DURATION,
                     STATUS_BAR_TICKER_TICK_DURATION_VALIDATOR);
             VALIDATORS.put(ACCENT_COLOR, ACCENT_COLOR_VALIDATOR);
+            VALIDATORS.put(QS_BG_COLOR, QS_BG_COLOR_VALIDATOR);
         }
 
         /**
