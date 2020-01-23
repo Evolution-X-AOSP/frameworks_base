@@ -156,7 +156,6 @@ public class NotificationMediaManager implements Dumpable {
     private ImageView mBackdropBack;
 
     private boolean mShowCompactMediaSeekbar;
-    private boolean mShowMediaMetadata;
     private int mAlbumArtFilter;
     private final DeviceConfig.OnPropertiesChangedListener mPropertiesChangedListener =
             new DeviceConfig.OnPropertiesChangedListener() {
@@ -256,9 +255,6 @@ public class NotificationMediaManager implements Dumpable {
         void observe() {
             ContentResolver resolver = mContext.getContentResolver();
             resolver.registerContentObserver(Settings.System.getUriFor(
-                Settings.System.LOCKSCREEN_MEDIA_METADATA),
-                false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
                 Settings.System.LOCKSCREEN_ALBUM_ART_FILTER),
                 false, this, UserHandle.USER_ALL);
             updateSettings();
@@ -275,9 +271,6 @@ public class NotificationMediaManager implements Dumpable {
 
     private void updateSettings() {
         ContentResolver resolver = mContext.getContentResolver();
-        mShowMediaMetadata = Settings.System.getIntForUser(resolver,
-                Settings.System.LOCKSCREEN_MEDIA_METADATA, 1,
-                UserHandle.USER_CURRENT) == 1;
         mAlbumArtFilter = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.LOCKSCREEN_ALBUM_ART_FILTER, 5,
                 UserHandle.USER_CURRENT);
@@ -616,7 +609,7 @@ public class NotificationMediaManager implements Dumpable {
         StatusBarWindowController windowController = mStatusBarWindowController.get();
         boolean hideBecauseOccluded = shadeController != null && shadeController.isOccluded();
 
-        final boolean hasArtwork = mShowMediaMetadata && artworkDrawable != null;
+        final boolean hasArtwork = artworkDrawable != null;
         mColorExtractor.setHasMediaArtwork(hasMediaArtwork);
         if (mScrimController != null) {
             mScrimController.setHasBackdrop(hasArtwork);
