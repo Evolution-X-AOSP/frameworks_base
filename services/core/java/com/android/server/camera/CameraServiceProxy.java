@@ -128,6 +128,7 @@ public class CameraServiceProxy extends SystemService
     private final @NfcNotifyState int mNotifyNfc;
     private boolean mLastNfcPollState = true;
     private final boolean mAllowMediaUid;
+    private final boolean mSendCameraStatusIntent;
 
     private long mClosedEvent;
     private long mOpenEvent;
@@ -225,7 +226,7 @@ public class CameraServiceProxy extends SystemService
 
             updateActivityCount(cameraId, newCameraState, facing, clientName, apiLevel);
 
-            if (facing == ICameraServiceProxy.CAMERA_FACING_FRONT) {
+            if (mSendCameraStatusIntent && facing == ICameraServiceProxy.CAMERA_FACING_FRONT) {
                 switch (newCameraState) {
                    case ICameraServiceProxy.CAMERA_STATE_OPEN : {
                        mOpenEvent = SystemClock.elapsedRealtime();
@@ -261,6 +262,8 @@ public class CameraServiceProxy extends SystemService
         if (DEBUG) Slog.v(TAG, "Notify NFC state is " + nfcNotifyToString(mNotifyNfc));
         mAllowMediaUid = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_allowMediaUidForCameraServiceProxy);
+        mSendCameraStatusIntent = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_sendCameraStatusIntent);
     }
 
     @Override
