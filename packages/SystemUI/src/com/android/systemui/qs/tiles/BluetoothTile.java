@@ -265,7 +265,7 @@ public class BluetoothTile extends SecureQSTile<BooleanState> {
         @Override
         public Drawable getDrawable(Context context) {
             // This method returns Pair<Drawable, String> - the first value is the drawable.
-            return context.getDrawable(R.drawable.ic_bluetooth_connected);
+            return context.getDrawable(R.drawable.ic_qs_bluetooth_connected);
         }
     }
 }
