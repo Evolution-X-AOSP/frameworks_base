@@ -120,11 +120,8 @@ public class KeyguardIndicationController implements StateListener,
     private boolean mPowerPluggedInWired;
     private boolean mPowerCharged;
     private int mChargingSpeed;
-    private double mChargingWattage;
+    private int mChargingWattage;
     private int mBatteryLevel;
-    private int mChargingCurrent;
-    private double mChargingVoltage;
-    private float mTemperature;
     private String mMessageToShowOnScreenOn;
 
     private KeyguardUpdateMonitorCallback mUpdateMonitorCallback;
@@ -561,30 +558,6 @@ public class KeyguardIndicationController implements StateListener,
                     : R.string.keyguard_plugged_in_wireless;
         }
 
-        String batteryInfo = "";
-        boolean showbatteryInfo = Settings.System.getIntForUser(mContext.getContentResolver(),
-            Settings.System.LOCKSCREEN_BATTERY_INFO, 1, UserHandle.USER_CURRENT) == 1;
-         if (showbatteryInfo) {
-            if (mChargingWattage > 0) {
-                batteryInfo = (batteryInfo == "" ? "" : batteryInfo + " · ") +
-                        String.format("%.1f" , (mChargingWattage / 1000 / 1000)) + "W";
-            }
-            if (mChargingVoltage > 0) {
-                batteryInfo = (batteryInfo == "" ? "" : batteryInfo + " · ") +
-                        String.format("%.1f", (mChargingVoltage / 1000 / 1000)) + "V";
-            }
-            if (mTemperature > 0) {
-                batteryInfo = (batteryInfo == "" ? "" : batteryInfo + " · ") +
-                        mTemperature / 10 + "°C";
-            }
-            if (mChargingCurrent > 0) {
-                batteryInfo = batteryInfo + "\n" + (mChargingCurrent / 1000) + "mA";
-            }
-            if (batteryInfo != "") {
-                batteryInfo = "\n" + batteryInfo;
-            }
-        }
-
         String percentage = NumberFormat.getPercentInstance()
                 .format(mBatteryLevel / 100f);
         if (hasChargingTime) {
@@ -593,23 +566,18 @@ public class KeyguardIndicationController implements StateListener,
             // format until all languages get the new translations.
             String chargingTimeFormatted = Formatter.formatShortElapsedTimeRoundingUpToMinutes(
                     mContext, chargingTimeRemaining);
-
             try {
-                String chargingText = mContext.getResources().getString(chargingId, chargingTimeFormatted,
+                return mContext.getResources().getString(chargingId, chargingTimeFormatted,
                         percentage);
-                return chargingText + batteryInfo;
             } catch (IllegalFormatConversionException e) {
-                String chargingText =  mContext.getResources().getString(chargingId, chargingTimeFormatted);
-                return chargingText + batteryInfo;
+                return mContext.getResources().getString(chargingId, chargingTimeFormatted);
             }
         } else {
             // Same as above
             try {
-                String chargingText =  mContext.getResources().getString(chargingId, percentage);
-                return chargingText + batteryInfo;
+                return mContext.getResources().getString(chargingId, percentage);
             } catch (IllegalFormatConversionException e) {
-                String chargingText =  mContext.getResources().getString(chargingId);
-                return chargingText + batteryInfo;
+                return mContext.getResources().getString(chargingId);
             }
         }
     }
@@ -707,10 +675,7 @@ public class KeyguardIndicationController implements StateListener,
             mPowerPluggedInWired = status.isPluggedInWired() && isChargingOrFull;
             mPowerPluggedIn = status.isPluggedIn() && isChargingOrFull;
             mPowerCharged = status.isCharged();
-            mChargingCurrent = status.maxChargingCurrent;
-            mChargingVoltage = status.maxChargingVoltage;
             mChargingWattage = status.maxChargingWattage;
-            mTemperature = status.temperature;
             mChargingSpeed = status.getChargingSpeed(mSlowThreshold, mFastThreshold);
             mBatteryLevel = status.level;
             updateIndication(!wasPluggedIn && mPowerPluggedInWired);
