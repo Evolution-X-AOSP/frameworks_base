@@ -6934,6 +6934,17 @@ public final class Settings {
          */
         public static final String NAVIGATION_BAR_IME_SPACE = "navigation_bar_ime_space";
 
+        /**
+         * Enable/disable privacy indicators on statusbar
+         * @hide
+         */
+        public static final String STATUSBAR_PRIVACY_INDICATORS = "statusbar_privacy_indicators";
+
+        /**
+         * @hide
+         */
+        private static final Validator STATUSBAR_PRIVACY_INDICATORS_VALIDATOR = BOOLEAN_VALIDATOR;
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
@@ -7157,6 +7168,7 @@ public final class Settings {
             BATTERY_BAR_USE_GRADIENT_COLOR,
             ENABLE_CONDITIONS,
             GESTURE_NAVBAR_SHOW,
+            STATUSBAR_PRIVACY_INDICATORS,
             // Evolution X Settings end
         };
 
@@ -7417,6 +7429,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LOCKSCREEN_BATTERY_INFO);
             PRIVATE_SETTINGS.add(ENABLE_CONDITIONS);
             PRIVATE_SETTINGS.add(GESTURE_NAVBAR_SHOW);
+            PRIVATE_SETTINGS.add(STATUSBAR_PRIVACY_INDICATORS);
             // Evolution X Settings end
         }
 
@@ -7705,6 +7718,7 @@ public final class Settings {
             VALIDATORS.put(BATTERY_BAR_USE_GRADIENT_COLOR, BATTERY_BAR_USE_GRADIENT_COLOR_VALIDATOR);
             VALIDATORS.put(ENABLE_CONDITIONS, ENABLE_CONDITIONS_VALIDATOR);
             VALIDATORS.put(GESTURE_NAVBAR_SHOW,GESTURE_NAVBAR_SHOW_VALIDATOR);
+            VALIDATORS.put(STATUSBAR_PRIVACY_INDICATORS, STATUSBAR_PRIVACY_INDICATORS_VALIDATOR);
             // Evolution X Settings end
         }
 
