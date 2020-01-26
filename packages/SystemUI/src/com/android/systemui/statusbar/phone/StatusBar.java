@@ -1244,13 +1244,17 @@ public class StatusBar extends SystemUI implements DemoMode,
               Settings.System.QS_BLUR_ALPHA, 100);
         int QSBlurAlpha = Math.round(255.0f *
                 mNotificationPanel.getExpandedFraction() * (float)((float) QSUserAlpha / 100.0));
+        int QSBlurIntensity = Settings.System.getInt(mContext.getContentResolver(),
+              Settings.System.QS_BLUR_INTENSITY, 30); // defaulting to 7.5f radius
+        boolean enoughBlurData = (QSBlurAlpha > 0 && QSBlurIntensity > 0);
 
-        if (QSBlurAlpha > 0 && !blurperformed && !mIsKeyguard && isQSBlurEnabled()) {
-            Bitmap bittemp = ImageUtilities.blurImage(mContext, ImageUtilities.screenshotSurface(mContext));
+        if (enoughBlurData && !blurperformed && !mIsKeyguard && isQSBlurEnabled()) {
+            Bitmap bittemp = ImageUtilities.blurImage(mContext,
+                                ImageUtilities.screenshotSurface(mContext), QSBlurIntensity);
             Drawable blurbackground = new BitmapDrawable(mContext.getResources(), bittemp);
             blurperformed = true;
             mQSBlurView.setBackgroundDrawable(blurbackground);
-        } else if (QSBlurAlpha == 0 || mState == StatusBarState.KEYGUARD) {
+        } else if (!enoughBlurData || mState == StatusBarState.KEYGUARD) {
             blurperformed = false;
             mQSBlurView.setBackgroundColor(Color.TRANSPARENT);
         }
@@ -4498,6 +4502,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_BLUR_ALPHA),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_BLUR_INTENSITY),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -4543,7 +4550,8 @@ public class StatusBar extends SystemUI implements DemoMode,
                     uri.equals(Settings.System.getUriFor(Settings.System.LOCKSCREEN_CLOCK)) ||
                     uri.equals(Settings.Secure.getUriFor(Settings.Secure.LOCKSCREEN_DATE_SELECTION))) {
                 updateKeyguardStatusSettings();
-            } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_BLUR_ALPHA))) {
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_BLUR_ALPHA)) ||
+                    uri.equals(Settings.System.getUriFor(Settings.System.QS_BLUR_INTENSITY))) {
                 updateBlurVisibility();
             }
             update();
