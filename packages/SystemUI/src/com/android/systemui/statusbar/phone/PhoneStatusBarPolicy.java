@@ -34,6 +34,7 @@ import android.os.Handler;
 import android.os.RemoteException;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.provider.Settings;
 import android.provider.Settings.Global;
 import android.service.notification.ZenModeConfig;
 import android.telecom.TelecomManager;
@@ -709,6 +710,8 @@ public class PhoneStatusBarPolicy
     }
 
     private void updatePrivacyItems(List<PrivacyItem> items) {
+        final boolean mShowStatusBarPrivacyIndicators = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.STATUSBAR_PRIVACY_INDICATORS, 1) == 1;
         boolean showCamera = false;
         boolean showMicrophone = false;
         boolean showLocation = false;
@@ -722,19 +725,20 @@ public class PhoneStatusBarPolicy
                 }
                 continue;
             }
-            switch (item.getPrivacyType()) {
-                case TYPE_CAMERA:
-                    showCamera = true;
-                    break;
-                case TYPE_LOCATION:
-                    showLocation = true;
-                    break;
-                case TYPE_MICROPHONE:
-                    showMicrophone = true;
-                    break;
+            if (mShowStatusBarPrivacyIndicators) {
+                switch (item.getPrivacyType()) {
+                    case TYPE_CAMERA:
+                        showCamera = true;
+                        break;
+                    case TYPE_LOCATION:
+                        showLocation = true;
+                        break;
+                    case TYPE_MICROPHONE:
+                        showMicrophone = true;
+                        break;
+                }
             }
         }
-
         mIconController.setIconVisibility(mSlotCamera, showCamera);
         mIconController.setIconVisibility(mSlotMicrophone, showMicrophone);
         mIconController.setIconVisibility(mSlotLocation, showLocation);

@@ -6944,6 +6944,17 @@ public final class Settings {
         private static final Validator STOCK_STATUSBAR_IN_HIDE_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
+        /**
+         * Enable/disable privacy indicators on statusbar
+         * @hide
+         */
+        public static final String STATUSBAR_PRIVACY_INDICATORS = "statusbar_privacy_indicators";
+
+        /**
+         * @hide
+         */
+        private static final Validator STATUSBAR_PRIVACY_INDICATORS_VALIDATOR = BOOLEAN_VALIDATOR;
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
@@ -7169,6 +7180,7 @@ public final class Settings {
             GESTURE_NAVBAR_SHOW,
             DISPLAY_CUTOUT_MODE,
             STOCK_STATUSBAR_IN_HIDE,
+            STATUSBAR_PRIVACY_INDICATORS,
             // Evolution X Settings end
         };
 
@@ -7430,6 +7442,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(GESTURE_NAVBAR_SHOW);
             PRIVATE_SETTINGS.add(DISPLAY_CUTOUT_MODE);
             PRIVATE_SETTINGS.add(STOCK_STATUSBAR_IN_HIDE);
+            PRIVATE_SETTINGS.add(STATUSBAR_PRIVACY_INDICATORS);
             // Evolution X Settings end
         }
 
@@ -7719,6 +7732,7 @@ public final class Settings {
             VALIDATORS.put(GESTURE_NAVBAR_SHOW,GESTURE_NAVBAR_SHOW_VALIDATOR);
             VALIDATORS.put(DISPLAY_CUTOUT_MODE, DISPLAY_CUTOUT_MODE_VALIDATOR);
             VALIDATORS.put(STOCK_STATUSBAR_IN_HIDE, STOCK_STATUSBAR_IN_HIDE_VALIDATOR);
+            VALIDATORS.put(STATUSBAR_PRIVACY_INDICATORS, STATUSBAR_PRIVACY_INDICATORS_VALIDATOR);
             // Evolution X Settings end
         }
 
