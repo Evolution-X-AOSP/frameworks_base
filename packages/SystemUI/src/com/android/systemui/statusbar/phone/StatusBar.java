@@ -305,9 +305,6 @@ public class StatusBar extends SystemUI implements DemoMode,
     private static final String SYSUI_ROUNDED_FWVALS =
             Settings.Secure.SYSUI_ROUNDED_FWVALS;
 
-    private static final String ACCENT_COLOR_PROP = "persist.sys.evolution.accent_color";
-    private static final String QS_BG_COLOR_PROP = "persist.sys.evolution.qs_bg_color";
-
     private static final String BANNER_ACTION_CANCEL =
             "com.android.systemui.statusbar.banner_action_cancel";
     private static final String BANNER_ACTION_SETUP =
@@ -4457,12 +4454,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.FORCE_SHOW_NAVBAR),
                     false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.ACCENT_COLOR),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.QS_BG_COLOR),
-                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -4504,10 +4495,6 @@ public class StatusBar extends SystemUI implements DemoMode,
                 mQSPanel.getHost().reloadAllTiles();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.FORCE_SHOW_NAVBAR))) {
                 updateNavigationBarVisibility();
-            } else if (uri.equals(Settings.System.getUriFor(Settings.System.ACCENT_COLOR))) {
-                applyAccentColor();
-            } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_BG_COLOR))) {
-                setQSbgColor();
             }
             update();
         }
@@ -4529,38 +4516,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             updateTickerAnimation();
             updateTickerTickDuration();
             updateNavigationBarVisibility();
-            applyAccentColor();
-            setQSbgColor();
-        }
-    }
-
-    private void setQSbgColor() {
-        int qsbgColor = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.QS_BG_COLOR, 0xFF000000,
-                UserHandle.USER_CURRENT);
-        String qsbgHex = String.format("%08x", (0xFFFFFFFF & qsbgColor));
-        String qsbgVal = SystemProperties.get(QS_BG_COLOR_PROP);
-        if (!qsbgVal.equals(qsbgHex)) {
-            SystemProperties.set(QS_BG_COLOR_PROP, qsbgHex);
-            try {
-                mOverlayManager.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
-            } catch (Exception e) { }
-        }
-    }
-
-    private void applyAccentColor() {
-        int intColor = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.ACCENT_COLOR, 0xFF1A73E8,
-                UserHandle.USER_CURRENT);
-        String colorHex = String.format("%08x", (0xFFFFFFFF & intColor));
-        String accentVal = SystemProperties.get(ACCENT_COLOR_PROP);
-        if (!accentVal.equals(colorHex)) {
-            SystemProperties.set(ACCENT_COLOR_PROP, colorHex);
-            try {
-                mOverlayManager.reloadAndroidAssets(UserHandle.USER_CURRENT);
-                mOverlayManager.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
-                mOverlayManager.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
-            } catch (Exception e) { }
         }
     }
 
