@@ -469,7 +469,7 @@ public class FODCircleView extends ImageView {
         }
 
         if (mIsDreaming) {
-            mParams.x += mDreamingOffsetX;
+            //mParams.x += mDreamingOffsetX;
             mParams.y += mDreamingOffsetY;
         }
 
