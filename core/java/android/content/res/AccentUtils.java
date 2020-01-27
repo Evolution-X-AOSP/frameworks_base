@@ -25,7 +25,8 @@ public class AccentUtils {
 
     static boolean isResourceAccent(String resName) {
         return resName.contains("accent_device_default_light")
-                || resName.contains("accent_device_default_dark");
+                || resName.contains("accent_device_default_dark")
+                || resName.contains("accent_device_default");
     }
 
     static boolean isResourceQSbgColor(String resName) {
