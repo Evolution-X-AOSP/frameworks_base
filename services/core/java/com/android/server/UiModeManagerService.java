@@ -30,6 +30,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.om.IOverlayManager;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -76,6 +77,7 @@ final class UiModeManagerService extends SystemService {
     private static final boolean ENABLE_LAUNCH_DESK_DOCK_APP = true;
     private static final String SYSTEM_PROPERTY_DEVICE_THEME = "persist.sys.theme";
 
+    private IOverlayManager mOverlayManager;
     private static final String ACCENT_COLOR_PROP = "persist.sys.evolution.accent_color";
     private static final String QS_BG_COLOR_PROP = "persist.sys.evolution.qs_bg_color";
 
@@ -235,15 +237,9 @@ final class UiModeManagerService extends SystemService {
         @Override
         public void onChange(boolean selfChange, Uri uri) {
             if (uri.equals(System.getUriFor(System.ACCENT_COLOR))) {
-                final int intColor = System.getIntForUser(getContext().getContentResolver(),
-                        System.ACCENT_COLOR, 0xFF1A73E8, UserHandle.USER_CURRENT);
-                String colorHex = String.format("%08x", (0xFFFFFFFF & intColor));
-                SystemProperties.set(ACCENT_COLOR_PROP, colorHex);
+                applyAccentColor();
             } else if (uri.equals(System.getUriFor(System.QS_BG_COLOR))) {
-                final int qsbgColor = System.getIntForUser(getContext().getContentResolver(),
-                        System.QS_BG_COLOR, 0xFF000000, UserHandle.USER_CURRENT);
-                String qsbgHex = String.format("%08x", (0xFFFFFFFF & qsbgColor));
-                SystemProperties.set(QS_BG_COLOR_PROP, qsbgHex);
+                setQSbgColor();
             }
         }
     };
@@ -309,6 +305,11 @@ final class UiModeManagerService extends SystemService {
 
         updateNightModeFromSettings(context, res, UserHandle.getCallingUserId());
 
+        mOverlayManager = IOverlayManager.Stub
+                .asInterface(ServiceManager.getService(Context.OVERLAY_SERVICE));
+        applyAccentColor();
+        setQSbgColor();
+
         // Update the initial, static configurations.
         SystemServerInitThreadPool.get().submit(() -> {
             synchronized (mLock) {
@@ -327,9 +328,9 @@ final class UiModeManagerService extends SystemService {
         context.getContentResolver().registerContentObserver(Secure.getUriFor(Secure.UI_NIGHT_MODE),
                 false, mDarkThemeObserver, 0);
         context.getContentResolver().registerContentObserver(System.getUriFor(System.ACCENT_COLOR),
-                false, mAccentObserver, 0);
+                false, mAccentObserver, UserHandle.USER_ALL);
         context.getContentResolver().registerContentObserver(System.getUriFor(System.QS_BG_COLOR),
-                false, mAccentObserver, 0);
+                false, mAccentObserver, UserHandle.USER_ALL);
     }
 
     // Records whether setup wizard has happened or not and adds an observer for this user if not.
@@ -375,6 +376,36 @@ final class UiModeManagerService extends SystemService {
             SystemProperties.set(SYSTEM_PROPERTY_DEVICE_THEME, newTheme);
         }
         return oldNightMode != mNightMode;
+    }
+
+    private void applyAccentColor() {
+        final Context context = getContext();
+        int intColor = System.getIntForUser(context.getContentResolver(),
+                System.ACCENT_COLOR, 0xFF1A73E8, UserHandle.USER_CURRENT);
+        String colorHex = String.format("%08x", (0xFFFFFFFF & intColor));
+        String accentVal = SystemProperties.get(ACCENT_COLOR_PROP);
+        if (!accentVal.equals(colorHex)) {
+            SystemProperties.set(ACCENT_COLOR_PROP, colorHex);
+            try {
+                mOverlayManager.reloadAndroidAssets(UserHandle.USER_CURRENT);
+                mOverlayManager.reloadAssets("com.android.settings", UserHandle.USER_CURRENT);
+                mOverlayManager.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+            } catch (Exception e) { }
+        }
+    }
+
+    private void setQSbgColor() {
+        final Context context = getContext();
+        int qsbgColor = System.getIntForUser(context.getContentResolver(),
+                System.QS_BG_COLOR, 0xFF000000, UserHandle.USER_CURRENT);
+        String qsbgHex = String.format("%08x", (0xFFFFFFFF & qsbgColor));
+        String qsbgVal = SystemProperties.get(QS_BG_COLOR_PROP);
+        if (!qsbgVal.equals(qsbgHex)) {
+            SystemProperties.set(QS_BG_COLOR_PROP, qsbgHex);
+            try {
+                mOverlayManager.reloadAssets("com.android.systemui", UserHandle.USER_CURRENT);
+            } catch (Exception e) { }
+        }
     }
 
     private final IUiModeManager.Stub mService = new IUiModeManager.Stub() {
