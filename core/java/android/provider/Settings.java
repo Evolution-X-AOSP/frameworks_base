@@ -6459,6 +6459,12 @@ public final class Settings {
          */
         public static final String SCREENSHOT_SOUND = "screenshot_sound";
 
+        /**
+         * FOD recognizing animation
+         * @hide
+         */
+        public static final String FOD_RECOGNIZING_ANIMATION = "fod_recognizing_animation";
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
