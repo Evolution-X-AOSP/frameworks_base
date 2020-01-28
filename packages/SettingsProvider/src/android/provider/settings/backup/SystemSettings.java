@@ -108,5 +108,6 @@ public class SystemSettings {
         Settings.System.PULSE_AMBIENT_LIGHT,
         Settings.System.AMBIENT_NOTIFICATION_LIGHT_ENABLED,
         Settings.System.AMBIENT_NOTIFICATION_LIGHT,
+        Settings.System.AMBIENT_NOTIFICATION_LIGHT_ACCENT,
     };
 }
