@@ -30,7 +30,8 @@
         android:layout_height="wrap_content"
         android:layout_alwaysShow="true"
         android:elevation="8dp"
-        android:background="?attr/colorBackgroundFloating">
+        android:paddingTop="8dp"
+        android:background="@drawable/bottomsheet_background">
 
         <TextView
             android:id="@+id/profile_button"

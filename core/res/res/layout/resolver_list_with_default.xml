@@ -29,7 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_alwaysShow="true"
         android:orientation="vertical"
-        android:background="?attr/colorBackgroundFloating"
+        android:paddingTop="8dp"
+        android:background="@drawable/bottomsheet_background"
         android:elevation="8dp">
 
         <LinearLayout
