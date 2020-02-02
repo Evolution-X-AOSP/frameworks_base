@@ -83,6 +83,7 @@ LOCAL_REQUIRED_MODULES := \
 	FontSlateForOnePlusOverlay \
 	FontSonySketchSourceOverlay \
 	FontSurferSourceOverlay \
+	FontTinkerbellSourceOverlay \
 	IconPackCircularAndroidOverlay \
 	IconPackCircularPixelLauncherOverlay \
 	IconPackCircularPixelThemePickerOverlay \
