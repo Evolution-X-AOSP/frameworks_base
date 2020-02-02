@@ -58,6 +58,11 @@
     <string name="quick_settings_immersive_tile_navbar">Immersive navbar</string>
     <string name="quick_settings_immersive_tile_full">Immersive full</string>
 
+    <!-- Mono QS Tile -->
+    <string name="quick_settings_monotoggle_tile">Audio mode</string>
+    <string name="quick_settings_monotoggle_tile_mono">Mono audio</string>
+    <string name="quick_settings_monotoggle_tile_stereo">Stereo audio</string>
+
     <!-- Power off/Reboot/Recovery QS Tile -->
     <string name="quick_settings_poweroff_label">Power off</string>
     <string name="quick_settings_reboot_label">Reboot</string>
