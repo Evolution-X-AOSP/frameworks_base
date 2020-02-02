@@ -45,6 +45,7 @@ import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.ImmersiveTile;
 import com.android.systemui.qs.tiles.LocationTile;
+import com.android.systemui.qs.tiles.MonoToggleTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.RebootTile;
@@ -98,6 +99,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<DataSwitchTile> mDataSwitchTileProvider;
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
     private final Provider<ImmersiveTile> mImmersiveTileProvider;
+    private final Provider<MonoToggleTile> mMonoToggleTileProvider;
     private final Provider<RebootTile> mRebootTileProvider;
     private final Provider<SyncTile> mSyncTileProvider;
     private final Provider<UsbTetherTile> mUsbTetherTileProvider;
@@ -135,6 +137,7 @@ public class QSFactoryImpl implements QSFactory {
             Provider<DataSwitchTile> dataSwitchTileProvider,
             Provider<HeadsUpTile> headsUpTileProvider,
             Provider<ImmersiveTile> immersiveTileProvider,
+            Provider<MonoToggleTile> monoToggleTileProvider,
             Provider<RebootTile> rebootTileProvider,
             Provider<SyncTile> syncTileProvider,
             Provider<UsbTetherTile> usbTetherTileProvider,
@@ -168,6 +171,7 @@ public class QSFactoryImpl implements QSFactory {
         mDataSwitchTileProvider = dataSwitchTileProvider;
         mHeadsUpTileProvider = headsUpTileProvider;
         mImmersiveTileProvider = immersiveTileProvider;
+        mMonoToggleTileProvider = monoToggleTileProvider;
         mRebootTileProvider = rebootTileProvider;
         mSyncTileProvider = syncTileProvider;
         mUsbTetherTileProvider = usbTetherTileProvider;
@@ -239,6 +243,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mHeadsUpTileProvider.get();
             case "immersive":
                 return mImmersiveTileProvider.get();
+            case "mono":
+                return mMonoToggleTileProvider.get();
             case "reboot":
                 return mRebootTileProvider.get();
             case "sync":
