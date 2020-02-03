@@ -3101,6 +3101,8 @@ public class NotificationPanelViewController extends PanelViewController {
                 Settings.System.AOD_NOTIFICATION_PULSE_TIMEOUT, 0, UserHandle.USER_CURRENT);
         boolean pulseColorAutomatic = Settings.System.getIntForUser(resolver,
                 Settings.System.NOTIFICATION_PULSE_COLOR_AUTOMATIC, 0, UserHandle.USER_CURRENT) != 0;
+        boolean pulseForAll = Settings.System.getIntForUser(resolver,
+                Settings.System.AMBIENT_LIGHT_PULSE_FOR_ALL, 0, UserHandle.USER_CURRENT) == 1;
         int repeats = Settings.System.getIntForUser(resolver,
                 Settings.System.NOTIFICATION_PULSE_REPEATS, 0, UserHandle.USER_CURRENT);
         if (animatePulse) {
@@ -3133,7 +3135,7 @@ public class NotificationPanelViewController extends PanelViewController {
                 }
             }
             if (mPulsing) {
-                if (pulseReasonNotification) {
+                if (pulseReasonNotification || pulseForAll) {
                     if (activeNotif) {
                         // show the bars if we have to
                         if (pulseLights) {
