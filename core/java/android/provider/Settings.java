@@ -6396,6 +6396,16 @@ public final class Settings {
                 ANY_INTEGER_VALIDATOR;
 
         /**
+         * Whether to show edge light for all doze events
+         * @hide
+         */
+        public static final String PULSE_AMBIENT_LIGHT_PULSE_FOR_ALL = "pulse_ambient_light_pulse_for_all";
+
+        /** @hide */
+        private static final Validator PULSE_AMBIENT_LIGHT_PULSE_FOR_ALL_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * Number of times to repeat animations of Ambient edge light
          * 0 is infinite
          * @hide
@@ -6557,6 +6567,7 @@ public final class Settings {
             PULSE_AMBIENT_AUTO_COLOR,
             PULSE_AMBIENT_LIGHT_COLOR,
             PULSE_AMBIENT_LIGHT_DURATION,
+            PULSE_AMBIENT_LIGHT_PULSE_FOR_ALL,
             PULSE_AMBIENT_LIGHT_REPEAT_COUNT,
             QS_HIDE_BATTERY,
             GESTURE_PILL_TOGGLE,
@@ -6799,6 +6810,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(PULSE_AMBIENT_AUTO_COLOR);
             PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT_COLOR);
             PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT_DURATION);
+            PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT_PULSE_FOR_ALL);
             PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT_REPEAT_COUNT);
             PRIVATE_SETTINGS.add(GESTURE_PILL_TOGGLE);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_COLOR);
@@ -7022,6 +7034,7 @@ public final class Settings {
             VALIDATORS.put(PULSE_AMBIENT_AUTO_COLOR, PULSE_AMBIENT_AUTO_COLOR_VALIDATOR);
             VALIDATORS.put(PULSE_AMBIENT_LIGHT_COLOR, PULSE_AMBIENT_LIGHT_COLOR_VALIDATOR);
             VALIDATORS.put(PULSE_AMBIENT_LIGHT_DURATION, PULSE_AMBIENT_LIGHT_DURATION_VALIDATOR);
+            VALIDATORS.put(PULSE_AMBIENT_LIGHT_PULSE_FOR_ALL, PULSE_AMBIENT_LIGHT_PULSE_FOR_ALL_VALIDATOR);
             VALIDATORS.put(PULSE_AMBIENT_LIGHT_REPEAT_COUNT, PULSE_AMBIENT_LIGHT_REPEAT_COUNT_VALIDATOR);
             VALIDATORS.put(QS_HIDE_BATTERY, QS_HIDE_BATTERY_VALIDATOR);
             VALIDATORS.put(GESTURE_PILL_TOGGLE, GESTURE_PILL_TOGGLE_VALIDATOR);
