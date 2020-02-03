@@ -290,5 +290,6 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.ACCELEROMETER_ROTATION_ANGLES, NON_NEGATIVE_INTEGER_VALIDATOR);
         VALIDATORS.put(System.VOLUME_BUTTON_QUICK_MUTE, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.VOLUME_BUTTON_QUICK_MUTE_DELAY, new InclusiveIntegerRangeValidator(300, 1500));
+        VALIDATORS.put(System.RINGTONE_VIBRATION_PATTERN, new InclusiveIntegerRangeValidator(0, 4));
     }
 }

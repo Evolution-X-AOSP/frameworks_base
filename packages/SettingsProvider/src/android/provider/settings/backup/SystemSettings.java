@@ -118,5 +118,6 @@ public class SystemSettings {
         Settings.System.QS_FOOTER_TEXT_STRING,
         Settings.System.VOLUME_BUTTON_QUICK_MUTE,
         Settings.System.VOLUME_BUTTON_QUICK_MUTE_DELAY,
+        Settings.System.RINGTONE_VIBRATION_PATTERN,
     };
 }
