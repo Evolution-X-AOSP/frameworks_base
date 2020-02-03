@@ -239,6 +239,9 @@
     <!-- Default for Settings.Secure.AWARE_LOCK_ENABLED -->
     <bool name="def_aware_lock_enabled">false</bool>
 
+    <!-- Default for Settings.System.TIME_12_24 -->
+    <string name="def_time_format" translatable="false">12</string>
+
     <integer name="def_ota_disable_automatic_update">1</integer>
 
     <!-- Default for Settings.Global.DEVELOPMENT_SETTINGS_ENABLED -->
