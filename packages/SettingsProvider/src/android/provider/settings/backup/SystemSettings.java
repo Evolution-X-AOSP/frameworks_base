@@ -109,5 +109,6 @@ public class SystemSettings {
         Settings.System.BLOCK_ALERT,
         Settings.System.SENSOR_BLOCK,
         Settings.System.ENABLE_FLOATING_ROTATION_BUTTON,
+        Settings.System.RINGTONE_VIBRATION_PATTERN,
     };
 }
