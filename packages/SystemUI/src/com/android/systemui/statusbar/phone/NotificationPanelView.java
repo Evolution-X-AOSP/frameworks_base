@@ -3512,6 +3512,8 @@ public class NotificationPanelView extends PanelView implements
         boolean activeNotif = mNotificationStackScroller.hasActiveClearableNotifications(ROWS_HIGH_PRIORITY);
         int pulseReason = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.OMNI_PULSE_TRIGGER_REASON, DozeLog.PULSE_REASON_NONE, UserHandle.USER_CURRENT);
+        boolean pulseForAll = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.PULSE_AMBIENT_LIGHT_PULSE_FOR_ALL, 0, UserHandle.USER_CURRENT) == 1;
         boolean pulseReasonNotification = pulseReason == DozeLog.PULSE_REASON_NOTIFICATION;
         boolean ambientLightsHideAod = Settings.System.getIntForUser(
                 mContext.getContentResolver(), Settings.System.OMNI_AMBIENT_NOTIFICATION_LIGHT_HIDE_AOD,
@@ -3534,7 +3536,7 @@ public class NotificationPanelView extends PanelView implements
             }
             if (mPulsing) {
                 showAodContent(true);
-                if (activeNotif && pulseReasonNotification) {
+                if (activeNotif && (pulseReasonNotification || pulseForAll)) {
                     // show the bars if we have to
                     if (pulseLights) {
                         mPulseLightsView.animateNotification(true);
