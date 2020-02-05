@@ -51,10 +51,11 @@ public class BatteryMeterDrawableBase extends Drawable {
 
     // Values for the different battery styles
     public static final int BATTERY_STYLE_Q = 0;
-    public static final int BATTERY_STYLE_DOTTED_CIRCLE = 1;
-    public static final int BATTERY_STYLE_CIRCLE = 2;
-    public static final int BATTERY_STYLE_TEXT = 3;
-    public static final int BATTERY_STYLE_HIDDEN = 4;
+    public static final int BATTERY_STYLE_CIRCLE = 1;
+    public static final int BATTERY_STYLE_DOTTED_CIRCLE = 2;
+    public static final int BATTERY_STYLE_PA_CIRCLE = 3;
+    public static final int BATTERY_STYLE_TEXT = 4;
+    public static final int BATTERY_STYLE_HIDDEN = 5;
 
     protected final Context mContext;
     protected final Paint mFramePaint;
@@ -368,9 +369,9 @@ public class BatteryMeterDrawableBase extends Drawable {
     @Override
     public boolean getPadding(Rect padding) {
         if (mPadding.left == 0
-                && mPadding.top == 0
-                && mPadding.right == 0
-                && mPadding.bottom == 0) {
+            && mPadding.top == 0
+            && mPadding.right == 0
+            && mPadding.bottom == 0) {
             return super.getPadding(padding);
         }
 
@@ -430,6 +431,9 @@ public class BatteryMeterDrawableBase extends Drawable {
                     break;
                 case BATTERY_STYLE_CIRCLE:
                     drawCircle(c);
+                    break;
+                case BATTERY_STYLE_PA_CIRCLE:
+                    drawPACircle(c);
                     break;
                 case BATTERY_STYLE_Q:
                 default:
@@ -618,6 +622,119 @@ public class BatteryMeterDrawableBase extends Drawable {
     }
 
     private void drawCircle(Canvas c) {
+        final int level = mLevel;
+
+        if (level == -1) return;
+
+        final int circleSize = Math.min(mWidth, mHeight);
+        float strokeWidth = circleSize / 6.5f;
+
+        mFramePaint.setStrokeWidth(strokeWidth);
+        mFramePaint.setStyle(Paint.Style.STROKE);
+
+        mBatteryPaint.setStrokeWidth(strokeWidth);
+        mBatteryPaint.setStyle(Paint.Style.STROKE);
+
+        mPowersavePaint.setStrokeWidth(strokeWidth);
+
+        if (mMeterStyle == BATTERY_STYLE_DOTTED_CIRCLE) {
+            mBatteryPaint.setPathEffect(mPathEffect);
+        } else {
+            mBatteryPaint.setPathEffect(null);
+        }
+
+        mFrame.set(
+                strokeWidth / 2.0f + mPadding.left,
+                strokeWidth / 2.0f,
+                circleSize - strokeWidth / 2.0f + mPadding.left,
+                circleSize - strokeWidth / 2.0f);
+
+        // set the battery charging color
+        mBatteryPaint.setColor(batteryColorForLevel(level));
+
+        if (mCharging) {
+            // define the bolt shape
+            final float bl = mFrame.left + mFrame.width() / 3.0f;
+            final float bt = mFrame.top + mFrame.height() / 3.4f;
+            final float br = mFrame.right - mFrame.width() / 4.0f;
+            final float bb = mFrame.bottom - mFrame.height() / 5.6f;
+            if (mBoltFrame.left != bl || mBoltFrame.top != bt
+                    || mBoltFrame.right != br || mBoltFrame.bottom != bb) {
+                mBoltFrame.set(bl, bt, br, bb);
+                mBoltPath.reset();
+                mBoltPath.moveTo(
+                        mBoltFrame.left + mBoltPoints[0] * mBoltFrame.width(),
+                        mBoltFrame.top + mBoltPoints[1] * mBoltFrame.height());
+                for (int i = 2; i < mBoltPoints.length; i += 2) {
+                    mBoltPath.lineTo(
+                            mBoltFrame.left + mBoltPoints[i] * mBoltFrame.width(),
+                            mBoltFrame.top + mBoltPoints[i + 1] * mBoltFrame.height());
+                }
+                mBoltPath.lineTo(
+                        mBoltFrame.left + mBoltPoints[0] * mBoltFrame.width(),
+                        mBoltFrame.top + mBoltPoints[1] * mBoltFrame.height());
+            }
+            c.drawPath(mBoltPath, mBoltPaint);
+        }
+
+        // draw thin gray ring first
+        c.drawArc(mFrame, 270, 360, false, mFramePaint);
+
+        // draw colored arc representing charge level
+        if (level > 0) {
+            if (!mCharging && mPowerSaveEnabled && mPowerSaveAsColorError) {
+                c.drawArc(mFrame, 270, 3.6f * level, false, mPowersavePaint);
+            } else {
+                c.drawArc(mFrame, 270, 3.6f * level, false, mBatteryPaint);
+            }
+        }
+
+        if (!mCharging && level != 100 && mShowPercent && !mPowerSaveEnabled) {
+            // compute percentage text
+            float pctX = 0, pctY = 0;
+            String pctText = null;
+            mTextPaint.setColor(getColorForLevel(level));
+            mTextPaint.setTextSize(mHeight * (SINGLE_DIGIT_PERCENT ? 0.86f : 0.52f));
+            mTextHeight = -mTextPaint.getFontMetrics().ascent;
+            pctText = level > mCriticalLevel ?
+                    String.valueOf(SINGLE_DIGIT_PERCENT ? (level / 10) : level) : mWarningString;
+            pctX = mWidth * 0.5f;
+            pctY = (mHeight + mTextHeight) * 0.47f;
+
+            c.drawText(pctText, pctX, pctY, mTextPaint);
+        } else if (mPowerSaveEnabled) {
+            // define the plus shape
+            final float pw = mFrame.width() / 2;
+            final float pl = mFrame.left + (mFrame.width() - pw) / 2;
+            final float pt = mFrame.top + (mFrame.height() - pw) / 2;
+            final float pr = mFrame.right - (mFrame.width() - pw) / 2;
+            final float pb = mFrame.bottom - (mFrame.height() - pw) / 2;
+            if (mPlusFrame.left != pl || mPlusFrame.top != pt
+                    || mPlusFrame.right != pr || mPlusFrame.bottom != pb) {
+                mPlusFrame.set(pl, pt, pr, pb);
+                mPlusPath.reset();
+                mPlusPath.moveTo(
+                        mPlusFrame.left + mPlusPoints[0] * mPlusFrame.width(),
+                        mPlusFrame.top + mPlusPoints[1] * mPlusFrame.height());
+                for (int i = 2; i < mPlusPoints.length; i += 2) {
+                    mPlusPath.lineTo(
+                            mPlusFrame.left + mPlusPoints[i] * mPlusFrame.width(),
+                            mPlusFrame.top + mPlusPoints[i + 1] * mPlusFrame.height());
+                }
+                mPlusPath.lineTo(
+                        mPlusFrame.left + mPlusPoints[0] * mPlusFrame.width(),
+                        mPlusFrame.top + mPlusPoints[1] * mPlusFrame.height());
+            }
+
+            // Always cut out of the whole shape, and sometimes filled colorError
+            mShapePath.op(mPlusPath, Path.Op.DIFFERENCE);
+            if (mPowerSaveAsColorError) {
+                c.drawPath(mPlusPath, mPlusPaint);
+            }
+        }
+    }
+
+    private void drawPACircle(Canvas c) {
         final int level = mLevel;
 
         if (level == -1)
