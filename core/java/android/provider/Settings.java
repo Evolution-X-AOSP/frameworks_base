@@ -6486,6 +6486,24 @@ public final class Settings {
          */
         public static final String COLOR_BUCKET_OVERLAY = "color_bucket_overlay";
 
+        /**
+         * Text clock alignment
+         * @hide
+         */
+        public static final String TEXT_CLOCK_ALIGNMENT = "text_clock_alignment";
+
+        /** @hide */
+        private static final Validator TEXT_CLOCK_ALIGNMENT_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
+        /**
+         * Text clock padding
+         * @hide
+         */
+        public static final String TEXT_CLOCK_PADDING = "text_clock_padding";
+
+        /** @hide */
+        private static final Validator TEXT_CLOCK_PADDING_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
@@ -6699,6 +6717,8 @@ public final class Settings {
             FOD_PRESSED_STATE,
             FOD_RECOGNIZING_ANIMATION,
             FOD_ANIM,
+            TEXT_CLOCK_ALIGNMENT,
+            TEXT_CLOCK_PADDING,
             // Evolution X Settings end
         };
 
@@ -6936,6 +6956,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LOCKSCREEN_INFO);
             PRIVATE_SETTINGS.add(HEADSET_CONNECT_PLAYER);
             PRIVATE_SETTINGS.add(COLOR_BUCKET_OVERLAY);
+            PRIVATE_SETTINGS.add(TEXT_CLOCK_ALIGNMENT);
+            PRIVATE_SETTINGS.add(TEXT_CLOCK_PADDING);
             // Evolution X Settings end
         }
 
@@ -7191,6 +7213,8 @@ public final class Settings {
             VALIDATORS.put(FOD_PRESSED_STATE, FOD_PRESSED_STATE_VALIDATOR);
             VALIDATORS.put(FOD_RECOGNIZING_ANIMATION, FOD_RECOGNIZING_ANIMATION_VALIDATOR);
             VALIDATORS.put(FOD_ANIM, FOD_ANIM_VALIDATOR);
+            VALIDATORS.put(TEXT_CLOCK_ALIGNMENT, TEXT_CLOCK_ALIGNMENT_VALIDATOR);
+            VALIDATORS.put(TEXT_CLOCK_PADDING, TEXT_CLOCK_PADDING_VALIDATOR);
             // Evolution X Settings end
         }
 

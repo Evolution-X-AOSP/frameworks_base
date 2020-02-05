@@ -47,7 +47,7 @@ public class CustomTextClock extends TextView {
 
     private String mDescFormat;
     private final String[] mHours;
-    private final String[] mMinutes;
+    private String[] mMinutes;
     private final Resources mResources;
     private final Calendar mTime = Calendar.getInstance(TimeZone.getDefault());
     private TimeZone mTimeZone;
@@ -80,7 +80,8 @@ public class CustomTextClock extends TextView {
         mDescFormat = ((SimpleDateFormat) DateFormat.getTimeFormat(context)).toLocalizedPattern();
         mResources = context.getResources();
         mHours = mResources.getStringArray(R.array.type_clock_hours);
-        mMinutes = mResources.getStringArray(R.array.type_clock_minutes);
+        if (qpie()) mMinutes = mResources.getStringArray(R.array.type_clock_minutes);
+            else mMinutes = mResources.getStringArray(R.array.type_clock_minutes_alt);
         mAccentColor = mResources.getColor(R.color.accent_device_default_light);
     }
 
@@ -88,7 +89,9 @@ public class CustomTextClock extends TextView {
         mTime.setTimeInMillis(System.currentTimeMillis());
         setContentDescription(DateFormat.format(mDescFormat, mTime));
         int hours = mTime.get(Calendar.HOUR) % 12;
-        int minutes = mTime.get(Calendar.MINUTE) % 60;
+        if (qpie()) mMinutes = mResources.getStringArray(R.array.type_clock_minutes);
+            else mMinutes = mResources.getStringArray(R.array.type_clock_minutes_alt);
+        final int minutes = mTime.get(Calendar.MINUTE) % 60;
         SpannedString rawFormat = (SpannedString) mResources.getQuantityText(R.plurals.type_clock_header, hours);
         Annotation[] annotationArr = (Annotation[]) rawFormat.getSpans(0, rawFormat.length(), Annotation.class);
         SpannableString colored = new SpannableString(rawFormat);
@@ -145,6 +148,11 @@ public class CustomTextClock extends TextView {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         refreshLockFont();
+    }
+
+    private boolean qpie() {
+        return Settings.Secure.getIntForUser(mContext.getContentResolver(),
+                Settings.Secure.LOCKSCREEN_CLOCK_SELECTION, 0, UserHandle.USER_CURRENT) == 10;
     }
 
     private int getLockClockFont() {

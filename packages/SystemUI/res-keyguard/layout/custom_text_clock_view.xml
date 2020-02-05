@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!--
 **
-** Copyright 2019, The Android Open Source Project
+** Copyright 2020 ion OS Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License")
 ** you may not use this file except in compliance with the License.
@@ -20,12 +20,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:androidprv="http://schemas.android.com/apk/res-auto"
     android:id="@+id/custom_text_clock_view"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_alignParentTop="true"
     android:letterSpacing="0.03"
     android:orientation="vertical"
-    android:paddingStart="@dimen/custom_clock_left_padding"
     android:textColor="?attr/wallpaperTextColor"
     style="@style/customtextclock_big_thin"
 />
