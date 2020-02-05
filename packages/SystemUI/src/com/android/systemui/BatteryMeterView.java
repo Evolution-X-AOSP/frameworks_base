@@ -20,7 +20,9 @@ import static android.app.StatusBarManager.DISABLE_NONE;
 
 import static com.android.settingslib.graph.BatteryMeterDrawableBase.BATTERY_STYLE_Q;
 import static com.android.settingslib.graph.BatteryMeterDrawableBase.BATTERY_STYLE_CIRCLE;
+import static com.android.settingslib.graph.BatteryMeterDrawableBase.BATTERY_STYLE_BIG_CIRCLE;
 import static com.android.settingslib.graph.BatteryMeterDrawableBase.BATTERY_STYLE_DOTTED_CIRCLE;
+import static com.android.settingslib.graph.BatteryMeterDrawableBase.BATTERY_STYLE_PA_CIRCLE;
 import static com.android.settingslib.graph.BatteryMeterDrawableBase.BATTERY_STYLE_TEXT;
 import static com.android.settingslib.graph.BatteryMeterDrawableBase.BATTERY_STYLE_HIDDEN;
 
@@ -543,10 +545,19 @@ public class BatteryMeterView extends LinearLayout implements
         res.getValue(R.dimen.status_bar_icon_scale_factor, typedValue, true);
         float iconScaleFactor = typedValue.getFloat();
 
-        int batteryHeight = res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_height);
-        int batteryWidth = mBatteryStyle == BATTERY_STYLE_CIRCLE || mBatteryStyle == BATTERY_STYLE_DOTTED_CIRCLE ?
+        int batteryHeight = res.getDimensionPixelSize(
+                           isBigCircleBattery() ? R.dimen.status_bar_battery_bigcircle_icon_height :
+                                                  R.dimen.status_bar_battery_icon_height);
+        int batteryWidth = mBatteryStyle == BATTERY_STYLE_CIRCLE
+                    || mBatteryStyle == BATTERY_STYLE_DOTTED_CIRCLE
+                    || mBatteryStyle == BATTERY_STYLE_PA_CIRCLE ?
                 res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_circle_width) :
                 res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_width);
+
+        if (isBigCircleBattery()) {
+                 batteryWidth = res.getDimensionPixelSize(R.dimen.status_bar_battery_bigcircle_icon_width);
+        }
+
         int marginBottom = res.getDimensionPixelSize(R.dimen.battery_margin_bottom);
 
         LinearLayout.LayoutParams scaledLayoutParams = new LinearLayout.LayoutParams(
@@ -578,6 +589,10 @@ public class BatteryMeterView extends LinearLayout implements
             updateColors(mNonAdaptedForegroundColor, mNonAdaptedBackgroundColor,
                     mNonAdaptedSingleToneColor);
         }
+    }
+
+    private boolean isBigCircleBattery() {
+        return mBatteryStyle == BatteryMeterDrawableBase.BATTERY_STYLE_BIG_CIRCLE;
     }
 
     private void updateColors(int foregroundColor, int backgroundColor, int singleToneColor) {
