@@ -6708,6 +6708,15 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * Pulse Ambient lights color
+         * @hide
+         */
+        public static final String NOTIFICATION_PULSE_COLOR = "ambient_notification_light_color";
+
+        private static final Validator NOTIFICATION_PULSE_COLOR_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /**
          * Whether to enable Ambient Edge lights
          * @hide
          */
@@ -6987,6 +6996,7 @@ public final class Settings {
             AOD_NOTIFICATION_PULSE,
             AOD_NOTIFICATION_PULSE_CLEAR,
             NOTIFICATION_PULSE_ACCENT,
+            NOTIFICATION_PULSE_COLOR,
             // Evolution X Settings end
         };
 
@@ -7244,6 +7254,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(AOD_NOTIFICATION_PULSE);
             PRIVATE_SETTINGS.add(AOD_NOTIFICATION_PULSE_CLEAR);
             PRIVATE_SETTINGS.add(NOTIFICATION_PULSE_ACCENT);
+            PRIVATE_SETTINGS.add(NOTIFICATION_PULSE_COLOR);
             // Evolution X Settings end
         }
 
@@ -7518,6 +7529,7 @@ public final class Settings {
             VALIDATORS.put(AOD_NOTIFICATION_PULSE, AOD_NOTIFICATION_PULSE_VALIDATOR);
             VALIDATORS.put(AOD_NOTIFICATION_PULSE_CLEAR, AOD_NOTIFICATION_PULSE_CLEAR_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_PULSE_ACCENT, NOTIFICATION_PULSE_ACCENT_VALIDATOR);
+            VALIDATORS.put(NOTIFICATION_PULSE_COLOR, NOTIFICATION_PULSE_COLOR_VALIDATOR);
             // Evolution X Settings end
         }
 
