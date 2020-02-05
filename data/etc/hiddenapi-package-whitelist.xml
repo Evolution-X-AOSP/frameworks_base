@@ -57,4 +57,5 @@ platform cert need to be included, as apps signed with the platform cert are exe
   <hidden-api-whitelisted-app package="com.android.terminal" />
   <hidden-api-whitelisted-app package="com.android.wallpaper" />
   <hidden-api-whitelisted-app package="jp.co.omronsoft.openwnn" />
+  <hidden-api-whitelisted-app package="org.mokee.longshot" />
 </config>
