@@ -4525,6 +4525,10 @@ public final class Settings {
             }
         };
 
+        /************************************
+         * Evolution X System Settings start
+         ************************************/
+
         /**
          * Setting to determine whether or not to show the battery percentage in the status bar.
          *    0 - Don't show percentage
@@ -4566,12 +4570,16 @@ public final class Settings {
         /** @hide */
         public static final Validator BUTTON_BRIGHTNESS_VALIDATOR = NON_NEGATIVE_INTEGER_VALIDATOR;
 
-        /** Whether to show ambient or lockscreen if AoD is disabled
+        /**
+         * Whether to show ambient or lockscreen if AoD is disabled
          * and we do a wake gesture like lift to wake or double tap
          *
          * @hide
          */
         public static final String AMBIENT_WAKE_GESTURES = "ambient_wake_gestures";
+
+        /** @hide */
+        private static final Validator AMBIENT_WAKE_GESTURES_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
          * Check the proximity sensor during wakeup
@@ -4679,6 +4687,9 @@ public final class Settings {
          * @hide
          */
         public static final String THREE_FINGER_GESTURE = "three_finger_gesture";
+
+        /** @hide */
+        private static final Validator THREE_FINGER_GESTURE_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
          * Color temperature of the display during the day
@@ -4828,6 +4839,10 @@ public final class Settings {
          */
         public static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
 
+        /** @hide */
+        private static final Validator STATUS_BAR_BRIGHTNESS_CONTROL_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
         /**
          * Whether the user has already accepted MediaProjection permission for the built-in screenrecorder
          * @hide
@@ -4848,6 +4863,10 @@ public final class Settings {
          * @hide
          */
         public static final String STATUS_BAR_QUICK_QS_PULLDOWN = "status_bar_quick_qs_pulldown";
+
+        /** @hide */
+        private static final Validator STATUS_BAR_QUICK_QS_PULLDOWN_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
 
         /**
          * Whether to show network traffic indicator in statusbar
@@ -5028,6 +5047,9 @@ public final class Settings {
          */
         public static final String PULSE_ON_NEW_TRACKS = "pulse_on_new_tracks";
 
+        /** @hide */
+        private static final Validator PULSE_ON_NEW_TRACKS_VALIDATOR = BOOLEAN_VALIDATOR;
+
         /**
          * Whether to display the 4g or lte network icon in the statusbar
          * @hide
@@ -5199,6 +5221,7 @@ public final class Settings {
          * @hide
          */
         public static final String ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER = "call_volume_answer";
+
         /** @hide */
         private static final Validator ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER_VALIDATOR =
                 BOOLEAN_VALIDATOR;
@@ -5244,13 +5267,6 @@ public final class Settings {
         public static final String QS_QUICKBAR_COLUMNS = "qs_quickbar_columns";
 
         /**
-         * IMPORTANT: If you add a new public settings you also have to add it to
-         * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
-         * it to PRIVATE_SETTINGS below. Also add a validator that can validate
-         * the setting value. See an example above.
-         */
-
-        /**
          * Whether to display qs tile titles in the qs panel
          * @hide
          */
@@ -5269,6 +5285,7 @@ public final class Settings {
          */
         public static final String POWERMENU_SOUNDPANEL = "powermenu_soundpanel";
         /** @hide */
+
         private static final Validator POWERMENU_SOUNDPANEL_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
@@ -5278,6 +5295,7 @@ public final class Settings {
          * @hide
          */
         public static final String POWERMENU_SCREENSHOT = "powermenu_screenshot";
+
         /** @hide */
         private static final Validator POWERMENU_SCREENSHOT_VALIDATOR =
                 BOOLEAN_VALIDATOR;
@@ -5289,12 +5307,17 @@ public final class Settings {
          */
         public static final String POWERMENU_SCREENRECORD = "powermenu_screenrecord";
 
+        /** @hide */
+        private static final Validator POWERMENU_SCREENRECORD_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
         /**
          * Whether to display settings in the power menu
          *
          * @hide
          */
         public static final String POWERMENU_SETTINGS = "powermenu_settings";
+
         /** @hide */
         private static final Validator POWERMENU_SETTINGS_VALIDATOR =
                 BOOLEAN_VALIDATOR;
@@ -5305,6 +5328,7 @@ public final class Settings {
          * @hide
          */
         public static final String POWERMENU_LOCKDOWN = "powermenu_lockdown";
+
         /** @hide */
         private static final Validator POWERMENU_LOCKDOWN_VALIDATOR =
                 BOOLEAN_VALIDATOR;
@@ -5315,6 +5339,7 @@ public final class Settings {
          * @hide
          */
         public static final String POWERMENU_AIRPLANE = "powermenu_airplane";
+
         /** @hide */
         private static final Validator POWERMENU_AIRPLANE_VALIDATOR =
                 BOOLEAN_VALIDATOR;
@@ -5325,6 +5350,7 @@ public final class Settings {
          * @hide
          */
         public static final String POWERMENU_RESTART = "powermenu_restart";
+
         /** @hide */
         private static final Validator POWERMENU_RESTART_VALIDATOR =
                 BOOLEAN_VALIDATOR;
@@ -5335,6 +5361,7 @@ public final class Settings {
          * @hide
          */
         public static final String POWERMENU_RESTART_RECOVERY = "powermenu_restart_recovery";
+
         /** @hide */
         private static final Validator POWERMENU_RESTART_RECOVERY_VALIDATOR =
                 BOOLEAN_VALIDATOR;
@@ -5345,6 +5372,7 @@ public final class Settings {
          * @hide
          */
         public static final String POWERMENU_POWER = "powermenu_power";
+
         /** @hide */
         private static final Validator POWERMENU_POWER_VALIDATOR =
                 BOOLEAN_VALIDATOR;
@@ -5355,6 +5383,7 @@ public final class Settings {
          * @hide
          */
         public static final String POWERMENU_USERS = "powermenu_users";
+
         /** @hide */
         private static final Validator POWERMENU_USERS_VALIDATOR =
                 BOOLEAN_VALIDATOR;
@@ -5478,6 +5507,7 @@ public final class Settings {
          * @hide
          */
         public static final String POWERMENU_LOGOUT = "powermenu_logout";
+
         /** @hide */
         private static final Validator POWERMENU_LOGOUT_VALIDATOR =
                 BOOLEAN_VALIDATOR;
@@ -5494,29 +5524,34 @@ public final class Settings {
          * @hide
          */
         public static final String POWERMENU_TORCH = "powermenu_torch";
+
         /** @hide */
         private static final Validator POWERMENU_TORCH_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
-        /*
-        * Whether to enable DOZE only when charging
-        * @hide
-        */
-       public static final String DOZE_ON_CHARGE = "doze_on_charge";
+        /**
+         * Whether to enable DOZE only when charging
+         * @hide
+         */
+        public static final String DOZE_ON_CHARGE = "doze_on_charge";
 
-       private static final Validator DOZE_ON_CHARGE_VALIDATOR = BOOLEAN_VALIDATOR;
+        private static final Validator DOZE_ON_CHARGE_VALIDATOR = BOOLEAN_VALIDATOR;
 
-       /**
-        * hidden stting of the current atate of DOZE only when charging
-        * @hide
-        */
-       public static final String DOZE_ON_CHARGE_NOW = "doze_on_charge_now";
+        /**
+         * hidden stting of the current atate of DOZE only when charging
+         * @hide
+         */
+        public static final String DOZE_ON_CHARGE_NOW = "doze_on_charge_now";
 
         /**
          * Use doubletap as doze pulse triggers
          * @hide
          */
         public static final String DOZE_TRIGGER_DOUBLETAP = "doze_trigger_doubletap";
+
+        /** @hide */
+        private static final Validator DOZE_TRIGGER_DOUBLETAP_VALIDATOR =
+                BOOLEAN_VALIDATOR;
 
         /**
          * @hide
@@ -5539,6 +5574,10 @@ public final class Settings {
          */
         public static final String STATUS_BAR_SHOW_CARRIER = "status_bar_show_carrier";
 
+        /** @hide */
+        private static final Validator STATUS_BAR_SHOW_CARRIER_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
         /**
          * custom carrier label. The value is
          * String.
@@ -5546,11 +5585,19 @@ public final class Settings {
          */
         public static final String CUSTOM_CARRIER_LABEL = "custom_carrier_label";
 
+        /** @hide */
+        private static final Validator CUSTOM_CARRIER_LABEL_VALIDATOR =
+                ANY_STRING_VALIDATOR;
+
         /**
          * Carrier Label Custom Color
          * @hide
          */
         public static final String STATUS_BAR_CARRIER_COLOR = "status_bar_carrier_color";
+
+        /** @hide */
+        private static final Validator STATUS_BAR_CARRIER_COLOR_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
 
         /**
          * Settings for carrier label font size
@@ -5558,11 +5605,19 @@ public final class Settings {
          */
         public static final String STATUS_BAR_CARRIER_FONT_SIZE = "status_bar_carrier_font_size";
 
+        /** @hide */
+        private static final Validator STATUS_BAR_CARRIER_FONT_SIZE_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
         /**
          * Custom carrier label font style
          * @hide
          */
         public static final String STATUS_BAR_CARRIER_FONT_STYLE = "status_bar_carrier_font_style";
+
+        /** @hide */
+        private static final Validator STATUS_BAR_CARRIER_FONT_STYLE_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
 
         /**
          * Whether to play notification sound and vibration if screen is ON
@@ -5572,7 +5627,7 @@ public final class Settings {
          */
         public static final String NOTIFICATION_SOUND_VIB_SCREEN_ON = "notification_sound_vib_screen_on";
 
-         /**
+        /**
          * Change quick settings tiles animation style
          *
          * @hide
@@ -5738,6 +5793,7 @@ public final class Settings {
         /** @hide */
         private static final Validator DOZE_BRIGHTNESS_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
+
         /**
          * @hide
          */
@@ -5770,6 +5826,10 @@ public final class Settings {
          * @hide
          */
         public static final String FOOTER_TEXT_STRING = "footer_text_string";
+
+        /** @hide */
+        public static final Validator FOOTER_TEXT_STRING_VALIDATOR =
+                ANY_STRING_VALIDATOR;
 
         /**
          * Screenrecord: enable mic
@@ -5856,6 +5916,10 @@ public final class Settings {
          */
         public static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
 
+        /** @hide */
+        private static final Validator STATUS_BAR_BATTERY_STYLE_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
         /**
          * Whether or not to hide the battery icon and % from QS header
          * @hide
@@ -5876,6 +5940,9 @@ public final class Settings {
          */
         public static final String QS_BATTERY_MODE = "qs_battery_mode";
 
+        /** @hide */
+        private static final Validator QS_BATTERY_MODE_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
         /**
          * Whether or not to show the battery percentage in the status bar
          *    0: Hide the battery percentage (default)
@@ -5885,17 +5952,28 @@ public final class Settings {
          */
         public static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
 
+        /** @hide */
+        private static final Validator STATUS_BAR_SHOW_BATTERY_PERCENT_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
         /**
          * Whether or not to show battery percentage when charging
          * @hide
          */
         public static final String STATUS_BAR_BATTERY_TEXT_CHARGING = "status_bar_battery_text_charging";
 
+        /** @hide */
+        private static final Validator STATUS_BAR_BATTERY_TEXT_CHARGING_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
         /**
          * Whether to display QS clock
          * @hide
          */
         public static final String SHOW_QS_CLOCK = "show_qs_clock";
+
+        /** @hide */
+        private static final Validator SHOW_QS_CLOCK_VALIDATOR = BOOLEAN_VALIDATOR;
 
          /**
          * Whether to display the power menu reboot option on a secured lockscreen
@@ -5947,6 +6025,10 @@ public final class Settings {
          */
         public static final String AMBIENT_VISUALIZER_ENABLED = "ambient_visualizer_enabled";
 
+        /** @hide */
+        private static final Validator AMBIENT_VISUALIZER_ENABLED_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
         /**
          * Whether to show VoLTE icon
          * @hide
@@ -5974,6 +6056,7 @@ public final class Settings {
          * @hide
          */
         public static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
+
         /** @hide */
         public static final Validator FLASHLIGHT_ON_CALL_VALIDATOR =
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 3);
@@ -5983,6 +6066,7 @@ public final class Settings {
          * @hide
          */
         public static final String ENABLE_CONDITIONS = "enable_conditions";
+
         /** @hide */
         private static final Validator ENABLE_CONDITIONS_VALIDATOR =
                 BOOLEAN_VALIDATOR;
@@ -5992,6 +6076,7 @@ public final class Settings {
          * @hide
          */
         public static final String ENABLE_SUGGESTIONS = "enable_suggestions";
+
         /** @hide */
         private static final Validator ENABLE_SUGGESTIONS_VALIDATOR =
                 BOOLEAN_VALIDATOR;
@@ -6003,11 +6088,19 @@ public final class Settings {
          */
         public static final String STATUS_BAR_LOGO = "status_bar_logo";
 
+        /** @hide */
+        private static final Validator STATUS_BAR_LOGO_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
         /**
          ** Statusbar logo Style
          ** @hide
          **/
         public static final String STATUS_BAR_LOGO_STYLE = "status_bar_logo_style";
+
+        /** @hide */
+        private static final Validator STATUS_BAR_LOGO_STYLE_VALIDATOR =
+               ANY_INTEGER_VALIDATOR;
 
         /**
          * Sensor block per-package
@@ -6031,6 +6124,10 @@ public final class Settings {
          */
         public static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";
 
+        /** @hide */
+        private static final Validator LOCK_CLOCK_FONTS_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
         /**
          * Change fonts for the system lockscreen date
          *
@@ -6038,12 +6135,20 @@ public final class Settings {
          */
         public static final String LOCK_DATE_FONTS = "lock_date_fonts";
 
+        /** @hide */
+        private static final Validator LOCK_DATE_FONTS_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
         /**
          * Change font size for the system lockscreen date
          *
          * @hide
          */
-        public static final String LOCKDATE_FONT_SIZE= "lockdate_font_size";
+        public static final String LOCKDATE_FONT_SIZE = "lockdate_font_size";
+
+        /** @hide */
+        private static final Validator LOCKDATE_FONT_SIZE_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
 
         /**
          * Change font size for the system lockscreen clock widget
@@ -6052,6 +6157,10 @@ public final class Settings {
          */
         public static final String LOCKCLOCK_FONT_SIZE = "lockclock_font_size";
 
+        /** @hide */
+        private static final Validator LOCKCLOCK_FONT_SIZE_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
         /**
          * Change fonts for the system lockscreen Owner info
          *
@@ -6059,12 +6168,20 @@ public final class Settings {
          */
         public static final String LOCK_OWNERINFO_FONTS = "lock_ownerinfo_fonts";
 
+        /** @hide */
+        private static final Validator LOCK_OWNERINFO_FONTS_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
         /**
          * Change font size for the system lockscreen owner
          *
          * @hide
          */
         public static final String LOCKOWNER_FONT_SIZE= "lockowner_font_size";
+
+        /** @hide */
+        private static final Validator LOCKOWNER_FONT_SIZE_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
 
         /**
          * Whether to use the custom status bar header or not
@@ -6317,6 +6434,7 @@ public final class Settings {
          * @hide
          */
         public static final String QS_BLUR = "qs_blur";
+
         /** @hide */
         private static final Validator QS_BLUR_VALIDATOR = BOOLEAN_VALIDATOR;
 
@@ -6325,6 +6443,7 @@ public final class Settings {
          * @hide
          */
         public static final String QS_BLUR_ALPHA = "qs_blur_alpha";
+
         /** @hide */
         private static final Validator QS_BLUR_ALPHA_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
@@ -6333,6 +6452,7 @@ public final class Settings {
          * @hide
          */
         public static final String QS_BLUR_INTENSITY = "qs_blur_intensity";
+
         /** @hide */
         private static final Validator QS_BLUR_INTENSITY_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
@@ -6356,6 +6476,20 @@ public final class Settings {
          * @hide
          */
         public static final String FLASHLIGHT_ON_CALL_WAITING = "flashlight_on_call_waiting";
+
+        /** @hide */
+        private static final Validator FLASHLIGHT_ON_CALL_WAITING_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**********************************
+         * Evolution X System Settings end
+         **********************************/
+
+        /**
+         * IMPORTANT: If you add a new public settings you also have to add it to
+         * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
+         * it to PRIVATE_SETTINGS below. Also add a validator that can validate
+         * the setting value. See an example above.
+         */
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
@@ -6422,8 +6556,17 @@ public final class Settings {
             DISPLAY_COLOR_MODE,
             ALARM_ALERT,
             NOTIFICATION_LIGHT_PULSE,
+            // Evolution X Settings
+            BUTTON_BACKLIGHT_TIMEOUT,
+            BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED,
+            BUTTON_BRIGHTNESS,
+            AMBIENT_WAKE_GESTURES,
             SCREENSHOT_SHUTTER_SOUND,
             BACK_GESTURE_HEIGHT,
+            QS_BATTERY_MODE,
+            FOOTER_TEXT_SHOW,
+            FOOTER_TEXT_STRING,
+            SHOW_QS_CLOCK,
             DOUBLE_TAP_SLEEP_GESTURE,
             DOUBLE_TAP_SLEEP_LOCKSCREEN,
             FINGERPRINT_SUCCESS_VIB,
@@ -6448,6 +6591,13 @@ public final class Settings {
             ANBI_ENABLED_OPTION,
             NOTIFICATION_GUTS_KILL_APP_BUTTON,
             LOCK_SHOW_STATUS_BAR,
+            DOZE_TRIGGER_DOUBLETAP,
+            LOCK_CLOCK_FONTS,
+            LOCK_DATE_FONTS,
+            LOCKDATE_FONT_SIZE,
+            LOCKCLOCK_FONT_SIZE,
+            LOCK_OWNERINFO_FONTS,
+            LOCKOWNER_FONT_SIZE,
             BATTERY_LIGHT_ENABLED,
             BATTERY_LIGHT_ALLOW_ON_DND,
             BATTERY_LIGHT_LOW_BLINKING,
@@ -6463,6 +6613,7 @@ public final class Settings {
             ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER,
             POWERMENU_SOUNDPANEL,
             POWERMENU_SCREENSHOT,
+            POWERMENU_SCREENRECORD,
             POWERMENU_SETTINGS,
             POWERMENU_LOCKDOWN,
             POWERMENU_AIRPLANE,
@@ -6481,12 +6632,27 @@ public final class Settings {
             STATUSBAR_CLOCK_DATE_STYLE,
             STATUSBAR_CLOCK_DATE_FORMAT,
             STATUSBAR_CLOCK_DATE_POSITION,
+            STATUS_BAR_BRIGHTNESS_CONTROL,
+            STATUS_BAR_QUICK_QS_PULLDOWN,
+            STATUS_BAR_BATTERY_STYLE,
+            STATUS_BAR_SHOW_BATTERY_PERCENT,
+            STATUS_BAR_BATTERY_TEXT_CHARGING,
+            STATUS_BAR_LOGO,
+            STATUS_BAR_LOGO_STYLE,
+            STATUS_BAR_SHOW_CARRIER,
+            CUSTOM_CARRIER_LABEL,
+            STATUS_BAR_CARRIER_COLOR,
+            STATUS_BAR_CARRIER_FONT_SIZE,
+            STATUS_BAR_CARRIER_FONT_STYLE,
             ASPECT_RATIO_APPS_ENABLED,
             ASPECT_RATIO_APPS_LIST,
             QS_PANEL_BG_ALPHA,
             SCREEN_OFF_ANIMATION,
+            PULSE_ON_NEW_TRACKS,
             PULSE_BRIGHTNESS,
             DOZE_BRIGHTNESS,
+            FLASHLIGHT_ON_CALL_WAITING,
+            AMBIENT_VISUALIZER_ENABLED,
             USE_OLD_MOBILETYPE,
             PULSE_AMBIENT_AUTO_COLOR,
             PULSE_AMBIENT_LIGHT,
@@ -6512,6 +6678,7 @@ public final class Settings {
             VOLTE_ICON,
             VOLTE_ICON_STYLE,
             DATA_DISABLED_ICON,
+            THREE_FINGER_GESTURE,
             STATUS_BAR_SHOW_TICKER,
             STATUS_BAR_TICKER_ANIMATION_MODE,
             STATUS_BAR_TICKER_TICK_DURATION,
@@ -6524,6 +6691,7 @@ public final class Settings {
             QS_BLUR_ALPHA,
             QS_BLUR_INTENSITY,
             HEADSET_CONNECT_PLAYER,
+            // Evolution X Settings end
         };
 
         /**
@@ -6643,6 +6811,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LOCK_TO_APP_ENABLED);
             PRIVATE_SETTINGS.add(EGG_MODE);
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_MODE);
+            // Evolution X Settings
             PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_TIMEOUT);
             PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED);
             PRIVATE_SETTINGS.add(BUTTON_BRIGHTNESS);
@@ -6760,6 +6929,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LOCKSCREEN_CLOCK);
             PRIVATE_SETTINGS.add(LOCKSCREEN_INFO);
             PRIVATE_SETTINGS.add(HEADSET_CONNECT_PLAYER);
+            // Evolution X Settings end
         }
 
         /**
@@ -6853,12 +7023,14 @@ public final class Settings {
             VALIDATORS.put(WIFI_STATIC_DNS1, WIFI_STATIC_DNS1_VALIDATOR);
             VALIDATORS.put(WIFI_STATIC_DNS2, WIFI_STATIC_DNS2_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_LIGHT_PULSE, BOOLEAN_VALIDATOR);
+            // Evolution X Settings
             VALIDATORS.put(BUTTON_BACKLIGHT_TIMEOUT, BUTTON_BACKLIGHT_TIMEOUT_VALIDATOR);
             VALIDATORS.put(BUTTON_BRIGHTNESS, BUTTON_BRIGHTNESS_VALIDATOR);
+            VALIDATORS.put(AMBIENT_WAKE_GESTURES, AMBIENT_WAKE_GESTURES_VALIDATOR);
+            VALIDATORS.put(PULSE_ON_NEW_TRACKS, PULSE_ON_NEW_TRACKS_VALIDATOR);
             VALIDATORS.put(PROXIMITY_ON_WAKE, PROXIMITY_ON_WAKE_VALIDATOR);
             VALIDATORS.put(BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED, BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED_VALIDATOR);
-            VALIDATORS.put(SCREENSHOT_SHUTTER_SOUND,
-                    SCREENSHOT_SHUTTER_SOUND_VALIDATOR);
+            VALIDATORS.put(SCREENSHOT_SHUTTER_SOUND, SCREENSHOT_SHUTTER_SOUND_VALIDATOR);
             VALIDATORS.put(BACK_GESTURE_HEIGHT, BACK_GESTURE_HEIGHT_VALIDATOR);
             VALIDATORS.put(DOUBLE_TAP_SLEEP_GESTURE,
                     DOUBLE_TAP_SLEEP_GESTURE_VALIDATOR);
@@ -6897,7 +7069,14 @@ public final class Settings {
             VALIDATORS.put(ANBI_ENABLED_OPTION, ANBI_ENABLED_OPTION_VALIDATOR);
             VALIDATORS.put(ACCELEROMETER_ROTATION_ANGLES, ACCELEROMETER_ROTATION_ANGLES_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_GUTS_KILL_APP_BUTTON, NOTIFICATION_GUTS_KILL_APP_BUTTON_VALIDATOR);
-            VALIDATORS.put(LOCK_SHOW_STATUS_BAR,LOCK_SHOW_STATUS_BAR_VALIDATOR);
+            VALIDATORS.put(LOCK_SHOW_STATUS_BAR, LOCK_SHOW_STATUS_BAR_VALIDATOR);
+            VALIDATORS.put(DOZE_TRIGGER_DOUBLETAP, DOZE_TRIGGER_DOUBLETAP_VALIDATOR);
+            VALIDATORS.put(LOCK_CLOCK_FONTS, LOCK_CLOCK_FONTS_VALIDATOR);
+            VALIDATORS.put(LOCK_DATE_FONTS, LOCK_DATE_FONTS_VALIDATOR);
+            VALIDATORS.put(LOCKDATE_FONT_SIZE, LOCKDATE_FONT_SIZE_VALIDATOR);
+            VALIDATORS.put(LOCKCLOCK_FONT_SIZE, LOCKCLOCK_FONT_SIZE_VALIDATOR);
+            VALIDATORS.put(LOCK_OWNERINFO_FONTS, LOCK_OWNERINFO_FONTS_VALIDATOR);
+            VALIDATORS.put(LOCKOWNER_FONT_SIZE, LOCKOWNER_FONT_SIZE_VALIDATOR);
             VALIDATORS.put(FORCE_FULLSCREEN_CUTOUT_APPS, FORCE_FULLSCREEN_CUTOUT_APPS_VALIDATOR);
             VALIDATORS.put(BATTERY_LIGHT_ENABLED, BATTERY_LIGHT_ENABLED_VALIDATOR);
             VALIDATORS.put(BATTERY_LIGHT_ALLOW_ON_DND, BATTERY_LIGHT_ALLOW_ON_DND_VALIDATOR);
@@ -6913,6 +7092,7 @@ public final class Settings {
             VALIDATORS.put(LESS_BORING_HEADS_UP, LESS_BORING_HEADS_UP_VALIDATOR);
             VALIDATORS.put(ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER,ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER_VALIDATOR);
             VALIDATORS.put(POWERMENU_SOUNDPANEL, POWERMENU_SOUNDPANEL_VALIDATOR);
+            VALIDATORS.put(POWERMENU_SCREENRECORD, POWERMENU_SCREENRECORD_VALIDATOR);
             VALIDATORS.put(POWERMENU_SCREENSHOT, POWERMENU_SCREENSHOT_VALIDATOR);
             VALIDATORS.put(POWERMENU_SETTINGS, POWERMENU_SETTINGS_VALIDATOR);
             VALIDATORS.put(POWERMENU_LOCKDOWN, POWERMENU_LOCKDOWN_VALIDATOR);
@@ -6924,6 +7104,10 @@ public final class Settings {
             VALIDATORS.put(POWERMENU_LOGOUT, POWERMENU_LOGOUT_VALIDATOR);
             VALIDATORS.put(POWERMENU_TORCH, POWERMENU_TORCH_VALIDATOR);
             VALIDATORS.put(DOZE_ON_CHARGE, DOZE_ON_CHARGE_VALIDATOR);
+            VALIDATORS.put(QS_BATTERY_MODE, QS_BATTERY_MODE_VALIDATOR);
+            VALIDATORS.put(FOOTER_TEXT_SHOW, FOOTER_TEXT_SHOW_VALIDATOR);
+            VALIDATORS.put(FOOTER_TEXT_STRING, FOOTER_TEXT_STRING_VALIDATOR);
+            VALIDATORS.put(SHOW_QS_CLOCK, SHOW_QS_CLOCK_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_CLOCK, STATUS_BAR_CLOCK_VALIDATOR);
             VALIDATORS.put(STATUSBAR_CLOCK_STYLE, STATUSBAR_CLOCK_STYLE_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_CLOCK_SECONDS, STATUS_BAR_CLOCK_SECONDS_VALIDATOR);
@@ -6932,12 +7116,26 @@ public final class Settings {
             VALIDATORS.put(STATUSBAR_CLOCK_DATE_STYLE, STATUSBAR_CLOCK_DATE_STYLE_VALIDATOR);
             VALIDATORS.put(STATUSBAR_CLOCK_DATE_FORMAT, STATUSBAR_CLOCK_DATE_FORMAT_VALIDATOR);
             VALIDATORS.put(STATUSBAR_CLOCK_DATE_POSITION, STATUSBAR_CLOCK_DATE_POSITION_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_BRIGHTNESS_CONTROL, STATUS_BAR_BRIGHTNESS_CONTROL_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_QUICK_QS_PULLDOWN, STATUS_BAR_QUICK_QS_PULLDOWN_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_BATTERY_STYLE, STATUS_BAR_BATTERY_STYLE_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_BATTERY_TEXT_CHARGING, STATUS_BAR_BATTERY_TEXT_CHARGING_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_SHOW_BATTERY_PERCENT, STATUS_BAR_SHOW_BATTERY_PERCENT_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_LOGO, STATUS_BAR_LOGO_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_LOGO_STYLE, STATUS_BAR_LOGO_STYLE_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_SHOW_CARRIER, STATUS_BAR_SHOW_CARRIER_VALIDATOR);
+            VALIDATORS.put(CUSTOM_CARRIER_LABEL, CUSTOM_CARRIER_LABEL_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_CARRIER_COLOR, STATUS_BAR_CARRIER_COLOR_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_CARRIER_FONT_SIZE, STATUS_BAR_CARRIER_FONT_SIZE_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_CARRIER_FONT_STYLE, STATUS_BAR_CARRIER_FONT_STYLE_VALIDATOR);
             VALIDATORS.put(ASPECT_RATIO_APPS_ENABLED, ASPECT_RATIO_APPS_ENABLED_VALIDATOR);
             VALIDATORS.put(ASPECT_RATIO_APPS_LIST, ASPECT_RATIO_APPS_LIST_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_ALPHA, QS_PANEL_BG_ALPHA_VALIDATOR);
             VALIDATORS.put(SCREEN_OFF_ANIMATION, SCREEN_OFF_ANIMATION_VALIDATOR);
             VALIDATORS.put(PULSE_BRIGHTNESS, PULSE_BRIGHTNESS_VALIDATOR);
             VALIDATORS.put(DOZE_BRIGHTNESS, DOZE_BRIGHTNESS_VALIDATOR);
+            VALIDATORS.put(FLASHLIGHT_ON_CALL_WAITING, FLASHLIGHT_ON_CALL_WAITING_VALIDATOR);
+            VALIDATORS.put(AMBIENT_VISUALIZER_ENABLED, AMBIENT_VISUALIZER_ENABLED_VALIDATOR);
             VALIDATORS.put(USE_OLD_MOBILETYPE, USE_OLD_MOBILETYPE_VALIDATOR);
             VALIDATORS.put(PULSE_AMBIENT_AUTO_COLOR, PULSE_AMBIENT_AUTO_COLOR_VALIDATOR);
             VALIDATORS.put(PULSE_AMBIENT_LIGHT, PULSE_AMBIENT_LIGHT_VALIDATOR);
@@ -6969,6 +7167,7 @@ public final class Settings {
             VALIDATORS.put(QS_PANEL_BG_USE_WALL, QS_PANEL_BG_USE_WALL_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_USE_FW, QS_PANEL_BG_USE_FW_VALIDATOR);
             VALIDATORS.put(DATA_DISABLED_ICON, DATA_DISABLED_ICON_VALIDATOR);
+            VALIDATORS.put(THREE_FINGER_GESTURE, THREE_FINGER_GESTURE_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_SHOW_TICKER, STATUS_BAR_SHOW_TICKER_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_TICKER_ANIMATION_MODE,
                     STATUS_BAR_TICKER_ANIMATION_MODE_VALIDATOR);
@@ -6983,6 +7182,7 @@ public final class Settings {
             VALIDATORS.put(QS_BLUR_ALPHA, QS_BLUR_ALPHA_VALIDATOR);
             VALIDATORS.put(QS_BLUR_INTENSITY, QS_BLUR_INTENSITY_VALIDATOR);
             VALIDATORS.put(HEADSET_CONNECT_PLAYER, HEADSET_CONNECT_PLAYER_VALIDATOR);
+            // Evolution X Settings end
         }
 
         /**
@@ -10838,10 +11038,13 @@ public final class Settings {
         public static final int VR_DISPLAY_MODE_OFF = 1;
 
         /** Whether to vibrate when quick settings tile is pressed.
-          *
-          * @hide
-          */
-         public static final String QUICK_SETTINGS_TILES_VIBRATE = "quick_settings_vibrate";
+         *
+         * @hide
+         */
+        public static final String QUICK_SETTINGS_TILES_VIBRATE = "quick_settings_vibrate";
+
+        private static final Validator QUICK_SETTINGS_TILES_VIBRATE_VALIDATOR =
+                BOOLEAN_VALIDATOR;
 
         /**
          * Whether CarrierAppUtils#disableCarrierAppsUntilPrivileged has been executed at least
@@ -11268,6 +11471,10 @@ public final class Settings {
 
         private static final Validator AWARE_LOCK_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
 
+        /************************************
+         * Evolution X Secure Settings start
+         ************************************/
+
         /*
          * Boolean value whether to link ringtone and notification volume
          * @hide
@@ -11298,11 +11505,17 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_LAVALAMP_ENABLED = "lockscreen_lavalamp_enabled";
 
+        private static final Validator LOCKSCREEN_LAVALAMP_ENABLED_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
         /**
          * Lockscreen lavalamp animation speed
          * @hide
          */
         public static final String LOCKSCREEN_LAVALAMP_SPEED = "lockscreen_lavalamp_speed";
+
+        private static final Validator LOCKSCREEN_LAVALAMP_SPEED_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
 
         /**
          * Whether to use automatic color for visualizer
@@ -11310,11 +11523,17 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_VISUALIZER_AUTOCOLOR = "lockscreen_visualizer_autocolor";
 
+        private static final Validator LOCKSCREEN_VISUALIZER_AUTOCOLOR_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
         /**
          * Default color of the visualizer
          * @hide
          */
         public static final String LOCKSCREEN_VISUALIZER_COLOR = "lockscreen_visualizer_color";
+
+        private static final Validator LOCKSCREEN_VISUALIZER_COLOR_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
 
         /**
          * Number of bars shown in visualizer
@@ -11322,11 +11541,17 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_SOLID_UNITS_COUNT = "lockscreen_solid_units_count";
 
+        private static final Validator LOCKSCREEN_SOLID_UNITS_COUNT_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
         /**
          * Visualizer sanity level
          * @hide
          */
         public static final String LOCKSCREEN_SOLID_FUDGE_FACTOR = "lockscreen_solid_fudge_factor";
+
+        private static final Validator LOCKSCREEN_SOLID_FUDGE_FACTOR_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
 
         /**
          * Visualizer opacity
@@ -11334,18 +11559,44 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_SOLID_UNITS_OPACITY = "lockscreen_solid_units_opacity";
 
+        private static final Validator LOCKSCREEN_SOLID_UNITS_OPACITY_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
         /**
-         * Setting to allow setting rounded corner size and content padding
+         * Rounded corners radius
+         * @hide
          */
         public static final String SYSUI_ROUNDED_SIZE = "sysui_rounded_size";
+
+        private static final Validator SYSUI_ROUNDED_SIZE_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /**
+         * Rounded corners content padding
+         * @hide
+         */
         public static final String SYSUI_ROUNDED_CONTENT_PADDING = "sysui_rounded_content_padding";
+
+        private static final Validator SYSUI_ROUNDED_CONTENT_PADDING_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /**
+         * Rounded corners statusbar padding
+         * @hide
+         */
         public static final String SYSUI_STATUS_BAR_PADDING = "sysui_status_bar_padding";
+
+        private static final Validator SYSUI_STATUS_BAR_PADDING_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
 
         /**
          * Setting to disable rounded corner preferences and use frameworks values instead
          * @hide
          */
         public static final String SYSUI_ROUNDED_FWVALS = "sysui_rounded_fwvals";
+
+        private static final Validator SYSUI_ROUNDED_FWVALS_VALIDATOR =
+                BOOLEAN_VALIDATOR;
 
         /**
          * Whether to display the ADB notification.
@@ -11375,6 +11626,10 @@ public final class Settings {
 
         /** @hide */
         public static final Validator TETHERING_ALLOW_VPN_UPSTREAMS_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /************************************
+         * Evolution X Secure Settings end
+         ************************************/
 
         /**
          * This are the settings to be backed up.
@@ -11453,6 +11708,7 @@ public final class Settings {
             CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED,
             SYSTEM_NAVIGATION_KEYS_ENABLED,
             QS_TILES,
+            QUICK_SETTINGS_TILES_VIBRATE,
             DOZE_ENABLED,
             DOZE_ALWAYS_ON,
             DOZE_PICK_UP_GESTURE,
@@ -11507,6 +11763,7 @@ public final class Settings {
             SILENCE_GESTURE,
             THEME_CUSTOMIZATION_OVERLAY_PACKAGES,
             NAVIGATION_MODE,
+            SHOW_BACK_ARROW_GESTURE,
             AWARE_ENABLED,
             SKIP_GESTURE_COUNT,
             SKIP_TOUCH_COUNT,
@@ -11520,7 +11777,18 @@ public final class Settings {
             GLOBAL_ACTIONS_PANEL_ENABLED,
             AWARE_LOCK_ENABLED,
             VOLUME_LINK_NOTIFICATION,
+            SYSUI_ROUNDED_FWVALS,
+            SYSUI_ROUNDED_SIZE,
+            SYSUI_ROUNDED_CONTENT_PADDING,
+            SYSUI_STATUS_BAR_PADDING,
             LOCKSCREEN_VISUALIZER_ENABLED,
+            LOCKSCREEN_LAVALAMP_ENABLED,
+            LOCKSCREEN_LAVALAMP_SPEED,
+            LOCKSCREEN_VISUALIZER_AUTOCOLOR,
+            LOCKSCREEN_VISUALIZER_COLOR,
+            LOCKSCREEN_SOLID_UNITS_COUNT,
+            LOCKSCREEN_SOLID_FUDGE_FACTOR,
+            LOCKSCREEN_SOLID_UNITS_OPACITY,
             HIDE_LOCKICON,
         };
 
@@ -11721,6 +11989,18 @@ public final class Settings {
             VALIDATORS.put(AWARE_LOCK_ENABLED, AWARE_LOCK_ENABLED_VALIDATOR);
             VALIDATORS.put(VOLUME_LINK_NOTIFICATION, VOLUME_LINK_NOTIFICATION_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_VISUALIZER_ENABLED, LOCKSCREEN_VISUALIZER_ENABLED_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_LAVALAMP_ENABLED, LOCKSCREEN_LAVALAMP_ENABLED_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_LAVALAMP_SPEED, LOCKSCREEN_LAVALAMP_SPEED_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_VISUALIZER_AUTOCOLOR, LOCKSCREEN_VISUALIZER_AUTOCOLOR_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_VISUALIZER_COLOR, LOCKSCREEN_VISUALIZER_COLOR_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_SOLID_UNITS_COUNT, LOCKSCREEN_SOLID_UNITS_COUNT_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_SOLID_FUDGE_FACTOR, LOCKSCREEN_SOLID_FUDGE_FACTOR_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_SOLID_UNITS_OPACITY, LOCKSCREEN_SOLID_UNITS_OPACITY_VALIDATOR);
+            VALIDATORS.put(QUICK_SETTINGS_TILES_VIBRATE, QUICK_SETTINGS_TILES_VIBRATE_VALIDATOR);
+            VALIDATORS.put(SYSUI_ROUNDED_FWVALS, SYSUI_ROUNDED_FWVALS_VALIDATOR);
+            VALIDATORS.put(SYSUI_ROUNDED_SIZE, SYSUI_ROUNDED_SIZE_VALIDATOR);
+            VALIDATORS.put(SYSUI_ROUNDED_CONTENT_PADDING, SYSUI_ROUNDED_CONTENT_PADDING_VALIDATOR);
+            VALIDATORS.put(SYSUI_STATUS_BAR_PADDING, SYSUI_STATUS_BAR_PADDING_VALIDATOR);
             VALIDATORS.put(HIDE_LOCKICON, HIDE_LOCKICON_VALIDATOR);
             VALIDATORS.put(TETHERING_ALLOW_VPN_UPSTREAMS, TETHERING_ALLOW_VPN_UPSTREAMS_VALIDATOR);
         }
@@ -16036,12 +16316,15 @@ public final class Settings {
         public static final String SAFE_BOOT_DISALLOWED = "safe_boot_disallowed";
 
 
-       /**
+        /**
          * Whether to wake the display when plugging or unplugging the charger
          *
          * @hide
          */
         public static final String WAKE_WHEN_PLUGGED_OR_UNPLUGGED = "wake_when_plugged_or_unplugged";
+
+        private static final Validator WAKE_WHEN_PLUGGED_OR_UNPLUGGED_VALIDATOR =
+                BOOLEAN_VALIDATOR;
 
         /**
          * Indicates whether this device is currently in retail demo mode. If true, the device
@@ -16421,6 +16704,7 @@ public final class Settings {
             CHARGING_VIBRATION_ENABLED,
             AWARE_ALLOWED,
             NOTIFICATION_BUBBLES,
+            WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
         };
 
         /**
@@ -16488,6 +16772,7 @@ public final class Settings {
             VALIDATORS.put(POWER_BUTTON_LONG_PRESS, POWER_BUTTON_LONG_PRESS_VALIDATOR);
             VALIDATORS.put(POWER_BUTTON_VERY_LONG_PRESS, POWER_BUTTON_VERY_LONG_PRESS_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_BUBBLES, NOTIFICATION_BUBBLES_VALIDATOR);
+            VALIDATORS.put(WAKE_WHEN_PLUGGED_OR_UNPLUGGED, WAKE_WHEN_PLUGGED_OR_UNPLUGGED_VALIDATOR);
         }
 
         /**
