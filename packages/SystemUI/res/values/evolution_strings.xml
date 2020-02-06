@@ -40,8 +40,10 @@
     <string name="accessibility_quick_settings_usb_tether_changed_on">USB tethering turned on</string>
     <string name="quick_settings_usb_tether_label">USB tethering</string>
 
-    <!-- AOD QS tile -->
+    <!-- AOD QS tile states -->
     <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">AOD on charge</string>
+    <string name="quick_settings_aod_off_label">AOD off</string>
 
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Sound</string>
