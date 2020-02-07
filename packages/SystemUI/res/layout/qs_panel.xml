@@ -36,14 +36,14 @@
         android:layout_height="126dp"
         android:clipToPadding="false"
         android:clipChildren="false"
-        android:background="@drawable/qs_bg_gradient" />
+        android:background="@android:color/transparent" />
 
     <!-- Black part behind the status bar -->
     <LinearLayout
         android:id="@+id/quick_settings_status_bar_background"
         android:layout_width="match_parent"
         android:layout_height="@*android:dimen/quick_qs_offset_height"
-        android:background="@color/quick_settings_status_bar_background_color" >
+        android:background="@android:color/transparent" >
 
         <ImageView android:id="@+id/qs_header_image_view"
             android:layout_width="match_parent"
