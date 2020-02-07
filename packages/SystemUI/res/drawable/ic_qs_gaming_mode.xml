@@ -1,19 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 2019 Havoc-OS
-
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-
-          http://www.apache.org/licenses/LICENSE-2.0
-
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
--->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:height="24dp"
     android:width="24dp"
@@ -21,6 +6,14 @@
     android:viewportHeight="24">
 
     <path
+        android:pathData="M0,0 L24,0 L24,24 L0,24 L0,0 Z" />
+    <path
         android:fillColor="#FFFFFFFF"
-        android:pathData="M21,6H3A2,2 0 0,0 1,8V16A2,2 0 0,0 3,18H21A2,2 0 0,0 23,16V8A2,2 0 0,0 21,6M21,16H3V8H21M6,15H8V13H10V11H8V9H6V11H4V13H6M14.5,12A1.5,1.5 0 0,1 16,13.5A1.5,1.5 0 0,1 14.5,15A1.5,1.5 0 0,1 13,13.5A1.5,1.5 0 0,1 14.5,12M18.5,9A1.5,1.5 0 0,1 20,10.5A1.5,1.5 0 0,1 18.5,12A1.5,1.5 0 0,1 17,10.5A1.5,1.5 0 0,1 18.5,9Z" />
+        android:pathData="M21,6 L3,6 C1.9,6,1,6.9,1,8 L1,16 C1,17.1,1.9,18,3,18 L21,18 C22.1,18,23,17.1,23,16 L23,8 C23,6.9,22.1,6,21,6 Z M21,16 L3,16 L3,8 L21,8 L21,16 Z M6,15 L8,15 L8,13 L10,13 L10,11 L8,11 L8,9 L6,9 L6,11 L4,11 L4,13 L6,13 Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M14.5,12 C15.3284,12,16,12.6716,16,13.5 C16,14.3284,15.3284,15,14.5,15 C13.6716,15,13,14.3284,13,13.5 C13,12.6716,13.6716,12,14.5,12 Z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M18.5,9 C19.3284,9,20,9.67157,20,10.5 C20,11.3284,19.3284,12,18.5,12 C17.6716,12,17,11.3284,17,10.5 C17,9.67157,17.6716,9,18.5,9 Z" />
 </vector>
