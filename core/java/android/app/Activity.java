@@ -1045,6 +1045,11 @@ public class Activity extends ContextThemeWrapper
             setTaskDescription(mTaskDescription);
         }
 
+        @Override
+        public boolean moveTaskToBack(boolean nonRoot) {
+            return ActivityClient.getInstance().moveActivityTaskToBack(mToken, nonRoot);
+        }
+
     };
 
     private static native String getDlWarning();
@@ -6984,7 +6989,7 @@ public class Activity extends ContextThemeWrapper
      *         back) true is returned, else false.
      */
     public boolean moveTaskToBack(boolean nonRoot) {
-        return ActivityClient.getInstance().moveActivityTaskToBack(mToken, nonRoot);
+        return mWindowControllerCallback.moveTaskToBack(nonRoot);
     }
 
     /**
