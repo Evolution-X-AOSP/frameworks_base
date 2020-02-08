@@ -39,6 +39,10 @@ public class ScreenDecorationsUtils {
         float defaultRadius = resources.getDimension(R.dimen.rounded_corner_radius)
                 - resources.getDimension(R.dimen.rounded_corner_radius_adjustment);
 
+        if (resources.getBoolean(R.bool.config_useDefaultRoundedCornerRadius)) {
+            return defaultRadius;
+        }
+
         float topRadius = resources.getDimension(R.dimen.rounded_corner_radius_top)
                 - resources.getDimension(R.dimen.rounded_corner_radius_top_adjustment);
         if (topRadius == 0f) {

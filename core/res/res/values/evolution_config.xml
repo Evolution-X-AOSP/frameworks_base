@@ -259,4 +259,8 @@
     <bool name="config_notifyClientOnFingerprintCancelSuccess">false</bool>
 
     <bool name="config_has_Soli">false</bool>
+
+     <!-- Whether to use base rounded corner radius for window animations instead
+          of min between top and bottom radius-->
+    <bool name="config_useDefaultRoundedCornerRadius">false</bool>
 </resources>
