@@ -575,9 +575,34 @@ class FODAnimation extends ImageView {
         mAnimParams.y = mAnimationPositionY;
 
         this.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        this.setBackgroundResource(R.drawable.fod_pulse_recognizing_white_anim);
+        setFODAnim();
         recognizingAnim = (AnimationDrawable) this.getBackground();
 
+    }
+
+    private int getFODAnim() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.FOD_ANIM, 0);
+    }
+
+    private void setFODAnim() {
+        int fodanim = getFODAnim();
+
+        if (fodanim == 0) {
+            this.setBackgroundResource(R.drawable.fod_normal_recognizing_anim);
+        } else if (fodanim == 1) {
+            this.setBackgroundResource(R.drawable.fod_aod_recognizing_anim);
+        } else if (fodanim == 2) {
+            this.setBackgroundResource(R.drawable.fod_light_recognizing_anim);
+        } else if (fodanim == 3) {
+            this.setBackgroundResource(R.drawable.fod_pop_recognizing_anim);
+        } else if (fodanim == 4) {
+            this.setBackgroundResource(R.drawable.fod_pulse_recognizing_anim);
+        } else if (fodanim == 5) {
+            this.setBackgroundResource(R.drawable.fod_pulse_recognizing_white_anim);
+        } else if (fodanim == 6) {
+            this.setBackgroundResource(R.drawable.fod_rhythm_recognizing_anim);
+        }
     }
 
     public void updateParams(int mDreamingOffsetY) {
