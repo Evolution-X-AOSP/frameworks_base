@@ -351,6 +351,9 @@ public class FODCircleView extends ImageView {
         mIsCircleShowing = false;
 
         setFODIcon();
+        if (mFODAnimation != null) {
+            mFODAnimation.setFODAnim();
+        }
         invalidate();
 
         setDim(false);
@@ -585,7 +588,7 @@ class FODAnimation extends ImageView {
                 Settings.System.FOD_ANIM, 0);
     }
 
-    private void setFODAnim() {
+    public void setFODAnim() {
         int fodanim = getFODAnim();
 
         if (fodanim == 0) {
