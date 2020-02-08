@@ -4591,15 +4591,6 @@ public final class Settings {
         public static final Validator PROXIMITY_ON_WAKE_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
-        /**
-         * @hide
-         */
-        public static final String SCREENSHOT_SHUTTER_SOUND = "screenshot_shutter_sound";
-
-        /** @hide */
-        private static final Validator SCREENSHOT_SHUTTER_SOUND_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
         /** @hide */
         public static final String BACK_GESTURE_HEIGHT = "back_gesture_height";
 
@@ -6561,7 +6552,6 @@ public final class Settings {
             BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED,
             BUTTON_BRIGHTNESS,
             AMBIENT_WAKE_GESTURES,
-            SCREENSHOT_SHUTTER_SOUND,
             BACK_GESTURE_HEIGHT,
             QS_BATTERY_MODE,
             FOOTER_TEXT_SHOW,
@@ -6816,7 +6806,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED);
             PRIVATE_SETTINGS.add(BUTTON_BRIGHTNESS);
             PRIVATE_SETTINGS.add(PROXIMITY_ON_WAKE);
-            PRIVATE_SETTINGS.add(SCREENSHOT_SHUTTER_SOUND);
             PRIVATE_SETTINGS.add(BACK_GESTURE_HEIGHT);
             PRIVATE_SETTINGS.add(SCREENSHOT_DEFAULT_MODE);
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_GESTURE);
@@ -7030,7 +7019,6 @@ public final class Settings {
             VALIDATORS.put(PULSE_ON_NEW_TRACKS, PULSE_ON_NEW_TRACKS_VALIDATOR);
             VALIDATORS.put(PROXIMITY_ON_WAKE, PROXIMITY_ON_WAKE_VALIDATOR);
             VALIDATORS.put(BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED, BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED_VALIDATOR);
-            VALIDATORS.put(SCREENSHOT_SHUTTER_SOUND, SCREENSHOT_SHUTTER_SOUND_VALIDATOR);
             VALIDATORS.put(BACK_GESTURE_HEIGHT, BACK_GESTURE_HEIGHT_VALIDATOR);
             VALIDATORS.put(DOUBLE_TAP_SLEEP_GESTURE,
                     DOUBLE_TAP_SLEEP_GESTURE_VALIDATOR);
