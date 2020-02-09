@@ -618,6 +618,14 @@ class FODAnimation extends ImageView {
             this.setBackgroundResource(R.drawable.fod_miui_pulse_recognizing_white_anim);
         } else if (fodanim == 6) {
             this.setBackgroundResource(R.drawable.fod_miui_rhythm_recognizing_anim);
+        } else if (fodanim == 7) {
+            this.setBackgroundResource(R.drawable.fod_op_cosmos_recognizing_anim);
+        } else if (fodanim == 8) {
+            this.setBackgroundResource(R.drawable.fod_op_mclaren_recognizing_anim);
+        } else if (fodanim == 9) {
+            this.setBackgroundResource(R.drawable.fod_op_stripe_recognizing_anim);
+        } else if (fodanim == 10) {
+            this.setBackgroundResource(R.drawable.fod_op_wave_recognizing_anim);
         }
         recognizingAnim = (AnimationDrawable) this.getBackground();
     }
