@@ -626,6 +626,14 @@ class FODAnimation extends ImageView {
             this.setBackgroundResource(R.drawable.fod_op_stripe_recognizing_anim);
         } else if (fodanim == 10) {
             this.setBackgroundResource(R.drawable.fod_op_wave_recognizing_anim);
+        } else if (fodanim == 11) {
+            this.setBackgroundResource(R.drawable.fod_pureview_dna_recognizing_anim);
+        } else if (fodanim == 12) {
+            this.setBackgroundResource(R.drawable.fod_pureview_future_recognizing_anim);
+        } else if (fodanim == 13) {
+            this.setBackgroundResource(R.drawable.fod_pureview_halo_ring_recognizing_anim);
+        } else if (fodanim == 14) {
+            this.setBackgroundResource(R.drawable.fod_pureview_molecular_recognizing_anim);
         }
         recognizingAnim = (AnimationDrawable) this.getBackground();
     }
