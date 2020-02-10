@@ -77,6 +77,7 @@ LOCAL_REQUIRED_MODULES := \
 	FontVictorOverlay \
 	FontAclonicaSourceOverlay \
 	FontAmaranteSourceOverlay \
+	FontAnaheimSourceOverlay \
 	FontBariolSourceOverlay \
 	FontCagliostroSourceOverlay \
 	FontCircularStdOverlay \
