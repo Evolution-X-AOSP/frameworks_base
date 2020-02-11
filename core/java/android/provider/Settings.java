@@ -4599,13 +4599,6 @@ public final class Settings {
                 ANY_INTEGER_VALIDATOR;
 
         /**
-         * 0 - fullscreen
-         * 1 - partial
-         * @hide
-         */
-        public static final String SCREENSHOT_DEFAULT_MODE = "screenshot_default_mode";
-
-	 /**
          * Whether the haptic feedback on action instead of touch
          * @hide
          */
@@ -6806,7 +6799,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(BUTTON_BRIGHTNESS);
             PRIVATE_SETTINGS.add(PROXIMITY_ON_WAKE);
             PRIVATE_SETTINGS.add(BACK_GESTURE_HEIGHT);
-            PRIVATE_SETTINGS.add(SCREENSHOT_DEFAULT_MODE);
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_GESTURE);
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_LOCKSCREEN);
             PRIVATE_SETTINGS.add(FINGERPRINT_SUCCESS_VIB);

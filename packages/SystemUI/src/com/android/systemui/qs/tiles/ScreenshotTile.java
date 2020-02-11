@@ -39,7 +39,7 @@ public class ScreenshotTile extends QSTileImpl<BooleanState> {
     public ScreenshotTile(QSHost host) {
         super(host);
         mRegion = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.SCREENSHOT_DEFAULT_MODE, 0, UserHandle.USER_CURRENT) == 1;
+                Settings.System.SCREENSHOT_TYPE, 0, UserHandle.USER_CURRENT) == 1;
     }
 
     @Override
@@ -59,7 +59,7 @@ public class ScreenshotTile extends QSTileImpl<BooleanState> {
     public void handleClick() {
         mRegion = !mRegion;
         Settings.System.putIntForUser(mContext.getContentResolver(),
-                Settings.System.SCREENSHOT_DEFAULT_MODE, mRegion ? 1 : 0,
+                Settings.System.SCREENSHOT_TYPE, mRegion ? 1 : 0,
                 UserHandle.USER_CURRENT);
         refreshState();
     }
