@@ -6764,6 +6764,14 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * @hide
+         */
+        public static final String NOTIFICATION_PULSE_COLOR_AUTOMATIC = "ambient_notification_light_color_automatic";
+
+        private static final Validator NOTIFICATION_PULSE_COLOR_AUTOMATIC_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * helper setting to contain the current pulse reason so we can check
          * if it has been triggered from a notification or a gesture
          * @hide
@@ -7007,6 +7015,7 @@ public final class Settings {
             AOD_NOTIFICATION_PULSE_TIMEOUT,
             NOTIFICATION_PULSE_ACCENT,
             NOTIFICATION_PULSE_COLOR,
+            NOTIFICATION_PULSE_COLOR_AUTOMATIC,
             // Evolution X Settings end
         };
 
@@ -7266,6 +7275,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(AOD_NOTIFICATION_PULSE_TIMEOUT);
             PRIVATE_SETTINGS.add(NOTIFICATION_PULSE_ACCENT);
             PRIVATE_SETTINGS.add(NOTIFICATION_PULSE_COLOR);
+            PRIVATE_SETTINGS.add(NOTIFICATION_PULSE_COLOR_AUTOMATIC);
             // Evolution X Settings end
         }
 
@@ -7542,6 +7552,8 @@ public final class Settings {
             VALIDATORS.put(AOD_NOTIFICATION_PULSE_TIMEOUT, AOD_NOTIFICATION_PULSE_TIMEOUT_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_PULSE_ACCENT, NOTIFICATION_PULSE_ACCENT_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_PULSE_COLOR, NOTIFICATION_PULSE_COLOR_VALIDATOR);
+            VALIDATORS.put(NOTIFICATION_PULSE_COLOR_AUTOMATIC,
+                    NOTIFICATION_PULSE_COLOR_AUTOMATIC_VALIDATOR);
             // Evolution X Settings end
         }
 
