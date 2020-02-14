@@ -296,9 +296,6 @@
     <!-- Expected value from fast charging status file -->
     <java-symbol type="string" name="config_oemFastChargerStatusValue" />
 
-  <!-- Ambiant Pulse Light -->
-  <java-symbol type="integer" name="pulse_ambient_light_color" />
-
   <!-- Ambient notification light color -->
   <java-symbol type="integer" name="config_ambientNotificationDefaultColor" />
 </resources>
