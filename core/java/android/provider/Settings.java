@@ -6345,17 +6345,28 @@ public final class Settings {
          */
         public static final String FOD_ICON = "fod_icon";
 
+        /** @hide */
+        private static final Validator FOD_ICON_VALIDATOR = ANY_STRING_VALIDATOR;
+
         /**
          * FOD pressed state
          * @hide
          */
         public static final String FOD_PRESSED_STATE = "fod_pressed_state";
 
+        /** @hide */
+        private static final Validator FOD_PRESSED_STATE_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 2);
+
         /**
          * FOD recognizing animation picker
          * @hide
          */
         public static final String FOD_ANIM = "fod_anim";
+
+        /** @hide */
+        private static final Validator FOD_ANIM_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 15);
 
         /**
          * Accent Color
@@ -6463,6 +6474,10 @@ public final class Settings {
          * @hide
          */
         public static final String FOD_RECOGNIZING_ANIMATION = "fod_recognizing_animation";
+
+        /** @hide */
+        private static final Validator FOD_RECOGNIZING_ANIMATION_VALIDATOR =
+                BOOLEAN_VALIDATOR;
 
         /**
          * Setting to hold the current set overlay for color bucket.
@@ -6680,6 +6695,10 @@ public final class Settings {
             QS_BLUR_ALPHA,
             QS_BLUR_INTENSITY,
             HEADSET_CONNECT_PLAYER,
+            FOD_ICON,
+            FOD_PRESSED_STATE,
+            FOD_RECOGNIZING_ANIMATION,
+            FOD_ANIM,
             // Evolution X Settings end
         };
 
@@ -7168,6 +7187,10 @@ public final class Settings {
             VALIDATORS.put(QS_BLUR_ALPHA, QS_BLUR_ALPHA_VALIDATOR);
             VALIDATORS.put(QS_BLUR_INTENSITY, QS_BLUR_INTENSITY_VALIDATOR);
             VALIDATORS.put(HEADSET_CONNECT_PLAYER, HEADSET_CONNECT_PLAYER_VALIDATOR);
+            VALIDATORS.put(FOD_ICON, FOD_ICON_VALIDATOR);
+            VALIDATORS.put(FOD_PRESSED_STATE, FOD_PRESSED_STATE_VALIDATOR);
+            VALIDATORS.put(FOD_RECOGNIZING_ANIMATION, FOD_RECOGNIZING_ANIMATION_VALIDATOR);
+            VALIDATORS.put(FOD_ANIM, FOD_ANIM_VALIDATOR);
             // Evolution X Settings end
         }
 
