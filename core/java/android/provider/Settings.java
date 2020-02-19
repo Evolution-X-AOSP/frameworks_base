@@ -7299,6 +7299,11 @@ public final class Settings {
         /** @hide */
         public static final Validator FOD_GESTURE_VALIDATOR = BOOLEAN_VALIDATOR;
 
+        /**
+         * @hide
+         */
+        public static final String AUTO_BRIGHTNESS_MIN_VALUE = "auto_brightness_min_value";
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
