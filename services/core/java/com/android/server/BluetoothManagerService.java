@@ -763,7 +763,6 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
             checkPackage(callingUid, packageName);
         }
         ClientDeathRecipient r = mBleApps.get(token);
-        int st = BluetoothAdapter.STATE_OFF;
         if (r == null && enable) {
             ClientDeathRecipient deathRec = new ClientDeathRecipient(packageName);
             try {
@@ -790,21 +789,8 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
         if (appCount == 0 && mEnable) {
             disableBleScanMode();
         }
-        if(appCount == 0) {
-            try {
-                mBluetoothLock.readLock().lock();
-                if (mBluetooth != null) {
-                    st = mBluetooth.getState();
-                }
-                if (!mEnableExternal || (st == BluetoothAdapter.STATE_BLE_ON)) {
-                    if (DBG) Slog.d(TAG, "Move to BT state OFF");
-                    sendBrEdrDownCallback();
-                }
-            } catch (RemoteException e) {
-                Slog.e(TAG, "", e);
-            } finally {
-                mBluetoothLock.readLock().unlock();
-            }
+        if (appCount == 0 && !mEnableExternal) {
+            sendBrEdrDownCallback();
         }
         return appCount;
     }
