@@ -5861,6 +5861,12 @@ public final class Settings {
                 "notification_guts_kill_app_button";
 
         /**
+         * Force show navigation bar setting.
+         * @hide
+         */
+        public static final String FORCE_SHOW_NAVBAR = "force_show_navbar";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
