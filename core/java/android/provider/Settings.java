@@ -6718,6 +6718,9 @@ public final class Settings {
         private static final Validator FORCE_SHOW_NAVBAR_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
 
+        /** @hide */
+        public static final String BACK_GESTURE_HAPTIC = "back_gesture_haptic";
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
