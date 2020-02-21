@@ -71,6 +71,10 @@ public class EvolutionUtils {
 
     public static final String INTENT_SCREENSHOT = "action_take_screenshot";
     public static final String INTENT_REGION_SCREENSHOT = "action_take_region_screenshot";
+    public static final String DOZE_PACKAGE_NAME = "Doze";
+    public static final String LINEAGE_DOZE_PACKAGE_NAME = "org.lineageos.settings.doze";
+    public static final String CUSTOM_DOZE_PACKAGE_NAME = "com.custom.ambient.display";
+    public static final String ONEPLUS_DOZE_PACKAGE_NAME = "OnePlusDoze";
 
     private static IStatusBarService mStatusBarService = null;
 
@@ -470,5 +474,12 @@ public class EvolutionUtils {
         if (DeviceUtils.deviceSupportsVibrator(context)) {
             ((Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE)).vibrate(pattern, -1);
         }
+    }
+
+    public static boolean isDozePackageAvailable(Context context) {
+        return isPackageInstalled(context, DOZE_PACKAGE_NAME) ||
+            isPackageInstalled(context, ONEPLUS_DOZE_PACKAGE_NAME) ||
+            isPackageInstalled(context, LINEAGE_DOZE_PACKAGE_NAME) ||
+            isPackageInstalled(context, CUSTOM_DOZE_PACKAGE_NAME);
     }
 }
