@@ -408,7 +408,7 @@
         </activity-alias>
 
         <activity android:name=".tuner.StatusbarItemsActivity"
-                  android:theme="@style/ExTunerSettings"
+                  android:theme="@style/CustomTunerSettings"
                   android:label="@string/statusbar_items_title"
                   android:process=":tuner"
                   android:parentActivityName="com.evolution.settings.fragments.StatusbarSettings"
@@ -416,7 +416,7 @@
         </activity>
 
         <activity android:name=".tuner.NavBarActivity"
-                  android:theme="@style/ExTunerSettings"
+                  android:theme="@style/CustomTunerSettings"
                   android:label="@string/nav_bar"
                   android:process=":tuner"
                   android:parentActivityName="com.evolution.settings.fragments.NavigationSettings"
@@ -424,7 +424,7 @@
         </activity>
 
         <activity android:name=".tuner.LockscreenActivity"
-                  android:theme="@style/ExTunerSettings"
+                  android:theme="@style/CustomTunerSettings"
                   android:label="@string/tuner_lock_screen"
                   android:process=":tuner"
                   android:parentActivityName="com.evolution.settings.fragments.LockscreenSettings"

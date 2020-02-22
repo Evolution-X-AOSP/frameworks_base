@@ -21,11 +21,6 @@
         <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
     </style>
 
-    <!-- Pure Tuner Theme-->
-    <style name="ExTunerSettings" parent="@android:style/Theme.DeviceDefault.Settings">
-        <item name="preferenceTheme">@style/TunerPreferenceTheme</item>
-    </style>
-
     <style name="TextAppearance.QSEdit.CustomHeaders"
         parent="@*android:style/TextAppearance.DeviceDefault.Body2">
         <item name="android:textSize">14sp</item>
