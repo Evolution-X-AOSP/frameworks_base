@@ -1916,13 +1916,19 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 ActionUtils.toggleCameraFlash(/*(false for no proximity check)*/);
                 break;
             case VOLUME_PANEL:
-                Utils.toggleVolumePanel(mContext);
+                ActionUtils.toggleVolumePanel(mContext);
                 break;
             case CLEAR_ALL_NOTIFICATIONS:
-                Utils.clearAllNotifications();
+                ActionUtils.clearAllNotifications();
                 break;
             case NOTIFICATIONS:
-                Utils.toggleNotifications();
+                ActionUtils.toggleNotifications();
+                break;
+            case QS_PANEL:
+                ActionUtils.toggleQsPanel();
+                break;
+            case RINGER_MODES:
+                ActionUtils.toggleRingerModes(mContext);
                 break;
             default:
                 break;
