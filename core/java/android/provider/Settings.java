@@ -6540,6 +6540,15 @@ public final class Settings {
         /** @hide */
         private static final Validator QS_PANEL_BG_USE_NEW_TINT_VALIDATOR = BOOLEAN_VALIDATOR;
 
+        /**
+         * Whether to vibrate for back gesture
+         * @hide
+         */
+        public static final String BACK_GESTURE_HAPTIC = "back_gesture_haptic";
+
+        /** @hide */
+        private static final Validator BACK_GESTURE_HAPTIC_VALIDATOR = BOOLEAN_VALIDATOR;
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
@@ -6756,6 +6765,7 @@ public final class Settings {
             TEXT_CLOCK_ALIGNMENT,
             TEXT_CLOCK_PADDING,
             QS_PANEL_BG_USE_NEW_TINT,
+            BACK_GESTURE_HAPTIC
             // Evolution X Settings end
         };
 
@@ -6996,6 +7006,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(TEXT_CLOCK_ALIGNMENT);
             PRIVATE_SETTINGS.add(TEXT_CLOCK_PADDING);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_NEW_TINT);
+            PRIVATE_SETTINGS.add(BACK_GESTURE_HAPTIC);
             // Evolution X Settings end
         }
 
@@ -7254,6 +7265,7 @@ public final class Settings {
             VALIDATORS.put(TEXT_CLOCK_ALIGNMENT, TEXT_CLOCK_ALIGNMENT_VALIDATOR);
             VALIDATORS.put(TEXT_CLOCK_PADDING, TEXT_CLOCK_PADDING_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_USE_NEW_TINT, QS_PANEL_BG_USE_NEW_TINT_VALIDATOR);
+            VALIDATORS.put(BACK_GESTURE_HAPTIC, BACK_GESTURE_HAPTIC_VALIDATOR);
             // Evolution X Settings end
         }
 
