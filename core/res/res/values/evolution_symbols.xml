@@ -96,8 +96,15 @@
   <!-- Alert Slider -->
   <java-symbol type="string" name="alert_slider_state_path" />
   <java-symbol type="string" name="alert_slider_uevent_match_path" />
+
+  <!-- Whether device has physical tri state switch -->
   <java-symbol type="bool" name="config_hasAlertSlider" />
+
+  <!-- The location of the devices physical tri state switch -->
   <java-symbol type="integer" name="config_alertSliderLocation" />
+
+  <!-- Whether key handler sends intent when changing slider position -->
+  <java-symbol type="string" name="config_alertSliderIntent" />
 
   <!-- Cycle through ringer modes -->
   <java-symbol type="string" name="volume_dialog_ringer_guidance_normal" />
