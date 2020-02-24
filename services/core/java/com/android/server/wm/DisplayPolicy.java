@@ -3817,6 +3817,22 @@ public class DisplayPolicy {
      * @param screenshotType The type of screenshot, for example either
      *                       {@link WindowManager#TAKE_SCREENSHOT_FULLSCREEN} or
      *                       {@link WindowManager#TAKE_SCREENSHOT_SELECTED_REGION}
+     */
+    public void takeScreenshot(int screenshotType) {
+        if (mScreenshotHelper != null) {
+            mScreenshotHelper.takeScreenshot(screenshotType,
+                    mStatusBar != null && mStatusBar.isVisibleLw(),
+                    mNavigationBar != null && mNavigationBar.isVisibleLw(),
+                    mHandler, null /* completionConsumer */);
+        }
+    }
+
+    /**
+     * Request a screenshot be taken.
+     *
+     * @param screenshotType The type of screenshot, for example either
+     *                       {@link WindowManager#TAKE_SCREENSHOT_FULLSCREEN} or
+     *                       {@link WindowManager#TAKE_SCREENSHOT_SELECTED_REGION}
      * @param dockMinimized Whether the Dock is minimized
      */
     public void takeScreenshot(int screenshotType, boolean dockMinimized) {
