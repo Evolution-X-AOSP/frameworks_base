@@ -26,11 +26,6 @@
         <item name="preferenceTheme">@style/TunerPreferenceTheme</item>
     </style>
 
-    <style name="TriStateUiText">
-        <item name="android:textSize">14.0sp</item>
-        <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
-    </style>
-
     <!-- Custom Carrier Label -->
     <style name="TextAppearance.StatusBar.CarrierLabel" parent="@*android:style/TextAppearance.StatusBar.Icon">
         <item name="android:textSize">@dimen/status_bar_carrier_height</item>
