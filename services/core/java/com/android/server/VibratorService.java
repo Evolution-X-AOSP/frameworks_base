@@ -779,9 +779,9 @@ public class VibratorService extends IVibratorService.Stub
                 if (mode == AppOpsManager.MODE_ERRORED) {
                     // We might be getting calls from within system_server, so we don't actually
                     // want to throw a SecurityException here.
-                    Slog.w(TAG, "Would be an error: vibrate from uid " + vib.uid);
+                    Slog.w(TAG, "Would be an error: vibrate from uid " + vib.uid + " opPkg=" + vib.opPkg);
                 }
-                return;
+                //return;
             }
             applyVibrationIntensityScalingLocked(vib, intensity);
             startVibrationInnerLocked(vib);
