@@ -22,4 +22,7 @@
     <!-- Whether safe headphone volume is enabled or not (country specific). -->
     <bool name="config_safe_media_volume_enabled">false</bool>
 
+    <!-- Enable 5 bar signal strength icon -->
+    <bool name="config_inflateSignalStrength">true</bool>
+
 </resources>
