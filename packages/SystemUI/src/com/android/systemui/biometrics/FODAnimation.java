@@ -51,6 +51,7 @@ public class FODAnimation extends ImageView {
         R.drawable.fod_miui_rhythm_recognizing_anim,
         R.drawable.fod_op_cosmos_recognizing_anim,
         R.drawable.fod_op_mclaren_recognizing_anim,
+        R.drawable.fod_op_ripple_recognizing_anim,
         R.drawable.fod_op_stripe_recognizing_anim,
         R.drawable.fod_op_wave_recognizing_anim,
         R.drawable.fod_pureview_dna_recognizing_anim,
