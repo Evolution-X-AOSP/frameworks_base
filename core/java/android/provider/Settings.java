@@ -6549,6 +6549,12 @@ public final class Settings {
         /** @hide */
         private static final Validator BACK_GESTURE_HAPTIC_VALIDATOR = BOOLEAN_VALIDATOR;
 
+        /**
+         * Whether to show or hide alert slider notifications on supported devices
+         * @hide
+         */
+        public static final String ALERT_SLIDER_NOTIFICATIONS = "alert_slider_notifications";
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
