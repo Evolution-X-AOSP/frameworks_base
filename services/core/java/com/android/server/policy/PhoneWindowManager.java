@@ -1685,8 +1685,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
         @Override
         public void run() {
-            if(!mPocketLockShowing) {
-                boolean dockMinimized = mWindowManagerInternal.isMinimizedDock();
+            boolean dockMinimized = mWindowManagerInternal.isMinimizedDock();
+            if (!mPocketLockShowing) {
                 mDefaultDisplayPolicy.takeScreenshot(mScreenshotType, dockMinimized);
             }
         }
