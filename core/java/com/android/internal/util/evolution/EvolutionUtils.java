@@ -60,6 +60,7 @@ import android.view.KeyEvent;
 import android.view.WindowManagerGlobal;
 
 import com.android.internal.R;
+import com.android.internal.statusbar.IStatusBarService;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -69,8 +70,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
-
-import com.android.internal.statusbar.IStatusBarService;
 
 import static android.content.Context.NOTIFICATION_SERVICE;
 import static android.content.Context.VIBRATOR_SERVICE;
@@ -262,6 +261,7 @@ public class EvolutionUtils {
         }
     }
 
+    // Toggle flashlight
     public static void toggleCameraFlash() {
         FireActions.toggleCameraFlash();
     }
@@ -315,6 +315,26 @@ public class EvolutionUtils {
                 }
             }
         }
+
+        // Clear notifications
+        public static void clearAllNotifications() {
+            IStatusBarService service = getStatusBarService();
+            if (service != null) {
+                try {
+                    service.onClearAllNotifications(ActivityManager.getCurrentUser());
+                } catch (RemoteException e) {}
+            }
+        }
+
+        // Toggle qs panel
+        public static void toggleQsPanel() {
+            IStatusBarService service = getStatusBarService();
+            if (service != null) {
+                try {
+                    service.expandSettingsPanel(null);
+                } catch (RemoteException e) {}
+            }
+        }
     }
 
     public static void sendKeycode(int keycode) {
@@ -342,6 +362,7 @@ public class EvolutionUtils {
         }, 20);
     }
 
+    // Screenshots
     public static void takeScreenshot(boolean full) {
         IWindowManager wm = WindowManagerGlobal.getWindowManagerService();
         try {
@@ -387,14 +408,7 @@ public class EvolutionUtils {
 
     // Clear notifications
     public static void clearAllNotifications() {
-        IStatusBarService service = getStatusBarService();
-        if (service != null) {
-            try {
-                service.onClearAllNotifications(ActivityManager.getCurrentUser());
-            } catch (RemoteException e) {
-                // do nothing.
-            }
-        }
+        FireActions.clearAllNotifications();
     }
 
     // Toggle notifications panel
@@ -404,14 +418,7 @@ public class EvolutionUtils {
 
     // Toggle qs panel
     public static void toggleQsPanel() {
-        IStatusBarService service = getStatusBarService();
-        if (service != null) {
-            try {
-                service.expandSettingsPanel(null);
-            } catch (RemoteException e) {
-                // do nothing.
-            }
-        }
+        FireActions.toggleQsPanel();
     }
 
     // Method to detect battery temperature
@@ -447,11 +454,11 @@ public class EvolutionUtils {
     // Cycle ringer modes
     public static void toggleRingerModes (Context context) {
         AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
-        Vibrator vibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
+        Vibrator mVibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
 
         switch (am.getRingerMode()) {
             case AudioManager.RINGER_MODE_NORMAL:
-                if (vibrator.hasVibrator()) {
+                if (mVibrator.hasVibrator()) {
                     am.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
                 }
                 break;
@@ -486,8 +493,8 @@ public class EvolutionUtils {
     public static boolean shouldShowGestureNav(Context context) {
         boolean setNavbarHeight = Settings.System.getIntForUser(context.getContentResolver(),
             Settings.System.GESTURE_NAVBAR_SHOW, 1, UserHandle.USER_CURRENT) != 0;
-        boolean twoThreeButtonEnabled = EvolutionUtils.isThemeEnabled("com.android.internal.systemui.navbar.twobutton") ||
-                EvolutionUtils.isThemeEnabled("com.android.internal.systemui.navbar.threebutton");
+        boolean twoThreeButtonEnabled = isThemeEnabled("com.android.internal.systemui.navbar.twobutton") ||
+                isThemeEnabled("com.android.internal.systemui.navbar.threebutton");
         return setNavbarHeight || twoThreeButtonEnabled;
     }
 
