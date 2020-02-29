@@ -7433,5 +7433,7 @@ message MetricsEvent {
     // Evolution X constant
     EVO_SETTINGS = 1999;
 
+    // Panel for Mobile Data
+    PANEL_MOBILE_DATA = 2002;
   }
 }
