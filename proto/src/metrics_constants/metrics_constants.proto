@@ -7444,5 +7444,8 @@ message MetricsEvent {
     EVOLVER = 2773;
     EVO_SETTINGS = 2774;
     EVO_QS_TILES = 2775;
+
+    // Panel for Mobile Data
+    PANEL_MOBILE_DATA = 4001;
   }
 }
