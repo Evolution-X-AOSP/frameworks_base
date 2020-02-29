@@ -7433,5 +7433,8 @@ message MetricsEvent {
     EVO = 1999;
     EVO_SETTINGS = 2000;
     EVO_QS_TILES = 2001;
+
+    // Panel for Mobile Data
+    PANEL_MOBILE_DATA = 2002;
   }
 }
