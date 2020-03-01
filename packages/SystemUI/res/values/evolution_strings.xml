@@ -259,4 +259,8 @@
 
     <!-- Text while recognizing face -->
     <string name="face_unlock_recognizing">Recognizing face...</string>
+
+    <!-- App kill -->
+    <string name="task_helper_app_killed">%1$s force stopped</string>
+    <string name="empty_app_killed">App</string>
 </resources>

@@ -233,6 +233,10 @@ interface IStatusBarService
     void showRearDisplayDialog(int currentBaseState);
 
     /** Evolution X additions. */
+
+    /**
+     * Toggles flashlight of the device
+     */
     void toggleCameraFlash();
 
     /**
@@ -244,4 +248,6 @@ interface IStatusBarService
     void setBlockedGesturalNavigation(boolean blocked);
 
     void screenPinningStateChanged(boolean enabled);
+
+    void killForegroundApp();
 }
