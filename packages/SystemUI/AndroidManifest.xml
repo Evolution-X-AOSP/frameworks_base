@@ -351,6 +351,8 @@
     <uses-permission android:name="com.google.restricted_assist_gesture.permission.RESTRICTED_ASSIST_GESTURE_PROVIDER"/>
     <uses-permission android:name="com.google.sensor.elmyra.permission.USE_RAW_SENSOR"/>
 
+    <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES" />
+
     <application
         android:name=".SystemUIApplication"
         android:persistent="true"
