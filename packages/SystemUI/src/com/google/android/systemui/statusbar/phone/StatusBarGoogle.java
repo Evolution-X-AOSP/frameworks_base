@@ -24,6 +24,7 @@ import com.android.systemui.statusbar.notification.interruption.BypassHeadsUpNot
 import com.android.systemui.plugins.FalsingManager;
 import com.android.systemui.broadcast.BroadcastDispatcher;
 import com.android.systemui.statusbar.policy.RemoteInputQuickSettingsDisabler;
+import com.android.systemui.statusbar.policy.TaskHelper;
 import com.android.systemui.statusbar.notification.row.NotificationGutsManager;
 import com.android.systemui.statusbar.NotificationRemoteInputManager;
 import com.android.systemui.statusbar.notification.logging.NotificationLogger;
@@ -182,7 +183,8 @@ public class StatusBarGoogle extends StatusBar {
             DismissCallbackRegistry dismissCallbackRegistry,
             Lazy<NotificationShadeDepthController> notificationShadeDepthControllerLazy,
             StatusBarTouchableRegionManager statusBarTouchableRegionManager,
-            FlashlightController flashlightController) {
+            FlashlightController flashlightController,
+            TaskHelper taskHelper) {
 
         super(context,
             notificationsController,
@@ -261,7 +263,8 @@ public class StatusBarGoogle extends StatusBar {
             dismissCallbackRegistry,
             notificationShadeDepthControllerLazy,
             statusBarTouchableRegionManager,
-            flashlightController);
+            flashlightController,
+            taskHelper);
         }
 
     @Override
