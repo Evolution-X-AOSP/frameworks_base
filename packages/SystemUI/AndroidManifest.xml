@@ -370,6 +370,8 @@
     <permission android:name="com.android.systemui.permission.BIND_WM_SHELL_PROXY_SERVICE"
         android:protectionLevel="signature" />
 
+    <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES" />
+
     <application
         android:name=".SystemUIApplication"
         android:persistent="true"

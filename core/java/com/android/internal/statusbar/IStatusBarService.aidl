@@ -233,8 +233,13 @@ interface IStatusBarService
     void showRearDisplayDialog(int currentBaseState);
 
     /** Evolution X additions. */
-    void toggleCameraFlash();
     void screenPinningStateChanged(boolean enabled);
+    void killForegroundApp();
+
+    /**
+     * Toggles flashlight of the device
+     */
+    void toggleCameraFlash();
 
     /**
      * Starts the default assistant app.
