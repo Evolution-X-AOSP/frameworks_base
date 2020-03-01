@@ -178,4 +178,8 @@
     <!-- Screenrecorder -->
     <string name="screenrecord_stopdot_label">Show stop dot\nLongpress to move it</string>
     <string name="screenrecord_lowquality_label">Lower quality for smaller file size</string>
+
+    <!-- Kill app -->
+    <string name="task_helper_app_killed">%1$s force stopped</string>
+    <string name="empty_app_killed">App</string>
 </resources>
