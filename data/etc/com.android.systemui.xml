@@ -65,6 +65,7 @@
         <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
         <permission name="android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS"/>
         <permission name="android.permission.CONTROL_DISPLAY_COLOR_TRANSFORMS" />
+        <permission name="android.permission.FORCE_STOP_PACKAGES" />
         <permission name="android.permission.WRITE_APN_SETTINGS"/>
     </privapp-permissions>
 </permissions>
