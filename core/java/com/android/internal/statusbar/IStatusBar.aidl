@@ -182,4 +182,5 @@ oneway interface IStatusBar
      * Evolution X utils
      */
     void toggleCameraFlash();
+    void killForegroundApp();
 }
