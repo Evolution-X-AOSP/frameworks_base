@@ -369,7 +369,13 @@ oneway interface IStatusBar
     void showMediaOutputSwitcher(String packageName);
 
     /** Evolution X additions. */
+
+    /**
+     * Toggles flashlight of the device
+     */
     void toggleCameraFlash();
     void screenPinningStateChanged(boolean enabled);
     void leftInLandscapeChanged(boolean isLeft);
+
+    void killForegroundApp();
 }
