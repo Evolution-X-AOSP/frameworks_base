@@ -2017,6 +2017,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case RINGER_MODES:
                 EvolutionUtils.toggleRingerModes(mContext);
                 break;
+            case KILL_APP:
+                EvolutionUtils.killForegroundApp();
+                break;
             default:
                 break;
         }
