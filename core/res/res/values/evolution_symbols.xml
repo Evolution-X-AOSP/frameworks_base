@@ -72,6 +72,12 @@
     <!-- Whether to allow process with media UID to access CameraServiceProxy -->
     <java-symbol type="bool" name="config_allowMediaUidForCameraServiceProxy" />
 
+    <!-- Whether device has dash charging support -->
+    <java-symbol type="bool" name="config_hasDashCharger" />
+
+    <!-- Whether device has warp charging support -->
+    <java-symbol type="bool" name="config_hasWarpCharger" />
+
     <!-- LiveDisplay -->
     <java-symbol type="string" name="live_display_title" />
     <java-symbol type="string" name="live_display_hint" />

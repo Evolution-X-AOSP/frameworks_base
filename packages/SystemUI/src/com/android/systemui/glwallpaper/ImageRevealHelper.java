@@ -71,13 +71,19 @@ class ImageRevealHelper {
         });
     }
 
+    private void animate() {
+        mAnimator.cancel();
+        mAnimator.setFloatValues(mReveal, mAwake ? MAX_REVEAL : MIN_REVEAL);
+        mAnimator.start();
+    }
+
     public float getReveal() {
         return mReveal;
     }
 
     void updateAwake(boolean awake, long duration) {
-        mAnimator.cancel();
         mAwake = awake;
+        mAnimator.setDuration(duration);
         if (duration == 0) {
             // We are transiting from home to aod or aod to home directly,
             // we don't need to do transition in these cases.
@@ -86,9 +92,7 @@ class ImageRevealHelper {
             mRevealListener.onRevealStateChanged();
             mRevealListener.onRevealEnd();
         } else {
-            mAnimator.setDuration(duration);
-            mAnimator.setFloatValues(mReveal, mAwake ? MAX_REVEAL : MIN_REVEAL);
-            mAnimator.start();
+            animate();
         }
     }
 
