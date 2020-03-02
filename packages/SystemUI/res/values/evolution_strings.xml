@@ -235,7 +235,7 @@
     <string name="navbar_editor_title">Editor</string>
     <string name="navbar_editor_summary">Configure navigaton bar</string>
 
-     <!-- Screen Stabilization -->
+    <!-- Screen Stabilization -->
     <string name="quick_settings_stabilization_label">Screen Stabilization</string>
     <string name="quick_settings_stabilization_off">Stabilization is disabled</string>
     <string name="quick_settings_stabilization_on">Stabilization is enabled</string>
