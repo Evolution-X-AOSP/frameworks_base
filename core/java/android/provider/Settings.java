@@ -6543,6 +6543,15 @@ public final class Settings {
         private static final Validator LOCKSCREEN_MEDIA_METADATA_VALIDATOR =
                  BOOLEAN_VALIDATOR;
 
+        /**
+         * Width of the navigation handle.
+         * @hide
+         */
+        public static final String NAVIGATION_HANDLE_WIDTH = "navigation_handle_width";
+
+        /** @hide */
+        private static final Validator NAVIGATION_HANDLE_WIDTH_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
@@ -6757,6 +6766,7 @@ public final class Settings {
             BACK_GESTURE_BLOCK_IME,
             ASPECT_RATIO_APPS_ENABLED,
             ASPECT_RATIO_APPS_LIST,
+            NAVIGATION_HANDLE_WIDTH,
             // Evolution X Settings end
         };
 
@@ -6997,6 +7007,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(ASPECT_RATIO_APPS_ENABLED);
             PRIVATE_SETTINGS.add(ASPECT_RATIO_APPS_LIST);
             PRIVATE_SETTINGS.add(LOCKSCREEN_MEDIA_METADATA);
+            PRIVATE_SETTINGS.add(NAVIGATION_HANDLE_WIDTH);
             // Evolution X Settings end
         }
 
@@ -7255,6 +7266,7 @@ public final class Settings {
             VALIDATORS.put(ASPECT_RATIO_APPS_ENABLED, ASPECT_RATIO_APPS_ENABLED_VALIDATOR);
             VALIDATORS.put(ASPECT_RATIO_APPS_LIST, ASPECT_RATIO_APPS_LIST_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_MEDIA_METADATA,LOCKSCREEN_MEDIA_METADATA_VALIDATOR);
+            VALIDATORS.put(NAVIGATION_HANDLE_WIDTH, NAVIGATION_HANDLE_WIDTH_VALIDATOR);
             // Evolution X Settings end
         }
 
