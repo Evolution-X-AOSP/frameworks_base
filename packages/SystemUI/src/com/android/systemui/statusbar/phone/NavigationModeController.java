@@ -185,6 +185,9 @@ public class NavigationModeController implements Dumpable {
                 Settings.System.BACK_GESTURE_HEIGHT),
                 false, mSettingsObserver, UserHandle.USER_ALL);
         mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(
+                Settings.System.NAVIGATION_HANDLE_WIDTH),
+                false, mSettingsObserver, UserHandle.USER_ALL);
+        mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(
                 Settings.System.BACK_GESTURE_HAPTIC),
                 false, mSettingsObserver, UserHandle.USER_ALL);
         mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(

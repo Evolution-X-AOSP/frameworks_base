@@ -6721,6 +6721,15 @@ public final class Settings {
         /** @hide */
         public static final String BACK_GESTURE_HAPTIC = "back_gesture_haptic";
 
+        /**
+         * Width of the navigation handle.
+         * @hide
+         */
+        public static final String NAVIGATION_HANDLE_WIDTH = "navigation_handle_width";
+
+        /** @hide */
+        private static final Validator NAVIGATION_HANDLE_WIDTH_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
@@ -6905,6 +6914,7 @@ public final class Settings {
             OMNI_STATUS_BAR_FILE_HEADER_IMAGE,
             QS_HIDE_BATTERY,
             GESTURE_PILL_TOGGLE,
+            NAVIGATION_HANDLE_WIDTH,
             FORCE_SHOW_NAVBAR,
             QS_PANEL_BG_COLOR,
             QS_PANEL_BG_COLOR_WALL,
@@ -7152,6 +7162,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_CUSTOM_HEADER_IMAGE);
             PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_FILE_HEADER_IMAGE);
             PRIVATE_SETTINGS.add(GESTURE_PILL_TOGGLE);
+            PRIVATE_SETTINGS.add(NAVIGATION_HANDLE_WIDTH);
             PRIVATE_SETTINGS.add(FORCE_SHOW_NAVBAR);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_COLOR);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_COLOR_WALL);
@@ -7418,6 +7429,7 @@ public final class Settings {
                     OMNI_STATUS_BAR_FILE_HEADER_IMAGE_VALIDATOR);
             VALIDATORS.put(QS_HIDE_BATTERY, QS_HIDE_BATTERY_VALIDATOR);
             VALIDATORS.put(GESTURE_PILL_TOGGLE, GESTURE_PILL_TOGGLE_VALIDATOR);
+            VALIDATORS.put(NAVIGATION_HANDLE_WIDTH, NAVIGATION_HANDLE_WIDTH_VALIDATOR);
             VALIDATORS.put(FORCE_SHOW_NAVBAR, FORCE_SHOW_NAVBAR_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_COLOR, QS_PANEL_BG_COLOR_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_COLOR_WALL, QS_PANEL_BG_COLOR_WALL_VALIDATOR);
