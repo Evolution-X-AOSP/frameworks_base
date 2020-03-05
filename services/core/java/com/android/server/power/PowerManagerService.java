@@ -1209,9 +1209,9 @@ public final class PowerManagerService extends SystemService
         mHardwareKeysDisable = Settings.Secure.getIntForUser(resolver,
                 Settings.Secure.HARDWARE_KEYS_DISABLE, 0,
                 UserHandle.USER_CURRENT) != 0;
-        mProximityWakeEnabled = Settings.System.getInt(resolver,
+        mProximityWakeEnabled = Settings.System.getIntForUser(resolver,
                 Settings.System.PROXIMITY_ON_WAKE,
-                mProximityWakeEnabledByDefaultConfig ? 1 : 0) == 1;
+                mProximityWakeEnabledByDefaultConfig ? 1 : 0, UserHandle.USER_CURRENT) == 1;
         mWakeUpWhenPluggedOrUnpluggedSetting = Settings.Global.getInt(resolver,
                 Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED,
                 (mWakeUpWhenPluggedOrUnpluggedConfig ? 1 : 0));
@@ -4774,8 +4774,17 @@ public final class PowerManagerService extends SystemService
                     }
                 }
             };
-            if (checkProximity) {
-                runWithProximityCheck(r);
+            if (checkProximity && mProximityWakeSupported && mProximityWakeEnabled
+                    && mProximitySensor != null) {
+
+                final TelephonyManager tm = mContext.getSystemService(TelephonyManager.class);
+                final boolean hasIncomingCall = tm.getCallState() == TelephonyManager.CALL_STATE_RINGING;
+
+                if (!hasIncomingCall) {
+                    runWithProximityCheck(r);
+                } else {
+                    r.run();
+                }
             } else {
                 r.run();
             }
@@ -5438,19 +5447,10 @@ public final class PowerManagerService extends SystemService
             return;
         }
 
-        final TelephonyManager tm =
-                (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
-        final boolean hasIncomingCall = tm.getCallState() == TelephonyManager.CALL_STATE_RINGING;
-
-        if (mProximityWakeSupported && mProximityWakeEnabled
-                && mProximitySensor != null && !hasIncomingCall) {
-            final Message msg = mHandler.obtainMessage(MSG_WAKE_UP);
-            msg.obj = r;
-            mHandler.sendMessageDelayed(msg, mProximityTimeOut);
-            runPostProximityCheck(r);
-        } else {
-            r.run();
-        }
+        final Message msg = mHandler.obtainMessage(MSG_WAKE_UP);
+        msg.obj = r;
+        mHandler.sendMessageDelayed(msg, mProximityTimeOut);
+        runPostProximityCheck(r);
     }
 
     private void runPostProximityCheck(final Runnable r) {
