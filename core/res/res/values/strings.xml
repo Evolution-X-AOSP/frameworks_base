@@ -5407,4 +5407,7 @@
     <!-- ChooserActivity - Alphabetically sorted apps list label. [CHAR LIMIT=NONE] -->
     <string name="chooser_all_apps_button_label">Apps list</string>
 
+    <!-- App killed (Back button long pressed)-->
+    <string name="app_killed_message">Application killed</string>
+
 </resources>
