@@ -3873,4 +3873,9 @@
 
   <java-symbol type="bool" name="config_automotiveHideNavBarForKeyboard" />
   <java-symbol type="bool" name="reset_geo_fencing_check_after_boot_or_apm" />
+
+  <!-- kill app long press back -->
+  <java-symbol type="string" name="app_killed_message" />
+  <java-symbol type="integer" name="config_backKillTimeout" />
+
 </resources>
