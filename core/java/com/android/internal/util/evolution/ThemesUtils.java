@@ -63,6 +63,13 @@ public class ThemesUtils {
         "com.android.system.switch.oos", // 5
     };
 
+    public static final String[] NAVBAR_STYLES = {
+            "com.android.theme.navbar.asus",
+            "com.android.theme.navbar.oneplus",
+            "com.android.theme.navbar.oneui",
+            "com.android.theme.navbar.tecno",
+    };
+
     public static final String[] STATUSBAR_HEIGHT = {
             "com.gnonymous.gvisualmod.sbh_m", // 1
             "com.gnonymous.gvisualmod.sbh_l", // 2
