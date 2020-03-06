@@ -11233,6 +11233,14 @@ public final class Settings {
         private static final Validator FP_SWIPE_TO_DISMISS_NOTIFICATIONS_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * Whether longpress back button to Kill appkeys is enabled.
+         * @hide
+         */
+        public static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
+
+        private static final Validator KILL_APP_LONGPRESS_BACK_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * Holds comma separated list of ordering of QS tiles.
          * @hide
          */
@@ -11878,6 +11886,7 @@ public final class Settings {
             AWARE_LOCK_ENABLED,
             AWARE_TAP_PAUSE_GESTURE_COUNT,
             AWARE_TAP_PAUSE_TOUCH_COUNT,
+            // Evolution X Settings
             VOLUME_LINK_NOTIFICATION,
             SYSUI_ROUNDED_FWVALS,
             SYSUI_ROUNDED_SIZE,
@@ -11892,6 +11901,7 @@ public final class Settings {
             LOCKSCREEN_SOLID_FUDGE_FACTOR,
             LOCKSCREEN_SOLID_UNITS_OPACITY,
             HIDE_LOCKICON,
+            // Evolution X Settings end
         };
 
         /**
@@ -12092,6 +12102,7 @@ public final class Settings {
             VALIDATORS.put(AWARE_TAP_PAUSE_GESTURE_COUNT, NON_NEGATIVE_INTEGER_VALIDATOR);
             VALIDATORS.put(AWARE_TAP_PAUSE_TOUCH_COUNT, NON_NEGATIVE_INTEGER_VALIDATOR);
             VALIDATORS.put(TAP_GESTURE, TAP_GESTURE_VALIDATOR);
+            // Evolution X Settings
             VALIDATORS.put(VOLUME_LINK_NOTIFICATION, VOLUME_LINK_NOTIFICATION_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_VISUALIZER_ENABLED, LOCKSCREEN_VISUALIZER_ENABLED_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_LAVALAMP_ENABLED, LOCKSCREEN_LAVALAMP_ENABLED_VALIDATOR);
@@ -12108,6 +12119,8 @@ public final class Settings {
             VALIDATORS.put(SYSUI_STATUS_BAR_PADDING, SYSUI_STATUS_BAR_PADDING_VALIDATOR);
             VALIDATORS.put(HIDE_LOCKICON, HIDE_LOCKICON_VALIDATOR);
             VALIDATORS.put(TETHERING_ALLOW_VPN_UPSTREAMS, TETHERING_ALLOW_VPN_UPSTREAMS_VALIDATOR);
+            VALIDATORS.put(KILL_APP_LONGPRESS_BACK, KILL_APP_LONGPRESS_BACK_VALIDATOR);
+            // Evolution X Settings end
         }
 
         /**
