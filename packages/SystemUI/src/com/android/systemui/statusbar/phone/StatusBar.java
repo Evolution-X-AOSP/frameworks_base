@@ -4564,9 +4564,6 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.QS_BLUR_INTENSITY),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.BACK_GESTURE_HAPTIC),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.LOCKSCREEN_MEDIA_METADATA),
                     false, this, UserHandle.USER_ALL);
         }
@@ -4640,7 +4637,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             updateTickerTickDuration();
             updateNavigationBarVisibility();
             updateKeyguardStatusSettings();
-            setHapticFeedbackForBackGesture();
             setLockscreenMediaArt();
         }
     }
@@ -4774,12 +4770,6 @@ public class StatusBar extends SystemUI implements DemoMode,
     private void setHideArrowForBackGesture() {
         if (getNavigationBarView() != null) {
             getNavigationBarView().updateBackArrowForGesture();
-        }
-    }
-
-    private void setHapticFeedbackForBackGesture() {
-        if (getNavigationBarView() != null) {
-            getNavigationBarView().updateBackGestureHaptic();
         }
     }
 
