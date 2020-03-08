@@ -5152,7 +5152,7 @@ public final class Settings {
          * Whether to show charging animation on lock screen
          * @hide
          */
-        public static final String LOCKSCREEN_CHARGING_ANIMATION = "lockscreen_charging_animation";
+        public static final String LOCKSCREEN_CHARGING_ANIMATION_STYLE = "lockscreen_charging_animation_style";
 
         /**
          * IMPORTANT: If you add a new public settings you also have to add it to
