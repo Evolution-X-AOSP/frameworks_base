@@ -252,6 +252,12 @@
     <!-- Whether device supports variable refresh rate -->
     <bool name="config_hasVariableRefreshRate">false</bool>
 
+    <!-- Default refresh rate value for the device
+         0: Auto
+         1: 60Hz
+         2: 90Hz -->
+    <integer name="config_defaultRefreshRate">0</integer>
+
     <!-- Whether device has a physical display cutout -->
     <bool name="config_physicalDisplayCutout">false</bool>
 
