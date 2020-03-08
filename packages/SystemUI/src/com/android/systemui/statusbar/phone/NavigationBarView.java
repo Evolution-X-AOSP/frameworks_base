@@ -739,10 +739,6 @@ public class NavigationBarView extends FrameLayout implements
         mEdgeBackGestureHandler.setStateForBackArrowGesture();
     }
 
-    public void updateBackGestureHaptic() {
-        mEdgeBackGestureHandler.setStateForBackGestureHaptic();
-    }
-
     public void updateDisabledSystemUiStateFlags() {
         int displayId = mContext.getDisplayId();
         mOverviewProxyService.setSystemUiStateFlag(SYSUI_STATE_SCREEN_PINNING,
