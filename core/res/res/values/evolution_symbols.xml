@@ -138,6 +138,6 @@
     <java-symbol type="bool" name="config_physicalDisplayCutout" />
 
     <!-- Whether device has a big physical display cutout -->
-    <java-symbol type="bool" name="config_bigPhysicalDisplayCutout" />
+    <java-symbol type="bool" name="config_physicalDisplayCutoutCentered" />
 
 </resources>
