@@ -161,6 +161,6 @@
     <bool name="config_physicalDisplayCutout">false</bool>
 
     <!-- Whether device has a big physical display cutout -->
-    <bool name="config_bigPhysicalDisplayCutout">false</bool>
+    <bool name="config_physicalDisplayCutoutCentered">@bool/config_physicalDisplayCutout</bool>
 
 </resources>
