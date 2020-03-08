@@ -812,7 +812,7 @@ public class NavigationBarFragment extends LifecycleFragment implements Callback
                         stopLockTaskMode = true;
                         return true;
                     } else if (v.getId() == R.id.recent_apps) {
-                        // Send long press key event so that button handling can intercept
+                        // Send long press key event so that button can be intercepted
                         KeyButtonView keyButtonView = (KeyButtonView) v;
                         keyButtonView.sendEvent(KeyEvent.ACTION_DOWN, KeyEvent.FLAG_LONG_PRESS);
                         keyButtonView.sendAccessibilityEvent(
