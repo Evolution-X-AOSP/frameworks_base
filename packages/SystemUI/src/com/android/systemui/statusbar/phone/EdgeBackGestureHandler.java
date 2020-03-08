@@ -264,12 +264,6 @@ public class EdgeBackGestureHandler implements DisplayListener {
         }
     }
 
-    public void setStateForBackGestureHaptic() {
-        if (mEdgePanel != null) {
-            mEdgePanel.setBackGestureHaptic();
-        }
-    }
-
     public void onSystemUiVisibilityChanged(int systemUiVisibility) {
         mIsInTransientImmersiveStickyState =
                 (systemUiVisibility & SYSTEM_UI_FLAG_IMMERSIVE_STICKY) != 0
