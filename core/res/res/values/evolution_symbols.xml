@@ -135,6 +135,7 @@
     <java-symbol type="integer" name="config_longPressOnHomeBehaviorHwKeys" />
     <java-symbol type="integer" name="config_doubleTapOnHomeBehaviorHwKeys" />
     <java-symbol type="integer" name="config_longPressOnMenuBehaviorHwKeys" />
+    <java-symbol type="integer" name="config_longPressOnAppSwitchBehavior" />
     <java-symbol type="integer" name="config_longPressOnAppSwitchBehaviorHwKeys" />
     <java-symbol type="integer" name="config_longPressOnAssistBehaviorHwKeys" />
 
