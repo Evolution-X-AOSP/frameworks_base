@@ -37,9 +37,49 @@
             android:id="@+id/charging_indication"
             android:layout_width="@dimen/keyguard_charging_indication_width"
             android:layout_height="@dimen/keyguard_charging_indication_height"
-            android:layout_gravity="center"
+            android:layout_gravity="center_horizontal"
             android:clickable="false"
             app:lottie_fileName="keyguard_charging_indication.json"
+            app:lottie_loop="true"
+            android:visibility="gone" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/charging_indication_1"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_horizontal"
+            android:clickable="false"
+            app:lottie_fileName="keyguard_charge_battery.json"
+            app:lottie_loop="true"
+            android:visibility="gone" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/charging_indication_2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:clickable="false"
+            app:lottie_fileName="keyguard_charge_drop.json"
+            app:lottie_loop="true"
+            android:visibility="gone" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/charging_indication_3"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:clickable="false"
+            app:lottie_fileName="keyguard_charge_explosion.json"
+            app:lottie_loop="true"
+            android:visibility="gone" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/charging_indication_4"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:clickable="false"
+            app:lottie_fileName="keyguard_charge_water.json"
             app:lottie_loop="true"
             android:visibility="gone" />
 
