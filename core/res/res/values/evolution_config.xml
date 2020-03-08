@@ -153,6 +153,21 @@
             2 - Recent apps view in SystemUI
             3 - Launch assist intent
             4 - Voice Search
+            5 - Launch camera
+            6 - Sleep
+            7 - Toggle split screen
+            8 - Take screenshot
+         This needs to match the enums in
+         frameworks/base/core/java/com/android/internal/util/custom/hwkeys/DeviceKeysConstants.java.
+    -->
+    <integer name="config_longPressOnHomeBehavior">3</integer>
+
+    <!-- Control the behavior when the user long presses the home button.
+            0 - Nothing
+            1 - Menu key
+            2 - Recent apps view in SystemUI
+            3 - Launch assist intent
+            4 - Voice Search
             5 - In-app Search
             6 - Launch camera
             7 - Sleep
@@ -161,6 +176,21 @@
          This needs to match the enums in DeviceKeysConstants.java.
     -->
     <integer name="config_longPressOnHomeBehaviorHwKeys">3</integer>
+
+    <!-- Control the behavior when the user double-taps the home button.
+            0 - Nothing
+            1 - Menu key
+            2 - Recent apps view in SystemUI
+            3 - Launch assist intent
+            4 - Voice Search
+            5 - Launch camera
+            6 - Sleep
+            7 - Toggle split screen
+            8 - Take screenshot
+         This needs to match the enums in
+         frameworks/base/core/java/com/android/internal/util/custom/hwkeys/DeviceKeysConstants.java.
+    -->
+    <integer name="config_doubleTapOnHomeBehavior">0</integer>
 
     <!-- Control the behavior when the user double-taps the home button.
             0 - Nothing
@@ -192,6 +222,20 @@
     -->
     <integer name="config_longPressOnMenuBehaviorHwKeys">2</integer>
 
+    <!-- Control the behavior when the user long presses the app switch button.
+            0 - Nothing
+            1 - Menu key
+            2 - Recent apps view in SystemUI
+            3 - Launch assist intent
+            4 - Voice Search
+            5 - Launch camera
+            6 - Sleep
+            7 - Toggle split screen
+            8 - Take screenshot
+         This needs to match the enums in
+         frameworks/base/core/java/com/android/internal/util/custom/hwkeys/DeviceKeysConstants.java.
+    -->
+    <integer name="config_longPressOnAppSwitchBehavior">0</integer>
 
     <!-- Control the behavior when the user long presses the app switch button.
             0 - Nothing
