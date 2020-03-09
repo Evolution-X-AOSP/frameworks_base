@@ -6639,6 +6639,12 @@ public final class Settings {
         public static final String INCREASING_RING_RAMP_UP_TIME = "increasing_ring_ramp_up_time";
 
         /**
+         * boolean value. toggles compact layout in navigation bar
+         * @hide
+         */
+        public static final String NAV_BAR_COMPACT_LAYOUT = "navigation_bar_compact_layout";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -6789,6 +6795,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(INCREASING_RING);
             PRIVATE_SETTINGS.add(INCREASING_RING_START_VOLUME);
             PRIVATE_SETTINGS.add(INCREASING_RING_RAMP_UP_TIME);
+            PRIVATE_SETTINGS.add(NAV_BAR_COMPACT_LAYOUT);
         }
 
         /**
