@@ -6000,6 +6000,12 @@ public final class Settings {
         public static final String NETWORK_TRAFFIC_UNIT_TYPE = "network_traffic_unit_type";
 
         /**
+         * boolean value. toggles compact layout in navigation bar
+         * @hide
+         */
+        public static final String NAV_BAR_COMPACT_LAYOUT = "navigation_bar_compact_layout";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -6141,6 +6147,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(HIGH_TOUCH_SENSITIVITY_ENABLE);
             PRIVATE_SETTINGS.add(HIGH_TOUCH_POLLING_RATE_ENABLE);
             PRIVATE_SETTINGS.add(SWIPE_TO_SCREENSHOT);
+            PRIVATE_SETTINGS.add(NAV_BAR_COMPACT_LAYOUT);
         }
 
         /**
