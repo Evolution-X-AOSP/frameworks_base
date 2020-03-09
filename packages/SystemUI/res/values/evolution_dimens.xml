@@ -105,7 +105,7 @@
     <dimen name="status_bar_battery_bigcircle_icon_width">20.5dp</dimen>
 
     <!-- Recognizing fingerprint animation -->
-    <dimen name="fod_animation_size">280dp</dimen>
+    <dimen name="fod_animation_size">300dp</dimen>
     <dimen name="fod_animation_offset">0dp</dimen>
 
     <!-- Padding after battery level text in status bar, QS, and Keyguard -->
