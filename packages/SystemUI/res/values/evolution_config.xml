@@ -18,7 +18,7 @@
 
     <!-- The default tiles to display in QuickSettings -->
     <string name="quick_settings_tiles_extra" translatable="false">
-        ambient_display,anti_flicker,aod,caffeine,dataswitch,heads_up,livedisplay,powershare,reading_mode,reboot,sound,soundsearch,sync,usb_tether,volume_panel,vpn,refresh_rate
+        ambient_display,anti_flicker,aod,caffeine,dataswitch,heads_up,livedisplay,powershare,reading_mode,reboot,sound,soundsearch,sync,usb_tether,volume_panel,vpn,refresh_rate,fpsinfo
     </string>
 
     <!-- The battery current divider, some kernel report current value in mA other in µA.
@@ -30,4 +30,7 @@
 
     <!-- Doze: does the long press sensor need a proximity check? -->
     <bool name="doze_long_press_proximity_check">false</bool>
+
+    <!-- FPSInfoService FPS node file path -->
+    <string name="config_fpsInfoSysNode" translatable="false"></string>
 </resources>

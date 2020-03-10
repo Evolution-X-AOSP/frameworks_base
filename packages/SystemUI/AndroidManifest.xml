@@ -1051,6 +1051,10 @@
             </intent-filter>
         </receiver>
 
+        <!-- FPS Info -->
+        <service android:name=".FPSInfoService"
+                android:exported="false" />
+
         <provider
             android:authorities="com.android.systemui.customization"
             android:name="com.android.systemui.keyguard.CustomizationProvider"
