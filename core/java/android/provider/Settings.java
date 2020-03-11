@@ -11354,11 +11354,17 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_CLOCK_SELECTION = "lockscreen_clock_selection";
 
+        private static final Validator LOCKSCREEN_CLOCK_SELECTION_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 10);
+
         /**
          * Select which lockscreen date style to display
          * @hide
          */
         public static final String LOCKSCREEN_DATE_SELECTION = "lockscreen_date_selection";
+
+        private static final Validator LOCKSCREEN_DATE_SELECTION_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 8);
 
         /**
          * Whether the Lockdown button should be shown in the power menu.
@@ -11892,6 +11898,8 @@ public final class Settings {
             SYSUI_ROUNDED_SIZE,
             SYSUI_ROUNDED_CONTENT_PADDING,
             SYSUI_STATUS_BAR_PADDING,
+            LOCKSCREEN_CLOCK_SELECTION,
+            LOCKSCREEN_DATE_SELECTION,
             LOCKSCREEN_VISUALIZER_ENABLED,
             LOCKSCREEN_LAVALAMP_ENABLED,
             LOCKSCREEN_LAVALAMP_SPEED,
@@ -12104,6 +12112,8 @@ public final class Settings {
             VALIDATORS.put(TAP_GESTURE, TAP_GESTURE_VALIDATOR);
             // Evolution X Settings
             VALIDATORS.put(VOLUME_LINK_NOTIFICATION, VOLUME_LINK_NOTIFICATION_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_CLOCK_SELECTION, LOCKSCREEN_CLOCK_SELECTION_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_DATE_SELECTION,LOCKSCREEN_DATE_SELECTION_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_VISUALIZER_ENABLED, LOCKSCREEN_VISUALIZER_ENABLED_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_LAVALAMP_ENABLED, LOCKSCREEN_LAVALAMP_ENABLED_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_LAVALAMP_SPEED, LOCKSCREEN_LAVALAMP_SPEED_VALIDATOR);
