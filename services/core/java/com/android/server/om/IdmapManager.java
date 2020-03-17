@@ -65,7 +65,7 @@ class IdmapManager {
     // omni addition
     private static final boolean VENDOR_STATIC_OVERLAY_ENABLE;
     static  {
-        VENDOR_STATIC_OVERLAY_ENABLE = SystemProperties.getBoolean("ro.boot.vendor.overlay.static", true);
+        VENDOR_STATIC_OVERLAY_ENABLE = SystemProperties.getBoolean("ro.boot.vendor.overlay.static", false);
     }
 
     IdmapManager(final Installer installer, final PackageManagerHelper packageManager) {

@@ -229,7 +229,7 @@ static jobjectArray NativeCreateIdmapsForStaticOverlaysTargetingAndroid(JNIEnv* 
   // --input-directory can be given multiple times, but idmap2 expects the directory to exist
   std::vector<std::string> input_dirs;
   struct stat st;
-  bool static_vendor_overlay = android::base::GetBoolProperty("ro.boot.vendor.overlay.static", true);
+  bool static_vendor_overlay = android::base::GetBoolProperty("ro.boot.vendor.overlay.static", false);
 
   if (static_vendor_overlay) {
     if (stat(AssetManager::VENDOR_OVERLAY_DIR, &st) == 0) {
