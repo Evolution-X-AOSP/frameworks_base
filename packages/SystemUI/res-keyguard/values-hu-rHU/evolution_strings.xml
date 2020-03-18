@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
+    <string-array name="type_clock_minutes_alt">
+        <item>O\u2019Óra</item>
+        <item>O\u2019Egy</item>
+        <item>O\u2019Kettő</item>
+        <item>O\u2019Három</item>
+        <item>O\u2019Négy</item>
+        <item>O\u2019Öt</item>
+        <item>O\u2019Hat</item>
+        <item>O\u2019Hét</item>
+        <item>O\u2019Nyolc</item>
+        <item>O\u2019Kilenc</item>
+        <item>Tíz</item>
+        <item>Tizenegy</item>
+        <item>Tizenkettő</item>
+        <item>Tizenhárom</item>
+        <item>Tizennégy</item>
+        <item>Tizenöt</item>
+        <item>Tizenhat</item>
+        <item>Tizenhét</item>
+        <item>Tizennyolc</item>
+        <item>Tizenkilenc</item>
+        <item>Húsz</item>
+        <item>Huszonegy</item>
+        <item>Huszonkettő</item>
+        <item>Huszonhárom</item>
+        <item>Huszonnégy</item>
+        <item>Huszonöt</item>
+        <item>Huszonhat</item>
+        <item>Huszonhét</item>
+        <item>Huszonnyolc</item>
+        <item>Huszonkilenc</item>
+        <item>Harminc</item>
+        <item>Harmicegy</item>
+        <item>Harminckettő</item>
+        <item>Harminchárom</item>
+        <item>Harmincnégy</item>
+        <item>Harmincöt</item>
+        <item>Harminchat</item>
+        <item>Harminchét</item>
+        <item>Harmincnyolc</item>
+        <item>Harminckilenc</item>
+        <item>Negyven</item>
+        <item>Negyvenegy</item>
+        <item>Negyvenkettő</item>
+        <item>Negyvenhárom</item>
+        <item>Negyvennégy</item>
+        <item>Negyvenöt</item>
+        <item>Negyvenhat</item>
+        <item>Negyvenhét</item>
+        <item>Negyvennyolc</item>
+        <item>Negyvenkilenc</item>
+        <item>Ötven</item>
+        <item>Ötvenegy</item>
+        <item>Ötvenkettő</item>
+        <item>Ötvenhárom</item>
+        <item>Ötvennégy</item>
+        <item>Ötvenöt</item>
+        <item>Ötvenhat</item>
+        <item>Ötvenhét</item>
+        <item>Ötvennyolc</item>
+        <item>Ötvenkilenc</item>
+    </string-array>
+</resources>

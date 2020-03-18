@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">نسخ رابط سجل الأعطال</string>
+    <string name="url_copy_success">تم نسخ الرابط بنجاح</string>
+    <string name="url_copy_failed">حدث خطأ أثناء رفع السجل إلى dogbin</string>
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_fakePackageSignature">تزييف التوقيع للحزمة</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_fakePackageSignature">يسمح للتطبيق بالتظاهر بأنه تطبيق آخر. يمكن للتطبيقات الخبيثة أن تستخدم هذه الميزة للوصول إلى البيانات الخاصة للتطبيقات. توخٙ الحذر عند منح هذا الإذن!</string>
+    <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgrouplab_fake_package_signature">تزييف التوقيع للحزمة</string>
+    <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgroupdesc_fake_package_signature">السماح بتزييف توقيع للحزمة</string>
+    <!-- Message shown to the user when the apps requests permission from this group. If ever possible this should stay below 80 characters (assuming the parameters takes 20 characters). Don't abbreviate until the message reaches 120 characters though. [CHAR LIMIT=120] -->
+    <string name="permgrouprequest_fake_package_signature">السماح
+        &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; بتزييف توقيع
+الحزمة؟</string>
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">الاسترداد</string>
+    <string name="reboot_to_recovery_message">إعادة التشغيل إلى وضع الإسترداد</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">اعادة التشغيل للـBootloader</string>
+    <string name="reboot_title">إعادة التشغيل</string>
+    <string name="reboot_message">يتم إعادة تشغيل النظام</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">تلقائي</string>
+    <string name="live_display_auto_summary">ضبط درجة الحرارة اللونية للشاشة تلقائياً بعد غروب الشمس وشروق الشمس</string>
+    <string name="live_display_off">مغلق</string>
+    <string name="live_display_off_summary">تعطيل جميع التعديلات</string>
+    <string name="live_display_day">النهار</string>
+    <string name="live_display_day_summary">استخدام إعدادات النهار فقط</string>
+    <string name="live_display_night">الليل</string>
+    <string name="live_display_night_summary">استخدام إعدادات الليل فقط</string>
+    <string name="live_display_outdoor">خارج المنزل ( شمس ساطعة)</string>
+    <string name="live_display_outdoor_summary">استخدم إعدادات خارج المنزل فقط</string>
+    <string name="live_display_hint">يمكن أن تساعد ميزة LiveDisplay في تقليل إجهاد العين ومساعدتك على النوم في الليل. انقر هنا لتجربتها!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay معطلة.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: الوضع التلقائي.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: الوضع النهاري.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: الوضع الليلي.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: وضع الأماكن المفتوحة.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">تم إيقاف تشغيل LiveDisplay.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">تم تغيير LiveDisplay إلى الوضع التلقائي.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">تم تغيير LiveDisplay إلى الوضع النهاري.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">تم تغيير LiveDisplay إلى الوضع الليلي.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">تم تغيير LiveDisplay إلى وضع الأماكن المفتوحة.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">اضغط مع الاستمرار على زر الطاقة للفتح</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">وضع الألعاب</string>
+    <string name="gaming_mode_notification_title">وضع الألعاب مفعل</string>
+    <string name="gaming_mode_notification_content">انقر لإيقاف تشغيل وضع الألعاب</string>
+    <string name="gaming_mode_enabled_toast">تم تفعيل وضع الألعاب</string>
+    <string name="gaming_mode_disabled_toast">تم تعطيل وضع الألعاب</string>
+    <!-- ADB over network notification -->
+    <string name="adb_net_active_notification_title">تم تمكين ADB عبر الشبكة</string>
+    <!-- ADB over USB and network notification -->
+    <string name="adb_both_active_notification_title">تم تمكين ADB عبر شبكة USB &amp;</string>
+    <!-- ADB notification message-->
+    <string name="adb_active_generic_notification_message">انقر لتعطيل تصحيح الأخطاء.</string>
+</resources>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
+    <string-array name="type_clock_minutes_alt">
+        <item>O\u2019Jam</item>
+        <item>O\u2019Satu</item>
+        <item>O\u2019Dua</item>
+        <item>O\u2019Tiga</item>
+        <item>O\u2019Empat</item>
+        <item>O\u2019Lima</item>
+        <item>O\u2019Enam</item>
+        <item>O\u2019Tujuh</item>
+        <item>O\u2019Delapan</item>
+        <item>O\u2019Sembilan</item>
+        <item>Sepuluh</item>
+        <item>Sebelas</item>
+        <item>Dua Belas</item>
+        <item>Tiga Belas</item>
+        <item>Empat Belas</item>
+        <item>Lima Belas</item>
+        <item>Enam Belas</item>
+        <item>Tujuh Belas</item>
+        <item>Delapan Belas</item>
+        <item>Sembilan Belas</item>
+        <item>Dua Puluh</item>
+        <item>Dua Puluh Satu</item>
+        <item>Dua Puluh Dua</item>
+        <item>Dua Puluh Tiga</item>
+        <item>Dua Puluh Empat</item>
+        <item>Dua Puluh Lima</item>
+        <item>Dua Puluh Enam</item>
+        <item>Dua Puluh Tujuh</item>
+        <item>Dua Puluh Delapan</item>
+        <item>Dua Puluh Sembilan</item>
+        <item>Tiga Puluh</item>
+        <item>Tiga Puluh Satu</item>
+        <item>Tiga Puluh Dua</item>
+        <item>Tiga Puluh Tiga</item>
+        <item>Tiga Puluh Empat</item>
+        <item>Tiga Puluh Lima</item>
+        <item>Tiga Puluh Enam</item>
+        <item>Tiga Puluh Tujuh</item>
+        <item>Tiga Puluh Delapan</item>
+        <item>Tiga Puluh Sembilan</item>
+        <item>Empat Puluh</item>
+        <item>Empat Puluh Satu</item>
+        <item>Empat Puluh Dua</item>
+        <item>Empat Puluh Tiga</item>
+        <item>Empat Puluh Empat</item>
+        <item>Empat Puluh Lima</item>
+        <item>Empat Puluh Enam</item>
+        <item>Empat Puluh Tujuh</item>
+        <item>Empat Puluh Delapan</item>
+        <item>Empat Puluh Sembilan</item>
+        <item>Lima Puluh</item>
+        <item>Lima Puluh Satu</item>
+        <item>Lima Puluh Dua</item>
+        <item>Lima Puluh Tiga</item>
+        <item>Lima Puluh Empat</item>
+        <item>Lima Puluh Lima</item>
+        <item>Lima Puluh Enam</item>
+        <item>Lima Puluh Tujuh</item>
+        <item>Lima Puluh Delapan</item>
+        <item>Lima Puluh Sembilan</item>
+    </string-array>
+</resources>
