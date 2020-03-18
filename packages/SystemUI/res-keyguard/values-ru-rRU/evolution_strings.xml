@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
+    <string-array name="type_clock_minutes_alt">
+        <item>О\u2019Часов</item>
+        <item>О\u2019Один</item>
+        <item>О\u2019Два</item>
+        <item>О\u2019Три</item>
+        <item>О\u2019Четыре</item>
+        <item>О\u2019Пять</item>
+        <item>О\u2019Шесть</item>
+        <item>О\u2019Семь</item>
+        <item>О\u2019Восемь</item>
+        <item>О\u2019Девять</item>
+        <item>Десять</item>
+        <item>Одиннадцать</item>
+        <item>Двенадцать</item>
+        <item>Тринадцать</item>
+        <item>Четырнадцать</item>
+        <item>Пятнадцать</item>
+        <item>Шестнадцать</item>
+        <item>Семнадцать</item>
+        <item>Восемнадцать</item>
+        <item>Девятнадцать</item>
+        <item>Двадцать</item>
+        <item>Двадцать один</item>
+        <item>Двадцать два</item>
+        <item>Двадцать три</item>
+        <item>Двадцать четыре</item>
+        <item>Двадцать пять</item>
+        <item>Двадцать шесть</item>
+        <item>Двадцать семь</item>
+        <item>Двадцать восемь</item>
+        <item>Двадцать девять</item>
+        <item>Тридцать</item>
+        <item>Тридцать один</item>
+        <item>Тридцать два</item>
+        <item>Тридцать три</item>
+        <item>Тридцать четыре</item>
+        <item>Тридцать пять</item>
+        <item>Тридцать шесть</item>
+        <item>Тридцать семь</item>
+        <item>Тридцать восемь</item>
+        <item>Тридцать девять</item>
+        <item>Сорок</item>
+        <item>Сорок один</item>
+        <item>Сорок два</item>
+        <item>Сорок три</item>
+        <item>Сорок четыре</item>
+        <item>Сорок пять</item>
+        <item>Сорок шесть</item>
+        <item>Сорок семь</item>
+        <item>Сорок восемь</item>
+        <item>Сорок девять</item>
+        <item>Пятьдесят</item>
+        <item>Пятьдесят один</item>
+        <item>Пятьдесят два</item>
+        <item>Пятьдесят три</item>
+        <item>Пятьдесят четыре</item>
+        <item>Пятьдесят пять</item>
+        <item>Пятьдесят шесть</item>
+        <item>Пятьдесят семь</item>
+        <item>Пятьдесят восемь</item>
+        <item>Пятьдесят девять</item>
+    </string-array>
+</resources>
