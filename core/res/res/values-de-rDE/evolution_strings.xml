@@ -22,7 +22,7 @@
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_fakePackageSignature">Paketsignatur imitieren</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_fakePackageSignature">Erlaubt einer App, eine andere zu imitieren. Böswillige Anwendungen erhalten möglicherweise ihre persönlichen Daten. Erteilen Sie diese Berechtigung vorsichtig!</string>
+    <string name="permdesc_fakePackageSignature">Erlaubt einer App, eine andere zu imitieren. Böswillige Anwendungen erhalten möglicherweise Ihre persönlichen Daten. Erteilen Sie diese Berechtigung vorsichtig!</string>
     <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permgrouplab_fake_package_signature">Paketsignatur imitieren</string>
     <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
@@ -44,7 +44,7 @@
     <string name="live_display_day">Tag</string>
     <string name="live_display_day_summary">Nur Tageseinstellungen verwenden</string>
     <string name="live_display_night">Nacht</string>
-    <string name="live_display_night_summary">Nur Nacheinstellungen verwenden</string>
+    <string name="live_display_night_summary">Nur Nachteinstellungen verwenden</string>
     <string name="live_display_outdoor">Draußen (helle Sonne)</string>
     <string name="live_display_outdoor_summary">Nur Outdoor-Einstellungen verwenden</string>
     <string name="live_display_hint">LiveDisplay kann gegen eine Überanstrengung der Augen und beim Schlafen in der Nacht helfen. Klicken Sie hier, um es auszuprobieren!</string>
