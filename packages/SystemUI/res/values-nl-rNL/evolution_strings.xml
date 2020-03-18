@@ -138,7 +138,7 @@
     <string name="status_bar_roaming">Roaming</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
-    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <string name="accessibility_status_bar_nfc">NFC</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Geforceerd stoppen?</string>
     <string name="force_stop_dlg_text">Als je een app gedwongen stopt, kan deze onverwacht gedrag vertonen.</string>
