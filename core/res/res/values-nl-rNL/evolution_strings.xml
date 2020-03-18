@@ -67,7 +67,7 @@
     <string name="gaming_mode_notification_title">Game modus ingeschakeld</string>
     <string name="gaming_mode_notification_content">Tik om Game-modus uit te schakelen</string>
     <string name="gaming_mode_enabled_toast">Game modus ingeschakeld</string>
-    <string name="gaming_mode_disabled_toast">Game-\ modus uitgeschakeld</string>
+    <string name="gaming_mode_disabled_toast">Game modus uitgeschakeld</string>
     <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB over netwerk ingeschakeld</string>
     <!-- ADB over USB and network notification -->
