@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
+    <string-array name="type_clock_minutes_alt">
+        <item>O\u2019ساعة</item>
+        <item>الواحدة و\u2019</item>
+        <item>الثانية و\u2019</item>
+        <item>الثالثة و\u2019</item>
+        <item>الرابعة و\u2019</item>
+        <item>الخامسة و\u2019</item>
+        <item>السادسة و\u2019</item>
+        <item>السابعة و\u2019</item>
+        <item>الثامنة و\u2019</item>
+        <item>التاسعة و\u2019</item>
+        <item>عشرة</item>
+        <item>أحد عشر</item>
+        <item>اثنا عشر</item>
+        <item>ثلاثة عشر</item>
+        <item>أربعة عشر</item>
+        <item>خمسة عشر</item>
+        <item>ستة عشر</item>
+        <item>سبعة عشر</item>
+        <item>ثمانية عشر</item>
+        <item>تسعة عشر</item>
+        <item>عشرون</item>
+        <item>واحد و عشرون</item>
+        <item>اثنان و عشرون</item>
+        <item>ثلاثة و عشرين</item>
+        <item>اربع وعشرون</item>
+        <item>خمسة وعشرون</item>
+        <item>ستة وعشرون</item>
+        <item>سبعة وعشرون</item>
+        <item>ثمانية وعشرون</item>
+        <item>تسعة وعشرون</item>
+        <item>ثلاثون</item>
+        <item>واحد وثلاثون</item>
+        <item>اثنان و ثلاثون</item>
+        <item>ثلاثة و ثلاثون</item>
+        <item>اربع وثلاثون</item>
+        <item>خمسة وثلاثون</item>
+        <item>خمسة وثلاثون</item>
+        <item>سبعة وثلاثون</item>
+        <item>ثمانية و ثلاثون</item>
+        <item>تسعة وثلاثون</item>
+        <item>أربعون</item>
+        <item>واحد وأربعون</item>
+        <item>إثنان وأربعون</item>
+        <item>ثلاثة و أربعون</item>
+        <item>أربعة وأربعون</item>
+        <item>خمسة و أربعون</item>
+        <item>ستة و أربعون</item>
+        <item>ستة و أربعون</item>
+        <item>ثمانية وأربعون</item>
+        <item>تسعة وأربعون</item>
+        <item>خمسون</item>
+        <item>واحد وخمسون</item>
+        <item>اثنان وخمسون</item>
+        <item>ثلاثة وخمسون</item>
+        <item>أربعة وخمسون</item>
+        <item>خمسة و خمسون</item>
+        <item>ستة وخمسون</item>
+        <item>سبعة وخمسون</item>
+        <item>ثمانية و خمسون</item>
+        <item>تسعة وخمسون</item>
+    </string-array>
+</resources>

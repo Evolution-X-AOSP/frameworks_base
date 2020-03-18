@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">क्रैश लॉग यूआरएल कॉपी करें</string>
+    <string name="url_copy_success">यूआरएल सफलतापूर्वक कॉपी किया गया</string>
+    <string name="url_copy_failed">डॉगबिन में लॉग अपलोड करते समय कोई गलती हुई</string>
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_fakePackageSignature">पैकेज हस्ताक्षर की नकल करें</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_fakePackageSignature">इस अनुमति से एक ऐप दूसरे ऐप होने का नाटक कर सकता है। हानिकारक ऐप इसका उपयोग निजी ऐप डेटा हासिल करने के लिए कर सकते हैं। सावधानी के साथ इस अनुमति को प्रदान करें!</string>
+    <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgrouplab_fake_package_signature">पैकेज हस्ताक्षर की नकल करें</string>
+    <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgroupdesc_fake_package_signature">स्पूफ पैकेज हस्ताक्षर की अनुमति दें</string>
+    <!-- Message shown to the user when the apps requests permission from this group. If ever possible this should stay below 80 characters (assuming the parameters takes 20 characters). Don't abbreviate until the message reaches 120 characters though. [CHAR LIMIT=120] -->
+    <string name="permgrouprequest_fake_package_signature">&lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; को पैकेज हस्ताक्षर नक़ल की अनुमति दें</string>
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">रिकवरी</string>
+    <string name="reboot_to_recovery_message">रिकवरी में जा रहा है</string>
+    <string name="reboot_to_bootloader_title">बूटलोडर</string>
+    <string name="reboot_to_bootloader_message">बूटलोडर में जा रहा है</string>
+    <string name="reboot_title">बंद करके चालू करें</string>
+    <string name="reboot_message">सिस्टम बंद करके चालू किया जा रहा है</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">स्वत:</string>
+    <string name="live_display_auto_summary">सूर्यास्त और सूर्योदय के हिसाब से स्क्रीन के रंग तापमान को स्वत: समायोजित करें</string>
+    <string name="live_display_off">बंद</string>
+    <string name="live_display_off_summary">सभी समायोजन अक्षम करें</string>
+    <string name="live_display_day">दिन</string>
+    <string name="live_display_day_summary">केवल दिन की सेटिंग्स का उपयोग करें</string>
+    <string name="live_display_night">रात</string>
+    <string name="live_display_night_summary">केवल रात की सेटिंग्स का ही इस्तेमाल करें</string>
+    <string name="live_display_outdoor">घर के बाहर (चमकदार सूरज)</string>
+    <string name="live_display_outdoor_summary">केवल घर के बाहर की सेटिंग्स का उपयोग करें</string>
+    <string name="live_display_hint">लाइवडिसप्ले आंखों के तनाव को कम करने और रात में सोने में आपकी मदद कर सकता है। इसे आज़माने के लिए यहाँ क्लिक करें!</string>
+    <string name="accessibility_quick_settings_live_display_off">लाइवडिसप्ले बंद।</string>
+    <string name="accessibility_quick_settings_live_display_auto">लाइव डिस्पले: स्वत: मोड</string>
+    <string name="accessibility_quick_settings_live_display_day">लाइव डिस्पले: दिन की तरह</string>
+    <string name="accessibility_quick_settings_live_display_night">लाइव डिस्प्ले: रात्रि की तरह</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">लाइव डिस्पले: बाहर की तरह</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">लाइव डिस्पले बंद</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">लाइव डिस्पले स्वत: मोड में बदल गया</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">लाइव डिस्पले दिन की तरह किया गया</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">लाइव डिस्पले रात की तरह किया गया</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">लाइव डिस्पले बाहर की तरह किया गया</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">लॉक खोलने के लिए पावर बटन दबाए रखें</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">गेमिंग मोड</string>
+    <string name="gaming_mode_notification_title">गेमिंग मोड चालू किया गया है</string>
+    <string name="gaming_mode_notification_content">गेमिंग मोड बंद करने के लिए स्पर्श करें</string>
+    <string name="gaming_mode_enabled_toast">गेमिंग मोड चालू किया गया है</string>
+    <string name="gaming_mode_disabled_toast">गेमिंग मोड बंद किया गया</string>
+    <!-- ADB over network notification -->
+    <string name="adb_net_active_notification_title">नेटवर्क पर ADB को सक्षम किया गया है</string>
+    <!-- ADB over USB and network notification -->
+    <string name="adb_both_active_notification_title">यूएसबी पर ADB &amp; नेटवर्क सक्षम किया गया है</string>
+    <!-- ADB notification message-->
+    <string name="adb_active_generic_notification_message">डिबगिंग को बंद करने के लिए स्पर्श करें।</string>
+</resources>

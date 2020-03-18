@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
+    <string-array name="type_clock_minutes_alt">
+        <item>Hodin</item>
+        <item>Nula Jedna</item>
+        <item>Nula Dva</item>
+        <item>Nula Tři</item>
+        <item>Nula Čtyři</item>
+        <item>Nula Pět</item>
+        <item>Nula Šest</item>
+        <item>Nula Sedm</item>
+        <item>Nula Osm</item>
+        <item>Nula Devět</item>
+        <item>Deset</item>
+        <item>Jedenáct</item>
+        <item>Dvanáct</item>
+        <item>Třináct</item>
+        <item>Čtrnáct</item>
+        <item>Patnáct</item>
+        <item>Šestnáct</item>
+        <item>Sedmnáct</item>
+        <item>Osmnáct</item>
+        <item>Devatenáct</item>
+        <item>Dvacet</item>
+        <item>Dvacet Jedna</item>
+        <item>Dvacet Dva</item>
+        <item>Dvacet Tři</item>
+        <item>Dvacet Čtyři</item>
+        <item>Dvacet Pět</item>
+        <item>Dvacet Šest</item>
+        <item>Dvacet Sedm</item>
+        <item>Dvacet Osm</item>
+        <item>Dvacet Devět</item>
+        <item>Třicet</item>
+        <item>Třicet Jedna</item>
+        <item>Třicet Dva</item>
+        <item>Třicet Tři</item>
+        <item>Třicet Čtyři</item>
+        <item>Třicet Pět</item>
+        <item>Třicet Šest</item>
+        <item>Třicet Sedm</item>
+        <item>Třicet Osm</item>
+        <item>Třicet Devět</item>
+        <item>Čtyřicet</item>
+        <item>Čtyřicet Jedna</item>
+        <item>Čtyřicet Dva</item>
+        <item>Čtyřicet Tři</item>
+        <item>Čtyřicet Čtyři</item>
+        <item>Čtyřicet Pět</item>
+        <item>Čtyřicet Šest</item>
+        <item>Čtyřicet Sedm</item>
+        <item>Čtyřicet Osm</item>
+        <item>Čtyřicet Devět</item>
+        <item>Padesát</item>
+        <item>Padesát Jedna</item>
+        <item>Padesát Dva</item>
+        <item>Padesát Tři</item>
+        <item>Padesát Čtyři</item>
+        <item>Padesát Pět</item>
+        <item>Padesát Šest</item>
+        <item>Padesát Sedm</item>
+        <item>Padesát Osm</item>
+        <item>Padesát Devět</item>
+    </string-array>
+</resources>

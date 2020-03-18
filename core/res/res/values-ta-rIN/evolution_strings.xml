@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">செயலிழப்பு பதிவு URL ஐ நகலெடுக்கவும்</string>
+    <string name="url_copy_success">URL வெற்றிகரமாக நகலெடுக்கப்பட்டது</string>
+    <string name="url_copy_failed">டாக்பினில் பதிவேற்றும்போது ஒரு பிழை ஏற்பட்டது</string>
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_fakePackageSignature">ஸ்பூஃப் தொகுப்பு கையொப்பம்</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_fakePackageSignature">பயன்பாட்டை வேறு பயன்பாடாக நடிக்க அனுமதிக்கிறது. தனிப்பட்ட பயன்பாட்டுத் தரவை அணுக தீங்கிழைக்கும் பயன்பாடுகள் இதைப் பயன்படுத்தலாம். எச்சரிக்கையுடன் மட்டுமே இந்த அனுமதியை வழங்கவும்!</string>
+    <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgrouplab_fake_package_signature">ஸ்பூஃப் தொகுப்பு கையொப்பம்</string>
+    <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgroupdesc_fake_package_signature">தொகுப்பு கையொப்பத்தை ஏமாற்ற அனுமதிக்கவும்</string>
+    <!-- Message shown to the user when the apps requests permission from this group. If ever possible this should stay below 80 characters (assuming the parameters takes 20 characters). Don't abbreviate until the message reaches 120 characters though. [CHAR LIMIT=120] -->
+    <string name="permgrouprequest_fake_package_signature">&amp; lt; b &amp; gt; &lt;xliff: g id = \"app_name\" example = \"Gmail\"&gt;% 1 $ s &lt;/ xliff: g&gt; &amp; lt; / b &amp; gt; தொகுப்பு கையொப்பத்தை ஏமாற்ற வேண்டுமா?</string>
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">மீட்பு (ரெகவரி)</string>
+    <string name="reboot_to_recovery_message">மீட்டெடுப்பிற்கு மறுதொடக்கம் செய்கிறது</string>
+    <string name="reboot_to_bootloader_title">பூட் லோடர்</string>
+    <string name="reboot_to_bootloader_message">துவக்க ஏற்றிக்கு மீண்டும் துவக்குகிறது</string>
+    <string name="reboot_title">மறுதொடக்கம்</string>
+    <string name="reboot_message">மீண்டும் துவங்குகிறது</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">தானியங்கி</string>
+    <string name="live_display_auto_summary">சூரிய மறைவு மற்றும் சூரிய உதயத்திற்கு பிறகு தானாகவே திரையின் வண்ன தட்பவெப்பங்களை சரிசெய்</string>
+    <string name="live_display_off">ஆஃப்</string>
+    <string name="live_display_off_summary">அனைத்து சரிசெய்தல்களையும் முடக்கு</string>
+    <string name="live_display_day">பகல்</string>
+    <string name="live_display_day_summary">பகல் அமைப்புகளை மட்டும் பயன்படுத்துக</string>
+    <string name="live_display_night">இரவு</string>
+    <string name="live_display_night_summary">இரவு அமைப்புகளை மட்டும் பயன்படுத்து</string>
+    <string name="live_display_outdoor">வெளியிடம் (பிரகாசமான சூரியன்)</string>
+    <string name="live_display_outdoor_summary">வெளிப்புற அமைப்புகளை மட்டுமே பயன்படுத்து</string>
+    <string name="live_display_hint">LiveDisplay கண்ணழுத்தத்தை குறைத்து, நீங்கள் இரவிலே உறங்க உதவுகிறது. அதை முயற்சிக்க இங்கே கிளிக் செய்க!</string>
+    <string name="accessibility_quick_settings_live_display_off">லைவ் டிஸ்ப்ளே நிறுத்தப்பட்டது.</string>
+    <string name="accessibility_quick_settings_live_display_auto">லைவ் டிஸ்ப்ளே: தானியங்கு முறை.</string>
+    <string name="accessibility_quick_settings_live_display_day">லைவ் டிஸ்ப்ளே: நாள் முறை.</string>
+    <string name="accessibility_quick_settings_live_display_night">லைவ் டிஸ்ப்ளே: இரவு முறை.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">லைவ் டிஸ்ப்ளே: வெளிப்புற முறை.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">லைவ் டிஸ்ப்ளே முடக்கப்பட்டுள்ளது.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">லைவ் டிஸ்ப்ளே தானியங்கு முறையில் மாற்றப்பட்டது.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">லைவ் டிஸ்ப்ளே நாள் முறையில் மாற்றப்பட்டது.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">லைவ் டிஸ்ப்ளே இரவு முறைக்கு மாற்றப்பட்டது.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">லைவ் டிஸ்ப்ளே வெளிப்புற முறையில் மாற்றப்பட்டது.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">திறக்க சக்தி பொத்தானை அழுத்திப் பிடிக்கவும்</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">கேமிங் பயன்முறை</string>
+    <string name="gaming_mode_notification_title">கேமிங் பயன்முறை இயக்கப்பட்டது</string>
+    <string name="gaming_mode_notification_content">கேமிங் பயன்முறையை அணைக்க தட்டவும்</string>
+    <string name="gaming_mode_enabled_toast">கேமிங் பயன்முறை இயக்கப்பட்டது</string>
+    <string name="gaming_mode_disabled_toast">கேமிங் பயன்முறை அணைக்கப்பட்டது</string>
+    <!-- ADB over network notification -->
+    <string name="adb_net_active_notification_title">பிணையம் வழியாக ADB இயலுமைப்படுத்தபட்டது</string>
+    <!-- ADB over USB and network notification -->
+    <string name="adb_both_active_notification_title">பிணையம் மற்றும் USB வழியாக ஆபிபா (ADB) செயல்படுத்த பட்டது</string>
+    <!-- ADB notification message-->
+    <string name="adb_active_generic_notification_message">பிழைதிருத்தம் முடக்க தொடவும்.</string>
+</resources>
