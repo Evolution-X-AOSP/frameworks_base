@@ -16,9 +16,9 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Button that copies the url to the log of a crashed application -->
-    <string name="aerr_copy">Скопировать ссылку лога ошибки</string>
+    <string name="aerr_copy">Скопировать URL журнала ошибки</string>
     <string name="url_copy_success">Ссылка скопирована успешно</string>
-    <string name="url_copy_failed">Произошла ошибка во время копирования ссылки</string>
+    <string name="url_copy_failed">Произошла ошибка при загрузке журнала в dogbin</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_fakePackageSignature">Подмена подписи приложения</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -34,8 +34,8 @@
     <string name="reboot_to_recovery_message">Перезагрузка в рекавери</string>
     <string name="reboot_to_bootloader_title">Загрузчик</string>
     <string name="reboot_to_bootloader_message">Перезагрузка в загрузчик</string>
-    <string name="reboot_title">Перезагрузка</string>
-    <string name="reboot_message">Перезагрузка в систему</string>
+    <string name="reboot_title">Перезагрузить</string>
+    <string name="reboot_message">Перезагрузка системы</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Автоматически</string>
     <string name="live_display_auto_summary">Автоматическая подстройка цветовой температуры экрана после заката и восхода солнца</string>
@@ -46,7 +46,7 @@
     <string name="live_display_night">Ночь</string>
     <string name="live_display_night_summary">Использовать только ночные параметры</string>
     <string name="live_display_outdoor">Улица (яркое солнце)</string>
-    <string name="live_display_outdoor_summary">Использовать только параметры улицы</string>
+    <string name="live_display_outdoor_summary">Использовать только уличные параметры</string>
     <string name="live_display_hint">Функция LiveDisplay поможет снизить зрительное напряжение и улучшить сон. Нажмите здесь, чтобы попробовать!</string>
     <string name="accessibility_quick_settings_live_display_off">LiveDisplay выкл.</string>
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: автоматический режим.</string>
@@ -68,7 +68,7 @@
     <string name="gaming_mode_enabled_toast">Игровой режим включён</string>
     <string name="gaming_mode_disabled_toast">Игровой режим выключен</string>
     <!-- ADB over network notification -->
-    <string name="adb_net_active_notification_title">Отладка по сети разрешена</string>
+    <string name="adb_net_active_notification_title">Отладка ADB по сети разрешена</string>
     <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">Отладка по сети и USB разрешена</string>
     <!-- ADB notification message-->
