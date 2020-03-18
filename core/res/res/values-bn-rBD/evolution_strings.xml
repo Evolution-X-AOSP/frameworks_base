@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">ক্র্যাশ লগ এর URL কপি করুন</string>
+    <string name="url_copy_success">সফলভাবে URL কপি করা হয়েছে</string>
+    <string name="url_copy_failed">লগ ফাইলকে ডগবিনে আপলোড করার সময় ত্রুটি ঘটেছে</string>
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_fakePackageSignature">ভুয়া প্যাকেজ স্বাক্ষর</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_fakePackageSignature">অ্যাপ্লিকেশনটি একটি ভিন্ন অ্যাপ্লিকেশন হতে ভান করতে দেয়. ব্যক্তিগত অ্যাপ্লিকেশন ডেটা অ্যাক্সেস করতে ক্ষতিকারক অ্যাপ্লিকেশানগুলি এটি ব্যবহার করতে সক্ষম হতে পারে. এই অনুমতি শুধুমাত্র সাবধানতা সঙ্গে অনুমোদন!</string>
+    <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgrouplab_fake_package_signature">ভুয়া প্যাকেজ স্বাক্ষর</string>
+    <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgroupdesc_fake_package_signature">ভুয়া প্যাকেজ স্বাক্ষর করতে অনুমতি দিন</string>
+    <!-- Message shown to the user when the apps requests permission from this group. If ever possible this should stay below 80 characters (assuming the parameters takes 20 characters). Don't abbreviate until the message reaches 120 characters though. [CHAR LIMIT=120] -->
+    <string name="permgrouprequest_fake_package_signature">&lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; প্যাকেজ স্বাক্ষরের ছলনা?</string>
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">রিকভারি</string>
+    <string name="reboot_to_recovery_message">রিকভারিতে রিবুট করুন</string>
+    <string name="reboot_to_bootloader_title">বুটলোডার</string>
+    <string name="reboot_to_bootloader_message">বুটলোডারে রিবুট করুন</string>
+    <string name="reboot_title">রিবুট</string>
+    <string name="reboot_message">রিবুটিং সিস্টেম</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">স্বয়ংক্রিয়</string>
+    <string name="live_display_auto_summary">সূর্যোদয় এবং সূর্যাস্ত এর পরে স্ক্রীন এর রঙের মাত্রা সংক্রীয় ভাবে পরিবর্তীত হবে</string>
+    <string name="live_display_off">বন্ধ</string>
+    <string name="live_display_off_summary">সমস্ত পরিবর্তন বন্ধ করা হোক</string>
+    <string name="live_display_day">দিন</string>
+    <string name="live_display_day_summary">কেবল সকালের সেটিংস গুলি ব্যবহার করা হোক</string>
+    <string name="live_display_night">রাত</string>
+    <string name="live_display_night_summary">কেবল সন্ধার সেটিংস গুলি ব্যবহার করা হোক</string>
+    <string name="live_display_outdoor">আউটডোর (উজ্জ্বল সূর্য)</string>
+    <string name="live_display_outdoor_summary">কেবল আউটডোর সেটিংস গুলি ব্যবহার করা হোক</string>
+    <string name="live_display_hint">লাইভডিসপ্লে আইস্ট্রেইন হ্রাস করতে এবং আপনাকে রাতে ঘুমাতে সহায়তা করতে পারে। এটা চেষ্টা করতে এখানে ক্লিক করুন!</string>
+    <string name="accessibility_quick_settings_live_display_off">লাইভডিসপ্লে বন্ধ করুন।</string>
+    <string name="accessibility_quick_settings_live_display_auto">লাইভডিসপ্লে: স্বয়ংক্রিয় মোড।</string>
+    <string name="accessibility_quick_settings_live_display_day">লাইভডিসপ্লে: দিনের মোড।</string>
+    <string name="accessibility_quick_settings_live_display_night">লাইভডিসপ্লে: রাতের মোড।</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">লাইভডিসপ্লে: বাহিরের মোড।</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">লাইভডিসপ্লে বন্ধ করা হয়েছে।</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">লাইভডিসপ্লে অটো মোড-এ পরিবর্তিত হয়েছে।</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">লাইভডিসপ্লে দিনের মোড-এ পরিবর্তিত হয়েছে।</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">লাইভডিসপ্লে রাতের মোড-এ পরিবর্তিত হয়েছে।</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">লাইভডিসপ্লে বাহিরের মোড-এ পরিবর্তিত হয়েছে।</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">আনলক করতে পাওয়ার বাটন টিপুন এবং ধরে রাখুন</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">গেমিং মোড</string>
+    <string name="gaming_mode_notification_title">গেমিং মোড চালু হয়েছে</string>
+    <string name="gaming_mode_notification_content">গেমিং মোডটি বন্ধ করতে এখানে চাপুন</string>
+    <string name="gaming_mode_enabled_toast">গেমিং মোডটি চালু হয়েছে</string>
+    <string name="gaming_mode_disabled_toast">গেমিং মোডটি বন্ধ করা হয়েছে</string>
+    <!-- ADB over network notification -->
+    <string name="adb_net_active_notification_title">নেটওয়ার্কের উপর এডিবি সক্রিয় হয়েছে</string>
+    <!-- ADB over USB and network notification -->
+    <string name="adb_both_active_notification_title">ইউএসবি &amp;amp এর উপর এডিবি; নেটওয়ার্ক সক্রিয় হয়েছে</string>
+    <!-- ADB notification message-->
+    <string name="adb_active_generic_notification_message">ডিবাগ নিষ্ক্রিয় করতে স্পর্শ করুন।</string>
+</resources>

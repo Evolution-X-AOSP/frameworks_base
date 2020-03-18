@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Zrzut ekranu usunięty</string>
+    <!-- Advanced reboot -->
+    <string name="global_action_restart_advanced">Zaawansowane</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">SystemUI</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">Zrzut ekranu</string>
+    <string name="quick_settings_region_screenshot_label">Częściowy zrzut ekranu</string>
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">Wyszukiwanie głosowe</string>
+    <string name="quick_settings_sound_search_no_app">Przepraszamy, ale to nie zadziała, jeśli nie masz aplikacji do wyszukiwania głosem.</string>
+    <!-- USB Tethering tile -->
+    <string name="accessibility_quick_settings_usb_tether_off">Tethering USB wył.</string>
+    <string name="accessibility_quick_settings_usb_tether_on">Tethering USB wł.</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">Tethering przez USB został wył.</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">Tethering przez USB został wł.</string>
+    <string name="quick_settings_usb_tether_label">Tethering USB</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Dźwięk</string>
+    <string name="quick_settings_sound_mute">Wycisz</string>
+    <string name="quick_settings_sound_ring">Dzwonek</string>
+    <string name="quick_settings_sound_vibrate">Wibracje</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Kofeina</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofeina wył</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofeina wł</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">Wyskakujące powiadomienia</string>
+    <string name="accessibility_quick_settings_heads_up_off">Wyskakujące powiadomienia wył</string>
+    <string name="accessibility_quick_settings_heads_up_on">Wyskakujące powiadomienia wł</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Wyskakujące powiadomienia wyłączone</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Wyskakujące powiadomienia włączone</string>
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">Synchronizuj</string>
+    <string name="accessibility_quick_settings_sync_off">Synchronizacja wył</string>
+    <string name="accessibility_quick_settings_sync_on">Synchronizacja wł</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Synchronizacja została wyłączona</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Synchronizacja została włączona</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Panel głośności</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">Kompas</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Inicjowanie\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Kompas wył</string>
+    <string name="accessibility_quick_settings_compass_on">Kompas wł</string>
+    <string name="accessibility_quick_settings_compass_changed_off">Kompas został wyłączony</string>
+    <string name="accessibility_quick_settings_compass_changed_on">Kompas został włączony</string>
+    <string name="quick_settings_compass_N">Pn</string>
+    <string name="quick_settings_compass_NE">Płn. wsch</string>
+    <string name="quick_settings_compass_E">Wsch</string>
+    <string name="quick_settings_compass_SE">Płd. wsch</string>
+    <string name="quick_settings_compass_S">Płd</string>
+    <string name="quick_settings_compass_SW">Płd. zach</string>
+    <string name="quick_settings_compass_W">W</string>
+    <string name="quick_settings_compass_NW">Pn-Zach</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Ekran dostosowany do otoczenia</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ekran dostosowany do otoczenia wyłączony</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ekran dostosowany do otoczenia włączony</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ekran dostosowany do otoczenia został wyłączony</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ekran dostosowany do otoczenia został włączony</string>
+    <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">Wyłącz ekran</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Połącz z\u2026</string>
+    <string name="vpn_credentials_hint">Wprowadź swoje dane uwierzytelniające, aby się połączyć<xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Nazwa użytkownika</string>
+    <string name="vpn_credentials_password">Hasło</string>
+    <string name="vpn_credentials_dialog_connect">Połącz</string>
+    <!-- Reboot/Recovery QS Tile -->
+    <string name="quick_settings_reboot_label">Uruchom ponownie</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <!-- Advance location quick setting tile -->
+    <string name="quick_settings_location_secondary_battery_saving">Oszczędzanie baterii</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Lokalizacja: oszczędzanie baterii.</string>
+    <string name="quick_settings_location_secondary_gps_only">Tylko czujniki</string>
+    <string name="accessibility_quick_settings_location_gps_only">Lokalizacja: tylko czujniki.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Wysoka dokładność</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Lokalizacja: wysoka dokładność.</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Ładowanie Dash (<xliff:g id="charging_time_left" example="4 godziny i 2 minuty">%s</xliff:g> do pełnego naładowania)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time">&lt;xliff:g id=\"percentage\"&gt;%2$s&lt;/xliff:g&gt; • Szybkie ładowanie (&lt;xliff:g id=\"charging_time_left\" Na przykład=\"4 godziny i 2 minuty\"&gt;%s&lt;/xliff:g&gt; do pełnego naładowania)</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Tryb Czytania</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Tryb czytania włączony.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Tryb czytania wyłączony.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Tryb czytania został włączony.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Tryb czytania został wyłączony.</string>
+    <string name="statusbar_items_title">Ikona paska stanu</string>
+    <string name="lockscreen_default">Domyślnie</string>
+    <string name="lockscreen_hidden">Żaden</string>
+    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">Przesuń palcem od ikony, aby uruchomić</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">Klawisze sprzętowe włączone</string>
+    <string name="accessibility_quick_settings_hwkeys_off">Klawisze sprzętowe wyłączone</string>
+    <string name="quick_settings_hwkeys_label">Klawisze sprzętowe</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">Tryb gry</string>
+    <string name="gaming_mode_tile_toast">Tryb gry włączony</string>
+    <string name="gaming_mode_tile_toast_disabled">Tryb gry wyłączony</string>
+    <string name="gaming_mode_dialog_title">Tryb gry</string>
+    <string name="gaming_mode_dialog_message">Kiedy tryb gry jest włączony, wyskakujące powiadomienia i klawisze sprzętowe zostaną wyłączone. Wszystkie wyłączone ustawienia będą przywrócone do domyślnych po wyłączeniu trybu gry.</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">Tryb gry włączony</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">Tryb gry wyłączony</string>
+    <!-- Status bar icons -->
+    <string name="status_bar_data_disabled">Krzyżyk, gdy dane są wyłączone</string>
+    <string name="status_bar_data_saver">Oszczędzanie danych</string>
+    <string name="status_bar_nfc">NFC</string>
+    <string name="status_bar_roaming">Roaming</string>
+    <string name="status_bar_vpn">VPN</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Wymusić zatrzymanie?</string>
+    <string name="force_stop_dlg_text">Jeśli wymusisz zatrzymanie aplikacji, może ona działać nieprawidłowo.</string>
+    <string name="guts_force_close_app">Zamknij aplikację</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Wyskakujące powiadomienia są wstrzymane na 1 minutę.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> Wyskakująe powiadomienia zostały wyłączone na <xliff:g id="number">%d</xliff:g> minut.</string>
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">Tryb gry jest wyłączony w ustawieniach</string>
+    <string name="quick_settings_gaming_mode_label">Tryb gry</string>
+    <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_gaming_mode_disabled">Tryb gry został wyłączony.</string>
+    <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_gaming_mode_enabled">Tryb gry został włączony.</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">Przełącz kartę danych</string>
+    <string name="qs_data_switch_changed_1">Używaj karty SIM 1 dla danych mobilnych</string>
+    <string name="qs_data_switch_changed_2">Używaj karty SIM 2 dla danych mobilnych</string>
+    <string name="quick_settings_immersive_tile">Tryb Imersywny</string>
+    <string name="quick_settings_immersive_tile_off">Tryb Imersywny wył</string>
+    <string name="quick_settings_immersive_tile_statusbar">Schowaj pasek statusu</string>
+    <string name="quick_settings_immersive_tile_navbar">Schowaj pasek nawigacyjny</string>
+    <string name="quick_settings_immersive_tile_full">Tryb pełnoekranowy</string>
+    <string name="screenrecord_stopdot_label">Pokaż kropkę do zatrzymania</string>
+    <string name="screenrecord_low_quality_label">Niska jakość</string>
+    <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
+    <string name="global_action_screenshot_cust">Zrzut ekranu</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">Otwórz ekran Działających Usług.</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Język</string>
+    <string name="quick_settings_locale_more_locales_toast">Proszę skonfigurować wiele języków, aby włączyć funkcję przełączenia</string>
+    <!-- Navbar editor -->
+    <string name="preview">Podgląd</string>
+    <string name="keycode">Kod kluczy</string>
+    <string name="no_home_title">Nie znaleziono przycisku ekranu głównego</string>
+    <string name="no_home_message">Do prawidłowej obsługi urządzenia potrzebny jest przycisk ekranu głównego. Dodaj go, zanim zapiszesz zmiany.</string>
+    <string name="clipboard_description">Możesz przeciągać elementy bezpośrednio do schowka. Możesz też przeciągać umieszczone tam wcześniej elementy poza schowek jeśli jest obecny.</string>
+    <string name="keycode_description">Na pasku nawigacji możesz umieszczać przyciski, które po naciśnięciu emulują funkcje klawiszy klawiatury. Najpierw musisz wybrać, jaki klawisz ma być przypisany do danego przycisku, a następnie wybrać dla niego grafikę.</string>
+    <string name="start">Uruchom</string>
+    <string name="center">Po środku</string>
+    <string name="end">Koniec</string>
+    <string name="space">Spacja</string>
+    <string name="menu_ime">Menu / przełączanie klawiatury</string>
+    <string name="select_button">Wybierz przycisk do dodania</string>
+    <string name="add_button">Dodaj przycisk</string>
+    <string name="save">Zapisz</string>
+    <string name="reset">Reset</string>
+    <string name="select_keycode">Wybierz przycisk klawiatury</string>
+    <string name="left">Lewy</string>
+    <string name="right">Prawy</string>
+    <string name="navbar_editor_title">Edytor</string>
+    <string name="navbar_editor_summary">Skonfiguruj pasek nawigacji</string>
+</resources>

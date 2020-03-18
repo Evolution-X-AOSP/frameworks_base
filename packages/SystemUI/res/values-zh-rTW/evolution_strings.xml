@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">已刪除螢幕擷取畫面</string>
+    <!-- Advanced reboot -->
+    <string name="global_action_restart_advanced">進階選項</string>
+    <string name="global_action_restart_recovery">Recovery 模式</string>
+    <string name="global_action_restart_bootloader">Bootloader 模式</string>
+    <string name="global_action_restart_ui">系統使用者介面重啟</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">螢幕擷取畫面</string>
+    <string name="quick_settings_region_screenshot_label">部分擷取螢幕畫面</string>
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">語音搜尋</string>
+    <string name="quick_settings_sound_search_no_app">抱歉，請先安裝一個語音搜尋應用程式。</string>
+    <!-- USB Tethering tile -->
+    <string name="accessibility_quick_settings_usb_tether_off">關閉 USB 網路共用</string>
+    <string name="accessibility_quick_settings_usb_tether_on">開啟 USB 網路共用</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">USB 網路共用已關閉</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">USB 網路共用已開啟</string>
+    <string name="quick_settings_usb_tether_label">USB 網路共用</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">微光螢幕</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">音效</string>
+    <string name="quick_settings_sound_mute">靜音</string>
+    <string name="quick_settings_sound_ring">鈴聲</string>
+    <string name="quick_settings_sound_vibrate">震動</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">關閉暫停休眠</string>
+    <string name="accessibility_quick_settings_caffeine_off">關閉暫停休眠 關閉</string>
+    <string name="accessibility_quick_settings_caffeine_on">關閉暫停休眠 開啟</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">彈出通知</string>
+    <string name="accessibility_quick_settings_heads_up_off">彈出通知 關閉</string>
+    <string name="accessibility_quick_settings_heads_up_on">彈出通知 開啟</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">彈出通知 已關閉</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">彈出通知 已開啟</string>
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">同步處理</string>
+    <string name="accessibility_quick_settings_sync_off">同步處理關閉</string>
+    <string name="accessibility_quick_settings_sync_on">同步處理開啟</string>
+    <string name="accessibility_quick_settings_sync_changed_off">同步處理已關閉</string>
+    <string name="accessibility_quick_settings_sync_changed_on">同步處理已開啟</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">音量面板</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">指南針</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">正在初始化\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">指南針 關閉</string>
+    <string name="accessibility_quick_settings_compass_on">指南針開啟</string>
+    <string name="accessibility_quick_settings_compass_changed_off">指南針已關閉</string>
+    <string name="accessibility_quick_settings_compass_changed_on">指南針已開啟</string>
+    <string name="quick_settings_compass_N">北</string>
+    <string name="quick_settings_compass_NE">東北</string>
+    <string name="quick_settings_compass_E">東</string>
+    <string name="quick_settings_compass_SE">東南</string>
+    <string name="quick_settings_compass_S">南</string>
+    <string name="quick_settings_compass_SW">西南</string>
+    <string name="quick_settings_compass_W">西</string>
+    <string name="quick_settings_compass_NW">西北</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">微光螢幕</string>
+    <string name="accessibility_quick_settings_ambient_display_off">微光螢幕關閉</string>
+    <string name="accessibility_quick_settings_ambient_display_on">微光螢幕關閉</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">微光螢幕已關閉</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">微光螢幕已開啟</string>
+    <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">螢幕休眠</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">連線到\u2026</string>
+    <string name="vpn_credentials_hint">請輸入您的身份驗證資訊以連接到<xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">使用者名稱</string>
+    <string name="vpn_credentials_password">密碼</string>
+    <string name="vpn_credentials_dialog_connect">已連線</string>
+    <!-- Reboot/Recovery QS Tile -->
+    <string name="quick_settings_reboot_label">重新啟動</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery 模式</string>
+    <!-- Advance location quick setting tile -->
+    <string name="quick_settings_location_secondary_battery_saving">省電模式</string>
+    <string name="accessibility_quick_settings_location_battery_saving">位置回報：節約耗電量</string>
+    <string name="quick_settings_location_secondary_gps_only">僅限裝置</string>
+    <string name="accessibility_quick_settings_location_gps_only">位置回報：僅限感應器模式</string>
+    <string name="quick_settings_location_secondary_high_accuracy">高精確度</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">位置回報：高精確度</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="Percentage">%2$s</xliff:g> • 快速充電中 (<xliff:g id="Charging_TIME_LEFT">%s</xliff:g>後充飽)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> 快速充電中 (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> 後充滿)</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">閱讀模式</string>
+    <string name="accessibility_quick_settings_reading_mode_on">閱讀模式開啟。</string>
+    <string name="accessibility_quick_settings_reading_mode_off">閱讀模式關閉。</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">閱讀模式已開啟。</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">閱讀模式已關閉。</string>
+    <string name="statusbar_items_title">狀態列圖示</string>
+    <string name="lockscreen_default">預設值</string>
+    <string name="lockscreen_hidden">無</string>
+    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">滑動圖示以啟動</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">開啟實體按鍵</string>
+    <string name="accessibility_quick_settings_hwkeys_off">關閉實體按鍵</string>
+    <string name="quick_settings_hwkeys_label">實體按鍵</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">遊戲模式</string>
+    <string name="gaming_mode_tile_toast">遊戲模式已啟用</string>
+    <string name="gaming_mode_tile_toast_disabled">遊戲模式已停用</string>
+    <string name="gaming_mode_dialog_title">遊戲模式</string>
+    <string name="gaming_mode_dialog_message">遊戲模式啟用時，將停用彈出通知及硬體按鍵。退出遊戲模式時將會還原原始狀態。</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">遊戲模式已開啟</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">遊戲模式已關閉</string>
+    <!-- Status bar icons -->
+    <string name="status_bar_data_disabled">當行動網路不能用顯示 x 號</string>
+    <string name="status_bar_data_saver">數據節省模式</string>
+    <string name="status_bar_nfc">NFC</string>
+    <string name="status_bar_roaming">漫遊</string>
+    <string name="status_bar_vpn">VPN</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">您要強制停止嗎？</string>
+    <string name="force_stop_dlg_text">如果您強制停止應用程式，應用程式可能無法正常運作。</string>
+    <string name="guts_force_close_app">關閉應用程式</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - 預覽通知顯示已推遲 1 分鐘。</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - 顯示預覽通知會暫停 <xliff:g id="number">%d</xliff:g> 分鐘。</string>
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">遊戲模式已在設定關閉</string>
+    <string name="quick_settings_gaming_mode_label">遊戲模式</string>
+    <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_gaming_mode_disabled">遊戲模式已關閉.</string>
+    <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_gaming_mode_enabled">遊戲模式已開啟</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">切換上網卡</string>
+    <string name="qs_data_switch_changed_1">使用SIM 1作為行動數據</string>
+    <string name="qs_data_switch_changed_2">使用SIM 2作為行動數據</string>
+    <string name="quick_settings_immersive_tile">沉浸模式</string>
+    <string name="quick_settings_immersive_tile_off">關閉沉浸模式</string>
+    <string name="quick_settings_immersive_tile_statusbar">沉浸式狀態列</string>
+    <string name="quick_settings_immersive_tile_navbar">沉浸式導覽列</string>
+    <string name="quick_settings_immersive_tile_full">完全沉浸</string>
+    <string name="screenrecord_stopdot_label">顯示停止鍵</string>
+    <string name="screenrecord_low_quality_label">低畫質</string>
+    <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
+    <string name="global_action_screenshot_cust">螢幕擷取畫面</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">開啟「正在運作的服務」</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">語言</string>
+    <string name="quick_settings_locale_more_locales_toast">請配置多種語言以啟用切換功能</string>
+    <!-- Navbar editor -->
+    <string name="preview">預覽</string>
+    <string name="keycode">按鍵碼</string>
+    <string name="no_home_title">找不到「主畫面」按鈕</string>
+    <string name="no_home_message">您必須設定「主畫面」按鈕才能操作這部裝置。請先新增「主畫面」按鈕再儲存。</string>
+    <string name="clipboard_description">您可以利用「剪貼簿」按鈕將所需項目直接拖曳到剪貼簿中，或是將剪貼簿中的項目直接拖曳出來。</string>
+    <string name="keycode_description">您可以利用「按鍵碼」按鈕將鍵盤按鍵加到導覽列。只要按下這些按鈕，即可執行與所選鍵盤按鍵對應的操作。如要使用這項功能，請先為按鈕選取要模擬的鍵盤按鍵，然後指定按鈕的顯示圖示。</string>
+    <string name="start">開始</string>
+    <string name="center">置中</string>
+    <string name="end">結束</string>
+    <string name="space">空格字元</string>
+    <string name="menu_ime">選單/鍵盤切換工具</string>
+    <string name="select_button">選取要新增的按鈕</string>
+    <string name="add_button">新增按鈕</string>
+    <string name="save">儲存</string>
+    <string name="reset">重置</string>
+    <string name="select_keycode">選取鍵盤按鍵</string>
+    <string name="left">左</string>
+    <string name="right">右</string>
+    <string name="navbar_editor_title">編輯</string>
+    <string name="navbar_editor_summary">配置導覽列</string>
+</resources>

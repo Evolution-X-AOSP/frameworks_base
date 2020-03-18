@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">স্ক্রিনশট মুছে ফেলা হয়েছে</string>
+    <!-- Advanced reboot -->
+    <string name="global_action_restart_advanced">অ্যাডভান্সড</string>
+    <string name="global_action_restart_recovery">রিকভারি</string>
+    <string name="global_action_restart_bootloader">বুটলোডার</string>
+    <string name="global_action_restart_ui">সিস্টেম ইউআই</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">স্ক্রিনশট</string>
+    <string name="quick_settings_region_screenshot_label">আংশিক স্ক্রিনশট।</string>
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">সাউন্ড সার্চ</string>
+    <string name="quick_settings_sound_search_no_app">দুঃখিত, এটি কাজ করবে না যদি সাউন্ড সার্চ অ্যাপ না থাকে.</string>
+    <!-- USB Tethering tile -->
+    <string name="accessibility_quick_settings_usb_tether_off">ইউএসবি টেথারিং বন্ধ</string>
+    <string name="accessibility_quick_settings_usb_tether_on">ইউএসবি টেথারিং চালু</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">ইউএসবি টেথারিং বন্ধ করা হয়েছে</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">ইউএসবি টেথারিং চালু করা হয়েছে</string>
+    <string name="quick_settings_usb_tether_label">ইউএসবি টেথারিং</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">সবসময় চালু থাকা ডিস্প্লে (AOD)</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">শব্দ</string>
+    <string name="quick_settings_sound_mute">নিঃশব্দ</string>
+    <string name="quick_settings_sound_ring">রিং</string>
+    <string name="quick_settings_sound_vibrate">ভাইব্রেট</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">ক্যাফেইন</string>
+    <string name="accessibility_quick_settings_caffeine_off">ক্যাফেইন বন্ধ</string>
+    <string name="accessibility_quick_settings_caffeine_on">ক্যাফেইন চালু</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">হেডস আপ</string>
+    <string name="accessibility_quick_settings_heads_up_off">হেডস আপ বন্ধ</string>
+    <string name="accessibility_quick_settings_heads_up_on">হেডস আপ চালু</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">হেডস আপ বন্ধ করা হয়েছে।</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">হেডস আপ চালু করা হয়েছে</string>
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">সিংক্রোনাইজ</string>
+    <string name="accessibility_quick_settings_sync_off">সিংক্রোনাইজ বন্ধ করুন</string>
+    <string name="accessibility_quick_settings_sync_on">সিংক্রোনাইজ চালু করুন</string>
+    <string name="accessibility_quick_settings_sync_changed_off">সিংক্রোনাইজ বন্ধ হয়েছে</string>
+    <string name="accessibility_quick_settings_sync_changed_on">সিংক্রোনাইজ চালু হয়েছে</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">ভলিউম প্যানেল</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">কম্পাস</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">আরম্ভ হচ্ছে\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">কম্পাস বন্ধ</string>
+    <string name="accessibility_quick_settings_compass_on">কম্পাস চালু</string>
+    <string name="accessibility_quick_settings_compass_changed_off">কম্পাস বন্ধ হয়েছে</string>
+    <string name="accessibility_quick_settings_compass_changed_on">কম্পাস চালু হয়েছে</string>
+    <string name="quick_settings_compass_N">উত্তর</string>
+    <string name="quick_settings_compass_NE">উত্তর-পূর্ব</string>
+    <string name="quick_settings_compass_E">পূর্ব</string>
+    <string name="quick_settings_compass_SE">দক্ষিণ পূর্ব</string>
+    <string name="quick_settings_compass_S">দক্ষিণ</string>
+    <string name="quick_settings_compass_SW">দক্ষিণ-পশ্চিম</string>
+    <string name="quick_settings_compass_W">পশ্চিম</string>
+    <string name="quick_settings_compass_NW">উত্তর-পশ্চিম</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">অ্যামবিয়েন্ট ডিসপ্লে</string>
+    <string name="accessibility_quick_settings_ambient_display_off">অ্যাম্বিয়েন্ট ডিসপ্লে বন্ধ</string>
+    <string name="accessibility_quick_settings_ambient_display_on">অ্যাম্বিয়েন্ট ডিসপ্লে চালু</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">অ্যাম্বিয়েন্ট ডিসপ্লে বন্ধ করা হয়েছে</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">অ্যাম্বিয়েন্ট ডিসপ্লে চালু করা হয়েছে</string>
+    <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">স্লিপ স্ক্রিন</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">ভিপিএন</string>
+    <string name="quick_settings_vpn_connect_dialog_title">সংযোগ করুন\u2026 এর সাথে</string>
+    <string name="vpn_credentials_hint"><xliff:g id="name">%s</xliff:g> এর সাথে সংযুক্ত হতে আপনার ক্রেডেন্টশিয়াল এন্টার করুন</string>
+    <string name="vpn_credentials_username">ব্যবহারকারীর নাম</string>
+    <string name="vpn_credentials_password">পাসওয়ার্ড</string>
+    <string name="vpn_credentials_dialog_connect">সংযুক্ত করুন</string>
+    <!-- Reboot/Recovery QS Tile -->
+    <string name="quick_settings_reboot_label">রিবুট</string>
+    <string name="quick_settings_reboot_recovery_label">রিকভারি</string>
+    <!-- Advance location quick setting tile -->
+    <string name="quick_settings_location_secondary_battery_saving">ব্যাটারি সেভিং</string>
+    <string name="accessibility_quick_settings_location_battery_saving">অবস্থান প্রতিবেদন: ব্যাটারি সাশ্রয় মোড।</string>
+    <string name="quick_settings_location_secondary_gps_only">কেবল সেন্সর</string>
+    <string name="accessibility_quick_settings_location_gps_only">অবস্থান প্রতিবেদন: শুধু সেন্সর মোড।</string>
+    <string name="quick_settings_location_secondary_high_accuracy">উচ্চ পর্যায়ের নির্ভুলতা</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">অবস্থান রিপোর্ট: উচ্চ নির্ভুলতা মোড।</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • ড্যাশ চার্জিং (<xliff:g id="charging_time_left" example="4 ঘন্টা 2 মিনিট">%s</xliff:g> সম্পূর্ণ না হওয়া পর্যন্ত)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • ওয়ার্প চার্জিং (<xliff:g id="charging_time_left" example="4 ঘন্টা 2 মিনিট">%s</xliff:g> সম্পূর্ণ না হওয়া পর্যন্ত)</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">পড়ার মোড</string>
+    <string name="accessibility_quick_settings_reading_mode_on">পড়ার মোড চালু।</string>
+    <string name="accessibility_quick_settings_reading_mode_off">পড়ার মোড বন্ধ।</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">পড়ার মোড চালু হয়েছে।</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">পড়ার মোডটি বন্ধ করা হয়েছে।</string>
+    <string name="statusbar_items_title">স্ট্যাটাসবার আইকন</string>
+    <string name="lockscreen_default">ডিফল্ট</string>
+    <string name="lockscreen_hidden">কোনটি নয়</string>
+    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">চালু করতে আইকন থেকে সোয়াইপ করুন</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">HW কী চালু</string>
+    <string name="accessibility_quick_settings_hwkeys_off">HW কী বন্ধ</string>
+    <string name="quick_settings_hwkeys_label">HW কী</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">গেমিং মোড</string>
+    <string name="gaming_mode_tile_toast">গেমিং মোড চালু হয়েছে</string>
+    <string name="gaming_mode_tile_toast_disabled">গেমিং মোড বন্ধ হয়েছে</string>
+    <string name="gaming_mode_dialog_title">গেমিং মোড</string>
+    <string name="gaming_mode_dialog_message">যখন গেমিং মোড সক্ষম থাকে, সমস্ত হেডস আপ বার্তাগুলি অক্ষম করা হবে এবং হার্ডওয়্যার কীগুলি বন্ধ হয়ে যাবে। আপনি গেমিং মোড থেকে প্রস্থান করার পরে সমস্ত অক্ষম সেটিংস ডিফল্টতে পুনরায় সেট করা হবে।</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">গেমিং মোড চালু</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">গেমিং মোড বন্ধ</string>
+    <!-- Status bar icons -->
+    <string name="status_bar_data_disabled">ডাটা অক্ষম করা হলে ক্রস দেখুন</string>
+    <string name="status_bar_data_saver">ডাটা সেভার</string>
+    <string name="status_bar_nfc">এনএফসি</string>
+    <string name="status_bar_roaming">রোমিং</string>
+    <string name="status_bar_vpn">ভিপিএন</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">এনএফসি</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">জোরপূর্বক বন্ধ করবেন?</string>
+    <string name="force_stop_dlg_text">যদি আপনি জোর করে অ্যাপ বন্ধ করেন তাহলে সেটা ঠিকমত কাজ নাও করতে পারে।</string>
+    <string name="guts_force_close_app">অ্যাপ্লিকেশন বন্ধ করুন</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - পিকিং নোটিফিকেশন ১ মিনিটের জন্য স্নুজ আছে।</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - পিকিং নোটিফিকেশন <xliff:g id="number">%d</xliff:g> মিনিটের জন্য স্নুজ আছে।</string>
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">গেমিং মোড সেটিংসে নিশক্রিয় আছে</string>
+    <string name="quick_settings_gaming_mode_label">গেমিং মোড</string>
+    <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_gaming_mode_disabled">গেমিং মোডটি বন্ধ করা হয়েছে।</string>
+    <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_gaming_mode_enabled">গেমিং মোডটি চালু হয়েছে।</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">ডাটা সিমকার্ড স্যুইচ করুন</string>
+    <string name="qs_data_switch_changed_1">মোবাইল ডাটার জন্য সিম ১ ব্যবহার করুন</string>
+    <string name="qs_data_switch_changed_2">মোবাইল ডাটার জন্য সিম ২ ব্যবহার করুন</string>
+    <string name="quick_settings_immersive_tile">ইমার্সিভ মোড</string>
+    <string name="quick_settings_immersive_tile_off">ইমার্সিভ মোড বন্ধ</string>
+    <string name="quick_settings_immersive_tile_statusbar">ইমার্সিভ স্ট্যাটাসবার</string>
+    <string name="quick_settings_immersive_tile_navbar">ইমার্সিভ নেভবার</string>
+    <string name="quick_settings_immersive_tile_full">পরিপূর্ণ ইমার্সিভ</string>
+    <string name="screenrecord_stopdot_label">স্টপ ডট দেখান</string>
+    <string name="screenrecord_low_quality_label">কম গুণমান</string>
+    <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
+    <string name="global_action_screenshot_cust">স্ক্রিনশট</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">চলমান পরিষেবাদির স্ক্রিন খুলুন।</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">ভাষা</string>
+    <string name="quick_settings_locale_more_locales_toast">টোগল কার্যকারিতা সক্রিয় করার জন্য অনুগ্রহ করে একাধিক ভাষা কনফিগার করুন</string>
+    <!-- Navbar editor -->
+    <string name="preview">পূর্বরূপ দেখুন</string>
+    <string name="keycode">কি-কোড</string>
+    <string name="no_home_title">কোন হোম বাটন পাওয়া যায়নি</string>
+    <string name="no_home_message">ডিভাইসটি নিয়ন্ত্রণ করতে হোম বাটন দরকার। দয়া করে সেভ করার আগে একটি হোম বাটন যুক্ত করুন।</string>
+    <string name="clipboard_description">ক্লিপবোর্ড আইটেমগুলিকে ক্লিপবোর্ডে টেনে নিয়ে যাওয়ার অনুমতি দেয়। যখন বর্তমান থাকে তখন আইটেমগুলিকে ক্লিপবোর্ডের বাইরে থেকেও টেনে নেওয়া যায়।</string>
+    <string name="keycode_description">কিকোড বাটন নেভিগেশন বারে কিবোর্ড কিগুলোকে যুক্ত হওয়ার অনুমতি দেয়। যখন প্রেস করা হয় তখন তারা নির্ধারিত কিবোর্ড কি নকল করে। প্রথমত কি–টাকে বাটনের জন্য নির্বাচন করতে হবে, বাটনে দেখানো ছবির মতো।</string>
+    <string name="start">শুরু করুন</string>
+    <string name="center">কেন্দ্র</string>
+    <string name="end">সমাপ্ত</string>
+    <string name="space">অন্তরক</string>
+    <string name="menu_ime">মেনু / কীবোর্ড পরিবর্তনকারী</string>
+    <string name="select_button">যুক্ত করতে বাটন নির্বাচন করুন</string>
+    <string name="add_button">বাটন অ্যাড করুন</string>
+    <string name="save">সংরক্ষণ করুন</string>
+    <string name="reset">পুনরায় সেট করুন</string>
+    <string name="select_keycode">কিবোর্ড বাটন নির্বাচন করুন</string>
+    <string name="left">বামদিকে</string>
+    <string name="right">ডানদিকে</string>
+    <string name="navbar_editor_title">সম্পাদক</string>
+    <string name="navbar_editor_summary">ন্যাভিগেশন বার কনফিগার করুন</string>
+</resources>

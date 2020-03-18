@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
+    <string-array name="type_clock_minutes_alt">
+        <item>O \ u2019 கடிகாரம்</item>
+        <item>O \ u2019 ஒன்று</item>
+        <item>O \ u2019 இரண்டு</item>
+        <item>O \ u2019 மூன்று</item>
+        <item>O \ u2019 நான்கு</item>
+        <item>O \ u2019 ஐந்து</item>
+        <item>O \ u2019 ஆறு</item>
+        <item>O \ u2019 ஏழு</item>
+        <item>O \ u2019 எட்டு</item>
+        <item>O \ u2019 ஒன்பது</item>
+        <item>பத்து</item>
+        <item>பதினொன்று</item>
+        <item>பன்னிரண்டு</item>
+        <item>பதின்மூன்று</item>
+        <item>பதினான்கு</item>
+        <item>பதினைந்து</item>
+        <item>பதினாறு</item>
+        <item>பதினேழு</item>
+        <item>பதினெட்டு</item>
+        <item>பத்தொன்பது</item>
+        <item>இருபது</item>
+        <item>இருபத்தி ஒன்று</item>
+        <item>இருபத்தி இரண்டு</item>
+        <item>இருபத்தி மூன்று</item>
+        <item>இருபத்தி நான்கு</item>
+        <item>இருபத்தி ஐந்து</item>
+        <item>இருபத்தி ஆறு</item>
+        <item>இருபத்தி ஏழு</item>
+        <item>இருபத்தி எட்டு</item>
+        <item>இருபத்தி ஒன்பது</item>
+        <item>முப்பது</item>
+        <item>முப்பத்தி ஒன்று</item>
+        <item>முப்பத்தி இரண்டு</item>
+        <item>முப்பத்தி மூன்று</item>
+        <item>முப்பத்தி நான்கு</item>
+        <item>முப்பத்தி ஐந்து</item>
+        <item>முப்பத்தி ஆறு</item>
+        <item>முப்பத்தி ஏழு</item>
+        <item>முப்பத்தி எட்டு</item>
+        <item>முப்பத்தி ஒன்பது</item>
+        <item>நாற்பது</item>
+        <item>நாற்பத்து ஒன்று</item>
+        <item>நாற்பத்தி இரண்டு</item>
+        <item>நாற்பத்து மூன்று</item>
+        <item>நாற்பத்தி நான்கு</item>
+        <item>நாற்பத்தைந்து</item>
+        <item>நாற்பது ஆறு</item>
+        <item>நாற்பத்தி ஏழு</item>
+        <item>நாற்பத்தி எட்டு</item>
+        <item>நாற்பத்தொன்பது</item>
+        <item>ஐம்பது</item>
+        <item>ஐம்பத்தி ஒன்று</item>
+        <item>ஐம்பது இரண்டு</item>
+        <item>ஐம்பது மூன்று</item>
+        <item>ஐம்பத்து நான்கு</item>
+        <item>ஐம்பத்தி ஐந்து</item>
+        <item>ஐம்பத்தி ஆறு</item>
+        <item>ஐம்பது ஏழு</item>
+        <item>ஐம்பத்து எட்டு</item>
+        <item>ஐம்பத்தி ஒன்பது</item>
+    </string-array>
+</resources>

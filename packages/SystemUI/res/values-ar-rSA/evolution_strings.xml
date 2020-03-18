@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">تم حذف لقطة الشاشة</string>
+    <!-- Advanced reboot -->
+    <string name="global_action_restart_advanced">خيارات متقدمة</string>
+    <string name="global_action_restart_recovery">الاسترداد</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">واجهة النظام</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">لقطة الشاشة</string>
+    <string name="quick_settings_region_screenshot_label">صورة جزئية للشاشة</string>
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">البحث الصوتي</string>
+    <string name="quick_settings_sound_search_no_app">عذراً، لكن هذا لا يعمل إذا لم يكن لديك تطبيق بحث صوتي.</string>
+    <!-- USB Tethering tile -->
+    <string name="accessibility_quick_settings_usb_tether_off">‏تقييد USB متوقف</string>
+    <string name="accessibility_quick_settings_usb_tether_on">‏تقييد USB يعمل</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">تم إيقاف تقييد USB</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">تم تشغيل تقييد USB</string>
+    <string name="quick_settings_usb_tether_label">‏تقييد USB</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">الصوت</string>
+    <string name="quick_settings_sound_mute">كتم الصوت</string>
+    <string name="quick_settings_sound_ring">الرنين</string>
+    <string name="quick_settings_sound_vibrate">إهتزاز</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">الإستراحة</string>
+    <string name="accessibility_quick_settings_caffeine_off">الاستراحه معطل</string>
+    <string name="accessibility_quick_settings_caffeine_on">تشغيل وضع الإستراحة</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">التنبيهات العلوية</string>
+    <string name="accessibility_quick_settings_heads_up_off">إيقاف الإشعارات العلوية</string>
+    <string name="accessibility_quick_settings_heads_up_on">تشغيل التنبيهات العلوية</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">تم إيقاف التنبيهات العلوية</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">تم تشغيل التنبيهات العلوية</string>
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">مزامنة</string>
+    <string name="accessibility_quick_settings_sync_off">المزامنة متوقفة</string>
+    <string name="accessibility_quick_settings_sync_on">المزامنة تعمل</string>
+    <string name="accessibility_quick_settings_sync_changed_off">تم إيقاف المزامنة</string>
+    <string name="accessibility_quick_settings_sync_changed_on">أربعون</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">لوحة التحكم بالصوت</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">البوصلة</string>
+    <string name="quick_settings_compass_value"><xliff:g id="درجات">%1$.0f</xliff:g>\u00b0 <xliff:g id="الإتجاه">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">تهيئة\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">البوصلة مغلقه</string>
+    <string name="accessibility_quick_settings_compass_on">البوصلة تعمل</string>
+    <string name="accessibility_quick_settings_compass_changed_off">تم ايقاف البوصلة</string>
+    <string name="accessibility_quick_settings_compass_changed_on">تم تشغيل البوصلة</string>
+    <string name="quick_settings_compass_N">شمال</string>
+    <string name="quick_settings_compass_NE">شمال شرق</string>
+    <string name="quick_settings_compass_E">شرق</string>
+    <string name="quick_settings_compass_SE">جنوب شرق</string>
+    <string name="quick_settings_compass_S">جنوب</string>
+    <string name="quick_settings_compass_SW">جنوب غرب</string>
+    <string name="quick_settings_compass_W">غرب</string>
+    <string name="quick_settings_compass_NW">شمال غرب</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">العرض على الشاشة</string>
+    <string name="accessibility_quick_settings_ambient_display_off">العرض على الشاشة معطل</string>
+    <string name="accessibility_quick_settings_ambient_display_on">تفعيل عرض المحيط</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">تم تعطيل العرض المحيط</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">تم تشغيل عرض المحيط</string>
+    <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">وضع سكون الشاشة</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">شبكة افتراضية خاصة</string>
+    <string name="quick_settings_vpn_connect_dialog_title">الاتصال بـ</string>
+    <string name="vpn_credentials_hint">الرجاء إدخال بيانات الاعتماد الخاصة بك للاتصال ب <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">اسم المستخدم</string>
+    <string name="vpn_credentials_password">كلمة المرور</string>
+    <string name="vpn_credentials_dialog_connect">الاتصال</string>
+    <!-- Reboot/Recovery QS Tile -->
+    <string name="quick_settings_reboot_label">إعادة التشغيل</string>
+    <string name="quick_settings_reboot_recovery_label">الاسترداد</string>
+    <!-- Advance location quick setting tile -->
+    <string name="quick_settings_location_secondary_battery_saving">توفير البطارية</string>
+    <string name="accessibility_quick_settings_location_battery_saving">تحديد الموقع: وضع توفير البطارية.</string>
+    <string name="quick_settings_location_secondary_gps_only">المستشعرات فقط</string>
+    <string name="accessibility_quick_settings_location_gps_only">تحديد الموقع: وضع المستشعرات فقط.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">دقة عالية</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">تقرير الموقع: وضعية الدقة العالية.</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • الشحن السريع (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> حتى الامتلاء)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • الشحن السريع (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> حتى الامتلاء)</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">وضع القراءة</string>
+    <string name="accessibility_quick_settings_reading_mode_on">وضع القراءة مفعل.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">وضع القراءة معطل.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">وضع القراءة قيد التشغيل.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">وضع القراءة قيد الإيقاف.</string>
+    <string name="statusbar_items_title">ايقونة شريط الحالة</string>
+    <string name="lockscreen_default">الإفتراضي</string>
+    <string name="lockscreen_hidden">لا شَيْء</string>
+    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">تمرير من الأيقونة للتشغيل</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">أزرار الجهاز مفعلة</string>
+    <string name="accessibility_quick_settings_hwkeys_off">أزرار الجهاز معّطلة</string>
+    <string name="quick_settings_hwkeys_label">أزرار الجهاز</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">وضع الألعاب</string>
+    <string name="gaming_mode_tile_toast">وضع الألعاب مفعل</string>
+    <string name="gaming_mode_tile_toast_disabled">وضع الألعاب معطل</string>
+    <string name="gaming_mode_dialog_title">وضع الألعاب</string>
+    <string name="gaming_mode_dialog_message">عند تمكين وضع الألعاب ، سيتم تعطيل جميع الرسائل العلوية وسيتم إيقاف تشغيل مفاتيح الجهاز. سيتم إعادة تعيين جميع الإعدادات المعطلة إلى الوضع الافتراضي بمجرد خروجك من وضع الألعاب.</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">وضع الألعاب مفعل</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">وضع الألعاب معطل</string>
+    <!-- Status bar icons -->
+    <string name="status_bar_data_disabled">عبر عند تعطيل البيانات</string>
+    <string name="status_bar_data_saver">موفر البيانات</string>
+    <string name="status_bar_nfc">‏الاتصالات قصيرة المدى (NFC)</string>
+    <string name="status_bar_roaming">تجوال</string>
+    <string name="status_bar_vpn">شبكة افتراضية خاصة</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">‏الاتصالات قصيرة المدى</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">هل تريد فرض الإيقاف؟</string>
+    <string name="force_stop_dlg_text">في حالة فرض إيقاف التطبيق، ربما لا يعمل بشكل صحيح.</string>
+    <string name="guts_force_close_app">إغلاق التطبيق</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - التنبيهات الخاطفة معطلة لدقيقة واحدة.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> • التنبيهات الخاطفة معطلة ل <xliff:g id="number">%d</xliff:g> دقائق.</string>
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">وضع الألعاب معطل في الإعدادات</string>
+    <string name="quick_settings_gaming_mode_label">وضع الألعاب</string>
+    <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_gaming_mode_disabled">تم تعطيل وضع الألعاب.</string>
+    <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_gaming_mode_enabled">تم تفعيل وضع الألعاب.</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">تبديل بطاقة البيانات</string>
+    <string name="qs_data_switch_changed_1">استخدام شريحة ١ لبيانات الهاتف</string>
+    <string name="qs_data_switch_changed_2">استخدام شريحة ٢ لبيانات الهاتف</string>
+    <string name="quick_settings_immersive_tile">وضع الغمار</string>
+    <string name="quick_settings_immersive_tile_off">وضع الغمار معطل</string>
+    <string name="quick_settings_immersive_tile_statusbar">شريط الحالة الغامر</string>
+    <string name="quick_settings_immersive_tile_navbar">شريط التنقل الغامر</string>
+    <string name="quick_settings_immersive_tile_full">الغمر الكامل</string>
+    <string name="screenrecord_stopdot_label">إظهار نقطة التوقف</string>
+    <string name="screenrecord_low_quality_label">جودة منخفضة</string>
+    <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
+    <string name="global_action_screenshot_cust">لقطة الشاشة</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">فتح شاشة الخدمات المشغلة.</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">اللغة</string>
+    <string name="quick_settings_locale_more_locales_toast">الرجاء إعداد لغات متعددة لتمكين وظيفة مفتاح التبديل</string>
+    <!-- Navbar editor -->
+    <string name="preview">معاينة</string>
+    <string name="keycode">رمز المفتاح</string>
+    <string name="no_home_title">لم يتم العثور على زر الصفحة الرئيسية</string>
+    <string name="no_home_message">زر الصفحة الرئيسية مطلوب لكي تتمكن من التنقل في هذا الجهاز، الرجاء إضافة زر صفحة رئيسية قبل الحفظ.</string>
+    <string name="clipboard_description">تتيح الحافظة إمكانية سحب العناصر مباشرة إلى الحافظة، وكذلك يمكن سحب العناصر مباشرة خارج الحافظة عند وجودها.</string>
+    <string name="keycode_description">تتيح أزرار رموز المفاتيح إمكانية إضافة مفاتيح لوحة المفاتيح إلى شريط التنقل. وعند الضغط عليها، تحاكي الأزرار مفتاح لوحة المفاتيح المحدد. ويجب أولاً تحديد المفتاح للزر، وبعد ذلك تحديد صورة لكي يتم عرضها على الزر.</string>
+    <string name="start">ابدأ</string>
+    <string name="center">الوسط</string>
+    <string name="end">النهاية</string>
+    <string name="space">فاصل</string>
+    <string name="menu_ime">القائمة / مبدل لوحة المفاتيح</string>
+    <string name="select_button">حدد الزر للإضافة</string>
+    <string name="add_button">إضافة زر</string>
+    <string name="save">حفظ</string>
+    <string name="reset">إعادة التعيين</string>
+    <string name="select_keycode">حدد زر لوحة المفاتيح</string>
+    <string name="left">اليسار</string>
+    <string name="right">يمين</string>
+    <string name="navbar_editor_title">المحرر</string>
+    <string name="navbar_editor_summary">تهيئة شريط التنقل</string>
+</resources>

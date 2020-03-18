@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
+    <string-array name="type_clock_minutes_alt">
+        <item>O\u2019Ceas</item>
+        <item>Unu</item>
+        <item>Doi</item>
+        <item>Trei</item>
+        <item>Patru</item>
+        <item>Cinci</item>
+        <item>Şase</item>
+        <item>Şapte</item>
+        <item>Opt</item>
+        <item>Nouă</item>
+        <item>Zece</item>
+        <item>Unsprezece</item>
+        <item>Doisprezece</item>
+        <item>Treisprezece</item>
+        <item>Paisprezece</item>
+        <item>Cincisprezece</item>
+        <item>Șaisprezece</item>
+        <item>Șaptesprezece</item>
+        <item>Optsprezece</item>
+        <item>și Nouăsprezece</item>
+        <item>Douăzeci</item>
+        <item>Douăzeci și Unu</item>
+        <item>Douăzeci și Doi</item>
+        <item>Douăzeci și Trei</item>
+        <item>Douăzeci și Patru</item>
+        <item>Douăzeci și Cinci</item>
+        <item>Douăzeci și Şase</item>
+        <item>Douăzeci și Şapte</item>
+        <item>Douăzeci și Opt</item>
+        <item>Douăzeci și Nouă</item>
+        <item>Treizeci</item>
+        <item>Treizeci și Unu</item>
+        <item>Treizeci și Doi</item>
+        <item>Treizeci și Trei</item>
+        <item>Treizeci și Patru</item>
+        <item>Treizeci și Cinci</item>
+        <item>Treizeci și Şase</item>
+        <item>Treizeci și Şapte</item>
+        <item>Treizeci și Opt</item>
+        <item>Treizeci și Nouă</item>
+        <item>Patruzeci</item>
+        <item>Patruzeci și Unu</item>
+        <item>Patruzeci și Doi</item>
+        <item>Patruzeci și Trei</item>
+        <item>Patruzeci și Patru</item>
+        <item>Patruzeci și Cinci</item>
+        <item>Patruzeci și Şase</item>
+        <item>Patruzeci și Şapte</item>
+        <item>Patruzeci și Opt</item>
+        <item>Patruzeci și Nouă</item>
+        <item>Cincizeci</item>
+        <item>Cincizeci și Unu</item>
+        <item>Cincizeci și Doi</item>
+        <item>Cincizeci și Trei</item>
+        <item>Cincizeci și Patru</item>
+        <item>Cincizeci și Cinci</item>
+        <item>Cincizeci și Şase</item>
+        <item>Cincizeci și Şapte</item>
+        <item>Cincizeci și Opt</item>
+        <item>Cincizeci și Nouă</item>
+    </string-array>
+</resources>

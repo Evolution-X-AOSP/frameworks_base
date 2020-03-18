@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
+    <string-array name="type_clock_minutes_alt">
+        <item>O\u2019घड़ी</item>
+        <item>O\u2019एक</item>
+        <item>O\u2019दो</item>
+        <item>O\u2019तीन</item>
+        <item>O\u2019चार</item>
+        <item>O\u2019पांच</item>
+        <item>O\u2019छह</item>
+        <item>O\u2019सात</item>
+        <item>O\u2019आठ</item>
+        <item>O\u2019नौ</item>
+        <item>दस</item>
+        <item>ग्यारह</item>
+        <item>बारह</item>
+        <item>तेरह</item>
+        <item>चौदह</item>
+        <item>पंद्रह</item>
+        <item>सोलह</item>
+        <item>सत्रह</item>
+        <item>अठारह</item>
+        <item>उन्नीस</item>
+        <item>बीस</item>
+        <item>इक्कीस</item>
+        <item>बाईस</item>
+        <item>तेईस</item>
+        <item>चौबीस</item>
+        <item>पच्चीस</item>
+        <item>छब्बीस</item>
+        <item>सत्ताईस</item>
+        <item>अट्ठाइस</item>
+        <item>उनतीस</item>
+        <item>तीस</item>
+        <item>इकत्तीस</item>
+        <item>बत्तीस</item>
+        <item>तैंतीस</item>
+        <item>चौंतीस</item>
+        <item>पैंतीस</item>
+        <item>छत्तीस</item>
+        <item>सैंतीस</item>
+        <item>अड़तीस</item>
+        <item>उनतालीस</item>
+        <item>चालीस</item>
+        <item>इकतालीस</item>
+        <item>बयालीस</item>
+        <item>तैंतालीस</item>
+        <item>चवालीस</item>
+        <item>पैंतालीस</item>
+        <item>छियालीस</item>
+        <item>सैंतालीस</item>
+        <item>अड़तालीस</item>
+        <item>उनचास</item>
+        <item>पचास</item>
+        <item>इक्यावन</item>
+        <item>बावन</item>
+        <item>तिरेपन</item>
+        <item>चौवन</item>
+        <item>पचपन</item>
+        <item>छप्पन</item>
+        <item>सत्तावन</item>
+        <item>अट्ठावन</item>
+        <item>उनसठ</item>
+    </string-array>
+</resources>

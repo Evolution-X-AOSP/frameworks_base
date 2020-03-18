@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Знімок екрану видалено</string>
+    <!-- Advanced reboot -->
+    <string name="global_action_restart_advanced">Додатково</string>
+    <string name="global_action_restart_recovery">Режим відновлення</string>
+    <string name="global_action_restart_bootloader">Завантажувач</string>
+    <string name="global_action_restart_ui">Інтерфейс системи</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">Знімок екрану</string>
+    <string name="quick_settings_region_screenshot_label">Частковий знімок екрана</string>
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">Пошук музики</string>
+    <string name="quick_settings_sound_search_no_app">Вибачте, але ця функція недоступна, якщо немає програми для пошуку музики.</string>
+    <!-- USB Tethering tile -->
+    <string name="accessibility_quick_settings_usb_tether_off">USB-модем вимкнено</string>
+    <string name="accessibility_quick_settings_usb_tether_on">USB-модем увімкнено</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">USB-модем вимкнено</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">USB-модем увімкнуто</string>
+    <string name="quick_settings_usb_tether_label">USB-модем</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">Екран сповіщень</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Звук</string>
+    <string name="quick_settings_sound_mute">Вимкнути звук</string>
+    <string name="quick_settings_sound_ring">Дзвінок</string>
+    <string name="quick_settings_sound_vibrate">Вібрація</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Заборона сну вимкнена</string>
+    <string name="accessibility_quick_settings_caffeine_on">Заборона сну увімк</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">Спливаючі сповіщення</string>
+    <string name="accessibility_quick_settings_heads_up_off">Спливаючі сповіщення вимк</string>
+    <string name="accessibility_quick_settings_heads_up_on">Спливаючі сповіщення увімкнені</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Спливаючі сповіщення вимкнено</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Спливаючі сповіщення увімкнено</string>
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">Синхронізація</string>
+    <string name="accessibility_quick_settings_sync_off">Синхронізацію вимк</string>
+    <string name="accessibility_quick_settings_sync_on">Синхронізацію увімк</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Синхронізацію вимкнено</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Синхронізацію увімкнено</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Панель гучності</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">Компас</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Ініціалізація\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Компас вимк</string>
+    <string name="accessibility_quick_settings_compass_on">Компас увімк</string>
+    <string name="accessibility_quick_settings_compass_changed_off">Компас вимкнено</string>
+    <string name="accessibility_quick_settings_compass_changed_on">Компас увімкнено</string>
+    <string name="quick_settings_compass_N">Пн</string>
+    <string name="quick_settings_compass_NE">ПнСх</string>
+    <string name="quick_settings_compass_E">Сх</string>
+    <string name="quick_settings_compass_SE">ПдСх</string>
+    <string name="quick_settings_compass_S">Пд</string>
+    <string name="quick_settings_compass_SW">ПдЗх</string>
+    <string name="quick_settings_compass_W">Зх</string>
+    <string name="quick_settings_compass_NW">ПнЗх</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Активний дисплей</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Активний дисплей вимкнено</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Активний дисплей ввімкнено</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Активний дисплей вимкнено</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Активний дисплей ввімкнено</string>
+    <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">Екран блокування</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">Мережа VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">З\'єднатися з\u2026</string>
+    <string name="vpn_credentials_hint">Будь ласка, введіть ваші облікові дані для підключення до <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Ім\'я користувача</string>
+    <string name="vpn_credentials_password">Пароль</string>
+    <string name="vpn_credentials_dialog_connect">Підключитися</string>
+    <!-- Reboot/Recovery QS Tile -->
+    <string name="quick_settings_reboot_label">Перезавантаження</string>
+    <string name="quick_settings_reboot_recovery_label">Режим відновлення</string>
+    <!-- Advance location quick setting tile -->
+    <string name="quick_settings_location_secondary_battery_saving">Енергозбереження</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Служби геолокації: режим енергозбереження.</string>
+    <string name="quick_settings_location_secondary_gps_only">Тільки датчики</string>
+    <string name="accessibility_quick_settings_location_gps_only">Надсилання місця розташування: тільки датчики.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Висока точність</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Надсилання місця розташування: висока точність.</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Заряджання (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> до повного зарядження)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Плата за варп (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> до повного зарядження)</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Режим читання</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Режим читання увімкнено.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Режим читання вимкнено.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Режим читання активовано.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Режим читання деактивовано.</string>
+    <string name="statusbar_items_title">Елементи рядку стану</string>
+    <string name="lockscreen_default">За замовчуванням</string>
+    <string name="lockscreen_hidden">Нічого</string>
+    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">Проведіть від іконки для запуску</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">Апаратні клавіші увімкнено</string>
+    <string name="accessibility_quick_settings_hwkeys_off">Апаратні клавіші вимкнено</string>
+    <string name="quick_settings_hwkeys_label">Апаратні клавіші</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">Ігровий режим</string>
+    <string name="gaming_mode_tile_toast">Ігровий режим ввімкнено</string>
+    <string name="gaming_mode_tile_toast_disabled">Ігровий режим вимкнено</string>
+    <string name="gaming_mode_dialog_title">Ігровий режим</string>
+    <string name="gaming_mode_dialog_message">Коли ігровий режим увімкнений, спливаючі повідомлення і апаратні кнопки будуть відключені. Всі відключені настройки будуть скинуті до значеннями за замовчуванням після виходу з ігрового режиму.</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">Ігровий режим увімк</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">Ігровий режим вимк</string>
+    <!-- Status bar icons -->
+    <string name="status_bar_data_disabled">Крос, коли дані вимкнені</string>
+    <string name="status_bar_data_saver">Заощадження трафіку</string>
+    <string name="status_bar_nfc">NFC</string>
+    <string name="status_bar_roaming">Роумінг</string>
+    <string name="status_bar_vpn">Мережа VPN</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Примусово зупинити?</string>
+    <string name="force_stop_dlg_text">Примусове вимкнення додатка може призвести до збою в його роботі.</string>
+    <string name="guts_force_close_app">Закрити застосунок</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Спливаючі сповіщення вимкнено на 1 хвилину.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Спливаючі сповіщення вимкнено на <xliff:g id="number">%d</xliff:g> хвилин.</string>
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">Ігровий режим відключено в налаштуваннях</string>
+    <string name="quick_settings_gaming_mode_label">Ігровий режим</string>
+    <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_gaming_mode_disabled">Ігровий режим вимкнено.</string>
+    <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_gaming_mode_enabled">Ігровий режим увімкнено.</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">Змінити картку для передачі даних</string>
+    <string name="qs_data_switch_changed_1">Використання SIM 1 для передачі даних</string>
+    <string name="qs_data_switch_changed_2">Використання SIM 2 для передачі даних</string>
+    <string name="quick_settings_immersive_tile">Режим захоплення</string>
+    <string name="quick_settings_immersive_tile_off">Повноекранний режим вимкнено</string>
+    <string name="quick_settings_immersive_tile_statusbar">Приховати рядок стану</string>
+    <string name="quick_settings_immersive_tile_navbar">Приховати панель навігації</string>
+    <string name="quick_settings_immersive_tile_full">Повноекранний режим</string>
+    <string name="screenrecord_stopdot_label">Показувати крапку</string>
+    <string name="screenrecord_low_quality_label">Низька якість</string>
+    <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
+    <string name="global_action_screenshot_cust">Знімок екрану</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">Відкрити список запущених сервісів.</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Мова</string>
+    <string name="quick_settings_locale_more_locales_toast">Будь ласка, налаштуйте декілька мов для конфігурації</string>
+    <!-- Navbar editor -->
+    <string name="preview">Попередній перегляд</string>
+    <string name="keycode">Код клавіші</string>
+    <string name="no_home_title">Клавіша \"Додому\" не знайдена</string>
+    <string name="no_home_message">Для навігації пристроєм потрібна кнопка \"Головний екран\". Перш ніж зберегти, додайте цю кнопку.</string>
+    <string name="clipboard_description">Буфер обміну дозволяє перетягувати елементи безпосередньо в нього. Елементи також можна перетягувати з буфера обміну, коли присутні.</string>
+    <string name="keycode_description">За допомогою кнопок кодів клавіш можна додавати клавіші клавіатури на панель навігації. Якщо натиснути кнопку, вона імітує вибрану клавішу клавіатури. Потрібно вибрати клавішу та зображення для кнопки.</string>
+    <string name="start">Старт</string>
+    <string name="center">По центру</string>
+    <string name="end">Кінець</string>
+    <string name="space">Розділювач</string>
+    <string name="menu_ime">Вибір меню / клавіатури</string>
+    <string name="select_button">Виберіть кнопку, щоб додати</string>
+    <string name="add_button">Додати кнопку</string>
+    <string name="save">Зберегти</string>
+    <string name="reset">Скинути налаштування</string>
+    <string name="select_keycode">Вибрати кнопку клавіатури</string>
+    <string name="left">Зліва</string>
+    <string name="right">Зправа</string>
+    <string name="navbar_editor_title">Редактор</string>
+    <string name="navbar_editor_summary">Налаштувати панель навігації</string>
+</resources>
