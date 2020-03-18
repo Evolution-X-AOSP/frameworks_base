@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
+    <string-array name="type_clock_minutes_alt">
+        <item>O\u2019ঘড়ি</item>
+        <item>O\u2019এক</item>
+        <item>O\u2019দুই</item>
+        <item>O\u2019তিন</item>
+        <item>O\u2019চার</item>
+        <item>O\u2019পাঁচ</item>
+        <item>O\u2019ছয়</item>
+        <item>O\u2019সাত</item>
+        <item>O\u2019আট</item>
+        <item>O\u2019নয়</item>
+        <item>দশ</item>
+        <item>এগারো</item>
+        <item>বারো</item>
+        <item>তেরো</item>
+        <item>চৌদ্দ</item>
+        <item>পনেরো</item>
+        <item>ষোল</item>
+        <item>সতেরো</item>
+        <item>আঠারো</item>
+        <item>ঊনিশ</item>
+        <item>বিশ</item>
+        <item>একুশ</item>
+        <item>বাইশ</item>
+        <item>তেইশ</item>
+        <item>চব্বিশ</item>
+        <item>পঁচিশ</item>
+        <item>ছাব্বিশ</item>
+        <item>সাতাশ</item>
+        <item>আটাশ</item>
+        <item>ঊনত্রিশ</item>
+        <item>তিরিশ</item>
+        <item>একত্রিশ</item>
+        <item>বত্রিশ</item>
+        <item>তেত্রিশ</item>
+        <item>চৌত্রিশ</item>
+        <item>পঁয়ত্রিশ</item>
+        <item>ছত্রিশ</item>
+        <item>সাইত্রিশ</item>
+        <item>আটত্রিশ</item>
+        <item>ঊনচল্লিশ</item>
+        <item>চল্লিশ</item>
+        <item>একচল্লিশ</item>
+        <item>বিয়াল্লিশ</item>
+        <item>তেতাল্লিশ</item>
+        <item>চুয়াল্লিশ</item>
+        <item>পঁয়তাল্লিশ</item>
+        <item>ছেচল্লিশ</item>
+        <item>সাতচল্লিশ</item>
+        <item>আটচল্লিশ</item>
+        <item>উনপঞ্চাশ</item>
+        <item>পঞ্চাশ</item>
+        <item>একান্ন</item>
+        <item>বায়ান্ন</item>
+        <item>তেপান্ন</item>
+        <item>চুয়ান্ন</item>
+        <item>পঞ্চান্ন</item>
+        <item>ছাপ্পান্ন</item>
+        <item>সাতান্ন</item>
+        <item>আটান্ন</item>
+        <item>ঊনষাট</item>
+    </string-array>
+</resources>
