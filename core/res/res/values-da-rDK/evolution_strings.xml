@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Kopiér crash log URL</string>
+    <string name="url_copy_success">URL kopieret</string>
+    <string name="url_copy_failed">Der opstod en fejl ved upload af logfilen til dogbin</string>
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_fakePackageSignature">Spoof package signature</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_fakePackageSignature">Tillader app\'en at udgive sig for en anden app. Ondsindede apps kan muligvis bruge dette til at tilgå privat data. Vær forsigtig med denne tilladelse!</string>
+    <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgrouplab_fake_package_signature">Spoof package signature</string>
+    <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgroupdesc_fake_package_signature">giv adgang til at spoof package signature</string>
+    <!-- Message shown to the user when the apps requests permission from this group. If ever possible this should stay below 80 characters (assuming the parameters takes 20 characters). Don't abbreviate until the message reaches 120 characters though. [CHAR LIMIT=120] -->
+    <string name="permgrouprequest_fake_package_signature">Vil du give
+        &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; til at spoof package signature?</string>
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Genstarter til recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Genstarter til bootloader</string>
+    <string name="reboot_title">Genstart</string>
+    <string name="reboot_message">Genstarter system</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Automatisk</string>
+    <string name="live_display_auto_summary">Justerer automatisk farvetemperaturen på skærmen efter solnedgang og solopgang</string>
+    <string name="live_display_off">Slået fra</string>
+    <string name="live_display_off_summary">Deaktivér alle justeringer</string>
+    <string name="live_display_day">Dag</string>
+    <string name="live_display_day_summary">Benyt kun dag indstillinger</string>
+    <string name="live_display_night">Nat</string>
+    <string name="live_display_night_summary">Brug kun nat indstillinger</string>
+    <string name="live_display_outdoor">Udendørs (stærk sol)</string>
+    <string name="live_display_outdoor_summary">Brug kun udendørs indstillinger</string>
+    <string name="live_display_hint">LiveDisplay kan hjælpe med at reducere anstrengelsen på dine øjne og hjælpe dig med at sove om natten. Klik her for at prøve det!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay fra.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: automatisk tilstand.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: dag tilstand.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: natte tilstand.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: udendørs tilstand.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay er slået fra.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay er blevet ændret til automatisk tilstand.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay er blevet ændret til dag tilstand.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay er blevet ændret til nat tilstand.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay er blevet ændret til udendørs tilstand.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Tryk og hold power knappen inde for at låse din telefon op</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">Spiltilstand</string>
+    <string name="gaming_mode_notification_title">Spiltilstand aktiveret</string>
+    <string name="gaming_mode_notification_content">Tryk for at deaktivere spiltilstand</string>
+    <string name="gaming_mode_enabled_toast">Spiltilstand er slået til</string>
+    <string name="gaming_mode_disabled_toast">Spiltilstand er slået fra</string>
+    <!-- ADB over network notification -->
+    <string name="adb_net_active_notification_title">ADB over netværk aktiveret</string>
+    <!-- ADB over USB and network notification -->
+    <string name="adb_both_active_notification_title">ADB via USB &amp; netværk aktiveret</string>
+    <!-- ADB notification message-->
+    <string name="adb_active_generic_notification_message">Tryk, for at deaktivere fejlfinding.</string>
+</resources>
