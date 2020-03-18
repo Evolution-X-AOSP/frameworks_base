@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
+    <string-array name="type_clock_minutes_alt">
+        <item>Pile</item>
+        <item>Un</item>
+        <item>Deux</item>
+        <item>Trois</item>
+        <item>Quatre</item>
+        <item>Cinq</item>
+        <item>Six</item>
+        <item>Sept</item>
+        <item>Huit</item>
+        <item>Neuf</item>
+        <item>Dix</item>
+        <item>Onze</item>
+        <item>Douze</item>
+        <item>Treize</item>
+        <item>Quatorze</item>
+        <item>Quinze</item>
+        <item>Seize</item>
+        <item>Dix-sept</item>
+        <item>Dix-huit</item>
+        <item>Dix-neuf</item>
+        <item>Vingt</item>
+        <item>Vingt et un</item>
+        <item>Vingt deux</item>
+        <item>Vingt trois</item>
+        <item>Vingt quatre</item>
+        <item>Vingt cinq</item>
+        <item>Vingt six</item>
+        <item>Vingt sept</item>
+        <item>Vingt huit</item>
+        <item>Vingt neuf</item>
+        <item>Trente</item>
+        <item>Trente et un</item>
+        <item>Trente deux</item>
+        <item>Trente trois</item>
+        <item>Trente quatre</item>
+        <item>Trente cinq</item>
+        <item>Trente six</item>
+        <item>Trente sept</item>
+        <item>Trente huit</item>
+        <item>Trente neuf</item>
+        <item>Quarante</item>
+        <item>Quarante et un</item>
+        <item>Quarante deux</item>
+        <item>Quarante trois</item>
+        <item>Quarante quatre</item>
+        <item>Quarante cinq</item>
+        <item>Quarante six</item>
+        <item>Quarante sept</item>
+        <item>Quarante huit</item>
+        <item>Quarante neuf</item>
+        <item>Cinquante</item>
+        <item>Cinquante et un</item>
+        <item>Cinquante deux</item>
+        <item>Cinquante trois</item>
+        <item>Cinquante quatre</item>
+        <item>Cinquante cinq</item>
+        <item>Cinquante six</item>
+        <item>Cinquante sept</item>
+        <item>Cinquante huit</item>
+        <item>Cinquante neuf</item>
+    </string-array>
+</resources>
