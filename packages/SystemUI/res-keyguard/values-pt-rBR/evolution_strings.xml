@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
+    <string-array name="type_clock_minutes_alt">
+        <item>\u2019 em ponto\u2019</item>
+        <item>\u2019Um</item>
+        <item>\u2019Dois</item>
+        <item>O\u2019Três</item>
+        <item>O\u2019Quatro</item>
+        <item>\u2019Cinco</item>
+        <item>\u2019Seis</item>
+        <item>\u2019Sete</item>
+        <item>\u2019Oito</item>
+        <item>\u2019Nove</item>
+        <item>e dez</item>
+        <item>e onze</item>
+        <item>e doze</item>
+        <item>e treze</item>
+        <item>e quatorze</item>
+        <item>e quinze</item>
+        <item>e dezesseis</item>
+        <item>e dezessete</item>
+        <item>e dezoito</item>
+        <item>e dezenove</item>
+        <item>e vinte</item>
+        <item>e vinte
+e um</item>
+        <item>e vinte
+e dois</item>
+        <item>e vinte
+e três</item>
+        <item>e vinte
+e quatro</item>
+        <item>e vinte
+e cinco</item>
+        <item>e vinte
+e seis</item>
+        <item>e vinte
+e sete</item>
+        <item>e vinte
+e oito</item>
+        <item>e vinte
+e nove</item>
+        <item>e trinta</item>
+        <item>e trinta
+e um</item>
+        <item>e trinta
+e dois</item>
+        <item>e trinta
+e três</item>
+        <item>e trinta
+e quatro</item>
+        <item>e trinta
+e cinco</item>
+        <item>e trinta
+e seis</item>
+        <item>e trinta
+e sete</item>
+        <item>e trinta
+e oito</item>
+        <item>e trinta
+e nove</item>
+        <item>e quarenta</item>
+        <item>e quarenta
+e um</item>
+        <item>e quarenta
+e dois</item>
+        <item>e quarenta
+e três</item>
+        <item>e quarenta
+e quatro</item>
+        <item>e quarenta
+e cinco</item>
+        <item>e quarenta
+e seis</item>
+        <item>e quarenta
+e sete</item>
+        <item>e quarenta
+e oito</item>
+        <item>e quarenta
+e nove</item>
+        <item>e cinquenta</item>
+        <item>e cinquenta
+e um</item>
+        <item>e cinquenta
+e dois</item>
+        <item>e cinquenta
+e três</item>
+        <item>e cinquenta
+e quatro</item>
+        <item>e cinquenta
+e cinco</item>
+        <item>e cinquenta
+e seis</item>
+        <item>e cinquenta
+e sete</item>
+        <item>e cinquenta
+e oito</item>
+        <item>e cinquenta
+e nove</item>
+    </string-array>
+</resources>

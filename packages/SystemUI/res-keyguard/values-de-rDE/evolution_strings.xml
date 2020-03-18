@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
+    <string-array name="type_clock_minutes_alt">
+        <item>O\u2019Uhr</item>
+        <item>O\u2019Eins</item>
+        <item>O\u2019Zwei</item>
+        <item>O\u2019Drei</item>
+        <item>O\u2019Vier</item>
+        <item>O\u2019Fünf</item>
+        <item>O\u2019Sechs</item>
+        <item>O\u2019Sieben</item>
+        <item>O\u2019Acht</item>
+        <item>O\u2019Neun</item>
+        <item>Zehn</item>
+        <item>Elf</item>
+        <item>Zwölf</item>
+        <item>Dreizehn</item>
+        <item>Vierzehn</item>
+        <item>Fünzehn</item>
+        <item>Sechzehn</item>
+        <item>Siebzehn</item>
+        <item>Achtzehn</item>
+        <item>Neunzehn</item>
+        <item>Zwanzig</item>
+        <item>Einundzwanzig</item>
+        <item>Zweiundzwanzig</item>
+        <item>Dreiundzwanzig</item>
+        <item>Vierundzwanzig</item>
+        <item>Fünfundzwanzig</item>
+        <item>Sechsundzwanzig</item>
+        <item>Siebenundzwanzig</item>
+        <item>Achtundzwanzig</item>
+        <item>Neunundzwanzig</item>
+        <item>Dreißig</item>
+        <item>Einunddreißig</item>
+        <item>Zweiunddreißig</item>
+        <item>Dreiunddreißig</item>
+        <item>Vierunddreißig</item>
+        <item>Fünfunddreißig</item>
+        <item>Sechsunddreißig</item>
+        <item>Siebenunddreißig</item>
+        <item>Achtunddreißig</item>
+        <item>Neununddreißig</item>
+        <item>Vierzig</item>
+        <item>Einundvierzig</item>
+        <item>Zweiundvierzig</item>
+        <item>Dreiundvierzig</item>
+        <item>Vierundvierzig</item>
+        <item>Fünfundvierzig</item>
+        <item>Sechsundvierzig</item>
+        <item>Siebenundvierzig</item>
+        <item>Achtundvierzig</item>
+        <item>Neunundvierzig</item>
+        <item>Fünfzig</item>
+        <item>Einundfünfzig</item>
+        <item>Zweiundfünfzig</item>
+        <item>Dreiundfünfzig</item>
+        <item>Vierundfünfzig</item>
+        <item>Fünfundfünfzig</item>
+        <item>Sechsundfünfzig</item>
+        <item>Siebenundfünfzig</item>
+        <item>Achtundfünfzig</item>
+        <item>Neunundfünfzig</item>
+    </string-array>
+</resources>

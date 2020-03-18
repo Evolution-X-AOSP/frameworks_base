@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
+    <string-array name="type_clock_minutes_alt">
+        <item>整</item>
+        <item>零一分</item>
+        <item>零二分</item>
+        <item>零三分</item>
+        <item>零四分</item>
+        <item>零五分</item>
+        <item>零六分</item>
+        <item>零七分</item>
+        <item>零八分</item>
+        <item>零九分</item>
+        <item>十分</item>
+        <item>十一分</item>
+        <item>十二分</item>
+        <item>十三分</item>
+        <item>十四分</item>
+        <item>十五分</item>
+        <item>十六分</item>
+        <item>十七分</item>
+        <item>十八分</item>
+        <item>十九分</item>
+        <item>二十分</item>
+        <item>二十一分</item>
+        <item>二十二分</item>
+        <item>二十三分</item>
+        <item>二十四分</item>
+        <item>二十五分</item>
+        <item>二十六分</item>
+        <item>二十七分</item>
+        <item>二十八分</item>
+        <item>二十九分</item>
+        <item>三十分</item>
+        <item>三十一分</item>
+        <item>三十二分</item>
+        <item>三十三分</item>
+        <item>三十四分</item>
+        <item>三十五分</item>
+        <item>三十六分</item>
+        <item>三十七分</item>
+        <item>三十八分</item>
+        <item>三十九分</item>
+        <item>四十分</item>
+        <item>四十一分</item>
+        <item>四十二分</item>
+        <item>四十三分</item>
+        <item>四十四分</item>
+        <item>四十五分</item>
+        <item>四十六分</item>
+        <item>四十七分</item>
+        <item>四十八分</item>
+        <item>四十九分</item>
+        <item>五十分</item>
+        <item>五十一分</item>
+        <item>五十二分</item>
+        <item>五十三分</item>
+        <item>五十四分</item>
+        <item>五十五分</item>
+        <item>五十六分</item>
+        <item>五十七分</item>
+        <item>五十八分</item>
+        <item>五十九分</item>
+    </string-array>
+</resources>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
+    <string-array name="type_clock_minutes_alt">
+        <item>Ακριβώς</item>
+        <item>Ένα</item>
+        <item>Δύο</item>
+        <item>Τρία</item>
+        <item>Τέσσερα</item>
+        <item>Πέντε</item>
+        <item>Έξι</item>
+        <item>Επτά</item>
+        <item>Οκτώ</item>
+        <item>Εννέα</item>
+        <item>Δέκα</item>
+        <item>Έντεκα</item>
+        <item>Δώδεκα</item>
+        <item>Δεκατρία</item>
+        <item>Δεκατέσσερα</item>
+        <item>Δεκαπέντε</item>
+        <item>Δεκαέξι</item>
+        <item>Δεκαεπτά</item>
+        <item>Δεκαοκτώ</item>
+        <item>Δεκαεννέα</item>
+        <item>Είκοσι</item>
+        <item>Είκοσι
+Ένα</item>
+        <item>Είκοσι
+Δύο</item>
+        <item>Είκοσι
+Τρία</item>
+        <item>Είκοσι
+Τέσσερα</item>
+        <item>Είκοσι
+Πέντε</item>
+        <item>Είκοσι
+Έξι</item>
+        <item>Είκοσι
+Επτά</item>
+        <item>Είκοσι
+Οκτώ</item>
+        <item>Είκοσι
+Εννέα</item>
+        <item>Τριάντα</item>
+        <item>Τριάντα
+Ένα</item>
+        <item>Τριάντα
+Δύο</item>
+        <item>Τριάντα 
+Τρία</item>
+        <item>Τριάντα 
+Τέσσερα</item>
+        <item>Τριάντα
+Πέντε</item>
+        <item>Τριάντα
+Έξι</item>
+        <item>Τριάντα
+Επτά</item>
+        <item>Τριάντα
+Οκτώ</item>
+        <item>Τριάντα
+Εννέα</item>
+        <item>Σαράντα</item>
+        <item>Σαράντα
+Ένα</item>
+        <item>Σαράντα
+Δύο</item>
+        <item>Σαράντα
+Τρία</item>
+        <item>Σαράντα
+Τέσσερα</item>
+        <item>Σαράντα
+Πέντε</item>
+        <item>Σαράντα
+Έξι</item>
+        <item>Σαράντα
+Επτά</item>
+        <item>Σαράντα
+Οκτώ</item>
+        <item>Σαράντα
+Εννέα</item>
+        <item>Πενήντα</item>
+        <item>Πενήντα
+Ένα</item>
+        <item>Πενήντα
+Δύο</item>
+        <item>Πενήντα
+Τρία</item>
+        <item>Πενήντα
+Τέσσερα</item>
+        <item>Πενήντα
+Πέντε</item>
+        <item>Πενήντα
+Έξι</item>
+        <item>Πενήντα
+Επτά</item>
+        <item>Πενήντα
+Οκτώ</item>
+        <item>Πενήντα
+Εννέα</item>
+    </string-array>
+</resources>

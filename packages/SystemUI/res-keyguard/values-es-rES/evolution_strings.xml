@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
+    <string-array name="type_clock_minutes_alt">
+        <item>O\u2019Reloj</item>
+        <item>O\u2019Uno</item>
+        <item>O\u2019Dos</item>
+        <item>O\u2019Tres</item>
+        <item>O\u2019Cuatro</item>
+        <item>O\u2019Cinco</item>
+        <item>O\u2019Seis</item>
+        <item>O\u2019Siete</item>
+        <item>O\u2019Ocho</item>
+        <item>O\u2019Nueve</item>
+        <item>Diez</item>
+        <item>Once</item>
+        <item>Doce</item>
+        <item>Trece</item>
+        <item>Catorce</item>
+        <item>Quince</item>
+        <item>Y Dieciséis</item>
+        <item>Diecisiete</item>
+        <item>Dieciocho</item>
+        <item>Diecinueve</item>
+        <item>Veinte</item>
+        <item>Veintiuno</item>
+        <item>Veintidós</item>
+        <item>Veintitrés</item>
+        <item>Veinticuatro</item>
+        <item>Veinticinco</item>
+        <item>Veintiséis</item>
+        <item>Veintisiete</item>
+        <item>Veintiocho</item>
+        <item>Veintinueve</item>
+        <item>Y Media</item>
+        <item>Y treinta y uno</item>
+        <item>Y treinta y dos</item>
+        <item>Y treinta y tres</item>
+        <item>Treinta
+y cuatro</item>
+        <item>Treinta
+y cinco</item>
+        <item>Treinta
+y seis</item>
+        <item>Treinta
+y siete</item>
+        <item>Treinta
+y ocho</item>
+        <item>Treinta
+y nueve</item>
+        <item>Cuarenta</item>
+        <item>Cuarenta
+y uno</item>
+        <item>Cuarenta
+y dos</item>
+        <item>Cuarenta
+y tres</item>
+        <item>Cuarenta
+y cuatro</item>
+        <item>Cuarenta
+y cinco</item>
+        <item>Cuarenta
+y seis</item>
+        <item>Cuarenta
+y siete</item>
+        <item>Cuarenta
+y ocho</item>
+        <item>Cuarenta
+y nueve</item>
+        <item>Cincuenta</item>
+        <item>Cincuenta
+y uno</item>
+        <item>Cincuenta
+y dos</item>
+        <item>Cincuenta
+y tres</item>
+        <item>Cincuenta
+y cuatro</item>
+        <item>Cincuenta
+y cinco</item>
+        <item>Cincuenta
+y seis</item>
+        <item>Cincuenta
+y siete</item>
+        <item>Cincuenta
+y ocho</item>
+        <item>Cincuenta
+y nueve</item>
+    </string-array>
+</resources>
