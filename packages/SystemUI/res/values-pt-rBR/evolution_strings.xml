@@ -61,7 +61,7 @@
     <string name="quick_settings_volume_panel_label">Painel de volume</string>
     <!-- Compass QS Tile -->
     <string name="quick_settings_compass_label">Bússola</string>
-    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_value"><xliff:g id="graus">%1$.0f</xliff:g>\u00b0 <xliff:g id="direção">%2$s</xliff:g></string>
     <string name="quick_settings_compass_init">Inicializando\u2026</string>
     <string name="accessibility_quick_settings_compass_off">Bússola desativada</string>
     <string name="accessibility_quick_settings_compass_on">Bússola ativada</string>
@@ -76,11 +76,11 @@
     <string name="quick_settings_compass_W">O</string>
     <string name="quick_settings_compass_NW">NO</string>
     <!-- Ambient display QS tile -->
-    <string name="quick_settings_ambient_display_label">Tela ambiente</string>
-    <string name="accessibility_quick_settings_ambient_display_off">Tela ambiente desativada</string>
-    <string name="accessibility_quick_settings_ambient_display_on">Tela ambiente ativada</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_off">Tela ambiente foi desativada</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_on">Tela ambiente foi ativada</string>
+    <string name="quick_settings_ambient_display_label">Tela Ambiente</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Tela Ambiente desativada</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Tela Ambiente ativada</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Tela Ambiente foi desativada</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Tela Ambiente foi ativada</string>
     <!-- SleepScreen QS Tile -->
     <string name="quick_settings_sleepscreen_label">Tela de suspensão</string>
     <!-- VPN QS tile -->
