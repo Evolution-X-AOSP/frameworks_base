@@ -46,11 +46,11 @@
     <string name="accessibility_quick_settings_caffeine_off">Cafeína desligada</string>
     <string name="accessibility_quick_settings_caffeine_on">Cafeína ligada</string>
     <!-- Heads Up QS Tile -->
-    <string name="quick_settings_heads_up_label">Notificações pop-up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Notificações pop-up desativadas</string>
-    <string name="accessibility_quick_settings_heads_up_on">Notificações pop-up ativadas</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">As notificações pop-up foram desativadas</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">As notificações pop-up foram ativadas</string>
+    <string name="quick_settings_heads_up_label">Notificações flutuantes</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notificações flutuantes desativadas</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notificações flutuantes ativadas</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">As notificações flutuantes foram desativadas</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">As notificações flutuantes foram ativadas</string>
     <!-- Sync QS Tile -->
     <string name="quick_settings_sync_label">Sincronização</string>
     <string name="accessibility_quick_settings_sync_off">Sincronização desativada</string>
@@ -61,7 +61,7 @@
     <string name="quick_settings_volume_panel_label">Painel de volume</string>
     <!-- Compass QS Tile -->
     <string name="quick_settings_compass_label">Bússola</string>
-    <string name="quick_settings_compass_value"><xliff:g id="graus">%1$.0f</xliff:g>\u00b0 <xliff:g id="direção">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
     <string name="quick_settings_compass_init">Inicializando\u2026</string>
     <string name="accessibility_quick_settings_compass_off">Bússola desativada</string>
     <string name="accessibility_quick_settings_compass_on">Bússola ativada</string>
@@ -72,15 +72,15 @@
     <string name="quick_settings_compass_E">L</string>
     <string name="quick_settings_compass_SE">SE</string>
     <string name="quick_settings_compass_S">S</string>
-    <string name="quick_settings_compass_SW">Sudoeste</string>
+    <string name="quick_settings_compass_SW">SO</string>
     <string name="quick_settings_compass_W">O</string>
     <string name="quick_settings_compass_NW">NO</string>
     <!-- Ambient display QS tile -->
-    <string name="quick_settings_ambient_display_label">Tela Ambiente</string>
-    <string name="accessibility_quick_settings_ambient_display_off">Tela Ambiente desativada</string>
-    <string name="accessibility_quick_settings_ambient_display_on">Tela Ambiente ativada</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_off">Tela Ambiente foi desativada</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_on">Tela Ambiente foi ativada</string>
+    <string name="quick_settings_ambient_display_label">Tela ambiente</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Tela ambiente desativada</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Tela ambiente ativada</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Tela ambiente foi desativada</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Tela ambiente foi ativada</string>
     <!-- SleepScreen QS Tile -->
     <string name="quick_settings_sleepscreen_label">Tela de suspensão</string>
     <!-- VPN QS tile -->
@@ -105,13 +105,13 @@
     <string name="quick_settings_location_secondary_high_accuracy">Alta precisão</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Localização: alta precisão.</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento rápido(<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%s</xliff:g> até completar)</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento rápido(<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%s</xliff:g> até completar a carga)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento rápido (<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%s</xliff:g> até a conclusão)</string>
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento rápido (<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%s</xliff:g> até completar a carga)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Modo leitura</string>
-    <string name="accessibility_quick_settings_reading_mode_on">Modo leitura ativado</string>
-    <string name="accessibility_quick_settings_reading_mode_off">Modo leitura desativado</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Modo leitura ativado.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Modo leitura desativado.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">O modo leitura foi ativado.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">O modo leitura foi desativado.</string>
     <string name="statusbar_items_title">Ícone da barra de status</string>
@@ -182,7 +182,7 @@
     <string name="center">Centro</string>
     <string name="end">Fim</string>
     <string name="space">Espaçador</string>
-    <string name="menu_ime">Menu / Alternador de teclado</string>
+    <string name="menu_ime">Menu / Troca de teclado</string>
     <string name="select_button">Selecione o botão para adicionar</string>
     <string name="add_button">Adicionar botão</string>
     <string name="save">Salvar</string>
