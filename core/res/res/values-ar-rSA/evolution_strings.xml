@@ -34,7 +34,7 @@
     <!-- Advanced reboot -->
     <string name="reboot_to_recovery_title">الاسترداد</string>
     <string name="reboot_to_recovery_message">إعادة التشغيل إلى وضع الإسترداد</string>
-    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_title">الاسترداد</string>
     <string name="reboot_to_bootloader_message">اعادة التشغيل للـBootloader</string>
     <string name="reboot_title">إعادة التشغيل</string>
     <string name="reboot_message">يتم إعادة تشغيل النظام</string>
@@ -55,7 +55,7 @@
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay: الوضع النهاري.</string>
     <string name="accessibility_quick_settings_live_display_night">LiveDisplay: الوضع الليلي.</string>
     <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: وضع الأماكن المفتوحة.</string>
-    <string name="accessibility_quick_settings_live_display_changed_off">تم إيقاف تشغيل LiveDisplay.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">تم إيقاف تشغيل العرض الحي.</string>
     <string name="accessibility_quick_settings_live_display_changed_auto">تم تغيير LiveDisplay إلى الوضع التلقائي.</string>
     <string name="accessibility_quick_settings_live_display_changed_day">تم تغيير LiveDisplay إلى الوضع النهاري.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">تم تغيير LiveDisplay إلى الوضع الليلي.</string>
