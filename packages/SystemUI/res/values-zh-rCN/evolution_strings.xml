@@ -61,7 +61,7 @@
     <string name="quick_settings_volume_panel_label">声音面板</string>
     <!-- Compass QS Tile -->
     <string name="quick_settings_compass_label">指南针</string>
-    <string name="quick_settings_compass_value">%2$s %1$.0f°</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
     <string name="quick_settings_compass_init">正在初始化…</string>
     <string name="accessibility_quick_settings_compass_off">关闭指南针</string>
     <string name="accessibility_quick_settings_compass_on">开启指南针</string>
@@ -80,7 +80,7 @@
     <string name="accessibility_quick_settings_ambient_display_off">关闭环境显示</string>
     <string name="accessibility_quick_settings_ambient_display_on">开启环境显示。</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">环境显示已关闭</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_on">主动显示已开启。</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">主动显示已开启</string>
     <!-- SleepScreen QS Tile -->
     <string name="quick_settings_sleepscreen_label">息屏</string>
     <!-- VPN QS tile -->
@@ -96,7 +96,7 @@
     <!-- LTE QS Tile -->
     <string name="qs_lte_label">LTE</string>
     <string name="lte_on">LTE 开启 </string>
-    <string name="lte_off">LTE关闭</string>
+    <string name="lte_off">LTE 关闭</string>
     <!-- Advance location quick setting tile -->
     <string name="quick_settings_location_secondary_battery_saving">省电</string>
     <string name="accessibility_quick_settings_location_battery_saving">位置报告：省电模式</string>
