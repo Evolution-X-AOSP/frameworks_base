@@ -29,7 +29,7 @@
     <string name="permgroupdesc_fake_package_signature">允许软件签名欺骗</string>
     <!-- Message shown to the user when the apps requests permission from this group. If ever possible this should stay below 80 characters (assuming the parameters takes 20 characters). Don't abbreviate until the message reaches 120 characters though. [CHAR LIMIT=120] -->
     <string name="permgrouprequest_fake_package_signature">允许
-        &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; 歪曲包签名？</string>
+        &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; 欺骗包签名？</string>
     <!-- Advanced reboot -->
     <string name="reboot_to_recovery_title">恢复模式</string>
     <string name="reboot_to_recovery_message">正在重启至恢复模式</string>
@@ -55,9 +55,9 @@
     <string name="accessibility_quick_settings_live_display_night">LiveDisplay：夜晚模式。</string>
     <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay：户外模式。</string>
     <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay 已关闭。</string>
-    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisPlay 已切换为自动模式.</string>
-    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisPlay 已切换为白天模式.</string>
-    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisPlay 已切换为夜间模式.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisPlay 已切换为自动模式。</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisPlay 已切换为白天模式。</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisPlay 已切换为夜间模式。</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisPlay 已切换为户外模式。</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">长按电源键来解锁</string>
