@@ -35,10 +35,10 @@
     <string name="reboot_to_bootloader_title">Bootloader</string>
     <string name="reboot_to_bootloader_message">Neustart in den Bootloader</string>
     <string name="reboot_title">Neustart</string>
-    <string name="reboot_message">System Neustarten</string>
+    <string name="reboot_message">System neustarten</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automatisch</string>
-    <string name="live_display_auto_summary">Farbtemperatur des Bildschirms automatisch nach Sonnenuntergang und Sonnenaufgang anpassen</string>
+    <string name="live_display_auto_summary">Farbtemperatur des Bildschirms automatisch nach Sonnenuntergang und -aufgang anpassen</string>
     <string name="live_display_off">Aus</string>
     <string name="live_display_off_summary">Alle Anpassungen deaktivieren</string>
     <string name="live_display_day">Tag</string>
@@ -52,9 +52,9 @@
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: Automatischer Modus.</string>
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay: Tag-Modus.</string>
     <string name="accessibility_quick_settings_live_display_night">LiveDisplay: Nacht-Modus.</string>
-    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: Draußen Modus.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: Draußen-Modus.</string>
     <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay ausgeschaltet.</string>
-    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay auf Auto-Modus geändert.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay zu Automatischen-Modus geändert.</string>
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay auf Tag-Modus geändert.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay auf Nacht-Modus geändert.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay auf Draußen-Modus geändert.</string>
@@ -70,7 +70,7 @@
     <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB über Netzwerk aktiviert</string>
     <!-- ADB over USB and network notification -->
-    <string name="adb_both_active_notification_title">ADB über USB und Netzwerk aktiviert</string>
+    <string name="adb_both_active_notification_title">ADB über USB &amp; Netzwerk aktiviert</string>
     <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Berühren, um Debugging zu deaktivieren.</string>
 </resources>
