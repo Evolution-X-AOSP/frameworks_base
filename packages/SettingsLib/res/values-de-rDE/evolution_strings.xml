@@ -22,15 +22,15 @@
     <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
     <string name="screen_zoom_summary_smaller">Kleiner</string>
     <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
-    <string name="screen_zoom_summary_smallest">Kleinste</string>
+    <string name="screen_zoom_summary_smallest">Am kleinsten</string>
     <!-- Label for estimated remaining duration of dash battery charging -->
-    <string name="power_remaining_dash_charging_duration_only">Schnell-Ladevorgang (<xliff:g id="time">%1$s</xliff:g> bis zur vollständigen Aufladung)</string>
+    <string name="power_remaining_dash_charging_duration_only">Dash-Ladevorgang (<xliff:g id="time">%1$s</xliff:g> bis zur vollständigen Aufladung)</string>
     <!-- Battery use screen.  Battery status shown in chart label when charging from a dash source.  -->
-    <string name="battery_info_status_dash_charging">Schnellladen</string>
-    <string name="battery_info_status_dash_charging_lower">schnellladen (Dash)</string>
+    <string name="battery_info_status_dash_charging">Schnellladen (Dash)</string>
+    <string name="battery_info_status_dash_charging_lower">Schnellladen (Dash)</string>
     <!-- Label for estimated remaining duration of warp battery charging -->
-    <string name="power_remaining_warp_charging_duration_only">Dash-Ladevorgang (<xliff:g id="time">%1$s</xliff:g> bis zur vollständigen Aufladung)</string>
+    <string name="power_remaining_warp_charging_duration_only">Warp-Ladevorgang (<xliff:g id="time">%1$s</xliff:g> bis zur vollständigen Aufladung)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
-    <string name="battery_info_status_warp_charging">Schnellladen (Dash)</string>
-    <string name="battery_info_status_warp_charging_lower">schnellladen (Dash)</string>
+    <string name="battery_info_status_warp_charging">Warp-Ladevorgang</string>
+    <string name="battery_info_status_warp_charging_lower">Warp-Ladevorgang</string>
 </resources>
