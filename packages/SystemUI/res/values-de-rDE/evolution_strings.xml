@@ -23,16 +23,16 @@
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">SystemUI</string>
     <!-- Screenshot QS tile -->
-    <string name="quick_settings_screenshot_label">Bildschimfoto</string>
+    <string name="quick_settings_screenshot_label">Screenshot</string>
     <string name="quick_settings_region_screenshot_label">Bildschirmfoto-Teilbereich</string>
     <!-- Sound Search tile -->
     <string name="quick_settings_sound_search">Soundsuche</string>
     <string name="quick_settings_sound_search_no_app">Leider funktioniert dies nur, wenn eine App für die Musiksuche installiert ist.</string>
     <!-- USB Tethering tile -->
-    <string name="accessibility_quick_settings_usb_tether_off">USB Tethering aus</string>
-    <string name="accessibility_quick_settings_usb_tether_on">USB Tethering an</string>
-    <string name="accessibility_quick_settings_usb_tether_changed_off">USB Tethering ausgeschaltet</string>
-    <string name="accessibility_quick_settings_usb_tether_changed_on">USB-Tethering eingeschaltet</string>
+    <string name="accessibility_quick_settings_usb_tether_off">USB-Tethering aus</string>
+    <string name="accessibility_quick_settings_usb_tether_on">USB-Tethering an</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">USB-Tethering ausgeschaltet</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">USB-Tethering angeschaltet</string>
     <string name="quick_settings_usb_tether_label">USB-Tethering</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Always-On-Display</string>
@@ -40,17 +40,17 @@
     <string name="quick_settings_sound_label">Töne</string>
     <string name="quick_settings_sound_mute">Stumm</string>
     <string name="quick_settings_sound_ring">Klingeln</string>
-    <string name="quick_settings_sound_vibrate">Vibration</string>
+    <string name="quick_settings_sound_vibrate">Vibrieren</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Caffeine</string>
     <string name="accessibility_quick_settings_caffeine_off">Caffeine aus</string>
     <string name="accessibility_quick_settings_caffeine_on">Caffeine an</string>
     <!-- Heads Up QS Tile -->
-    <string name="quick_settings_heads_up_label">Pop-up Benachrichtigungen</string>
-    <string name="accessibility_quick_settings_heads_up_off">Pop-Up Benachrichtigungen aus</string>
-    <string name="accessibility_quick_settings_heads_up_on">Pop-Up Benachrichtigungen aus</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Pop-Up\'s deaktiviert</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Pop-Up\'s aktiviert</string>
+    <string name="quick_settings_heads_up_label">Heads-Up</string>
+    <string name="accessibility_quick_settings_heads_up_off">Heads-Up aus</string>
+    <string name="accessibility_quick_settings_heads_up_on">Heads-Up an</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Heads-Up ausgeschaltet</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Heads-Up eingeschaltet</string>
     <!-- Sync QS Tile -->
     <string name="quick_settings_sync_label">Synchronisation</string>
     <string name="accessibility_quick_settings_sync_off">Synchronisation aus</string>
@@ -67,17 +67,17 @@
     <string name="accessibility_quick_settings_compass_on">Kompass an</string>
     <string name="accessibility_quick_settings_compass_changed_off">Kompass ausgeschaltet</string>
     <string name="accessibility_quick_settings_compass_changed_on">Kompass eingeschaltet</string>
-    <string name="quick_settings_compass_N">Nord</string>
-    <string name="quick_settings_compass_NE">Nord-Osten</string>
-    <string name="quick_settings_compass_E">Osten</string>
-    <string name="quick_settings_compass_SE">Süd-Osten</string>
-    <string name="quick_settings_compass_S">Süd</string>
-    <string name="quick_settings_compass_SW">Südwesten</string>
-    <string name="quick_settings_compass_W">Westen</string>
-    <string name="quick_settings_compass_NW">Nordwesten</string>
+    <string name="quick_settings_compass_N">N</string>
+    <string name="quick_settings_compass_NE">NO</string>
+    <string name="quick_settings_compass_E">O</string>
+    <string name="quick_settings_compass_SE">SO</string>
+    <string name="quick_settings_compass_S">S</string>
+    <string name="quick_settings_compass_SW">SW</string>
+    <string name="quick_settings_compass_W">W</string>
+    <string name="quick_settings_compass_NW">NW</string>
     <!-- Ambient display QS tile -->
-    <string name="quick_settings_ambient_display_label">Inaktivitätsdisplay</string>
-    <string name="accessibility_quick_settings_ambient_display_off">Inaktivitätsdisplay Aus</string>
+    <string name="quick_settings_ambient_display_label">Ambient-Display</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambient-Display aus</string>
     <string name="accessibility_quick_settings_ambient_display_on">Ambient-Display an</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display wurde ausgeschaltet</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient Display wurde eingeschaltet</string>
@@ -118,7 +118,7 @@
     <string name="lockscreen_default">Standard</string>
     <string name="lockscreen_hidden">Kein</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Zum starten vom Symbol weg wischen</string>
+    <string name="custom_hint">Zum Starten vom Symbol wischen</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">HW-Tasten an</string>
     <string name="accessibility_quick_settings_hwkeys_off">HW-Tasten aus</string>
@@ -128,15 +128,15 @@
     <string name="gaming_mode_tile_toast">Spielmodus eingeschaltet</string>
     <string name="gaming_mode_tile_toast_disabled">Spielmodus ausgeschaltet</string>
     <string name="gaming_mode_dialog_title">Spielmodus</string>
-    <string name="gaming_mode_dialog_message">Wenn der Spielmodus aktiviert ist, werden alle Heads-up Nachrichten und die Hardwaretasten deaktiviert. Alle Einstellungen werden nach dem Beenden des Spielmodus auf Standard zurückgesetzt.</string>
+    <string name="gaming_mode_dialog_message">Wenn der Spielmodus aktiviert ist, werden alle Heads-Up Nachrichten und die Hardwaretasten deaktiviert. Alle Einstellungen werden nach dem Beenden des Spielmodus auf Standard zurückgesetzt.</string>
     <string name="accessibility_quick_settings_gaming_mode_on">Spielmodus an</string>
     <string name="accessibility_quick_settings_gaming_mode_off">Spielmodus aus</string>
     <!-- Status bar icons -->
     <string name="status_bar_data_disabled">Kreuz, wenn Mobile Daten deaktiviert sind</string>
-    <string name="status_bar_data_saver">Datenverbrauch reduzieren</string>
+    <string name="status_bar_data_saver">Datensparmodus</string>
     <string name="status_bar_nfc">NFC</string>
     <string name="status_bar_roaming">Mobilfunk-Roaming</string>
-    <string name="status_bar_vpn">VPN (Virtuelles privates Netzwerk)</string>
+    <string name="status_bar_vpn">VPN</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
     <string name="accessibility_status_bar_nfc">Nfc</string>
     <!-- Kill button in notification guts -->
@@ -154,18 +154,18 @@
     <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_quick_settings_gaming_mode_enabled">Spielmodus eingeschaltet.</string>
     <!-- DataSwitch Tile -->
-    <string name="qs_data_switch_label">Daten Sim-Karte wechseln</string>
-    <string name="qs_data_switch_changed_1">SIM 1 wird für Mobile Daten verwendet</string>
-    <string name="qs_data_switch_changed_2">SIM 2 wird für Mobile Daten verwendet</string>
-    <string name="quick_settings_immersive_tile">Vollbildmodus</string>
-    <string name="quick_settings_immersive_tile_off">Vollbildmodus aus</string>
-    <string name="quick_settings_immersive_tile_statusbar">Statusleiste ausblenden</string>
-    <string name="quick_settings_immersive_tile_navbar">Navigationsleiste ausblenden</string>
-    <string name="quick_settings_immersive_tile_full">Statusleiste und Navigationsleiste ausblenden</string>
+    <string name="qs_data_switch_label">Daten SIM-Karte wechseln</string>
+    <string name="qs_data_switch_changed_1">SIM 1 wird für mobile Daten verwendet</string>
+    <string name="qs_data_switch_changed_2">SIM 2 wird für mobile Daten verwendet</string>
+    <string name="quick_settings_immersive_tile">Immersiver Modus</string>
+    <string name="quick_settings_immersive_tile_off">Immersiver Modus deaktiviert</string>
+    <string name="quick_settings_immersive_tile_statusbar">Immersive Statusleiste</string>
+    <string name="quick_settings_immersive_tile_navbar">Immersive Navigationsleiste</string>
+    <string name="quick_settings_immersive_tile_full">Immersiv vollständig</string>
     <string name="screenrecord_stopdot_label">Zeige Stop-Punkt</string>
     <string name="screenrecord_low_quality_label">Niedrige Qualität</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
-    <string name="global_action_screenshot_cust">Bildschimfoto</string>
+    <string name="global_action_screenshot_cust">Screenshot</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
     <string name="accessibility_quick_settings_running_services">Übersicht der laufenden Anwendungen öffnen.</string>
     <!-- Language toggle tile -->
@@ -175,7 +175,7 @@
     <string name="preview">Vorschau</string>
     <string name="keycode">Tastencode</string>
     <string name="no_home_title">Keine Home-Taste gefunden</string>
-    <string name="no_home_message">Um dieses Gerät bedienen zu können, braucht man eine Startbildschirmtaste. Bitte füge vor dem Speichern eine entsprechende Schaltfläche hinzu.</string>
+    <string name="no_home_message">Eine Home-Taste ist erforderlich, um dieses Gerät navigieren zu können. Bitte fügen Sie eine Home-Taste vor dem Speichern ein.</string>
     <string name="clipboard_description">Elemente können direkt in die Zwischenablage gezogen werden. Ebenso können sie direkt aus der Zwischenablage gezogen werden, sofern diese geöffnet ist.</string>
     <string name="keycode_description">Mit den Keycode-Schaltflächen kann man der Navigationsleiste Tasten hinzufügen. Wird eine Keycode-Schaltfläche ausgewählt, führt sie die Aktion der entsprechenden Taste aus. Wähle zuerst die Taste für die Schaltfläche aus und dann ein Bild, das auf der Schaltfläche erscheinen soll.</string>
     <string name="start">Zur Startseite</string>
