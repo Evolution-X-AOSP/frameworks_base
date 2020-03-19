@@ -59,7 +59,7 @@
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay alterado para modo noturno.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay alterado para o modo externo.</string>
     <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Pressione e segure o botão liga/desliga para desbloquear</string>
+    <string name="pocket_lock_message_long_press">Pressione e segure o botão Liga/Desliga para desbloquear</string>
     <!-- Alert slider proc nodes paths. -->
     <!-- Gaming mode -->
     <string name="notification_channel_gaming">Modo de jogo</string>
