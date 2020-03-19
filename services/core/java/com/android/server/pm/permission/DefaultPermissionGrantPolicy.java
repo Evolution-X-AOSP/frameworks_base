@@ -868,6 +868,10 @@ public final class DefaultPermissionGrantPolicy {
         // Google Recorder
         grantSystemFixedPermissionsToSystemPackage("com.google.android.apps.recorder", userId, MICROPHONE_PERMISSIONS,
                 ALWAYS_LOCATION_PERMISSIONS);
+
+        // Google Photos
+        grantSystemFixedPermissionsToSystemPackage("com.google.android.apps.photos", userId, CONTACTS_PERMISSIONS,
+                PHONE_PERMISSIONS, STORAGE_PERMISSIONS, ALWAYS_LOCATION_PERMISSIONS);
     }
 
     private String getDefaultSystemHandlerActivityPackageForCategory(String category, int userId) {
