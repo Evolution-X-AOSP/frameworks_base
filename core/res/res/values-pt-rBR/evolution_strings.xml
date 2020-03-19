@@ -20,9 +20,9 @@
     <string name="url_copy_success">URL copiado com sucesso</string>
     <string name="url_copy_failed">Ocorreu um erro durante o envio do log para o dogbin</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_fakePackageSignature">Assinatura falsa de pacote</string>
+    <string name="permlab_fakePackageSignature">Falsificar assinatura do pacote</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_fakePackageSignature">Permite que o aplicativo finja ser um aplicativo diferente. Aplicativos maliciosos podem usar isso para acessar dados privados de outros aplicativos. Conceda esta permissão com cuidado!</string>
+    <string name="permdesc_fakePackageSignature">Permite que os aplicativos finjam ser um aplicativo diferente. Aplicativos maliciosos podem usar isso para acessar dados privados de outros aplicativos. Conceda esta permissão com cuidado!</string>
     <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permgrouplab_fake_package_signature">Assinatura falsa de pacote</string>
     <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
@@ -32,8 +32,8 @@
     <!-- Advanced reboot -->
     <string name="reboot_to_recovery_title">Recovery</string>
     <string name="reboot_to_recovery_message">Reiniciando para o Recovery...</string>
-    <string name="reboot_to_bootloader_title">Fastboot</string>
-    <string name="reboot_to_bootloader_message">Reiniciando para o Fastboot...</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Reiniciando para o bootloader...</string>
     <string name="reboot_title">Reiniciar</string>
     <string name="reboot_message">Reiniciando o sistema...</string>
     <!-- LiveDisplay strings -->
