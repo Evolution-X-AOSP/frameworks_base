@@ -17,8 +17,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
     <string-array name="type_clock_minutes_alt">
-        <item>\u2019 em ponto</item>
-        <item>\u2019Um</item>
+        <item>\u2019 em ponto\u2019</item>
+        <item>\u2019</item>
         <item>\u2019Dois</item>
         <item>O\u2019Três</item>
         <item>O\u2019Quatro</item>
@@ -27,9 +27,9 @@
         <item>\u2019Sete</item>
         <item>\u2019Oito</item>
         <item>\u2019Nove</item>
-        <item>e Dez</item>
-        <item>e Onze</item>
-        <item>e Doze</item>
+        <item>Dez</item>
+        <item>Onze</item>
+        <item>Doze</item>
         <item>e Treze</item>
         <item>e Quatorze</item>
         <item>e Quinze</item>
