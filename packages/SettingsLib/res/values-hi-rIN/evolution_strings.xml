@@ -18,7 +18,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Deep sleep info -->
-    <string name="status_deep_sleep">(गहरी नींद: %1$d%2$s)</string>
+    <string name="status_deep_sleep">(डीप स्लीप: %1$d%2$s)</string>
     <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
     <string name="screen_zoom_summary_smaller">छोटे</string>
     <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
