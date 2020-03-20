@@ -78,20 +78,20 @@
     <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">एम्बिएंट डिस्प्ले</string>
     <string name="accessibility_quick_settings_ambient_display_off">एम्बिएंट डिस्प्ले बंद</string>
-    <string name="accessibility_quick_settings_ambient_display_on">एम्बिएंट डिस्प्ले चालु</string>
+    <string name="accessibility_quick_settings_ambient_display_on">एम्बिएंट डिस्प्ले चालू</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">एम्बिएंट डिस्प्ले बंद कर दिया</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_on">एम्बिएंट डिस्प्ले चालु कर दिया</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">एम्बिएंट डिस्प्ले चालू कर दिया</string>
     <!-- SleepScreen QS Tile -->
     <string name="quick_settings_sleepscreen_label">स्लीप स्क्रीन</string>
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">वीपीएन</string>
-    <string name="quick_settings_vpn_connect_dialog_title">कनेक्ट कर\u2026</string>
-    <string name="vpn_credentials_hint">कृपया कनेक्ट करने के लिए अपनी साख दर्ज करें <xliff:g id="name">%s</xliff:g></string>
+    <string name="quick_settings_vpn_connect_dialog_title">\u2026 से कनेक्ट करें</string>
+    <string name="vpn_credentials_hint"><xliff:g id="name">%s</xliff:g> से कनेक्ट करने के लिए अपनी जानकारी दर्ज करें</string>
     <string name="vpn_credentials_username">उपयोगकर्ता नाम</string>
     <string name="vpn_credentials_password">पासवर्ड</string>
     <string name="vpn_credentials_dialog_connect">कनेक्ट करें</string>
     <!-- Reboot/Recovery QS Tile -->
-    <string name="quick_settings_reboot_label">रिबूट</string>
+    <string name="quick_settings_reboot_label">बंद करके चालू करें</string>
     <string name="quick_settings_reboot_recovery_label">रिकवरी</string>
     <!-- LTE QS Tile -->
     <string name="qs_lte_label">एलटीई</string>
@@ -101,9 +101,9 @@
     <string name="quick_settings_location_secondary_battery_saving">बैटरी की बचत</string>
     <string name="accessibility_quick_settings_location_battery_saving">स्थान रिपोर्टिंग: बैटरी बचत मोड।</string>
     <string name="quick_settings_location_secondary_gps_only">केवल सेंसर</string>
-    <string name="accessibility_quick_settings_location_gps_only">लोकेशन मोड: सिर्फ सेंसर मोड़</string>
+    <string name="accessibility_quick_settings_location_gps_only">स्थान रिपोर्टिंग: केवल सेंसर मोड।</string>
     <string name="quick_settings_location_secondary_high_accuracy">उच्च सटीकता</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">लोकेशन मोड: उच्च सटीकता मोड</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">स्थान रिपोर्टिंग: उच्च सटीकता मोड।</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • डैश चार्जिंग (<xliff:g id="charging_time_left" example="4 घंटे and 2 मिनट">%s</xliff:g> पूर्ण होने तक)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
@@ -114,11 +114,11 @@
     <string name="accessibility_quick_settings_reading_mode_off">पठन मोड बंद।</string>
     <string name="accessibility_quick_settings_reading_mode_changed_on">पठन मोड चालू है।</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">पठन मोड बंद है।</string>
-    <string name="statusbar_items_title">स्टेटसबार चिह्न</string>
-    <string name="lockscreen_default">डिफ़ॉल्ट</string>
+    <string name="statusbar_items_title">स्टेटसबार आइकन</string>
+    <string name="lockscreen_default">पूर्व निर्धारित</string>
     <string name="lockscreen_hidden">कुछ नहीं</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">लॉन्च करने के लिए चिह्न से स्वाइप करें</string>
+    <string name="custom_hint">खोलने के लिए आइकन से स्वाइप करें</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">हार्डवेयर बटन्स चालू</string>
     <string name="accessibility_quick_settings_hwkeys_off">हार्डवेयर बटन्स बंद</string>
@@ -128,24 +128,24 @@
     <string name="gaming_mode_tile_toast">गेमिंग मोड चालू किया गया</string>
     <string name="gaming_mode_tile_toast_disabled">गेमिंग मोड बंद किया गया</string>
     <string name="gaming_mode_dialog_title">गेमिंग मोड</string>
-    <string name="gaming_mode_dialog_message">जब गेमिंग मोड सक्षम हो जाता है, तो सभी हेड-अप संदेश अक्षम हो जाएंगे और हार्डवेयर कुंजी बंद हो जाएगी। गेमिंग मोड से बाहर निकलने के बाद सभी अक्षम सेटिंग्स को डिफ़ॉल्ट पर रीसेट कर दिया जाएगा।</string>
+    <string name="gaming_mode_dialog_message">जब गेमिंग मोड सक्षम हो जाता है, तो सभी हेड-अप संदेश अक्षम हो जाएंगे और हार्डवेयर कुंजी बंद हो जाएगी। गेमिंग मोड से बाहर निकलने के बाद सभी अक्षम सेटिंग्स को पूर्व निर्धारित कर दिया जाएगा।</string>
     <string name="accessibility_quick_settings_gaming_mode_on">गेमिंग मोड चालू है</string>
     <string name="accessibility_quick_settings_gaming_mode_off">गेमिंग मोड बंद है</string>
     <!-- Status bar icons -->
-    <string name="status_bar_data_disabled">डेटा अक्षम होने पर क्रॉस करें</string>
+    <string name="status_bar_data_disabled">डेटा बंद होने पर क्रॉस का चिन्ह् दिखाएं</string>
     <string name="status_bar_data_saver">डेटा सेवर</string>
     <string name="status_bar_nfc">एनएफसी</string>
     <string name="status_bar_roaming">रोमिंग</string>
     <string name="status_bar_vpn">वीपीएन</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
-    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <string name="accessibility_status_bar_nfc">एनएफसी</string>
     <!-- Kill button in notification guts -->
-    <string name="force_stop_dlg_title">जबरदस्ती रोके?</string>
+    <string name="force_stop_dlg_title">जबरदस्ती रोकें?</string>
     <string name="force_stop_dlg_text">यदि आप कोई ऐप जबरदस्ती बंद करते हैं, तो वो दुर्व्यवहार कर सकता है|</string>
     <string name="guts_force_close_app">ऐप बंद करें</string>
     <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> सूचना देखना 1 मिनट के लिए स्थगित किया गया हैं।</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%s </xliff:g> - सूचनाएँ <xliff:g id="number">%d </xliff:g> मिनट के लिए स्थगित करने हैं।</string>
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> नोटिफिकेशन देखना 1 मिनट के लिए बंद किया गया है।</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s </xliff:g> - नोटिफिकेशन <xliff:g id="number">%d </xliff:g> मिनट के लिए बंद करें ।</string>
     <!-- Gaming mode -->
     <string name="gaming_mode_not_enabled">गेमिंग मोड सेटिंग्स में अक्षम है</string>
     <string name="quick_settings_gaming_mode_label">गेमिंग मोड</string>
@@ -157,12 +157,12 @@
     <string name="qs_data_switch_label">डेटा कार्ड स्विच करें</string>
     <string name="qs_data_switch_changed_1">मोबाइल डेटा के लिए सिम 1 का उपयोग हो रहा है</string>
     <string name="qs_data_switch_changed_2">मोबाइल डेटा के लिए सिम 2 का उपयोग हो रहा है</string>
-    <string name="quick_settings_immersive_tile">इम्मेरसीवे मोड</string>
-    <string name="quick_settings_immersive_tile_off">इमर्सिव मोड बंद करे</string>
-    <string name="quick_settings_immersive_tile_statusbar">इमर्सिव स्टेटस बार</string>
-    <string name="quick_settings_immersive_tile_navbar">इमर्सिव नेवबार</string>
-    <string name="quick_settings_immersive_tile_full">इम्मेरसीवे मोड पूर्ण</string>
-    <string name="screenrecord_stopdot_label">स्टॉप डॉट दिखाओ</string>
+    <string name="quick_settings_immersive_tile">पूर्ण डिस्प्ले मोड</string>
+    <string name="quick_settings_immersive_tile_off">पूर्ण डिस्प्ले मोड बंद है</string>
+    <string name="quick_settings_immersive_tile_statusbar">पूर्ण डिस्प्ले मोड स्टेटस बार</string>
+    <string name="quick_settings_immersive_tile_navbar">पूर्ण डिस्प्ले मोड नेवबार</string>
+    <string name="quick_settings_immersive_tile_full">पूर्ण डिस्प्ले मोड पूर्ण</string>
+    <string name="screenrecord_stopdot_label">बंद करने के लिए बिंदु दिखाएं</string>
     <string name="screenrecord_low_quality_label">कम क्वालिटी</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">स्क्रीनशॉट</string>
@@ -170,19 +170,19 @@
     <string name="accessibility_quick_settings_running_services">चल रही सर्विसेज खोलें</string>
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">भाषा </string>
-    <string name="quick_settings_locale_more_locales_toast">कृपया टॉगल कार्यक्षमता सक्षम करने के लिए एक से अधिक भाषाओं को कॉन्फ़िगर करें</string>
+    <string name="quick_settings_locale_more_locales_toast">कृपया टॉगल चालू करने के लिए एक से अधिक भाषाओं को कॉन्फ़िगर करें</string>
     <!-- Navbar editor -->
-    <string name="preview">प्रीव्यू</string>
+    <string name="preview">प्रारूप</string>
     <string name="keycode">कुंजी कोड</string>
-    <string name="no_home_title">कोई घर बटन नहीं मिला</string>
-    <string name="no_home_message">इस डिवाइस पर नेविगेट करने में सक्षम होने के लिए एक होम बटन आवश्यक है। बचत से पहले एक होम बटन जोड़ें।</string>
-    <string name="clipboard_description">क्लिपबोर्ड आइटम्स को सीधे क्लिपबोर्ड पर खींचने की अनुमति देता है। मौजूद होने पर आइटम को सीधे क्लिपबोर्ड से बाहर खींचा जा सकता है।</string>
-    <string name="keycode_description">Keycode बटन कुंजीपटल कुंजी को नेविगेशन बार में जोड़ने की अनुमति देते हैं। दबाए जाने पर वे चयनित कीबोर्ड कुंजी का अनुकरण करते हैं। पहले बटन को बटन पर दिखाए जाने के बाद बटन के लिए चुना जाना चाहिए</string>
+    <string name="no_home_title">कोई होम बटन नहीं मिला</string>
+    <string name="no_home_message">इस फोन को चलाने के लिए एक होम बटन आवश्यक है। सेव करने से पहले एक होम बटन जोड़ें।</string>
+    <string name="clipboard_description">क्लिपबोर्ड आइटम्स को सीधे क्लिपबोर्ड पर लाने की अनुमति देता है। मौजूद होने पर आइटम्स को सीधे क्लिपबोर्ड के बाहर से भी लाया जा सकता है।</string>
+    <string name="keycode_description">कुंजीकोड कीबोर्ड बटन को नेविगेशन बार में जोड़ने की अनुमति देता है। दबाए जाने पर वे चुनी हुई कीबोर्ड बटन का कार्य करते हैं। पहले कुंजीकोड के लिए बटन चुने फिर उसपर दिखाने के लिए चिन्ह चुनें</string>
     <string name="start">शुरू करें</string>
     <string name="center">मध्य</string>
     <string name="end">अंत</string>
-    <string name="space">स्पेसर</string>
-    <string name="menu_ime">मेनू / कीबोर्ड स्विचर</string>
+    <string name="space">जगह बनाने वाला</string>
+    <string name="menu_ime">मेनू / कीबोर्ड बदलने वाला</string>
     <string name="select_button">जोड़ने के लिए बटन का चयन करें</string>
     <string name="add_button">बटन जोड़ें</string>
     <string name="save">सेव करें</string>
@@ -190,6 +190,6 @@
     <string name="select_keycode">कीबोर्ड बटन का चयन करें</string>
     <string name="left">बाएं</string>
     <string name="right">दाएँ</string>
-    <string name="navbar_editor_title">संपादिक</string>
+    <string name="navbar_editor_title">संपादक</string>
     <string name="navbar_editor_summary">नेविगेशन बार कॉन्फ़िगर करें</string>
 </resources>
