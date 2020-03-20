@@ -27,10 +27,10 @@
     <string name="power_remaining_dash_charging_duration_only">Pengisian Cepat (<xliff:g id="time">%1$s</xliff:g> tersisa, sampai penuh)</string>
     <!-- Battery use screen.  Battery status shown in chart label when charging from a dash source.  -->
     <string name="battery_info_status_dash_charging">Pengisian Cepat</string>
-    <string name="battery_info_status_dash_charging_lower">Pengisian Cepat</string>
+    <string name="battery_info_status_dash_charging_lower">pengisian cepat</string>
     <!-- Label for estimated remaining duration of warp battery charging -->
-    <string name="power_remaining_warp_charging_duration_only">Pengisian Cepat (<xliff:g id="time">%1$s</xliff:g> tersisa, sampai penuh)</string>
+    <string name="power_remaining_warp_charging_duration_only">Pengisian pintar (<xliff:g id="time">%1$s</xliff:g> tersisa, sampai penuh)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
     <string name="battery_info_status_warp_charging">Pengisian Pintar</string>
-    <string name="battery_info_status_warp_charging_lower">Pengisian Pintar</string>
+    <string name="battery_info_status_warp_charging_lower">pengisian pintar</string>
 </resources>
