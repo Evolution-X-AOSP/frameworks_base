@@ -27,7 +27,7 @@
     <string name="quick_settings_region_screenshot_label">Částečný snímek obrazovky</string>
     <!-- Sound Search tile -->
     <string name="quick_settings_sound_search">Zvukové vyhledávání</string>
-    <string name="quick_settings_sound_search_no_app">Je nám to líto, ale nefunguje to, pokud nemáte aplikaci Zvukové vyhledávání.</string>
+    <string name="quick_settings_sound_search_no_app">Je nám to líto, ale toto nefunguje, pokud nemáte aplikaci Zvukové vyhledávání.</string>
     <!-- USB Tethering tile -->
     <string name="accessibility_quick_settings_usb_tether_off">USB tethering vyp.</string>
     <string name="accessibility_quick_settings_usb_tether_on">USB tethering zap.</string>
