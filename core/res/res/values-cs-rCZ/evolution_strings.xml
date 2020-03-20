@@ -32,8 +32,8 @@
     <!-- Advanced reboot -->
     <string name="reboot_to_recovery_title">Recovery</string>
     <string name="reboot_to_recovery_message">Restartování do recovery</string>
-    <string name="reboot_to_bootloader_title">Zavaděč</string>
-    <string name="reboot_to_bootloader_message">Restartování do zavaděče</string>
+    <string name="reboot_to_bootloader_title">Fastboot</string>
+    <string name="reboot_to_bootloader_message">Restartování do fastboot</string>
     <string name="reboot_title">Restartovat</string>
     <string name="reboot_message">Restartování systému</string>
     <!-- LiveDisplay strings -->
