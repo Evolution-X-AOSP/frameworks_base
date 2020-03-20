@@ -42,7 +42,7 @@
     <string name="quick_settings_sound_ring">Со звуком</string>
     <string name="quick_settings_sound_vibrate">Вибрация</string>
     <!-- Caffeine QS tile -->
-    <string name="quick_settings_caffeine_label">Не выключать</string>
+    <string name="quick_settings_caffeine_label">Запрет сна</string>
     <string name="accessibility_quick_settings_caffeine_off">Запрет сна отключен</string>
     <string name="accessibility_quick_settings_caffeine_on">Запрет сна включён</string>
     <!-- Heads Up QS Tile -->
@@ -89,7 +89,7 @@
     <string name="vpn_credentials_hint">Пожалуйста, введите ваши учетные данные для подключения к <xliff:g id="name">%s</xliff:g></string>
     <string name="vpn_credentials_username">Имя пользователя</string>
     <string name="vpn_credentials_password">Пароль</string>
-    <string name="vpn_credentials_dialog_connect">Подключение</string>
+    <string name="vpn_credentials_dialog_connect">Подключиться</string>
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Перезагрузка</string>
     <string name="quick_settings_reboot_recovery_label">Рекавери</string>
