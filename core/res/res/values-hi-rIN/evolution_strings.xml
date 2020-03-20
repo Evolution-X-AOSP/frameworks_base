@@ -28,7 +28,7 @@
     <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permgroupdesc_fake_package_signature">स्पूफ पैकेज हस्ताक्षर की अनुमति दें</string>
     <!-- Message shown to the user when the apps requests permission from this group. If ever possible this should stay below 80 characters (assuming the parameters takes 20 characters). Don't abbreviate until the message reaches 120 characters though. [CHAR LIMIT=120] -->
-    <string name="permgrouprequest_fake_package_signature">&lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; को स्पूफ पैकेज हस्ताक्षर की अनुमति दें</string>
+    <string name="permgrouprequest_fake_package_signature">&lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; को पैकेज हस्ताक्षर नक़ल की अनुमति दें</string>
     <!-- Advanced reboot -->
     <string name="reboot_to_recovery_title">रिकवरी</string>
     <string name="reboot_to_recovery_message">रिकवरी में जा रहा है</string>
@@ -49,28 +49,28 @@
     <string name="live_display_outdoor_summary">केवल घर के बाहर की सेटिंग्स का उपयोग करें</string>
     <string name="live_display_hint">लाइवडिसप्ले आंखों के तनाव को कम करने और रात में सोने में आपकी मदद कर सकता है। इसे आज़माने के लिए यहाँ क्लिक करें!</string>
     <string name="accessibility_quick_settings_live_display_off">लाइवडिसप्ले बंद।</string>
-    <string name="accessibility_quick_settings_live_display_auto">लाइव डिस्पले: स्वचालित मोड पर</string>
+    <string name="accessibility_quick_settings_live_display_auto">लाइव डिस्पले: स्वत: मोड</string>
     <string name="accessibility_quick_settings_live_display_day">लाइव डिस्पले: दिन की तरह</string>
     <string name="accessibility_quick_settings_live_display_night">लाइव डिस्प्ले: रात्रि की तरह</string>
     <string name="accessibility_quick_settings_live_display_outdoor">लाइव डिस्पले: बाहर की तरह</string>
     <string name="accessibility_quick_settings_live_display_changed_off">लाइव डिस्पले बंद</string>
-    <string name="accessibility_quick_settings_live_display_changed_auto">लाइव डिस्पले स्वत: में बदल गया</string>
-    <string name="accessibility_quick_settings_live_display_changed_day">लाइव डिस्पले दिन मोड में बदल गया</string>
-    <string name="accessibility_quick_settings_live_display_changed_night">लाइव डिस्पले रात्री मोड में बदल गया</string>
-    <string name="accessibility_quick_settings_live_display_changed_outdoor">लाइव डिस्पले बहारी मोड में बदल गया</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">लाइव डिस्पले स्वत: मोड में बदल गया</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">लाइव डिस्पले दिन की तरह किया गया</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">लाइव डिस्पले रात की तरह किया गया</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">लाइव डिस्पले बाहर की तरह किया गया</string>
     <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">अनलॉक करने के लिए पावर बटन दबाए रखें</string>
+    <string name="pocket_lock_message_long_press">लॉक खोलने के लिए पावर बटन दबाए रखें</string>
     <!-- Alert slider proc nodes paths. -->
     <!-- Gaming mode -->
     <string name="notification_channel_gaming">गेमिंग मोड</string>
     <string name="gaming_mode_notification_title">गेमिंग मोड चालू किया गया है</string>
     <string name="gaming_mode_notification_content">गेमिंग मोड बंद करने के लिए स्पर्श करें</string>
     <string name="gaming_mode_enabled_toast">गेमिंग मोड चालू किया गया है</string>
-    <string name="gaming_mode_disabled_toast">गेमिंग मोड बंद किया गया है</string>
+    <string name="gaming_mode_disabled_toast">गेमिंग मोड बंद किया गया</string>
     <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">नेटवर्क पर ADB को सक्षम किया गया है</string>
     <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">यूएसबी पर ADB &amp; नेटवर्क सक्षम किया गया है</string>
     <!-- ADB notification message-->
-    <string name="adb_active_generic_notification_message">डिबगिंग को अक्षम करने के लिए स्पर्श करें।</string>
+    <string name="adb_active_generic_notification_message">डिबगिंग को बंद करने के लिए स्पर्श करें।</string>
 </resources>
