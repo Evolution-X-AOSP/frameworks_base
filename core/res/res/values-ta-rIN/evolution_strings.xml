@@ -28,7 +28,7 @@
     <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permgroupdesc_fake_package_signature">தொகுப்பு கையொப்பத்தை ஏமாற்ற அனுமதிக்கவும்</string>
     <!-- Message shown to the user when the apps requests permission from this group. If ever possible this should stay below 80 characters (assuming the parameters takes 20 characters). Don't abbreviate until the message reaches 120 characters though. [CHAR LIMIT=120] -->
-    <string name="permgrouprequest_fake_package_signature">&amp; lt; b &amp; gt; &lt;xliff: g id = "app_name" example = "Gmail"&gt;% 1 $ s &lt;/ xliff: g&gt; &amp; lt; / b &amp; gt; தொகுப்பு கையொப்பத்தை ஏமாற்ற வேண்டுமா?</string>
+    <string name="permgrouprequest_fake_package_signature">&amp; lt; b &amp; gt; &lt;xliff: g id = \"app_name\" example = \"Gmail\"&gt;% 1 $ s &lt;/ xliff: g&gt; &amp; lt; / b &amp; gt; தொகுப்பு கையொப்பத்தை ஏமாற்ற வேண்டுமா?</string>
     <!-- Advanced reboot -->
     <string name="reboot_to_recovery_title">மீட்பு (ரெகவரி)</string>
     <string name="reboot_to_recovery_message">மீட்டெடுப்பிற்கு மறுதொடக்கம் செய்கிறது</string>
