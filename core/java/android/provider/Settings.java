@@ -6806,6 +6806,103 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * Whether to show the battery bar
+         * @hide
+         */
+        public static final String BATTERY_BAR_LOCATION = "battery_bar_location";
+
+        /** @hide */
+        private static final Validator BATTERY_BAR_LOCATION_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 3);
+
+        /**
+         * @hide
+         */
+        public static final String BATTERY_BAR_COLOR = "battery_bar_color";
+
+        /** @hide */
+        private static final Validator BATTERY_BAR_COLOR_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /**
+         * @hide
+         */
+        public static final String BATTERY_BAR_THICKNESS = "battery_bar_thickness";
+
+        /** @hide */
+        private static final Validator BATTERY_BAR_THICKNESS_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(1, 4);
+
+        /**
+         * @hide
+         */
+        public static final String BATTERY_BAR_STYLE = "battery_bar_style";
+
+        /** @hide */
+        private static final Validator BATTERY_BAR_STYLE_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 2);
+
+        /**
+         * Whether to show animation when charging on battery bar
+         * @hide
+         */
+        public static final String BATTERY_BAR_ANIMATE = "battery_bar_animate";
+
+        /** @hide */
+        private static final Validator BATTERY_BAR_ANIMATE_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Color of the battery bar while charging
+         * @hide
+         */
+        public static final String BATTERY_BAR_CHARGING_COLOR = "battery_bar_charging_color";
+
+        /** @hide */
+        private static final Validator BATTERY_BAR_CHARGING_COLOR_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /**
+         * Color of the battery bar when battery is low
+         * @hide
+         */
+        public static final String BATTERY_BAR_BATTERY_LOW_COLOR_WARNING = "battery_bar_battery_low_color_warning";
+
+        /** @hide */
+        private static final Validator BATTERY_BAR_BATTERY_LOW_COLOR_WARNING_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /**
+         *  High battery level color of the battery bar
+         * @hide
+         */
+        public static final String BATTERY_BAR_HIGH_COLOR = "battery_bar_high_color";
+
+        /** @hide */
+        private static final Validator BATTERY_BAR_HIGH_COLOR_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /**
+         * Low battery level color of the battery bar
+         * @hide
+         */
+        public static final String BATTERY_BAR_LOW_COLOR = "battery_bar_low_color";
+
+        /** @hide */
+        private static final Validator BATTERY_BAR_LOW_COLOR_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /**
+         * Whether to use a gradient for battery bar color
+         * @hide
+         */
+        public static final String BATTERY_BAR_USE_GRADIENT_COLOR = "battery_bar_use_gradient_color";
+
+        /** @hide */
+        private static final Validator BATTERY_BAR_USE_GRADIENT_COLOR_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -7006,6 +7103,16 @@ public final class Settings {
             ASPECT_RATIO_APPS_ENABLED,
             ASPECT_RATIO_APPS_LIST,
             NOTIFICATION_HEADERS,
+            BATTERY_BAR_LOCATION,
+            BATTERY_BAR_COLOR,
+            BATTERY_BAR_THICKNESS,
+            BATTERY_BAR_STYLE,
+            BATTERY_BAR_ANIMATE,
+            BATTERY_BAR_CHARGING_COLOR,
+            BATTERY_BAR_BATTERY_LOW_COLOR_WARNING,
+            BATTERY_BAR_HIGH_COLOR,
+            BATTERY_BAR_LOW_COLOR,
+            BATTERY_BAR_USE_GRADIENT_COLOR,
             // Evolution X Settings end
         };
 
@@ -7542,6 +7649,16 @@ public final class Settings {
             VALIDATORS.put(LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED, LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_HEADERS, NOTIFICATION_HEADERS_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_BATTERY_INFO, LOCKSCREEN_BATTERY_INFO_VALIDATOR);
+            VALIDATORS.put(BATTERY_BAR_LOCATION, BATTERY_BAR_LOCATION_VALIDATOR);
+            VALIDATORS.put(BATTERY_BAR_COLOR, BATTERY_BAR_COLOR_VALIDATOR);
+            VALIDATORS.put(BATTERY_BAR_THICKNESS, BATTERY_BAR_THICKNESS_VALIDATOR);
+            VALIDATORS.put(BATTERY_BAR_STYLE, BATTERY_BAR_STYLE_VALIDATOR);
+            VALIDATORS.put(BATTERY_BAR_ANIMATE, BATTERY_BAR_ANIMATE_VALIDATOR);
+            VALIDATORS.put(BATTERY_BAR_CHARGING_COLOR, BATTERY_BAR_CHARGING_COLOR_VALIDATOR);
+            VALIDATORS.put(BATTERY_BAR_BATTERY_LOW_COLOR_WARNING, BATTERY_BAR_BATTERY_LOW_COLOR_WARNING_VALIDATOR);
+            VALIDATORS.put(BATTERY_BAR_HIGH_COLOR, BATTERY_BAR_HIGH_COLOR_VALIDATOR);
+            VALIDATORS.put(BATTERY_BAR_LOW_COLOR, BATTERY_BAR_LOW_COLOR_VALIDATOR);
+            VALIDATORS.put(BATTERY_BAR_USE_GRADIENT_COLOR, BATTERY_BAR_USE_GRADIENT_COLOR_VALIDATOR);
             // Evolution X Settings end
         }
 
