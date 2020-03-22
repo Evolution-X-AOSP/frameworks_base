@@ -35,7 +35,13 @@ public class DeviceKeysConstants {
         LAUNCH_CAMERA,
         SLEEP,
         LAST_APP,
-        KILL_APP;
+        KILL_APP,
+        TORCH,
+        VOLUME_PANEL,
+        CLEAR_ALL_NOTIFICATIONS,
+        NOTIFICATIONS,
+        QS_PANEL,
+        RINGER_MODES;
 
         public static Action fromIntSafe(int id) {
             if (id < NOTHING.ordinal() || id > Action.values().length) {
