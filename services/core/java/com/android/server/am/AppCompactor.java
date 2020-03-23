@@ -41,6 +41,7 @@ import android.util.StatsLog;
 import com.android.internal.annotations.GuardedBy;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.server.ServiceThread;
+import android.util.BoostFramework;
 
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
@@ -85,6 +86,7 @@ public final class AppCompactor {
     private static final String COMPACT_ACTION_FULL = "all";
 
     private static boolean isLowRAM = false;
+    private static boolean isAppCompactionEnable = false;
 
     // Defaults for phenotype flags.
     @VisibleForTesting static Boolean DEFAULT_USE_COMPACTION = false;
@@ -216,6 +218,7 @@ public final class AppCompactor {
     private int mFullCompactionCount;
     private int mPersistentCompactionCount;
     private int mBfgsCompactionCount;
+    private static BoostFramework mPerf = new BoostFramework();
 
     public AppCompactor(ActivityManagerService am) {
         mAm = am;
@@ -223,8 +226,11 @@ public final class AppCompactor {
                 THREAD_PRIORITY_FOREGROUND, true);
         mProcStateThrottle = new HashSet<>();
         isLowRAM = SystemProperties.getBoolean("ro.config.low_ram", false);
+        if(mPerf != null) {
+            isAppCompactionEnable = Boolean.parseBoolean(mPerf.perfGetProp("ro.vendor.qti.am.enable_appcompaction", "false"));
+        }
 
-        if (isLowRAM == true)
+        if (isLowRAM == true || isAppCompactionEnable == true)
             DEFAULT_USE_COMPACTION = true;
     }
 
