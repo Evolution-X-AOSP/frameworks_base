@@ -19,7 +19,7 @@
     <string name="delete_screenshot_toast">Captură de ecran ştearsă</string>
     <!-- Advanced reboot -->
     <string name="global_action_restart_advanced">Avansat</string>
-    <string name="global_action_restart_recovery">Recuperare</string>
+    <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">Interfață sistem</string>
     <!-- Screenshot QS tile -->
@@ -40,11 +40,11 @@
     <string name="quick_settings_sound_label">Sunet</string>
     <string name="quick_settings_sound_mute">Silenţios</string>
     <string name="quick_settings_sound_ring">Sonerie</string>
-    <string name="quick_settings_sound_vibrate">Vibrare</string>
+    <string name="quick_settings_sound_vibrate">Vibrație</string>
     <!-- Caffeine QS tile -->
-    <string name="quick_settings_caffeine_label">Cofeină</string>
-    <string name="accessibility_quick_settings_caffeine_off">Cofeină oprită</string>
-    <string name="accessibility_quick_settings_caffeine_on">Cofeină pornită</string>
+    <string name="quick_settings_caffeine_label">Cafeină</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cafeină oprită</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cafeina pornită</string>
     <!-- Heads Up QS Tile -->
     <string name="quick_settings_heads_up_label">Atenționări</string>
     <string name="accessibility_quick_settings_heads_up_off">Atenționări dezactivate</string>
@@ -92,7 +92,7 @@
     <string name="vpn_credentials_dialog_connect">Conectare</string>
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Repornire</string>
-    <string name="quick_settings_reboot_recovery_label">Recuperare</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
     <!-- LTE QS Tile -->
     <string name="qs_lte_label">LTE</string>
     <string name="lte_on">LTE activat </string>
@@ -178,10 +178,10 @@
     <string name="no_home_message">Un buton Acasă este necesar pentru a naviga pe acest dispozitiv. Adăugați un buton Acasă înainte de a salva.</string>
     <string name="clipboard_description">Folosind butonul Clipboard puteți să trageți elemente direct în clipboard. De asemenea, elementele pot fi trase direct din clipboard atunci când există.</string>
     <string name="keycode_description">Folosind butoanele cu coduri de taste puteți să adăugați taste de la tastatură în Bara de navigare. Când le apăsați, acestea simulează tasta selectată de la tastatură. Mai întâi, trebuie să selectați o tastă pentru un buton, apoi o imagine care să apară pe buton.</string>
-    <string name="start">Început</string>
+    <string name="start">Pornire</string>
     <string name="center">Centru</string>
     <string name="end">Sfârşit</string>
-    <string name="space">Distanțier</string>
+    <string name="space">Buton de spațiu</string>
     <string name="menu_ime">Comutator Meniu / Tastatură</string>
     <string name="select_button">Selectați butonul de adăugat</string>
     <string name="add_button">Adăugați un buton</string>
