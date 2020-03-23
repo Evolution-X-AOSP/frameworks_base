@@ -379,4 +379,10 @@
 
     <!-- Whether to turn on the notification light when the state of the front camera changes -->
     <bool name="config_popUpNotificationLight">false</bool>
+
+    <!-- Library path of screen off fod handler -->
+    <string name="config_fodScreenOffHandlerLib" translatable="false"></string>
+
+    <!-- Class name of screen off fod handler -->
+    <string name="config_fodScreenOffHandlerClass" translatable="false"></string>
 </resources>
