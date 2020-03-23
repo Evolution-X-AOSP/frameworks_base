@@ -18,7 +18,7 @@
     <!-- Button that copies the url to the log of a crashed application -->
     <string name="aerr_copy">Copiază URL-ul jurnalului de eroare</string>
     <string name="url_copy_success">URL copiat cu succes</string>
-    <string name="url_copy_failed">A apărut o eroare la încărcarea registrului în dogbin</string>
+    <string name="url_copy_failed">A apărut o eroare la încărcarea log-ului în dogbin</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_fakePackageSignature">Falsifică semnătura pachetului</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -31,8 +31,8 @@
     <string name="permgrouprequest_fake_package_signature">Permiteţi aplicaţiei
         &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; să falsifice semnătura pachetului?</string>
     <!-- Advanced reboot -->
-    <string name="reboot_to_recovery_title">Recuperare</string>
-    <string name="reboot_to_recovery_message">Repornire în recuperare</string>
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Repornire în Recovery</string>
     <string name="reboot_to_bootloader_title">Bootloader</string>
     <string name="reboot_to_bootloader_message">Repornire în bootloader</string>
     <string name="reboot_title">Repornire</string>
