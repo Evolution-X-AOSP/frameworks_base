@@ -292,4 +292,10 @@
 
     <!-- Whether to turn on the notification light when the state of the front camera changes -->
     <java-symbol type="bool" name="config_popUpNotificationLight" />
+
+    <!-- Library path of screen off fod handler -->
+    <java-symbol type="string" name="config_fodScreenOffHandlerLib" />
+
+    <!-- Class name of screen off fod handler -->
+    <java-symbol type="string" name="config_fodScreenOffHandlerClass" />
 </resources>
