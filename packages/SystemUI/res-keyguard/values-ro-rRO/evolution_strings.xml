@@ -17,7 +17,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
     <string-array name="type_clock_minutes_alt">
-        <item>Ora</item>
+        <item>O\u2019Ceas</item>
         <item>Unu</item>
         <item>Doi</item>
         <item>Trei</item>
@@ -27,17 +27,17 @@
         <item>Şapte</item>
         <item>Opt</item>
         <item>Nouă</item>
-        <item>şi Zece</item>
-        <item>şi Unsprezece</item>
-        <item>și Doisprezece</item>
-        <item>și Treisprezece</item>
-        <item>și Paisprezece</item>
-        <item>și Cincisprezece</item>
-        <item>şi Șaisprezece</item>
-        <item>și Șaptesprezece</item>
-        <item>și Optsprezece</item>
+        <item>Zece</item>
+        <item>Unsprezece</item>
+        <item>Doisprezece</item>
+        <item>Treisprezece</item>
+        <item>Paisprezece</item>
+        <item>Cincisprezece</item>
+        <item>Șaisprezece</item>
+        <item>Șaptesprezece</item>
+        <item>Optsprezece</item>
         <item>și Nouăsprezece</item>
-        <item>şi Douăzeci</item>
+        <item>Douăzeci</item>
         <item>Douăzeci și Unu</item>
         <item>Douăzeci și Doi</item>
         <item>Douăzeci și Trei</item>
@@ -47,7 +47,7 @@
         <item>Douăzeci și Şapte</item>
         <item>Douăzeci și Opt</item>
         <item>Douăzeci și Nouă</item>
-        <item>și Treizeci</item>
+        <item>Treizeci</item>
         <item>Treizeci și Unu</item>
         <item>Treizeci și Doi</item>
         <item>Treizeci și Trei</item>
@@ -57,7 +57,7 @@
         <item>Treizeci și Şapte</item>
         <item>Treizeci și Opt</item>
         <item>Treizeci și Nouă</item>
-        <item>şi Patruzeci</item>
+        <item>Patruzeci</item>
         <item>Patruzeci și Unu</item>
         <item>Patruzeci și Doi</item>
         <item>Patruzeci și Trei</item>
@@ -67,7 +67,7 @@
         <item>Patruzeci și Şapte</item>
         <item>Patruzeci și Opt</item>
         <item>Patruzeci și Nouă</item>
-        <item>şi Cincizeci</item>
+        <item>Cincizeci</item>
         <item>Cincizeci și Unu</item>
         <item>Cincizeci și Doi</item>
         <item>Cincizeci și Trei</item>
