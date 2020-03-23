@@ -230,4 +230,9 @@
 
     <string name="recents_app_killed">App killed</string>
     <string name="nope_cant_kill">Launcher cannot be killed</string>
+
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Hold &amp; drag or tap to add tiles</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Hold &amp; drag to rearrange or tap to remove</string>
 </resources>
