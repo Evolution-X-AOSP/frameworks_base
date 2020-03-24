@@ -49,7 +49,6 @@ import com.android.systemui.qs.tiles.IntentTile;
 import com.android.systemui.qs.tiles.LiveDisplayTile;
 import com.android.systemui.qs.tiles.LocaleTile;
 import com.android.systemui.qs.tiles.LocationTile;
-import com.android.systemui.qs.tiles.LteTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.ReadingModeTile;
@@ -112,7 +111,6 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<SleepScreenTile> mSleepScreenTileProvider;
     private final Provider<VpnTile> mVpnTileProvider;
     private final Provider<RebootTile> mRebootTileProvider;
-    private final Provider<LteTile> mLteTileProvider;
     private final Provider<LiveDisplayTile> mLiveDisplayTileProvider;
     private final Provider<ReadingModeTile> mReadingModeTileProvider;
     private final Provider<HWKeysTile> mHWKeysTileProvider;
@@ -157,7 +155,6 @@ public class QSFactoryImpl implements QSFactory {
             Provider<SleepScreenTile> sleepScreenTileProvider,
             Provider<VpnTile> vpnTileProvider,
             Provider<RebootTile> rebootTileProvider,
-            Provider<LteTile> lteTileProvider,
             Provider<LiveDisplayTile> liveDisplayTileProvider,
             Provider<ReadingModeTile> readingModeTileProvider,
             Provider<HWKeysTile> hWKeysTileProvider,
@@ -199,7 +196,6 @@ public class QSFactoryImpl implements QSFactory {
         mSleepScreenTileProvider = sleepScreenTileProvider;
         mVpnTileProvider = vpnTileProvider;
         mRebootTileProvider = rebootTileProvider;
-        mLteTileProvider = lteTileProvider;
         mLiveDisplayTileProvider = liveDisplayTileProvider;
         mReadingModeTileProvider = readingModeTileProvider;
         mHWKeysTileProvider = hWKeysTileProvider;
@@ -289,8 +285,6 @@ public class QSFactoryImpl implements QSFactory {
                 return mVpnTileProvider.get();
             case "reboot":
                 return mRebootTileProvider.get();
-            case "lte":
-                return mLteTileProvider.get();
             case "livedisplay":
                 return mLiveDisplayTileProvider.get();
             case "reading_mode":
