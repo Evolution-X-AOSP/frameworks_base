@@ -225,4 +225,8 @@
     <!-- Custom text clock -->
     <dimen name="custom_clock_left_padding">55dp</dimen>
     <dimen name="custom_clock_top_margin">80dp</dimen>
+
+    <!-- The margin between Emergency Carrier area and pattern/pin
+         view to incorporate the FOD icon -->
+    <dimen name="keyguard_security_fod_view_margin">140dp</dimen>
 </resources>
