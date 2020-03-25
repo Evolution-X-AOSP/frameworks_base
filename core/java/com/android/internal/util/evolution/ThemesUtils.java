@@ -64,9 +64,14 @@ public class ThemesUtils {
     };
 
     public static final String[] NAVBAR_STYLES = {
+            "com.android.theme.navbar.android",
             "com.android.theme.navbar.asus",
+            "com.android.theme.navbar.moto",
+            "com.android.theme.navbar.nexus",
+            "com.android.theme.navbar.old",
             "com.android.theme.navbar.oneplus",
             "com.android.theme.navbar.oneui",
+            "com.android.theme.navbar.sammy",
             "com.android.theme.navbar.tecno",
     };
 
