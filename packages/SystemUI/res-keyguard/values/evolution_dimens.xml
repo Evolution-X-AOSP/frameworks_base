@@ -225,4 +225,7 @@
     <!-- Custom text clock -->
     <dimen name="custom_clock_left_padding">55dp</dimen>
     <dimen name="custom_clock_top_margin">80dp</dimen>
+
+    <!-- The minimum bottom margin of the keyguard security container -->
+    <dimen name="kg_security_container_min_bottom_margin">0dp</dimen>
 </resources>
