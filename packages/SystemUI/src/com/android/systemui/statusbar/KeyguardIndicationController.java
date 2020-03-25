@@ -54,6 +54,7 @@ import com.airbnb.lottie.LottieAnimationView;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.app.IBatteryStats;
+import com.android.internal.util.evolution.EvolutionUtils;
 import com.android.internal.util.evolution.fod.FodUtils;
 import com.android.internal.widget.ViewClippingUtil;
 import com.android.keyguard.KeyguardUpdateMonitor;
@@ -775,8 +776,9 @@ public class KeyguardIndicationController implements StateListener,
                         String.format("%.1f" , voltage) + "V";
             }
             if (mTemperature > 0) {
-                batteryInfo = (batteryInfo == "" ? "" : batteryInfo + " · ") +
-                        mTemperature / 10 + "°C";
+                String batteryTemp = EvolutionUtils.mccCheck(mContext) ?
+                          mTemperature * 9 / 50 + 32 + "°F" : mTemperature / 10 + "°C";
+                batteryInfo = (batteryInfo == "" ? "" : batteryInfo + " · ") + batteryTemp;
             }
             if (batteryInfo != "") {
                 batteryInfo = "\n" + batteryInfo;
