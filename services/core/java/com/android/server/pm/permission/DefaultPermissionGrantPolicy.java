@@ -872,6 +872,9 @@ public final class DefaultPermissionGrantPolicy {
         // Google Photos
         grantSystemFixedPermissionsToSystemPackage("com.google.android.apps.photos", userId, CONTACTS_PERMISSIONS,
                 PHONE_PERMISSIONS, STORAGE_PERMISSIONS, ALWAYS_LOCATION_PERMISSIONS);
+
+        // Lawnchair
+        grantSystemFixedPermissionsToSystemPackage("ch.deletescape.lawnchair.ci", userId, STORAGE_PERMISSIONS);
     }
 
     private String getDefaultSystemHandlerActivityPackageForCategory(String category, int userId) {
