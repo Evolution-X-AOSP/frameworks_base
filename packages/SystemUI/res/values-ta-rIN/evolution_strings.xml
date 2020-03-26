@@ -93,10 +93,6 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">மறுதொடக்கம்</string>
     <string name="quick_settings_reboot_recovery_label">மீட்பு (ரெகவரி)</string>
-    <!-- LTE QS Tile -->
-    <string name="qs_lte_label">LTE</string>
-    <string name="lte_on">LTE இயக்கப்பட்டது </string>
-    <string name="lte_off">LTE முடக்கப்பட்டுள்ளது</string>
     <!-- Advance location quick setting tile -->
     <string name="quick_settings_location_secondary_battery_saving">பேட்டரி சேமிப்பு</string>
     <string name="accessibility_quick_settings_location_battery_saving">இருப்பிட அறிக்கை: பேட்டரி சேமிப்பு முறை.</string>
@@ -105,9 +101,9 @@
     <string name="quick_settings_location_secondary_high_accuracy">அதிக துல்லியம்</string>
     <string name="accessibility_quick_settings_location_high_accuracy">இருப்பிட அறிக்கையிடல்: உயர் துல்லியம் பயன்முறை.</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time">&lt;xliff: g id = "சதவீதம்"&gt;% 2 $ s &lt;/ xliff: g&gt; • வேகமான மின்னோட்டம் (&lt;xliff: g id = "charging_time_left" example = "4 மணிநேரம் 2 நிமிடங்கள்"&gt;% s &lt;/ xliff: g &gt; முழு வரை)</string>
+    <string name="keyguard_indication_dash_charging_time">&lt;xliff: g id = \"சதவீதம்\"&gt;% 2 $ s &lt;/ xliff: g&gt; • வேகமான மின்னோட்டம் (&lt;xliff: g id = \"charging_time_left\" example = \"4 மணிநேரம் 2 நிமிடங்கள்\"&gt;% s &lt;/ xliff: g &gt; முழு வரை)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_warp_charging_time">&lt;xliff: g id = "சதவீதம்"&gt;% 2 $ s &lt;/ xliff: g&gt; • வார்ப் சார்ஜிங் (&lt;xliff: g id = "charging_time_left" example = "4 மணிநேரம் 2 நிமிடங்கள்"&gt;% s &lt;/ xliff: g &gt; முழு வரை)</string>
+    <string name="keyguard_indication_warp_charging_time">&lt;xliff: g id = \"சதவீதம்\"&gt;% 2 $ s &lt;/ xliff: g&gt; • வார்ப் சார்ஜிங் (&lt;xliff: g id = \"charging_time_left\" example = \"4 மணிநேரம் 2 நிமிடங்கள்\"&gt;% s &lt;/ xliff: g &gt; முழு வரை)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">படித்தல் முறை</string>
     <string name="accessibility_quick_settings_reading_mode_on">படித்தல் பயன்முறை.</string>
