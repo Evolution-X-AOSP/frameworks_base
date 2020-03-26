@@ -28,7 +28,7 @@
     <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permgroupdesc_fake_package_signature">zezwól na fałszowanie podpisu pakietu</string>
     <!-- Message shown to the user when the apps requests permission from this group. If ever possible this should stay below 80 characters (assuming the parameters takes 20 characters). Don't abbreviate until the message reaches 120 characters though. [CHAR LIMIT=120] -->
-    <string name="permgrouprequest_fake_package_signature">Zezwolić aplikacji &lt;b&gt;<xliff:g id="App_NAME">%1$s</xliff:g>&lt;/b&gt; na nagrywanie dźwięku?</string>
+    <string name="permgrouprequest_fake_package_signature">Zezwolić aplikacji &lt;b&gt;<xliff:g id="App_NAME">%1$s</xliff:g>&lt;/b&gt; na fałszowanie podpisu pakietu?</string>
     <!-- Advanced reboot -->
     <string name="reboot_to_recovery_title">Recovery</string>
     <string name="reboot_to_recovery_message">Restartowanie do recovery</string>
@@ -59,7 +59,7 @@
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay zmieniony na tryb nocny.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay zmieniony na tryb \"na zewnątrz\".</string>
     <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Przytrzymaj przycisk aby odblokować</string>
+    <string name="pocket_lock_message_long_press">Naciśnij i przytrzymaj przycisk zasilania aby odblokować</string>
     <!-- Alert slider proc nodes paths. -->
     <!-- Gaming mode -->
     <string name="notification_channel_gaming">Tryb gry</string>
