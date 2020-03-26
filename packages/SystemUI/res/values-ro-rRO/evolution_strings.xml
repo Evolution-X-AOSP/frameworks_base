@@ -93,10 +93,6 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Repornire</string>
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
-    <!-- LTE QS Tile -->
-    <string name="qs_lte_label">LTE</string>
-    <string name="lte_on">LTE activat </string>
-    <string name="lte_off">LTE dezactivat</string>
     <!-- Advance location quick setting tile -->
     <string name="quick_settings_location_secondary_battery_saving">Economisire baterie</string>
     <string name="accessibility_quick_settings_location_battery_saving">Locaţie: economisire baterie.</string>
