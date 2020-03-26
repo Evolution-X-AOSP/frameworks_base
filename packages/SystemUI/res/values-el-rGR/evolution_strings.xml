@@ -93,10 +93,6 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Επανεκκίνηση</string>
     <string name="quick_settings_reboot_recovery_label">Ανάκτηση</string>
-    <!-- LTE QS Tile -->
-    <string name="qs_lte_label">LTE</string>
-    <string name="lte_on">LTE ΕΝΕΡΓΟ </string>
-    <string name="lte_off">LTE ΑΝΕΝΕΡΓΟ</string>
     <!-- Advance location quick setting tile -->
     <string name="quick_settings_location_secondary_battery_saving">Εξοικονόμηση μπαταρίας</string>
     <string name="accessibility_quick_settings_location_battery_saving">Αναφορά τοποθεσίας: λειτουργία εξοικονόμησης μπαταρίας.</string>
