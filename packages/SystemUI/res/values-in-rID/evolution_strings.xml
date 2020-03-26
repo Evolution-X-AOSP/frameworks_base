@@ -93,10 +93,6 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Muat Ulang</string>
     <string name="quick_settings_reboot_recovery_label">Pemulihan</string>
-    <!-- LTE QS Tile -->
-    <string name="qs_lte_label">LTE</string>
-    <string name="lte_on">LTE Hidup </string>
-    <string name="lte_off">LTE Mati</string>
     <!-- Advance location quick setting tile -->
     <string name="quick_settings_location_secondary_battery_saving">Hemat Baterai</string>
     <string name="accessibility_quick_settings_location_battery_saving">Laporkan lokasi: Mode hemat baterai.</string>
