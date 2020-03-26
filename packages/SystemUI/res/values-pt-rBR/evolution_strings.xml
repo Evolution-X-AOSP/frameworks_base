@@ -93,10 +93,6 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Reiniciar</string>
     <string name="quick_settings_reboot_recovery_label">Recuperação</string>
-    <!-- LTE QS Tile -->
-    <string name="qs_lte_label">4G</string>
-    <string name="lte_on">4G ativado</string>
-    <string name="lte_off">4G desativado</string>
     <!-- Advance location quick setting tile -->
     <string name="quick_settings_location_secondary_battery_saving">Economia de bateria</string>
     <string name="accessibility_quick_settings_location_battery_saving">Localização: economia de bateria.</string>
