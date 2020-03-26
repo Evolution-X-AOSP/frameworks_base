@@ -93,10 +93,6 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">রিবুট</string>
     <string name="quick_settings_reboot_recovery_label">রিকভারি</string>
-    <!-- LTE QS Tile -->
-    <string name="qs_lte_label">এল টি ই</string>
-    <string name="lte_on">এল টি ই চালু </string>
-    <string name="lte_off">এল টি ই বন্ধ</string>
     <!-- Advance location quick setting tile -->
     <string name="quick_settings_location_secondary_battery_saving">ব্যাটারি সেভিং</string>
     <string name="accessibility_quick_settings_location_battery_saving">অবস্থান প্রতিবেদন: ব্যাটারি সাশ্রয় মোড।</string>
