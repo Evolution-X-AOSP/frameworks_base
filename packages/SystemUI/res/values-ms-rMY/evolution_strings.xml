@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Tangkapan skrin dipadam</string>
+    <!-- Advanced reboot -->
+    <string name="global_action_restart_advanced">Lanjutan</string>
+    <string name="global_action_restart_recovery">Pemulihan</string>
+    <string name="global_action_restart_bootloader">Pemula boot</string>
+    <string name="global_action_restart_ui">SystemUI</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">Tangkapan skrin</string>
+    <string name="quick_settings_region_screenshot_label">Tangkapan skrin separa</string>
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">Carian Bunyi</string>
+    <string name="quick_settings_sound_search_no_app">Maaf, apl Carian bunyi tidak dipasang.</string>
+    <!-- USB Tethering tile -->
+    <string name="accessibility_quick_settings_usb_tether_off">Penambatan USB ditutup</string>
+    <string name="accessibility_quick_settings_usb_tether_on">Penambatan USB dihidupkan</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">Penambatan USB dimatikan</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">Penambatan USB dihidupkan</string>
+    <string name="quick_settings_usb_tether_label">Penambatan USB</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Bunyi</string>
+    <string name="quick_settings_sound_mute">Senyap</string>
+    <string name="quick_settings_sound_ring">Dering</string>
+    <string name="quick_settings_sound_vibrate">Getar</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Kafein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kafein tutup</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kafein hidup</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">Notifikasi pop naik</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notifikasi pop naik dinyahaktifkan</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notifikasi pop naik diaktifkan</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Heads up dimatikan</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Notifikasi pop dihidupkan</string>
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">Penyelarasan</string>
+    <string name="accessibility_quick_settings_sync_off">Penyelarasan tidak aktif</string>
+    <string name="accessibility_quick_settings_sync_on">Penyelarasan aktif</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Penyelarasan dimatikan</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Penyelarasan dihidupkan</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Panel kelantangan</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">Kompas</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0<xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Initializing\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Kompas mati</string>
+    <string name="accessibility_quick_settings_compass_on">Kompas hidup</string>
+    <string name="accessibility_quick_settings_compass_changed_off">Kompas dimatikan</string>
+    <string name="accessibility_quick_settings_compass_changed_on">Kompas dihidupkan</string>
+    <string name="quick_settings_compass_N">U</string>
+    <string name="quick_settings_compass_NE">TL</string>
+    <string name="quick_settings_compass_E">T</string>
+    <string name="quick_settings_compass_SE">T</string>
+    <string name="quick_settings_compass_S">S</string>
+    <string name="quick_settings_compass_SW">BD</string>
+    <string name="quick_settings_compass_W">B</string>
+    <string name="quick_settings_compass_NW">BL</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Paparan ambien</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Paparan ambien dimatikan</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Paparan ambien dimulakan</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Paparan ambien dimatikan</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Paparan ambien dimulakan</string>
+    <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">Sleep Screen</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Sambung kepada \u2026</string>
+    <string name="vpn_credentials_hint">Sila masukan kelayakan anda untuk menyambung ke <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Nama pengguna</string>
+    <string name="vpn_credentials_password">Kata sandi</string>
+    <string name="vpn_credentials_dialog_connect">Sambung</string>
+    <!-- Reboot/Recovery QS Tile -->
+    <string name="quick_settings_reboot_label">Boot semula</string>
+    <string name="quick_settings_reboot_recovery_label">Pemulihan</string>
+    <!-- Advance location quick setting tile -->
+    <string name="quick_settings_location_secondary_battery_saving">Penjimatan Bateri</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Pelaporan lokasi: mod penjimatan bateri.</string>
+    <string name="quick_settings_location_secondary_gps_only">Pengesan Sahaja</string>
+    <string name="accessibility_quick_settings_location_gps_only">Pelaporan lokasi: mod pengesan sahaja.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Ketepatan Tinggi</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Pelaporan lokasi: mod ketepatan tinggi.</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g>• Pengecasan Dash (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> sehingga penuh)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Pengecasan Warp (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> sehingga penuh)</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Mod membaca</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Mod bacaan aktif.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Mod membaca dimatikan.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Mod membaca dihidupkan.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Mod membaca dimatikan.</string>
+    <string name="statusbar_items_title">Ikon bar status</string>
+    <string name="lockscreen_default">Lalai</string>
+    <string name="lockscreen_hidden">Tiada</string>
+    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">Luncur dari ikon untuk melancarkan</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">Butang HW hidup</string>
+    <string name="accessibility_quick_settings_hwkeys_off">Butang HW mati</string>
+    <string name="quick_settings_hwkeys_label">Butang HW</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">Mod permainan</string>
+    <string name="gaming_mode_tile_toast">Mode permainan diaktifkan</string>
+    <string name="gaming_mode_tile_toast_disabled">Mod permainan dinyahaktifkan</string>
+    <string name="gaming_mode_dialog_title">Mod permainan</string>
+    <string name="gaming_mode_dialog_message">Apabila mod permainan dibenarkan, semua mesej timbul akan dimatikan dan kekunci akan dimatikan. Semua tetapan yang dimatikan akan di set semula kepada lalai selepas anda keluar Mod Permainan.</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">Mod permainan hidup</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">Mod permainan mati</string>
+    <!-- Status bar icons -->
+    <string name="status_bar_data_disabled">Pangkah bila sambungan data dimatikan</string>
+    <string name="status_bar_data_saver">Penjimat data</string>
+    <string name="status_bar_nfc">NFC</string>
+    <string name="status_bar_roaming">Perayauan</string>
+    <string name="status_bar_vpn">VPN</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Paksa henti?</string>
+    <string name="force_stop_dlg_text">Jika anda paksa henti sesuatu aplikasi, ianya mungkin tidak berfungsi dengan betul.</string>
+    <string name="guts_force_close_app">Tutup apl</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Pemberitahuan intai sedang ditunda selama 1 minit.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Pemberitahuan intai sedang ditunda selama <xliff:g id="number">%d</xliff:g> minit.</string>
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">Mod permainan dinyahaktifkan di tetapan</string>
+    <string name="quick_settings_gaming_mode_label">Mod permainan</string>
+    <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_gaming_mode_disabled">Mod membaca dimatikan.</string>
+    <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_gaming_mode_enabled">Mod membaca dihidupkan.</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">Tukar kad data</string>
+    <string name="qs_data_switch_changed_1">SIM 1 digunakan untuk Data mudah alih</string>
+    <string name="qs_data_switch_changed_2">SIM 2 digunakan untuk Data mudah alih</string>
+    <string name="quick_settings_immersive_tile">Skrin penuh</string>
+    <string name="quick_settings_immersive_tile_off">Skrin penuh dipadam</string>
+    <string name="quick_settings_immersive_tile_statusbar">Bar status skrin penuh</string>
+    <string name="quick_settings_immersive_tile_navbar">Bar navigasi skrin penuh</string>
+    <string name="quick_settings_immersive_tile_full">Penuhkan skrin penuh</string>
+    <string name="screenrecord_stopdot_label">Paparkan titik berhenti</string>
+    <string name="screenrecord_low_quality_label">Kualiti rendah</string>
+    <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
+    <string name="global_action_screenshot_cust">Tangkapan skrin</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">Buka skrin Servis Berjalan.</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Bahasa</string>
+    <string name="quick_settings_locale_more_locales_toast">Sila pilih pelbagai bahasa untuk membernarkan fungsi togel</string>
+    <!-- Navbar editor -->
+    <string name="preview">Pratonton</string>
+    <string name="keycode">Kod kunci</string>
+    <string name="no_home_title">Tiada butang rumah yang dijumpai</string>
+    <string name="no_home_message">Butang rumah diperlukan untuk dapat mengnavigasi peranti ini. Sila tambahkan butang rumah sebelum menyimpan.</string>
+    <string name="clipboard_description">Clipboard membenarkan item diseret terus ke papan klip. Item juga boleh diseret terus keluar dari papan klip apabila ada.</string>
+    <string name="keycode_description">Butang kod kekunci membolehkan kunci papan kekunci ditambah ke Bar Navigasi. Apabila ditekan mereka mencontohkan kekunci papan kekunci yang dipilih. Mula-mula kunci mesti dipilih untuk butang, diikuti dengan imej yang akan ditunjukkan pada butang.</string>
+    <string name="start">Mula</string>
+    <string name="center">Tengah</string>
+    <string name="end">Tamat</string>
+    <string name="space">Ruang</string>
+    <string name="menu_ime">Menu / Penukar Papan Kekunci</string>
+    <string name="select_button">Pilih butang untuk menambah</string>
+    <string name="add_button">Tambah butang</string>
+    <string name="save">Simpan</string>
+    <string name="reset">Tetapkan semula</string>
+    <string name="select_keycode">Pilih butang Papan Kekunci</string>
+    <string name="left">Kiri</string>
+    <string name="right">Kanan</string>
+    <string name="navbar_editor_title">Editor</string>
+    <string name="navbar_editor_summary">Konfigurasi bar navigasi</string>
+</resources>
