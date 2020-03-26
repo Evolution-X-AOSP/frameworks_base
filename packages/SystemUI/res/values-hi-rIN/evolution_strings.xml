@@ -93,10 +93,6 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">बंद करके चालू करें</string>
     <string name="quick_settings_reboot_recovery_label">रिकवरी</string>
-    <!-- LTE QS Tile -->
-    <string name="qs_lte_label">एलटीई</string>
-    <string name="lte_on">LTE चालू </string>
-    <string name="lte_off">LTE बंद</string>
     <!-- Advance location quick setting tile -->
     <string name="quick_settings_location_secondary_battery_saving">बैटरी की बचत</string>
     <string name="accessibility_quick_settings_location_battery_saving">स्थान रिपोर्टिंग: बैटरी बचत मोड।</string>
