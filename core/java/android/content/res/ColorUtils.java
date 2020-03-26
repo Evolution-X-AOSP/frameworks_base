@@ -1,5 +1,7 @@
 package android.content.res;
 
+import android.os.SystemProperties;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
@@ -25,7 +27,7 @@ public class ColorUtils {
     }
 
     public static int genRandomQsColor() {
-        Random r = new Random();
+        Random r = new Random((long) SystemProperties.getInt("ro.boottime.init", 0));
         float hsl[] = new float[3];
         hsl[0] = r.nextInt(360);
         hsl[1] = r.nextFloat();
