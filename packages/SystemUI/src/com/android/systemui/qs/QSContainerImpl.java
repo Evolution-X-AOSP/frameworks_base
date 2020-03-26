@@ -24,6 +24,7 @@ import android.app.WallpaperColors;
 import android.app.WallpaperManager;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.res.ColorUtils;
 import android.content.res.Configuration;
 import android.content.om.IOverlayManager;
 import android.content.om.OverlayInfo;
@@ -205,12 +206,12 @@ public class QSContainerImpl extends FrameLayout implements
         mQsBackGroundAlpha = Settings.System.getIntForUser(resolver,
                 Settings.System.QS_PANEL_BG_ALPHA, 255,
                 UserHandle.USER_CURRENT);
-        mQsBackGroundColor = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_PANEL_BG_COLOR, Color.WHITE,
-                UserHandle.USER_CURRENT);
-        mQsBackGroundColorWall = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_PANEL_BG_COLOR_WALL, Color.WHITE,
-                UserHandle.USER_CURRENT);
+        mQsBackGroundColor = ColorUtils.getValidQsColor(Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.QS_PANEL_BG_COLOR, ColorUtils.genRandomQsColor(),
+                UserHandle.USER_CURRENT));
+        mQsBackGroundColorWall = ColorUtils.getValidQsColor(Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.QS_PANEL_BG_COLOR_WALL, ColorUtils.genRandomQsColor(),
+                UserHandle.USER_CURRENT));
         WallpaperColors systemColors = null;
         if (mColorExtractor != null) {
             systemColors = mColorExtractor.getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
