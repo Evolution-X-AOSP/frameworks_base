@@ -93,15 +93,11 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Uruchom ponownie</string>
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
-    <!-- LTE QS Tile -->
-    <string name="qs_lte_label">LTE</string>
-    <string name="lte_on">LTE włączone </string>
-    <string name="lte_off">LTE wyłączone</string>
     <!-- Advance location quick setting tile -->
     <string name="quick_settings_location_secondary_battery_saving">Oszczędzanie baterii</string>
     <string name="accessibility_quick_settings_location_battery_saving">Lokalizacja: oszczędzanie baterii.</string>
     <string name="quick_settings_location_secondary_gps_only">Tylko czujniki</string>
-    <string name="accessibility_quick_settings_location_gps_only">Lokalizacja: tylko urządzenie.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Lokalizacja: tylko czujniki.</string>
     <string name="quick_settings_location_secondary_high_accuracy">Wysoka dokładność</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Lokalizacja: wysoka dokładność.</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
@@ -132,7 +128,7 @@
     <string name="accessibility_quick_settings_gaming_mode_on">Tryb gry włączony</string>
     <string name="accessibility_quick_settings_gaming_mode_off">Tryb gry wyłączony</string>
     <!-- Status bar icons -->
-    <string name="status_bar_data_disabled">Przekroczone, gdy dane są wyłączone</string>
+    <string name="status_bar_data_disabled">Krzyżyk, gdy dane są wyłączone</string>
     <string name="status_bar_data_saver">Oszczędzanie danych</string>
     <string name="status_bar_nfc">NFC</string>
     <string name="status_bar_roaming">Roaming</string>
@@ -154,11 +150,11 @@
     <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_quick_settings_gaming_mode_enabled">Tryb gry został włączony.</string>
     <!-- DataSwitch Tile -->
-    <string name="qs_data_switch_label">Przełączanie karty pamięci</string>
+    <string name="qs_data_switch_label">Przełącz kartę danych</string>
     <string name="qs_data_switch_changed_1">Używaj karty SIM 1 dla danych mobilnych</string>
     <string name="qs_data_switch_changed_2">Używaj karty SIM 2 dla danych mobilnych</string>
-    <string name="quick_settings_immersive_tile">Tryb rozszerzony</string>
-    <string name="quick_settings_immersive_tile_off">Tryb rozsz. wył</string>
+    <string name="quick_settings_immersive_tile">Tryb Imersywny</string>
+    <string name="quick_settings_immersive_tile_off">Tryb Imersywny wył</string>
     <string name="quick_settings_immersive_tile_statusbar">Schowaj pasek statusu</string>
     <string name="quick_settings_immersive_tile_navbar">Schowaj pasek nawigacyjny</string>
     <string name="quick_settings_immersive_tile_full">Tryb pełnoekranowy</string>
