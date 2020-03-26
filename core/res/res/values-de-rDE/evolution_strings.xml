@@ -57,7 +57,7 @@
     <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay zu Automatischen-Modus geändert.</string>
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay auf Tag-Modus geändert.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay auf Nacht-Modus geändert.</string>
-    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay auf Draußen-Modus geändert.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay auf Outdoor-Modus geändert.</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Drücke und halte die Power-Taste zum Entsperren</string>
     <!-- Alert slider proc nodes paths. -->
