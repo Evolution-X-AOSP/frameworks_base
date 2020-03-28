@@ -158,6 +158,8 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
     private boolean mTracking = false;
     private boolean mBouncerShowingOverDream;
 
+    private boolean mBouncerVisible = false;
+
     private final PrimaryBouncerExpansionCallback mExpansionCallback =
             new PrimaryBouncerExpansionCallback() {
             private boolean mPrimaryBouncerAnimating;
@@ -199,6 +201,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
                 mBouncerShowingOverDream =
                         isVisible && mDreamOverlayStateController.isOverlayActive();
 
+                mBouncerVisible = isVisible;
                 if (!isVisible) {
                     mCentralSurfaces.setPrimaryBouncerHiddenFraction(EXPANSION_HIDDEN);
                 }
@@ -322,6 +325,9 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
     @Nullable private TaskbarDelegate mTaskbarDelegate;
     private Handler mFaceRecognizingHandler;
     private boolean mFaceRecognitionRunning = false;
+
+    private Handler mHandler;
+
     private final KeyguardUpdateMonitorCallback mUpdateMonitorCallback =
             new KeyguardUpdateMonitorCallback() {
                 @Override
@@ -406,8 +412,8 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
             KeyguardTransitionInteractor keyguardTransitionInteractor,
             @Main CoroutineDispatcher mainDispatcher,
             Lazy<WindowManagerLockscreenVisibilityInteractor> wmLockscreenVisibilityInteractor,
-            @Main Handler faceRecognizingHandler
-    ) {
+            @Main Handler faceRecognizingHandler,
+            @Main Handler handler) {
         mContext = context;
         mViewMediatorCallback = callback;
         mLockPatternUtils = lockPatternUtils;
@@ -440,6 +446,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
         mMainDispatcher = mainDispatcher;
         mWmLockscreenVisibilityInteractor = wmLockscreenVisibilityInteractor;
         mFaceRecognizingHandler = faceRecognizingHandler;
+        mHandler = handler;
     }
 
     KeyguardTransitionInteractor mKeyguardTransitionInteractor;
@@ -785,6 +792,11 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
             }
         }
         updateStates();
+        mHandler.postDelayed(() -> {
+            if (mBouncerVisible) {
+                mKeyguardUpdateManager.updateFaceListeningStateForBehavior(mBouncerVisible);
+            }
+        }, 100);
     }
 
     private boolean isWakeAndUnlocking() {
