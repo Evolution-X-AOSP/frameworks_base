@@ -264,4 +264,7 @@
     <!-- Camera -->
     <java-symbol type="array" name="config_cameraAuxPackageAllowList" />
     <java-symbol type="array" name="config_cameraAuxPackageExcludeList" />
+
+    <!-- Enable face auth only when swiping security view -->
+    <java-symbol type="bool" name="config_faceAuthOnlyOnSecurityView" />
 </resources>
