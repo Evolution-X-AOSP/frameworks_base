@@ -353,9 +353,6 @@
     <!-- Name of a font family to use as regular font. For theming purpose. -->
     <string name="config_regularFontFamily" translatable="false">sans-serif-regular</string>
 
-    <!-- Whether to send camera status intent -->
-    <bool name="config_sendCameraStatusIntent">false</bool>
-
     <!-- Whether notify fingerprint client of successful cancelled authentication -->
     <bool name="config_notifyClientOnFingerprintCancelSuccess">false</bool>
 
@@ -376,4 +373,7 @@
 
     <!-- Aspect ratio of screen -->
     <item name="config_screenAspectRatio" format="float" type="dimen">2.1</item>
+
+    <!-- Component name of popup camera service -->
+    <string name="config_popUpCameraServiceComponentName" translatable="false"></string>
 </resources>
