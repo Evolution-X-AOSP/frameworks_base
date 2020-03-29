@@ -180,7 +180,7 @@ public class FODCircleView extends ImageView {
 
             if (isBouncer) {
                 hide();
-            } else if (mUpdateMonitor.isFingerprintDetectionRunning()) {
+            } else if (mIsKeyguard && mUpdateMonitor.isFingerprintDetectionRunning()) {
                 show();
             }
         }
