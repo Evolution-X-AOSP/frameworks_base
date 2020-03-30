@@ -30,7 +30,7 @@
     <!-- Message shown to the user when the apps requests permission from this group. If ever possible this should stay below 80 characters (assuming the parameters takes 20 characters). Don't abbreviate until the message reaches 120 characters though. [CHAR LIMIT=120] -->
     <string name="permgrouprequest_fake_package_signature">        &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; erlauben, die Paketsignatur zu spoofen?</string>
     <!-- Advanced reboot -->
-    <string name="reboot_to_recovery_title">Wiederherstellung</string>
+    <string name="reboot_to_recovery_title">Recovery</string>
     <string name="reboot_to_recovery_message">Neustart ins Recovery</string>
     <string name="reboot_to_bootloader_title">Bootloader</string>
     <string name="reboot_to_bootloader_message">Neustart in den Bootloader</string>
@@ -62,11 +62,11 @@
     <string name="pocket_lock_message_long_press">Drücke und halte die Power-Taste zum Entsperren</string>
     <!-- Alert slider proc nodes paths. -->
     <!-- Gaming mode -->
-    <string name="notification_channel_gaming">Spielmodus</string>
-    <string name="gaming_mode_notification_title">Spielmodus eingeschaltet</string>
-    <string name="gaming_mode_notification_content">Tippen, um den Spielmodus auszuschalten</string>
-    <string name="gaming_mode_enabled_toast">Spielmodus eingeschaltet</string>
-    <string name="gaming_mode_disabled_toast">Spielmodus ausgeschaltet</string>
+    <string name="notification_channel_gaming">Gaming-Modus</string>
+    <string name="gaming_mode_notification_title">Gaming-Modus eingeschaltet</string>
+    <string name="gaming_mode_notification_content">Tippen, um den Gaming-Modus auszuschalten</string>
+    <string name="gaming_mode_enabled_toast">Gaming-Modus eingeschaltet</string>
+    <string name="gaming_mode_disabled_toast">Gaming-Modus ausgeschaltet</string>
     <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB über Netzwerk aktiviert</string>
     <!-- ADB over USB and network notification -->
