@@ -19,6 +19,7 @@ package com.android.systemui.qs;
 import static android.app.StatusBarManager.DISABLE2_QUICK_SETTINGS;
 import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
 
+import android.animation.ValueAnimator;
 import android.app.ActivityManager;
 import android.app.WallpaperColors;
 import android.app.WallpaperManager;
@@ -97,6 +98,8 @@ public class QSContainerImpl extends FrameLayout implements
     private SysuiColorExtractor mColorExtractor;
 
     private IOverlayManager mOverlayManager;
+
+    private ValueAnimator mDiscoAnim;
 
     public QSContainerImpl(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -225,6 +228,7 @@ public class QSContainerImpl extends FrameLayout implements
 
     private void setQsBackground() {
         if (mSetQsFromResources) {
+            stopDiscoMode();
             mQsBackGround = getContext().getDrawable(R.drawable.qs_background_primary);
             try {
                 mOverlayManager.setEnabled("com.android.systemui.qstheme.color",
@@ -233,8 +237,11 @@ public class QSContainerImpl extends FrameLayout implements
                 Log.w("QSContainerImpl", "Can't change qs theme", e);
             }
         } else {
+            startDiscoMode();
             if (mQsBackGround != null) {
-                mQsBackGround.setColorFilter(mCurrentColor, PorterDuff.Mode.SRC_ATOP);
+                if (mDiscoAnim == null || (mDiscoAnim != null && !mDiscoAnim.isStarted() && !mDiscoAnim.isRunning())) {
+                    mQsBackGround.setColorFilter(mCurrentColor, PorterDuff.Mode.SRC_ATOP);
+                }
             }
             try {
                 mOverlayManager.setEnabled("com.android.systemui.qstheme.color",
@@ -247,6 +254,38 @@ public class QSContainerImpl extends FrameLayout implements
             mQsBackGround.setAlpha(mQsBackGroundAlpha);
         if (mQsBackGround != null && mBackground != null)
             mBackground.setBackground(mQsBackGround);
+    }
+
+    private void startDiscoMode() {
+        if (!mQsBackGroundColorRGB) {
+            stopDiscoMode();
+            return;
+        }
+        final float from = 0f;
+        final float to = 360f;
+        stopDiscoMode();
+        mDiscoAnim = ValueAnimator.ofFloat(0, 1);
+        final float[] hsl = {0f, 1f, 0.5f};
+        mDiscoAnim.setDuration(5000);
+        mDiscoAnim.setRepeatCount(ValueAnimator.INFINITE);
+        mDiscoAnim.setRepeatMode(ValueAnimator.RESTART);
+        mDiscoAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                hsl[0] = from + (to - from)*animation.getAnimatedFraction();
+                mQsBackGround.setColorFilter(com.android.internal.graphics.ColorUtils.HSLToColor(hsl), PorterDuff.Mode.SRC_ATOP);
+                if (mQsBackGround != null && mBackground != null) {
+                    mBackground.setBackground(mQsBackGround);
+                }
+            }
+        });
+        mDiscoAnim.start();
+    }
+
+    private void stopDiscoMode() {
+        if (mDiscoAnim != null)
+            mDiscoAnim.cancel();
+        mDiscoAnim = null;
     }
 
     @Override
