@@ -461,49 +461,6 @@ public class KeyguardClockSwitch extends RelativeLayout {
             return;
         }
         mShowingHeader = hasHeader;
-        if (hasCustomClock()) {
-            return;
-        }
-
-        float smallFontSize = mContext.getResources().getDimensionPixelSize(
-                R.dimen.widget_small_font_size);
-        float bigFontSize = mContext.getResources().getDimensionPixelSize(
-                R.dimen.widget_big_font_size);
-        mClockTransition.setScale(smallFontSize / bigFontSize);
-        mBoldClockTransition.setScale(bigFontSize / smallFontSize);
-
-        // End any current transitions before starting a new transition so that the new transition
-        // starts from a good state instead of a potentially bad intermediate state arrived at
-        // during a transition animation.
-        TransitionManager.endTransitions((ViewGroup) mClockView.getParent());
-
-        if (hasHeader) {
-            // After the transition, make the default clock GONE so that it doesn't make the
-            // KeyguardStatusView appear taller in KeyguardClockPositionAlgorithm and elsewhere.
-            mTransition.addListener(new TransitionListenerAdapter() {
-                @Override
-                public void onTransitionEnd(Transition transition) {
-                    super.onTransitionEnd(transition);
-                    // Check that header is actually showing. I saw issues where this event was
-                    // fired after the big clock transitioned back to visible, which causes the time
-                    // to completely disappear.
-                    if (mShowingHeader) {
-                        mClockView.setVisibility(View.GONE);
-                    }
-                    transition.removeListener(this);
-                }
-            });
-        }
-
-        TransitionManager.beginDelayedTransition((ViewGroup) mClockView.getParent(), mTransition);
-        mClockView.setVisibility(hasHeader ? View.INVISIBLE : View.VISIBLE);
-        mClockViewBold.setVisibility(hasHeader ? View.VISIBLE : View.INVISIBLE);
-        int paddingBottom = mContext.getResources().getDimensionPixelSize(hasHeader
-                ? R.dimen.widget_vertical_padding_clock : R.dimen.title_clock_padding);
-        mClockView.setPadding(mClockView.getPaddingLeft(), mClockView.getPaddingTop(),
-                mClockView.getPaddingRight(), paddingBottom);
-        mClockViewBold.setPadding(mClockViewBold.getPaddingLeft(), mClockViewBold.getPaddingTop(),
-                mClockViewBold.getPaddingRight(), paddingBottom);
     }
 
     @VisibleForTesting(otherwise = VisibleForTesting.NONE)
