@@ -6736,6 +6736,26 @@ public final class Settings {
          */
         public static final String SHOW_MEDIA_HEADS_UP = "show_media_heads_up";
 
+        /**
+         * Whether to turn on the notification light when the state of the front camera changes
+         * 0 = 0ff, 1 = on
+         */
+        public static final String POPUP_CAMERA_LED_ENABLED = "popup_camera_led_enabled";
+
+        /** @hide */
+        public static final Validator POPUP_CAMERA_LED_ENABLED_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Whether battery led is temporarily blocked
+         * 0 = 0ff, 1 = on
+         */
+        public static final String POPUP_CAMERA_BATTERY_LED_BLOCKED = "popup_camera_battery_led_blocked";
+
+        /** @hide */
+        public static final Validator POPUP_CAMERA_BATTERY_LED_BLOCKED_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
@@ -7209,6 +7229,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(CAMERA_WAKE_SCREEN);
             PRIVATE_SETTINGS.add(CAMERA_SLEEP_ON_RELEASE);
             PRIVATE_SETTINGS.add(CAMERA_LAUNCH);
+            PRIVATE_SETTINGS.add(POPUP_CAMERA_LED_ENABLED);
+            PRIVATE_SETTINGS.add(POPUP_CAMERA_BATTERY_LED_BLOCKED);
             // Evolution X Settings end
         }
 
@@ -7485,6 +7507,8 @@ public final class Settings {
             VALIDATORS.put(CAMERA_WAKE_SCREEN, CAMERA_WAKE_SCREEN_VALIDATOR);
             VALIDATORS.put(CAMERA_SLEEP_ON_RELEASE, CAMERA_SLEEP_ON_RELEASE_VALIDATOR);
             VALIDATORS.put(CAMERA_LAUNCH, CAMERA_LAUNCH_VALIDATOR);
+            VALIDATORS.put(POPUP_CAMERA_LED_ENABLED, POPUP_CAMERA_LED_ENABLED_VALIDATOR);
+            VALIDATORS.put(POPUP_CAMERA_BATTERY_LED_BLOCKED, POPUP_CAMERA_BATTERY_LED_BLOCKED_VALIDATOR);
             // Evolution X Settings end
         }
 
