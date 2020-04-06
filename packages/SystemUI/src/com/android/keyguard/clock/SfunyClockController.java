@@ -1,7 +1,5 @@
 /*
  * Copyright (C) 2019 The Android Open Source Project
- * Copyright (C) 2020 Projekt Spicy Future
- * Copyright (C) 2020 Bootleggers ROM
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,10 +22,10 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Paint.Style;
 import android.graphics.Typeface;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextClock;
-import android.widget.TextView;
 
 import com.android.internal.colorextraction.ColorExtractor;
 import com.android.systemui.R;
@@ -42,7 +40,7 @@ import static com.android.systemui.statusbar.phone
 /**
  * Plugin for the default clock face used only to provide a preview.
  */
-public class DividedLinesClockController implements ClockPlugin {
+public class SfunyClockController implements ClockPlugin {
 
     /**
      * Resources used to get title and thumbnail.
@@ -70,20 +68,10 @@ public class DividedLinesClockController implements ClockPlugin {
     private ClockLayout mView;
 
     /**
-     * Text clock in preview view hierarchy.
+     * Text clock for both hour and minute
      */
-    private TextClock mClock;
-
-    /**
-     * Text date in preview view hierarchy.
-     */
-    private TextClock mDate;
-
-    /**
-     * Top and bottom dividers in preview view hierarchy.
-     */
-    private View mTopLine;
-    private View mBottomLine;
+    private TextClock mHourClock;
+    private TextClock mMinuteClock;
 
     /**
      * Create a DefaultClockController instance.
@@ -92,7 +80,7 @@ public class DividedLinesClockController implements ClockPlugin {
      * @param inflater Inflater used to inflate custom clock views.
      * @param colorExtractor Extracts accent color from wallpaper.
      */
-    public DividedLinesClockController(Resources res, LayoutInflater inflater,
+    public SfunyClockController(Resources res, LayoutInflater inflater,
             SysuiColorExtractor colorExtractor) {
         mResources = res;
         mLayoutInflater = inflater;
@@ -101,51 +89,45 @@ public class DividedLinesClockController implements ClockPlugin {
 
     private void createViews() {
         mView = (ClockLayout) mLayoutInflater
-                .inflate(R.layout.divided_lines_clock, null);
-        mClock = mView.findViewById(R.id.clock);
-        mDate = mView.findViewById(R.id.date);
-        mClock.setFormat12Hour("h:mm");
-        onTimeTick();
+                .inflate(R.layout.digital_clock_sfuny, null);
+        mHourClock = mView.findViewById(R.id.clockHour);
+        mMinuteClock = mView.findViewById(R.id.clockMinute);
     }
 
     @Override
     public void onDestroyView() {
         mView = null;
-        mClock = null;
-        mDate = null;
-        mTopLine = null;
-        mBottomLine = null;
+        mHourClock = null;
+        mMinuteClock = null;
     }
 
     @Override
     public String getName() {
-        return "dividedlines";
+        return "sfuny";
     }
 
     @Override
     public String getTitle() {
-        return "Divided Lines";
+        return "SFUNY";
     }
 
     @Override
     public Bitmap getThumbnail() {
-        return BitmapFactory.decodeResource(mResources, R.drawable.divided_lines_thumbnail);
+        return BitmapFactory.decodeResource(mResources, R.drawable.sfuny_thumbnail);
     }
 
     @Override
     public Bitmap getPreview(int width, int height) {
-        View previewView = mLayoutInflater.inflate(R.layout.divided_lines_clock, null);
-        TextClock previewTime = previewView.findViewById(R.id.clock);
+
+        View previewView = mLayoutInflater.inflate(R.layout.digital_sfuny_preview, null);
+        TextClock previewHourTime = previewView.findViewById(R.id.clockHour);
+        TextClock previewMinuteTime = previewView.findViewById(R.id.clockMinute);
         TextClock previewDate = previewView.findViewById(R.id.date);
-        View previewTLine = previewView.findViewById(R.id.topLine);
-        View previewBLine = previewView.findViewById(R.id.bottomLine);
-        previewTime.setFormat12Hour("h:mm");
 
         // Initialize state of plugin before generating preview.
-        previewTime.setTextColor(Color.WHITE);
+        previewHourTime.setTextColor(Color.WHITE);
+        previewMinuteTime.setTextColor(Color.WHITE);
         previewDate.setTextColor(Color.WHITE);
-        previewTLine.setBackgroundColor(Color.WHITE);
-        previewBLine.setBackgroundColor(Color.WHITE);
         ColorExtractor.GradientColors colors = mColorExtractor.getColors(
                 WallpaperManager.FLAG_LOCK);
         setColorPalette(colors.supportsDarkText(), colors.getColorPalette());
@@ -177,18 +159,18 @@ public class DividedLinesClockController implements ClockPlugin {
 
     @Override
     public void setTextColor(int color) {
-        mClock.setTextColor(color);
+        mHourClock.setTextColor(color);
+        mMinuteClock.setTextColor(color);
     }
 
     @Override
     public void setTypeface(Typeface tf) {
-        mClock.setTypeface(tf);
+        mHourClock.setTypeface(tf);
+        mMinuteClock.setTypeface(tf);
     }
 
     @Override
-    public void setDateTypeface(Typeface tf) {
-        mDate.setTypeface(tf);
-    }
+    public void setDateTypeface(Typeface tf) {}
 
     @Override
     public void setColorPalette(boolean supportsDarkText, int[] colorPalette) {}
@@ -207,6 +189,6 @@ public class DividedLinesClockController implements ClockPlugin {
 
     @Override
     public boolean shouldShowStatusArea() {
-        return false;
+        return true;
     }
 }
