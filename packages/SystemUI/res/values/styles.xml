@@ -144,7 +144,7 @@
 
     <style name="TextAppearance.QS.DetailHeader">
         <item name="android:textSize">@dimen/qs_detail_header_text_size</item>
-        <item name="android:fontFamily">@*android:string/config_bodyFontFamilyMedium</item>
+        <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
     </style>
 
     <style name="TextAppearance.QS.DetailItemPrimary">
@@ -170,7 +170,7 @@
         <item name="android:textSize">@dimen/qs_detail_button_text_size</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:fontFamily">@*android:string/config_bodyFontFamilyMedium</item>
+        <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
         <item name="android:gravity">center</item>
     </style>
 
