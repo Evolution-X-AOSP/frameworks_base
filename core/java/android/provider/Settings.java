@@ -6704,6 +6704,12 @@ public final class Settings {
         public static final String SCREENRECORD_VIDEO_BITRATE = "screenrecord_video_bitrate";
 
         /**
+         * Screenrecord: audio source
+         * @hide
+         */
+        public static final String SCREENRECORD_AUDIO_SOURCE = "screenrecord_audio_source";
+
+        /**
          * Adaptive playback
          * Automatically pause media when the volume is muted and
          * will resume automatically when volume is restored.
