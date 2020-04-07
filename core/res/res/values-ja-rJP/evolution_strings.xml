@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">クラッシュログ URL をコピー</string>
+    <string name="url_copy_success">URL を正常にコピーしました</string>
+    <string name="url_copy_failed">dogbin へのログのアップロード中にエラーが発生しました</string>
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_fakePackageSignature">パッケージ署名を偽装</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_fakePackageSignature">アプリが別のアプリになりすます事を許可します。悪意のあるアプリケーションがこれを利用してアプリの個人情報にアクセスする可能性があります。慎重にこの許可を与えて下さい!</string>
+    <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgrouplab_fake_package_signature">パッケージ署名を偽装</string>
+    <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgroupdesc_fake_package_signature">パッケージ署名の偽装を許可</string>
+    <!-- Message shown to the user when the apps requests permission from this group. If ever possible this should stay below 80 characters (assuming the parameters takes 20 characters). Don't abbreviate until the message reaches 120 characters though. [CHAR LIMIT=120] -->
+    <string name="permgrouprequest_fake_package_signature">&lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt;のパッケージ署名の偽装を許可しますか？</string>
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">リカバリー</string>
+    <string name="reboot_to_recovery_message">リカバリーへ再起動中...</string>
+    <string name="reboot_to_bootloader_title">ブートローダー</string>
+    <string name="reboot_to_bootloader_message">ブートローダーへ再起動中...</string>
+    <string name="reboot_title">再起動</string>
+    <string name="reboot_message">再起動しています…</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">自動</string>
+    <string name="live_display_auto_summary">日の出と日の入りに画面の色温度を自動的に調整する</string>
+    <string name="live_display_off">OFF</string>
+    <string name="live_display_off_summary">全ての調整を無効にする</string>
+    <string name="live_display_day">昼</string>
+    <string name="live_display_day_summary">昼の設定のみを使用する</string>
+    <string name="live_display_night">夜</string>
+    <string name="live_display_night_summary">夜の設定のみを使用する</string>
+    <string name="live_display_outdoor">屋外 (日光)</string>
+    <string name="live_display_outdoor_summary">屋外の設定のみを使用する</string>
+    <string name="live_display_hint">LiveDisplay は目の疲れを軽減し、夜の睡眠を邪魔しません。ここをタップして試してみて下さい。</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay OFF</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: 自動モード</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: 昼モード</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: 夜モード</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: 屋外モード</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay を OFF にしました</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay を自動モードに変更しました</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay を昼モードに変更しました</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay を夜モードに変更しました</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay を屋外モードに変更しました</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">電源ボタンを押し続けてロック解除</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">ゲームモード</string>
+    <string name="gaming_mode_notification_title">ゲームモードが有効です</string>
+    <string name="gaming_mode_notification_content">タップでゲームモードを無効化</string>
+    <string name="gaming_mode_enabled_toast">ゲームモードを有効化しました</string>
+    <string name="gaming_mode_disabled_toast">ゲームモードを無効化しました</string>
+    <!-- ADB over network notification -->
+    <string name="adb_net_active_notification_title">ネットワーク経由の ADB が有効です</string>
+    <!-- ADB over USB and network notification -->
+    <string name="adb_both_active_notification_title">USB とネットワーク経由の ADB が有効です</string>
+    <!-- ADB notification message-->
+    <string name="adb_active_generic_notification_message">タップしてデバッグを無効化</string>
+</resources>

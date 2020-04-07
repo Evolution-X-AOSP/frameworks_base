@@ -93,13 +93,6 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Reiniciar</string>
     <string name="quick_settings_reboot_recovery_label">Recuperação</string>
-    <!-- Advance location quick setting tile -->
-    <string name="quick_settings_location_secondary_battery_saving">Economia de bateria</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Localização: economia de bateria.</string>
-    <string name="quick_settings_location_secondary_gps_only">Somente sensores</string>
-    <string name="accessibility_quick_settings_location_gps_only">Localização: apenas sensores.</string>
-    <string name="quick_settings_location_secondary_high_accuracy">Alta precisão</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Localização: alta precisão.</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento rápido(<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%s</xliff:g> até completar a carga)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
@@ -115,6 +108,8 @@
     <string name="lockscreen_hidden">Nenhum</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Deslize a partir do ícone para iniciar</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Gravador de tela</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">Teclas físicas ativadas</string>
     <string name="accessibility_quick_settings_hwkeys_off">Teclas físicas desativadas</string>
@@ -158,8 +153,18 @@
     <string name="quick_settings_immersive_tile_statusbar">Barra de status imersiva</string>
     <string name="quick_settings_immersive_tile_navbar">Barra de navegação imersiva</string>
     <string name="quick_settings_immersive_tile_full">Imersivo completo</string>
-    <string name="screenrecord_stopdot_label">Mostrar ponto de parada</string>
-    <string name="screenrecord_low_quality_label">Baixa qualidade</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">Iniciar gravação?</string>
+    <string name="screenrecord_dialog_summary">Durante a gravação, o sistema Android pode capturar quaisquer informações confidenciais visíveis na sua tela ou reproduzidas no seu dispositivo. Isso inclui senhas, informações de pagamento, fotos, mensagens e áudio.</string>
+    <string name="screenrecord_dialog_start">Iniciar</string>
+    <string name="screenrecord_dialog_cancel">Cancelar</string>
+    <string name="screenrecord_audio_recording_title">Fonte de Áudio</string>
+    <string name="screenrecord_audio_recording_internal">Interno</string>
+    <string name="screenrecord_audio_recording_microphone">Microfone</string>
+    <string name="screenrecord_audio_recording_off">Desativado</string>
+    <string name="screenrecord_taps_title">Mostrar toques na tela</string>
+    <string name="screenrecord_stopdot_title">Mostrar ponto de parada</string>
+    <string name="screenrecord_video_bitrate_title">Taxa de bits do vídeo</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">Captura de tela</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
@@ -188,4 +193,15 @@
     <string name="right">Direita</string>
     <string name="navbar_editor_title">Editor</string>
     <string name="navbar_editor_summary">Configurar barra de navegação</string>
+    <string name="recents_app_killed">Aplicativo finalizado</string>
+    <string name="nope_cant_kill">O Launcher não pode ser finalizado</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Segure &amp; arraste ou toque para adicionar blocos</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Segure &amp; arraste para reorganizar ou toque para remover</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Wireless PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare desligado\nEconomia de bateria</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare desligado\nBateria muito baixa</string>
+    <string name="quick_settings_powershare_enabled_label">Wireless PowerShare está ativado</string>
 </resources>

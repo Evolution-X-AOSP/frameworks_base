@@ -18,22 +18,22 @@
     <!-- Button that copies the url to the log of a crashed application -->
     <string name="aerr_copy">Copiar URL del registro de errores</string>
     <string name="url_copy_success">URL copiada satisfactoriamente</string>
-    <string name="url_copy_failed">Se ha producido un error al cargar el registro en dogbin</string>
+    <string name="url_copy_failed">Se ha producido un error al cargar el registro en Dogbin</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_fakePackageSignature">Falsificar firma del paquete</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_fakePackageSignature">Permite que la aplicación se ejecute como una aplicación diferente. Las aplicaciones maliciosas pueden usar esto para acceder a datos personales. Conceda este permiso con cuidado!</string>
+    <string name="permdesc_fakePackageSignature">Permite que la aplicación se ejecute como una aplicación diferente. Las aplicaciones maliciosas pueden usar esto para acceder a datos personales. ¡Conceda este permiso con cuidado!</string>
     <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permgrouplab_fake_package_signature">Falsificar firma del paquete</string>
     <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permgroupdesc_fake_package_signature">permitir la falsificación de la firma del paquete</string>
     <!-- Message shown to the user when the apps requests permission from this group. If ever possible this should stay below 80 characters (assuming the parameters takes 20 characters). Don't abbreviate until the message reaches 120 characters though. [CHAR LIMIT=120] -->
-    <string name="permgrouprequest_fake_package_signature">¿Quieres permitir que &lt;b&gt;<xliff:g id="App_NAME">%1$s</xliff:g>&lt;/b&gt; falsifique la firma del paquete?</string>
+    <string name="permgrouprequest_fake_package_signature">¿Quieres permitir que &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; falsifique la firma del paquete?</string>
     <!-- Advanced reboot -->
     <string name="reboot_to_recovery_title">Recovery</string>
-    <string name="reboot_to_recovery_message">Reiniciando al modo recovery</string>
+    <string name="reboot_to_recovery_message">Reiniciando al modo Recovery</string>
     <string name="reboot_to_bootloader_title">Bootloader</string>
-    <string name="reboot_to_bootloader_message">Reiniciando al bootloader</string>
+    <string name="reboot_to_bootloader_message">Reiniciando al modo Bootloader</string>
     <string name="reboot_title">Reiniciar</string>
     <string name="reboot_message">Reiniciando sistema</string>
     <!-- LiveDisplay strings -->
@@ -45,9 +45,9 @@
     <string name="live_display_day_summary">Utilizar sólo la configuración de día</string>
     <string name="live_display_night">Noche</string>
     <string name="live_display_night_summary">Utilizar sólo la configuración de noche</string>
-    <string name="live_display_outdoor">Exterior (luz del sol)</string>
+    <string name="live_display_outdoor">Al aire libre (luz del sol)</string>
     <string name="live_display_outdoor_summary">Usar solo la configuración de exterior</string>
-    <string name="live_display_hint">LiveDisplay puede ayudar a reducir la fatiga ocular y ayudarte a dormir por la noche. Haga clic aquí para probarlo!</string>
+    <string name="live_display_hint">LiveDisplay puede ayudar a reducir la fatiga ocular y ayudarte a dormir por la noche. ¡Haga clic aquí para probarlo!</string>
     <string name="accessibility_quick_settings_live_display_off">LiveDisplay desactivado.</string>
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: modo automático.</string>
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay: modo diurno.</string>
@@ -62,15 +62,15 @@
     <string name="pocket_lock_message_long_press">Pulse y mantenga el botón de encendido para desbloquear</string>
     <!-- Alert slider proc nodes paths. -->
     <!-- Gaming mode -->
-    <string name="notification_channel_gaming">Modo juego</string>
-    <string name="gaming_mode_notification_title">Modo juego activado</string>
-    <string name="gaming_mode_notification_content">Toca para desactivar el Modo juego</string>
-    <string name="gaming_mode_enabled_toast">Modo Juego activado</string>
-    <string name="gaming_mode_disabled_toast">Modo Juego desactivado</string>
+    <string name="notification_channel_gaming">Modo Gaming</string>
+    <string name="gaming_mode_notification_title">Modo Gaming activado</string>
+    <string name="gaming_mode_notification_content">Toca para desactivar el Modo Gaming</string>
+    <string name="gaming_mode_enabled_toast">Modo Gaming activado</string>
+    <string name="gaming_mode_disabled_toast">Modo Gaming desactivado</string>
     <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB sobre la red activado</string>
     <!-- ADB over USB and network notification -->
-    <string name="adb_both_active_notification_title">ADB sobre USB &amp; red activado</string>
+    <string name="adb_both_active_notification_title">ADB sobre USB y red activado</string>
     <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Toca para desactivar la depuración.</string>
 </resources>

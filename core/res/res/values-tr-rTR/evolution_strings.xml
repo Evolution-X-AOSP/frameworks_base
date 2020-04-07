@@ -16,8 +16,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Button that copies the url to the log of a crashed application -->
-    <string name="aerr_copy">Çökme günlüğü URL\' sini kopyala</string>
-    <string name="url_copy_success">URL başarıyla kopyalandı</string>
+    <string name="aerr_copy">Kilitlenme günlüğü bağlantısını kopyala</string>
+    <string name="url_copy_success">Bağlantı başarıyla kopyalandı</string>
     <string name="url_copy_failed">Günlüğü dogbin\'e yüklerken bir hata oluştu</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_fakePackageSignature">Sahte paket imzası</string>
@@ -26,9 +26,9 @@
     <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permgrouplab_fake_package_signature">Sahte paket imzası</string>
     <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permgroupdesc_fake_package_signature">sahte paket imzası</string>
+    <string name="permgroupdesc_fake_package_signature">paket imzasını taklit etmeye izin ver</string>
     <!-- Message shown to the user when the apps requests permission from this group. If ever possible this should stay below 80 characters (assuming the parameters takes 20 characters). Don't abbreviate until the message reaches 120 characters though. [CHAR LIMIT=120] -->
-    <string name="permgrouprequest_fake_package_signature">&lt;b&gt;<xliff:g id="app_name">%1$s</xliff:g>&lt;/b&gt;\'in imza taklit etmesine izin verilsin mi?</string>
+    <string name="permgrouprequest_fake_package_signature">&lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; uygulamasının imza taklit etmesine izin verilsin mi?</string>
     <!-- Advanced reboot -->
     <string name="reboot_to_recovery_title">Kurtarma</string>
     <string name="reboot_to_recovery_message">Kurtarma modunda yeniden başlatılıyor</string>
@@ -65,12 +65,12 @@
     <string name="notification_channel_gaming">Oyun modu</string>
     <string name="gaming_mode_notification_title">Oyun modu etkinleştirildi</string>
     <string name="gaming_mode_notification_content">Oyun modunu kapatmak için dokunun</string>
-    <string name="gaming_mode_enabled_toast">Oyun modu etkinleştirildi</string>
-    <string name="gaming_mode_disabled_toast">Oyun modu etkisizleştirildi</string>
+    <string name="gaming_mode_enabled_toast">Oyun modu açıldı</string>
+    <string name="gaming_mode_disabled_toast">Oyun modu kapatıldı</string>
     <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">Ağ üzerinden ADB etkin</string>
     <!-- ADB over USB and network notification -->
-    <string name="adb_both_active_notification_title">USB &amp; ağı üzerinden ADB etkin</string>
+    <string name="adb_both_active_notification_title">USB ve ağ üzerinden ADB etkin</string>
     <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Hata ayıklamayı devre dışı bırakmak için dokunun.</string>
 </resources>
