@@ -54,7 +54,7 @@
     <string name="accessibility_quick_settings_live_display_night">LiveDisplay: ночной режим.</string>
     <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: режим улицы.</string>
     <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay выключен.</string>
-    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay переключен в автоматический режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay переключён в автоматический режим.</string>
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay переключен в дневной режим.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay переключён на ночной режим.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay переключён на уличный режим.</string>
@@ -68,7 +68,7 @@
     <string name="gaming_mode_enabled_toast">Игровой режим включён</string>
     <string name="gaming_mode_disabled_toast">Игровой режим выключен</string>
     <!-- ADB over network notification -->
-    <string name="adb_net_active_notification_title">Отладка ADB по сети разрешена</string>
+    <string name="adb_net_active_notification_title">Отладка по сети разрешена</string>
     <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">Отладка по сети и USB разрешена</string>
     <!-- ADB notification message-->
