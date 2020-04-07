@@ -17,16 +17,16 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
     <string-array name="type_clock_minutes_alt">
-        <item>O\u2019Saat</item>
-        <item>O\u2019Bir</item>
-        <item>O\u2019İki</item>
-        <item>O\u2019Üç</item>
-        <item>O\u2019Dört</item>
-        <item>O\u2019Beş</item>
-        <item>O\u2019Altı</item>
-        <item>O\u2019Yedi</item>
-        <item>O\u2019Sekiz</item>
-        <item>O\u2019Dokuz</item>
+        <item>Saat</item>
+        <item>Sıfır Bir</item>
+        <item>Sıfır İki</item>
+        <item>Sıfır Üç</item>
+        <item>Sıfır Dört</item>
+        <item>Sıfır Beş</item>
+        <item>Sıfır Altı</item>
+        <item>Sıfır Yedi</item>
+        <item>Sıfır Sekiz</item>
+        <item>Sıfır Dokuz</item>
         <item>On</item>
         <item>On bir</item>
         <item>On iki</item>

@@ -54,10 +54,10 @@
     <string name="accessibility_quick_settings_live_display_night">LiveDisplay: modalità notte.</string>
     <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: modalità all\'aperto.</string>
     <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay disattivato.</string>
-    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay in modalità automatica.</string>
-    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay in modalità giorno.</string>
-    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay in modalità notte.</string>
-    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay in modalità all\'aperto.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay impostato in modalità automatica.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay impostato in modalità giorno.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay impostato in modalità notte.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay impostato in modalità all\'aperto.</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Tieni premuto il tasto di accensione per sbloccare</string>
     <!-- Alert slider proc nodes paths. -->
