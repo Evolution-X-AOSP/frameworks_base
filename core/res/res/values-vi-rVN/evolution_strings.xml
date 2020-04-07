@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Sao chép URL nhật ký sự cố</string>
+    <string name="url_copy_success">Sao chép URL thành công</string>
+    <string name="url_copy_failed">Đã xảy ra lỗi khi tải nhật ký lên dogbin</string>
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_fakePackageSignature">Giả mạo chữ ký gói</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_fakePackageSignature">Cho phép ứng dụng có thể giả mạo làm ứng dụng khác. Các ứng dụng độc hại có thể sử dụng quyền này để truy cập trái phép vào dữ liệu riêng tư của bạn. Hãy thận trọng khi cấp quyền này!</string>
+    <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgrouplab_fake_package_signature">Giả mạo chữ ký gói</string>
+    <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgroupdesc_fake_package_signature">cho phép gói giả mạo chữ ký</string>
+    <!-- Message shown to the user when the apps requests permission from this group. If ever possible this should stay below 80 characters (assuming the parameters takes 20 characters). Don't abbreviate until the message reaches 120 characters though. [CHAR LIMIT=120] -->
+    <string name="permgrouprequest_fake_package_signature">Cho phép
+        &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; giả mạo chữ ký?</string>
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Đang khởi động lại vào Recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Đang khởi động lại vào Bootloader</string>
+    <string name="reboot_title">Khởi động lại</string>
+    <string name="reboot_message">Đang khởi động lại hệ thống</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Tự động</string>
+    <string name="live_display_auto_summary">Tự động điều chỉnh nhiệt độ màu của màn hình sau khi mặt trời lặn và mặt trời mọc</string>
+    <string name="live_display_off">Tắt</string>
+    <string name="live_display_off_summary">Vô hiệu hoá tất cả điều chỉnh</string>
+    <string name="live_display_day">Ban ngày</string>
+    <string name="live_display_day_summary">Chỉ sử dụng cài đặt ban ngày</string>
+    <string name="live_display_night">Ban đêm</string>
+    <string name="live_display_night_summary">Chỉ sử dụng cài đặt ban đêm</string>
+    <string name="live_display_outdoor">Ngoài trời (ánh sáng mạnh)</string>
+    <string name="live_display_outdoor_summary">Chỉ sử dụng cài đặt ngoài trời</string>
+    <string name="live_display_hint">LiveDisplay có thể giúp giảm mỏi mắt và giúp bạn ngủ vào ban đêm. Nhấn vào đây để thử!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay tắt.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: chế độ tự động.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: chế độ ban ngày.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: chế độ ban đêm.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: chế độ ngoài trời.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay đã tắt.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay đã đổi sang chế độ tự động.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay đã đổi sang chế độ ban ngày.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay đã đổi sang chế độ ban đêm.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay đã đổi sang chế độ ngoài trời.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Nhấn và giữ nút nguồn để mở khoá</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">Chế độ trò chơi</string>
+    <string name="gaming_mode_notification_title">Chế độ trò chơi đã bật</string>
+    <string name="gaming_mode_notification_content">Chạm để tắt chế độ trò chơi</string>
+    <string name="gaming_mode_enabled_toast">Chế độ trò chơi đã bật</string>
+    <string name="gaming_mode_disabled_toast">Chế độ trò chơi đã tắt</string>
+    <!-- ADB over network notification -->
+    <string name="adb_net_active_notification_title">Đã bật ADB qua mạng</string>
+    <!-- ADB over USB and network notification -->
+    <string name="adb_both_active_notification_title">Đã kích hoạt ADB qua USB &amp; mạng</string>
+    <!-- ADB notification message-->
+    <string name="adb_active_generic_notification_message">Chạm để tắt chế độ gỡ lỗi.</string>
+</resources>
