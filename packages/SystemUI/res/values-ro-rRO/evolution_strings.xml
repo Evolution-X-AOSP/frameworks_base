@@ -188,4 +188,6 @@
     <string name="right">Dreapta</string>
     <string name="navbar_editor_title">Editor</string>
     <string name="navbar_editor_summary">Configurare bară de navigare</string>
+    <string name="recents_app_killed">Aplicaţie oprită</string>
+    <string name="nope_cant_kill">Lansatorul nu poate fi oprit</string>
 </resources>

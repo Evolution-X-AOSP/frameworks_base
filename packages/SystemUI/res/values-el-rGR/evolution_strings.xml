@@ -188,4 +188,6 @@
     <string name="right">Δεξιά</string>
     <string name="navbar_editor_title">Πρόγραμμα επεξεργασίας</string>
     <string name="navbar_editor_summary">Διαμόρφωση μπάρας πλοήγησης</string>
+    <string name="recents_app_killed">Η εφαρμογή τερματίστηκε</string>
+    <string name="nope_cant_kill">Ο launcher δεν μπορεί να τερματιστεί</string>
 </resources>

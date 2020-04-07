@@ -188,4 +188,6 @@
     <string name="right">Kanan</string>
     <string name="navbar_editor_title">Penyunting</string>
     <string name="navbar_editor_summary">Konfigurasi panel navigasi</string>
+    <string name="recents_app_killed">Aplikasi dihentikan</string>
+    <string name="nope_cant_kill">Peluncur tidak dapat dihentikan</string>
 </resources>
