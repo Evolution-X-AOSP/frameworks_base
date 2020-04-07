@@ -73,4 +73,22 @@
     <string name="adb_both_active_notification_title">ADB melalui USB &amp; jaringan diaktifkan</string>
     <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Sentuh untuk menonaktifkan debugging.</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">Memudar</string>
+    <string name="animation_slide_right">Geser di kanan</string>
+    <string name="animation_slide_left">Geser di kiri</string>
+    <string name="animation_slide_right_no_fade">Geser di kanan (Tanpa memudar)</string>
+    <string name="animation_slide_left_no_fade">Geser di kiri (Tanpa memudar)</string>
+    <string name="animation_slide_up">Geser dari bawah</string>
+    <string name="animation_slide_down">Geser di atas</string>
+    <string name="animation_default">Default</string>
+    <string name="animation_translucent">Transparan</string>
+    <string name="animation_grow_shrink">Timbul di (Atas)</string>
+    <string name="animation_grow_shrink_center">Timbul di (Tengah)</string>
+    <string name="animation_grow_shrink_bottom">Timbul di (Bawah)</string>
+    <string name="animation_grow_shrink_left">Timbul di (Kiri)</string>
+    <string name="animation_grow_shrink_right">Timbul di (Kanan)</string>
+    <string name="animation_ethans">Etans</string>
+    <string name="animation_random">Acak</string>
+    <string name="action_null">Blank</string>
 </resources>
