@@ -93,13 +93,6 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">மறுதொடக்கம்</string>
     <string name="quick_settings_reboot_recovery_label">மீட்பு (ரெகவரி)</string>
-    <!-- Advance location quick setting tile -->
-    <string name="quick_settings_location_secondary_battery_saving">பேட்டரி சேமிப்பு</string>
-    <string name="accessibility_quick_settings_location_battery_saving">இருப்பிட அறிக்கை: பேட்டரி சேமிப்பு முறை.</string>
-    <string name="quick_settings_location_secondary_gps_only">சென்சார்கள் மட்டும்</string>
-    <string name="accessibility_quick_settings_location_gps_only">இருப்பிட அறிக்கை: சென்சார்கள் மட்டும் பயன்முறை.</string>
-    <string name="quick_settings_location_secondary_high_accuracy">அதிக துல்லியம்</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">இருப்பிட அறிக்கையிடல்: உயர் துல்லியம் பயன்முறை.</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time">&lt;xliff: g id = \"சதவீதம்\"&gt;% 2 $ s &lt;/ xliff: g&gt; • வேகமான மின்னோட்டம் (&lt;xliff: g id = \"charging_time_left\" example = \"4 மணிநேரம் 2 நிமிடங்கள்\"&gt;% s &lt;/ xliff: g &gt; முழு வரை)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
@@ -115,6 +108,8 @@
     <string name="lockscreen_hidden">எதுவுமில்லை</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">தொடங்க ஐகானிலிருந்து ஸ்வைப் செய்யவும்</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">திரை பதிவு</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">HW விசை இயக்கப்பட்டுள்ளது</string>
     <string name="accessibility_quick_settings_hwkeys_off">HW விசை அணைக்கப்பட்டுள்ளது</string>
@@ -158,8 +153,18 @@
     <string name="quick_settings_immersive_tile_statusbar">அதிவேக நிலைப்பாடு</string>
     <string name="quick_settings_immersive_tile_navbar">அதிவேக நவ்பார்</string>
     <string name="quick_settings_immersive_tile_full">முழுக்க முழுக்க</string>
-    <string name="screenrecord_stopdot_label">நிறுத்த புள்ளியைக் காட்டு</string>
-    <string name="screenrecord_low_quality_label">குறைந்த தரம்</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">பதிவு செய்யத் தொடங்கவா?</string>
+    <string name="screenrecord_dialog_summary">பதிவுசெய்யும்போது, உங்கள் திரையில் தெரியும் அல்லது உங்கள் சாதனத்தில் இயக்கப்படும் எந்தவொரு முக்கியமான தகவலையும் Android கணினி கைப்பற்ற முடியும். கடவுச்சொற்கள், கட்டண தகவல், புகைப்படங்கள், செய்திகள் மற்றும் ஆடியோ ஆகியவை இதில் அடங்கும்.</string>
+    <string name="screenrecord_dialog_start">தொடங்கு</string>
+    <string name="screenrecord_dialog_cancel">ரத்துசெய்</string>
+    <string name="screenrecord_audio_recording_title">ஆடியோ மூல</string>
+    <string name="screenrecord_audio_recording_internal">உள்</string>
+    <string name="screenrecord_audio_recording_microphone">மைக்ரோஃபோன்</string>
+    <string name="screenrecord_audio_recording_off">முடக்கப்பட்டது</string>
+    <string name="screenrecord_taps_title">தொடுதல்களைத் திரையில் காட்டு</string>
+    <string name="screenrecord_stopdot_title">நிறுத்த புள்ளியைக் காட்டு</string>
+    <string name="screenrecord_video_bitrate_title">காணொளி தரம்</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">ஸ்கிரீன்ஷாட்</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
@@ -188,4 +193,10 @@
     <string name="right">வலது</string>
     <string name="navbar_editor_title">பதிவர்</string>
     <string name="navbar_editor_summary">நாவிகேஷன் பட்டியை வடிவமை</string>
+    <string name="recents_app_killed">பயன்பாடு கொல்லப்பட்டது</string>
+    <string name="nope_cant_kill">துவக்கியைக் கொல்ல முடியாது</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">ஓடுகளைச் சேர்க்க  &amp;  இழுக்கவும் அல்லது தட்டவும்</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">மறுசீரமைக்க இழுக்கவும்  &amp;  அல்லது அகற்ற தட்டவும்</string>
 </resources>
