@@ -31,10 +31,10 @@
     <string name="permgrouprequest_fake_package_signature">Дозволити
         &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; підробити підпис пакету?</string>
     <!-- Advanced reboot -->
-    <string name="reboot_to_recovery_title">Рекавері</string>
-    <string name="reboot_to_recovery_message">Перевантаження у рекавері</string>
-    <string name="reboot_to_bootloader_title">Завантажувач</string>
-    <string name="reboot_to_bootloader_message">Перезавантаження у завантажувач</string>
+    <string name="reboot_to_recovery_title">Режим відновлення</string>
+    <string name="reboot_to_recovery_message">Перевантажити у режим відновлення</string>
+    <string name="reboot_to_bootloader_title">Режим завантажувача</string>
+    <string name="reboot_to_bootloader_message">Перезавантажити у режим завантажувача</string>
     <string name="reboot_title">Перезавантаження</string>
     <string name="reboot_message">Перезавантаження системи</string>
     <!-- LiveDisplay strings -->
@@ -71,7 +71,25 @@
     <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB по мережі увімкнено</string>
     <!-- ADB over USB and network notification -->
-    <string name="adb_both_active_notification_title">Відладка по мережі і USB увімкнено</string>
+    <string name="adb_both_active_notification_title">ADB по USB &amp; мережі увімкнено</string>
     <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Торкніться, щоб вимкнути налагодження.</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">Затухання</string>
+    <string name="animation_slide_right">Зсув праворуч</string>
+    <string name="animation_slide_left">Зсунути ліворуч</string>
+    <string name="animation_slide_right_no_fade">Зсув праворуч (без загасання)</string>
+    <string name="animation_slide_left_no_fade">Зсунути ліворуч (без затухання)</string>
+    <string name="animation_slide_up">Зсув вниз</string>
+    <string name="animation_slide_down">Зсув вверх</string>
+    <string name="animation_default">За замовчуванням</string>
+    <string name="animation_translucent">Напівпрозорий</string>
+    <string name="animation_grow_shrink">Збільшення (вгору)</string>
+    <string name="animation_grow_shrink_center">Збільшення (по центрі)</string>
+    <string name="animation_grow_shrink_bottom">Збільшення (вниз)</string>
+    <string name="animation_grow_shrink_left">Збільшення (ліворуч)</string>
+    <string name="animation_grow_shrink_right">Збільшення (праворуч)</string>
+    <string name="animation_ethans">Етани</string>
+    <string name="animation_random">Випадково</string>
+    <string name="action_null">Порожньо</string>
 </resources>

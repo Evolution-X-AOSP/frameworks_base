@@ -68,9 +68,27 @@
     <string name="gaming_mode_enabled_toast">Игровой режим включён</string>
     <string name="gaming_mode_disabled_toast">Игровой режим выключен</string>
     <!-- ADB over network notification -->
-    <string name="adb_net_active_notification_title">Отладка ADB по сети разрешена</string>
+    <string name="adb_net_active_notification_title">Отладка по сети разрешена</string>
     <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">Отладка по сети и USB разрешена</string>
     <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Нажмите, чтобы отключить отладку.</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">Затухание</string>
+    <string name="animation_slide_right">Сдвиг вправо</string>
+    <string name="animation_slide_left">Сдвиг влево</string>
+    <string name="animation_slide_right_no_fade">Сдвиг вправо (без затухания)</string>
+    <string name="animation_slide_left_no_fade">Сдвиг влево (без затухания)</string>
+    <string name="animation_slide_up">Сдвиг вниз</string>
+    <string name="animation_slide_down">Сдвиг вверх</string>
+    <string name="animation_default">По умолчанию</string>
+    <string name="animation_translucent">Полупрозрачная</string>
+    <string name="animation_grow_shrink">Увеличение (сверху)</string>
+    <string name="animation_grow_shrink_center">Увеличение (по центру)</string>
+    <string name="animation_grow_shrink_bottom">Увеличение (снизу)</string>
+    <string name="animation_grow_shrink_left">Увеличение (слева)</string>
+    <string name="animation_grow_shrink_right">Увеличение (справа)</string>
+    <string name="animation_ethans">Ethans</string>
+    <string name="animation_random">Случайная</string>
+    <string name="action_null">Пусто</string>
 </resources>
