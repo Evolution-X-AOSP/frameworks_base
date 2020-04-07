@@ -104,9 +104,20 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
         int bgSize = context.getResources().getDimensionPixelSize(R.dimen.qs_tile_background_size);
 
         mColorActive = Utils.getColorAttrDefaultColor(context, android.R.attr.colorAccent);
+        mColorActiveAlpha = adjustAlpha(mColorActive, 0.2f);
         mColorInactive = Utils.getColorAttrDefaultColor(context, android.R.attr.textColorSecondary);
         mColorDisabled = Utils.getDisabled(context,
                 Utils.getColorAttrDefaultColor(context, android.R.attr.textColorTertiary));
+        boolean setQsUseNewTint = Settings.System.getIntForUser(context.getContentResolver(),
+                    Settings.System.QS_PANEL_BG_USE_NEW_TINT, 0, UserHandle.USER_CURRENT) == 1;
+        if (setQsUseNewTint) {
+            mColorActive = mColorActiveAlpha;
+            mColorDisabled = context.getResources().getColor(R.color.qs_tile_background_color_disabled);
+        } else {
+            mColorDisabled = Utils.getDisabled(context,
+                    Utils.getColorAttrDefaultColor(context, android.R.attr.textColorTertiary));
+        }
+        mColorInactive = Utils.getColorAttrDefaultColor(context, android.R.attr.textColorSecondary);
 
         PathShape p = new PathShape(path, pathSize, pathSize);
         // The drawable shown when the tile is not active
@@ -158,19 +169,6 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
         }
         setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_YES);
         setBackground(mTileBackground);
-
-        mColorActive = Utils.getColorAttrDefaultColor(context, android.R.attr.colorAccent);
-        mColorActiveAlpha = adjustAlpha(mColorActive, 0.2f);
-        boolean setQsUseNewTint = Settings.System.getIntForUser(context.getContentResolver(),
-                    Settings.System.QS_PANEL_BG_USE_NEW_TINT, 0, UserHandle.USER_CURRENT) == 1;
-        if (setQsUseNewTint) {
-            mColorActive = mColorActiveAlpha;
-            mColorDisabled = context.getResources().getColor(R.color.qs_tile_background_color_disabled);
-        } else {
-            mColorDisabled = Utils.getDisabled(context,
-                    Utils.getColorAttrDefaultColor(context, android.R.attr.textColorTertiary));
-        }
-        mColorInactive = Utils.getColorAttrDefaultColor(context, android.R.attr.textColorSecondary);
 
         setPadding(0, 0, 0, 0);
         setClipChildren(false);
