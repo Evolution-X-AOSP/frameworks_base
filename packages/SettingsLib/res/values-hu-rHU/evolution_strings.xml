@@ -23,14 +23,4 @@
     <string name="screen_zoom_summary_smaller">Kisebb</string>
     <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
     <string name="screen_zoom_summary_smallest">Legkisebb</string>
-    <!-- Label for estimated remaining duration of dash battery charging -->
-    <string name="power_remaining_dash_charging_duration_only">Gyorstöltés (<xliff:g id="time">%1$s</xliff:g> van a teljes töltöttségig)</string>
-    <!-- Battery use screen.  Battery status shown in chart label when charging from a dash source.  -->
-    <string name="battery_info_status_dash_charging">Gyorstöltés</string>
-    <string name="battery_info_status_dash_charging_lower">gyorstöltés</string>
-    <!-- Label for estimated remaining duration of warp battery charging -->
-    <string name="power_remaining_warp_charging_duration_only">Lassútöltés (<xliff:g id="time">%1$s</xliff:g> van a teljes töltöttségig)</string>
-    <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
-    <string name="battery_info_status_warp_charging">Lassútöltés</string>
-    <string name="battery_info_status_warp_charging_lower">lassútöltés</string>
 </resources>
