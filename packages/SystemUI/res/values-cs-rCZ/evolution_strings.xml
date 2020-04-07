@@ -188,4 +188,6 @@
     <string name="right">Vpravo</string>
     <string name="navbar_editor_title">Editor</string>
     <string name="navbar_editor_summary">Konfigurovat navigační panel</string>
+    <string name="recents_app_killed">Aplikace ukončena</string>
+    <string name="nope_cant_kill">Launcher nelze ukončit</string>
 </resources>
