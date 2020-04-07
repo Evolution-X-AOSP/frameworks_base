@@ -19,12 +19,12 @@
     <string name="delete_screenshot_toast">Screenshot gelöscht</string>
     <!-- Advanced reboot -->
     <string name="global_action_restart_advanced">Erweitert</string>
-    <string name="global_action_restart_recovery">Wiederherstellung</string>
+    <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">SystemUI</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">Screenshot</string>
-    <string name="quick_settings_region_screenshot_label">Bildschirmfoto-Teilbereich</string>
+    <string name="quick_settings_region_screenshot_label">Bildschirmbereich aufnehmen</string>
     <!-- Sound Search tile -->
     <string name="quick_settings_sound_search">Soundsuche</string>
     <string name="quick_settings_sound_search_no_app">Leider funktioniert dies nur, wenn eine App für die Musiksuche installiert ist.</string>
@@ -76,32 +76,25 @@
     <string name="quick_settings_compass_W">W</string>
     <string name="quick_settings_compass_NW">NW</string>
     <!-- Ambient display QS tile -->
-    <string name="quick_settings_ambient_display_label">Ambient-Display</string>
-    <string name="accessibility_quick_settings_ambient_display_off">Ambient-Display aus</string>
-    <string name="accessibility_quick_settings_ambient_display_on">Ambient-Display an</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display wurde ausgeschaltet</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient Display wurde eingeschaltet</string>
+    <string name="quick_settings_ambient_display_label">Inaktivitätsdisplay</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Inaktivitätsdisplay aus</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Inaktivitätsdisplay an</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Inaktivitätsdisplay wurde ausgeschaltet</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Inaktivitätsdisplay wurde eingeschaltet</string>
     <!-- SleepScreen QS Tile -->
-    <string name="quick_settings_sleepscreen_label">Bildschirm ausschalten</string>
+    <string name="quick_settings_sleepscreen_label">Schlaf-Bildschirm</string>
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Verbinden mit\u2026</string>
-    <string name="vpn_credentials_hint">Bitte Zugangsdaten eingeben, um sich mit <xliff:g id="name">%s</xliff:g> zu verbinden</string>
+    <string name="vpn_credentials_hint">Bitte geben Sie Ihre Zugangsdaten ein, um sich mit <xliff:g id="name">%s</xliff:g> zu verbinden</string>
     <string name="vpn_credentials_username">Benutzername</string>
     <string name="vpn_credentials_password">Passwort</string>
     <string name="vpn_credentials_dialog_connect">Verbinden</string>
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Neustart</string>
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
-    <!-- Advance location quick setting tile -->
-    <string name="quick_settings_location_secondary_battery_saving">Energiesparmodus</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Standortdienste: Energiesparmodus.</string>
-    <string name="quick_settings_location_secondary_gps_only">Nur Gerät</string>
-    <string name="accessibility_quick_settings_location_gps_only">Standortdienste: Nur Gerät.</string>
-    <string name="quick_settings_location_secondary_high_accuracy">Hohe Genauigkeit</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Standortdienste: Hohe Genauigkeit.</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash Schnellladen (<xliff:g id="charging_time_left" example="4 Stunden und 2 Minuten">%s</xliff:g> bis zur vollständigen Aufladung)</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash-Schnellladen (<xliff:g id="charging_time_left" example="4 Stunden und 2 Minuten">%s</xliff:g> bis zur vollständigen Aufladung)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Warp-Ladevorgang (<xliff:g id="charging_time_left" example="4 Stunden und 2 Minuten">%s</xliff:g> bis zur vollständigen Aufladung)</string>
     <!-- Reader mode QS tile -->
@@ -112,23 +105,25 @@
     <string name="accessibility_quick_settings_reading_mode_changed_off">Lesemodus ausgeschaltet.</string>
     <string name="statusbar_items_title">Statusleisten-Symbol</string>
     <string name="lockscreen_default">Standard</string>
-    <string name="lockscreen_hidden">Kein</string>
+    <string name="lockscreen_hidden">Keine Auswahl</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Zum Starten vom Symbol wischen</string>
+    <string name="custom_hint">Zum starten vom Symbol weg wischen</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Bildschirmaufnahme</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">HW-Tasten an</string>
     <string name="accessibility_quick_settings_hwkeys_off">HW-Tasten aus</string>
     <string name="quick_settings_hwkeys_label">HW-Tasten</string>
     <!-- Gaming Mode -->
-    <string name="gaming_mode_tile_title">Spielmodus</string>
-    <string name="gaming_mode_tile_toast">Spielmodus eingeschaltet</string>
-    <string name="gaming_mode_tile_toast_disabled">Spielmodus ausgeschaltet</string>
-    <string name="gaming_mode_dialog_title">Spielmodus</string>
-    <string name="gaming_mode_dialog_message">Wenn der Spielmodus aktiviert ist, werden alle Heads-Up Nachrichten und die Hardwaretasten deaktiviert. Alle Einstellungen werden nach dem Beenden des Spielmodus auf Standard zurückgesetzt.</string>
-    <string name="accessibility_quick_settings_gaming_mode_on">Spielmodus an</string>
-    <string name="accessibility_quick_settings_gaming_mode_off">Spielmodus aus</string>
+    <string name="gaming_mode_tile_title">Gaming-Modus</string>
+    <string name="gaming_mode_tile_toast">Gaming-Modus eingeschaltet</string>
+    <string name="gaming_mode_tile_toast_disabled">Gaming-Modus ausgeschaltet</string>
+    <string name="gaming_mode_dialog_title">Gaming-Modus</string>
+    <string name="gaming_mode_dialog_message">Wenn der Gaming-Modus aktiviert ist, werden alle Heads-Up Nachrichten und die Hardwaretasten deaktiviert. Alle Einstellungen werden nach dem Beenden des Gaming-Modus auf Standard zurückgesetzt.</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">Gaming-Modus an</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">Gaming-Modus aus</string>
     <!-- Status bar icons -->
-    <string name="status_bar_data_disabled">Kreuz, wenn Mobile Daten deaktiviert sind</string>
+    <string name="status_bar_data_disabled">Kreuz, wenn mobile Daten deaktiviert sind</string>
     <string name="status_bar_data_saver">Datensparmodus</string>
     <string name="status_bar_nfc">NFC</string>
     <string name="status_bar_roaming">Mobilfunk-Roaming</string>
@@ -137,33 +132,43 @@
     <string name="accessibility_status_bar_nfc">Nfc</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Beenden erzwingen?</string>
-    <string name="force_stop_dlg_text">Das Beenden der App zu erzwingen kann zu unerwünschtem Verhalten führen.</string>
+    <string name="force_stop_dlg_text">Das Beenden einer App kann zu unerwünschtem Verhalten führen.</string>
     <string name="guts_force_close_app">App schließen</string>
     <!-- Heads up snooze toast -->
     <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s </xliff:g> - Heads-Up Benachrichtigungen sind für 1 Minute deaktiviert.</string>
     <string name="heads_up_snooze_message"><xliff:g id="string">%s </xliff:g> - Heads-Up Benachrichtigungen sind für <xliff:g id="number">%d </xliff:g> Minuten deaktiviert.</string>
     <!-- Gaming mode -->
-    <string name="gaming_mode_not_enabled">Spielmodus ist in den Einstellungen deaktiviert</string>
-    <string name="quick_settings_gaming_mode_label">Spielmodus</string>
+    <string name="gaming_mode_not_enabled">Gaming-Modus ist in den Einstellungen deaktiviert</string>
+    <string name="quick_settings_gaming_mode_label">Gaming-Modus</string>
     <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_disabled">Spielmodus ausgeschaltet.</string>
+    <string name="accessibility_quick_settings_gaming_mode_disabled">Gaming-Modus ausgeschaltet.</string>
     <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_enabled">Spielmodus eingeschaltet.</string>
+    <string name="accessibility_quick_settings_gaming_mode_enabled">Gaming-Modus eingeschaltet.</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">Daten SIM-Karte wechseln</string>
     <string name="qs_data_switch_changed_1">SIM 1 wird für mobile Daten verwendet</string>
     <string name="qs_data_switch_changed_2">SIM 2 wird für mobile Daten verwendet</string>
-    <string name="quick_settings_immersive_tile">Immersiver Modus</string>
-    <string name="quick_settings_immersive_tile_off">Immersiver Modus deaktiviert</string>
+    <string name="quick_settings_immersive_tile">Vollbildmodus</string>
+    <string name="quick_settings_immersive_tile_off">Vollbildmodus aus</string>
     <string name="quick_settings_immersive_tile_statusbar">Immersive Statusleiste</string>
     <string name="quick_settings_immersive_tile_navbar">Immersive Navigationsleiste</string>
     <string name="quick_settings_immersive_tile_full">Immersiv vollständig</string>
-    <string name="screenrecord_stopdot_label">Zeige Stop-Punkt</string>
-    <string name="screenrecord_low_quality_label">Niedrige Qualität</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">Bildschirmaufnahme starten?</string>
+    <string name="screenrecord_dialog_summary">Während der Aufnahme kann das Android-System alle sensiblen Informationen erfassen, die auf Ihrem Bildschirm sichtbar oder auf Ihrem Gerät abgespielt werden. Dazu gehören Passwörter, Zahlungsinformationen, Fotos, Nachrichten und Audio.</string>
+    <string name="screenrecord_dialog_start">Starten</string>
+    <string name="screenrecord_dialog_cancel">Abbrechen</string>
+    <string name="screenrecord_audio_recording_title">Audioquelle</string>
+    <string name="screenrecord_audio_recording_internal">Intern</string>
+    <string name="screenrecord_audio_recording_microphone">Mikrofon</string>
+    <string name="screenrecord_audio_recording_off">Deaktiviert</string>
+    <string name="screenrecord_taps_title">Bildschirmberührungen anzeigen</string>
+    <string name="screenrecord_stopdot_title">Zeige Stop-Punkt</string>
+    <string name="screenrecord_video_bitrate_title">Video-Bitrate</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">Screenshot</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_running_services">Übersicht der laufenden Anwendungen öffnen.</string>
+    <string name="accessibility_quick_settings_running_services">Laufende Dienste anzeigen.</string>
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Sprache</string>
     <string name="quick_settings_locale_more_locales_toast">Bitte fügen Sie mehr als eine Sprache hinzu, um die Umschaltfunktion zu aktivieren</string>
@@ -171,7 +176,7 @@
     <string name="preview">Vorschau</string>
     <string name="keycode">Tastencode</string>
     <string name="no_home_title">Keine Home-Taste gefunden</string>
-    <string name="no_home_message">Eine Home-Taste ist erforderlich, um dieses Gerät navigieren zu können. Bitte fügen Sie eine Home-Taste vor dem Speichern ein.</string>
+    <string name="no_home_message">Um dieses Gerät bedienen zu können, braucht man eine Home-Taste. Bitte füge vor dem Speichern eine entsprechende Schaltfläche hinzu.</string>
     <string name="clipboard_description">Elemente können direkt in die Zwischenablage gezogen werden. Ebenso können sie direkt aus der Zwischenablage gezogen werden, sofern diese geöffnet ist.</string>
     <string name="keycode_description">Mit den Keycode-Schaltflächen kann man der Navigationsleiste Tasten hinzufügen. Wird eine Keycode-Schaltfläche ausgewählt, führt sie die Aktion der entsprechenden Taste aus. Wähle zuerst die Taste für die Schaltfläche aus und dann ein Bild, das auf der Schaltfläche erscheinen soll.</string>
     <string name="start">Zur Startseite</string>
@@ -180,12 +185,18 @@
     <string name="space">Abstandshalter</string>
     <string name="menu_ime">Menü- / Tastaturumschalter</string>
     <string name="select_button">Schaltfläche zum Hinzufügen auswählen</string>
-    <string name="add_button">Taste hinzufügen</string>
+    <string name="add_button">Schaltfläche hinzufügen</string>
     <string name="save">Speichern</string>
     <string name="reset">Zurücksetzen</string>
     <string name="select_keycode">Tastatur-Taste auswählen</string>
     <string name="left">Links</string>
     <string name="right">Rechts</string>
-    <string name="navbar_editor_title">Ändern</string>
+    <string name="navbar_editor_title">Editor</string>
     <string name="navbar_editor_summary">Navigationsleiste konfigurieren</string>
+    <string name="recents_app_killed">Anwendung beendet</string>
+    <string name="nope_cant_kill">Launcher kann nicht beendet werden</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Halte &amp; ziehe oder tippe, um Kacheln hinzuzufügen</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Halte &amp; ziehe zum Neuanordnen oder tippe zum Entfernen</string>
 </resources>
