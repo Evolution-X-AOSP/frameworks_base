@@ -93,13 +93,6 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Reiniciar</string>
     <string name="quick_settings_reboot_recovery_label">Recuperação</string>
-    <!-- Advance location quick setting tile -->
-    <string name="quick_settings_location_secondary_battery_saving">Economia de bateria</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Localização: economia de bateria.</string>
-    <string name="quick_settings_location_secondary_gps_only">Somente sensores</string>
-    <string name="accessibility_quick_settings_location_gps_only">Localização: apenas sensores.</string>
-    <string name="quick_settings_location_secondary_high_accuracy">Alta precisão</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Localização: alta precisão.</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento rápido(<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%s</xliff:g> até completar a carga)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
@@ -188,4 +181,10 @@
     <string name="right">Direita</string>
     <string name="navbar_editor_title">Editor</string>
     <string name="navbar_editor_summary">Configurar barra de navegação</string>
+    <string name="recents_app_killed">Aplicativo finalizado</string>
+    <string name="nope_cant_kill">O Launcher não pode ser finalizado</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Segure &amp; arraste ou toque para adicionar blocos</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Segure &amp; arraste para reorganizar ou toque para remover</string>
 </resources>
