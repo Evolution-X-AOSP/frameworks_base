@@ -93,13 +93,6 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">重启</string>
     <string name="quick_settings_reboot_recovery_label">恢复模式</string>
-    <!-- Advance location quick setting tile -->
-    <string name="quick_settings_location_secondary_battery_saving">省电</string>
-    <string name="accessibility_quick_settings_location_battery_saving">位置报告：省电模式</string>
-    <string name="quick_settings_location_secondary_gps_only">仅GPS</string>
-    <string name="accessibility_quick_settings_location_gps_only">位置报告：仅限设备</string>
-    <string name="quick_settings_location_secondary_high_accuracy">高精度</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">位置报告：高精准度</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash闪充（还需 <xliff:g id="charging_time_left">%s</xliff:g>充满）</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
@@ -115,6 +108,8 @@
     <string name="lockscreen_hidden">无</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">滑动图标以启动</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">屏幕录制</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">开启实体按键</string>
     <string name="accessibility_quick_settings_hwkeys_off">关闭实体按键</string>
@@ -158,8 +153,18 @@
     <string name="quick_settings_immersive_tile_statusbar">沉浸状态栏</string>
     <string name="quick_settings_immersive_tile_navbar">沉浸导航栏</string>
     <string name="quick_settings_immersive_tile_full">全屏沉浸</string>
-    <string name="screenrecord_stopdot_label">显示停止点</string>
-    <string name="screenrecord_low_quality_label">低质量</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">开始录制？</string>
+    <string name="screenrecord_dialog_summary">在录制过程中，Android系统可以捕获在您的屏幕上可见或在您的设备上播放的任何敏感信息。这可能包括密码、付款信息、照片、消息和音频。</string>
+    <string name="screenrecord_dialog_start">开始</string>
+    <string name="screenrecord_dialog_cancel">取消</string>
+    <string name="screenrecord_audio_recording_title">声音来源</string>
+    <string name="screenrecord_audio_recording_internal">内置</string>
+    <string name="screenrecord_audio_recording_microphone">麦克风</string>
+    <string name="screenrecord_audio_recording_off">禁用</string>
+    <string name="screenrecord_taps_title">显示触摸效果</string>
+    <string name="screenrecord_stopdot_title">显示停止点</string>
+    <string name="screenrecord_video_bitrate_title">视频比特率</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">截图</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
@@ -188,4 +193,15 @@
     <string name="right">右侧</string>
     <string name="navbar_editor_title">编辑器</string>
     <string name="navbar_editor_summary">配置导航栏</string>
+    <string name="recents_app_killed">应用程序已结束</string>
+    <string name="nope_cant_kill">启动器不能被终止</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">按住 &amp; 拖动或点击添加磁贴</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">按住 &amp; 拖动以重新排列或点击删除</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">无线电力共享</string>
+    <string name="quick_settings_powershare_off_powersave_label">无线电电分享关闭\n省电模式</string>
+    <string name="quick_settings_powershare_off_low_battery_label">无线电分享关闭\n电池电量过低</string>
+    <string name="quick_settings_powershare_enabled_label">无线电力共享已启用</string>
 </resources>

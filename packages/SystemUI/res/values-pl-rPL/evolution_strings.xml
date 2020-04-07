@@ -93,13 +93,6 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Uruchom ponownie</string>
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
-    <!-- Advance location quick setting tile -->
-    <string name="quick_settings_location_secondary_battery_saving">Oszczędzanie baterii</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Lokalizacja: oszczędzanie baterii.</string>
-    <string name="quick_settings_location_secondary_gps_only">Tylko czujniki</string>
-    <string name="accessibility_quick_settings_location_gps_only">Lokalizacja: tylko czujniki.</string>
-    <string name="quick_settings_location_secondary_high_accuracy">Wysoka dokładność</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Lokalizacja: wysoka dokładność.</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Ładowanie Dash (<xliff:g id="charging_time_left" example="4 godziny i 2 minuty">%s</xliff:g> do pełnego naładowania)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
@@ -115,6 +108,8 @@
     <string name="lockscreen_hidden">Żaden</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Przesuń palcem od ikony, aby uruchomić</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Nagrywanie ekranu</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">Klawisze sprzętowe włączone</string>
     <string name="accessibility_quick_settings_hwkeys_off">Klawisze sprzętowe wyłączone</string>
@@ -158,8 +153,18 @@
     <string name="quick_settings_immersive_tile_statusbar">Schowaj pasek statusu</string>
     <string name="quick_settings_immersive_tile_navbar">Schowaj pasek nawigacyjny</string>
     <string name="quick_settings_immersive_tile_full">Tryb pełnoekranowy</string>
-    <string name="screenrecord_stopdot_label">Pokaż kropkę do zatrzymania</string>
-    <string name="screenrecord_low_quality_label">Niska jakość</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">Rozpocząć nagrywanie?</string>
+    <string name="screenrecord_dialog_summary">Podczas nagrywania, system Android może przechwycić wszelkie wrażliwe dane widoczne lub odtwarzane na ekranie telefonu. Wliczając w to hasła, dane o płatnościach, zdjęcia, wiadomości oraz dźwięki.</string>
+    <string name="screenrecord_dialog_start">Rozpocznij</string>
+    <string name="screenrecord_dialog_cancel">Anuluj</string>
+    <string name="screenrecord_audio_recording_title">Źródło dźwięku</string>
+    <string name="screenrecord_audio_recording_internal">Wewnętrzny</string>
+    <string name="screenrecord_audio_recording_microphone">Mikrofon</string>
+    <string name="screenrecord_audio_recording_off">Wyłączone</string>
+    <string name="screenrecord_taps_title">Pokaż dotknięcia na ekranie</string>
+    <string name="screenrecord_stopdot_title">Pokaż kropkę do zatrzymania</string>
+    <string name="screenrecord_video_bitrate_title">Bitrate wideo</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">Zrzut ekranu</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
@@ -188,4 +193,15 @@
     <string name="right">Prawy</string>
     <string name="navbar_editor_title">Edytor</string>
     <string name="navbar_editor_summary">Skonfiguruj pasek nawigacji</string>
+    <string name="recents_app_killed">Aplikacja została zabita</string>
+    <string name="nope_cant_kill">Launcher nie może zostać zabity</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Przytrzymaj &amp; przeciągnij lub dotknij, aby dodać kafelki</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Przytrzymaj &amp; przeciągnij, aby zmienić kolejność lub dotknij aby usunąć</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Ładowanie zwrotne PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Ładowanie zwrotne PowerShare wyłączone\nOszczędzanie energii</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Ładowanie zwrotne PowerShare wyłączone\nNaładuj baterię</string>
+    <string name="quick_settings_powershare_enabled_label">Ładowanie zwrotne PowerShare jest włączone</string>
 </resources>
