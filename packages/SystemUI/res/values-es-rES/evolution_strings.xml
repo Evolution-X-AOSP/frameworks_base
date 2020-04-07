@@ -188,4 +188,6 @@
     <string name="right">Derecha</string>
     <string name="navbar_editor_title">Editor</string>
     <string name="navbar_editor_summary">Configurar barra de navegación</string>
+    <string name="recents_app_killed">Aplicación finalizada</string>
+    <string name="nope_cant_kill">El launcher no puede ser cerrado</string>
 </resources>

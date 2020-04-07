@@ -188,4 +188,6 @@
     <string name="right">右侧</string>
     <string name="navbar_editor_title">编辑器</string>
     <string name="navbar_editor_summary">配置导航栏</string>
+    <string name="recents_app_killed">应用程序已结束</string>
+    <string name="nope_cant_kill">启动器不能被终止</string>
 </resources>

@@ -188,4 +188,6 @@
     <string name="right">يمين</string>
     <string name="navbar_editor_title">المحرر</string>
     <string name="navbar_editor_summary">تهيئة شريط التنقل</string>
+    <string name="recents_app_killed">تم إنهاء التطبيق</string>
+    <string name="nope_cant_kill">لا يمكن إنهاء مشغل التطبيقات</string>
 </resources>

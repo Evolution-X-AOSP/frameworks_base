@@ -188,4 +188,6 @@
     <string name="right">ডানদিকে</string>
     <string name="navbar_editor_title">সম্পাদক</string>
     <string name="navbar_editor_summary">ন্যাভিগেশন বার কনফিগার করুন</string>
+    <string name="recents_app_killed">রিসেন্টস অ্যাপ মারা গেছে</string>
+    <string name="nope_cant_kill">নাহ মারতে পারে না</string>
 </resources>

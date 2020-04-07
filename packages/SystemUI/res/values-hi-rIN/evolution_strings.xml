@@ -18,7 +18,7 @@
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">स्क्रीनशॉट मिटाया गया</string>
     <!-- Advanced reboot -->
-    <string name="global_action_restart_advanced">उन्नत</string>
+    <string name="global_action_restart_advanced">रिबूट विकल्प</string>
     <string name="global_action_restart_recovery">रिकवरी</string>
     <string name="global_action_restart_bootloader">बूटलोडर</string>
     <string name="global_action_restart_ui">सिस्टम</string>
@@ -140,8 +140,8 @@
     <string name="force_stop_dlg_text">यदि आप कोई ऐप जबरदस्ती बंद करते हैं, तो वो दुर्व्यवहार कर सकता है|</string>
     <string name="guts_force_close_app">ऐप बंद करें</string>
     <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> नोटिफिकेशन देखना 1 मिनट के लिए बंद किया गया है।</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%s </xliff:g> - नोटिफिकेशन <xliff:g id="number">%d </xliff:g> मिनट के लिए बंद करें ।</string>
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> नोटिफिकेशन दिखना 1 मिनट के लिए बंद किया गया है।</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s </xliff:g> - नोटिफिकेशन दिखना<xliff:g id="number">%d </xliff:g> मिनट के लिए बंद करें ।</string>
     <!-- Gaming mode -->
     <string name="gaming_mode_not_enabled">गेमिंग मोड सेटिंग्स में अक्षम है</string>
     <string name="quick_settings_gaming_mode_label">गेमिंग मोड</string>
@@ -188,4 +188,6 @@
     <string name="right">दाएँ</string>
     <string name="navbar_editor_title">संपादक</string>
     <string name="navbar_editor_summary">नेविगेशन बार कॉन्फ़िगर करें</string>
+    <string name="recents_app_killed">ऐप बंद किया गया</string>
+    <string name="nope_cant_kill">लॉन्चर बंद नहीं किया जा सकता</string>
 </resources>
