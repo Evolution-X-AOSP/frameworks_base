@@ -93,13 +93,6 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Uruchom ponownie</string>
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
-    <!-- Advance location quick setting tile -->
-    <string name="quick_settings_location_secondary_battery_saving">Oszczędzanie baterii</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Lokalizacja: oszczędzanie baterii.</string>
-    <string name="quick_settings_location_secondary_gps_only">Tylko czujniki</string>
-    <string name="accessibility_quick_settings_location_gps_only">Lokalizacja: tylko czujniki.</string>
-    <string name="quick_settings_location_secondary_high_accuracy">Wysoka dokładność</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Lokalizacja: wysoka dokładność.</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Ładowanie Dash (<xliff:g id="charging_time_left" example="4 godziny i 2 minuty">%s</xliff:g> do pełnego naładowania)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
@@ -188,4 +181,10 @@
     <string name="right">Prawy</string>
     <string name="navbar_editor_title">Edytor</string>
     <string name="navbar_editor_summary">Skonfiguruj pasek nawigacji</string>
+    <string name="recents_app_killed">Aplikacja została zabita</string>
+    <string name="nope_cant_kill">Launcher nie może zostać zabity</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Przytrzymaj &amp; przeciągnij lub dotknij, aby dodać kafelki</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Przytrzymaj &amp; przeciągnij, aby zmienić kolejność lub dotknij aby usunąć</string>
 </resources>
