@@ -93,13 +93,6 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Repornire</string>
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
-    <!-- Advance location quick setting tile -->
-    <string name="quick_settings_location_secondary_battery_saving">Economisire baterie</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Locaţie: economisire baterie.</string>
-    <string name="quick_settings_location_secondary_gps_only">Doar senzori</string>
-    <string name="accessibility_quick_settings_location_gps_only">Locaţie: doar senzori.</string>
-    <string name="quick_settings_location_secondary_high_accuracy">Precizie ridicată</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Locaţiei: precizie ridicată.</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Încărcare Rapidă (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> până la finalizare)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
@@ -115,6 +108,8 @@
     <string name="lockscreen_hidden">Nimic</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Glisare dinspre pictogramă pentru a lansa</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Înregistrare ecran</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">Taste fizice pornite</string>
     <string name="accessibility_quick_settings_hwkeys_off">Taste fizice oprite</string>
@@ -158,8 +153,18 @@
     <string name="quick_settings_immersive_tile_statusbar">Bară de stare imersivă</string>
     <string name="quick_settings_immersive_tile_navbar">Bară de navigare imersivă</string>
     <string name="quick_settings_immersive_tile_full">Mod ecran complet</string>
-    <string name="screenrecord_stopdot_label">Arată punctul stop</string>
-    <string name="screenrecord_low_quality_label">Calitate scăzută</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">Începeți înregistrarea?</string>
+    <string name="screenrecord_dialog_summary">În timpul înregistrării, sistemul Android poate captura orice informație sensibilă care este vizibilă pe ecran sau redată pe dispozitivul dvs. Aceasta include parole, informații despre plată, fotografii, mesaje și mesaje audio.</string>
+    <string name="screenrecord_dialog_start">Pornire</string>
+    <string name="screenrecord_dialog_cancel">Anulare</string>
+    <string name="screenrecord_audio_recording_title">Sursă audio</string>
+    <string name="screenrecord_audio_recording_internal">Intern</string>
+    <string name="screenrecord_audio_recording_microphone">Microfon</string>
+    <string name="screenrecord_audio_recording_off">Dezactivat</string>
+    <string name="screenrecord_taps_title">Se afișează atingerile pe ecran</string>
+    <string name="screenrecord_stopdot_title">Se afișează punctul stop</string>
+    <string name="screenrecord_video_bitrate_title">Rată de biți video</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">Captură de ecran</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
@@ -188,4 +193,10 @@
     <string name="right">Dreapta</string>
     <string name="navbar_editor_title">Editor</string>
     <string name="navbar_editor_summary">Configurare bară de navigare</string>
+    <string name="recents_app_killed">Aplicaţie oprită</string>
+    <string name="nope_cant_kill">Lansatorul nu poate fi oprit</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Țineți apăsat și glisați sau atingeți pentru a adăuga dale</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Țineți apăsat și trageți pentru a rearanja sau apăsați pentru a elimina</string>
 </resources>

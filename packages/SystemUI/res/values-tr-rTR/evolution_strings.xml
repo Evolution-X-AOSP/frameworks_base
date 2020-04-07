@@ -27,7 +27,7 @@
     <string name="quick_settings_region_screenshot_label">Kısmi ekran görüntüsü</string>
     <!-- Sound Search tile -->
     <string name="quick_settings_sound_search">Sesli arama</string>
-    <string name="quick_settings_sound_search_no_app">Üzgünüz, eğer bir sesli arama uygulaması yoksa bu işe yaramayacaktır.</string>
+    <string name="quick_settings_sound_search_no_app">Üzgünüz, ancak bir Sesli arama uygulamanız yoksa bu çalışmaz.</string>
     <!-- USB Tethering tile -->
     <string name="accessibility_quick_settings_usb_tether_off">USB internet paylaşımı kapalı</string>
     <string name="accessibility_quick_settings_usb_tether_on">USB internet paylaşımı açık</string>
@@ -49,25 +49,25 @@
     <string name="quick_settings_heads_up_label">Bildirim pencereleri</string>
     <string name="accessibility_quick_settings_heads_up_off">Bildirim pencereleri kapalı</string>
     <string name="accessibility_quick_settings_heads_up_on">Bildirim pencereleri açık</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Üst bildirimleri kapatıldı</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Üst bildirimleri açıldı.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Bildirim pencereleri kapatıldı</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Bildirim pencereleri açıldı</string>
     <!-- Sync QS Tile -->
-    <string name="quick_settings_sync_label">Senkronizasyon</string>
-    <string name="accessibility_quick_settings_sync_off">Senkronizasyon kapalı</string>
-    <string name="accessibility_quick_settings_sync_on">Senkronizasyon açık</string>
-    <string name="accessibility_quick_settings_sync_changed_off">Senkronizasyon kapatıldı</string>
-    <string name="accessibility_quick_settings_sync_changed_on">Senkronizasyon açıldı</string>
+    <string name="quick_settings_sync_label">Eşitleme</string>
+    <string name="accessibility_quick_settings_sync_off">Eşitleme kapalı</string>
+    <string name="accessibility_quick_settings_sync_on">Eşitleme açık</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Eşitleme kapatıldı</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Eşitleme açıldı</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Ses paneli</string>
     <!-- Compass QS Tile -->
     <string name="quick_settings_compass_label">Pusula</string>
-    <string name="quick_settings_compass_value"><xliff:g id="derece">%1$.0f</xliff:g>\u00b0 <xliff:g id="yönlendirme">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
     <string name="quick_settings_compass_init">Başlatılıyor\u2026</string>
     <string name="accessibility_quick_settings_compass_off">Pusula kapalı</string>
     <string name="accessibility_quick_settings_compass_on">Pusula açık</string>
     <string name="accessibility_quick_settings_compass_changed_off">Pusula kapatıldı</string>
     <string name="accessibility_quick_settings_compass_changed_on">Pusula açıldı</string>
-    <string name="quick_settings_compass_N">N</string>
+    <string name="quick_settings_compass_N">K</string>
     <string name="quick_settings_compass_NE">KD</string>
     <string name="quick_settings_compass_E">D</string>
     <string name="quick_settings_compass_SE">GD</string>
@@ -86,24 +86,17 @@
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">\u2026\'a bağlan</string>
-    <string name="vpn_credentials_hint">Lütfen <xliff:g id="name">%s</xliff:g>\'a bağlanmak için kimlik bilgilerinizi girin</string>
+    <string name="vpn_credentials_hint"><xliff:g id="name">%s</xliff:g> ile bağlanmak için lütfen kimlik bilgilerinizi girin</string>
     <string name="vpn_credentials_username">Kullanıcı adı</string>
     <string name="vpn_credentials_password">Şifre</string>
     <string name="vpn_credentials_dialog_connect">Bağlan</string>
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Yeniden başlat</string>
     <string name="quick_settings_reboot_recovery_label">Kurtarma</string>
-    <!-- Advance location quick setting tile -->
-    <string name="quick_settings_location_secondary_battery_saving">Pil Tasarrufu</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Konum bildirimi: pil tasarrufu modu.</string>
-    <string name="quick_settings_location_secondary_gps_only">Yalnızca Sensörler</string>
-    <string name="accessibility_quick_settings_location_gps_only">Konum bildirimi: yalnızca sensörler.</string>
-    <string name="quick_settings_location_secondary_high_accuracy">Yüksek Doğruluk</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Konum bildirimi: yüksek doğruluk modu.</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Hızlı Şarj Oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> kaldı)</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash Şarj Oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> kaldı)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> Süper Hızlı Şarj Oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> kaldı)</string>
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Warp Şarj Oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> kaldı)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Okuma modu</string>
     <string name="accessibility_quick_settings_reading_mode_on">Okuma modu açık.</string>
@@ -115,20 +108,22 @@
     <string name="lockscreen_hidden">Yok</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Başlatmak için simgeyi kaydırın</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Ekran kaydı</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">Donanım tuşları açık</string>
     <string name="accessibility_quick_settings_hwkeys_off">Donanım tuşları kapalı</string>
     <string name="quick_settings_hwkeys_label">Donanım tuşları</string>
     <!-- Gaming Mode -->
-    <string name="gaming_mode_tile_title">Oyun Modu</string>
-    <string name="gaming_mode_tile_toast">Oyun modu aktifleştirildi</string>
+    <string name="gaming_mode_tile_title">Oyun modu</string>
+    <string name="gaming_mode_tile_toast">Oyun modu etkin</string>
     <string name="gaming_mode_tile_toast_disabled">Oyun modu devre dışı</string>
     <string name="gaming_mode_dialog_title">Oyun modu</string>
-    <string name="gaming_mode_dialog_message">Oyun modu etkinleştirildiğinde, tüm bildirim pencereleri mesajları devre dışı bırakılacak ve donanım tuşları kapatılacaktır. Oyun modundan çıktıktan sonra tüm devre dışı ayarlar varsayılan ayarlara getirilecektir.</string>
+    <string name="gaming_mode_dialog_message">Oyun modu etkinleştirildiğinde, tüm bildirim pencereleri mesajları devre dışı bırakılacak ve donanım tuşları kapatılacaktır. Oyun modundan çıktıktan sonra devre dışı bırakılan tüm ayarlar varsayılanlara sıfırlanacaktır.</string>
     <string name="accessibility_quick_settings_gaming_mode_on">Oyun modu açık</string>
     <string name="accessibility_quick_settings_gaming_mode_off">Oyun modu kapalı</string>
     <!-- Status bar icons -->
-    <string name="status_bar_data_disabled">Mobil veri devre dışı bırakıldığında çarpı göster</string>
+    <string name="status_bar_data_disabled">Mobil veri devre dışı bırakıldığında çarpı işareti göster</string>
     <string name="status_bar_data_saver">Veri tasarrufu</string>
     <string name="status_bar_nfc">NFC</string>
     <string name="status_bar_roaming">Dolaşımda</string>
@@ -140,15 +135,15 @@
     <string name="force_stop_dlg_text">Bir uygulamayı zorla durdurursanız, hatalı davranabilir.</string>
     <string name="guts_force_close_app">Uygulamayı Kapat</string>
     <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Bildirim pencereleri 1 dakikalığına erteleniyor.</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Bildirim pencereleri <xliff:g id="number">%d</xliff:g> dakikalığına erteleniyor.</string>
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Bildirim pencereleri 1 dakika ertelendi.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Bildirim pencereleri <xliff:g id="number">%d</xliff:g> dakika ertelendi.</string>
     <!-- Gaming mode -->
     <string name="gaming_mode_not_enabled">Oyun modu ayarlarda devre dışı bırakıldı</string>
     <string name="quick_settings_gaming_mode_label">Oyun modu</string>
     <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_disabled">Oyun modu etkisizleştirildi.</string>
+    <string name="accessibility_quick_settings_gaming_mode_disabled">Oyun modu kapatıldı.</string>
     <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_enabled">Oyun modu etkinleştirildi.</string>
+    <string name="accessibility_quick_settings_gaming_mode_enabled">Oyun modu açıldı.</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">Mobil veri SIM\'ini değiştir</string>
     <string name="qs_data_switch_changed_1">Mobil veri için SIM 1 kullanılıyor</string>
@@ -158,8 +153,18 @@
     <string name="quick_settings_immersive_tile_statusbar">Tam ekran durum çubuğu</string>
     <string name="quick_settings_immersive_tile_navbar">Tam ekran gezinme çubuğu</string>
     <string name="quick_settings_immersive_tile_full">Tam ekran</string>
-    <string name="screenrecord_stopdot_label">Durdurma butonunu göster</string>
-    <string name="screenrecord_low_quality_label">Düşük kalite</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">Kayda başlansın mı?</string>
+    <string name="screenrecord_dialog_summary">Kayıt sırasında Android sistemi, ekranınızda görünen veya cihazınızda oynatılan tüm hassas bilgileri yakalayabilir.  Buna şifreler, ödeme bilgileri, fotoğraflar, mesajlar ve ses dahildir.</string>
+    <string name="screenrecord_dialog_start">Başlat</string>
+    <string name="screenrecord_dialog_cancel">İptal</string>
+    <string name="screenrecord_audio_recording_title">Ses kaynağı</string>
+    <string name="screenrecord_audio_recording_internal">Dahili</string>
+    <string name="screenrecord_audio_recording_microphone">Mikrofon</string>
+    <string name="screenrecord_audio_recording_off">Devre dışı</string>
+    <string name="screenrecord_taps_title">Ekrana dokunmaları göster</string>
+    <string name="screenrecord_stopdot_title">Durdurma noktasını göster</string>
+    <string name="screenrecord_video_bitrate_title">Video bit hızı</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">Ekran görüntüsü</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
@@ -168,7 +173,7 @@
     <string name="quick_settings_locale_label">Dil</string>
     <string name="quick_settings_locale_more_locales_toast">Geçiş işlevselliğinin etkin olması için lütfen birden fazla dil ekleyin</string>
     <!-- Navbar editor -->
-    <string name="preview">Önizleme</string>
+    <string name="preview">Ön izleme</string>
     <string name="keycode">Tuş kodu</string>
     <string name="no_home_title">Ana ekran tuşu bulunamadı</string>
     <string name="no_home_message">Ana ekran tuşu bu cihazda gezinebilmek için gereklidir. Kaydetmeden önce lütfen bir ana ekran tuşu ekleyin.</string>
@@ -179,13 +184,24 @@
     <string name="end">Son</string>
     <string name="space">Ayırıcı</string>
     <string name="menu_ime">Menü / Klavye Değiştirici</string>
-    <string name="select_button">Eklenecek düğmeyi seçin</string>
-    <string name="add_button">Düğme ekle</string>
+    <string name="select_button">Eklenecek tuşu seçin</string>
+    <string name="add_button">Tuş ekle</string>
     <string name="save">Kaydet</string>
     <string name="reset">Sıfırla</string>
-    <string name="select_keycode">Klavye Düğmesini Seçin</string>
+    <string name="select_keycode">Klavye tuşu seçin</string>
     <string name="left">Sol</string>
     <string name="right">Sağ</string>
     <string name="navbar_editor_title">Düzenleyici</string>
     <string name="navbar_editor_summary">Gezinme çubuğunu düzenle</string>
+    <string name="recents_app_killed">Uygulama sonlandırıldı</string>
+    <string name="nope_cant_kill">Başlatıcı sonlandırılamaz</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Kare eklemek için basılı tutun ve sürükleyin veya dokunun</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Yeniden düzenlemek için basılı tutun ve kaydırın veya kaldırmak için dokunun</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Kablosuz Güç Paylaşımı</string>
+    <string name="quick_settings_powershare_off_powersave_label">Kablosuz Güç Paylaşımı kapalı\nPil tasarrufu</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Kablosuz Güç Paylaşımı\nPil seviyesi çok düşük</string>
+    <string name="quick_settings_powershare_enabled_label">Kablosuz Güç Paylaşımı etkin</string>
 </resources>
