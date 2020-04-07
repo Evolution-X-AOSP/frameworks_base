@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Капіяваць URL журнала памылкі</string>
+    <string name="url_copy_success">Спасылка паспяхова скапіявана</string>
+    <string name="url_copy_failed">Падчас загрузкі лога на сэрвіс dogbin адбылася памылка</string>
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_fakePackageSignature">Дазволіць падмену подпісу</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_fakePackageSignature">Дазваляць праграмам абыходзіць сістэму бяспекі, выдаючы сябе за іншыя праграмы. Шкоднасныя праграмы могуць выкарыстоўваць гэта для доступу да прыватных дадзеных. На свой страх і рызыку!</string>
+    <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgrouplab_fake_package_signature">Дазволіць падмену подпісу</string>
+    <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permgroupdesc_fake_package_signature">дазволіць падмену подпісу</string>
+    <!-- Message shown to the user when the apps requests permission from this group. If ever possible this should stay below 80 characters (assuming the parameters takes 20 characters). Don't abbreviate until the message reaches 120 characters though. [CHAR LIMIT=120] -->
+    <string name="permgrouprequest_fake_package_signature">Дазволіць
+        &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; падманваць подпіс пакета?</string>
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">Рэжым аднаўлення</string>
+    <string name="reboot_to_recovery_message">Перазагрузка ў рэжым аднаўлення</string>
+    <string name="reboot_to_bootloader_title">Загрузчык</string>
+    <string name="reboot_to_bootloader_message">Перазагрузка ў загрузчык</string>
+    <string name="reboot_title">Перазагрузка</string>
+    <string name="reboot_message">Перазагрузка сістэмы</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Аўтаматычна</string>
+    <string name="live_display_auto_summary">Аўтаматычна рэгуляваць тэмпературу колеру экрана пасля заходу і ўсходу сонца</string>
+    <string name="live_display_off">Адключана</string>
+    <string name="live_display_off_summary">Адключыць аўтападладку</string>
+    <string name="live_display_day">Дзень</string>
+    <string name="live_display_day_summary">Выкарыстоўваць толькі дзённыя параметры</string>
+    <string name="live_display_night">Ноч</string>
+    <string name="live_display_night_summary">Выкарыстоўваць толькі начныя налады</string>
+    <string name="live_display_outdoor">На вуліцы (яскравае сонца)</string>
+    <string name="live_display_outdoor_summary">Выкарыстоўваць толькі параметры вуліцы</string>
+    <string name="live_display_hint">LiveDisplay дапамагае знізіць напружанне вачэй і паляпшае начны сон. Націсніце тут, каб паспрабаваць!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay адкл.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: аўтаматычны рэжым.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: дзённы рэжым.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: начны рэжым.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: рэжым вуліцы.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay адключаны.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay зменены на аўтаматычны рэжым.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay пераключаны ў дзённы рэжым.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay пераключаны ў начны рэжым.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay пераключаны ў вулiчны рэжым.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Націсніце і ўтрымлівайце кнопку сілкавання, каб разблакаваць</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">Гульнявы рэжым</string>
+    <string name="gaming_mode_notification_title">Гульнявы рэжым уключаны</string>
+    <string name="gaming_mode_notification_content">Націсніце, каб пераключыць гульнявы рэжым</string>
+    <string name="gaming_mode_enabled_toast">Гульнявы рэжым уключаны</string>
+    <string name="gaming_mode_disabled_toast">Гульнявы рэжым адключаны</string>
+    <!-- ADB over network notification -->
+    <string name="adb_net_active_notification_title">ADB праз сетку ўключана</string>
+    <!-- ADB over USB and network notification -->
+    <string name="adb_both_active_notification_title">ADB праз USB і сетку ўключана</string>
+    <!-- ADB notification message-->
+    <string name="adb_active_generic_notification_message">Націсніце, каб адключыць адладку.</string>
+</resources>
