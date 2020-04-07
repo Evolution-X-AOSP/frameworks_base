@@ -68,7 +68,7 @@
     <string name="gaming_mode_enabled_toast">Игровой режим включён</string>
     <string name="gaming_mode_disabled_toast">Игровой режим выключен</string>
     <!-- ADB over network notification -->
-    <string name="adb_net_active_notification_title">Отладка ADB по сети разрешена</string>
+    <string name="adb_net_active_notification_title">Отладка по сети разрешена</string>
     <!-- ADB over USB and network notification -->
     <string name="adb_both_active_notification_title">Отладка по сети и USB разрешена</string>
     <!-- ADB notification message-->
