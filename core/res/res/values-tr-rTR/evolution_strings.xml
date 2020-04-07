@@ -65,8 +65,8 @@
     <string name="notification_channel_gaming">Oyun modu</string>
     <string name="gaming_mode_notification_title">Oyun modu etkinleştirildi</string>
     <string name="gaming_mode_notification_content">Oyun modunu kapatmak için dokunun</string>
-    <string name="gaming_mode_enabled_toast">Oyun modu etkinleştirildi</string>
-    <string name="gaming_mode_disabled_toast">Oyun modu etkisizleştirildi</string>
+    <string name="gaming_mode_enabled_toast">Oyun modu açıldı</string>
+    <string name="gaming_mode_disabled_toast">Oyun modu kapatıldı</string>
     <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">Ağ üzerinden ADB etkin</string>
     <!-- ADB over USB and network notification -->

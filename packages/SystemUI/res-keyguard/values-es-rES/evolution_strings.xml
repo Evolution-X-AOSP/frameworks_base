@@ -17,89 +17,65 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
     <string-array name="type_clock_minutes_alt">
-        <item>O\u2019Reloj</item>
-        <item>O\u2019Uno</item>
-        <item>O\u2019Dos</item>
-        <item>O\u2019Tres</item>
-        <item>O\u2019Cuatro</item>
-        <item>O\u2019Cinco</item>
-        <item>O\u2019Seis</item>
-        <item>O\u2019Siete</item>
-        <item>O\u2019Ocho</item>
-        <item>O\u2019Nueve</item>
-        <item>Diez</item>
-        <item>Once</item>
-        <item>Doce</item>
-        <item>Trece</item>
-        <item>Catorce</item>
-        <item>Quince</item>
-        <item>Y Dieciséis</item>
-        <item>Diecisiete</item>
-        <item>Dieciocho</item>
-        <item>Diecinueve</item>
-        <item>Veinte</item>
-        <item>Veintiuno</item>
-        <item>Veintidós</item>
-        <item>Veintitrés</item>
-        <item>Veinticuatro</item>
-        <item>Veinticinco</item>
-        <item>Veintiséis</item>
-        <item>Veintisiete</item>
-        <item>Veintiocho</item>
-        <item>Veintinueve</item>
-        <item>Y Media</item>
-        <item>Y treinta y uno</item>
-        <item>Y treinta y dos</item>
-        <item>Y treinta y tres</item>
-        <item>Treinta
-y cuatro</item>
-        <item>Treinta
-y cinco</item>
-        <item>Treinta
-y seis</item>
-        <item>Treinta
-y siete</item>
-        <item>Treinta
-y ocho</item>
-        <item>Treinta
-y nueve</item>
-        <item>Cuarenta</item>
-        <item>Cuarenta
-y uno</item>
-        <item>Cuarenta
-y dos</item>
-        <item>Cuarenta
-y tres</item>
-        <item>Cuarenta
-y cuatro</item>
-        <item>Cuarenta
-y cinco</item>
-        <item>Cuarenta
-y seis</item>
-        <item>Cuarenta
-y siete</item>
-        <item>Cuarenta
-y ocho</item>
-        <item>Cuarenta
-y nueve</item>
-        <item>Cincuenta</item>
-        <item>Cincuenta
-y uno</item>
-        <item>Cincuenta
-y dos</item>
-        <item>Cincuenta
-y tres</item>
-        <item>Cincuenta
-y cuatro</item>
-        <item>Cincuenta
-y cinco</item>
-        <item>Cincuenta
-y seis</item>
-        <item>Cincuenta
-y siete</item>
-        <item>Cincuenta
-y ocho</item>
-        <item>Cincuenta
-y nueve</item>
+        <item>En punto</item>
+        <item>y una</item>
+        <item>y dos</item>
+        <item>y tres</item>
+        <item>y cuatro</item>
+        <item>y cinco</item>
+        <item>y seis</item>
+        <item>y siete</item>
+        <item>y ocho</item>
+        <item>y nueve</item>
+        <item>y diez</item>
+        <item>y once</item>
+        <item>y doce</item>
+        <item>y trece</item>
+        <item>y catorce</item>
+        <item>y cuarto</item>
+        <item>y dieciséis</item>
+        <item>y diecisiete</item>
+        <item>y dieciocho</item>
+        <item>y diecinueve</item>
+        <item>y veinte</item>
+        <item>y veintiuno</item>
+        <item>y veintidós</item>
+        <item>y veintitrés</item>
+        <item>y veinticuatro</item>
+        <item>y veinticinco</item>
+        <item>y veintiséis</item>
+        <item>y veintisiete</item>
+        <item>y veintiocho</item>
+        <item>y veintinueve</item>
+        <item>y media</item>
+        <item>treinta y uno</item>
+        <item>treinta y dos</item>
+        <item>treinta y tres</item>
+        <item>treinta y cuatro</item>
+        <item>treinta y cinco</item>
+        <item>treinta y seis</item>
+        <item>treinta y siete</item>
+        <item>treinta y ocho</item>
+        <item>treinta y nueve</item>
+        <item>cuarenta</item>
+        <item>cuarenta y uno</item>
+        <item>cuarenta y dos</item>
+        <item>cuarenta y tres</item>
+        <item>cuarenta y cuatro</item>
+        <item>cuarenta y cinco</item>
+        <item>cuarenta y seis</item>
+        <item>cuarenta y siete</item>
+        <item>cuarenta y ocho</item>
+        <item>cuarenta y nueve</item>
+        <item>cincuenta</item>
+        <item>cincuenta y uno</item>
+        <item>cincuenta y dos</item>
+        <item>cincuenta y tres</item>
+        <item>cincuenta y cuatro</item>
+        <item>cincuenta y cinco</item>
+        <item>cincuenta y seis</item>
+        <item>cincuenta y siete</item>
+        <item>cincuenta y ocho</item>
+        <item>cincuenta y nueve</item>
     </string-array>
 </resources>
