@@ -188,4 +188,6 @@
     <string name="right">Droite</string>
     <string name="navbar_editor_title">Éditeur</string>
     <string name="navbar_editor_summary">Configurer la barre de navigation</string>
+    <string name="recents_app_killed">Application tuée</string>
+    <string name="nope_cant_kill">Le launcher ne peut pas être tué</string>
 </resources>

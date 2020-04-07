@@ -23,14 +23,4 @@
     <string name="screen_zoom_summary_smaller">छोटे</string>
     <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
     <string name="screen_zoom_summary_smallest">सबसे छोटे</string>
-    <!-- Label for estimated remaining duration of dash battery charging -->
-    <string name="power_remaining_dash_charging_duration_only">डैश चार्जिंग (पूर्ण होने मे <xliff:g id="time">%1$s</xliff:g> बाकी)</string>
-    <!-- Battery use screen.  Battery status shown in chart label when charging from a dash source.  -->
-    <string name="battery_info_status_dash_charging">डैश चार्जिंग</string>
-    <string name="battery_info_status_dash_charging_lower">डैश चार्जिंग</string>
-    <!-- Label for estimated remaining duration of warp battery charging -->
-    <string name="power_remaining_warp_charging_duration_only">वार्प चार्जिंग (पूर्ण होने मे <xliff:g id="time">%1$s</xliff:g> बाकी)</string>
-    <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
-    <string name="battery_info_status_warp_charging">वार्प चार्जिंग</string>
-    <string name="battery_info_status_warp_charging_lower">वार्प चार्जिंग</string>
 </resources>
