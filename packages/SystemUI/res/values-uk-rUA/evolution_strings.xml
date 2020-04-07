@@ -188,4 +188,6 @@
     <string name="right">Зправа</string>
     <string name="navbar_editor_title">Редактор</string>
     <string name="navbar_editor_summary">Налаштувати панель навігації</string>
+    <string name="recents_app_killed">Програму закрито</string>
+    <string name="nope_cant_kill">Лаунчер не може бути завершений</string>
 </resources>
