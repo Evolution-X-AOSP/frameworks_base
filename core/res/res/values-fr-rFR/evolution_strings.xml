@@ -36,7 +36,7 @@
     <string name="reboot_to_bootloader_title">Amorçage</string>
     <string name="reboot_to_bootloader_message">Redémarrage en mode Amorçage</string>
     <string name="reboot_title">Redémarrer</string>
-    <string name="reboot_message">Redémarrer le système</string>
+    <string name="reboot_message">Redémarrage du système</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automatique</string>
     <string name="live_display_auto_summary">Ajuster automatiquement la température de couleur de l\'écran après le coucher et le lever du soleil</string>

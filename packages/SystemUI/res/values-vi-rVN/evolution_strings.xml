@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Đã xóa ảnh chụp màn hình</string>
+    <!-- Advanced reboot -->
+    <string name="global_action_restart_advanced">Nâng cao</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">Giao diện người dùng</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">Chụp màn hình</string>
+    <string name="quick_settings_region_screenshot_label">Chụp một phần màn hình</string>
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">Tìm kiếm âm thanh</string>
+    <string name="quick_settings_sound_search_no_app">Rất tiếc, nhưng tính năng này không hoạt động nếu bạn không có ứng dụng Tìm kiếm nhạc.</string>
+    <!-- USB Tethering tile -->
+    <string name="accessibility_quick_settings_usb_tether_off">Chia sẻ kết nối USB tắt</string>
+    <string name="accessibility_quick_settings_usb_tether_on">Chia sẻ kết nối USB bật</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">Chế độ chia sẻ kết nối USB đã tắt</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">Chế độ chia sẻ kết nối USB đã bật</string>
+    <string name="quick_settings_usb_tether_label">Chia sẻ kết nối qua USB</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Âm thanh</string>
+    <string name="quick_settings_sound_mute">Ngắt tiếng</string>
+    <string name="quick_settings_sound_ring">Chuông</string>
+    <string name="quick_settings_sound_vibrate">Rung</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Tắt Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_on">Bật Caffeine</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">Thông báo nổi</string>
+    <string name="accessibility_quick_settings_heads_up_off">Tắt thông báo nổi</string>
+    <string name="accessibility_quick_settings_heads_up_on">Bật thông báo nổi</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Thông báo nổi đã tắt</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Thông báo nổi đã bật</string>
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">Đồng bộ</string>
+    <string name="accessibility_quick_settings_sync_off">Tắt đồng bộ</string>
+    <string name="accessibility_quick_settings_sync_on">Bật đồng bộ</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Đồng bộ đã tắt</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Đồng bộ đã bật</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Bảng điều chỉnh âm lượng</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">La bàn</string>
+    <string name="quick_settings_compass_value"><xliff:g id="độ">%1$.0f</xliff:g>\u00b0 <xliff:g id="hướng">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Đang khởi tạo\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">La bàn tắt</string>
+    <string name="accessibility_quick_settings_compass_on">La bàn bật</string>
+    <string name="accessibility_quick_settings_compass_changed_off">La bàn đã tắt</string>
+    <string name="accessibility_quick_settings_compass_changed_on">La bàn đã bật</string>
+    <string name="quick_settings_compass_N">Bắc</string>
+    <string name="quick_settings_compass_NE">Đông Bắc</string>
+    <string name="quick_settings_compass_E">Đông</string>
+    <string name="quick_settings_compass_SE">Đông Nam</string>
+    <string name="quick_settings_compass_S">Nam</string>
+    <string name="quick_settings_compass_SW">Tây Nam</string>
+    <string name="quick_settings_compass_W">Tây</string>
+    <string name="quick_settings_compass_NW">Tây Bắc</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Màn hình xem nhanh</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Màn hình xem nhanh tắt</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Màn hình xem nhanh bật</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Màn hình xem nhanh đã tắt</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Màn hình xem nhanh đã bật</string>
+    <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">Tắt màn hình</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Kết nối với\u2026</string>
+    <string name="vpn_credentials_hint">Vui lòng nhập thông tin đăng nhập của bạn để kết nối với <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Tên người dùng</string>
+    <string name="vpn_credentials_password">Mật khẩu</string>
+    <string name="vpn_credentials_dialog_connect">Kết nối</string>
+    <!-- Reboot/Recovery QS Tile -->
+    <string name="quick_settings_reboot_label">Khởi động lại</string>
+    <string name="quick_settings_reboot_recovery_label">Chế độ phục hồi</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Sạc nhanh Dash (<xliff:g id="charging_time_left" example="4 giờ và 2 phút">%s</xliff:g> đến khi đầy)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Sạc nhanh Warp (<xliff:g id="charging_time_left" example="4 giờ và 2 phút">%s</xliff:g> nữa sẽ đầy)</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Chế độ đọc sách</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Bật chế độ đọc sách.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Tắt chế độ đọc sách.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Chế độ đọc sách đã bật.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Chế độ đọc sách đã tắt.</string>
+    <string name="statusbar_items_title">Biểu tượng thanh trạng thái</string>
+    <string name="lockscreen_default">Mặc định</string>
+    <string name="lockscreen_hidden">Không có</string>
+    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">Vuốt từ biểu tượng để mở</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Quay màn hình</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">Phím cứng bật</string>
+    <string name="accessibility_quick_settings_hwkeys_off">Phím cứng tắt</string>
+    <string name="quick_settings_hwkeys_label">Phím cứng</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">Chế độ Trò chơi</string>
+    <string name="gaming_mode_tile_toast">Chế độ trò chơi đã bật</string>
+    <string name="gaming_mode_tile_toast_disabled">Chế độ trò chơi đã tắt</string>
+    <string name="gaming_mode_dialog_title">Chế độ Trò chơi</string>
+    <string name="gaming_mode_dialog_message">Khi Chế độ Trò chơi được bật, mọi thông báo nổi sẽ bị ẩn và các phím cứng sẽ bị vô hiệu hoá. Mọi thứ sẽ được đặt lại mặc định khi bạn tắt Chế độ Trò chơi.</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">Chế độ Trò chơi bật</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">Chế độ trò chơi tắt</string>
+    <!-- Status bar icons -->
+    <string name="status_bar_data_disabled">Dấu x khi dữ liệu bị vô hiệu hóa</string>
+    <string name="status_bar_data_saver">Trình tiết kiệm dữ liệu</string>
+    <string name="status_bar_nfc">NFC</string>
+    <string name="status_bar_roaming">Chuyển vùng</string>
+    <string name="status_bar_vpn">VPN</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Buộc dừng?</string>
+    <string name="force_stop_dlg_text">Nếu bạn buộc dừng ứng dụng, nó có thể hoạt động không ổn định.</string>
+    <string name="guts_force_close_app">Đóng ứng dụng</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Thông báo nổi sẽ báo lại sau 1 phút.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Thông báo nổi sẽ báo lại sau <xliff:g id="number">%d</xliff:g> phút.</string>
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">Chế độ trò chơi đang tắt trong cài đặt</string>
+    <string name="quick_settings_gaming_mode_label">Chế độ trò chơi</string>
+    <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_gaming_mode_disabled">Chế độ trò chơi đã tắt.</string>
+    <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_gaming_mode_enabled">Chế độ trò chơi đã bật.</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">Chuyển Sim dữ liệu</string>
+    <string name="qs_data_switch_changed_1">Sử dụng SIM 1 cho Dữ liệu di động</string>
+    <string name="qs_data_switch_changed_2">Sử dụng SIM 2 cho Dữ liệu di động</string>
+    <string name="quick_settings_immersive_tile">Chế độ toàn màn hình</string>
+    <string name="quick_settings_immersive_tile_off">Toàn màn hình tắt</string>
+    <string name="quick_settings_immersive_tile_statusbar">Ẩn thanh trạng thái</string>
+    <string name="quick_settings_immersive_tile_navbar">Ẩn thanh điều hướng</string>
+    <string name="quick_settings_immersive_tile_full">Toàn màn hình</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">Bắt đầu quay?</string>
+    <string name="screenrecord_dialog_summary">Khi quay màn hình, Android có thể ghi lại mọi thông tin nhạy cảm có trên màn hình hoặc được phát trên thiết bị của bạn. Những thông tin này bao gồm mật khẩu, thông tin thanh toán, ảnh, tin nhắn và âm thanh.</string>
+    <string name="screenrecord_dialog_start">Bắt đầu</string>
+    <string name="screenrecord_dialog_cancel">Hủy</string>
+    <string name="screenrecord_audio_recording_title">Nguồn âm thanh</string>
+    <string name="screenrecord_audio_recording_internal">Hệ thống</string>
+    <string name="screenrecord_audio_recording_microphone">Micrô</string>
+    <string name="screenrecord_audio_recording_off">Vô hiệu hóa</string>
+    <string name="screenrecord_taps_title">Hiện số lần chạm</string>
+    <string name="screenrecord_stopdot_title">Hiển thị nút dừng</string>
+    <string name="screenrecord_video_bitrate_title">Tộc độ bit video</string>
+    <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
+    <string name="global_action_screenshot_cust">Chụp ảnh màn hình</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">Mở màn hình Các dịch vụ đang chạy.</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Ngôn ngữ</string>
+    <string name="quick_settings_locale_more_locales_toast">Vui lòng thiết lập nhiều ngôn ngữ để kích hoạt chức năng chuyển đổi</string>
+    <!-- Navbar editor -->
+    <string name="preview">Xem trước</string>
+    <string name="keycode">Mã phím</string>
+    <string name="no_home_title">Không tìm thấy nút Trang chủ</string>
+    <string name="no_home_message">Cần có nút trang chủ để có thể điều hướng thiết bị này. Vui lòng thêm nút trang chủ trước khi lưu.</string>
+    <string name="clipboard_description">Khay nhớ tạm cho phép kéo trực tiếp mục vào khay nhớ tạm. Bạn cũng có thể kéo trực tiếp mục ra khỏi khay nhớ tạm khi cần.</string>
+    <string name="keycode_description">Các nút mã phím cho phép thêm các phím trên bàn phím vào Thanh điều hướng. Khi bạn nhấn, các nút này sẽ mô phỏng phím trên bàn phím được chọn. Trước tiên, bạn phải chọn phím cho nút, sau đó chọn một hình ảnh để hiển thị trên nút.</string>
+    <string name="start">Bắt đầu</string>
+    <string name="center">Ở giữa</string>
+    <string name="end">Cuối</string>
+    <string name="space">Khoảng trống</string>
+    <string name="menu_ime">Trình chuyển đổi bàn phím / menu</string>
+    <string name="select_button">Chọn nút để thêm</string>
+    <string name="add_button">Thêm nút</string>
+    <string name="save">Lưu</string>
+    <string name="reset">Đặt lại</string>
+    <string name="select_keycode">Chọn nút bàn phím</string>
+    <string name="left">Bên trái</string>
+    <string name="right">Bên phải</string>
+    <string name="navbar_editor_title">Trình chỉnh sửa</string>
+    <string name="navbar_editor_summary">Cấu hình thanh điều hướng</string>
+    <string name="recents_app_killed">Ứng dụng đã tắt</string>
+    <string name="nope_cant_kill">Trình khởi chạy không thể dừng</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Giữ &amp; kéo hoặc chạm để thêm</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Giữ &amp; kéo để sắp xếp lại hoặc nhấn để loại bỏ</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">PowerShare không dây</string>
+    <string name="quick_settings_powershare_off_powersave_label">PowerShare không dây tắt\nTiết kiệm pin</string>
+    <string name="quick_settings_powershare_off_low_battery_label">PowerShare không dây tắt\nPin quá yếu</string>
+    <string name="quick_settings_powershare_enabled_label">PowerShare không dây đã bật</string>
+</resources>

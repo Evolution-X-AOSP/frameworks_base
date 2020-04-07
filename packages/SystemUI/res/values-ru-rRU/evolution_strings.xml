@@ -93,17 +93,10 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Перезагрузка</string>
     <string name="quick_settings_reboot_recovery_label">Рекавери</string>
-    <!-- Advance location quick setting tile -->
-    <string name="quick_settings_location_secondary_battery_saving">Энергосбережение</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Передача геоданных: режим энергосбережения.</string>
-    <string name="quick_settings_location_secondary_gps_only">Только GPS</string>
-    <string name="accessibility_quick_settings_location_gps_only">Передача геоданных: только датчики.</string>
-    <string name="quick_settings_location_secondary_high_accuracy">Высокая точность</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Передача геоданных: по всем источникам.</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Быстрая зарядка (<xliff:g id="charging_time_left" example="4 часа и 2 минуты">%s</xliff:g> до полной зарядки)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Медленная зарядка (<xliff:g id="charging_time_left" example="4 часа и 2 минуты">%1$s</xliff:g> до полной зарядки)</string>
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Медленная зарядка (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> до полной зарядки)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Режим чтения</string>
     <string name="accessibility_quick_settings_reading_mode_on">Режим чтения включен.</string>
@@ -115,6 +108,8 @@
     <string name="lockscreen_hidden">Не показывать</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Потяните значок для запуска</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Запись экрана</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">Аппаратные кнопки включены</string>
     <string name="accessibility_quick_settings_hwkeys_off">Аппаратные кнопки выключены</string>
@@ -158,8 +153,18 @@
     <string name="quick_settings_immersive_tile_statusbar">Скрыть строку состояния</string>
     <string name="quick_settings_immersive_tile_navbar">Скрыть панель навигации</string>
     <string name="quick_settings_immersive_tile_full">Полноэкранный режим</string>
-    <string name="screenrecord_stopdot_label">Показать кнопку остановки</string>
-    <string name="screenrecord_low_quality_label">Низкое качество</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">Начать запись?</string>
+    <string name="screenrecord_dialog_summary">Во время записи система Android может записать любую важную информацию, которая видна на вашем экране или воспроизведена на вашем устройстве. Сюда входят пароли, платежные данные, фотографии, сообщения и аудио.</string>
+    <string name="screenrecord_dialog_start">Начать</string>
+    <string name="screenrecord_dialog_cancel">Отмена</string>
+    <string name="screenrecord_audio_recording_title">Источник звука</string>
+    <string name="screenrecord_audio_recording_internal">Внутренний звук</string>
+    <string name="screenrecord_audio_recording_microphone">Микрофон</string>
+    <string name="screenrecord_audio_recording_off">Без звука</string>
+    <string name="screenrecord_taps_title">Показывать касания на экране</string>
+    <string name="screenrecord_stopdot_title">Показать кнопку остановки</string>
+    <string name="screenrecord_video_bitrate_title">Скорость потока</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">Скриншот</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
@@ -188,4 +193,15 @@
     <string name="right">Справа</string>
     <string name="navbar_editor_title">Редактор</string>
     <string name="navbar_editor_summary">Конфигурация навигационной панели</string>
+    <string name="recents_app_killed">Приложение закрыто</string>
+    <string name="nope_cant_kill">Лаунчер не может быть завершён</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Удерживайте &amp; перетащите или нажмите для добавления плиток</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Удерживайте &amp; перетащите, чтобы изменить порядок или нажмите для удаления</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">PowerShare выкл\nЭкономия энергии</string>
+    <string name="quick_settings_powershare_off_low_battery_label">PowerShare выкл\nНизкий заряд батареи</string>
+    <string name="quick_settings_powershare_enabled_label">PowerShare включен</string>
 </resources>

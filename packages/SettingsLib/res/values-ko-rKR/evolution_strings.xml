@@ -18,19 +18,19 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Deep sleep info -->
-    <string name="status_deep_sleep">(Sommeil profond : %1$d%2$s)</string>
+    <string name="status_deep_sleep">(딥 슬립 %1$d%2$s)</string>
     <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
-    <string name="screen_zoom_summary_smaller">Plus petit</string>
+    <string name="screen_zoom_summary_smaller">더 작게</string>
     <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
-    <string name="screen_zoom_summary_smallest">Le plus petit possible</string>
+    <string name="screen_zoom_summary_smallest">가장 작음</string>
     <!-- Label for estimated remaining duration of dash battery charging -->
-    <string name="power_remaining_dash_charging_duration_only">Charge Rapide (<xliff:g id="time">%1$s</xliff:g> restant jusqu\'à charge complète)</string>
+    <string name="power_remaining_dash_charging_duration_only">급속 충전 중 (완전 충전까지 <xliff:g id="time">%1$s</xliff:g>남음)</string>
     <!-- Battery use screen.  Battery status shown in chart label when charging from a dash source.  -->
-    <string name="battery_info_status_dash_charging">Charge Rapide</string>
-    <string name="battery_info_status_dash_charging_lower">charge rapide</string>
+    <string name="battery_info_status_dash_charging">급속 충전 중</string>
+    <string name="battery_info_status_dash_charging_lower">급속 충전 중</string>
     <!-- Label for estimated remaining duration of warp battery charging -->
-    <string name="power_remaining_warp_charging_duration_only">Warp charge (<xliff:g id="time">%1$s</xliff:g> restant jusqu\'à charge complète)</string>
+    <string name="power_remaining_warp_charging_duration_only">Warp 고속 충전 중 (완전 충전까지 <xliff:g id="time">%1$s</xliff:g>남음)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
-    <string name="battery_info_status_warp_charging">Warp charge</string>
-    <string name="battery_info_status_warp_charging_lower">warp charge</string>
+    <string name="battery_info_status_warp_charging">Warp 고속충전</string>
+    <string name="battery_info_status_warp_charging_lower">warp 고속충전</string>
 </resources>
