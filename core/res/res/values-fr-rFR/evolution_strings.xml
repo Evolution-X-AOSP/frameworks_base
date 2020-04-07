@@ -36,7 +36,7 @@
     <string name="reboot_to_bootloader_title">Amorçage</string>
     <string name="reboot_to_bootloader_message">Redémarrage en mode Amorçage</string>
     <string name="reboot_title">Redémarrer</string>
-    <string name="reboot_message">Redémarrer le système</string>
+    <string name="reboot_message">Redémarrage du système</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automatique</string>
     <string name="live_display_auto_summary">Ajuster automatiquement la température de couleur de l\'écran après le coucher et le lever du soleil</string>
@@ -74,4 +74,22 @@
     <string name="adb_both_active_notification_title">ADB au dessus de USB &amp; réseau activé</string>
     <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Appuyez pour désactiver le débogage.</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">Fondu</string>
+    <string name="animation_slide_right">Glisser vers la droite</string>
+    <string name="animation_slide_left">Glisser vers la gauche</string>
+    <string name="animation_slide_right_no_fade">Glisser à droite (sans fondu)</string>
+    <string name="animation_slide_left_no_fade">Glisser vers la gauche (sans fondu)</string>
+    <string name="animation_slide_up">Glisser vers le bas</string>
+    <string name="animation_slide_down">Glisser vers le haut</string>
+    <string name="animation_default">Par défaut</string>
+    <string name="animation_translucent">Transparent</string>
+    <string name="animation_grow_shrink">Agrandir (haut)</string>
+    <string name="animation_grow_shrink_center">Agrandir (Centre)</string>
+    <string name="animation_grow_shrink_bottom">Agrandir (Bas)</string>
+    <string name="animation_grow_shrink_left">Agrandir (gauche)</string>
+    <string name="animation_grow_shrink_right">Agrandir (droite)</string>
+    <string name="animation_ethans">Ethans</string>
+    <string name="animation_random">Aléatoire</string>
+    <string name="action_null">Vide</string>
 </resources>

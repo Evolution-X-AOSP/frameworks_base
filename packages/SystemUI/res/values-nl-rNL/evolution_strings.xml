@@ -93,17 +93,6 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Opnieuw opstarten</string>
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
-    <!-- Advance location quick setting tile -->
-    <string name="quick_settings_location_secondary_battery_saving">Batterijbesparing</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Locatiebepaling: Accubesparing.</string>
-    <string name="quick_settings_location_secondary_gps_only">Alleen sensoren</string>
-    <string name="accessibility_quick_settings_location_gps_only">Locatiebepaling: Alleen sensoren.</string>
-    <string name="quick_settings_location_secondary_high_accuracy">Hoge nauwkeurigheid</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Locatiebepaling: Hoge nauwkeurigheid.</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Snel opladen (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> tot volledig opgeladen)</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Super snel opladen (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> tot volledig opgeladen)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Leesmodus</string>
     <string name="accessibility_quick_settings_reading_mode_on">Leesmodus aan.</string>
@@ -115,6 +104,8 @@
     <string name="lockscreen_hidden">Geen</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Sleep vanaf icoon om te starten</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Schermopname</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">Fysieke knoppen aan</string>
     <string name="accessibility_quick_settings_hwkeys_off">Fysieke knoppen uit</string>
@@ -158,8 +149,18 @@
     <string name="quick_settings_immersive_tile_statusbar">Schermvullende modus statusbalk</string>
     <string name="quick_settings_immersive_tile_navbar">Schermvullende modus navigatiebalk</string>
     <string name="quick_settings_immersive_tile_full">Volledig scherm</string>
-    <string name="screenrecord_stopdot_label">Toon stop knop</string>
-    <string name="screenrecord_low_quality_label">Lage kwaliteit</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">Opname starten?</string>
+    <string name="screenrecord_dialog_summary">Tijdens het opnemen kan Android gevoelige informatie vastleggen die zichtbaar is op je scherm of wordt afgespeeld op je apparaat. Dit omvat wachtwoorden, betalingsinformatie, foto\'s, berichten en audio.</string>
+    <string name="screenrecord_dialog_start">Start</string>
+    <string name="screenrecord_dialog_cancel">Annuleren</string>
+    <string name="screenrecord_audio_recording_title">Audiobron</string>
+    <string name="screenrecord_audio_recording_internal">Intern</string>
+    <string name="screenrecord_audio_recording_microphone">Microfoon</string>
+    <string name="screenrecord_audio_recording_off">Uitgeschakeld</string>
+    <string name="screenrecord_taps_title">Aanraakbewerkingen op het scherm weergeven</string>
+    <string name="screenrecord_stopdot_title">Toon stop knop</string>
+    <string name="screenrecord_video_bitrate_title">Video bitrate</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">Screenshot</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
@@ -188,4 +189,10 @@
     <string name="right">Rechts</string>
     <string name="navbar_editor_title">Bewerker</string>
     <string name="navbar_editor_summary">Navigatiebalk configureren</string>
+    <string name="recents_app_killed">App gestopt</string>
+    <string name="nope_cant_kill">Launcher kan niet worden gesloten</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Houd vast &amp; sleep of tik om tegels toe te voegen</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Houd &amp; sleep om te herschikken of tikken om te verwijderen</string>
 </resources>
