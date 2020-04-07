@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (c) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
+    <string-array name="type_clock_minutes_alt">
+        <item>O\u2019Đồng hồ</item>
+        <item>O\u2019Một phút</item>
+        <item>O\u2019Hai phút</item>
+        <item>O\u2019Ba phút</item>
+        <item>O\u2019Bốn phút</item>
+        <item>O\u2019Năm phút</item>
+        <item>O\u2019Sáu phút</item>
+        <item>O\u2019Bảy phút</item>
+        <item>O\u2019Tám phút</item>
+        <item>O\u2019Chín phút</item>
+        <item>Mười phút</item>
+        <item>Mười một phút</item>
+        <item>Mười hai phút</item>
+        <item>Mười ba phút</item>
+        <item>Mười bốn phút</item>
+        <item>Mười lăm phút</item>
+        <item>Mười sáu phút</item>
+        <item>Mười bảy phút</item>
+        <item>Mười tám phút</item>
+        <item>Mười chín phút</item>
+        <item>Hai mươi phút</item>
+        <item>Hai mươi mốt phút</item>
+        <item>Hai mươi hai phút</item>
+        <item>Hai mươi ba phút</item>
+        <item>Hai mươi bốn phút</item>
+        <item>Hai mươi lăm phút</item>
+        <item>Hai mươi sáu phút</item>
+        <item>Hai mươi bảy phút</item>
+        <item>Hai mươi tám phút</item>
+        <item>Hai mươi chín phút</item>
+        <item>Ba mươi phút</item>
+        <item>Ba mươi mốt phút</item>
+        <item>Ba mươi hai phút</item>
+        <item>Ba mươi ba phút</item>
+        <item>Ba mươi bốn phút</item>
+        <item>Ba mươi lăm phút</item>
+        <item>Ba mươi sáu phút</item>
+        <item>Ba mươi bảy phút</item>
+        <item>Ba mươi tám phút</item>
+        <item>Ba mươi chín phút</item>
+        <item>Bốn mươi phút</item>
+        <item>Bốn mươi mốt phút</item>
+        <item>Bốn mươi hai phút</item>
+        <item>Bốn mươi ba phút</item>
+        <item>Bốn mươi bốn phút</item>
+        <item>Bốn mươi lăm phút</item>
+        <item>Bốn mươi sáu phút</item>
+        <item>Bốn mươi bảy phút</item>
+        <item>Bốn mươi tám phút</item>
+        <item>Bốn mươi chín phút</item>
+        <item>Năm mươi phút</item>
+        <item>Năm mươi mốt phút</item>
+        <item>Năm mươi hai phút</item>
+        <item>Năm mươi ba phút</item>
+        <item>Năm mươi bốn phút</item>
+        <item>Năm mươi lăm phút</item>
+        <item>Năm mươi sáu phút</item>
+        <item>Năm mươi bảy phút</item>
+        <item>Năm mươi tám phút</item>
+        <item>Năm mươi chín phút</item>
+    </string-array>
+</resources>
