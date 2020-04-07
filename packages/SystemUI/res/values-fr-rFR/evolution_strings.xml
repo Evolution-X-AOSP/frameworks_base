@@ -93,17 +93,10 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Redémarrer</string>
     <string name="quick_settings_reboot_recovery_label">Récupération</string>
-    <!-- Advance location quick setting tile -->
-    <string name="quick_settings_location_secondary_battery_saving">Économie d\'énergie</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Mode de localisation: économie de batterie.</string>
-    <string name="quick_settings_location_secondary_gps_only">Capteurs uniquement</string>
-    <string name="accessibility_quick_settings_location_gps_only">Mode de localisation: appareil uniquement.</string>
-    <string name="quick_settings_location_secondary_high_accuracy">Haute précision</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Mode de localisation: haute précision.</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Charge Rapide (<xliff:g id="charging_time_left" exemple="4 heures et 2 minutes">%s</xliff:g> restant jusqu\'à charge complète)</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Charge Rapide (<xliff:g id="charging_time_left" exemple="4 heures et 2 minutes">%s</xliff:g> restant jusqu\'à la charge complète)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Charge Rapide (<xliff:g id="charging_time_left" exemple="4 heures et 2 minutes">%s</xliff:g> restant jusqu\'à charge complète)</string>
+    <string name="keyguard_indication_warp_charging_time">&lt;xliff:g id=\"percentage\"&gt;%2$s&lt;/xliff:g&gt; • Warp Charge  xliff:g id=\"charging_time_left\" exemple=\"4 heures et 2 minutes\"&gt;%s&lt;/xliff:g&gt; restant jusqu\'à la charge complète)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Mode lecture</string>
     <string name="accessibility_quick_settings_reading_mode_on">Mode Lecture activé.</string>
@@ -115,6 +108,8 @@
     <string name="lockscreen_hidden">Aucun</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Balayez l\'icône pour lancer l\'application</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Enregistrement de l\'écran</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">Boutons physiques activés</string>
     <string name="accessibility_quick_settings_hwkeys_off">Boutons physiques désactivés</string>
@@ -158,8 +153,18 @@
     <string name="quick_settings_immersive_tile_statusbar">Barre d\'état masquée</string>
     <string name="quick_settings_immersive_tile_navbar">Barre de navigation masquée</string>
     <string name="quick_settings_immersive_tile_full">Mode plein écran complet</string>
-    <string name="screenrecord_stopdot_label">Afficher le bouton arrêt</string>
-    <string name="screenrecord_low_quality_label">Basse qualité</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">Commencer l\'enregistrement ?</string>
+    <string name="screenrecord_dialog_summary">Pendant l\'enregistrement, le système Android peut capturer toutes informations sensibles visibles sur votre écran ou reproduites sur votre appareil. Cela inclut les mots de passe, les informations de paiement, les photos, les messages et l\'audio.</string>
+    <string name="screenrecord_dialog_start">Démarrer</string>
+    <string name="screenrecord_dialog_cancel">Annuler</string>
+    <string name="screenrecord_audio_recording_title">Source audio</string>
+    <string name="screenrecord_audio_recording_internal">Interne</string>
+    <string name="screenrecord_audio_recording_microphone">Microphone</string>
+    <string name="screenrecord_audio_recording_off">Désactivé</string>
+    <string name="screenrecord_taps_title">Afficher les touches à l\'écran</string>
+    <string name="screenrecord_stopdot_title">Afficher le bouton arrêt</string>
+    <string name="screenrecord_video_bitrate_title">Débit vidéo</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">Capture d\'écran</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
@@ -188,4 +193,15 @@
     <string name="right">Droite</string>
     <string name="navbar_editor_title">Éditeur</string>
     <string name="navbar_editor_summary">Configurer la barre de navigation</string>
+    <string name="recents_app_killed">Application tuée</string>
+    <string name="nope_cant_kill">Le launcher ne peut pas être tué</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Maintenez et glissez ou appuyez pour ajouter des paramètres</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Maintenez et glissez pour réorganiser ou appuyez pour supprimer</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Recharge sans fil inversée</string>
+    <string name="quick_settings_powershare_off_powersave_label">Recharge sans fil inversée off\nÉconomiseur de batterie</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Recharge sans fil inversée off\nBatterie trop faible</string>
+    <string name="quick_settings_powershare_enabled_label">La recharge sans fil inversée est activée</string>
 </resources>

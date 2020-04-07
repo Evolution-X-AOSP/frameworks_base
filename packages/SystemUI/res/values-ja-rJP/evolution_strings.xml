@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">スクリーンショットを削除しました</string>
+    <!-- Advanced reboot -->
+    <string name="global_action_restart_advanced">高度な設定</string>
+    <string name="global_action_restart_recovery">リカバリー</string>
+    <string name="global_action_restart_bootloader">ブートローダー</string>
+    <string name="global_action_restart_ui">システム UI</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">スクリーン\nショット</string>
+    <string name="quick_settings_region_screenshot_label">範囲選択</string>
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">音声検索</string>
+    <string name="quick_settings_sound_search_no_app">申し訳ありませんが、音声検索アプリをお持ちでない場合は動作しません。</string>
+    <!-- USB Tethering tile -->
+    <string name="accessibility_quick_settings_usb_tether_off">USB テザリング OFF</string>
+    <string name="accessibility_quick_settings_usb_tether_on">USB テザリング ON</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">USB テザリングを OFF にしました</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">USB テザリングを ON にしました</string>
+    <string name="quick_settings_usb_tether_label">USB\nテザリング</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">音声</string>
+    <string name="quick_settings_sound_mute">消音</string>
+    <string name="quick_settings_sound_ring">着信</string>
+    <string name="quick_settings_sound_vibrate">振動</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">カフェイン</string>
+    <string name="accessibility_quick_settings_caffeine_off">カフェイン OFF</string>
+    <string name="accessibility_quick_settings_caffeine_on">カフェイン ON</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">Heads Up</string>
+    <string name="accessibility_quick_settings_heads_up_off">Heads Up OFF</string>
+    <string name="accessibility_quick_settings_heads_up_on">Heads Up ON</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Heads Up を OFF にしました</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Heads Up を ON にしました</string>
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">同期</string>
+    <string name="accessibility_quick_settings_sync_off">同期 OFF</string>
+    <string name="accessibility_quick_settings_sync_on">同期 ON</string>
+    <string name="accessibility_quick_settings_sync_changed_off">同期を OFF にしました</string>
+    <string name="accessibility_quick_settings_sync_changed_on">同期を ON にしました</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">音量パネル</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">コンパス</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">初期化中...</string>
+    <string name="accessibility_quick_settings_compass_off">コンパス OFF</string>
+    <string name="accessibility_quick_settings_compass_on">コンパス ON</string>
+    <string name="accessibility_quick_settings_compass_changed_off">コンパスを OFF にしました</string>
+    <string name="accessibility_quick_settings_compass_changed_on">コンパスを ON にしました</string>
+    <string name="quick_settings_compass_N">北</string>
+    <string name="quick_settings_compass_NE">北東</string>
+    <string name="quick_settings_compass_E">東</string>
+    <string name="quick_settings_compass_SE">南東</string>
+    <string name="quick_settings_compass_S">南</string>
+    <string name="quick_settings_compass_SW">南西</string>
+    <string name="quick_settings_compass_W">西</string>
+    <string name="quick_settings_compass_NW">北西</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">アンビエント\n表示</string>
+    <string name="accessibility_quick_settings_ambient_display_off">アンビエント表示 OFF</string>
+    <string name="accessibility_quick_settings_ambient_display_on">アンビエント表示 ON</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">アンビエント表示を OFF にしました</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">アンビエント表示を ON にしました</string>
+    <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">画面の消灯</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">接続先\u2026</string>
+    <string name="vpn_credentials_hint"><xliff:g id="name">%s</xliff:g> への接続の認証情報を入力して下さい</string>
+    <string name="vpn_credentials_username">ユーザー名</string>
+    <string name="vpn_credentials_password">パスワード</string>
+    <string name="vpn_credentials_dialog_connect">接続</string>
+    <!-- Reboot/Recovery QS Tile -->
+    <string name="quick_settings_reboot_label">再起動</string>
+    <string name="quick_settings_reboot_recovery_label">リカバリー</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash Charging (充電完了まで残り<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Warp Charging (充電完了まで残り<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">読書モード</string>
+    <string name="accessibility_quick_settings_reading_mode_on">読書モード ON</string>
+    <string name="accessibility_quick_settings_reading_mode_off">読書モード OFF</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">読書モードを ON にしました</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">読書モードを OFF にしました</string>
+    <string name="statusbar_items_title">ステータスバーのアイコン</string>
+    <string name="lockscreen_default">既定</string>
+    <string name="lockscreen_hidden">なし</string>
+    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">アイコンをスワイプして起動</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">画面録画</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">ハードウェアキー ON</string>
+    <string name="accessibility_quick_settings_hwkeys_off">ハードウェアキー OFF</string>
+    <string name="quick_settings_hwkeys_label">ハードウェアキー</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">ゲームモード</string>
+    <string name="gaming_mode_tile_toast">ゲームモードが有効です</string>
+    <string name="gaming_mode_tile_toast_disabled">ゲームモードが無効です</string>
+    <string name="gaming_mode_dialog_title">ゲームモード</string>
+    <string name="gaming_mode_dialog_message">ゲームモードが有効になると、Heads Up メッセージは全て無効になりハードウェアキーは OFF になります。無効にした設定はゲームモードを終了すると全て規定値にリセットされます。</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">ゲームモード ON</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">ゲームモード OFF</string>
+    <!-- Status bar icons -->
+    <string name="status_bar_data_disabled">データ通信無効時は「×」を表示</string>
+    <string name="status_bar_data_saver">データセーバー</string>
+    <string name="status_bar_nfc">NFC</string>
+    <string name="status_bar_roaming">ローミング中</string>
+    <string name="status_bar_vpn">VPN</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">NFC</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">強制停止しますか?</string>
+    <string name="force_stop_dlg_text">アプリを強制停止するとアプリが正常に機能しないことがあります</string>
+    <string name="guts_force_close_app">アプリを終了</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - 通知の表示は1分間一時停止します</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - 通知の表示は<xliff:g id="number">%d</xliff:g>分間停止します</string>
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">ゲームモードが設定で無効になっています</string>
+    <string name="quick_settings_gaming_mode_label">ゲームモード</string>
+    <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_gaming_mode_disabled">ゲームモードを無効化しました</string>
+    <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_gaming_mode_enabled">ゲームモードを有効化しました</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">データ SIM の変更</string>
+    <string name="qs_data_switch_changed_1">SIM 1をデータ通信に使用</string>
+    <string name="qs_data_switch_changed_2">SIM 2をデータ通信に使用</string>
+    <string name="quick_settings_immersive_tile">全画面モード</string>
+    <string name="quick_settings_immersive_tile_off">全画面モード OFF</string>
+    <string name="quick_settings_immersive_tile_statusbar">ステータスバーを隠す</string>
+    <string name="quick_settings_immersive_tile_navbar">ナビゲーションバーを隠す</string>
+    <string name="quick_settings_immersive_tile_full">全て隠す</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">録画を開始しますか?</string>
+    <string name="screenrecord_dialog_summary">記録中に Android システムは画面に表示されたり端末で再生される機密情報を取得できます。これには、パスワード、支払い情報、写真、メッセージ、音声が含まれます。</string>
+    <string name="screenrecord_dialog_start">開始</string>
+    <string name="screenrecord_dialog_cancel">中止</string>
+    <string name="screenrecord_audio_recording_title">音声ソース</string>
+    <string name="screenrecord_audio_recording_internal">内蔵</string>
+    <string name="screenrecord_audio_recording_microphone">マイク</string>
+    <string name="screenrecord_audio_recording_off">無効</string>
+    <string name="screenrecord_taps_title">タップされた位置の表示</string>
+    <string name="screenrecord_stopdot_title">停止ドットを表示</string>
+    <string name="screenrecord_video_bitrate_title">映像ビットレート</string>
+    <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
+    <string name="global_action_screenshot_cust">スクリーンショット</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">実行中のサービスを開く</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">言語</string>
+    <string name="quick_settings_locale_more_locales_toast">言語の切り替えを有効にするために複数の言語を設定してください</string>
+    <!-- Navbar editor -->
+    <string name="preview">プレビュー</string>
+    <string name="keycode">キーコード</string>
+    <string name="no_home_title">ホームボタンが見つかりません</string>
+    <string name="no_home_message">この端末を操作できるようにするにはホームボタンが必要です。保存する前にホームボタンを追加して下さい。</string>
+    <string name="clipboard_description">クリップボード機能ではクリップボードにアイテムを直接ドラッグできます。クリップボードにアイテムがある場合、直接そのアイテムをドラッグして取り出すこともできます。</string>
+    <string name="keycode_description">キーコードボタンを利用すると、ナビゲーションバーにキーボードのキー機能を追加できるようになります。ボタンを押すと選択済みのキーボードのキーがエミュレートされます。まずボタン用にキーを選択し、次にボタン上の画像を選択する必要があります。</string>
+    <string name="start">開始</string>
+    <string name="center">中央</string>
+    <string name="end">終了</string>
+    <string name="space">間隔</string>
+    <string name="menu_ime">メニューとキーボードの切り替え</string>
+    <string name="select_button">追加するボタンの選択</string>
+    <string name="add_button">ボタンを追加</string>
+    <string name="save">保存</string>
+    <string name="reset">リセット</string>
+    <string name="select_keycode">キーボードのボタンの選択</string>
+    <string name="left">左</string>
+    <string name="right">右</string>
+    <string name="navbar_editor_title">エディタ</string>
+    <string name="navbar_editor_summary">ナビゲーションバーを編集する</string>
+    <string name="recents_app_killed">アプリを終了しました</string>
+    <string name="nope_cant_kill">ランチャーを終了できません</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">長押しして移動するかタップしてタイルを追加する</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">長押しして移動することで並び替えてタップして削除する</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">ワイヤレス PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">ワイヤレス PowerShare OFF\nバッテリー節約</string>
+    <string name="quick_settings_powershare_off_low_battery_label">ワイヤレス PowerShare OFF\nバッテリー残量低下</string>
+    <string name="quick_settings_powershare_enabled_label">ワイヤレス PowerShare は有効です</string>
+</resources>

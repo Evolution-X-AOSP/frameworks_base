@@ -42,7 +42,7 @@
     <string name="quick_settings_sound_ring">Дзвінок</string>
     <string name="quick_settings_sound_vibrate">Вібрація</string>
     <!-- Caffeine QS tile -->
-    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="quick_settings_caffeine_label">Заборона сну</string>
     <string name="accessibility_quick_settings_caffeine_off">Заборона сну вимкнена</string>
     <string name="accessibility_quick_settings_caffeine_on">Заборона сну увімк</string>
     <!-- Heads Up QS Tile -->
@@ -93,17 +93,10 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Перезавантаження</string>
     <string name="quick_settings_reboot_recovery_label">Режим відновлення</string>
-    <!-- Advance location quick setting tile -->
-    <string name="quick_settings_location_secondary_battery_saving">Енергозбереження</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Служби геолокації: режим енергозбереження.</string>
-    <string name="quick_settings_location_secondary_gps_only">Тільки датчики</string>
-    <string name="accessibility_quick_settings_location_gps_only">Надсилання місця розташування: тільки датчики.</string>
-    <string name="quick_settings_location_secondary_high_accuracy">Висока точність</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Надсилання місця розташування: висока точність.</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Заряджання (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> до повного зарядження)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Плата за варп (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> до повного зарядження)</string>
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Заряджання (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> до повного зарядження)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Режим читання</string>
     <string name="accessibility_quick_settings_reading_mode_on">Режим читання увімкнено.</string>
@@ -115,6 +108,8 @@
     <string name="lockscreen_hidden">Нічого</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Проведіть від іконки для запуску</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Запис екрану</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">Апаратні клавіші увімкнено</string>
     <string name="accessibility_quick_settings_hwkeys_off">Апаратні клавіші вимкнено</string>
@@ -158,8 +153,18 @@
     <string name="quick_settings_immersive_tile_statusbar">Приховати рядок стану</string>
     <string name="quick_settings_immersive_tile_navbar">Приховати панель навігації</string>
     <string name="quick_settings_immersive_tile_full">Повноекранний режим</string>
-    <string name="screenrecord_stopdot_label">Показувати крапку</string>
-    <string name="screenrecord_low_quality_label">Низька якість</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">Розпочати запис?</string>
+    <string name="screenrecord_dialog_summary">Під час запису система Android може захоплювати будь-яку приватну інформацію, що відображається на вашому екрані або відтворюється на вашому пристрої. Включаючи паролі, платіжну інформацію, фотографії, повідомлення та аудіо.</string>
+    <string name="screenrecord_dialog_start">Розпочати</string>
+    <string name="screenrecord_dialog_cancel">Скасувати</string>
+    <string name="screenrecord_audio_recording_title">Джерело звуку</string>
+    <string name="screenrecord_audio_recording_internal">Внутрішній</string>
+    <string name="screenrecord_audio_recording_microphone">Мікрофон</string>
+    <string name="screenrecord_audio_recording_off">Вимкнено</string>
+    <string name="screenrecord_taps_title">Показувати дотики на екрані</string>
+    <string name="screenrecord_stopdot_title">Показувати кнопку зупинки запису</string>
+    <string name="screenrecord_video_bitrate_title">Відео бітрейт</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">Знімок екрану</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
@@ -188,4 +193,15 @@
     <string name="right">Зправа</string>
     <string name="navbar_editor_title">Редактор</string>
     <string name="navbar_editor_summary">Налаштувати панель навігації</string>
+    <string name="recents_app_killed">Програму закрито</string>
+    <string name="nope_cant_kill">Додаток головного екрану не може бути завершений</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Утримуйте &amp; перетягніть або торкніться, щоб додати плитки</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Утримуйте &amp; перетягніть, щоб змінити розташування або торкніться, щоб видалити</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Бездротовий заряд</string>
+    <string name="quick_settings_powershare_off_powersave_label">Бездротове використання живлення\nЕнергозбереження</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Вимкнення бездротового енергоспоживання\nенергоспоживання занадто низьке</string>
+    <string name="quick_settings_powershare_enabled_label">Бездротове PowerShare увімкнено</string>
 </resources>
