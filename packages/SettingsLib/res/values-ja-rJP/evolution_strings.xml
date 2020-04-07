@@ -18,19 +18,19 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Deep sleep info -->
-    <string name="status_deep_sleep">(Derin uyku: %1$d%2$s)</string>
+    <string name="status_deep_sleep">(ディープスリープ: %1$d%2$s)</string>
     <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
-    <string name="screen_zoom_summary_smaller">Daha küçük</string>
+    <string name="screen_zoom_summary_smaller">特小</string>
     <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
-    <string name="screen_zoom_summary_smallest">En küçük</string>
+    <string name="screen_zoom_summary_smallest">極小</string>
     <!-- Label for estimated remaining duration of dash battery charging -->
-    <string name="power_remaining_dash_charging_duration_only">Dash şarj oluyor (Tam dolmasına <xliff:g id="time">%1$s</xliff:g> kaldı)</string>
+    <string name="power_remaining_dash_charging_duration_only">Dash Charging (充電完了まで残り<xliff:g id="time">%1$s</xliff:g>)</string>
     <!-- Battery use screen.  Battery status shown in chart label when charging from a dash source.  -->
-    <string name="battery_info_status_dash_charging">Dash şarj oluyor</string>
-    <string name="battery_info_status_dash_charging_lower">dash şarj oluyor</string>
+    <string name="battery_info_status_dash_charging">Dash Charging</string>
+    <string name="battery_info_status_dash_charging_lower">dash charging</string>
     <!-- Label for estimated remaining duration of warp battery charging -->
-    <string name="power_remaining_warp_charging_duration_only">Warp şarj oluyor (Tam dolmasına <xliff:g id="time">%1$s</xliff:g> kaldı)</string>
+    <string name="power_remaining_warp_charging_duration_only">Warp Charging (充電完了まで残り<xliff:g id="time">%1$s</xliff:g>)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
-    <string name="battery_info_status_warp_charging">Warp şarj oluyor</string>
-    <string name="battery_info_status_warp_charging_lower">warp şarj oluyor</string>
+    <string name="battery_info_status_warp_charging">Warp Charging</string>
+    <string name="battery_info_status_warp_charging_lower">warp charging</string>
 </resources>
