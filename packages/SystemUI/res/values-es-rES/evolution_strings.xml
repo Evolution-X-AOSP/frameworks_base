@@ -190,4 +190,8 @@
     <string name="navbar_editor_summary">Configurar barra de navegación</string>
     <string name="recents_app_killed">Aplicación finalizada</string>
     <string name="nope_cant_kill">El launcher no puede ser cerrado</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Mantén pulsado y arrastra para añadir botones</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Mantén pulsado y arrastra para reorganizar o pulsa para remover</string>
 </resources>
