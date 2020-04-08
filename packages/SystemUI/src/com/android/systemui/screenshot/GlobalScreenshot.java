@@ -887,11 +887,8 @@ class GlobalScreenshot {
     void stopScreenshot() {
         // If the selector layer still presents on screen, we remove it and resets its state.
         if (mScreenshotSelectorView.getSelectionRect() != null) {
-            try {
-                mWindowManager.removeView(mScreenshotLayout);
-                mScreenshotSelectorView.stopSelection();
-            } catch (IllegalArgumentException ignored) {
-            }
+            mWindowManager.removeView(mScreenshotLayout);
+            mScreenshotSelectorView.stopSelection();
         }
 
         setBlockedGesturalNavigation(false);

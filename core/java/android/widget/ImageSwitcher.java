@@ -59,7 +59,8 @@ public class ImageSwitcher extends ViewSwitcher
      *
      * @see ImageView#setImageResource(int)
      */
-    public void setImageResource(@DrawableRes int resid) {
+    public void setImageResource(@DrawableRes int resid)
+    {
         ImageView image = (ImageView)this.getNextView();
         image.setImageResource(resid);
         showNext();
@@ -74,24 +75,10 @@ public class ImageSwitcher extends ViewSwitcher
      *
      * @see ImageView#setImageURI(Uri)
      */
-    public void setImageURI(Uri uri) {
+    public void setImageURI(Uri uri)
+    {
         ImageView image = (ImageView)this.getNextView();
         image.setImageURI(uri);
-        showNext();
-    }
-
-    /**
-     * @hide
-     */
-    public void setImageDrawableTint(Drawable drawable, int tint, boolean isGrayscale) {
-        ImageView image = (ImageView)this.getNextView();
-        if (isGrayscale) {
-            drawable.setTint(tint);
-            image.setImageDrawable(drawable);
-        } else  {
-            image.setImageDrawable(drawable);
-            image.setImageTintList(null);
-        }
         showNext();
     }
 
@@ -104,9 +91,9 @@ public class ImageSwitcher extends ViewSwitcher
      *
      * @see ImageView#setImageDrawable(Drawable)
      */
-    public void setImageDrawable(Drawable drawable) {
+    public void setImageDrawable(Drawable drawable)
+    {
         ImageView image = (ImageView)this.getNextView();
-        image.setImageTintList(null);
         image.setImageDrawable(drawable);
         showNext();
     }
