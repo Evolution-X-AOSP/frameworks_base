@@ -190,4 +190,8 @@
     <string name="navbar_editor_summary">Cấu hình thanh điều hướng</string>
     <string name="recents_app_killed">Ứng dụng đã tắt</string>
     <string name="nope_cant_kill">Trình khởi chạy không thể dừng</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Giữ &amp; kéo hoặc chạm để thêm</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Giữ &amp; kéo để sắp xếp lại hoặc nhấn để loại bỏ</string>
 </resources>
