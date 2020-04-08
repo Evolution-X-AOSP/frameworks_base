@@ -506,8 +506,4 @@ public abstract class WindowManagerInternal {
      */
     public abstract void removeNonHighRefreshRatePackage(@NonNull String packageName);
 
-    /**
-     * Long screenshot
-     */
-    public abstract boolean isMinimizedDock();
 }
