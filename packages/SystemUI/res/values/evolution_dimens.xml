@@ -90,12 +90,6 @@
     <dimen name="config_customCutoutBottomWidth">0.0px</dimen>
     <dimen name="config_customCutoutBottomHeight">0.0px</dimen>
 
-    <!-- Status bar notification ticker -->
-    <dimen name="ticker_start_padding">6dp</dimen>
-    <dimen name="ticker_icon_end_margin">4dp</dimen>
-    <dimen name="ticker_text_top_padding">2dp</dimen>
-    <dimen name="ticker_text_end_padding">10dp</dimen>
-
     <!-- Volume panel -->
     <dimen name="volume_dialog_panel_transparent_padding_left">20dp</dimen>
 
