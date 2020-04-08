@@ -190,4 +190,8 @@
     <string name="navbar_editor_summary">配置导航栏</string>
     <string name="recents_app_killed">应用程序已结束</string>
     <string name="nope_cant_kill">启动器不能被终止</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">按住 &amp; 拖动或点击添加磁贴</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">按住 &amp; 拖动以重新排列或点击删除</string>
 </resources>
