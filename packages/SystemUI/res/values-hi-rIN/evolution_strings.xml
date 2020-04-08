@@ -16,9 +16,9 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Screenshot Delete Toast -->
-    <string name="delete_screenshot_toast">स्क्रीनशॉट मिटाया गया</string>
+    <string name="delete_screenshot_toast">स्क्रीनशॉट डिलीट किया गया</string>
     <!-- Advanced reboot -->
-    <string name="global_action_restart_advanced">रिबूट विकल्प</string>
+    <string name="global_action_restart_advanced">एडवांस्ड</string>
     <string name="global_action_restart_recovery">रिकवरी</string>
     <string name="global_action_restart_bootloader">बूटलोडर</string>
     <string name="global_action_restart_ui">सिस्टम</string>
@@ -190,4 +190,8 @@
     <string name="navbar_editor_summary">नेविगेशन बार कॉन्फ़िगर करें</string>
     <string name="recents_app_killed">ऐप बंद किया गया</string>
     <string name="nope_cant_kill">लॉन्चर बंद नहीं किया जा सकता</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">होल्ड करें &amp; टाइल्स जोड़ने के लिए खींचें या टैप करें</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">होल्ड करें &amp; पुनर्व्यवस्थित करने के लिए खींचें या निकालने के लिए टैप करें</string>
 </resources>
