@@ -6718,9 +6718,6 @@ public final class Settings {
         private static final Validator FORCE_SHOW_NAVBAR_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
 
-        /** @hide */
-        public static final String BACK_GESTURE_HAPTIC = "back_gesture_haptic";
-
         /**
          * Width of the navigation handle.
          * @hide
