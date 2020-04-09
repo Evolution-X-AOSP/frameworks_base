@@ -7171,6 +7171,16 @@ public final class Settings {
         private static final Validator QS_HEADER_STYLE_VALIDATOR =
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 4);
 
+        /**
+         * Whether to RGB the QS panel or not
+         * @hide
+         */
+        public static final String QS_PANEL_BG_RGB = "qs_panel_bg_rgb";
+
+        /** @hide */
+        private static final Validator QS_PANEL_BG_RGB_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
@@ -7373,6 +7383,7 @@ public final class Settings {
             QS_PANEL_BG_ALPHA,
             QS_PANEL_BG_COLOR,
             QS_PANEL_BG_COLOR_WALL,
+            QS_PANEL_BG_RGB,
             QS_PANEL_BG_USE_FW,
             QS_PANEL_BG_USE_NEW_TINT,
             QS_PANEL_BG_USE_WALL,
@@ -7674,6 +7685,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_PANEL_BG_ALPHA);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_COLOR);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_COLOR_WALL);
+            PRIVATE_SETTINGS.add(QS_PANEL_BG_RGB);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_FW);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_NEW_TINT);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_WALL);
@@ -7969,6 +7981,7 @@ public final class Settings {
             VALIDATORS.put(QS_PANEL_BG_ALPHA, QS_PANEL_BG_ALPHA_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_COLOR, QS_PANEL_BG_COLOR_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_COLOR_WALL, QS_PANEL_BG_COLOR_WALL_VALIDATOR);
+            VALIDATORS.put(QS_PANEL_BG_RGB, QS_PANEL_BG_RGB_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_USE_FW, QS_PANEL_BG_USE_FW_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_USE_NEW_TINT, QS_PANEL_BG_USE_NEW_TINT_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_USE_WALL, QS_PANEL_BG_USE_WALL_VALIDATOR);
