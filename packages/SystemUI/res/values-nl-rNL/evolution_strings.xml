@@ -188,4 +188,10 @@
     <string name="right">Rechts</string>
     <string name="navbar_editor_title">Bewerker</string>
     <string name="navbar_editor_summary">Navigatiebalk configureren</string>
+    <string name="recents_app_killed">App gestopt</string>
+    <string name="nope_cant_kill">Launcher kan niet worden gesloten</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Houd vast &amp; sleep of tik om tegels toe te voegen</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Houd &amp; sleep om te herschikken of tikken om te verwijderen</string>
 </resources>
