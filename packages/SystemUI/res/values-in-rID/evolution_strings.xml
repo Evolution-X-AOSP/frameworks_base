@@ -190,4 +190,8 @@
     <string name="navbar_editor_summary">Konfigurasi panel navigasi</string>
     <string name="recents_app_killed">Aplikasi dihentikan</string>
     <string name="nope_cant_kill">Peluncur tidak dapat dihentikan</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Tahan dan tarik atau ketuk untuk menambahkan kartu</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Tahan dan tarik untuk mengatur kembali atau ketuk untuk menghapus</string>
 </resources>
