@@ -29,8 +29,8 @@
     <string name="battery_info_status_dash_charging">Carga rápida</string>
     <string name="battery_info_status_dash_charging_lower">carga rápida</string>
     <!-- Label for estimated remaining duration of warp battery charging -->
-    <string name="power_remaining_warp_charging_duration_only">Carga rápida Warp (<xliff:g id="time">%1$s</xliff:g> hasta completar)</string>
+    <string name="power_remaining_warp_charging_duration_only">Warp Charge (<xliff:g id="time">%1$s</xliff:g> hasta completar)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
-    <string name="battery_info_status_warp_charging">Carga rápida Warp</string>
-    <string name="battery_info_status_warp_charging_lower">carga rápida Warp</string>
+    <string name="battery_info_status_warp_charging">Warp Charge</string>
+    <string name="battery_info_status_warp_charging_lower">Warp Charge</string>
 </resources>
