@@ -626,9 +626,9 @@ public class KeyguardStatusView extends GridLayout implements
         if (info == null) {
             final ContentResolver resolver = mContext.getContentResolver();
             boolean mClockSelection = Settings.Secure.getIntForUser(resolver,
-                    Settings.Secure.LOCKSCREEN_CLOCK_SELECTION, 0, UserHandle.USER_CURRENT) == 9
+                    Settings.Secure.LOCKSCREEN_CLOCK_SELECTION, 0, UserHandle.USER_CURRENT) == 10
                     || Settings.Secure.getIntForUser(resolver,
-                    Settings.Secure.LOCKSCREEN_CLOCK_SELECTION, 0, UserHandle.USER_CURRENT) == 10;
+                    Settings.Secure.LOCKSCREEN_CLOCK_SELECTION, 0, UserHandle.USER_CURRENT) == 11;
             int mTextClockAlign = Settings.System.getIntForUser(resolver,
                     Settings.System.TEXT_CLOCK_ALIGNMENT, 0, UserHandle.USER_CURRENT);
 
@@ -935,11 +935,10 @@ public class KeyguardStatusView extends GridLayout implements
         mSmallClockView = findViewById(R.id.clock_view);
         mTextClock = findViewById(R.id.custom_text_clock_view);
 
-        if (mClockSelection == 5 || mClockSelection == 6
-                || mClockSelection == 7 || mClockSelection == 8)
+        if (mClockSelection >= 5 && mClockSelection <= 9)
             mDefaultClockView.setLineSpacing(0, 0.8f);
 
-        if (mClockSelection != 9 && mClockSelection != 10) {
+        if (mClockSelection != 10 && mClockSelection != 11) {
             mTextClock.setVisibility(View.GONE);
             mSmallClockView.setVisibility(View.VISIBLE);
             params.addRule(RelativeLayout.BELOW, R.id.clock_view);
@@ -963,7 +962,7 @@ public class KeyguardStatusView extends GridLayout implements
 
         mTextClock = findViewById(R.id.custom_text_clock_view);
 
-        if (mClockSelection == 9 || mClockSelection == 10) {
+        if (mClockSelection == 10 || mClockSelection == 11) {
             switch (mTextClockAlignment) {
                 case 0:
                 default:
