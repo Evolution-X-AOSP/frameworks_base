@@ -7181,6 +7181,16 @@ public final class Settings {
         private static final Validator QS_PANEL_BG_RGB_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
+        /**
+         * Whether to disco the QS tiles or not
+         * @hide
+         */
+        public static final String QS_TILES_BG_DISCO = "qs_tiles_bg_disco";
+
+        /** @hide */
+        private static final Validator QS_TILES_BG_DISCO_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
@@ -7392,6 +7402,7 @@ public final class Settings {
             QS_SHOW_BRIGHTNESS_ICON,
             QS_TILE_STYLE,
             QS_TILE_TITLE_VISIBILITY,
+            QS_TILES_BG_DISCO,
             SCREEN_OFF_ANIMATION,
             SCREENSHOT_SOUND,
             SENSOR_BLOCK,
@@ -7694,6 +7705,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_SHOW_BRIGHTNESS_ICON);
             PRIVATE_SETTINGS.add(QS_TILE_STYLE);
             PRIVATE_SETTINGS.add(QS_TILE_TITLE_VISIBILITY);
+            PRIVATE_SETTINGS.add(QS_TILES_BG_DISCO);
             PRIVATE_SETTINGS.add(SCREEN_OFF_ANIMATION);
             PRIVATE_SETTINGS.add(SCREENSHOT_SOUND);
             PRIVATE_SETTINGS.add(SENSOR_BLOCK);
@@ -7990,6 +8002,7 @@ public final class Settings {
             VALIDATORS.put(QS_SHOW_BRIGHTNESS_ICON, QS_SHOW_BRIGHTNESS_ICON_VALIDATOR);
             VALIDATORS.put(QS_TILE_STYLE, QS_TILE_STYLE_VALIDATOR);
             VALIDATORS.put(QS_TILE_TITLE_VISIBILITY, QS_TILE_TITLE_VISIBILITY_VALIDATOR);
+            VALIDATORS.put(QS_TILES_BG_DISCO, QS_TILES_BG_DISCO_VALIDATOR);
             VALIDATORS.put(SCREEN_OFF_ANIMATION, SCREEN_OFF_ANIMATION_VALIDATOR);
             VALIDATORS.put(SCREENSHOT_SOUND, SCREENSHOT_SOUND_VALIDATOR);
             VALIDATORS.put(SENSOR_BLOCK, SENSOR_BLOCK_VALIDATOR);
