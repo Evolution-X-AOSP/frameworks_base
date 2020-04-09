@@ -190,4 +190,8 @@
     <string name="navbar_editor_summary">Configurare bară de navigare</string>
     <string name="recents_app_killed">Aplicaţie oprită</string>
     <string name="nope_cant_kill">Lansatorul nu poate fi oprit</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Țineți apăsat și glisați sau atingeți pentru a adăuga dale</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Țineți apăsat și trageți pentru a rearanja sau apăsați pentru a elimina</string>
 </resources>
