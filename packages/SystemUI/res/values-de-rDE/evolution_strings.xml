@@ -188,6 +188,10 @@
     <string name="right">Rechts</string>
     <string name="navbar_editor_title">Editor</string>
     <string name="navbar_editor_summary">Navigationsleiste konfigurieren</string>
-    <string name="recents_app_killed">App beendet</string>
+    <string name="recents_app_killed">Anwendung beendet</string>
     <string name="nope_cant_kill">Launcher kann nicht beendet werden</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Halte &amp; ziehe oder tippe, um Kacheln hinzuzufügen</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Halte &amp; ziehe zum Neuanordnen oder tippe zum Entfernen</string>
 </resources>
