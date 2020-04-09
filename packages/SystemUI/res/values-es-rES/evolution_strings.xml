@@ -21,7 +21,7 @@
     <string name="global_action_restart_advanced">Avanzado</string>
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
-    <string name="global_action_restart_ui">SystemUI</string>
+    <string name="global_action_restart_ui">IU del sistema</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">Captura de pantalla</string>
     <string name="quick_settings_region_screenshot_label">Captura de pantalla parcial</string>
@@ -103,7 +103,7 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carga rápida (<xliff:g id="charging_time_left" example="4 horas y 2 minutos">%s</xliff:g> hasta que esté llena)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carga Warp (<xliff:g id="charging_time_left" example="4 horas y 2 minutos">%s</xliff:g> para completar)</string>
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Warp Charge (<xliff:g id="charging_time_left" example="4 horas y 2 minutos">%s</xliff:g> para completar)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Modo lectura</string>
     <string name="accessibility_quick_settings_reading_mode_on">Modo lectura activado.</string>
@@ -120,13 +120,13 @@
     <string name="accessibility_quick_settings_hwkeys_off">Teclas físicas apagadas</string>
     <string name="quick_settings_hwkeys_label">Teclas físicas</string>
     <!-- Gaming Mode -->
-    <string name="gaming_mode_tile_title">Modo Juego</string>
-    <string name="gaming_mode_tile_toast">Modo juego activado</string>
-    <string name="gaming_mode_tile_toast_disabled">Modo Juego desactivado</string>
-    <string name="gaming_mode_dialog_title">Modo Juego</string>
-    <string name="gaming_mode_dialog_message">Cuando el Modo Juego está habilitado, se desactivarán todas las notificaciones emergentes y los botones físicos. Todas las opciones deshabilitadas se activarán una vez salgas del Modo Juego.</string>
-    <string name="accessibility_quick_settings_gaming_mode_on">Modo Juego activado</string>
-    <string name="accessibility_quick_settings_gaming_mode_off">Modo Juego desactivado</string>
+    <string name="gaming_mode_tile_title">Modo Gaming</string>
+    <string name="gaming_mode_tile_toast">Modo Gaming activado</string>
+    <string name="gaming_mode_tile_toast_disabled">Modo Gaming desactivado</string>
+    <string name="gaming_mode_dialog_title">Modo Gaming</string>
+    <string name="gaming_mode_dialog_message">Cuando el Modo Gaming está habilitado, se desactivarán todas las notificaciones emergentes y los botones físicos. Todas las opciones desactivadas se activarán una vez salgas del Modo Gaming.</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">Modo Gaming activado</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">Modo Gaming desactivado</string>
     <!-- Status bar icons -->
     <string name="status_bar_data_disabled">Cruzar cuando los datos están desactivados</string>
     <string name="status_bar_data_saver">Ahorro de datos</string>
@@ -143,12 +143,12 @@
     <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Notificaciones flotantes pospuestas por 1 minuto.</string>
     <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Las notificaciones flotantes están aplazadas durante <xliff:g id="number">%d</xliff:g> minutos.</string>
     <!-- Gaming mode -->
-    <string name="gaming_mode_not_enabled">El modo juego está deshabilitado en los ajustes</string>
-    <string name="quick_settings_gaming_mode_label">Modo juego</string>
+    <string name="gaming_mode_not_enabled">El modo Gaming está deshabilitado en los ajustes</string>
+    <string name="quick_settings_gaming_mode_label">Modo Gaming</string>
     <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_disabled">Modo Juego desactivado.</string>
+    <string name="accessibility_quick_settings_gaming_mode_disabled">Modo Gaming desactivado.</string>
     <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_enabled">Modo Juego activado.</string>
+    <string name="accessibility_quick_settings_gaming_mode_enabled">Modo Gaming activado.</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">Cambiar tarjeta SIM</string>
     <string name="qs_data_switch_changed_1">Utilizando SIM 1 para datos móviles</string>
@@ -158,7 +158,7 @@
     <string name="quick_settings_immersive_tile_statusbar">Barra de estado inmersiva</string>
     <string name="quick_settings_immersive_tile_navbar">Barra de navegación inmersiva</string>
     <string name="quick_settings_immersive_tile_full">Modo pantalla completa</string>
-    <string name="screenrecord_stopdot_label">Mostrar punto de finalizar</string>
+    <string name="screenrecord_stopdot_label">Mostrar icono para detener</string>
     <string name="screenrecord_low_quality_label">Calidad baja</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">Captura de pantalla</string>
