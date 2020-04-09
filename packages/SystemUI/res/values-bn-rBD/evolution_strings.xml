@@ -190,4 +190,8 @@
     <string name="navbar_editor_summary">ন্যাভিগেশন বার কনফিগার করুন</string>
     <string name="recents_app_killed">রিসেন্টস অ্যাপ মারা গেছে</string>
     <string name="nope_cant_kill">নাহ মারতে পারে না</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">ধরে রাখুন &amp; টাইল যোগ করতে টানুন বা ট্যাপ করুন</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">ধরে রাখুন &amp; পুনরায় সাজানোর জন্য টানুন বা সরানোর জন্য ট্যাপ করুন</string>
 </resources>
