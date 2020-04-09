@@ -190,4 +190,8 @@
     <string name="navbar_editor_summary">Gezinme çubuğunu düzenle</string>
     <string name="recents_app_killed">Uyg. sonlandırıldı</string>
     <string name="nope_cant_kill">Başlatıcı sonlandırılamaz</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Kare eklemek için basılı tutun ve sürükleyin veya dokunun</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Yeniden düzenlemek için basılı tutun ve kaydırın veya kaldırmak için dokunun</string>
 </resources>
