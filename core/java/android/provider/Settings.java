@@ -6909,6 +6909,15 @@ public final class Settings {
         private static final Validator ENABLE_CONDITIONS_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
+        /**
+         * Gestures nav: whether show it or hide completely
+         * @hide
+         */
+        public static final String GESTURE_NAVBAR_SHOW = "gesture_navbar_show";
+
+        /** @hide */
+        private static final Validator GESTURE_NAVBAR_SHOW_VALIDATOR = BOOLEAN_VALIDATOR;
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
@@ -7131,6 +7140,7 @@ public final class Settings {
             BATTERY_BAR_LOW_COLOR,
             BATTERY_BAR_USE_GRADIENT_COLOR,
             ENABLE_CONDITIONS,
+            GESTURE_NAVBAR_SHOW,
             // Evolution X Settings end
         };
 
@@ -7389,6 +7399,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED);
             PRIVATE_SETTINGS.add(LOCKSCREEN_BATTERY_INFO);
             PRIVATE_SETTINGS.add(ENABLE_CONDITIONS);
+            PRIVATE_SETTINGS.add(GESTURE_NAVBAR_SHOW);
             // Evolution X Settings end
         }
 
@@ -7675,6 +7686,7 @@ public final class Settings {
             VALIDATORS.put(BATTERY_BAR_LOW_COLOR, BATTERY_BAR_LOW_COLOR_VALIDATOR);
             VALIDATORS.put(BATTERY_BAR_USE_GRADIENT_COLOR, BATTERY_BAR_USE_GRADIENT_COLOR_VALIDATOR);
             VALIDATORS.put(ENABLE_CONDITIONS, ENABLE_CONDITIONS_VALIDATOR);
+            VALIDATORS.put(GESTURE_NAVBAR_SHOW,GESTURE_NAVBAR_SHOW_VALIDATOR);
             // Evolution X Settings end
         }
 
