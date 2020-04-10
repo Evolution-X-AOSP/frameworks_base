@@ -479,6 +479,14 @@ public class EvolutionUtils {
         return false;
     }
 
+    public static boolean shouldShowGestureNav(Context context) {
+        boolean setNavbarHeight = Settings.System.getIntForUser(context.getContentResolver(),
+            Settings.System.GESTURE_NAVBAR_SHOW, 1, UserHandle.USER_CURRENT) != 0;
+        boolean twoThreeButtonEnabled = EvolutionUtils.isThemeEnabled("com.android.internal.systemui.navbar.twobutton") ||
+                EvolutionUtils.isThemeEnabled("com.android.internal.systemui.navbar.threebutton");
+        return setNavbarHeight || twoThreeButtonEnabled;
+    }
+
     // Method to detect whether an overlay is enabled or not
     public static boolean isThemeEnabled(String packageName) {
         if (sOverlayService == null) {
