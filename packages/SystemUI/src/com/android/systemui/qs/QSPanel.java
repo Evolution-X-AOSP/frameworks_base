@@ -85,6 +85,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
     public static final String QS_SHOW_BRIGHTNESS = "qs_show_brightness";
     public static final String QS_SHOW_HEADER = "qs_show_header";
     public static final String QS_BRIGHTNESS_POSITION_BOTTOM = "qs_brightness_position_bottom";
+    public static final String QS_LONG_PRESS_ACTION = "qs_long_press_action";
 
     private static final String TAG = "QSPanel";
 
@@ -116,10 +117,11 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
     private BrightnessMirrorController mBrightnessMirrorController;
     private View mDivider;
 
-    // omni
+    // Evolution X Additions
     private boolean mBrightnessBottom;
     private boolean mBrightnessVisible;
     private View mBrightnessPlaceholder;
+    private boolean mDualTargetSecondary;
 
     public QSPanel(Context context) {
         this(context, null);
@@ -209,6 +211,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         final TunerService tunerService = Dependency.get(TunerService.class);
         tunerService.addTunable(this, QS_SHOW_BRIGHTNESS);
         tunerService.addTunable(this, QS_BRIGHTNESS_POSITION_BOTTOM);
+        tunerService.addTunable(this, QS_LONG_PRESS_ACTION);
         if (mHost != null) {
             setTiles(mHost.getTiles());
         }
@@ -258,6 +261,10 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
                 addView(mBrightnessView, getBrightnessViewPositionBottom());
                 mBrightnessBottom = true;
             }
+        }
+        if (QS_LONG_PRESS_ACTION.equals(key)) {
+            mDualTargetSecondary = newValue != null && Integer.parseInt(newValue) == 1;
+            updateSettings();
         }
     }
 
@@ -860,6 +867,21 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
                     t.click();
                     setAnimationTile(v);
             });
+            // mod long press to do secondary click
+            if (t.isDualTarget()) {
+                if (mDualTargetSecondary) {
+                    v.setOnLongClickListener(view -> {
+                        t.secondaryClick();
+                        mHost.openPanels();
+                        return true;
+                    });
+                } else {
+                    v.setOnLongClickListener(view -> {
+                        t.longClick();
+                        return true;
+                    });
+                }
+            }
         }
     }
 
