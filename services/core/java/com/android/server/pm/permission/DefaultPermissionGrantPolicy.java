@@ -857,7 +857,8 @@ public final class DefaultPermissionGrantPolicy {
         grantSystemFixedPermissionsToSystemPackage("com.google.android.soundpicker", userId, STORAGE_PERMISSIONS);
 
         // Google Wallpapers
-        grantSystemFixedPermissionsToSystemPackage("com.google.android.apps.wallpaper", userId, STORAGE_PERMISSIONS);
+        grantSystemFixedPermissionsToSystemPackage("com.google.android.apps.wallpaper", userId, PHONE_PERMISSIONS,
+                STORAGE_PERMISSIONS);
 
         // Pixel Live Wallpapers
         grantSystemFixedPermissionsToSystemPackage("com.google.pixel.livewallpaper", userId, ALWAYS_LOCATION_PERMISSIONS);
@@ -873,8 +874,22 @@ public final class DefaultPermissionGrantPolicy {
         grantSystemFixedPermissionsToSystemPackage("com.google.android.apps.photos", userId, CONTACTS_PERMISSIONS,
                 PHONE_PERMISSIONS, STORAGE_PERMISSIONS, ALWAYS_LOCATION_PERMISSIONS);
 
+        // Device Personalization Services
+        grantSystemFixedPermissionsToSystemPackage("com.google.android.as", userId, CALENDAR_PERMISSIONS,
+                CAMERA_PERMISSIONS, CONTACTS_PERMISSIONS, ALWAYS_LOCATION_PERMISSIONS,
+                MICROPHONE_PERMISSIONS, PHONE_PERMISSIONS, SMS_PERMISSIONS);
+
+        // Settings Suggestions
+        grantSystemFixedPermissionsToSystemPackage("com.google.android.settings.intelligence", userId, PHONE_PERMISSIONS,
+                ALWAYS_LOCATION_PERMISSIONS);
+
+        // Pixel Launcher
+        grantSystemFixedPermissionsToSystemPackage("com.google.android.apps.nexuslauncher", userId, PHONE_PERMISSIONS,
+                STORAGE_PERMISSIONS);
+
         // Lawnchair
-        grantSystemFixedPermissionsToSystemPackage("ch.deletescape.lawnchair.ci", userId, STORAGE_PERMISSIONS);
+        grantSystemFixedPermissionsToSystemPackage("ch.deletescape.lawnchair.ci", userId, CALENDAR_PERMISSIONS,
+                ALWAYS_LOCATION_PERMISSIONS, PHONE_PERMISSIONS, STORAGE_PERMISSIONS);
     }
 
     private String getDefaultSystemHandlerActivityPackageForCategory(String category, int userId) {
