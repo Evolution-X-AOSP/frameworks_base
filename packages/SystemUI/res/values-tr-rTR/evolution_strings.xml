@@ -179,11 +179,11 @@
     <string name="end">Son</string>
     <string name="space">Ayırıcı</string>
     <string name="menu_ime">Menü / Klavye Değiştirici</string>
-    <string name="select_button">Eklenecek düğmeyi seçin</string>
-    <string name="add_button">Düğme ekle</string>
+    <string name="select_button">Eklenecek tuşu seçin</string>
+    <string name="add_button">Tuş ekle</string>
     <string name="save">Kaydet</string>
     <string name="reset">Sıfırla</string>
-    <string name="select_keycode">Klavye Düğmesini Seçin</string>
+    <string name="select_keycode">Klavye tuşu seçin</string>
     <string name="left">Sol</string>
     <string name="right">Sağ</string>
     <string name="navbar_editor_title">Düzenleyici</string>
