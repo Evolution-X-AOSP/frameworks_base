@@ -12021,6 +12021,12 @@ public final class Settings {
         /** @hide */
         public static final Validator TETHERING_ALLOW_VPN_UPSTREAMS_VALIDATOR = BOOLEAN_VALIDATOR;
 
+        /**
+         * Whether to unlock with fingerprint on notification double tap
+         * @hide
+         */
+        public static final String UNLOCK_WITHOUT_BOUNCER = "unlock_without_bouncer";
+
         /************************************
          * Evolution X Secure Settings end
          ************************************/
