@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_weight="1"
-        layout_marginTop="4dp"
+        android:layout_marginTop="4dp"
         android:paddingTop="8dp"
         android:background="@drawable/oronos_roundbg"
         android:paddingBottom="8dp"
