@@ -6918,6 +6918,12 @@ public final class Settings {
         /** @hide */
         private static final Validator GESTURE_NAVBAR_SHOW_VALIDATOR = BOOLEAN_VALIDATOR;
 
+        /**
+         * Whether to show IME space when navbar pill is hidden
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_IME_SPACE = "navigation_bar_ime_space";
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
