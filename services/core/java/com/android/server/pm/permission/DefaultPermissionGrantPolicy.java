@@ -870,10 +870,6 @@ public final class DefaultPermissionGrantPolicy {
         // Pixel Launcher
         grantSystemFixedPermissionsToSystemPackage("com.google.android.apps.nexuslauncher", userId, PHONE_PERMISSIONS,
                 STORAGE_PERMISSIONS);
-
-        // Lawnchair
-        grantSystemFixedPermissionsToSystemPackage("ch.deletescape.lawnchair.ci", userId, CALENDAR_PERMISSIONS,
-                ALWAYS_LOCATION_PERMISSIONS, PHONE_PERMISSIONS, STORAGE_PERMISSIONS);
     }
 
     private String getDefaultSystemHandlerActivityPackageForCategory(String category, int userId) {
