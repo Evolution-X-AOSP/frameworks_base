@@ -57,8 +57,11 @@
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Swipe from icon to launch</string>
 
-    <!-- VPN -->
+    <!-- Status bar icons -->
     <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_camera">Camera</string>
+    <string name="status_bar_location">Location</string>
+    <string name="status_bar_microphone">Microphone</string>
 
     <!-- Advanced Reboot -->
     <string name="global_action_restart_system">System</string>
