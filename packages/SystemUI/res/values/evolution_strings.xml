@@ -128,6 +128,9 @@
     <string name="status_bar_roaming">Roaming</string>
     <string name="status_bar_vpn">VPN</string>
     <string name="status_bar_ims">VoLTE/VoWiFi</string>
+    <string name="status_bar_camera">Camera</string>
+    <string name="status_bar_location">Location</string>
+    <string name="status_bar_microphone">Microphone</string>
 
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
     <string name="accessibility_status_bar_nfc">Nfc</string>
