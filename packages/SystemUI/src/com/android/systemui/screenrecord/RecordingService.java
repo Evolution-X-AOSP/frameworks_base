@@ -325,7 +325,7 @@ public class RecordingService extends Service {
                     VIDEO_BIT_RATE = mIsLowRamEnabled ? 10485760 : 20971520;
                     break;
                 default:
-                    VIDEO_BIT_RATE = 6000000;
+                    VIDEO_BIT_RATE = 24000000;
                     break;
             }
 
