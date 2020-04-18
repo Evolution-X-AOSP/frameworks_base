@@ -6788,6 +6788,14 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * Controls whether to show R style notification headers
+         * @hide
+         */
+        public static final String NOTIFICATION_HEADERS = "notification_headers";
+
+        private static final Validator NOTIFICATION_HEADERS_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6987,6 +6995,7 @@ public final class Settings {
             BACK_GESTURE_BLOCK_IME,
             ASPECT_RATIO_APPS_ENABLED,
             ASPECT_RATIO_APPS_LIST,
+            NOTIFICATION_HEADERS,
             // Evolution X Settings end
         };
 
@@ -7520,6 +7529,7 @@ public final class Settings {
             VALIDATORS.put(CAMERA_LAUNCH, CAMERA_LAUNCH_VALIDATOR);
             VALIDATORS.put(DISPLAY_CUTOUT_HIDDEN, DISPLAY_CUTOUT_HIDDEN_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED, LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED_VALIDATOR);
+            VALIDATORS.put(NOTIFICATION_HEADERS, NOTIFICATION_HEADERS_VALIDATOR);
             // Evolution X Settings end
         }
 
