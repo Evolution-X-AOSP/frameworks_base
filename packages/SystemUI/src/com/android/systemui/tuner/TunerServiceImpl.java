@@ -37,6 +37,7 @@ import com.android.internal.util.ArrayUtils;
 import com.android.systemui.DemoMode;
 import com.android.systemui.qs.QSTileHost;
 import com.android.systemui.settings.CurrentUserTracker;
+import com.android.systemui.statusbar.notification.stack.NotificationStackScrollLayout;
 import com.android.systemui.statusbar.phone.EdgeBackGestureHandler;
 import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.util.leak.LeakDetector;
@@ -63,6 +64,7 @@ public class TunerServiceImpl extends TunerService {
     // shouldn't be reset with tuner settings.
     private static final String[] RESET_BLACKLIST = new String[] {
             EdgeBackGestureHandler.KEY_EDGE_LONG_SWIPE_ACTION,
+            NotificationStackScrollLayout.LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED,
             QSTileHost.TILES_SETTING,
             Settings.Secure.DOZE_ALWAYS_ON
     };

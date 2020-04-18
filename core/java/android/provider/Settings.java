@@ -6820,6 +6820,17 @@ public final class Settings {
         public static final String QS_SMART_PULLDOWN = "qs_smart_pulldown";
 
         /**
+         * Whether to have translucent background on lockscreen notifications
+         * @hide
+         */
+        public static final String LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED
+                = "lockscreen_translucent_notifications_bg_enabled";
+
+        /** @hide */
+        private static final Validator LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -7282,6 +7293,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(NOTIFICATION_PULSE_ACCENT);
             PRIVATE_SETTINGS.add(NOTIFICATION_PULSE_COLOR);
             PRIVATE_SETTINGS.add(NOTIFICATION_PULSE_COLOR_AUTOMATIC);
+            PRIVATE_SETTINGS.add(LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED);
             // Evolution X Settings end
         }
 
@@ -7560,6 +7572,7 @@ public final class Settings {
             VALIDATORS.put(NOTIFICATION_PULSE_COLOR, NOTIFICATION_PULSE_COLOR_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_PULSE_COLOR_AUTOMATIC,
                     NOTIFICATION_PULSE_COLOR_AUTOMATIC_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED, LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED_VALIDATOR);
             // Evolution X Settings end
         }
 
