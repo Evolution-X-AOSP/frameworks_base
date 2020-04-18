@@ -43,6 +43,7 @@ import androidx.dynamicanimation.animation.SpringAnimation;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.util.evolution.fod.FodUtils;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.keyguard.KeyguardSecurityModel.SecurityMode;
 import com.android.settingslib.utils.ThreadUtils;
@@ -55,7 +56,6 @@ import com.android.systemui.util.InjectionInflationController;
 public class KeyguardSecurityContainer extends FrameLayout implements KeyguardSecurityView {
     private static final boolean DEBUG = KeyguardConstants.DEBUG;
     private static final String TAG = "KeyguardSecurityView";
-    private static final String FOD = "vendor.lineage.biometrics.fingerprint.inscreen";
 
     private static final int USER_TYPE_PRIMARY = 1;
     private static final int USER_TYPE_WORK_PROFILE = 2;
@@ -478,7 +478,7 @@ public class KeyguardSecurityContainer extends FrameLayout implements KeyguardSe
     }
 
     private boolean hasInDisplayFingerprint() {
-        return mContext.getPackageManager().hasSystemFeature(FOD);
+        return FodUtils.hasFodSupport(mContext);
     }
 
     /**
