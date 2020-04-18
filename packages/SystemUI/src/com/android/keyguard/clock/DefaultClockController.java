@@ -157,6 +157,9 @@ public class DefaultClockController implements ClockPlugin {
     }
 
     @Override
+    public void setDateTypeface(Typeface tf) {}
+
+    @Override
     public void setColorPalette(boolean supportsDarkText, int[] colorPalette) {}
 
     @Override

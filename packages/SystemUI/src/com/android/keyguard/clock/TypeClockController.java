@@ -177,6 +177,9 @@ public class TypeClockController implements ClockPlugin {
     }
 
     @Override
+    public void setDateTypeface(Typeface tf) {}
+
+    @Override
     public void setColorPalette(boolean supportsDarkText, int[] colorPalette) {
         if (colorPalette == null || colorPalette.length == 0) {
             return;

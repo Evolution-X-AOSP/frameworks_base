@@ -106,6 +106,11 @@ public interface ClockPlugin extends Plugin {
     default void setTypeface(Typeface tf) {};
 
     /**
+     * Set font for date clock (if available).
+     */
+    default void setDateTypeface(Typeface tf) {};
+
+    /**
      * Sets the color palette for the clock face.
      * @param supportsDarkText Whether dark text can be displayed.
      * @param colors Colors that should be used on the clock face, ordered from darker to lighter.

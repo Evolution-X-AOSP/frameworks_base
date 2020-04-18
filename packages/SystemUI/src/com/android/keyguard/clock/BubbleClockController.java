@@ -175,6 +175,9 @@ public class BubbleClockController implements ClockPlugin {
     }
 
     @Override
+    public void setDateTypeface(Typeface tf) {}
+
+    @Override
     public void setColorPalette(boolean supportsDarkText, int[] colorPalette) {
         mPalette.setColorPalette(supportsDarkText, colorPalette);
         updateColor();

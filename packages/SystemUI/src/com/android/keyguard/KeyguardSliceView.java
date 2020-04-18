@@ -344,7 +344,7 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
         updateTextColors();
     }
 
-    public void setViewsTypeface(Typeface tf) {
+    public void setTextDateFont(Typeface tf) {
         int childCount = mRow.getChildCount();
         for (int i = 0; i < childCount; i++) {
             View v = mRow.getChildAt(i);
