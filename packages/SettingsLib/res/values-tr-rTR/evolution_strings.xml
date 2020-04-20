@@ -29,7 +29,7 @@
     <string name="battery_info_status_dash_charging">Dash şarj oluyor</string>
     <string name="battery_info_status_dash_charging_lower">dash şarj oluyor</string>
     <!-- Label for estimated remaining duration of warp battery charging -->
-    <string name="power_remaining_warp_charging_duration_only">Warp hızlı şarj oluyor (Tam dolmasına <xliff:g id="time">%1$s</xliff:g> kaldı)</string>
+    <string name="power_remaining_warp_charging_duration_only">Warp şarj oluyor (Tam dolmasına <xliff:g id="time">%1$s</xliff:g> kaldı)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
     <string name="battery_info_status_warp_charging">Warp şarj oluyor</string>
     <string name="battery_info_status_warp_charging_lower">warp şarj oluyor</string>
