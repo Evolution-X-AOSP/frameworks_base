@@ -190,4 +190,8 @@
     <string name="navbar_editor_summary">تهيئة شريط التنقل</string>
     <string name="recents_app_killed">تم إنهاء التطبيق</string>
     <string name="nope_cant_kill">لا يمكن إنهاء مشغل التطبيقات</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">استمر بالضغط على &amp; وسحب أو انقر لإضافة البلاطات</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">اضغط على &amp; اسحب لإعادة الترتيب أو اضغط للإزالة</string>
 </resources>
