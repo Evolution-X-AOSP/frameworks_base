@@ -58,6 +58,7 @@ import com.android.systemui.qs.tiles.MonoToggleTile;
 import com.android.systemui.qs.tiles.MusicTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
+import com.android.systemui.qs.tiles.PowerShareTile;
 import com.android.systemui.qs.tiles.RebootTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
@@ -123,6 +124,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<LocaleTile> mLocaleTileProvider;
     private final Provider<MonoToggleTile> mMonoToggleTileProvider;
     private final Provider<MusicTile> mMusicTileProvider;
+    private final Provider<PowerShareTile> mPowerShareTileProvider;
     private final Provider<RebootTile> mRebootTileProvider;
     private final Provider<ScreenshotTile> mScreenshotTileProvider;
     private final Provider<SleepScreenTile> mSleepScreenTileProvider;
@@ -174,6 +176,7 @@ public class QSFactoryImpl implements QSFactory {
             Provider<LocaleTile> localeTileProvider,
             Provider<MonoToggleTile> monoToggleTileProvider,
             Provider<MusicTile> musicTileProvider,
+            Provider<PowerShareTile> powerShareTileProvider,
             Provider<RebootTile> rebootTileProvider,
             Provider<ScreenshotTile> screenshotTileProvider,
             Provider<SleepScreenTile> sleepScreenTileProvider,
@@ -221,6 +224,7 @@ public class QSFactoryImpl implements QSFactory {
         mLocaleTileProvider = localeTileProvider;
         mMonoToggleTileProvider = monoToggleTileProvider;
         mMusicTileProvider = musicTileProvider;
+        mPowerShareTileProvider = powerShareTileProvider;
         mRebootTileProvider = rebootTileProvider;
         mScreenshotTileProvider = screenshotTileProvider;
         mSleepScreenTileProvider = sleepScreenTileProvider;
@@ -317,6 +321,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mMonoToggleTileProvider.get();
             case "music":
                 return mMusicTileProvider.get();
+            case "powershare":
+                return mPowerShareTileProvider.get();
             case "reboot":
                 return mRebootTileProvider.get();
             case "screenshot":
