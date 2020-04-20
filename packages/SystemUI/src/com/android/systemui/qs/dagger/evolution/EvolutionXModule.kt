@@ -1,4 +1,3 @@
-
 /*
  * Copyright (C) 2023 Evolution X
  *
@@ -15,9 +14,10 @@
  * limitations under the License.
  */
 
-package com.android.systemui.evolution
+package com.android.systemui.qs.dagger.evolution
 
 import com.android.systemui.qs.tileimpl.QSTileImpl
+import com.android.systemui.qs.tiles.PowerShareTile
 import com.android.systemui.qs.tiles.SoundTile
 
 import dagger.Binds
@@ -34,4 +34,9 @@ interface EvolutionXModule {
     @StringKey(SoundTile.TILE_SPEC)
     fun bindSoundTile(soundTile: SoundTile): QSTileImpl<*>
 
+    /** Inject PowerShareTile into tileMap in QSModule */
+    @Binds
+    @IntoMap
+    @StringKey(PowerShareTile.TILE_SPEC)
+    fun bindPowerShareTile(powerShareTile: PowerShareTile): QSTileImpl<*>
 }
