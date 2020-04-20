@@ -51,6 +51,7 @@ import com.android.systemui.qs.tiles.LocaleTile;
 import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
+import com.android.systemui.qs.tiles.PowerShareTile;
 import com.android.systemui.qs.tiles.ReadingModeTile;
 import com.android.systemui.qs.tiles.RebootTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
@@ -113,6 +114,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<VpnTile> mVpnTileProvider;
     private final Provider<RebootTile> mRebootTileProvider;
     private final Provider<LiveDisplayTile> mLiveDisplayTileProvider;
+    private final Provider<PowerShareTile> mPowerShareTileProvider;
     private final Provider<ReadingModeTile> mReadingModeTileProvider;
     private final Provider<ScreenRecordTile> mScreenRecordTileProvider;
     private final Provider<HWKeysTile> mHWKeysTileProvider;
@@ -158,6 +160,7 @@ public class QSFactoryImpl implements QSFactory {
             Provider<VpnTile> vpnTileProvider,
             Provider<RebootTile> rebootTileProvider,
             Provider<LiveDisplayTile> liveDisplayTileProvider,
+            Provider<PowerShareTile> powerShareTileProvider,
             Provider<ReadingModeTile> readingModeTileProvider,
             Provider<ScreenRecordTile> screenRecordTileProvider,
             Provider<HWKeysTile> hWKeysTileProvider,
@@ -200,6 +203,7 @@ public class QSFactoryImpl implements QSFactory {
         mVpnTileProvider = vpnTileProvider;
         mRebootTileProvider = rebootTileProvider;
         mLiveDisplayTileProvider = liveDisplayTileProvider;
+        mPowerShareTileProvider = powerShareTileProvider;
         mReadingModeTileProvider = readingModeTileProvider;
         mScreenRecordTileProvider = screenRecordTileProvider;
         mHWKeysTileProvider = hWKeysTileProvider;
@@ -291,6 +295,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mRebootTileProvider.get();
             case "livedisplay":
                 return mLiveDisplayTileProvider.get();
+            case "powershare":
+                return mPowerShareTileProvider.get();
             case "reading_mode":
                 return mReadingModeTileProvider.get();
             case "screenrecord":
