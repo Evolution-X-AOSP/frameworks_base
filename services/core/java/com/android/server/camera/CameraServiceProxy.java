@@ -17,7 +17,6 @@ package com.android.server.camera;
 
 import android.annotation.IntDef;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -34,7 +33,6 @@ import android.os.Process;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.os.SystemProperties;
-import android.os.UserHandle;
 import android.os.UserManager;
 import android.util.ArrayMap;
 import android.util.ArraySet;
@@ -43,8 +41,6 @@ import android.util.Slog;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.server.LocalServices;
-import com.android.server.lights.Light;
-import com.android.server.lights.LightsManager;
 import com.android.server.ServiceThread;
 import com.android.server.SystemService;
 import com.android.server.wm.WindowManagerInternal;
@@ -56,8 +52,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
-
-import com.android.internal.util.custom.popupcamera.PopUpCameraUtils;
 
 /**
  * CameraServiceProxy is the system_server analog to the camera service running in cameraserver.
@@ -82,12 +76,9 @@ public class CameraServiceProxy extends SystemService
 
     // Handler message codes
     private static final int MSG_SWITCH_USER = 1;
-    private static final int MSG_CAMERA_CLOSED = 1001;
-    private static final int MSG_CAMERA_OPEN = 1002;
 
     private static final int RETRY_DELAY_TIME = 20; //ms
     private static final int RETRY_TIMES = 30;
-    private static final int CAMERA_EVENT_DELAY_TIME = 70; //ms
 
     // Maximum entries to keep in usage history before dumping out
     private static final int MAX_USAGE_HISTORY = 100;
@@ -133,14 +124,6 @@ public class CameraServiceProxy extends SystemService
     private final @NfcNotifyState int mNotifyNfc;
     private boolean mLastNfcPollState = true;
     private final boolean mAllowMediaUid;
-    private final String mPopUpCameraServiceComponentName;
-
-    private long mClosedEvent;
-    private long mOpenEvent;
-
-    // Popup light
-    private final Handler mPopUpLightHandler;
-    private Light mPopUpLight;
 
     /**
      * Structure to track camera usage
@@ -234,25 +217,6 @@ public class CameraServiceProxy extends SystemService
                     state + " for client " + clientName + " API Level " + apiLevel);
 
             updateActivityCount(cameraId, newCameraState, facing, clientName, apiLevel);
-
-            if (!mPopUpCameraServiceComponentName.equals("") && facing == ICameraServiceProxy.CAMERA_FACING_FRONT) {
-                switch (newCameraState) {
-                   case ICameraServiceProxy.CAMERA_STATE_OPEN : {
-                       mOpenEvent = SystemClock.elapsedRealtime();
-                       if (SystemClock.elapsedRealtime() - mClosedEvent < CAMERA_EVENT_DELAY_TIME) {
-                           mHandler.removeMessages(MSG_CAMERA_CLOSED);
-                       }
-                       mHandler.sendEmptyMessageDelayed(MSG_CAMERA_OPEN, CAMERA_EVENT_DELAY_TIME);
-                   } break;
-                   case ICameraServiceProxy.CAMERA_STATE_CLOSED : {
-                       mClosedEvent = SystemClock.elapsedRealtime();
-                       if (SystemClock.elapsedRealtime() - mOpenEvent < CAMERA_EVENT_DELAY_TIME) {
-                           mHandler.removeMessages(MSG_CAMERA_OPEN);
-                       }
-                       mHandler.sendEmptyMessageDelayed(MSG_CAMERA_CLOSED, CAMERA_EVENT_DELAY_TIME);
-                   } break;
-                }
-            }
         }
     };
 
@@ -262,7 +226,6 @@ public class CameraServiceProxy extends SystemService
         mHandlerThread = new ServiceThread(TAG, Process.THREAD_PRIORITY_DISPLAY, /*allowTo*/false);
         mHandlerThread.start();
         mHandler = new Handler(mHandlerThread.getLooper(), this);
-        mPopUpLightHandler = new Handler(mHandlerThread.getLooper(), this);
 
         int notifyNfc = SystemProperties.getInt(NFC_NOTIFICATION_PROP, 0);
         if (notifyNfc < NFC_NOTIFY_NONE || notifyNfc > NFC_NOTIFY_FRONT) {
@@ -272,8 +235,6 @@ public class CameraServiceProxy extends SystemService
         if (DEBUG) Slog.v(TAG, "Notify NFC state is " + nfcNotifyToString(mNotifyNfc));
         mAllowMediaUid = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_allowMediaUidForCameraServiceProxy);
-        mPopUpCameraServiceComponentName = mContext.getResources().getString(
-                com.android.internal.R.string.config_popUpCameraServiceComponentName);
     }
 
     @Override
@@ -281,12 +242,6 @@ public class CameraServiceProxy extends SystemService
         switch(msg.what) {
             case MSG_SWITCH_USER: {
                 notifySwitchWithRetries(msg.arg1);
-            } break;
-            case MSG_CAMERA_CLOSED: {
-                sendCameraStateIntent("0");
-            } break;
-            case MSG_CAMERA_OPEN: {
-                sendCameraStateIntent("1");
             } break;
             default: {
                 Slog.e(TAG, "CameraServiceProxy error, invalid message: " + msg.what);
@@ -316,9 +271,6 @@ public class CameraServiceProxy extends SystemService
         publishLocalService(CameraServiceProxy.class, this);
 
         CameraStatsJobService.schedule(mContext);
-
-        mPopUpLight = ((LightsManager) LocalServices.getService(LightsManager.class))
-                .getLight(LightsManager.LIGHT_ID_NOTIFICATIONS);
     }
 
     @Override
@@ -353,18 +305,6 @@ public class CameraServiceProxy extends SystemService
 
             // Ensure NFC is back on
             notifyNfcService(/*enablePolling*/ true);
-        }
-    }
-
-    @Override
-    public void onBootPhase(int phase) {
-        if (phase == PHASE_BOOT_COMPLETED &&
-                !mPopUpCameraServiceComponentName.equals("")) {
-            String perm = PopUpCameraUtils.MANAGE_POPUP_CAMERA_SERVICE_PERMISSION;
-            mContext.enforceCallingOrSelfPermission(perm, "Missing or invalid popup camera service permission: " + perm);
-            Intent i = new Intent();
-            i.setComponent(ComponentName.unflattenFromString(mPopUpCameraServiceComponentName));
-            mContext.startServiceAsUser(i, UserHandle.SYSTEM);
         }
     }
 
@@ -649,37 +589,5 @@ public class CameraServiceProxy extends SystemService
             case NFC_NOTIFY_FRONT: return "NFC_NOTIFY_FRONT";
         }
         return "UNKNOWN_NFC_NOTIFY";
-    }
-
-    private void sendCameraStateIntent(String cameraState) {
-        boolean opened = cameraState.equals("1");
-        Intent intent = new Intent(android.content.Intent.ACTION_CAMERA_STATUS_CHANGED);
-        intent.putExtra(android.content.Intent.EXTRA_CAMERA_STATE, cameraState);
-        mContext.sendBroadcastAsUser(intent, UserHandle.SYSTEM);
-        if (PopUpCameraUtils.supportsLed(mContext)){
-            mPopUpLightHandler.removeCallbacksAndMessages(null);
-            boolean enabled = PopUpCameraUtils.isLedEnabled(mContext);
-            if (opened){
-                PopUpCameraUtils.blockBatteryLed(mContext, opened);
-            }else{
-                restoreBatteryLed();
-            }
-            if (enabled){
-                mPopUpLight.setFlashing(-1, Light.LIGHT_FLASH_NONE, 0, 0);
-                turnOffPopUpLight();
-            }
-        }
-    }
-
-    private void turnOffPopUpLight(){
-        mPopUpLightHandler.postDelayed(() -> {
-            mPopUpLight.setFlashing(0, Light.LIGHT_FLASH_NONE, 0, 0);
-        }, 1000);
-    }
-
-    private void restoreBatteryLed(){
-        mPopUpLightHandler.postDelayed(() -> {
-            PopUpCameraUtils.blockBatteryLed(mContext, false);
-        }, 1500);
     }
 }

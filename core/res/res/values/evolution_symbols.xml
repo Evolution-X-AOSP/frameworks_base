@@ -288,12 +288,6 @@
   <java-symbol type="string" name="adb_both_active_notification_title" />
   <java-symbol type="string" name="adb_active_generic_notification_message" />
 
-    <!-- Component name of popup camera service -->
-    <java-symbol type="string" name="config_popUpCameraServiceComponentName" />
-
-    <!-- Whether to turn on the notification light when the state of the front camera changes -->
-    <java-symbol type="bool" name="config_popUpNotificationLight" />
-
     <!-- Library path of screen off fod handler -->
     <java-symbol type="string" name="config_fodScreenOffHandlerLib" />
 
