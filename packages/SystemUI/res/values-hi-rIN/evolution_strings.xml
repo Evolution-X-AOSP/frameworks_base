@@ -93,13 +93,6 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">बंद करके चालू करें</string>
     <string name="quick_settings_reboot_recovery_label">रिकवरी</string>
-    <!-- Advance location quick setting tile -->
-    <string name="quick_settings_location_secondary_battery_saving">बैटरी की बचत</string>
-    <string name="accessibility_quick_settings_location_battery_saving">स्थान रिपोर्टिंग: बैटरी बचत मोड।</string>
-    <string name="quick_settings_location_secondary_gps_only">केवल सेंसर</string>
-    <string name="accessibility_quick_settings_location_gps_only">स्थान रिपोर्टिंग: केवल सेंसर मोड।</string>
-    <string name="quick_settings_location_secondary_high_accuracy">उच्च सटीकता</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">स्थान रिपोर्टिंग: उच्च सटीकता मोड।</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • डैश चार्जिंग (<xliff:g id="charging_time_left" example="4 घंटे and 2 मिनट">%s</xliff:g> पूर्ण होने तक)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
