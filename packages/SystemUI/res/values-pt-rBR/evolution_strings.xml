@@ -93,13 +93,6 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Reiniciar</string>
     <string name="quick_settings_reboot_recovery_label">Recuperação</string>
-    <!-- Advance location quick setting tile -->
-    <string name="quick_settings_location_secondary_battery_saving">Economia de bateria</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Localização: economia de bateria.</string>
-    <string name="quick_settings_location_secondary_gps_only">Somente sensores</string>
-    <string name="accessibility_quick_settings_location_gps_only">Localização: apenas sensores.</string>
-    <string name="quick_settings_location_secondary_high_accuracy">Alta precisão</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Localização: alta precisão.</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento rápido(<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%s</xliff:g> até completar a carga)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
