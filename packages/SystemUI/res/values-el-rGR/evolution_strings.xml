@@ -93,13 +93,6 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Επανεκκίνηση</string>
     <string name="quick_settings_reboot_recovery_label">Ανάκτηση</string>
-    <!-- Advance location quick setting tile -->
-    <string name="quick_settings_location_secondary_battery_saving">Εξοικονόμηση μπαταρίας</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Αναφορά τοποθεσίας: λειτουργία εξοικονόμησης μπαταρίας.</string>
-    <string name="quick_settings_location_secondary_gps_only">Μόνο αισθητήρες</string>
-    <string name="accessibility_quick_settings_location_gps_only">Αναφορά τοποθεσίας: μόνο λειτουργία αισθητήρων.</string>
-    <string name="quick_settings_location_secondary_high_accuracy">Υψηλή ακρίβεια</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Αναφορά τοποθεσίας: λειτουργία υψηλής ακρίβειας.</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Γρήγορη φόρτιση (<xliff:g id="charging_time_left" example="4 ώρες και 2 λεπτά">%s</xliff:g> μέχρι πλήρης φόρτιση)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
