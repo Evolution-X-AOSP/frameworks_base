@@ -2329,7 +2329,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
         }
 
         // Take a guess at initial SIM state, battery status and PLMN until we get an update
-        mBatteryStatus = new BatteryStatus(BATTERY_STATUS_UNKNOWN, 100, 0, 0, 0, false, false, true);
+        mBatteryStatus = new BatteryStatus(BATTERY_STATUS_UNKNOWN, 100, 0, 0, 0, false, false, false, true);
 
         // Watch for interesting updates
         final IntentFilter filter = new IntentFilter();
@@ -3687,6 +3687,11 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
 
         // change in warp charging while plugged in
         if (nowPluggedIn && current.warpChargeStatus != old.warpChargeStatus) {
+            return true;
+        }
+
+        // change in VOOC charging while plugged in
+        if (nowPluggedIn && current.voocChargeStatus != old.voocChargeStatus) {
             return true;
         }
 
