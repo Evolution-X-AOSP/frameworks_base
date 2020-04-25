@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 The Android Open Source Project
+ * Copyright (C) 2014 The Android Open Source Project
  * Copyright (C) 2019-2020 The Evolution X Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,16 +19,21 @@ package com.android.internal.util.evolution;
 
 import android.Manifest;
 import android.app.ActivityManager;
+import android.app.ActivityManagerNative;
 import android.app.NotificationManager;
+import android.app.UiModeManager;
 import android.media.AudioManager;
+import android.content.ComponentName;
 import android.content.Context;
-import android.content.res.Resources;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.om.IOverlayManager;
+import android.content.om.OverlayInfo;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Resources;
 import android.hardware.input.InputManager;
 import android.hardware.fingerprint.FingerprintManager;
 import android.net.ConnectivityManager;
@@ -55,8 +60,13 @@ import android.text.TextUtils;
 
 import com.android.internal.R;
 
-import java.util.List;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 
 import com.android.internal.statusbar.IStatusBarService;
@@ -77,6 +87,7 @@ public class EvolutionUtils {
     public static final String ONEPLUS_DOZE_PACKAGE_NAME = "OnePlusDoze";
 
     private static IStatusBarService mStatusBarService = null;
+    private static OverlayManager sOverlayService;
 
     private static IStatusBarService getStatusBarService() {
         synchronized (EvolutionUtils.class) {
@@ -95,32 +106,14 @@ public class EvolutionUtils {
         return (cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE) == false);
     }
 
-    // Check to see if Wifi is connected
-    public static boolean isWifiConnected(Context context) {
+    // Check to see if device is connected to the internet
+    public static boolean isConnected(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetwork = null;
-        if (cm != null) {
-            activeNetwork = cm.getActiveNetworkInfo();
-        }
-        NetworkInfo wifi = null;
-        if (cm != null) {
-            wifi = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
-        }
-        return activeNetwork != null && activeNetwork.isConnectedOrConnecting() && wifi.isConnected();
-    }
+        if (cm == null) return false;
 
-    // Check to see if Mobile data is connected
-    public static boolean isMobileConnected(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetwork = null;
-        if (cm != null) {
-            activeNetwork = cm.getActiveNetworkInfo();
-        }
-        NetworkInfo mobile = null;
-        if (cm != null) {
-            mobile = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
-        }
-        return activeNetwork != null && activeNetwork.isConnectedOrConnecting() && mobile.isConnected();
+        NetworkInfo wifi = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        NetworkInfo mobile = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+        return wifi.isConnected() || mobile.isConnected();
     }
 
     // Check to see if a package is installed
@@ -158,16 +151,21 @@ public class EvolutionUtils {
 
     // Check to see if device supports the Fingerprint scanner
     public static boolean hasFingerprintSupport(Context context) {
-        FingerprintManager fingerprintManager = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
-        return context.getApplicationContext().checkSelfPermission(Manifest.permission.USE_FINGERPRINT) == PackageManager.PERMISSION_GRANTED &&
+        FingerprintManager fingerprintManager = (FingerprintManager) context.getSystemService(
+                Context.FINGERPRINT_SERVICE);
+        return context.getApplicationContext().checkSelfPermission(
+                Manifest.permission.USE_FINGERPRINT) == PackageManager.PERMISSION_GRANTED &&
                 (fingerprintManager != null && fingerprintManager.isHardwareDetected());
     }
 
     // Check to see if device not only supports the Fingerprint scanner but also if is enrolled
     public static boolean hasFingerprintEnrolled(Context context) {
-        FingerprintManager fingerprintManager = (FingerprintManager) context.getSystemService(Context.FINGERPRINT_SERVICE);
-        return context.getApplicationContext().checkSelfPermission(Manifest.permission.USE_FINGERPRINT) == PackageManager.PERMISSION_GRANTED &&
-                (fingerprintManager != null && fingerprintManager.isHardwareDetected() && fingerprintManager.hasEnrolledFingerprints());
+        FingerprintManager fingerprintManager = (FingerprintManager) context.getSystemService(
+                Context.FINGERPRINT_SERVICE);
+        return context.getApplicationContext().checkSelfPermission(
+                Manifest.permission.USE_FINGERPRINT) == PackageManager.PERMISSION_GRANTED &&
+                (fingerprintManager != null && fingerprintManager.isHardwareDetected() &&
+                        fingerprintManager.hasEnrolledFingerprints());
     }
 
     // Check to see if device has a camera
@@ -202,8 +200,13 @@ public class EvolutionUtils {
 
     // Check for Chinese language
     public static boolean isChineseLanguage() {
-       return Resources.getSystem().getConfiguration().locale.getLanguage().startsWith(
-               Locale.CHINESE.getLanguage());
+        return Resources.getSystem().getConfiguration().locale.getLanguage().startsWith(
+                Locale.CHINESE.getLanguage());
+    }
+
+    // Method to check if device supports flashlight
+    public static boolean deviceHasFlashlight(Context ctx) {
+        return ctx.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
     }
 
     // Screen off
@@ -221,10 +224,6 @@ public class EvolutionUtils {
         pm.wakeUp(SystemClock.uptimeMillis(), "com.android.systemui:CAMERA_GESTURE_PREVENT_LOCK");
     }
 
-    public static boolean deviceHasFlashlight(Context ctx) {
-        return ctx.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
-    }
-
     // Method to detect navigation bar is in use
     public static boolean hasNavigationBar(Context context) {
         boolean hasNavbar = false;
@@ -232,6 +231,7 @@ public class EvolutionUtils {
         try {
             hasNavbar = wm.hasNavigationBar(context.getDisplayId());
         } catch (RemoteException ex) {
+            ex.printStackTrace();
         }
         return hasNavbar;
     }
@@ -462,6 +462,82 @@ public class EvolutionUtils {
                 break;
         }
     }
+
+    // Method to detect if device has dash charge
+    public static boolean isDashCharger() {
+        try {
+            FileReader file = new FileReader("/sys/class/power_supply/battery/fastchg_status");
+            BufferedReader br = new BufferedReader(file);
+            String state = br.readLine();
+            br.close();
+            file.close();
+            return "1".equals(state);
+        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
+        }
+        return false;
+    }
+
+    // Method to detect whether an overlay is enabled or not
+    public static boolean isThemeEnabled(String packageName) {
+        if (sOverlayService == null) {
+            sOverlayService = new OverlayManager();
+        }
+        try {
+            ArrayList<OverlayInfo> infos = new ArrayList<OverlayInfo>();
+            infos.addAll(sOverlayService.getOverlayInfosForTarget("android",
+                    UserHandle.myUserId()));
+            infos.addAll(sOverlayService.getOverlayInfosForTarget("com.android.systemui",
+                    UserHandle.myUserId()));
+            for (int i = 0, size = infos.size(); i < size; i++) {
+                if (infos.get(i).packageName.equals(packageName)) {
+                    return infos.get(i).isEnabled();
+                }
+            }
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static class OverlayManager {
+        private final IOverlayManager mService;
+
+        public OverlayManager() {
+            mService = IOverlayManager.Stub.asInterface(
+                    ServiceManager.getService(Context.OVERLAY_SERVICE));
+        }
+
+        public void setEnabled(String pkg, boolean enabled, int userId)
+                throws RemoteException {
+            mService.setEnabled(pkg, enabled, userId);
+        }
+
+        public List<OverlayInfo> getOverlayInfosForTarget(String target, int userId)
+                throws RemoteException {
+            return mService.getOverlayInfosForTarget(target, userId);
+        }
+    }
+
+    // Method to detect whether the system dark theme is enabled or not
+    public static boolean isDarkTheme(Context context) {
+        UiModeManager mUiModeManager =
+                context.getSystemService(UiModeManager.class);
+        if (mUiModeManager == null) return false;
+        int mode = mUiModeManager.getNightMode();
+        return (mode == UiModeManager.MODE_NIGHT_YES);
+    }
+
+    // Method to enable/disable package components
+    public static void setComponentState(Context context, String packageName,
+            String componentClassName, boolean enabled) {
+        PackageManager pm = context.getApplicationContext().getPackageManager();
+        ComponentName componentName = new ComponentName(packageName, componentClassName);
+        int state = enabled ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED :
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
+        pm.setComponentEnabledSetting(componentName, state, PackageManager.DONT_KILL_APP);
+    }
+
     // Check if device has a notch
     public static boolean hasNotch(Context context) {
         int result = 0;
