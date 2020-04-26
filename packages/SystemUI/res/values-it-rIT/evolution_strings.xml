@@ -93,10 +93,6 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Riavvia</string>
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash charge (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> al completamento)</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carica Rapida(<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> until full)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Modalità lettura</string>
     <string name="accessibility_quick_settings_reading_mode_on">Modalità lettura attiva.</string>
@@ -108,6 +104,8 @@
     <string name="lockscreen_hidden">Nessuno</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Scorri dall\'icona per avviare</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Registrazione schermo</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">Tasti fisici attivati</string>
     <string name="accessibility_quick_settings_hwkeys_off">Tasti fisici disattivati</string>
@@ -151,8 +149,22 @@
     <string name="quick_settings_immersive_tile_statusbar">Barra di stato immersiva</string>
     <string name="quick_settings_immersive_tile_navbar">Barra di navigazione immersiva</string>
     <string name="quick_settings_immersive_tile_full">Modalità immersiva totale</string>
-    <string name="screenrecord_stopdot_label">Mostra tasto di stop</string>
-    <string name="screenrecord_low_quality_label">Bassa qualità</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">Avviare la registrazione?</string>
+    <string name="screenrecord_dialog_summary">Durante la registrazione, il sistema Android può registrare ogni informazione sensibile mostrata o riprodotta sul tuo dispositivo. Questo include password, informazioni di pagamento, foto, messaggi e audio.</string>
+    <string name="screenrecord_dialog_start">Avvia</string>
+    <string name="screenrecord_dialog_cancel">Annulla</string>
+    <string name="screenrecord_audio_title">Sorgente audio</string>
+    <string name="screenrecord_audio_summary">Permette di scegliere l\'input audio o disattivarlo.</string>
+    <string name="screenrecord_audio_recording_internal">Interno</string>
+    <string name="screenrecord_audio_recording_microphone">Microfono</string>
+    <string name="screenrecord_audio_recording_off">Disattivato</string>
+    <string name="screenrecord_taps_title">Mostra tocchi sullo schermo</string>
+    <string name="screenrecord_taps_summary">Mostra feedback visivo durante la registazione</string>
+    <string name="screenrecord_stopdot_title">Mostra il punto di stop</string>
+    <string name="screenrecord_stopdot_summary">Mostra un pulsante rosso per interrompere la registrazione con un singolo tocco. Premilo a lungo per spostarlo sul lato opposto.</string>
+    <string name="screenrecord_video_bitrate_title">Bitrate del video</string>
+    <string name="screenrecord_video_bitrate_summary">Imposta il bitrate del video per una migliore qualità video, al costo di un file più grande.</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">Screenshot</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
