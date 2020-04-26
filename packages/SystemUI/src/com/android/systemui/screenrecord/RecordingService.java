@@ -37,8 +37,6 @@ import android.media.projection.MediaProjection;
 import android.media.projection.MediaProjectionManager;
 import android.net.Uri;
 import android.os.IBinder;
-import android.os.Handler;
-import android.os.Looper;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
@@ -160,10 +158,7 @@ public class RecordingService extends Service {
                 Intent data = intent.getParcelableExtra(EXTRA_DATA);
                 if (data != null) {
                     mMediaProjection = mMediaProjectionManager.getMediaProjection(resultCode, data);
-                    final Handler h = new Handler(Looper.getMainLooper());
-                    h.postDelayed(() -> {
-                        startRecording();
-                    }, 500);
+                    startRecording();
                 }
                 break;
 
@@ -279,8 +274,7 @@ public class RecordingService extends Service {
             mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
 
             // Set up video
-            DisplayMetrics metrics = new DisplayMetrics();
-            mWindowManager.getDefaultDisplay().getRealMetrics(metrics);
+            DisplayMetrics metrics = getResources().getDisplayMetrics();
             int screenWidth = metrics.widthPixels;
             int screenHeight = metrics.heightPixels;
             mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.HEVC);
@@ -431,15 +425,13 @@ public class RecordingService extends Service {
         if (mDotShowing) {
             stopDot();
         }
-        try {
-            mMediaRecorder.stop();
-            mMediaRecorder.release();
-            mMediaRecorder = null;
-            mMediaProjection.stop();
-            mMediaProjection = null;
-            mInputSurface.release();
-            mVirtualDisplay.release();
-        } catch (Exception e) {}
+        mMediaRecorder.stop();
+        mMediaRecorder.release();
+        mMediaRecorder = null;
+        mMediaProjection.stop();
+        mMediaProjection = null;
+        mInputSurface.release();
+        mVirtualDisplay.release();
         stopSelf();
     }
 

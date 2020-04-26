@@ -5793,30 +5793,6 @@ public final class Settings {
                 ANY_STRING_VALIDATOR;
 
         /**
-         * Screenrecord: enable mic
-         * @hide
-         */
-        public static final String SCREENRECORD_ENABLE_MIC = "screenrecord_enable_mic";
-
-        /**
-         * Screenrecord: show taps
-         * @hide
-         */
-        public static final String SCREENRECORD_SHOW_TAPS = "screenrecord_show_taps";
-
-        /**
-         * Screenrecord: show stop dot
-         * @hide
-         */
-        public static final String SCREENRECORD_STOP_DOT = "screenrecord_stop_dot";
-
-        /**
-         * Screenrecord: low quality
-         * @hide
-         */
-        public static final String SCREENRECORD_LOW_QUALITY = "screenrecord_low_quality";
-
-        /**
          * Whether to enable Ambient edge light
          * @hide
          */
