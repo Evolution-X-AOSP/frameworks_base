@@ -93,10 +93,6 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Yeniden başlat</string>
     <string name="quick_settings_reboot_recovery_label">Kurtarma</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash Şarj Oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> kaldı)</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Warp Şarj Oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> kaldı)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Okuma modu</string>
     <string name="accessibility_quick_settings_reading_mode_on">Okuma modu açık.</string>
@@ -108,6 +104,8 @@
     <string name="lockscreen_hidden">Yok</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Başlatmak için simgeyi kaydırın</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Ekran kaydı</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">Donanım tuşları açık</string>
     <string name="accessibility_quick_settings_hwkeys_off">Donanım tuşları kapalı</string>
@@ -151,8 +149,18 @@
     <string name="quick_settings_immersive_tile_statusbar">Tam ekran durum çubuğu</string>
     <string name="quick_settings_immersive_tile_navbar">Tam ekran gezinme çubuğu</string>
     <string name="quick_settings_immersive_tile_full">Tam ekran</string>
-    <string name="screenrecord_stopdot_label">Durdurma butonunu göster</string>
-    <string name="screenrecord_low_quality_label">Düşük kalite</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">Kayda başlansın mı?</string>
+    <string name="screenrecord_dialog_summary">Kayıt sırasında Android sistemi, ekranınızda görünen veya cihazınızda oynatılan tüm hassas bilgileri yakalayabilir.  Buna şifreler, ödeme bilgileri, fotoğraflar, mesajlar ve ses dahildir.</string>
+    <string name="screenrecord_dialog_start">Başlat</string>
+    <string name="screenrecord_dialog_cancel">İptal</string>
+    <string name="screenrecord_audio_recording_title">Ses kaynağı</string>
+    <string name="screenrecord_audio_recording_internal">Dahili</string>
+    <string name="screenrecord_audio_recording_microphone">Mikrofon</string>
+    <string name="screenrecord_audio_recording_off">Devre dışı</string>
+    <string name="screenrecord_taps_title">Ekrana dokunmaları göster</string>
+    <string name="screenrecord_stopdot_title">Durdurma noktasını göster</string>
+    <string name="screenrecord_video_bitrate_title">Video bit hızı</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">Ekran görüntüsü</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
