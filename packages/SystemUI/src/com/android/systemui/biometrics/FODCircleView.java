@@ -542,7 +542,7 @@ public class FODCircleView extends ImageView {
         if (mIsDreaming) {
             mParams.x += mDreamingOffsetX;
             mParams.y += mDreamingOffsetY;
-            mFODAnimation.updateParams(mParams.y);
+            mFODAnimation.updateParams(mParams.y, mParams.x);
         }
 
         mWindowManager.updateViewLayout(this, mParams);
