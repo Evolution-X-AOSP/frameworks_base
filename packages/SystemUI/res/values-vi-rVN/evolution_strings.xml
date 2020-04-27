@@ -93,10 +93,6 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Khởi động lại</string>
     <string name="quick_settings_reboot_recovery_label">Chế độ phục hồi</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Đang sạc nhanh (<xliff:g id="charging_time_left" example="4 giờ và 2 phút">%s</xliff:g> đến khi đầy)</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Warp Charging (<xliff:g id="charging_time_left" example="4 giờ và 2 phút">%s</xliff:g> nữa sẽ đầy)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Chế độ đọc sách</string>
     <string name="accessibility_quick_settings_reading_mode_on">Bật chế độ đọc sách.</string>
@@ -108,6 +104,8 @@
     <string name="lockscreen_hidden">Không có</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Vuốt từ biểu tượng để mở</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Quay màn hình</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">Phím cứng bật</string>
     <string name="accessibility_quick_settings_hwkeys_off">Phím cứng tắt</string>
@@ -151,8 +149,18 @@
     <string name="quick_settings_immersive_tile_statusbar">Ẩn thanh trạng thái</string>
     <string name="quick_settings_immersive_tile_navbar">Ẩn thanh điều hướng</string>
     <string name="quick_settings_immersive_tile_full">Toàn màn hình</string>
-    <string name="screenrecord_stopdot_label">Hiển thị dấu chấm</string>
-    <string name="screenrecord_low_quality_label">Chất lượng thấp</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">Bắt đầu quay?</string>
+    <string name="screenrecord_dialog_summary">Khi quay màn hình, Android có thể ghi lại mọi thông tin nhạy cảm có trên màn hình hoặc được phát trên thiết bị của bạn. Những thông tin này bao gồm mật khẩu, thông tin thanh toán, ảnh, tin nhắn và âm thanh.</string>
+    <string name="screenrecord_dialog_start">Bắt đầu</string>
+    <string name="screenrecord_dialog_cancel">Hủy</string>
+    <string name="screenrecord_audio_recording_title">Nguồn âm thanh</string>
+    <string name="screenrecord_audio_recording_internal">Hệ thống</string>
+    <string name="screenrecord_audio_recording_microphone">Micrô</string>
+    <string name="screenrecord_audio_recording_off">Vô hiệu hóa</string>
+    <string name="screenrecord_taps_title">Hiện số lần chạm</string>
+    <string name="screenrecord_stopdot_title">Hiển thị nút dừng</string>
+    <string name="screenrecord_video_bitrate_title">Tộc độ bit video</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">Chụp ảnh màn hình</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
