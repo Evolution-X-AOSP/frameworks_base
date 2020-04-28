@@ -93,10 +93,6 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">再起動</string>
     <string name="quick_settings_reboot_recovery_label">リカバリー</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash Charging (充電完了まで残り<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Warp Charging (充電完了まで残り<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">読書モード</string>
     <string name="accessibility_quick_settings_reading_mode_on">読書モード ON</string>
@@ -108,6 +104,8 @@
     <string name="lockscreen_hidden">なし</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">アイコンをスワイプして起動</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">画面録画</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">ハードウェアキー ON</string>
     <string name="accessibility_quick_settings_hwkeys_off">ハードウェアキー OFF</string>
@@ -151,8 +149,18 @@
     <string name="quick_settings_immersive_tile_statusbar">ステータスバーを隠す</string>
     <string name="quick_settings_immersive_tile_navbar">ナビゲーションバーを隠す</string>
     <string name="quick_settings_immersive_tile_full">全て隠す</string>
-    <string name="screenrecord_stopdot_label">停止ドットを表示</string>
-    <string name="screenrecord_low_quality_label">低品質</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">録画を開始しますか?</string>
+    <string name="screenrecord_dialog_summary">記録中に Android システムは画面に表示されたり端末で再生される機密情報を取得できます。これには、パスワード、支払い情報、写真、メッセージ、音声が含まれます。</string>
+    <string name="screenrecord_dialog_start">開始</string>
+    <string name="screenrecord_dialog_cancel">中止</string>
+    <string name="screenrecord_audio_recording_title">音声ソース</string>
+    <string name="screenrecord_audio_recording_internal">内蔵</string>
+    <string name="screenrecord_audio_recording_microphone">マイク</string>
+    <string name="screenrecord_audio_recording_off">無効</string>
+    <string name="screenrecord_taps_title">タップされた位置の表示</string>
+    <string name="screenrecord_stopdot_title">停止ドットを表示</string>
+    <string name="screenrecord_video_bitrate_title">映像ビットレート</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">スクリーンショット</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
