@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item>
+        <shape
+            android:shape="oval">
+            <solid android:color="#E61F1F1F" />
+            <size
+                android:height="26dp"
+                android:width="26dp"/>
+        </shape>
+    </item>
+    <item android:drawable="@drawable/ic_camera_24dp" android:height="14dp" android:width="14dp" android:gravity="center"/>
+</layer-list>
