@@ -5792,43 +5792,6 @@ public final class Settings {
         public static final Validator FOOTER_TEXT_STRING_VALIDATOR =
                 ANY_STRING_VALIDATOR;
 
-        /**
-         * Whether to enable Ambient edge light
-         * @hide
-         */
-        public static final String PULSE_AMBIENT_LIGHT = "pulse_ambient_light";
-
-        /** @hide */
-        private static final Validator PULSE_AMBIENT_LIGHT_VALIDATOR = BOOLEAN_VALIDATOR;
-
-        /**
-         * What color to use for Ambient edge light
-         * @hide
-         */
-        public static final String PULSE_AMBIENT_LIGHT_COLOR = "pulse_ambient_light_color";
-
-        /** @hide */
-        private static final Validator PULSE_AMBIENT_LIGHT_COLOR_VALIDATOR = ANY_STRING_VALIDATOR;
-
-        /**
-         * Wether to use color from wallpaper for Ambient edge light
-         * @hide
-         */
-        public static final String PULSE_AMBIENT_AUTO_COLOR = "pulse_ambient_auto_color";
-
-        /** @hide */
-        private static final Validator PULSE_AMBIENT_AUTO_COLOR_VALIDATOR = BOOLEAN_VALIDATOR;
-
-        /**
-         * Duration of Ambient edge light in seconds
-         * @hide
-         */
-        public static final String PULSE_AMBIENT_LIGHT_DURATION = "pulse_ambient_light_duration";
-
-        /** @hide */
-        private static final Validator PULSE_AMBIENT_LIGHT_DURATION_VALIDATOR =
-                ANY_INTEGER_VALIDATOR;
-
         /** @hide
         * modify how the album art shows up on lockscreen
         * 0 - normal
@@ -6926,10 +6889,6 @@ public final class Settings {
             FLASHLIGHT_ON_CALL_WAITING,
             AMBIENT_VISUALIZER_ENABLED,
             USE_OLD_MOBILETYPE,
-            PULSE_AMBIENT_AUTO_COLOR,
-            PULSE_AMBIENT_LIGHT,
-            PULSE_AMBIENT_LIGHT_COLOR,
-            PULSE_AMBIENT_LIGHT_DURATION,
             LOCKSCREEN_MEDIA_BLUR,
             FLASHLIGHT_ON_CALL,
             SENSOR_BLOCK,
@@ -7167,10 +7126,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(PULSE_BRIGHTNESS);
             PRIVATE_SETTINGS.add(DOZE_BRIGHTNESS);
             PRIVATE_SETTINGS.add(USE_OLD_MOBILETYPE);
-            PRIVATE_SETTINGS.add(PULSE_AMBIENT_AUTO_COLOR);
-            PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT);
-            PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT_COLOR);
-            PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT_DURATION);
             PRIVATE_SETTINGS.add(LOCKSCREEN_MEDIA_BLUR);
             PRIVATE_SETTINGS.add(VOLTE_ICON);
             PRIVATE_SETTINGS.add(VOLTE_ICON_STYLE);
@@ -7428,10 +7383,6 @@ public final class Settings {
             VALIDATORS.put(FLASHLIGHT_ON_CALL_WAITING, FLASHLIGHT_ON_CALL_WAITING_VALIDATOR);
             VALIDATORS.put(AMBIENT_VISUALIZER_ENABLED, AMBIENT_VISUALIZER_ENABLED_VALIDATOR);
             VALIDATORS.put(USE_OLD_MOBILETYPE, USE_OLD_MOBILETYPE_VALIDATOR);
-            VALIDATORS.put(PULSE_AMBIENT_AUTO_COLOR, PULSE_AMBIENT_AUTO_COLOR_VALIDATOR);
-            VALIDATORS.put(PULSE_AMBIENT_LIGHT, PULSE_AMBIENT_LIGHT_VALIDATOR);
-            VALIDATORS.put(PULSE_AMBIENT_LIGHT_COLOR, PULSE_AMBIENT_LIGHT_COLOR_VALIDATOR);
-            VALIDATORS.put(PULSE_AMBIENT_LIGHT_DURATION, PULSE_AMBIENT_LIGHT_DURATION_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_MEDIA_BLUR, LOCKSCREEN_MEDIA_BLUR_VALIDATOR);
             VALIDATORS.put(VOLTE_ICON, VOLTE_ICON_VALIDATOR);
             VALIDATORS.put(VOLTE_ICON_STYLE, VOLTE_ICON_STYLE_VALIDATOR);
