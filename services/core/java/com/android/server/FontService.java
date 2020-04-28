@@ -269,7 +269,7 @@ public class FontService extends IFontService.Stub {
     private void processFontPackage(String packageName) {
         List<FontInfo> infoList = new ArrayList<FontInfo>();
         Context appContext = getAppContext(packageName);
-        if(appContext == null) {
+        if (appContext == null) {
             removeFontPackage(packageName);
             Log.v(TAG, "Removed " + packageName + " from Font list");
             return;
@@ -398,6 +398,11 @@ public class FontService extends IFontService.Stub {
     private boolean isPackageFontProvider(String packageName) {
         // check if the package res bool is set first
         Context appContext = getAppContext(packageName);
+
+        if (appContext == null) {
+            return false;
+        }
+
         int id = appContext.getResources().getIdentifier(FONT_IDENTIFIER,
                 "bool",
                 appContext.getPackageName());
@@ -424,8 +429,13 @@ public class FontService extends IFontService.Stub {
 
     private List<String> getFontsFromPackage(String packageName) {
         Context appContext = getAppContext(packageName);
-        AssetManager am = appContext.getAssets();
         List<String> list = new ArrayList<String>();
+
+        if (appContext == null) {
+            return list;
+        }
+
+        AssetManager am = appContext.getAssets();
         try {
             list.addAll(Arrays.asList(am.list("fonts")));
         } catch (Exception e) {
@@ -541,6 +551,10 @@ public class FontService extends IFontService.Stub {
 
         // Copy target themed fonts zip to our cache dir
         Context themeContext = getAppContext(info.packageName);
+        if (themeContext == null) {
+            Log.e(TAG, "ThemeContext for " + info.packageName + " is null. Aborting Copy");
+            return;
+        }
         AssetManager am = themeContext.getAssets();
         File fontZip = new File(cacheDir, zipFileName);
         try (InputStream inputStream = am.open("fonts/" + zipFileName)) {
