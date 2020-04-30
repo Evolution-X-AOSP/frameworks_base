@@ -24,7 +24,7 @@
     <string name="global_action_restart_ui">SystemUI</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">Screenshot</string>
-    <string name="quick_settings_region_screenshot_label">Partieller Screenshot</string>
+    <string name="quick_settings_region_screenshot_label">Bildschirmbereich aufnehmen</string>
     <!-- Sound Search tile -->
     <string name="quick_settings_sound_search">Soundsuche</string>
     <string name="quick_settings_sound_search_no_app">Leider funktioniert dies nur, wenn eine App für die Musiksuche installiert ist.</string>
@@ -108,6 +108,8 @@
     <string name="lockscreen_hidden">Keine Auswahl</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Zum starten vom Symbol weg wischen</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Bildschirmaufnahme</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">HW-Tasten an</string>
     <string name="accessibility_quick_settings_hwkeys_off">HW-Tasten aus</string>
@@ -151,8 +153,18 @@
     <string name="quick_settings_immersive_tile_statusbar">Immersive Statusleiste</string>
     <string name="quick_settings_immersive_tile_navbar">Immersive Navigationsleiste</string>
     <string name="quick_settings_immersive_tile_full">Immersiv vollständig</string>
-    <string name="screenrecord_stopdot_label">Zeige Stop-Punkt</string>
-    <string name="screenrecord_low_quality_label">Niedrige Qualität</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">Bildschirmaufnahme starten?</string>
+    <string name="screenrecord_dialog_summary">Während der Aufnahme kann das Android-System alle sensiblen Informationen erfassen, die auf Ihrem Bildschirm sichtbar oder auf Ihrem Gerät abgespielt werden. Dazu gehören Passwörter, Zahlungsinformationen, Fotos, Nachrichten und Audio.</string>
+    <string name="screenrecord_dialog_start">Starten</string>
+    <string name="screenrecord_dialog_cancel">Abbrechen</string>
+    <string name="screenrecord_audio_recording_title">Audioquelle</string>
+    <string name="screenrecord_audio_recording_internal">Intern</string>
+    <string name="screenrecord_audio_recording_microphone">Mikrofon</string>
+    <string name="screenrecord_audio_recording_off">Deaktiviert</string>
+    <string name="screenrecord_taps_title">Bildschirmberührungen anzeigen</string>
+    <string name="screenrecord_stopdot_title">Zeige Stop-Punkt</string>
+    <string name="screenrecord_video_bitrate_title">Video-Bitrate</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">Screenshot</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
