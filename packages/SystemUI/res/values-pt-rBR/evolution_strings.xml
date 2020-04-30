@@ -108,6 +108,8 @@
     <string name="lockscreen_hidden">Nenhum</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Deslize a partir do ícone para iniciar</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Gravador de tela</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">Teclas físicas ativadas</string>
     <string name="accessibility_quick_settings_hwkeys_off">Teclas físicas desativadas</string>
@@ -151,8 +153,18 @@
     <string name="quick_settings_immersive_tile_statusbar">Barra de status imersiva</string>
     <string name="quick_settings_immersive_tile_navbar">Barra de navegação imersiva</string>
     <string name="quick_settings_immersive_tile_full">Imersivo completo</string>
-    <string name="screenrecord_stopdot_label">Mostrar ponto de parada</string>
-    <string name="screenrecord_low_quality_label">Baixa qualidade</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">Iniciar gravação?</string>
+    <string name="screenrecord_dialog_summary">Durante a gravação, o sistema Android pode capturar quaisquer informações confidenciais visíveis na sua tela ou reproduzidas no seu dispositivo. Isso inclui senhas, informações de pagamento, fotos, mensagens e áudio.</string>
+    <string name="screenrecord_dialog_start">Iniciar</string>
+    <string name="screenrecord_dialog_cancel">Cancelar</string>
+    <string name="screenrecord_audio_recording_title">Fonte de Áudio</string>
+    <string name="screenrecord_audio_recording_internal">Interno</string>
+    <string name="screenrecord_audio_recording_microphone">Microfone</string>
+    <string name="screenrecord_audio_recording_off">Desativado</string>
+    <string name="screenrecord_taps_title">Mostrar toques na tela</string>
+    <string name="screenrecord_stopdot_title">Mostrar ponto de parada</string>
+    <string name="screenrecord_video_bitrate_title">Taxa de bits do vídeo</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">Captura de tela</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
