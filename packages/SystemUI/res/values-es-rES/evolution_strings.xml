@@ -108,6 +108,8 @@
     <string name="lockscreen_hidden">Ninguno</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Deslizar desde el icono para abrir</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Grabadora de pantalla</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">Teclas físicas encendidas</string>
     <string name="accessibility_quick_settings_hwkeys_off">Teclas físicas apagadas</string>
@@ -151,8 +153,18 @@
     <string name="quick_settings_immersive_tile_statusbar">Barra de estado inmersiva</string>
     <string name="quick_settings_immersive_tile_navbar">Barra de navegación inmersiva</string>
     <string name="quick_settings_immersive_tile_full">Modo pantalla completa</string>
-    <string name="screenrecord_stopdot_label">Mostrar icono para detener</string>
-    <string name="screenrecord_low_quality_label">Calidad baja</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">Iniciar grabación?</string>
+    <string name="screenrecord_dialog_summary">Durante la grabación, el sistema Android puede capturar cualquier información sensible que sea visible en tu pantalla o reproducida en tu dispositivo. Esto incluye contraseñas, información de pago, fotos, mensajes y audio.</string>
+    <string name="screenrecord_dialog_start">Comenzar</string>
+    <string name="screenrecord_dialog_cancel">Cancelar</string>
+    <string name="screenrecord_audio_recording_title">Fuente de audio</string>
+    <string name="screenrecord_audio_recording_internal">Interno</string>
+    <string name="screenrecord_audio_recording_microphone">Micrófono</string>
+    <string name="screenrecord_audio_recording_off">Deshabilitado</string>
+    <string name="screenrecord_taps_title">Mostrar toques en pantalla</string>
+    <string name="screenrecord_stopdot_title">Mostrar icono para detener</string>
+    <string name="screenrecord_video_bitrate_title">Frecuencia de bits (Bitrate) de video</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">Captura de pantalla</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
