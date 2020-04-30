@@ -108,6 +108,8 @@
     <string name="lockscreen_hidden">无</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">滑动图标以启动</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">屏幕录制</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">开启实体按键</string>
     <string name="accessibility_quick_settings_hwkeys_off">关闭实体按键</string>
@@ -151,8 +153,18 @@
     <string name="quick_settings_immersive_tile_statusbar">沉浸状态栏</string>
     <string name="quick_settings_immersive_tile_navbar">沉浸导航栏</string>
     <string name="quick_settings_immersive_tile_full">全屏沉浸</string>
-    <string name="screenrecord_stopdot_label">显示停止点</string>
-    <string name="screenrecord_low_quality_label">低质量</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">开始录制？</string>
+    <string name="screenrecord_dialog_summary">在录制过程中，Android系统可以捕获在您的屏幕上可见或在您的设备上播放的任何敏感信息。这可能包括密码、付款信息、照片、消息和音频。</string>
+    <string name="screenrecord_dialog_start">开始</string>
+    <string name="screenrecord_dialog_cancel">取消</string>
+    <string name="screenrecord_audio_recording_title">声音来源</string>
+    <string name="screenrecord_audio_recording_internal">内置</string>
+    <string name="screenrecord_audio_recording_microphone">麦克风</string>
+    <string name="screenrecord_audio_recording_off">禁用</string>
+    <string name="screenrecord_taps_title">显示触摸效果</string>
+    <string name="screenrecord_stopdot_title">显示停止点</string>
+    <string name="screenrecord_video_bitrate_title">视频比特率</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">截图</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
