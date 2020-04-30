@@ -108,6 +108,8 @@
     <string name="lockscreen_hidden">Κανένα</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Σύρετε το εικονίδιο για εκκίνηση</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Καταγραφή οθόνης</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">Φυσικά πλήκτρα ενεργά</string>
     <string name="accessibility_quick_settings_hwkeys_off">Φυσικά πλήκτρα ανενεργά</string>
@@ -151,8 +153,18 @@
     <string name="quick_settings_immersive_tile_statusbar">Εμβύθιση γραμμής κατάστασης</string>
     <string name="quick_settings_immersive_tile_navbar">Εμβύθιση γραμμής πλοήγησης</string>
     <string name="quick_settings_immersive_tile_full">Λειτουργία επέκτασης</string>
-    <string name="screenrecord_stopdot_label">Εμφάνιση τελείας παύσης</string>
-    <string name="screenrecord_low_quality_label">Χαμηλή ποιότητα</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">Έναρξη εγγραφής;</string>
+    <string name="screenrecord_dialog_summary">Κατά την εγγραφή, το σύστημα Android μπορεί να συλλάβει οποιεσδήποτε ευαίσθητες πληροφορίες που είναι ορατές στην οθόνη σας ή αναπαράγονται στη συσκευή σας. Αυτό περιλαμβάνει κωδικούς πρόσβασης, Πληροφορίες πληρωμής, φωτογραφίες, μηνύματα και ήχο.</string>
+    <string name="screenrecord_dialog_start">Έναρξη</string>
+    <string name="screenrecord_dialog_cancel">Ακύρωση</string>
+    <string name="screenrecord_audio_recording_title">Πηγή ήχου</string>
+    <string name="screenrecord_audio_recording_internal">Εσωτερική</string>
+    <string name="screenrecord_audio_recording_microphone">Μικρόφωνο</string>
+    <string name="screenrecord_audio_recording_off">Απενεργοποιημένο</string>
+    <string name="screenrecord_taps_title">Προβολή αγγιγμάτων στην οθόνη</string>
+    <string name="screenrecord_stopdot_title">Εμφάνιση τελείας παύσης</string>
+    <string name="screenrecord_video_bitrate_title">Ρυθμός ανανέωσης βίντεο</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">Στιγμιότυπο οθόνης</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
