@@ -345,7 +345,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
         IconState state = mRightButton.getIcon();
         mRightAffordanceView.setVisibility(!mDozing && state.isVisible ? View.VISIBLE : View.GONE);
         if (state.isVisible && state.drawable != null) {
-            mRightAffordanceView.setImageDrawable(state.drawable, state.tint, state.isDefaultButton ? false : true);
+            mRightAffordanceView.setImageDrawable(state.drawable, state.tint, true);
             mRightAffordanceView.setContentDescription(state.contentDescription);
         }
     }
@@ -425,7 +425,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
         IconState state = mLeftButton.getIcon();
         mLeftAffordanceView.setVisibility(state.isVisible ? View.VISIBLE : View.GONE);
         if (state.isVisible && state.drawable != null) {
-            mLeftAffordanceView.setImageDrawable(state.drawable, state.tint, state.isDefaultButton ? false : true);
+            mLeftAffordanceView.setImageDrawable(state.drawable, state.tint, true);
             mLeftAffordanceView.setContentDescription(state.contentDescription);
         }
     }
@@ -839,7 +839,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
             if (mLeftIsVoiceAssist) {
                 mIconState.isVisible = mUserSetupComplete && mShowLeftAffordance;
                 if (mLeftAssistIcon == null) {
-                    mIconState.drawable = mContext.getDrawable(R.drawable.ic_mic_26dp);
+                    mIconState.drawable = mContext.getDrawable(R.drawable.ic_mic_alt_26dp);
                 } else {
                     mIconState.drawable = mLeftAssistIcon;
                 }
@@ -873,7 +873,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
                     && mShowCameraAffordance
                     && mUserSetupComplete
                     && resolveCameraIntent() != null;
-            mIconState.drawable = mContext.getDrawable(R.drawable.ic_camera_alt_24dp);
+            mIconState.drawable = mContext.getDrawable(R.drawable.ic_camera_alt_26dp);
             mIconState.contentDescription =
                     mContext.getString(R.string.accessibility_camera_button);
             return mIconState;
