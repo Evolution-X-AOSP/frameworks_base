@@ -890,66 +890,69 @@ public final class SystemServiceRegistry {
 
         registerService(Context.FACE_SERVICE, FaceManager.class,
                 new CachedServiceFetcher<FaceManager>() {
-                    @Override
-                    public FaceManager createService(ContextImpl ctx)
-                            throws ServiceNotFoundException {
-                        final IBinder binder;
-                        if (ctx.getApplicationInfo().targetSdkVersion >= Build.VERSION_CODES.O) {
-                            binder = ServiceManager.getServiceOrThrow(Context.FACE_SERVICE);
-                        } else {
-                            binder = ServiceManager.getService(Context.FACE_SERVICE);
-                        }
-                        IFaceService service = IFaceService.Stub.asInterface(binder);
-                        return new FaceManager(ctx.getOuterContext(), service);
-                    }
-                });
+            @Override
+            public FaceManager createService(ContextImpl ctx) throws ServiceNotFoundException {
+                final IBinder binder;
+                if (ctx.getApplicationInfo().targetSdkVersion >= Build.VERSION_CODES.O) {
+                    binder = ServiceManager.getServiceOrThrow(Context.FACE_SERVICE);
+                } else {
+                    binder = ServiceManager.getService(Context.FACE_SERVICE);
+                }
+                IFaceService service = IFaceService.Stub.asInterface(binder);
+                return new FaceManager(ctx.getOuterContext(), service);
+            }});
 
         registerService(Context.IRIS_SERVICE, IrisManager.class,
                 new CachedServiceFetcher<IrisManager>() {
-                    @Override
-                    public IrisManager createService(ContextImpl ctx)
-                        throws ServiceNotFoundException {
-                        final IBinder binder =
-                                ServiceManager.getServiceOrThrow(Context.IRIS_SERVICE);
-                        IIrisService service = IIrisService.Stub.asInterface(binder);
-                        return new IrisManager(ctx.getOuterContext(), service);
-                    }
-                });
+            @Override
+            public IrisManager createService(ContextImpl ctx) throws ServiceNotFoundException {
+                final IBinder binder =
+                        ServiceManager.getServiceOrThrow(Context.IRIS_SERVICE);
+                IIrisService service = IIrisService.Stub.asInterface(binder);
+                return new IrisManager(ctx.getOuterContext(), service);
+            }});
 
         registerService(Context.BIOMETRIC_SERVICE, BiometricManager.class,
                 new CachedServiceFetcher<BiometricManager>() {
-                    @Override
-                    public BiometricManager createService(ContextImpl ctx)
-                            throws ServiceNotFoundException {
-                        final IBinder binder =
-                                ServiceManager.getServiceOrThrow(Context.AUTH_SERVICE);
-                        final IAuthService service =
-                                IAuthService.Stub.asInterface(binder);
-                        return new BiometricManager(ctx.getOuterContext(), service);
-                    }
-                });
+            @Override
+            public BiometricManager createService(ContextImpl ctx) throws ServiceNotFoundException {
+                final IBinder binder =
+                        ServiceManager.getServiceOrThrow(Context.AUTH_SERVICE);
+                final IAuthService service =
+                        IAuthService.Stub.asInterface(binder);
+                return new BiometricManager(ctx.getOuterContext(), service);
+            }});
 
         registerService(Context.POCKET_SERVICE, PocketManager.class,
                 new CachedServiceFetcher<PocketManager>() {
-                    @Override
-                    public PocketManager createService(ContextImpl ctx) {
-                        IBinder binder = ServiceManager.getService(Context.POCKET_SERVICE);
-                        IPocketService service = IPocketService.Stub.asInterface(binder);
-                        return new PocketManager(ctx.getOuterContext(), service);
-                    }});
-					
-		registerService(Context.DC_DIM_SERVICE, DcDimmingManager.class,
+            @Override
+            public PocketManager createService(ContextImpl ctx) {
+                IBinder binder = ServiceManager.getService(Context.POCKET_SERVICE);
+                IPocketService service = IPocketService.Stub.asInterface(binder);
+                return new PocketManager(ctx.getOuterContext(), service);
+            }});
+
+        registerService(Context.APPLOCK_SERVICE, AppLockManager.class,
+                new CachedServiceFetcher<AppLockManager>() {
+            @Override
+            public AppLockManager createService(ContextImpl ctx) throws ServiceNotFoundException {
+                IBinder b = ServiceManager.getServiceOrThrow(Context.APPLOCK_SERVICE);
+                IAppLockService service = IAppLockService.Stub.asInterface(b);
+                return new AppLockManager(service);
+            }});
+
+	registerService(Context.DC_DIM_SERVICE, DcDimmingManager.class,
                 new CachedServiceFetcher<DcDimmingManager>() {
-                    @Override
-                    public DcDimmingManager createService(ContextImpl ctx) throws ServiceNotFoundException {
-                        if (Resources.getSystem().getString(
-                                com.android.internal.R.string.config_deviceDcDimmingSysfsNode).isEmpty()) {
-                            return null;
-                        }
-                        IBinder b = ServiceManager.getServiceOrThrow(Context.DC_DIM_SERVICE);
-                        IDcDimmingManager service = IDcDimmingManager.Stub.asInterface(b);
-                        return new DcDimmingManager(service);
-                    }});
+            @Override
+            public DcDimmingManager createService(ContextImpl ctx) throws ServiceNotFoundException {
+                if (Resources.getSystem().getString(
+                        com.android.internal.R.string.config_deviceDcDimmingSysfsNode).isEmpty()) {
+                    return null;
+                }
+                IBinder b = ServiceManager.getServiceOrThrow(Context.DC_DIM_SERVICE);
+                IDcDimmingManager service = IDcDimmingManager.Stub.asInterface(b);
+                return new DcDimmingManager(service);
+            }});
 
         registerService(Context.TV_INPUT_SERVICE, TvInputManager.class,
                 new CachedServiceFetcher<TvInputManager>() {
