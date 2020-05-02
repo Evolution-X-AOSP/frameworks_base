@@ -199,4 +199,9 @@
     <string name="drag_or_tap_to_add_tiles">Giữ &amp; kéo hoặc chạm để thêm</string>
     <!-- Label for header of customize QS -->
     <string name="drag_or_tap_to_rearrange_tiles">Giữ &amp; kéo để sắp xếp lại hoặc nhấn để loại bỏ</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">PowerShare không dây</string>
+    <string name="quick_settings_powershare_off_powersave_label">PowerShare không dây tắt\nTiết kiệm pin</string>
+    <string name="quick_settings_powershare_off_low_battery_label">PowerShare không dây tắt\nPin quá yếu</string>
+    <string name="quick_settings_powershare_enabled_label">PowerShare không dây đã bật</string>
 </resources>
