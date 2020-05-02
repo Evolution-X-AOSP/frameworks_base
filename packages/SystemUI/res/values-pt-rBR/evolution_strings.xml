@@ -199,4 +199,9 @@
     <string name="drag_or_tap_to_add_tiles">Segure &amp; arraste ou toque para adicionar blocos</string>
     <!-- Label for header of customize QS -->
     <string name="drag_or_tap_to_rearrange_tiles">Segure &amp; arraste para reorganizar ou toque para remover</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Wireless PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare desligado\nEconomia de bateria</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare desligado\nBateria muito baixa</string>
+    <string name="quick_settings_powershare_enabled_label">Wireless PowerShare está ativado</string>
 </resources>
