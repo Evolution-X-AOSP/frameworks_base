@@ -108,6 +108,8 @@
     <string name="lockscreen_hidden">لا شَيْء</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">تمرير من الأيقونة للتشغيل</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">تسجيل الشاشة</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">أزرار الجهاز مفعلة</string>
     <string name="accessibility_quick_settings_hwkeys_off">أزرار الجهاز معّطلة</string>
@@ -151,8 +153,18 @@
     <string name="quick_settings_immersive_tile_statusbar">شريط الحالة الغامر</string>
     <string name="quick_settings_immersive_tile_navbar">شريط التنقل الغامر</string>
     <string name="quick_settings_immersive_tile_full">الغمر الكامل</string>
-    <string name="screenrecord_stopdot_label">إظهار نقطة التوقف</string>
-    <string name="screenrecord_low_quality_label">جودة منخفضة</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">بدء التسجيل؟</string>
+    <string name="screenrecord_dialog_summary">أثناء التسجيل، يمكن لنظام الأندرويد التقاط أي معلومات حساسة مرئية على شاشتك أو مشغلة على جهازك. وهذا يشمل كلمات المرور، ومعلومات الدفع، والصور، والرسائل، والصوت.</string>
+    <string name="screenrecord_dialog_start">ابدأ</string>
+    <string name="screenrecord_dialog_cancel">إلغاء</string>
+    <string name="screenrecord_audio_recording_title">مصدر الصوت</string>
+    <string name="screenrecord_audio_recording_internal">داخلي</string>
+    <string name="screenrecord_audio_recording_microphone">الميكروفون</string>
+    <string name="screenrecord_audio_recording_off">معطل</string>
+    <string name="screenrecord_taps_title">إظهار اللمسات على الشاشة</string>
+    <string name="screenrecord_stopdot_title">إظهار نقطة التوقف</string>
+    <string name="screenrecord_video_bitrate_title">معدل بت الفيديو</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">لقطة الشاشة</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
@@ -187,4 +199,9 @@
     <string name="drag_or_tap_to_add_tiles">استمر بالضغط على &amp; وسحب أو انقر لإضافة البلاطات</string>
     <!-- Label for header of customize QS -->
     <string name="drag_or_tap_to_rearrange_tiles">اضغط على &amp; اسحب لإعادة الترتيب أو اضغط للإزالة</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">مشاركة الشحن اللاسلكي</string>
+    <string name="quick_settings_powershare_off_powersave_label">إيقاف تشغيل\nمشاركة الشحن اللاسلكية</string>
+    <string name="quick_settings_powershare_off_low_battery_label">ايقاف مشاركة الشحن اللاسلكية\nالبطارية منخفضة جداً</string>
+    <string name="quick_settings_powershare_enabled_label">تم تمكين مشاركة الشحن اللاسلكي</string>
 </resources>
