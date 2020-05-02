@@ -199,4 +199,9 @@
     <string name="drag_or_tap_to_add_tiles">Κρατήστε &amp; σύρετε ή πατήστε για να προσθέσετε πλακίδια</string>
     <!-- Label for header of customize QS -->
     <string name="drag_or_tap_to_rearrange_tiles">Κρατήστε &amp; σύρετε για αναδιάταξη ή πατήστε για αφαίρεση</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Ασυρματη φορτιση</string>
+    <string name="quick_settings_powershare_off_powersave_label">Ασυρματη φορτιση απενεργοποιημενη\ ενεργη εξοικονομηση μπαταριας</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Ασυρματη φορτιση απενεργοποιημενη\ μπαταρια πολυ χαμηλη</string>
+    <string name="quick_settings_powershare_enabled_label">Η ασυρματη φορτιση ειναι ενεργοποιημενη</string>
 </resources>
