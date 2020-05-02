@@ -199,4 +199,9 @@
     <string name="drag_or_tap_to_add_tiles">長押しして移動するかタップしてタイルを追加する</string>
     <!-- Label for header of customize QS -->
     <string name="drag_or_tap_to_rearrange_tiles">長押しして移動することで並び替えてタップして削除する</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">ワイヤレス PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">ワイヤレス PowerShare OFF\nバッテリー節約</string>
+    <string name="quick_settings_powershare_off_low_battery_label">ワイヤレス PowerShare OFF\nバッテリー残量低下</string>
+    <string name="quick_settings_powershare_enabled_label">ワイヤレス PowerShare は有効です</string>
 </resources>
