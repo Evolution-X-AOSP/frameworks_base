@@ -199,4 +199,9 @@
     <string name="drag_or_tap_to_add_tiles">Mantén pulsado y arrastra para añadir botones</string>
     <!-- Label for header of customize QS -->
     <string name="drag_or_tap_to_rearrange_tiles">Mantén pulsado y arrastra para reorganizar o pulsa para remover</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Transferencia de energía sin cables</string>
+    <string name="quick_settings_powershare_off_powersave_label">Transferencia de energía sin cables desconectada\nAhorro de energía</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Transferencia de energía sin cables desactivada\nBatería baja</string>
+    <string name="quick_settings_powershare_enabled_label">Transferencia de energía sin cables está activada</string>
 </resources>
