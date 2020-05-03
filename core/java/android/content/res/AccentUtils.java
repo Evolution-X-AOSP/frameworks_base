@@ -13,7 +13,7 @@ public class AccentUtils {
 
     private static ArrayList<String> accentResources = new ArrayList<>(
             Arrays.asList("accent_device_default_light",
-                    "accent_device_default_dark"));
+                          "accent_device_default_dark"));
 
     private static final String ACCENT_COLOR_PROP = "persist.sys.theme.accentcolor";
 
@@ -32,8 +32,8 @@ public class AccentUtils {
         try {
             String colorValue = SystemProperties.get(property, "-1");
             return "-1".equals(colorValue)
-                    ? defaultColor
-                    : Color.parseColor("#" + colorValue);
+                    ? defaultColor : colorValue.equals("ff1a73e8")
+                    ? defaultColor : Color.parseColor("#" + colorValue);
         } catch (Exception e) {
             Log.e(TAG, "Failed to set accent: " + e.getMessage() +
                     "\nSetting default: " + defaultColor);
