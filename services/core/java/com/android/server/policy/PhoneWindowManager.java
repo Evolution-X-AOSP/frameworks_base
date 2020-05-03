@@ -1915,6 +1915,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case TORCH:
                 ActionUtils.toggleCameraFlash(/*(false for no proximity check)*/);
                 break;
+            case VOLUME_PANEL:
+                Utils.toggleVolumePanel(mContext);
+                break;
             default:
                 break;
         }
