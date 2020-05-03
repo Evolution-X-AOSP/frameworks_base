@@ -156,7 +156,7 @@
     <!-- Screen record -->
     <string name="screenrecord_dialog_title">Rozpocząć nagrywanie?</string>
     <string name="screenrecord_dialog_summary">Podczas nagrywania, system Android może przechwycić wszelkie wrażliwe dane widoczne lub odtwarzane na ekranie telefonu. Wliczając w to hasła, dane o płatnościach, zdjęcia, wiadomości oraz dźwięki.</string>
-    <string name="screenrecord_dialog_start">Ropocznij</string>
+    <string name="screenrecord_dialog_start">Rozpocznij</string>
     <string name="screenrecord_dialog_cancel">Anuluj</string>
     <string name="screenrecord_audio_recording_title">Źródło dźwięku</string>
     <string name="screenrecord_audio_recording_internal">Wewnętrzny</string>
