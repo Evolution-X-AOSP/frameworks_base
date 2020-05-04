@@ -199,4 +199,9 @@
     <string name="drag_or_tap_to_add_tiles">按住 &amp; 拖动或点击添加磁贴</string>
     <!-- Label for header of customize QS -->
     <string name="drag_or_tap_to_rearrange_tiles">按住 &amp; 拖动以重新排列或点击删除</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">无线电力共享</string>
+    <string name="quick_settings_powershare_off_powersave_label">无线电电分享关闭\n省电模式</string>
+    <string name="quick_settings_powershare_off_low_battery_label">无线电分享关闭\n电池电量过低</string>
+    <string name="quick_settings_powershare_enabled_label">无线电力共享已启用</string>
 </resources>
