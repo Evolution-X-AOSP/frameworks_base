@@ -27,7 +27,7 @@
     <string name="quick_settings_region_screenshot_label">Screenshot parziale</string>
     <!-- Sound Search tile -->
     <string name="quick_settings_sound_search">Ricerca suono</string>
-    <string name="quick_settings_sound_search_no_app">Spiacenti, ma questo non funziona se non hai un\'app di ricerca audio.</string>
+    <string name="quick_settings_sound_search_no_app">Spiacenti, ma questo non funziona se non hai un app di ricerca audio.</string>
     <!-- USB Tethering tile -->
     <string name="accessibility_quick_settings_usb_tether_off">USB tethering spento</string>
     <string name="accessibility_quick_settings_usb_tether_on">Tethering USB acceso</string>
