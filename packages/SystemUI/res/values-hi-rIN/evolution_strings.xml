@@ -93,6 +93,10 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">बंद करके चालू करें</string>
     <string name="quick_settings_reboot_recovery_label">रिकवरी</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • डैश चार्जिंग (<xliff:g id="charging_time_left" example="४ घंटे और २ मिनट">%s</xliff:g> पूर्ण होने में बाकी)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • वार्प चार्जिंग (<xliff:g id="charging_time_left" example="४ घंटे और २ मिनट">%s</xliff:g> पूर्ण होने में बाकी)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">पठन मोड</string>
     <string name="accessibility_quick_settings_reading_mode_on">पठन मोड चालू।</string>
@@ -195,4 +199,9 @@
     <string name="drag_or_tap_to_add_tiles">होल्ड करें &amp; टाइल्स जोड़ने के लिए खींचें या टैप करें</string>
     <!-- Label for header of customize QS -->
     <string name="drag_or_tap_to_rearrange_tiles">होल्ड करें &amp; पुनर्व्यवस्थित करने के लिए खींचें या निकालने के लिए टैप करें</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">वायरलेस पॉवर शेयर</string>
+    <string name="quick_settings_powershare_off_powersave_label">वायरलेस पॉवर शेयर ऑफ\nबैटरी सेवर</string>
+    <string name="quick_settings_powershare_off_low_battery_label">वायरलेस पॉवर शेयर ऑफ\nबैटरी बहुत कम है</string>
+    <string name="quick_settings_powershare_enabled_label">वायरलेस पॉवर शेयर सक्षम किया गया है</string>
 </resources>
