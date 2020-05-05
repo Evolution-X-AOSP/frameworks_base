@@ -1135,7 +1135,7 @@ public final class PowerManagerService extends SystemService
         mPowerInputSupsendSysfsNode = resources.getString(
                 com.android.internal.R.string.config_SmartChargingSysfsNode);
         mPowerInputSupsendValue = resources.getString(
-                com.android.internal.R.string.config_SmartChargingSupspendValue);
+                com.android.internal.R.string.config_SmartChargingSuspendValue);
         mPowerInputResumeValue = resources.getString(
                 com.android.internal.R.string.config_SmartChargingResumeValue);
         mSmartChargingResetStats = Settings.System.getInt(mContext.getContentResolver(),
