@@ -29,8 +29,8 @@
     <string name="battery_info_status_dash_charging">Charge Rapide</string>
     <string name="battery_info_status_dash_charging_lower">charge rapide</string>
     <!-- Label for estimated remaining duration of warp battery charging -->
-    <string name="power_remaining_warp_charging_duration_only">Charge Rapide (<xliff:g id="time">%1$s</xliff:g> restant jusqu\'à charge complète)</string>
+    <string name="power_remaining_warp_charging_duration_only">Warp charge (<xliff:g id="time">%1$s</xliff:g> restant jusqu\'à charge complète)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
-    <string name="battery_info_status_warp_charging">Charge Rapide</string>
-    <string name="battery_info_status_warp_charging_lower">charge Rapide</string>
+    <string name="battery_info_status_warp_charging">Warp charge</string>
+    <string name="battery_info_status_warp_charging_lower">warp charge</string>
 </resources>
