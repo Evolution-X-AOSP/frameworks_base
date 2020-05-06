@@ -586,4 +586,16 @@ public class EvolutionUtils {
             isPackageInstalled(context, LINEAGE_DOZE_PACKAGE_NAME) ||
             isPackageInstalled(context, CUSTOM_DOZE_PACKAGE_NAME);
     }
+
+    public static boolean isOlderPixelDevice() {
+        String deviceName = android.os.Build.DEVICE;
+            return ("crosshatch".equals(deviceName) || "blueline".equals(deviceName)
+                    || "taimen".equals(deviceName) || "walleye".equals(deviceName)
+                    || "bonito".equals(deviceName) || "sargo".equals(deviceName));
+    }
+
+    public static boolean isNewerPixelDevice() {
+        String deviceName = android.os.Build.DEVICE;
+            return ("coral".equals(deviceName) || "flame".equals(deviceName));
+    }
 }
