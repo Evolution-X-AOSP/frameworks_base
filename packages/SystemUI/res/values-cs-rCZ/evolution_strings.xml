@@ -93,6 +93,10 @@
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Restartovat</string>
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • DASH nabíjení (zbývá <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Warp nabíjení (zbývá <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> do plného nabití)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Režim čtení</string>
     <string name="accessibility_quick_settings_reading_mode_on">Režim čtení zap.</string>
@@ -195,4 +199,9 @@
     <string name="drag_or_tap_to_add_tiles">Přidržením &amp; přetažením nebo klepnutím přidat dlaždice</string>
     <!-- Label for header of customize QS -->
     <string name="drag_or_tap_to_rearrange_tiles">Podržte &amp; přetáhněte pro přemístění nebo klepněte pro odstranění</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Bezdrátové sdílení energie</string>
+    <string name="quick_settings_powershare_off_powersave_label">Bezdrátové sdílení energie je vypnuto\nSpořič baterie</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Bezdrátové sdílení energie je vypnuto\nNízký stav baterie</string>
+    <string name="quick_settings_powershare_enabled_label">Bezdrátové sdílení energie je zapnuto</string>
 </resources>
