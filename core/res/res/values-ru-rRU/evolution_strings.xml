@@ -54,7 +54,7 @@
     <string name="accessibility_quick_settings_live_display_night">LiveDisplay: ночной режим.</string>
     <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: режим улицы.</string>
     <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay выключен.</string>
-    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay переключён в автоматический режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay переключен в автоматический режим.</string>
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay переключен в дневной режим.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay переключён на ночной режим.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay переключён на уличный режим.</string>
