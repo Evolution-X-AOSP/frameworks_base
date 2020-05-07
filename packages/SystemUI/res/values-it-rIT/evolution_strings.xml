@@ -44,7 +44,7 @@
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Caffeina</string>
     <string name="accessibility_quick_settings_caffeine_off">Caffeina disattivata</string>
-    <string name="accessibility_quick_settings_caffeine_on">Caffeina accesa</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeina attivata</string>
     <!-- Heads Up QS Tile -->
     <string name="quick_settings_heads_up_label">Notifiche fluttuanti</string>
     <string name="accessibility_quick_settings_heads_up_off">Heads up disattivate</string>
@@ -129,9 +129,9 @@
     <string name="status_bar_roaming">Roaming</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
-    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <string name="accessibility_status_bar_nfc">NFC</string>
     <!-- Kill button in notification guts -->
-    <string name="force_stop_dlg_title">Forzare l\'interruzione?</string>
+    <string name="force_stop_dlg_title">Vuoi forzare l\'interruzione?</string>
     <string name="force_stop_dlg_text">Se forzi l\'interruzione di un\'app, tale app potrebbe funzionare in modo anomalo.</string>
     <string name="guts_force_close_app">Chiudi app</string>
     <!-- Heads up snooze toast -->
@@ -145,7 +145,7 @@
     <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_quick_settings_gaming_mode_enabled">Modalità gaming attivata.</string>
     <!-- DataSwitch Tile -->
-    <string name="qs_data_switch_label">Cambia Sim</string>
+    <string name="qs_data_switch_label">Cambia SIM</string>
     <string name="qs_data_switch_changed_1">Usando SIM 1 per dati mobili</string>
     <string name="qs_data_switch_changed_2">Usando SIM 2 per dati mobili</string>
     <string name="quick_settings_immersive_tile">Modalità immersiva</string>
