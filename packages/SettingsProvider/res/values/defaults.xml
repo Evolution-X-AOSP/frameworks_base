@@ -134,6 +134,8 @@
     <bool name="def_dtmf_tones_enabled">true</bool>
     <!-- Default for UI touch sounds enabled -->
     <bool name="def_sound_effects_enabled">true</bool>
+    <!-- Default for connected mo call tones enabled -->
+    <bool name="def_call_connected_tones_enabled">false</bool>
 
     <!-- Development settings -->
     <bool name="def_stay_on_while_plugged_in">false</bool>

@@ -240,5 +240,6 @@ public class SystemSettingsValidators {
                         return true;
                     }
                 });
+        VALIDATORS.put(System.CALL_CONNECTED_TONE_ENABLED, BOOLEAN_VALIDATOR);
     }
 }

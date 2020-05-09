@@ -2298,6 +2298,8 @@ class DatabaseHelper extends SQLiteOpenHelper {
                 R.bool.def_sound_effects_enabled);
         loadBooleanSetting(stmt, Settings.System.HAPTIC_FEEDBACK_ENABLED,
                 R.bool.def_haptic_feedback);
+        loadBooleanSetting(stmt, Settings.System.CALL_CONNECTED_TONE_ENABLED,
+                R.bool.def_call_connected_tones_enabled);
 
         loadIntegerSetting(stmt, Settings.System.LOCKSCREEN_SOUNDS_ENABLED,
             R.integer.def_lockscreen_sounds_enabled);
