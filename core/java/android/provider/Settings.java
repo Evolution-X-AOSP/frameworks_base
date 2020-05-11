@@ -14764,6 +14764,14 @@ public final class Settings {
         public static final String CELL_ON = "cell_on";
 
         /**
+         * Whether to vibrate while outgoing call is accepted
+         * The value 1 - vibrate, 0 - not
+         * @hide
+         */
+        public static final String VIBRATING_FOR_OUTGOING_CALL_ACCEPTED =
+                "vibrating_for_outgoing_call_accepted";
+
+        /**
          * Global settings which can be accessed by instant apps.
          * @hide
          */
