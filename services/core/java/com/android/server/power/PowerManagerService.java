@@ -642,8 +642,8 @@ public final class PowerManagerService extends SystemService
     private int mSmartChargingResumeLevel;
     private int mSmartChargingLevelDefaultConfig;
     private int mSmartChargingResumeLevelDefaultConfig;
-    private static String mPowerInputSupsendSysfsNode;
-    private static String mPowerInputSupsendValue;
+    private static String mPowerInputSuspendSysfsNode;
+    private static String mPowerInputSuspendValue;
     private static String mPowerInputResumeValue;
 
     /**
@@ -1132,10 +1132,10 @@ public final class PowerManagerService extends SystemService
                 com.android.internal.R.integer.config_smartChargingBatteryLevel);
         mSmartChargingResumeLevelDefaultConfig = resources.getInteger(
                 com.android.internal.R.integer.config_smartChargingBatteryResumeLevel);
-        mPowerInputSupsendSysfsNode = resources.getString(
+        mPowerInputSuspendSysfsNode = resources.getString(
                 com.android.internal.R.string.config_SmartChargingSysfsNode);
-        mPowerInputSupsendValue = resources.getString(
-                com.android.internal.R.string.config_SmartChargingSupspendValue);
+        mPowerInputSuspendValue = resources.getString(
+                com.android.internal.R.string.config_SmartChargingSuspendValue);
         mPowerInputResumeValue = resources.getString(
                 com.android.internal.R.string.config_SmartChargingResumeValue);
         mSmartChargingResetStats = Settings.System.getInt(mContext.getContentResolver(),
@@ -2057,10 +2057,10 @@ public final class PowerManagerService extends SystemService
         if (mPowerInputSuspended && (mBatteryLevel <= mSmartChargingResumeLevel) ||
             (mPowerInputSuspended && !mSmartChargingEnabled)) {
             try {
-                FileUtils.stringToFile(mPowerInputSupsendSysfsNode, mPowerInputResumeValue);
+                FileUtils.stringToFile(mPowerInputSuspendSysfsNode, mPowerInputResumeValue);
                 mPowerInputSuspended = false;
             } catch (IOException e) {
-                Slog.e(TAG, "failed to write to " + mPowerInputSupsendSysfsNode);
+                Slog.e(TAG, "failed to write to " + mPowerInputSuspendSysfsNode);
             }
             return;
         }
@@ -2076,10 +2076,10 @@ public final class PowerManagerService extends SystemService
             }
 
             try {
-                FileUtils.stringToFile(mPowerInputSupsendSysfsNode, mPowerInputSupsendValue);
+                FileUtils.stringToFile(mPowerInputSuspendSysfsNode, mPowerInputSuspendValue);
                 mPowerInputSuspended = true;
             } catch (IOException e) {
-                    Slog.e(TAG, "failed to write to " + mPowerInputSupsendSysfsNode);
+                    Slog.e(TAG, "failed to write to " + mPowerInputSuspendSysfsNode);
             }
         }
     }
