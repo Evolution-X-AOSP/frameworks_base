@@ -549,10 +549,7 @@ public class EvolutionUtils {
 
     // Check if device has a notch
     public static boolean hasNotch(Context context) {
-        String displayCutout = context.getResources().getString(R.string.config_mainBuiltInDisplayCutout);
-        boolean maskDisplayCutout = context.getResources().getBoolean(R.bool.config_maskMainBuiltInDisplayCutout);
-        boolean displayCutoutExists = (!TextUtils.isEmpty(displayCutout) && !maskDisplayCutout);
-        return displayCutoutExists;
+        return context.getResources().getBoolean(com.android.internal.R.bool.config_haveNotch);
     }
 
     /* e.g.
