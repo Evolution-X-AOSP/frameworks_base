@@ -32,7 +32,6 @@ import android.animation.ValueAnimator;
 import android.annotation.IntDef;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
-import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -728,36 +727,8 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
         return false;
     }
 
-    /** @hide */
-    public ExpandableNotificationRow getFirstActiveClearableNotifications(@SelectedRows int selection) {
-        if (mDynamicPrivacyController.isInLockedDownShade()) {
-            return null;
-        }
-        int childCount = getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View child = getChildAt(i);
-            if (!(child instanceof ExpandableNotificationRow)) {
-                continue;
-            }
-            final ExpandableNotificationRow row = (ExpandableNotificationRow) child;
-            if (matchesSelection(row, selection)) {
-                int visibility = row.getStatusBarNotification().getNotification().visibility;
-                // TODO
-                if (visibility != Notification.VISIBILITY_PUBLIC) {
-                    if (row.getStatusBarNotification().isClearable()) {
-                        return row;
-                    }
-                }
-                if (row.canViewBeDismissed()) {
-                    return row;
-                }
-            }
-        }
-        return null;
-    }
-
-    @ShadeViewRefactor(RefactorComponent.SHADE_VIEW)
-    public RemoteInputController.Delegate createDelegate() {
+  @ShadeViewRefactor(RefactorComponent.SHADE_VIEW)
+  public RemoteInputController.Delegate createDelegate() {
         return new RemoteInputController.Delegate() {
             public void setRemoteInputActive(NotificationEntry entry,
                     boolean remoteInputActive) {

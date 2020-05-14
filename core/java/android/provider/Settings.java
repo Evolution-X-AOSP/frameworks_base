@@ -5792,6 +5792,43 @@ public final class Settings {
         public static final Validator FOOTER_TEXT_STRING_VALIDATOR =
                 ANY_STRING_VALIDATOR;
 
+        /**
+         * Whether to enable Ambient edge light
+         * @hide
+         */
+        public static final String PULSE_AMBIENT_LIGHT = "pulse_ambient_light";
+
+        /** @hide */
+        private static final Validator PULSE_AMBIENT_LIGHT_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
+         * What color to use for Ambient edge light
+         * @hide
+         */
+        public static final String PULSE_AMBIENT_LIGHT_COLOR = "pulse_ambient_light_color";
+
+        /** @hide */
+        private static final Validator PULSE_AMBIENT_LIGHT_COLOR_VALIDATOR = ANY_STRING_VALIDATOR;
+
+        /**
+         * Wether to use color from wallpaper for Ambient edge light
+         * @hide
+         */
+        public static final String PULSE_AMBIENT_AUTO_COLOR = "pulse_ambient_auto_color";
+
+        /** @hide */
+        private static final Validator PULSE_AMBIENT_AUTO_COLOR_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
+         * Duration of Ambient edge light in seconds
+         * @hide
+         */
+        public static final String PULSE_AMBIENT_LIGHT_DURATION = "pulse_ambient_light_duration";
+
+        /** @hide */
+        private static final Validator PULSE_AMBIENT_LIGHT_DURATION_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
         /** @hide
         * modify how the album art shows up on lockscreen
         * 0 - normal
@@ -6698,86 +6735,6 @@ public final class Settings {
         private static final Validator DISPLAY_CUTOUT_HIDDEN_VALIDATOR = new
                 SettingsValidators.InclusiveIntegerRangeValidator(0, 1);
 
-        /**
-         * Whether to enable PULSE Edge lights
-         * @hide
-         */
-        public static final String NOTIFICATION_PULSE = "pulse_ambient_light";
-
-        private static final Validator NOTIFICATION_PULSE_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-         * Pulse Ambient lights color
-         * @hide
-         */
-        public static final String NOTIFICATION_PULSE_COLOR = "ambient_notification_light_color";
-
-        private static final Validator NOTIFICATION_PULSE_COLOR_VALIDATOR =
-                ANY_INTEGER_VALIDATOR;
-
-        /**
-         * Timeout for ambient pulse in seconds - 0 is no timeout
-         * @hide
-         */
-        public static final String AOD_NOTIFICATION_PULSE_TIMEOUT = "ambient_notification_light_timeout";
-
-        private static final Validator AOD_NOTIFICATION_PULSE_TIMEOUT_VALIDATOR =
-                ANY_INTEGER_VALIDATOR;
-
-        /**
-         * Whether to enable Ambient Edge lights
-         * @hide
-         */
-        public static final String AOD_NOTIFICATION_PULSE = "ambient_notification_light_enabled";
-
-        private static final Validator AOD_NOTIFICATION_PULSE_VALIDATOR = BOOLEAN_VALIDATOR;
-
-        /**
-         * Whether to change aod pulse state
-         * @hide
-         */
-        public static final String AOD_NOTIFICATION_PULSE_TRIGGER = "ambient_notification_light";
-
-        /**
-         * Whether Ambient Edge lights are activated
-         * @hide
-         */
-        public static final String AOD_NOTIFICATION_PULSE_ACTIVATED = "ambient_notification_light_activated";
-
-        /**
-         * Whether hide everything on aod when  ambient lights are enabled
-         * @hide
-         */
-        public static final String AOD_NOTIFICATION_PULSE_CLEAR = "ambient_notification_light_hide_aod";
-
-        private static final Validator AOD_NOTIFICATION_PULSE_CLEAR_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-         * Whether to use accent color for pulse
-         * @hide
-         */
-        public static final String NOTIFICATION_PULSE_ACCENT = "ambient_notification_light_accent";
-
-        private static final Validator NOTIFICATION_PULSE_ACCENT_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-         * @hide
-         */
-        public static final String NOTIFICATION_PULSE_COLOR_AUTOMATIC = "ambient_notification_light_color_automatic";
-
-        private static final Validator NOTIFICATION_PULSE_COLOR_AUTOMATIC_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-         * helper setting to contain the current pulse reason so we can check
-         * if it has been triggered from a notification or a gesture
-         * @hide
-         */
-        public static final String PULSE_TRIGGER_REASON = "pulse_trigger_reason";
-
         /**********************************
          * Evolution X System Settings end
          **********************************/
@@ -6986,6 +6943,10 @@ public final class Settings {
             FLASHLIGHT_ON_CALL_WAITING,
             AMBIENT_VISUALIZER_ENABLED,
             USE_OLD_MOBILETYPE,
+            PULSE_AMBIENT_AUTO_COLOR,
+            PULSE_AMBIENT_LIGHT,
+            PULSE_AMBIENT_LIGHT_COLOR,
+            PULSE_AMBIENT_LIGHT_DURATION,
             LOCKSCREEN_MEDIA_BLUR,
             FLASHLIGHT_ON_CALL,
             SENSOR_BLOCK,
@@ -7026,13 +6987,6 @@ public final class Settings {
             BACK_GESTURE_BLOCK_IME,
             ASPECT_RATIO_APPS_ENABLED,
             ASPECT_RATIO_APPS_LIST,
-            NOTIFICATION_PULSE,
-            AOD_NOTIFICATION_PULSE,
-            AOD_NOTIFICATION_PULSE_CLEAR,
-            AOD_NOTIFICATION_PULSE_TIMEOUT,
-            NOTIFICATION_PULSE_ACCENT,
-            NOTIFICATION_PULSE_COLOR,
-            NOTIFICATION_PULSE_COLOR_AUTOMATIC,
             // Evolution X Settings end
         };
 
@@ -7230,6 +7184,10 @@ public final class Settings {
             PRIVATE_SETTINGS.add(PULSE_BRIGHTNESS);
             PRIVATE_SETTINGS.add(DOZE_BRIGHTNESS);
             PRIVATE_SETTINGS.add(USE_OLD_MOBILETYPE);
+            PRIVATE_SETTINGS.add(PULSE_AMBIENT_AUTO_COLOR);
+            PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT);
+            PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT_COLOR);
+            PRIVATE_SETTINGS.add(PULSE_AMBIENT_LIGHT_DURATION);
             PRIVATE_SETTINGS.add(LOCKSCREEN_MEDIA_BLUR);
             PRIVATE_SETTINGS.add(VOLTE_ICON);
             PRIVATE_SETTINGS.add(VOLTE_ICON_STYLE);
@@ -7286,13 +7244,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(CAMERA_SLEEP_ON_RELEASE);
             PRIVATE_SETTINGS.add(CAMERA_LAUNCH);
             PRIVATE_SETTINGS.add(DISPLAY_CUTOUT_HIDDEN);
-            PRIVATE_SETTINGS.add(NOTIFICATION_PULSE);
-            PRIVATE_SETTINGS.add(AOD_NOTIFICATION_PULSE);
-            PRIVATE_SETTINGS.add(AOD_NOTIFICATION_PULSE_CLEAR);
-            PRIVATE_SETTINGS.add(AOD_NOTIFICATION_PULSE_TIMEOUT);
-            PRIVATE_SETTINGS.add(NOTIFICATION_PULSE_ACCENT);
-            PRIVATE_SETTINGS.add(NOTIFICATION_PULSE_COLOR);
-            PRIVATE_SETTINGS.add(NOTIFICATION_PULSE_COLOR_AUTOMATIC);
             PRIVATE_SETTINGS.add(LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED);
             // Evolution X Settings end
         }
@@ -7495,6 +7446,10 @@ public final class Settings {
             VALIDATORS.put(FLASHLIGHT_ON_CALL_WAITING, FLASHLIGHT_ON_CALL_WAITING_VALIDATOR);
             VALIDATORS.put(AMBIENT_VISUALIZER_ENABLED, AMBIENT_VISUALIZER_ENABLED_VALIDATOR);
             VALIDATORS.put(USE_OLD_MOBILETYPE, USE_OLD_MOBILETYPE_VALIDATOR);
+            VALIDATORS.put(PULSE_AMBIENT_AUTO_COLOR, PULSE_AMBIENT_AUTO_COLOR_VALIDATOR);
+            VALIDATORS.put(PULSE_AMBIENT_LIGHT, PULSE_AMBIENT_LIGHT_VALIDATOR);
+            VALIDATORS.put(PULSE_AMBIENT_LIGHT_COLOR, PULSE_AMBIENT_LIGHT_COLOR_VALIDATOR);
+            VALIDATORS.put(PULSE_AMBIENT_LIGHT_DURATION, PULSE_AMBIENT_LIGHT_DURATION_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_MEDIA_BLUR, LOCKSCREEN_MEDIA_BLUR_VALIDATOR);
             VALIDATORS.put(VOLTE_ICON, VOLTE_ICON_VALIDATOR);
             VALIDATORS.put(VOLTE_ICON_STYLE, VOLTE_ICON_STYLE_VALIDATOR);
@@ -7564,14 +7519,6 @@ public final class Settings {
             VALIDATORS.put(CAMERA_SLEEP_ON_RELEASE, CAMERA_SLEEP_ON_RELEASE_VALIDATOR);
             VALIDATORS.put(CAMERA_LAUNCH, CAMERA_LAUNCH_VALIDATOR);
             VALIDATORS.put(DISPLAY_CUTOUT_HIDDEN, DISPLAY_CUTOUT_HIDDEN_VALIDATOR);
-            VALIDATORS.put(NOTIFICATION_PULSE, NOTIFICATION_PULSE_VALIDATOR);
-            VALIDATORS.put(AOD_NOTIFICATION_PULSE, AOD_NOTIFICATION_PULSE_VALIDATOR);
-            VALIDATORS.put(AOD_NOTIFICATION_PULSE_CLEAR, AOD_NOTIFICATION_PULSE_CLEAR_VALIDATOR);
-            VALIDATORS.put(AOD_NOTIFICATION_PULSE_TIMEOUT, AOD_NOTIFICATION_PULSE_TIMEOUT_VALIDATOR);
-            VALIDATORS.put(NOTIFICATION_PULSE_ACCENT, NOTIFICATION_PULSE_ACCENT_VALIDATOR);
-            VALIDATORS.put(NOTIFICATION_PULSE_COLOR, NOTIFICATION_PULSE_COLOR_VALIDATOR);
-            VALIDATORS.put(NOTIFICATION_PULSE_COLOR_AUTOMATIC,
-                    NOTIFICATION_PULSE_COLOR_AUTOMATIC_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED, LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED_VALIDATOR);
             // Evolution X Settings end
         }
