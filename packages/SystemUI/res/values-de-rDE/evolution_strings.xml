@@ -199,4 +199,9 @@
     <string name="drag_or_tap_to_add_tiles">Halte &amp; ziehe oder tippe, um Kacheln hinzuzufügen</string>
     <!-- Label for header of customize QS -->
     <string name="drag_or_tap_to_rearrange_tiles">Halte &amp; ziehe zum Neuanordnen oder tippe zum Entfernen</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Drahtloses PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Drahtloses PowerShare aus\nEnergiesparmodus</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Drahtloses PowerShare aus\nBatterie zu niedrig</string>
+    <string name="quick_settings_powershare_enabled_label">Drahtloses PowerShare ist aktiviert</string>
 </resources>
