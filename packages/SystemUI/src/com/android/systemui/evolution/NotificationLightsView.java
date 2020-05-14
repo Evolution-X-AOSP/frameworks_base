@@ -19,9 +19,15 @@ package com.android.systemui.evolution;
 
 import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
+import android.app.WallpaperColors;
+import android.app.WallpaperManager;
+import android.app.WallpaperInfo;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.UserHandle;
 import android.provider.Settings;
@@ -33,13 +39,16 @@ import android.widget.ImageView;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
-import com.android.settingslib.Utils;
+import androidx.palette.graphics.Palette;
+
 import com.android.systemui.R;
 
 public class NotificationLightsView extends RelativeLayout {
-    private static final boolean DEBUG = false;
-    private static final String TAG = "NotificationLightsView";
+
+    private View mNotificationAnimView;
     private ValueAnimator mLightAnimator;
+    private boolean mPulsing;
+    private WallpaperManager mWallManager;
 
     public NotificationLightsView(Context context) {
         this(context, null);
@@ -55,50 +64,70 @@ public class NotificationLightsView extends RelativeLayout {
 
     public NotificationLightsView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        Log.e("NotificationLightsView", "new");
     }
 
-    public void stopAnimateNotification() {
-        if (mLightAnimator != null) {
-            mLightAnimator.end();
-            mLightAnimator = null;
+    private Runnable mLightUpdate = new Runnable() {
+        @Override
+        public void run() {
+            Log.e("NotificationLightsView", "run");
+            animateNotification();
         }
+    };
+
+    public void setPulsing(boolean pulsing) {
+        if (mPulsing == pulsing) {
+            return;
+        }
+        mPulsing = pulsing;
+    }
+
+    @Override
+    public void draw(Canvas canvas) {
+        super.draw(canvas);
+        Log.e("NotificationLightsView", "draw");
     }
 
     public void animateNotification() {
-        animateNotificationWithColor(getNotificationLightsColor());
-    }
-
-    public int getNotificationLightsColor() {
-        int color = getDefaultNotificationLightsColor();
-        boolean useAccent = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.NOTIFICATION_PULSE_ACCENT,
-                0, UserHandle.USER_CURRENT) != 0;
-        if (useAccent) {
-            color = Utils.getColorAccentDefaultColor(getContext());
+        int color = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.PULSE_AMBIENT_LIGHT_COLOR, 0xFF1A73E8,
+                UserHandle.USER_CURRENT);
+        int duration = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.PULSE_AMBIENT_LIGHT_DURATION, 2,
+                UserHandle.USER_CURRENT) * 1000;
+        if (Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.PULSE_AMBIENT_AUTO_COLOR, 0,
+                UserHandle.USER_CURRENT) == 1) {
+            try {
+                WallpaperManager wallpaperManager = WallpaperManager.getInstance(mContext);
+                WallpaperInfo wallpaperInfo = wallpaperManager.getWallpaperInfo();
+                if (wallpaperInfo == null) { // if not a live wallpaper
+                    Drawable wallpaperDrawable = wallpaperManager.getDrawable();
+                    Bitmap bitmap = ((BitmapDrawable)wallpaperDrawable).getBitmap();
+                    if (bitmap != null) { // if wallpaper is not blank
+                        Palette p = Palette.from(bitmap).generate();
+                        int wallColor = p.getDominantColor(color);
+                        if (color != wallColor)
+                            color = wallColor;
+                    }
+                }
+            } catch (Exception e) {
+                // Nothing to do
+            }
         }
-        return color;
-    }
-
-    public int getDefaultNotificationLightsColor() {
-        int defaultColor = getResources().getInteger(
-                com.android.internal.R.integer.config_ambientNotificationDefaultColor);
-        return Settings.System.getIntForUser(mContext.getContentResolver(),
-                    Settings.System.NOTIFICATION_PULSE_COLOR, defaultColor,
-                    UserHandle.USER_CURRENT);
-    }
-
-    public void animateNotificationWithColor(int color) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("animateNotification color ");
+        sb.append(Integer.toHexString(color));
+        Log.e("NotificationLightsView", sb.toString());
         ImageView leftView = (ImageView) findViewById(R.id.notification_animation_left);
         ImageView rightView = (ImageView) findViewById(R.id.notification_animation_right);
         leftView.setColorFilter(color);
         rightView.setColorFilter(color);
         mLightAnimator = ValueAnimator.ofFloat(new float[]{0.0f, 2.0f});
-        mLightAnimator.setDuration(2000);
-        mLightAnimator.setRepeatCount(ValueAnimator.INFINITE);
-        mLightAnimator.setRepeatMode(ValueAnimator.RESTART);
+        mLightAnimator.setDuration(duration);
         mLightAnimator.addUpdateListener(new AnimatorUpdateListener() {
             public void onAnimationUpdate(ValueAnimator animation) {
-                if (DEBUG) Log.d(TAG, "onAnimationUpdate");
+                Log.e("NotificationLightsView", "onAnimationUpdate");
                 float progress = ((Float) animation.getAnimatedValue()).floatValue();
                 leftView.setScaleY(progress);
                 rightView.setScaleY(progress);
@@ -112,7 +141,7 @@ public class NotificationLightsView extends RelativeLayout {
                 rightView.setAlpha(alpha);
             }
         });
-        if (DEBUG) Log.d(TAG, "start");
+        Log.e("NotificationLightsView", "start");
         mLightAnimator.start();
     }
 }

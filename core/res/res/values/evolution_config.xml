@@ -428,7 +428,4 @@
     <string name="config_oemFastChargerStatusPath" translatable="false"></string>
     <!-- Expected value from fast charging status file  -->
     <string name="config_oemFastChargerStatusValue" translatable="false"></string>
-
-    <!-- Ambient notification light color -->
-    <integer name="config_ambientNotificationDefaultColor">0xFF1A73E8</integer>
 </resources>
