@@ -521,14 +521,6 @@ public interface StatusBarIconController {
             }
         }
 
-        public void onPanelExpanded(boolean isExpanded) {
-            for (int i = 0; i < mGroup.getChildCount(); i++) {
-                if (mGroup.getChildAt(i) instanceof NetworkTrafficSB) {
-                    ((NetworkTrafficSB)mGroup.getChildAt(i)).onPanelExpanded(isExpanded);
-                }
-            }
-        }
-
         public void setKeyguardShowing(boolean showing) {
             for (int i = 0; i < mGroup.getChildCount(); i++) {
                 if (mGroup.getChildAt(i) instanceof NetworkTrafficSB) {
