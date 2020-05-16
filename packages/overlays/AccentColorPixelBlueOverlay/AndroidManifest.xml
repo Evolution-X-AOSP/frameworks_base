@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!--
 /**
  * Copyright (c) 2018, The Android Open Source Project
@@ -16,7 +15,11 @@
  * limitations under the License.
  */
 -->
-<resources>
-    <color name="accent_device_default_light">#0060FF</color>
-    <color name="accent_device_default_dark">#0060FF</color>
-</resources>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.theme.color.pixelblue"
+    android:versionCode="1"
+    android:versionName="1.0">
+    <overlay android:targetPackage="android" android:category="android.theme.customization.accent_color" android:priority="1"/>
+
+    <application android:label="@string/accent_color_pixelblue_overlay" android:hasCode="false"/>
+</manifest>
