@@ -16,7 +16,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Screenshot Delete Toast -->
-    <string name="delete_screenshot_toast">स्क्रीनशॉट डिलीट किया गया</string>
+    <string name="delete_screenshot_toast">स्क्रीनशॉट मिटाया गया</string>
     <!-- Advanced reboot -->
     <string name="global_action_restart_advanced">एडवांस्ड</string>
     <string name="global_action_restart_recovery">रिकवरी</string>
