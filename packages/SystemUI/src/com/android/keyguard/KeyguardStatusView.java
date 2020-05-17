@@ -117,7 +117,7 @@ public class KeyguardStatusView extends GridLayout implements
                 refreshTime();
                 updateOwnerInfo();
                 updateLogoutView();
-                mClockView.refreshLockFont();
+                refreshLockFont();
                 refreshLockDateFont();
                 mClockView.refreshclocksize();
                 mKeyguardSlice.refreshdatesize();
@@ -141,7 +141,6 @@ public class KeyguardStatusView extends GridLayout implements
             refreshFormat();
             updateOwnerInfo();
             updateLogoutView();
-            mClockView.refreshLockFont();
             refreshLockDateFont();
             mClockView.refreshclocksize();
             mKeyguardSlice.refreshdatesize();
@@ -181,6 +180,11 @@ public class KeyguardStatusView extends GridLayout implements
 
     public boolean hasCustomClockInBigContainer() {
         return mClockView.hasCustomClockInBigContainer();
+    }
+
+    private int getLockClockFont() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.LOCK_CLOCK_FONTS, 30);
     }
 
     /**
@@ -230,7 +234,6 @@ public class KeyguardStatusView extends GridLayout implements
         mOwnerInfo = findViewById(R.id.owner_info);
         mKeyguardSlice = findViewById(R.id.keyguard_status_area);
         mKeyguardSliceView = findViewById(R.id.keyguard_status_area);
-        mClockView.refreshLockFont();
         refreshLockDateFont();
         mClockView.refreshclocksize();
         updateDateStyles();
@@ -286,6 +289,7 @@ public class KeyguardStatusView extends GridLayout implements
     public void onDensityOrFontScaleChanged() {
         if (mClockView != null) {
             mClockView.refreshclocksize();
+            refreshLockFont();
         }
         if (mOwnerInfo != null) {
             mOwnerInfo.setTextSize(TypedValue.COMPLEX_UNIT_PX,
@@ -683,6 +687,168 @@ public class KeyguardStatusView extends GridLayout implements
     @Override
     public void onLocaleListChanged() {
         refreshFormat();
+    }
+
+    private void refreshLockFont() {
+        setFontStyle(mClockView, getLockClockFont());
+    }
+
+    private void setFontStyle(KeyguardClockSwitch view, int fontstyle) {
+    	if (view != null) {
+    	    switch (fontstyle) {
+                case 0:
+                    view.setTextFont(Typeface.create(mContext.getResources().getString(R.string.clock_sysfont_headline_medium), Typeface.NORMAL));
+                    break;
+                case 1:
+                    view.setTextFont(Typeface.create(mContext.getResources().getString(R.string.clock_sysfont_body_medium), Typeface.NORMAL));
+                    break;
+                case 2:
+                    view.setTextFont(Typeface.create("sans-serif", Typeface.NORMAL));
+                    break;
+                case 3:
+                    view.setTextFont(Typeface.create("sans-serif", Typeface.ITALIC));
+                    break;
+                case 4:
+                    view.setTextFont(Typeface.create("sans-serif", Typeface.BOLD));
+                    break;
+                case 5:
+                    view.setTextFont(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
+                    break;
+                case 6:
+                    view.setTextFont(Typeface.create("sans-serif-light", Typeface.NORMAL));
+                    break;
+                case 7:
+                    view.setTextFont(Typeface.create("sans-serif-light", Typeface.ITALIC));
+                    break;
+                case 8:
+                    view.setTextFont(Typeface.create("sans-serif-thin", Typeface.NORMAL));
+                    break;
+                case 9:
+                    view.setTextFont(Typeface.create("sans-serif-thin", Typeface.ITALIC));
+                    break;
+                case 10:
+                    view.setTextFont(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
+                    break;
+                case 11:
+                    view.setTextFont(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
+                    break;
+                case 12:
+                    view.setTextFont(Typeface.create("sans-serif-condensed", Typeface.BOLD));
+                    break;
+                case 13:
+                    view.setTextFont(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
+                    break;
+                case 14:
+                    view.setTextFont(Typeface.create("sans-serif-condensed-light", Typeface.NORMAL));
+                    break;
+                case 15:
+                    view.setTextFont(Typeface.create("sans-serif-condensed-light", Typeface.ITALIC));
+                    break;
+                case 16:
+                    view.setTextFont(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+                    break;
+                case 17:
+                    view.setTextFont(Typeface.create("sans-serif-medium", Typeface.ITALIC));
+                    break;
+                case 18:
+                    view.setTextFont(Typeface.create("sans-serif-black", Typeface.NORMAL));
+                    break;
+                case 19:
+                    view.setTextFont(Typeface.create("sans-serif-black", Typeface.ITALIC));
+                    break;
+                case 20:
+                    view.setTextFont(Typeface.create("cursive", Typeface.NORMAL));
+                    break;
+                case 21:
+                    view.setTextFont(Typeface.create("cursive", Typeface.BOLD));
+                    break;
+                case 22:
+                    view.setTextFont(Typeface.create("casual", Typeface.NORMAL));
+                    break;
+                case 23:
+                    view.setTextFont(Typeface.create("serif", Typeface.NORMAL));
+                    break;
+                case 24:
+                    view.setTextFont(Typeface.create("serif", Typeface.ITALIC));
+                    break;
+                case 25:
+                    view.setTextFont(Typeface.create("serif", Typeface.BOLD));
+                    break;
+                case 26:
+                    view.setTextFont(Typeface.create("serif", Typeface.BOLD_ITALIC));
+                    break;
+                case 27:
+                    view.setTextFont(Typeface.create("gobold-light-sys", Typeface.NORMAL));
+                    break;
+                case 28:
+                    view.setTextFont(Typeface.create("roadrage-sys", Typeface.NORMAL));
+                    break;
+                case 29:
+                    view.setTextFont(Typeface.create("snowstorm-sys", Typeface.NORMAL));
+                    break;
+                case 30:
+                default:
+                    view.setTextFont(Typeface.create("googlesans-sys", Typeface.NORMAL));
+                    break;
+                case 31:
+                    view.setTextFont(Typeface.create("neoneon-sys", Typeface.NORMAL));
+                    break;
+                case 32:
+                    view.setTextFont(Typeface.create("themeable-sys", Typeface.NORMAL));
+                    break;
+                case 33:
+                    view.setTextFont(Typeface.create("samsung-sys", Typeface.NORMAL));
+                    break;
+                case 34:
+                    view.setTextFont(Typeface.create("mexcellent-sys", Typeface.NORMAL));
+                    break;
+                case 35:
+                    view.setTextFont(Typeface.create("burnstown-sys", Typeface.NORMAL));
+                    break;
+                case 36:
+                    view.setTextFont(Typeface.create("dumbledor-sys", Typeface.NORMAL));
+                    break;
+                case 37:
+                    view.setTextFont(Typeface.create("phantombold-sys", Typeface.NORMAL));
+                    break;
+                case 38:
+                    view.setTextFont(Typeface.create("sourcesanspro-sys", Typeface.NORMAL));
+                    break;
+                case 39:
+                    view.setTextFont(Typeface.create("circularstd-sys", Typeface.NORMAL));
+                    break;
+                case 40:
+                    view.setTextFont(Typeface.create("oneplusslate-sys", Typeface.NORMAL));
+                    break;
+                case 41:
+                    view.setTextFont(Typeface.create("aclonica-sys", Typeface.NORMAL));
+                    break;
+                case 42:
+                    view.setTextFont(Typeface.create("amarante-sys", Typeface.NORMAL));
+                    break;
+                case 43:
+                    view.setTextFont(Typeface.create("bariol-sys", Typeface.NORMAL));
+                    break;
+                case 44:
+                    view.setTextFont(Typeface.create("cagliostro-sys", Typeface.NORMAL));
+                    break;
+                case 45:
+                    view.setTextFont(Typeface.create("coolstory-sys", Typeface.NORMAL));
+                    break;
+                case 46:
+                    view.setTextFont(Typeface.create("lgsmartgothic-sys", Typeface.NORMAL));
+                    break;
+                case 47:
+                    view.setTextFont(Typeface.create("rosemary-sys", Typeface.NORMAL));
+                    break;
+                case 48:
+                    view.setTextFont(Typeface.create("sonysketch-sys", Typeface.NORMAL));
+                    break;
+                case 49:
+                    view.setTextFont(Typeface.create("surfer-sys", Typeface.NORMAL));
+                    break;
+            }
+        }
     }
 
     public void dump(FileDescriptor fd, PrintWriter pw, String[] args) {

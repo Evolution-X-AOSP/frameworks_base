@@ -12,10 +12,10 @@ import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.Typeface;
 import android.os.Build;
-import android.transition.Fade;
 import android.os.Handler;
 import android.os.UserHandle;
 import android.provider.Settings;
+import android.transition.Fade;
 import android.transition.Transition;
 import android.transition.TransitionListenerAdapter;
 import android.transition.TransitionManager;
@@ -233,11 +233,6 @@ public class KeyguardClockSwitch extends RelativeLayout {
                 Settings.System.LOCKSCREEN_INFO, 1) == 1;
     }
 
-    private int getLockClockFont() {
-        return Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.LOCK_CLOCK_FONTS, 28);
-    }
-
     private int getLockClockSize() {
         return Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.LOCKCLOCK_FONT_SIZE, 54);
@@ -347,6 +342,14 @@ public class KeyguardClockSwitch extends RelativeLayout {
         mClockViewBold.setTextColor(color);
         if (mClockPlugin != null) {
             mClockPlugin.setTextColor(color);
+        }
+    }
+
+    public void setTextFont(Typeface tf) {
+        mClockView.getPaint().setTypeface(tf);
+        mClockViewBold.getPaint().setTypeface(tf);
+        if (mClockPlugin != null) {
+            mClockPlugin.setTypeface(tf);
         }
     }
 
@@ -483,207 +486,6 @@ public class KeyguardClockSwitch extends RelativeLayout {
             } else if (mBigClockContainer.getVisibility() == INVISIBLE) {
                 mBigClockContainer.setVisibility(VISIBLE);
             }
-        }
-    }
-
-    public void refreshLockFont() {
-        final Resources res = getContext().getResources();
-        boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
-        int lockClockFont = isPrimary ? getLockClockFont() : 28;
-
-        switch (lockClockFont) {
-            case 0:
-                mClockView.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
-                break;
-            case 1:
-                mClockView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
-                mClockViewBold.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
-                break;
-            case 2:
-                mClockView.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
-                mClockViewBold.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
-                break;
-            case 3:
-                mClockView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
-                mClockViewBold.setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
-                break;
-            case 4:
-                mClockView.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
-                mClockViewBold.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
-                break;
-            case 5:
-                mClockView.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
-                break;
-            case 6:
-                mClockView.setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
-                mClockViewBold.setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
-                break;
-            case 7:
-                mClockView.setTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
-                break;
-            case 8:
-                mClockView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
-                break;
-            case 9:
-                mClockView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
-                mClockViewBold.setTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
-                break;
-            case 10:
-                mClockView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
-                mClockViewBold.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
-                break;
-            case 11:
-                mClockView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
-                mClockViewBold.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
-                break;
-            case 12:
-                mClockView.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
-                break;
-            case 13:
-                mClockView.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
-                mClockViewBold.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
-                break;
-            case 14:
-                mClockView.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.NORMAL));
-                break;
-            case 15:
-                mClockView.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.ITALIC));
-                mClockViewBold.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.ITALIC));
-                break;
-            case 16:
-                mClockView.setTypeface(Typeface.create("sans-serif-black", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("sans-serif-black", Typeface.NORMAL));
-                break;
-            case 17:
-                mClockView.setTypeface(Typeface.create("sans-serif-black", Typeface.ITALIC));
-                mClockViewBold.setTypeface(Typeface.create("sans-serif-black", Typeface.ITALIC));
-                break;
-            case 18:
-                mClockView.setTypeface(Typeface.create("cursive", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("cursive", Typeface.NORMAL));
-                break;
-            case 19:
-                mClockView.setTypeface(Typeface.create("cursive", Typeface.BOLD));
-                mClockViewBold.setTypeface(Typeface.create("cursive", Typeface.BOLD));
-                break;
-            case 20:
-                mClockView.setTypeface(Typeface.create("casual", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("casual", Typeface.NORMAL));
-                break;
-            case 21:
-                mClockView.setTypeface(Typeface.create("serif", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("serif", Typeface.NORMAL));
-                break;
-            case 22:
-                mClockView.setTypeface(Typeface.create("serif", Typeface.ITALIC));
-                mClockViewBold.setTypeface(Typeface.create("serif", Typeface.ITALIC));
-                break;
-            case 23:
-                mClockView.setTypeface(Typeface.create("serif", Typeface.BOLD));
-                mClockViewBold.setTypeface(Typeface.create("serif", Typeface.BOLD));
-                break;
-            case 24:
-                mClockView.setTypeface(Typeface.create("serif", Typeface.BOLD_ITALIC));
-                mClockViewBold.setTypeface(Typeface.create("serif", Typeface.BOLD_ITALIC));
-                break;
-            case 25:
-                mClockView.setTypeface(Typeface.create("gobold-light-sys", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("gobold-light-sys", Typeface.NORMAL));
-                break;
-            case 26:
-                mClockView.setTypeface(Typeface.create("roadrage-sys", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("roadrage-sys", Typeface.NORMAL));
-                break;
-            case 27:
-                mClockView.setTypeface(Typeface.create("snowstorm-sys", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("snowstorm-sys", Typeface.NORMAL));
-                break;
-            case 28:
-                mClockView.setTypeface(Typeface.create("googlesans-sys", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("googlesans-sys", Typeface.NORMAL));
-                break;
-            case 29:
-                mClockView.setTypeface(Typeface.create("neoneon-sys", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("neoneon-sys", Typeface.NORMAL));
-                break;
-            case 30:
-                mClockView.setTypeface(Typeface.create("themeable-sys", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("themeable-sys", Typeface.NORMAL));
-                break;
-            case 31:
-                mClockView.setTypeface(Typeface.create("samsung-sys", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("samsung-sys", Typeface.NORMAL));
-                break;
-            case 32:
-                mClockView.setTypeface(Typeface.create("mexcellent-sys", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("mexcellent-sys", Typeface.NORMAL));
-                break;
-            case 33:
-                mClockView.setTypeface(Typeface.create("burnstown-sys", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("burnstown-sys", Typeface.NORMAL));
-                break;
-            case 34:
-                mClockView.setTypeface(Typeface.create("dumbledor-sys", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("dumbledor-sys", Typeface.NORMAL));
-                break;
-            case 35:
-                mClockView.setTypeface(Typeface.create("phantombold-sys", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("phantombold-sys", Typeface.NORMAL));
-                break;
-            case 36:
-                mClockView.setTypeface(Typeface.create("sourcesanspro-sys", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("sourcesanspro-sys", Typeface.NORMAL));
-                break;
-            case 37:
-                mClockView.setTypeface(Typeface.create("circularstd-sys", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("circularstd-sys", Typeface.NORMAL));
-                break;
-            case 38:
-                mClockView.setTypeface(Typeface.create("oneplusslate-sys", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("oneplusslate-sys", Typeface.NORMAL));
-                break;
-            case 39:
-                mClockView.setTypeface(Typeface.create("aclonica-sys", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("aclonica-sys", Typeface.NORMAL));
-                break;
-            case 40:
-                mClockView.setTypeface(Typeface.create("amarante-sys", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("amarante-sys", Typeface.NORMAL));
-                break;
-            case 41:
-                mClockView.setTypeface(Typeface.create("bariol-sys", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("bariol-sys", Typeface.NORMAL));
-                break;
-            case 42:
-                mClockView.setTypeface(Typeface.create("cagliostro-sys", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("cagliostro-sys", Typeface.NORMAL));
-                break;
-            case 43:
-                mClockView.setTypeface(Typeface.create("coolstory-sys", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("coolstory-sys", Typeface.NORMAL));
-                break;
-            case 44:
-                mClockView.setTypeface(Typeface.create("lgsmartgothic-sys", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("lgsmartgothic-sys", Typeface.NORMAL));
-                break;
-            case 45:
-                mClockView.setTypeface(Typeface.create("rosemary-sys", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("rosemary-sys", Typeface.NORMAL));
-                break;
-            case 46:
-                mClockView.setTypeface(Typeface.create("sonysketch-sys", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("sonysketch-sys", Typeface.NORMAL));
-                break;
-            case 47:
-                mClockView.setTypeface(Typeface.create("surfer-sys", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("surfer-sys", Typeface.NORMAL));
-                break;
         }
     }
 

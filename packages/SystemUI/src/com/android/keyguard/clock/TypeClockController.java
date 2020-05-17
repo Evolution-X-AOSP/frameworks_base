@@ -21,6 +21,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Paint.Style;
+import android.graphics.Typeface;
 import android.util.MathUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -168,6 +169,11 @@ public class TypeClockController implements ClockPlugin {
     @Override
     public void setTextColor(int color) {
         mTypeClock.setTextColor(color);
+    }
+
+    @Override
+    public void setTypeface(Typeface tf) {
+        mTypeClock.setTypeface(tf);
     }
 
     @Override
