@@ -27,8 +27,8 @@ public class ColorUtils {
         return com.android.internal.graphics.ColorUtils.HSLToColor(hsl);
     }
 
-    public static int genRandomQsColor() {
-        Random r = new Random((long) SystemProperties.getInt("ro.boottime.init", 0));
+    public static int genRandomQsColor(long seed) {
+        Random r = new Random(seed);
         float hsl[] = new float[3];
         hsl[0] = r.nextInt(360);
         hsl[1] = r.nextFloat();
@@ -36,12 +36,23 @@ public class ColorUtils {
         return com.android.internal.graphics.ColorUtils.HSLToColor(hsl);
     }
 
-    public static int genRandomAccentColor(boolean isThemeDark) {
-        Random r = new Random();
+    public static int genRandomQsColor() {
+        return genRandomQsColor((long) SystemProperties.getInt("ro.boottime.init", 0));
+    }
+
+    private static int genRandomAccentColor(boolean isThemeDark, Random r) {
         float hsl[] = new float[3];
         hsl[0] = r.nextInt(360);
         hsl[1] = 0.5f + (r.nextFloat() * 0.5f);
         hsl[2] = (isThemeDark ? 0.575f : 0.3f) + (r.nextFloat() * 0.125f);
         return com.android.internal.graphics.ColorUtils.HSLToColor(hsl);
+    }
+
+    public static int genRandomAccentColor(boolean isThemeDark, long seed) {
+        return genRandomAccentColor(isThemeDark, new Random(seed));
+    }
+
+    public static int genRandomAccentColor(boolean isThemeDark) {
+        return genRandomAccentColor(isThemeDark, new Random());
     }
 }
