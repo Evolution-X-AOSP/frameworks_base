@@ -204,4 +204,13 @@
     <string name="quick_settings_powershare_off_powersave_label">PowerShare выкл\nЭкономия энергии</string>
     <string name="quick_settings_powershare_off_low_battery_label">PowerShare выкл\nНизкий заряд батареи</string>
     <string name="quick_settings_powershare_enabled_label">PowerShare включен</string>
+    <!-- Navigation Bar tile -->
+    <string name="quick_settings_navbar_title">Панель навигации</string>
+    <string name="accessibility_quick_settings_navbar_on">Панель навигации включена</string>
+    <string name="accessibility_quick_settings_navbar_off">Панель навигации выключена</string>
+    <!-- Alerting notification header label -->
+    <string name="notification_section_header_alerting">Предупреждающие уведомления</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Умные пиксели</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Автоматическое включение Умных пикселей</string>
 </resources>
