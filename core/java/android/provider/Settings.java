@@ -6192,12 +6192,6 @@ public final class Settings {
          */
         public static final String CHARGING_ANIMATION = "charging_animation";
 
-        /** @hide */
-        public static final String GESTURE_PILL_TOGGLE = "gesture_pill_toggle";
-
-        /** @hide */
-        private static final Validator GESTURE_PILL_TOGGLE_VALIDATOR = BOOLEAN_VALIDATOR;
-
         /**
          * Whether to change the color of the qs panel
          * @hide
@@ -7072,7 +7066,6 @@ public final class Settings {
             OMNI_STATUS_BAR_CUSTOM_HEADER_IMAGE,
             OMNI_STATUS_BAR_FILE_HEADER_IMAGE,
             QS_HIDE_BATTERY,
-            GESTURE_PILL_TOGGLE,
             NAVIGATION_HANDLE_WIDTH,
             FORCE_SHOW_NAVBAR,
             QS_PANEL_BG_COLOR,
@@ -7326,7 +7319,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER);
             PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_CUSTOM_HEADER_IMAGE);
             PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_FILE_HEADER_IMAGE);
-            PRIVATE_SETTINGS.add(GESTURE_PILL_TOGGLE);
             PRIVATE_SETTINGS.add(NAVIGATION_HANDLE_WIDTH);
             PRIVATE_SETTINGS.add(FORCE_SHOW_NAVBAR);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_COLOR);
@@ -7595,7 +7587,6 @@ public final class Settings {
             VALIDATORS.put(OMNI_STATUS_BAR_FILE_HEADER_IMAGE,
                     OMNI_STATUS_BAR_FILE_HEADER_IMAGE_VALIDATOR);
             VALIDATORS.put(QS_HIDE_BATTERY, QS_HIDE_BATTERY_VALIDATOR);
-            VALIDATORS.put(GESTURE_PILL_TOGGLE, GESTURE_PILL_TOGGLE_VALIDATOR);
             VALIDATORS.put(NAVIGATION_HANDLE_WIDTH, NAVIGATION_HANDLE_WIDTH_VALIDATOR);
             VALIDATORS.put(FORCE_SHOW_NAVBAR, FORCE_SHOW_NAVBAR_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_COLOR, QS_PANEL_BG_COLOR_VALIDATOR);
@@ -17214,14 +17205,6 @@ public final class Settings {
          * @hide
          */
         public static final String LISTVIEW_INTERPOLATOR = "listview_interpolator";
-
-        /**
-         * Audio focus mode for ringtones when headset is connected
-         * 1: stock behavior - Both speaker and headset
-         * 0: dynamic behavior - Headset only if music is active
-         * @hide
-         */
-        public static final String RINGTONE_FOCUS_MODE = "ringtone_focus_mode";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
