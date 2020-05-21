@@ -167,7 +167,7 @@ public class StatusBarWindowController implements Callback, Dumpable, Configurat
                 Settings.System.LOCKSCREEN_ROTATION, 0) != 0;
         return SystemProperties.getBoolean("lockscreen.rot_override", false)
                 || (res.getBoolean(R.bool.config_enableLockScreenRotation)
-                && (enableLockScreenRotation && enableAccelerometerRotation));
+                || (enableLockScreenRotation && enableAccelerometerRotation));
     }
 
     /**
