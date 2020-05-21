@@ -210,4 +210,7 @@
     <string name="accessibility_quick_settings_navbar_off">Η γραμμή πλοήγησης είναι απενεργοποιημενη</string>
     <!-- Alerting notification header label -->
     <string name="notification_section_header_alerting">Προειδοποίηση ειδοποιησεων</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Έξυπνα Πίξελ</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Αυτόματη ενεργοποίηση Έξυπνων Πίξελ</string>
 </resources>
