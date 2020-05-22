@@ -209,7 +209,7 @@
     <string name="accessibility_quick_settings_navbar_on">Gezinme çubuğu açık</string>
     <string name="accessibility_quick_settings_navbar_off">Gezinme çubuğu kapalı</string>
     <!-- Alerting notification header label -->
-    <string name="notification_section_header_alerting">Uyarı bildirimleri</string>
+    <string name="notification_section_header_alerting">Sesli bildirimler</string>
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Akıllı Pikseller</string>
     <string name="quick_settings_smart_pixels_on_power_save">Otomatik olarak akıllı pikselleri etkinleştir</string>
