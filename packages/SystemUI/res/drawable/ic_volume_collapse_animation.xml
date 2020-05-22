@@ -25,7 +25,7 @@
                            android:translateY="-3.608" android:rotation="0">
                         <group android:name="_R_G_L_1_G" android:translateX="-0.246"
                                android:translateY="-1.642">
-                            <path android:name="_R_G_L_1_G_D_0_P_0" android:fillColor="#000000"
+                            <path android:name="_R_G_L_1_G_D_0_P_0" android:fillColor="@color/accent_tint_color_selector"
                                   android:fillAlpha="1" android:fillType="nonZero"
                                   android:pathData=" M6.84 9.66 C6.84,9.66 8.25,8.25 8.25,8.25 C8.25,8.25 0.25,0.25 0.25,0.25 C0.25,0.25 -1.12,1.71 -1.12,1.71 C-1.12,1.71 6.84,9.66 6.84,9.66c "/>
                         </group>
@@ -37,7 +37,7 @@
                            android:translateY="-3.585" android:rotation="0">
                         <group android:name="_R_G_L_0_G" android:translateX="-8.25"
                                android:translateY="-1.665">
-                            <path android:name="_R_G_L_0_G_D_0_P_0" android:fillColor="#000000"
+                            <path android:name="_R_G_L_0_G_D_0_P_0" android:fillColor="@color/accent_tint_color_selector"
                                   android:fillAlpha="1" android:fillType="nonZero"
                                   android:pathData=" M1.66 9.66 C1.66,9.66 0.25,8.25 0.25,8.25 C0.25,8.25 8.25,0.25 8.25,0.25 C8.25,0.25 9.64,1.69 9.64,1.69 C9.64,1.69 1.66,9.66 1.66,9.66c "/>
                         </group>
