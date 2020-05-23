@@ -25,7 +25,6 @@ public class DataUsageView extends TextView {
     private Context mContext;
     private NetworkController mNetworkController;
     private static boolean shouldUpdateData;
-    private static boolean shouldUpdateDataTextView;
     private String formatedinfo;
 
     public DataUsageView(Context context, AttributeSet attrs) {
@@ -50,9 +49,6 @@ public class DataUsageView extends TextView {
                         updateUsageData();
                     }
                 });
-            }
-            if (shouldUpdateDataTextView) {
-                shouldUpdateDataTextView = false;
                 setText(formatedinfo);
             }
         }
@@ -67,7 +63,6 @@ public class DataUsageView extends TextView {
                 : mobileDataController.getDataUsageInfo();
 
         formatedinfo = formatDataUsage(info.usageLevel);
-        shouldUpdateDataTextView = true;
     }
 
     public int isDataUsageEnabled() {
