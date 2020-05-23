@@ -210,4 +210,7 @@
     <string name="accessibility_quick_settings_navbar_off">Панель навігації вимкнена</string>
     <!-- Alerting notification header label -->
     <string name="notification_section_header_alerting">Повідомлення про сповіщення</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Розумні пікселі</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Автоматичне увімкнення розумних пікселів</string>
 </resources>
