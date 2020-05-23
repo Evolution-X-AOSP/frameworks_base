@@ -210,4 +210,7 @@
     <string name="accessibility_quick_settings_navbar_off">ナビゲーションバー OFF</string>
     <!-- Alerting notification header label -->
     <string name="notification_section_header_alerting">アラート通知</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">スマートピクセル</string>
+    <string name="quick_settings_smart_pixels_on_power_save">自動有効</string>
 </resources>
