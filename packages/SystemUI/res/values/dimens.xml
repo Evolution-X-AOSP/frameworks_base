@@ -406,6 +406,7 @@
     <!-- The padding on the side of the navigation bar. Must be greater than or equal to
          navigation_extra_key_width -->
     <dimen name="navigation_side_padding">36dp</dimen>
+    <dimen name="navigation_extra_key_width">36dp</dimen>
 
     <!-- Move the back button drawable for 3 button layout upwards in ime mode and in portrait -->
     <dimen name="navbar_back_button_ime_offset">2dp</dimen>
