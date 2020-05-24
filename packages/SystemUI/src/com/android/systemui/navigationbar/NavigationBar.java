@@ -1577,6 +1577,15 @@ public class NavigationBar extends ViewController<NavigationBarView> implements 
             updateButtonLocation(region, touchRegionCache, mView.getRotateSuggestionButton(),
                     inScreenSpace, useNearestRegion);
         }
+        if (mView.getPowerButton() != null) {
+            updateButtonLocation(region, touchRegionCache, mView.getPowerButton(), inScreenSpace, useNearestRegion);
+        }
+        if (mView.getVolumeMinusButton() != null) {
+            updateButtonLocation(region, touchRegionCache, mView.getVolumeMinusButton(), inScreenSpace, useNearestRegion);
+        }
+        if (mView.getVolumePlusButton() != null) {
+            updateButtonLocation(region, touchRegionCache, mView.getVolumePlusButton(), inScreenSpace, useNearestRegion);
+        }
         return region;
     }
 
