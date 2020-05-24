@@ -141,6 +141,9 @@ public class NavigationBarView extends FrameLayout implements
     private Context mLightContext;
     private int mLightIconColor;
     private int mDarkIconColor;
+    private KeyButtonDrawable mPowerButton;
+    private KeyButtonDrawable mVolumePlusButton;
+    private KeyButtonDrawable mVolumeMinusButton;
 
     private EdgeBackGestureHandler mEdgeBackGestureHandler;
     private final DeadZone mDeadZone;
@@ -347,6 +350,9 @@ public class NavigationBarView extends FrameLayout implements
         mButtonDispatchers.put(R.id.ime_switcher, imeSwitcherButton);
         mButtonDispatchers.put(R.id.accessibility_button, accessibilityButton);
         mButtonDispatchers.put(R.id.menu_container, mContextualButtonGroup);
+        mButtonDispatchers.put(R.id.power, new ButtonDispatcher(R.id.power));
+        mButtonDispatchers.put(R.id.volume_minus, new ButtonDispatcher(R.id.volume_minus));
+        mButtonDispatchers.put(R.id.volume_plus, new ButtonDispatcher(R.id.volume_plus));
         mDeadZone = new DeadZone(this);
 
         mNavColorSampleMargin = getResources()
@@ -531,6 +537,18 @@ public class NavigationBarView extends FrameLayout implements
         return mButtonDispatchers.get(R.id.home_handle);
     }
 
+    public ButtonDispatcher getPowerButton() {
+        return mButtonDispatchers.get(R.id.power);
+    }
+
+    public ButtonDispatcher getVolumePlusButton() {
+        return mButtonDispatchers.get(R.id.volume_plus);
+    }
+
+    public ButtonDispatcher getVolumeMinusButton() {
+        return mButtonDispatchers.get(R.id.volume_minus);
+    }
+
     public SparseArray<ButtonDispatcher> getButtonDispatchers() {
         return mButtonDispatchers;
     }
@@ -574,6 +592,9 @@ public class NavigationBarView extends FrameLayout implements
 
         mArrowLeftIcon = getDrawable(R.drawable.ic_navbar_chevron_left);
         mArrowRightIcon = getDrawable(R.drawable.ic_navbar_chevron_right);
+        mPowerButton = getDrawable(R.drawable.ic_sysbar_power);
+        mVolumePlusButton = getDrawable(R.drawable.ic_sysbar_volume_plus);
+        mVolumeMinusButton = getDrawable(R.drawable.ic_sysbar_volume_minus);
     }
 
     /**
@@ -763,6 +784,16 @@ public class NavigationBarView extends FrameLayout implements
             mContextualButtonGroup.setButtonVisibility(R.id.ime_switcher, false);
         }
 
+        if (getPowerButton() != null) {
+            getPowerButton().setImageDrawable(mPowerButton);
+        }
+        if (getVolumeMinusButton() != null) {
+            getVolumeMinusButton().setImageDrawable(mVolumeMinusButton);
+        }
+        if (getVolumePlusButton() != null) {
+            getVolumePlusButton().setImageDrawable(mVolumePlusButton);
+        }
+
         mBarTransitions.reapplyDarkIntensity();
 
         boolean disableHome = isGesturalMode(mNavBarMode)
@@ -806,6 +837,17 @@ public class NavigationBarView extends FrameLayout implements
         getHomeButton().setVisibility(disableHome       ? View.INVISIBLE : View.VISIBLE);
         getRecentsButton().setVisibility(disableRecent  ? View.INVISIBLE : View.VISIBLE);
         getHomeHandle().setVisibility(disableHomeHandle ? View.INVISIBLE : View.VISIBLE);
+
+        if (getPowerButton() != null) {
+            getPowerButton().setVisibility(View.VISIBLE);
+        }
+        if (getVolumeMinusButton() != null) {
+            getVolumeMinusButton().setVisibility(View.VISIBLE);
+        }
+        if (getVolumePlusButton() != null) {
+            getVolumePlusButton().setVisibility(View.VISIBLE);
+        }
+
         notifyActiveTouchRegions();
     }
 
@@ -1097,6 +1139,15 @@ public class NavigationBarView extends FrameLayout implements
                 && mNavBarOverlayController.isVisible()) {
             // Note: this button is floating so the nearest region doesn't apply
             updateButtonLocation(mNavBarOverlayController.getCurrentView(), inScreenSpace);
+        }
+        if (getPowerButton() != null) {
+            updateButtonLocation(getPowerButton(), inScreenSpace, useNearestRegion);
+        }
+        if (getVolumeMinusButton() != null) {
+            updateButtonLocation(getVolumeMinusButton(), inScreenSpace, useNearestRegion);
+        }
+        if (getVolumePlusButton() != null) {
+            updateButtonLocation(getVolumePlusButton(), inScreenSpace, useNearestRegion);
         }
         return mTmpRegion;
     }
