@@ -2231,13 +2231,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
                 // Even though the subscription is not valid anymore, we need to notify that the
                 // SIM card was removed so we can update the UI.
                 becameAbsent = true;
-                for (SimData data : mSimDatas.values()) {
-                    // Set the SIM state of all SimData associated with that slot to ABSENT se we
-                    // do not move back into PIN/PUK locked and not detect the change below.
-                    if (data.slotId == slotId) {
-                        data.simState = State.ABSENT;
-                    }
-                }
+                mSimDatas.clear();
             } else if (state == State.CARD_IO_ERROR) {
                 updateTelephonyCapable(true);
             } else {
@@ -2631,8 +2625,9 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
             mSimDatas.put(subId, data);
             changed = true; // no data yet; force update
         } else {
-            changed = data.simState != state;
+            changed = (data.simState != state) || (data.slotId != slotId);
             data.simState = state;
+            data.slotId = slotId;
         }
         return changed;
     }
