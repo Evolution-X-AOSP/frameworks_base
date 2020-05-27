@@ -90,7 +90,8 @@
     <string name="vpn_credentials_username">Uživ. jméno</string>
     <string name="vpn_credentials_password">Heslo</string>
     <string name="vpn_credentials_dialog_connect">Připojit</string>
-    <!-- Reboot/Recovery QS Tile -->
+    <!-- Power off/Reboot/Recovery QS Tile -->
+    <string name="quick_settings_poweroff_label">Vypnout</string>
     <string name="quick_settings_reboot_label">Restartovat</string>
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
@@ -204,4 +205,13 @@
     <string name="quick_settings_powershare_off_powersave_label">Bezdrátové sdílení energie je vypnuto\nSpořič baterie</string>
     <string name="quick_settings_powershare_off_low_battery_label">Bezdrátové sdílení energie je vypnuto\nNízký stav baterie</string>
     <string name="quick_settings_powershare_enabled_label">Bezdrátové sdílení energie je zapnuto</string>
+    <!-- Navigation Bar tile -->
+    <string name="quick_settings_navbar_title">Navigační panel</string>
+    <string name="accessibility_quick_settings_navbar_on">Navigační panel zap.</string>
+    <string name="accessibility_quick_settings_navbar_off">Navigační panel vyp.</string>
+    <!-- Alerting notification header label -->
+    <string name="notification_section_header_alerting">Výstrahy a oznámení</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Smart Pixels</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Automaticky povolit Smart Pixels</string>
 </resources>
