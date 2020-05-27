@@ -50,6 +50,7 @@ import android.graphics.Insets;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.hardware.display.DisplayManager;
+import android.media.AudioManager;
 import android.media.MediaActionSound;
 import android.net.Uri;
 import android.os.Bundle;
@@ -58,6 +59,8 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
 import android.os.RemoteException;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -254,6 +257,8 @@ public class ScreenshotController {
     private final WindowManager.LayoutParams mWindowLayoutParams;
     private final AccessibilityManager mAccessibilityManager;
     private final MediaActionSound mCameraSound;
+    private final AudioManager mAudioManager;
+    private final Vibrator mVibrator;
     private final ScrollCaptureClient mScrollCaptureClient;
     private final PhoneWindow mWindow;
     private final DisplayManager mDisplayManager;
@@ -381,6 +386,10 @@ public class ScreenshotController {
         // Setup the Camera shutter sound
         mCameraSound = new MediaActionSound();
         mCameraSound.load(MediaActionSound.SHUTTER_CLICK);
+
+        // Grab system services needed for screenshot sound
+        mAudioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
+        mVibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
 
         // Grab PackageManager
         mPm = mContext.getPackageManager();
@@ -817,7 +826,21 @@ public class ScreenshotController {
      */
     private void saveScreenshotAndToast(Consumer<Uri> finisher) {
         // Play the shutter sound to notify that we've taken a screenshot
-        mCameraSound.play(MediaActionSound.SHUTTER_CLICK);
+        switch (mAudioManager.getRingerMode()) {
+            case AudioManager.RINGER_MODE_SILENT:
+                 // do nothing
+                 break;
+            case AudioManager.RINGER_MODE_VIBRATE:
+                 if (mVibrator != null && mVibrator.hasVibrator()) {
+                     mVibrator.vibrate(VibrationEffect.createOneShot(50,
+                            VibrationEffect.DEFAULT_AMPLITUDE));
+                 }
+                 break;
+            case AudioManager.RINGER_MODE_NORMAL:
+                 // Play the shutter sound to notify that we've taken a screenshot
+                 mCameraSound.play(MediaActionSound.SHUTTER_CLICK);
+                 break;
+        }
 
         saveScreenshotInWorkerThread(
                 /* onComplete */ finisher,
@@ -851,7 +874,21 @@ public class ScreenshotController {
                 mScreenshotView.createScreenshotDropInAnimation(screenRect, showFlash);
 
         // Play the shutter sound to notify that we've taken a screenshot
-        mCameraSound.play(MediaActionSound.SHUTTER_CLICK);
+        switch (mAudioManager.getRingerMode()) {
+            case AudioManager.RINGER_MODE_SILENT:
+                 // do nothing
+                 break;
+            case AudioManager.RINGER_MODE_VIBRATE:
+                 if (mVibrator != null && mVibrator.hasVibrator()) {
+                     mVibrator.vibrate(VibrationEffect.createOneShot(50,
+                            VibrationEffect.DEFAULT_AMPLITUDE));
+                 }
+                 break;
+            case AudioManager.RINGER_MODE_NORMAL:
+                 // Play the shutter sound to notify that we've taken a screenshot
+                 mCameraSound.play(MediaActionSound.SHUTTER_CLICK);
+                 break;
+        }
 
         if (DEBUG_ANIM) {
             Log.d(TAG, "starting post-screenshot animation");
