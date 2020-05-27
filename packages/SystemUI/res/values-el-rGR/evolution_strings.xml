@@ -90,7 +90,8 @@
     <string name="vpn_credentials_username">Όνομα χρήστη</string>
     <string name="vpn_credentials_password">Κωδικός πρόσβασης</string>
     <string name="vpn_credentials_dialog_connect">Σύνδεση</string>
-    <!-- Reboot/Recovery QS Tile -->
+    <!-- Power off/Reboot/Recovery QS Tile -->
+    <string name="quick_settings_poweroff_label">Σβήσιμο</string>
     <string name="quick_settings_reboot_label">Επανεκκίνηση</string>
     <string name="quick_settings_reboot_recovery_label">Ανάκτηση</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
