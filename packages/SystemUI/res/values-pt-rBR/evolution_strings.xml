@@ -19,14 +19,14 @@
     <string name="delete_screenshot_toast">A captura de tela foi excluída</string>
     <!-- Advanced reboot -->
     <string name="global_action_restart_advanced">Avançado</string>
-    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_recovery">Recuperação</string>
     <string name="global_action_restart_bootloader">Fastboot</string>
     <string name="global_action_restart_ui">Interface do sistema</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">Captura de tela</string>
     <string name="quick_settings_region_screenshot_label">Captura de tela parcial</string>
     <!-- Sound Search tile -->
-    <string name="quick_settings_sound_search">Pesquisa de som</string>
+    <string name="quick_settings_sound_search">Pesquisar por som</string>
     <string name="quick_settings_sound_search_no_app">Desculpe, mas isso não funciona se você não tiver um aplicativo de pesquisa de som.</string>
     <!-- USB Tethering tile -->
     <string name="accessibility_quick_settings_usb_tether_off">Compartilhamento por USB desativado</string>
@@ -90,7 +90,8 @@
     <string name="vpn_credentials_username">Usuário</string>
     <string name="vpn_credentials_password">Senha</string>
     <string name="vpn_credentials_dialog_connect">Conectar</string>
-    <!-- Reboot/Recovery QS Tile -->
+    <!-- Power off/Reboot/Recovery QS Tile -->
+    <string name="quick_settings_poweroff_label">Desligar</string>
     <string name="quick_settings_reboot_label">Reiniciar</string>
     <string name="quick_settings_reboot_recovery_label">Recuperação</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
