@@ -313,4 +313,7 @@
 
     <!-- Default fod pressed icon -->
     <java-symbol type="integer" name="config_pressed_fod_icon" />
+
+    <!-- Pocket Service -->
+    <java-symbol type="string" name="config_pocketJudgeVendorSensorName" />
 </resources>
