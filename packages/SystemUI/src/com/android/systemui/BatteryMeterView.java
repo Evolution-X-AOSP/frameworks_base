@@ -435,7 +435,7 @@ public class BatteryMeterView extends LinearLayout implements
                                     R.string.accessibility_battery_level_with_estimate,
                                     mLevel, estimate));
                         } else {
-                            mBatteryPercentView.setText(estimate);
+                            batteryPercentViewSetText(estimate);
                             setContentDescription(getContext().getString(
                                     R.string.accessibility_battery_level_with_estimate,
                                     mLevel, estimate));
@@ -462,7 +462,7 @@ public class BatteryMeterView extends LinearLayout implements
                 mCharging && (mBatteryStyle == BATTERY_STYLE_TEXT
                 || mBatteryStyle == BATTERY_STYLE_HIDDEN)
                 ? (bolt + " ") : "";
-        mBatteryPercentView.setText(mChargeIndicator +
+        batteryPercentViewSetText(mChargeIndicator +
                 NumberFormat.getPercentInstance().format(mLevel / 100f));
         setContentDescription(
                 getContext().getString(mCharging ? R.string.accessibility_battery_level_charging
@@ -522,6 +522,13 @@ public class BatteryMeterView extends LinearLayout implements
         } else {
             mBatteryIconView.setVisibility(View.VISIBLE);
             scaleBatteryMeterViews();
+        }
+    }
+
+    private void batteryPercentViewSetText(CharSequence text) {
+        CharSequence currentText = mBatteryPercentView.getText();
+        if (!currentText.toString().equals(text.toString())) {
+            mBatteryPercentView.setText(text);
         }
     }
 
