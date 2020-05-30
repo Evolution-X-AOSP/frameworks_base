@@ -73,4 +73,22 @@
     <string name="adb_both_active_notification_title">ADB tramite USB &amp; rete attivato</string>
     <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Tocca per disattivare il debug.</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">Dissolvenza</string>
+    <string name="animation_slide_right">Scorrimento verso destra</string>
+    <string name="animation_slide_left">Scorrimento verso sinistra</string>
+    <string name="animation_slide_right_no_fade">Scorrimento verso destra (senza dissolvenza)</string>
+    <string name="animation_slide_left_no_fade">Scorrimento verso sinistra (senza dissolvenza)</string>
+    <string name="animation_slide_up">Scorrimento verso il basso</string>
+    <string name="animation_slide_down">Scorrimento verso l\'alto</string>
+    <string name="animation_default">Predefinito</string>
+    <string name="animation_translucent">Trasparenza</string>
+    <string name="animation_grow_shrink">Espansione (verso l\'alto)</string>
+    <string name="animation_grow_shrink_center">Espansione (verso il centro)</string>
+    <string name="animation_grow_shrink_bottom">Espansione (verso il basso)</string>
+    <string name="animation_grow_shrink_left">Espansione (verso sinistra)</string>
+    <string name="animation_grow_shrink_right">Espansione (verso destra)</string>
+    <string name="animation_ethans">Ethans</string>
+    <string name="animation_random">Casuale</string>
+    <string name="action_null">Nessuna</string>
 </resources>
