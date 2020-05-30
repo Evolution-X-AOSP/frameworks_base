@@ -149,123 +149,151 @@ public class TypographicClock extends TextView {
         final Resources res = getContext().getResources();
         boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
         int lockClockFont = isPrimary ? getLockClockFont() : 28;
-
-        if (lockClockFont == 0) {
-            setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
-        }
-        if (lockClockFont == 1) {
-            setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
-        }
-        if (lockClockFont == 2) {
-            setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
-        }
-        if (lockClockFont == 3) {
-            setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
-        }
-        if (lockClockFont == 4) {
-            setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
-        }
-        if (lockClockFont == 5) {
-            setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
-        }
-        if (lockClockFont == 6) {
-            setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
-        }
-        if (lockClockFont == 7) {
-            setTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
-        }
-        if (lockClockFont == 8) {
-            setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
-        }
-        if (lockClockFont == 9) {
-            setTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
-        }
-        if (lockClockFont == 10) {
-            setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
-        }
-        if (lockClockFont == 11) {
-            setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
-        }
-        if (lockClockFont == 12) {
-            setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
-        }
-        if (lockClockFont == 13) {
-            setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
-        }
-        if (lockClockFont == 14) {
-            setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.NORMAL));
-        }
-        if (lockClockFont == 15) {
-            setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.ITALIC));
-        }
-        if (lockClockFont == 16) {
-            setTypeface(Typeface.create("sans-serif-black", Typeface.NORMAL));
-        }
-        if (lockClockFont == 17) {
-            setTypeface(Typeface.create("sans-serif-black", Typeface.ITALIC));
-        }
-        if (lockClockFont == 18) {
-            setTypeface(Typeface.create("cursive", Typeface.NORMAL));
-        }
-        if (lockClockFont == 19) {
-            setTypeface(Typeface.create("cursive", Typeface.BOLD));
-        }
-        if (lockClockFont == 20) {
-            setTypeface(Typeface.create("casual", Typeface.NORMAL));
-        }
-        if (lockClockFont == 21) {
-            setTypeface(Typeface.create("serif", Typeface.NORMAL));
-        }
-        if (lockClockFont == 22) {
-            setTypeface(Typeface.create("serif", Typeface.ITALIC));
-        }
-        if (lockClockFont == 23) {
-            setTypeface(Typeface.create("serif", Typeface.BOLD));
-        }
-        if (lockClockFont == 24) {
-            setTypeface(Typeface.create("serif", Typeface.BOLD_ITALIC));
-        }
-        if (lockClockFont == 25) {
-            setTypeface(Typeface.create("gobold-light-sys", Typeface.NORMAL));
-        }
-        if (lockClockFont == 26) {
-            setTypeface(Typeface.create("roadrage-sys", Typeface.NORMAL));
-        }
-        if (lockClockFont == 27) {
-            setTypeface(Typeface.create("snowstorm-sys", Typeface.NORMAL));
-        }
-        if (lockClockFont == 28) {
-            setTypeface(Typeface.create("googlesans-sys", Typeface.NORMAL));
-        }
-        if (lockClockFont == 29) {
-            setTypeface(Typeface.create("neoneon-sys", Typeface.NORMAL));
-        }
-        if (lockClockFont == 30) {
-            setTypeface(Typeface.create("themeable-sys", Typeface.NORMAL));
-        }
-        if (lockClockFont == 31) {
-            setTypeface(Typeface.create("samsung-sys", Typeface.NORMAL));
-        }
-        if (lockClockFont == 32) {
-            setTypeface(Typeface.create("mexcellent-sys", Typeface.NORMAL));
-        }
-        if (lockClockFont == 33) {
-            setTypeface(Typeface.create("burnstown-sys", Typeface.NORMAL));
-        }
-        if (lockClockFont == 34) {
-            setTypeface(Typeface.create("dumbledor-sys", Typeface.NORMAL));
-        }
-        if (lockClockFont == 35) {
-            setTypeface(Typeface.create("phantombold-sys", Typeface.NORMAL));
-        }
-        if (lockClockFont == 36) {
-            setTypeface(Typeface.create("sourcesanspro-sys", Typeface.NORMAL));
-        }
-        if (lockClockFont == 37) {
-            setTypeface(Typeface.create("circularstd-sys", Typeface.NORMAL));
-        }
-        if (lockClockFont == 38) {
-            setTypeface(Typeface.create("oneplusslate-sys", Typeface.NORMAL));
+        switch (lockClockFont) {
+            case 0:
+                setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
+                break;
+            case 1:
+                setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+                break;
+            case 2:
+                setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
+                break;
+            case 3:
+                setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
+                break;
+            case 4:
+                setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
+                break;
+            case 5:
+                setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
+                break;
+            case 6:
+                setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
+                break;
+            case 7:
+                setTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
+                break;
+            case 8:
+                setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
+                break;
+            case 9:
+                setTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
+                break;
+            case 10:
+                setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
+                break;
+            case 11:
+                setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
+                break;
+            case 12:
+                setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+                break;
+            case 13:
+                setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
+                break;
+            case 14:
+                setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.NORMAL));
+                break;
+            case 15:
+                setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.ITALIC));
+                break;
+            case 16:
+                setTypeface(Typeface.create("sans-serif-black", Typeface.NORMAL));
+                break;
+            case 17:
+                setTypeface(Typeface.create("sans-serif-black", Typeface.ITALIC));
+                break;
+            case 18:
+                setTypeface(Typeface.create("cursive", Typeface.NORMAL));
+                break;
+            case 19:
+                setTypeface(Typeface.create("cursive", Typeface.BOLD));
+                break;
+            case 20:
+                setTypeface(Typeface.create("casual", Typeface.NORMAL));
+                break;
+            case 21:
+                setTypeface(Typeface.create("serif", Typeface.NORMAL));
+                break;
+            case 22:
+                setTypeface(Typeface.create("serif", Typeface.ITALIC));
+                break;
+            case 23:
+                setTypeface(Typeface.create("serif", Typeface.BOLD));
+                break;
+            case 24:
+                setTypeface(Typeface.create("serif", Typeface.BOLD_ITALIC));
+                break;
+            case 25:
+                setTypeface(Typeface.create("gobold-light-sys", Typeface.NORMAL));
+                break;
+            case 26:
+                setTypeface(Typeface.create("roadrage-sys", Typeface.NORMAL));
+                break;
+            case 27:
+                setTypeface(Typeface.create("snowstorm-sys", Typeface.NORMAL));
+                break;
+            case 28:
+                setTypeface(Typeface.create("googlesans-sys", Typeface.NORMAL));
+                break;
+            case 29:
+                setTypeface(Typeface.create("neoneon-sys", Typeface.NORMAL));
+                break;
+            case 30:
+                setTypeface(Typeface.create("themeable-sys", Typeface.NORMAL));
+                break;
+            case 31:
+                setTypeface(Typeface.create("samsung-sys", Typeface.NORMAL));
+                break;
+            case 32:
+                setTypeface(Typeface.create("mexcellent-sys", Typeface.NORMAL));
+                break;
+            case 33:
+                setTypeface(Typeface.create("burnstown-sys", Typeface.NORMAL));
+                break;
+            case 34:
+                setTypeface(Typeface.create("dumbledor-sys", Typeface.NORMAL));
+                break;
+            case 35:
+                setTypeface(Typeface.create("phantombold-sys", Typeface.NORMAL));
+                break;
+            case 36:
+                setTypeface(Typeface.create("sourcesanspro-sys", Typeface.NORMAL));
+                break;
+            case 37:
+                setTypeface(Typeface.create("circularstd-sys", Typeface.NORMAL));
+                break;
+            case 38:
+                setTypeface(Typeface.create("oneplusslate-sys", Typeface.NORMAL));
+                break;
+            case 39:
+                setTypeface(Typeface.create("aclonica-sys", Typeface.NORMAL));
+                break;
+            case 40:
+                setTypeface(Typeface.create("amarante-sys", Typeface.NORMAL));
+                break;
+            case 41:
+                setTypeface(Typeface.create("bariol-sys", Typeface.NORMAL));
+                break;
+            case 42:
+                setTypeface(Typeface.create("cagliostro-sys", Typeface.NORMAL));
+                break;
+            case 43:
+                setTypeface(Typeface.create("coolstory-sys", Typeface.NORMAL));
+                break;
+            case 44:
+                setTypeface(Typeface.create("lgsmartgothic-sys", Typeface.NORMAL));
+                break;
+            case 45:
+                setTypeface(Typeface.create("rosemary-sys", Typeface.NORMAL));
+                break;
+            case 46:
+                setTypeface(Typeface.create("sonysketch-sys", Typeface.NORMAL));
+                break;
+            case 47:
+                setTypeface(Typeface.create("surfer-sys", Typeface.NORMAL));
+                break;
         }
     }
 
