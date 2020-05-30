@@ -308,12 +308,12 @@
     <!-- Whether device has a big physical display cutout -->
     <bool name="config_bigPhysicalDisplayCutout">false</bool>
 
-    <!-- Smart charging battery percentage -->
-    <integer name="config_smartChargingBatteryLevel">80</integer>
-    <integer name="config_smartChargingBatteryResumeLevel">60</integer>
-    <string name="config_SmartChargingSysfsNode" translatable="false">/sys/class/power_supply/battery/input_suspend</string>
-    <string name="config_SmartChargingSuspendValue" translatable="false">1</string>
-    <string name="config_SmartChargingResumeValue" translatable="false">0</string>
+    <!-- Smart charging -->
+    <integer name="config_SmartChargingBatteryLevel">80</integer>
+    <integer name="config_SmartChargingBatteryResumeLevel">60</integer>
+    <string name="config_SmartChargingSysfsNode" translatable="false">/sys/class/power_supply/battery/charging_enabled</string>
+    <string name="config_SmartChargingSuspendValue" translatable="false">0</string>
+    <string name="config_SmartChargingResumeValue" translatable="false">1</string>
 
     <!-- -1 means use same as config_screenBrightnessDoze -->
     <integer name="config_screenBrightnessPulse">-1</integer>
