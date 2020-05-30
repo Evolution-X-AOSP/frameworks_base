@@ -237,10 +237,6 @@ public final class PowerManagerService extends SystemService
 
     private static final float PROXIMITY_NEAR_THRESHOLD = 5.0f;
 
-    // Smart charging: sysfs node of charger
-    private static final String POWER_INTPUT_SUSPEND_NODE =
-            "/sys/class/power_supply/battery/input_suspend";
-
     private final Context mContext;
     private final ServiceThread mHandlerThread;
     private final PowerManagerHandler mHandler;
@@ -1027,7 +1023,7 @@ public final class PowerManagerService extends SystemService
         resolver.registerContentObserver(Settings.System.getUriFor(
                 Settings.System.DOZE_ON_CHARGE),
                 false, mSettingsObserver, UserHandle.USER_ALL);
-        resolver.registerContentObserver(Settings.Global.getUriFor(
+        resolver.registerContentObserver(Settings.System.getUriFor(
                 Settings.System.SMART_CHARGING),
                 false, mSettingsObserver, UserHandle.USER_ALL);
         resolver.registerContentObserver(Settings.System.getUriFor(
@@ -1120,17 +1116,17 @@ public final class PowerManagerService extends SystemService
         }
         // Smart charging
         mSmartChargingLevelDefaultConfig = resources.getInteger(
-                com.android.internal.R.integer.config_smartChargingBatteryLevel);
+                com.android.internal.R.integer.config_SmartChargingBatteryLevel);
         mSmartChargingResumeLevelDefaultConfig = resources.getInteger(
-                com.android.internal.R.integer.config_smartChargingBatteryResumeLevel);
+                com.android.internal.R.integer.config_SmartChargingBatteryResumeLevel);
         mPowerInputSuspendSysfsNode = resources.getString(
                 com.android.internal.R.string.config_SmartChargingSysfsNode);
         mPowerInputSuspendValue = resources.getString(
                 com.android.internal.R.string.config_SmartChargingSuspendValue);
         mPowerInputResumeValue = resources.getString(
                 com.android.internal.R.string.config_SmartChargingResumeValue);
-        mSmartChargingResetStats = Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.SMART_CHARGING_RESET_STATS, 0) == 1;
+        mSmartChargingResetStats = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.SMART_CHARGING_RESET_STATS, 0, UserHandle.USER_CURRENT) == 1;
     }
 
     private void updateSettingsLocked() {
@@ -1166,16 +1162,16 @@ public final class PowerManagerService extends SystemService
         String blockedWakelockList = Settings.Global.getString(resolver,
                 Settings.Global.WAKELOCK_BLOCKING_LIST);
         setBlockedWakeLocks(blockedWakelockList);
-        mSmartChargingEnabled = Settings.System.getInt(resolver,
-                Settings.System.SMART_CHARGING, 0) == 1;
-        mSmartChargingLevel = Settings.System.getInt(resolver,
+        mSmartChargingEnabled = Settings.System.getIntForUser(resolver,
+                Settings.System.SMART_CHARGING, 0, UserHandle.USER_CURRENT) == 1;
+        mSmartChargingLevel = Settings.System.getIntForUser(resolver,
                 Settings.System.SMART_CHARGING_LEVEL,
-                mSmartChargingLevelDefaultConfig);
-        mSmartChargingResumeLevel = Settings.System.getInt(resolver,
+                mSmartChargingLevelDefaultConfig, UserHandle.USER_CURRENT);
+        mSmartChargingResumeLevel = Settings.System.getIntForUser(resolver,
                 Settings.System.SMART_CHARGING_RESUME_LEVEL,
-                mSmartChargingResumeLevelDefaultConfig);
-        mSmartChargingResetStats = Settings.System.getInt(resolver,
-                Settings.System.SMART_CHARGING_RESET_STATS, 0) == 1;
+                mSmartChargingResumeLevelDefaultConfig, UserHandle.USER_CURRENT);
+        mSmartChargingResetStats = Settings.System.getIntForUser(resolver,
+                Settings.System.SMART_CHARGING_RESET_STATS, 0, UserHandle.USER_CURRENT) == 1;
 
         if (mSupportsDoubleTapWakeConfig) {
             boolean doubleTapWakeEnabled = Settings.Secure.getIntForUser(resolver,
