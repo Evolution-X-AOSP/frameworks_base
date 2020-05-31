@@ -168,7 +168,7 @@ public class AmbientDisplayConfiguration {
      */
     @TestApi
     public boolean alwaysOnEnabled(int user) {
-        return alwaysOnEnabledSetting(user) || alwaysOnChargingEnabled(user);
+        return alwaysOnEnabledSetting(user) || alwaysOnChargingEnabled(user) || alwaysOnAmbientLightEnabled(user);
     }
 
     /** {@hide} */
@@ -270,5 +270,15 @@ public class AmbientDisplayConfiguration {
     public boolean isPowerBtnFlashlightEnabled(int user) {
         return Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.TORCH_LONG_PRESS_POWER_GESTURE, 0, user) != 0;
+    }
+
+    /** {@hide} */
+    public boolean alwaysOnAmbientLightEnabled(int user) {
+        final boolean ambientLightsEnabled = boolSettingSystem(Settings.System.AOD_NOTIFICATION_PULSE, user, 0);
+        if (ambientLightsEnabled) {
+            boolean ambientLightsActivated = boolSettingSystem(Settings.System.AOD_NOTIFICATION_PULSE_ACTIVATED, user, 0);
+            return ambientLightsActivated && !accessibilityInversionEnabled(user) && alwaysOnAvailable();
+        }
+        return false;
     }
 }
