@@ -418,4 +418,7 @@
 
     <!-- Whether device has a notch -->
     <bool name="config_haveNotch">false</bool>
+
+    <!-- Ambient notification light color -->
+    <integer name="config_ambientNotificationDefaultColor">0xFF1A73E8</integer>
 </resources>
