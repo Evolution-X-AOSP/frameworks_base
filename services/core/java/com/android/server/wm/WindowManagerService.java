@@ -7870,7 +7870,7 @@ public class WindowManagerService extends IWindowManager.Stub
     }
 
     @Override
-    public void takeAlternativeScreenshot() {
-        mPolicy.takeAlternativeScreenshot();
+    public void takeAlternativeScreenshot(int type) {
+        mPolicy.takeAlternativeScreenshot(type);
     }
 }
