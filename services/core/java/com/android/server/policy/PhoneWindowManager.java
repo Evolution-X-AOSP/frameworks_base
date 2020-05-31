@@ -353,8 +353,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private static final String ACTION_TORCH_OFF =
             "com.android.server.policy.PhoneWindowManager.ACTION_TORCH_OFF";
 
-    private int sshotType;
-
     /**
      * Keyguard stuff
      */
@@ -717,6 +715,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private volatile int mTopFocusedDisplayId = INVALID_DISPLAY;
 
     private int mPowerButtonSuppressionDelayMillis = POWER_BUTTON_SUPPRESSION_DELAY_DEFAULT_MILLIS;
+
+    private int sshotType;
 
     // Power long press action saved on key down that should happen on key up
     private int mResolvedLongPressOnPowerBehavior;
@@ -2215,7 +2215,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         mSwipeToScreenshot = new SwipeToScreenshotListener(context, new SwipeToScreenshotListener.Callbacks() {
             @Override
             public void onSwipeThreeFinger() {
-                mHandler.post(mScreenshotRunnable);
+                if (!mPocketLockShowing) {
+                    if (sshotType == 1) mScreenshotRunnable.setScreenshotType(TAKE_SCREENSHOT_SELECTED_REGION);
+                    else mScreenshotRunnable.setScreenshotType(TAKE_SCREENSHOT_FULLSCREEN);
+                    mHandler.post(mScreenshotRunnable);
+                }
             }
         });
         mCameraManager = (CameraManager) mContext.getSystemService(Context.CAMERA_SERVICE);
@@ -2714,7 +2718,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         if (updateRotation) {
             updateRotation(true);
         }
-                sshotType = Settings.System.getIntForUser(mContext.getContentResolver(),
+        sshotType = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.SCREENSHOT_TYPE, 0, UserHandle.USER_CURRENT);
     }
 
