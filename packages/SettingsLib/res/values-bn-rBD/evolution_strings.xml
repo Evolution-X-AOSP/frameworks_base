@@ -33,4 +33,9 @@
     <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
     <string name="battery_info_status_warp_charging">ওয়ার্প চার্জিং</string>
     <string name="battery_info_status_warp_charging_lower">ওয়ার্প চার্জিং</string>
+    <!-- Label for estimated remaining duration of VOOC battery charging -->
+    <string name="power_remaining_vooc_charging_duration_only">ভুক চার্জিং (<xliff:g id="time">%1$s</xliff:g> সম্পূর্ণ না হওয়া পর্যন্ত)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a VOOC source.  -->
+    <string name="battery_info_status_vooc_charging">ভুক চার্জিং</string>
+    <string name="battery_info_status_vooc_charging_lower">ভুক চার্জিং</string>
 </resources>
