@@ -34,8 +34,11 @@
     <string name="accessibility_quick_settings_usb_tether_changed_off">USB internet paylaşımı kapatıldı</string>
     <string name="accessibility_quick_settings_usb_tether_changed_on">USB internet paylaşımı açıldı</string>
     <string name="quick_settings_usb_tether_label">USB internet paylaşımı</string>
-    <!-- AOD QS tile -->
+    <!-- AOD QS tile states -->
     <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">Şarj olurken her zaman açık ekran</string>
+    <string name="quick_settings_aod_off_label">Her zaman açık ekran kapalı</string>
+    <string name="quick_settings_aod_off_powersave_label">Her zaman açık ekran kapalı\nPil tasarrufu</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Ses</string>
     <string name="quick_settings_sound_mute">Sessiz</string>
@@ -98,6 +101,8 @@
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash Şarj Oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> kaldı)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Warp Şarj Oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> kaldı)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • WOOC Şarj Oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> kaldı)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Okuma modu</string>
     <string name="accessibility_quick_settings_reading_mode_on">Okuma modu açık.</string>
@@ -214,4 +219,28 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Akıllı Pikseller</string>
     <string name="quick_settings_smart_pixels_on_power_save">Otomatik olarak akıllı pikselleri etkinleştir</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">İmleç sola</string>
+    <string name="accessibility_dpad_right">İmleç sağa</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">Müzik</string>
+    <string name="quick_settings_music_play">Oynat</string>
+    <string name="quick_settings_music_pause">Duraklat</string>
+    <!-- QS Tuner Config -->
+    <string name="tuner_qs_long_press_action">Uzunca basıldığında panelleri gösterme</string>
+    <!-- Other QS tiles -->
+    <string name="alarm_title_tile">Alarm</string>
+    <string name="calc_title_tile">Hesap makinesi</string>
+    <string name="calendar_title_tile">Etkinlik Ekle</string>
+    <string name="camera_title_tile">Kamera</string>
+    <string name="call_title_tile">Çevirici</string>
+    <!-- Screen Stabilization -->
+    <string name="quick_settings_stabilization_label">Ekran Stabilizasyonu</string>
+    <string name="quick_settings_stabilization_off">Stabilizasyon devre dışı</string>
+    <string name="quick_settings_stabilization_on">Stabilizasyon etkin</string>
+    <string name="low_label">Düşük</string>
+    <string name="high_label">Yüksek</string>
+    <string name="stabilization_velocity_friction">Sürtünme hızı</string>
+    <string name="stabilization_velocity_amplitude">Hız Açıklığı</string>
+    <string name="stabilization_position_friction">Sürtünme pozisyonu</string>
 </resources>
