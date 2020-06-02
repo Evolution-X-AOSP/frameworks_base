@@ -98,6 +98,8 @@
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Încărcare Rapidă (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> până la finalizare)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Încărcare Super-Rapidă (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> până la finalizare)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Încărcare VOOC (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> până la finalizare)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Mod lectură</string>
     <string name="accessibility_quick_settings_reading_mode_on">Mod lectură activat.</string>
@@ -214,4 +216,7 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Pixeli inteligenți</string>
     <string name="quick_settings_smart_pixels_on_power_save">Autoactivare pixeli inteligenți</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Cursor stânga</string>
+    <string name="accessibility_dpad_right">Cursor dreapta</string>
 </resources>
