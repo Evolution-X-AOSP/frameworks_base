@@ -34,8 +34,11 @@
     <string name="accessibility_quick_settings_usb_tether_changed_off">USB-мадэм адключаны</string>
     <string name="accessibility_quick_settings_usb_tether_changed_on">USB-мадэм уключаны</string>
     <string name="quick_settings_usb_tether_label">USB-мадэм</string>
-    <!-- AOD QS tile -->
+    <!-- AOD QS tile states -->
     <string name="quick_settings_aod_label">Актыўны дысплей</string>
+    <string name="quick_settings_aod_on_charge_label">Актыўны экран пры зарадцы </string>
+    <string name="quick_settings_aod_off_label">Актыўны экран адключаны</string>
+    <string name="quick_settings_aod_off_powersave_label">Актыўны экран адкл.\nЭканомія батарэі</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Гук</string>
     <string name="quick_settings_sound_mute">Выключыць гук</string>
@@ -90,13 +93,16 @@
     <string name="vpn_credentials_username">Імя карыстальніка</string>
     <string name="vpn_credentials_password">Пароль</string>
     <string name="vpn_credentials_dialog_connect">Падлучыць</string>
-    <!-- Reboot/Recovery QS Tile -->
+    <!-- Power off/Reboot/Recovery QS Tile -->
+    <string name="quick_settings_poweroff_label">Выключыць</string>
     <string name="quick_settings_reboot_label">Перазагрузка</string>
     <string name="quick_settings_reboot_recovery_label">Рэжым аднаўлення</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Хуткая зарадка (<xliff:g id="charging_time_left" example="4 гадзіны і 2 хвіліны">%s</xliff:g> да поўнай зарадкі)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Warp зарадка • (<xliff:g id="charging_time_left" example="4 гадзінны і 2 хвіліны">%s</xliff:g> да поўнай зарадкі)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • VOOC зарадка • (<xliff:g id="charging_time_left" example="4 гадзінны і 2 хвіліны">%1$s</xliff:g> да поўнай зарадкі)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Рэжым чытання</string>
     <string name="accessibility_quick_settings_reading_mode_on">Рэжым чытання ўключаны.</string>
@@ -213,4 +219,28 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Разумныя пікселі</string>
     <string name="quick_settings_smart_pixels_on_power_save">Аўтаматычнае ўключэнне разумных пікселяў</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Курсор налева</string>
+    <string name="accessibility_dpad_right">Курсор направа</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">Музыка</string>
+    <string name="quick_settings_music_play">Прайграць</string>
+    <string name="quick_settings_music_pause">Паўза</string>
+    <!-- QS Tuner Config -->
+    <string name="tuner_qs_long_press_action">Не паказваць панэлі пры працяглым націску</string>
+    <!-- Other QS tiles -->
+    <string name="alarm_title_tile">Будзільнік</string>
+    <string name="calc_title_tile">Калькулятар</string>
+    <string name="calendar_title_tile">Дадаць падзею</string>
+    <string name="camera_title_tile">Камера</string>
+    <string name="call_title_tile">Набіральнік нумара</string>
+    <!-- Screen Stabilization -->
+    <string name="quick_settings_stabilization_label">Стабілізацыя экрана</string>
+    <string name="quick_settings_stabilization_off">Стабілізацыя адключана</string>
+    <string name="quick_settings_stabilization_on">Стабілізацыя уключана</string>
+    <string name="low_label">Нізкі</string>
+    <string name="high_label">Высокі</string>
+    <string name="stabilization_velocity_friction">Хуткасць перамяшчэння</string>
+    <string name="stabilization_velocity_amplitude">Амплітуда хуткасці</string>
+    <string name="stabilization_position_friction">Пазіцыі перамяшчэння</string>
 </resources>

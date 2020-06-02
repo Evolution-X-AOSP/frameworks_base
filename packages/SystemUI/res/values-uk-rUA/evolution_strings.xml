@@ -34,8 +34,11 @@
     <string name="accessibility_quick_settings_usb_tether_changed_off">USB-модем вимкнено</string>
     <string name="accessibility_quick_settings_usb_tether_changed_on">USB-модем увімкнуто</string>
     <string name="quick_settings_usb_tether_label">USB-модем</string>
-    <!-- AOD QS tile -->
+    <!-- AOD QS tile states -->
     <string name="quick_settings_aod_label">Екран сповіщень</string>
+    <string name="quick_settings_aod_on_charge_label">AOD при заряджанні</string>
+    <string name="quick_settings_aod_off_label">AOD вимкнено</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD вимкнено\nЕкономія батареї</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Звук</string>
     <string name="quick_settings_sound_mute">Вимкнути звук</string>
@@ -98,6 +101,8 @@
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Заряджання (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> до повного зарядження)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Заряджання (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> до повного зарядження)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • VOOC зарядка (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> до повного зарядження)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Режим читання</string>
     <string name="accessibility_quick_settings_reading_mode_on">Режим читання увімкнено.</string>
@@ -214,4 +219,28 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Розумні пікселі</string>
     <string name="quick_settings_smart_pixels_on_power_save">Автоматичне увімкнення розумних пікселів</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Курсор ліворуч</string>
+    <string name="accessibility_dpad_right">Курсор праворуч</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">Музика</string>
+    <string name="quick_settings_music_play">Відтворити</string>
+    <string name="quick_settings_music_pause">Пауза</string>
+    <!-- QS Tuner Config -->
+    <string name="tuner_qs_long_press_action">Не показувати панелі при довгому натисканні</string>
+    <!-- Other QS tiles -->
+    <string name="alarm_title_tile">Будильник</string>
+    <string name="calc_title_tile">Калькулятор</string>
+    <string name="calendar_title_tile">Додати подію</string>
+    <string name="camera_title_tile">Камера</string>
+    <string name="call_title_tile">Телефон</string>
+    <!-- Screen Stabilization -->
+    <string name="quick_settings_stabilization_label">Стабілізація екрану</string>
+    <string name="quick_settings_stabilization_off">Стабілізацію вимкнено</string>
+    <string name="quick_settings_stabilization_on">Стабілізацію увімкнено</string>
+    <string name="low_label">Низька</string>
+    <string name="high_label">Висока</string>
+    <string name="stabilization_velocity_friction">Швидкість тертя</string>
+    <string name="stabilization_velocity_amplitude">Амплітуда зсуву</string>
+    <string name="stabilization_position_friction">Швидкість повернення</string>
 </resources>

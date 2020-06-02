@@ -34,8 +34,11 @@
     <string name="accessibility_quick_settings_usb_tether_changed_off">Tethering USB disattivato</string>
     <string name="accessibility_quick_settings_usb_tether_changed_on">Tethering USB attivato</string>
     <string name="quick_settings_usb_tether_label">Tethering USB</string>
-    <!-- AOD QS tile -->
+    <!-- AOD QS tile states -->
     <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">AOD durante la ricarica</string>
+    <string name="quick_settings_aod_off_label">AOD disattivato</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD disattivato\nRisparmio energetico</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Suono</string>
     <string name="quick_settings_sound_mute">Muto</string>
@@ -90,13 +93,16 @@
     <string name="vpn_credentials_username">Nome utente</string>
     <string name="vpn_credentials_password">Password</string>
     <string name="vpn_credentials_dialog_connect">Connetti</string>
-    <!-- Reboot/Recovery QS Tile -->
+    <!-- Power off/Reboot/Recovery QS Tile -->
+    <string name="quick_settings_poweroff_label">Spegni</string>
     <string name="quick_settings_reboot_label">Riavvia</string>
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Ricarica Dash (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> al completamento)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Ricarica Warp(<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Ricarica dash (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> al completamento)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Modalità lettura</string>
     <string name="accessibility_quick_settings_reading_mode_on">Modalità lettura attiva.</string>
@@ -204,4 +210,37 @@
     <string name="quick_settings_powershare_off_powersave_label">PowerShare wireless\nRisparmio energetico</string>
     <string name="quick_settings_powershare_off_low_battery_label">PowerShare wireless\nBatteria troppo scarica</string>
     <string name="quick_settings_powershare_enabled_label">PowerShare wireless è abilitato</string>
+    <!-- Navigation Bar tile -->
+    <string name="quick_settings_navbar_title">Barra di navigazione</string>
+    <string name="accessibility_quick_settings_navbar_on">Barra di navigazione accesa</string>
+    <string name="accessibility_quick_settings_navbar_off">Barra di navigazione spenta</string>
+    <!-- Alerting notification header label -->
+    <string name="notification_section_header_alerting">Notifiche di avviso</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Smart Pixel</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Abilita automaticamente Smart Pixel</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Cursore a sinistra</string>
+    <string name="accessibility_dpad_right">Cursore a destra</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">Musica</string>
+    <string name="quick_settings_music_play">Riproduci</string>
+    <string name="quick_settings_music_pause">Pausa</string>
+    <!-- QS Tuner Config -->
+    <string name="tuner_qs_long_press_action">Non mostrare i pannelli alla pressione prolungata</string>
+    <!-- Other QS tiles -->
+    <string name="alarm_title_tile">Sveglia</string>
+    <string name="calc_title_tile">Calcolatrice</string>
+    <string name="calendar_title_tile">Aggiungi evento</string>
+    <string name="camera_title_tile">Fotocamera</string>
+    <string name="call_title_tile">Telefono</string>
+    <!-- Screen Stabilization -->
+    <string name="quick_settings_stabilization_label">Stabilizzazione schermo</string>
+    <string name="quick_settings_stabilization_off">Stabilizzazione disabilitata</string>
+    <string name="quick_settings_stabilization_on">Stabilizzazione abilitata</string>
+    <string name="low_label">Bassa</string>
+    <string name="high_label">Alta</string>
+    <string name="stabilization_velocity_friction">Velocità di movimento</string>
+    <string name="stabilization_velocity_amplitude">Ampiezza della velocità</string>
+    <string name="stabilization_position_friction">Posizione di movimento</string>
 </resources>
