@@ -98,6 +98,8 @@
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="pesentase">%2$s</xliff:g> • Pengisian Cepat (<xliff:g id="charging_time_left" example="4 jam 2 menit">%s</xliff:g> Sampai Penuh)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_warp_charging_time"><xliff:g id="pesentase">%2$s</xliff:g> • Pengisian Cepat (<xliff:g id="charging_time_left" example="4 jam 2 menit">%s</xliff:g> Sampai Penuh)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Pengisian VOOC (<xliff:g id="charging_time_left" example="4 jam 2 menit">%s</xliff:g> hingga penuh)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Mode baca</string>
     <string name="accessibility_quick_settings_reading_mode_on">Mode baca nyala.</string>
@@ -214,4 +216,7 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Piksel Cerdas</string>
     <string name="quick_settings_smart_pixels_on_power_save">Piksel Cerdas yang diaktifkan secara otomatis</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Kursor kiri</string>
+    <string name="accessibility_dpad_right">Kursor kanan</string>
 </resources>

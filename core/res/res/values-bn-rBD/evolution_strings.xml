@@ -73,4 +73,22 @@
     <string name="adb_both_active_notification_title">ইউএসবি &amp;amp এর উপর এডিবি; নেটওয়ার্ক সক্রিয় হয়েছে</string>
     <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">ডিবাগ নিষ্ক্রিয় করতে স্পর্শ করুন।</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">ফেইড</string>
+    <string name="animation_slide_right">ডান দিকে স্লাইড করুন</string>
+    <string name="animation_slide_left">বাম দিকে স্লাইড করুন</string>
+    <string name="animation_slide_right_no_fade">ডান দিকে স্লাইড করুন (ফেড ছাড়া)</string>
+    <string name="animation_slide_left_no_fade">বাম দিকে স্লাইড করুন (ফেড ছাড়া)</string>
+    <string name="animation_slide_up">নিচের দিকে স্লাইড করুন</string>
+    <string name="animation_slide_down">উপর দিকে স্লাইড করুন</string>
+    <string name="animation_default">ডিফল্ট</string>
+    <string name="animation_translucent">স্বচ্ছ</string>
+    <string name="animation_grow_shrink">বৃদ্ধি (ঊপর দিকে)</string>
+    <string name="animation_grow_shrink_center">বৃদ্ধি (মাঝখানে)</string>
+    <string name="animation_grow_shrink_bottom">বৃদ্ধি (নিচে)</string>
+    <string name="animation_grow_shrink_left">বৃদ্ধি (বামে)</string>
+    <string name="animation_grow_shrink_right">বৃদ্ধি (ডানে)</string>
+    <string name="animation_ethans">ইথান্স</string>
+    <string name="animation_random">এলোমেলো</string>
+    <string name="action_null">খালি</string>
 </resources>
