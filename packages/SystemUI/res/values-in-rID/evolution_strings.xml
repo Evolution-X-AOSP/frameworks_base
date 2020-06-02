@@ -34,8 +34,11 @@
     <string name="accessibility_quick_settings_usb_tether_changed_off">Penambatan USB dimatikan</string>
     <string name="accessibility_quick_settings_usb_tether_changed_on">Penambatan USB dinyalakan</string>
     <string name="quick_settings_usb_tether_label">Penambatan USB</string>
-    <!-- AOD QS tile -->
+    <!-- AOD QS tile states -->
     <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">AOD saat cas</string>
+    <string name="quick_settings_aod_off_label">AOD mati</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD nonaktif\nPenghemat baterai</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Suara</string>
     <string name="quick_settings_sound_mute">Senyap</string>
@@ -98,6 +101,8 @@
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="pesentase">%2$s</xliff:g> • Pengisian Cepat (<xliff:g id="charging_time_left" example="4 jam 2 menit">%s</xliff:g> Sampai Penuh)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_warp_charging_time"><xliff:g id="pesentase">%2$s</xliff:g> • Pengisian Cepat (<xliff:g id="charging_time_left" example="4 jam 2 menit">%s</xliff:g> Sampai Penuh)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Pengisian VOOC (<xliff:g id="charging_time_left" example="4 jam 2 menit">%s</xliff:g> hingga penuh)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Mode baca</string>
     <string name="accessibility_quick_settings_reading_mode_on">Mode baca nyala.</string>
@@ -214,4 +219,23 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Piksel Cerdas</string>
     <string name="quick_settings_smart_pixels_on_power_save">Piksel Cerdas yang diaktifkan secara otomatis</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Kursor kiri</string>
+    <string name="accessibility_dpad_right">Kursor kanan</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">Musik</string>
+    <string name="quick_settings_music_play">Mainkan</string>
+    <string name="quick_settings_music_pause">Jeda</string>
+    <!-- QS Tuner Config -->
+    <string name="tuner_qs_long_press_action">Jangan tampilkan panel pada tekan lama</string>
+    <!-- Other QS tiles -->
+    <string name="alarm_title_tile">Alarm</string>
+    <string name="calc_title_tile">Kalkulator</string>
+    <string name="calendar_title_tile">Tambahkan Acara</string>
+    <string name="camera_title_tile">Kamera</string>
+    <string name="call_title_tile">Panggilan</string>
+    <!-- Text to use when the number in a notification info is too large
+         (greater than status_bar_notification_info_maxnum, defined in
+         values/config.xml) and must be truncated.
+         [CHAR LIMIT=4] -->
 </resources>
