@@ -91,4 +91,7 @@
     <string name="animation_ethans">Sabit</string>
     <string name="animation_random">Rastgele</string>
     <string name="action_null">Boş</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Sistem arayüzünün yeniden başlatılması gerekir</string>
+    <string name="systemui_restart_message">Tüm değişikliklerin etkili olması için Sistem arayüzünün yeniden başlatılması gerekiyor. Sistem arayüzünü şimdi yeniden başlatmak ister misiniz?</string>
 </resources>
