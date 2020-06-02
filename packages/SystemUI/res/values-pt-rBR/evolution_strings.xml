@@ -34,8 +34,11 @@
     <string name="accessibility_quick_settings_usb_tether_changed_off">O compartilhamento por USB foi desativado</string>
     <string name="accessibility_quick_settings_usb_tether_changed_on">O compartilhamento por USB foi ativado</string>
     <string name="quick_settings_usb_tether_label">Compartilhamento por USB</string>
-    <!-- AOD QS tile -->
+    <!-- AOD QS tile states -->
     <string name="quick_settings_aod_label">Always On Display</string>
+    <string name="quick_settings_aod_on_charge_label">AOD ao carregar</string>
+    <string name="quick_settings_aod_off_label">AOD desligado</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD desligado\nEconomia de bateria</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Som</string>
     <string name="quick_settings_sound_mute">Desativar som</string>
@@ -98,6 +101,8 @@
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento rápido(<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%s</xliff:g> até completar a carga)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento rápido (<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%s</xliff:g> até completar a carga)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="porcentagem">%2$s</xliff:g> • Carregamento rápido (<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%1$s</xliff:g> até completar a carga)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Modo leitura</string>
     <string name="accessibility_quick_settings_reading_mode_on">Modo leitura ativado.</string>
@@ -214,4 +219,28 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Smart Pixels</string>
     <string name="quick_settings_smart_pixels_on_power_save">Ativação automática dos pixels inteligentes</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Cursor à esquerda</string>
+    <string name="accessibility_dpad_right">Cursor à direita</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">Música</string>
+    <string name="quick_settings_music_play">Tocar</string>
+    <string name="quick_settings_music_pause">Pausar</string>
+    <!-- QS Tuner Config -->
+    <string name="tuner_qs_long_press_action">Não mostrar painéis ao pressionar longamente</string>
+    <!-- Other QS tiles -->
+    <string name="alarm_title_tile">Alarme</string>
+    <string name="calc_title_tile">Calculadora</string>
+    <string name="calendar_title_tile">Adicionar evento</string>
+    <string name="camera_title_tile">Câmera</string>
+    <string name="call_title_tile">Discador</string>
+    <!-- Screen Stabilization -->
+    <string name="quick_settings_stabilization_label">Estabilização de tela</string>
+    <string name="quick_settings_stabilization_off">A estabilização está desativada</string>
+    <string name="quick_settings_stabilization_on">A estabilização está ativada</string>
+    <string name="low_label">Baixo</string>
+    <string name="high_label">Alto</string>
+    <string name="stabilization_velocity_friction">Velocidade de atrito</string>
+    <string name="stabilization_velocity_amplitude">Amplitude da velocidade</string>
+    <string name="stabilization_position_friction">Posição de atrito</string>
 </resources>
