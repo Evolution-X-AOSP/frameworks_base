@@ -34,8 +34,11 @@
     <string name="accessibility_quick_settings_usb_tether_changed_off">USB テザリングを OFF にしました</string>
     <string name="accessibility_quick_settings_usb_tether_changed_on">USB テザリングを ON にしました</string>
     <string name="quick_settings_usb_tether_label">USB\nテザリング</string>
-    <!-- AOD QS tile -->
+    <!-- AOD QS tile states -->
     <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">充電時の Always On Display</string>
+    <string name="quick_settings_aod_off_label">AOD off</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD OFF\nバッテリー節約</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">音声</string>
     <string name="quick_settings_sound_mute">消音</string>
@@ -98,6 +101,8 @@
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash Charging (充電完了まで残り<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Warp Charging (充電完了まで残り<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • VOOC Charging (充電完了まで残り<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g>)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">読書モード</string>
     <string name="accessibility_quick_settings_reading_mode_on">読書モード ON</string>
@@ -214,4 +219,28 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">スマートピクセル</string>
     <string name="quick_settings_smart_pixels_on_power_save">自動有効</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">カーソルを左</string>
+    <string name="accessibility_dpad_right">カーソルを右</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">音楽</string>
+    <string name="quick_settings_music_play">再生</string>
+    <string name="quick_settings_music_pause">一時停止</string>
+    <!-- QS Tuner Config -->
+    <string name="tuner_qs_long_press_action">長押しでパネルを非表示</string>
+    <!-- Other QS tiles -->
+    <string name="alarm_title_tile">アラーム</string>
+    <string name="calc_title_tile">電卓</string>
+    <string name="calendar_title_tile">イベントを追加</string>
+    <string name="camera_title_tile">カメラ</string>
+    <string name="call_title_tile">電話</string>
+    <!-- Screen Stabilization -->
+    <string name="quick_settings_stabilization_label">画面の安定化</string>
+    <string name="quick_settings_stabilization_off">安定化は無効です</string>
+    <string name="quick_settings_stabilization_on">安定化は有効です</string>
+    <string name="low_label">低</string>
+    <string name="high_label">高</string>
+    <string name="stabilization_velocity_friction">速度の摩擦</string>
+    <string name="stabilization_velocity_amplitude">速度の振幅</string>
+    <string name="stabilization_position_friction">位置の摩擦</string>
 </resources>
