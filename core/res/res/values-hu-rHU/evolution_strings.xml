@@ -26,11 +26,11 @@
     <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permgrouplab_fake_package_signature">Hamis csomagaláírás</string>
     <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permgroupdesc_fake_package_signature">engedélyezem hamis csomagaláírást</string>
+    <string name="permgroupdesc_fake_package_signature">hamis csomagaláírás engedélyezése</string>
     <!-- Message shown to the user when the apps requests permission from this group. If ever possible this should stay below 80 characters (assuming the parameters takes 20 characters). Don't abbreviate until the message reaches 120 characters though. [CHAR LIMIT=120] -->
     <string name="permgrouprequest_fake_package_signature">Engedélyezi a(z) &lt;b&gt;<xliff:g id="APP_NAME">%1$s</xliff:g>&lt;/b&gt; számára a hamis csomagaláírást?</string>
     <!-- Advanced reboot -->
-    <string name="reboot_to_recovery_title">Helyreállítás</string>
+    <string name="reboot_to_recovery_title">Recovery</string>
     <string name="reboot_to_recovery_message">Újraindítás Recovery módba</string>
     <string name="reboot_to_bootloader_title">Bootloader</string>
     <string name="reboot_to_bootloader_message">Újraindítás Bootloader módba</string>
@@ -73,4 +73,22 @@
     <string name="adb_both_active_notification_title">Az ADB USB-n és hálózaton keresztül engedélyezve</string>
     <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Érintse meg a hibakeresés letiltásához.</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">Áttűnés</string>
+    <string name="animation_slide_right">Beúszás jobbról</string>
+    <string name="animation_slide_left">Beúszás balról</string>
+    <string name="animation_slide_right_no_fade">Beúszás jobbról (nincs áttűnés)</string>
+    <string name="animation_slide_left_no_fade">Beúszás balról (nincs áttűnés)</string>
+    <string name="animation_slide_up">Beúszás alulról</string>
+    <string name="animation_slide_down">Beúszás felűlről</string>
+    <string name="animation_default">Alapértelmezett</string>
+    <string name="animation_translucent">Áttetsző</string>
+    <string name="animation_grow_shrink">Nyúlás (felülről)</string>
+    <string name="animation_grow_shrink_center">Nyúlás (középről)</string>
+    <string name="animation_grow_shrink_bottom">Nyúlás (alulról)</string>
+    <string name="animation_grow_shrink_left">Nyúlás (balról)</string>
+    <string name="animation_grow_shrink_right">Nyúlás (jobbról)</string>
+    <string name="animation_ethans">Ethans</string>
+    <string name="animation_random">Véletlenszerű</string>
+    <string name="action_null">Üres</string>
 </resources>
