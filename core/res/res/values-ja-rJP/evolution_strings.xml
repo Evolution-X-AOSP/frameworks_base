@@ -91,4 +91,7 @@
     <string name="animation_ethans">Ethans</string>
     <string name="animation_random">ランダム</string>
     <string name="action_null">空白</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">システム UI の再起動が必要です</string>
+    <string name="systemui_restart_message">全ての変更を反映するにはシステム UI の再起動が必要です。再起動しますか?</string>
 </resources>

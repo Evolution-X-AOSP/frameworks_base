@@ -91,4 +91,7 @@
     <string name="animation_ethans">Ethans</string>
     <string name="animation_random">Случайная</string>
     <string name="action_null">Пусто</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Необходима перезагрузка интерфейса</string>
+    <string name="systemui_restart_message">Чтобы все изменения вступили в силу, требуется перезагрузка интерфейса. Перезагрузить интерфейс?</string>
 </resources>
