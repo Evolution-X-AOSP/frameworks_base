@@ -91,4 +91,7 @@
     <string name="animation_ethans">Ethans</string>
     <string name="animation_random">Casuale</string>
     <string name="action_null">Nessuna</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Riavvio della SystemUI richiesto</string>
+    <string name="systemui_restart_message">Per rendere effettive tutte le modifiche, è necessario un riavvio della SystemUI. Riavviare la SystemUI ora?</string>
 </resources>

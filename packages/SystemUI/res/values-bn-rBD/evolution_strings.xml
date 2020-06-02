@@ -22,6 +22,7 @@
     <string name="global_action_restart_recovery">রিকভারি</string>
     <string name="global_action_restart_bootloader">বুটলোডার</string>
     <string name="global_action_restart_ui">সিস্টেম ইউআই</string>
+    <string name="global_action_screenrecord">স্ক্রিনরেকর্ড</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">স্ক্রিনশট</string>
     <string name="quick_settings_region_screenshot_label">আংশিক স্ক্রিনশট।</string>
@@ -34,8 +35,11 @@
     <string name="accessibility_quick_settings_usb_tether_changed_off">ইউএসবি টেথারিং বন্ধ করা হয়েছে</string>
     <string name="accessibility_quick_settings_usb_tether_changed_on">ইউএসবি টেথারিং চালু করা হয়েছে</string>
     <string name="quick_settings_usb_tether_label">ইউএসবি টেথারিং</string>
-    <!-- AOD QS tile -->
+    <!-- AOD QS tile states -->
     <string name="quick_settings_aod_label">সবসময় চালু থাকা ডিস্প্লে (AOD)</string>
+    <string name="quick_settings_aod_on_charge_label">চার্জে AOD</string>
+    <string name="quick_settings_aod_off_label">AOD বন্ধ</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD বন্ধ\nব্যাটারি সেভার</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">শব্দ</string>
     <string name="quick_settings_sound_mute">নিঃশব্দ</string>
@@ -90,13 +94,16 @@
     <string name="vpn_credentials_username">ব্যবহারকারীর নাম</string>
     <string name="vpn_credentials_password">পাসওয়ার্ড</string>
     <string name="vpn_credentials_dialog_connect">সংযুক্ত করুন</string>
-    <!-- Reboot/Recovery QS Tile -->
+    <!-- Power off/Reboot/Recovery QS Tile -->
+    <string name="quick_settings_poweroff_label">পাওয়ার অফ</string>
     <string name="quick_settings_reboot_label">রিবুট</string>
     <string name="quick_settings_reboot_recovery_label">রিকভারি</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • ড্যাশ চার্জিং (<xliff:g id="charging_time_left" example="4 ঘন্টা 2 মিনিট">%s</xliff:g> সম্পূর্ণ না হওয়া পর্যন্ত)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • ওয়ার্প চার্জিং (<xliff:g id="charging_time_left" example="4 ঘন্টা 2 মিনিট">%s</xliff:g> সম্পূর্ণ না হওয়া পর্যন্ত)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • ভুক চার্জিং (<xliff:g id="charging_time_left" example="4 ঘন্টা 2 মিনিট">%1$s</xliff:g> সম্পূর্ণ না হওয়া পর্যন্ত)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">পড়ার মোড</string>
     <string name="accessibility_quick_settings_reading_mode_on">পড়ার মোড চালু।</string>
@@ -193,8 +200,9 @@
     <string name="right">ডানদিকে</string>
     <string name="navbar_editor_title">সম্পাদক</string>
     <string name="navbar_editor_summary">ন্যাভিগেশন বার কনফিগার করুন</string>
-    <string name="recents_app_killed">রিসেন্টস অ্যাপ মারা গেছে</string>
-    <string name="nope_cant_kill">নাহ মারতে পারে না</string>
+    <!-- Long swipe gesture actions -->
+    <string name="task_helper_app_killed">%1$s জোরপূর্বক বন্ধ করা হয়েছে</string>
+    <string name="empty_app_killed">অ্যাপ্লিকেশন</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">ধরে রাখুন &amp; টাইল যোগ করতে টানুন বা ট্যাপ করুন</string>
     <!-- Label for header of customize QS -->
@@ -213,4 +221,28 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">স্মার্ট পিক্সেল</string>
     <string name="quick_settings_smart_pixels_on_power_save">স্মার্ট পিক্সেল সয়ংক্রীয় চালু করুন</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">কার্সর বামে</string>
+    <string name="accessibility_dpad_right">কার্সর ডানে</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">মিউজিক</string>
+    <string name="quick_settings_music_play">প্লে</string>
+    <string name="quick_settings_music_pause">বিরতি</string>
+    <!-- QS Tuner Config -->
+    <string name="tuner_qs_long_press_action">দীর্ঘ প্রেসে প্যানেল প্রদর্শন করবেন না</string>
+    <!-- Other QS tiles -->
+    <string name="alarm_title_tile">অ্যালার্ম</string>
+    <string name="calc_title_tile">ক্যালকুলেটর</string>
+    <string name="calendar_title_tile">ইভেন্ট যোগ করুন</string>
+    <string name="camera_title_tile">ক্যামেরা</string>
+    <string name="call_title_tile">ডায়ালার</string>
+    <!-- Screen Stabilization -->
+    <string name="quick_settings_stabilization_label">স্ক্রিন স্থিতিশীল করন</string>
+    <string name="quick_settings_stabilization_off">স্থিতিশীলকরন বন্ধ</string>
+    <string name="quick_settings_stabilization_on">স্থিতিশীলকরন চালু</string>
+    <string name="low_label">নিম্ন</string>
+    <string name="high_label">উচ্চ</string>
+    <string name="stabilization_velocity_friction">গতিবেগ ঘর্ষণ</string>
+    <string name="stabilization_velocity_amplitude">গতিবেগ বর্ধন</string>
+    <string name="stabilization_position_friction">জায়গায় ঘর্ষণ</string>
 </resources>
