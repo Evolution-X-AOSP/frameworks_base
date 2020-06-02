@@ -73,4 +73,22 @@
     <string name="adb_both_active_notification_title">ADB přes USB &amp; síť povoleno</string>
     <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Dotykem zakázat ladění.</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">Slábnutí</string>
+    <string name="animation_slide_right">Posunutí vpravo</string>
+    <string name="animation_slide_left">Posunutí vlevo</string>
+    <string name="animation_slide_right_no_fade">Posunutí vpravo (bez slábnutí)</string>
+    <string name="animation_slide_left_no_fade">Posunutí vlevo (bez slábnutí)</string>
+    <string name="animation_slide_up">Posunutí dolů</string>
+    <string name="animation_slide_down">Posunutí nahoru</string>
+    <string name="animation_default">Výchozí</string>
+    <string name="animation_translucent">Průhledná</string>
+    <string name="animation_grow_shrink">Narůst (nahoru)</string>
+    <string name="animation_grow_shrink_center">Narůst (ze středu)</string>
+    <string name="animation_grow_shrink_bottom">Narůst (dolů)</string>
+    <string name="animation_grow_shrink_left">Narůst (vlevo)</string>
+    <string name="animation_grow_shrink_right">Narůst (vpravo)</string>
+    <string name="animation_ethans">Ethans</string>
+    <string name="animation_random">Náhodná animace</string>
+    <string name="action_null">Prázdné</string>
 </resources>
