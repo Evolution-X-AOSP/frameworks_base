@@ -91,4 +91,7 @@
     <string name="animation_ethans">Ética</string>
     <string name="animation_random">Aleatório</string>
     <string name="action_null">Vazio</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">É necessário reiniciar a Interface do Sistema</string>
+    <string name="systemui_restart_message">Para que todas as alterações tenham efeito, é necessário reiniciar a interface do sistema. Deseja reiniciar a interface do sistema agora?</string>
 </resources>
