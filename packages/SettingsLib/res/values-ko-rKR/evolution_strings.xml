@@ -33,4 +33,9 @@
     <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
     <string name="battery_info_status_warp_charging">Warp 고속충전</string>
     <string name="battery_info_status_warp_charging_lower">warp 고속충전</string>
+    <!-- Label for estimated remaining duration of VOOC battery charging -->
+    <string name="power_remaining_vooc_charging_duration_only">VOOC 충전 (&lt;xliff : g id = \"time\"&gt; %1$s&lt;/ xliff : g&gt;가 가득 찰 때까지 남음)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a VOOC source.  -->
+    <string name="battery_info_status_vooc_charging">VOOC 충전</string>
+    <string name="battery_info_status_vooc_charging_lower">VOOC 충전</string>
 </resources>
