@@ -74,4 +74,22 @@
     <string name="adb_both_active_notification_title">ADB праз USB і сетку ўключана</string>
     <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Націсніце, каб адключыць адладку.</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">Затуханне</string>
+    <string name="animation_slide_right">Зрух управа</string>
+    <string name="animation_slide_left">Зрух улева</string>
+    <string name="animation_slide_right_no_fade">Зрух управа (без згасання)</string>
+    <string name="animation_slide_left_no_fade">Зрух улева (без згасання)</string>
+    <string name="animation_slide_up">Зрух уніз</string>
+    <string name="animation_slide_down">Зрух уверх</string>
+    <string name="animation_default">Па змаўчанні</string>
+    <string name="animation_translucent">Напаўпразрысты</string>
+    <string name="animation_grow_shrink">Павелічэнне (уверх)</string>
+    <string name="animation_grow_shrink_center">Павелічэнне (па цэнтры)</string>
+    <string name="animation_grow_shrink_bottom">Павелічэнне (уніз)</string>
+    <string name="animation_grow_shrink_left">Павелічэнне (налева)</string>
+    <string name="animation_grow_shrink_right">Павелічэнне (управа)</string>
+    <string name="animation_ethans">Ethans</string>
+    <string name="animation_random">Выпадковая</string>
+    <string name="action_null">Пуста</string>
 </resources>
