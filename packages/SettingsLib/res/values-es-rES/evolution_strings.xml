@@ -33,4 +33,9 @@
     <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
     <string name="battery_info_status_warp_charging">Carga rápida Warp</string>
     <string name="battery_info_status_warp_charging_lower">carga rápida Warp</string>
+    <!-- Label for estimated remaining duration of VOOC battery charging -->
+    <string name="power_remaining_vooc_charging_duration_only">Carga rápida (<xliff:g id="tiempo">%1$s</xliff:g> hasta completar)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a VOOC source.  -->
+    <string name="battery_info_status_vooc_charging">Carga rápida</string>
+    <string name="battery_info_status_vooc_charging_lower">Carga rápida</string>
 </resources>
