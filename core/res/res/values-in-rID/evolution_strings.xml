@@ -91,4 +91,7 @@
     <string name="animation_ethans">Etans</string>
     <string name="animation_random">Acak</string>
     <string name="action_null">Blank</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Diperlukan memulai ulang SystemUI</string>
+    <string name="systemui_restart_message">Untuk melihat semua perubahan, diperlukan memulai ulang SystemUI. Mulai ulang sekarang?</string>
 </resources>

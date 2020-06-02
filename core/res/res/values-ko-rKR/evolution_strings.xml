@@ -74,4 +74,25 @@
     <string name="adb_both_active_notification_title">USB &amp; 무선 네트워크로 ADB 사용</string>
     <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">디버깅을 사용하지 않으려면 터치하세요.</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">사라짐</string>
+    <string name="animation_slide_right">오른쪽에서 슬라이드</string>
+    <string name="animation_slide_left">왼쪽에서 슬라이드</string>
+    <string name="animation_slide_right_no_fade">오른쪽에서 슬라이드 (페이드 없음)</string>
+    <string name="animation_slide_left_no_fade">왼쪽에서 슬라이드(페이드 없음)</string>
+    <string name="animation_slide_up">아래쪽에서 슬라이드</string>
+    <string name="animation_slide_down">위에서 슬라이드</string>
+    <string name="animation_default">기본설정</string>
+    <string name="animation_translucent">반투명</string>
+    <string name="animation_grow_shrink">커지기 (상단에서)</string>
+    <string name="animation_grow_shrink_center">커지기(가운데에서)</string>
+    <string name="animation_grow_shrink_bottom">커지기(아래에서)</string>
+    <string name="animation_grow_shrink_left">커지기(왼쪽에서)</string>
+    <string name="animation_grow_shrink_right">커지기 (오른쪽에서)</string>
+    <string name="animation_ethans">에반스</string>
+    <string name="animation_random">랜덤</string>
+    <string name="action_null">공백</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">시스템 UI 재시작이 필요합니다</string>
+    <string name="systemui_restart_message">모든 변경 사항을 적용하려면 SystemUI를 다시 시작해야합니다. 지금 SystemUI를 다시 시작 하시겠습니까?</string>
 </resources>
