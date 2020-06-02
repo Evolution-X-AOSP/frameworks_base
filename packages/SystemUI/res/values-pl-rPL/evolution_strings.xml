@@ -98,6 +98,8 @@
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Ładowanie Dash (<xliff:g id="charging_time_left" example="4 godziny i 2 minuty">%s</xliff:g> do pełnego naładowania)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_warp_charging_time">&lt;xliff:g id=\"percentage\"&gt;%2$s&lt;/xliff:g&gt; • Szybkie ładowanie (&lt;xliff:g id=\"charging_time_left\" Na przykład=\"4 godziny i 2 minuty\"&gt;%s&lt;/xliff:g&gt; do pełnego naładowania)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Ładowanie VOOC (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> do pełnego naładowania)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Tryb Czytania</string>
     <string name="accessibility_quick_settings_reading_mode_on">Tryb czytania włączony.</string>
@@ -214,4 +216,13 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Inteligentne piksele</string>
     <string name="quick_settings_smart_pixels_on_power_save">Automatyczne włączanie inteligentnych pikseli</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Kursor lewy</string>
+    <string name="accessibility_dpad_right">Kursor prawy</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">Muzyka</string>
+    <string name="quick_settings_music_play">Odtwórz</string>
+    <string name="quick_settings_music_pause">Zapauzuj</string>
+    <!-- QS Tuner Config -->
+    <string name="tuner_qs_long_press_action">Nie pokazuj paneli po długim naciśnięciu</string>
 </resources>
