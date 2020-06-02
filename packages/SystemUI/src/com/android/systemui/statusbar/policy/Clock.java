@@ -38,6 +38,7 @@ import android.text.format.DateFormat;
 import android.text.style.CharacterStyle;
 import android.text.style.RelativeSizeSpan;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.widget.TextView;
@@ -68,6 +69,7 @@ import java.util.TimeZone;
 public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
         DarkReceiver, ConfigurationListener {
 
+    private static final String TAG = "StatusBarClock";
     private static final String CLOCK_SUPER_PARCELABLE = "clock_super_parcelable";
     private static final String CURRENT_USER_ID = "current_user_id";
     private static final String VISIBLE_BY_POLICY = "visible_by_policy";
@@ -388,9 +390,18 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
+            Handler handler = getHandler();
+            if (handler == null) {
+                Log.e(TAG,
+                        "Received intent, but handler is null - still attached to window? Window "
+                                + "token: "
+                                + getWindowToken());
+                return;
+            }
+
             if (action.equals(Intent.ACTION_TIMEZONE_CHANGED)) {
                 String tz = intent.getStringExtra("time-zone");
-                mHandler.post(() -> {
+                handler.post(() -> {
                     mCalendar = Calendar.getInstance(TimeZone.getTimeZone(tz));
                     if (mClockFormat != null) {
                         mClockFormat.setTimeZone(mCalendar.getTimeZone());
@@ -398,7 +409,7 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
                 });
             } else if (action.equals(Intent.ACTION_CONFIGURATION_CHANGED)) {
                 final Locale newLocale = getResources().getConfiguration().locale;
-                mHandler.post(() -> {
+                handler.post(() -> {
                     if (!newLocale.equals(mLocale)) {
                         mLocale = newLocale;
                     }
@@ -414,7 +425,7 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
             }
 
             if (mScreenOn) {
-                getHandler().post(() -> updateClock());
+                handler.post(() -> updateClock());
                 if (mClockAutoHide) autoHideHandler.post(() -> updateClockVisibility());
             }
         }
