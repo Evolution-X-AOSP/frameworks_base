@@ -77,18 +77,18 @@
     <string name="animation_fade">Desvanecer</string>
     <string name="animation_slide_right">Deslizar a la derecha</string>
     <string name="animation_slide_left">Deslizar a la izquierda</string>
-    <string name="animation_slide_right_no_fade">Deslizar a la derecha (Sin Fade)</string>
-    <string name="animation_slide_left_no_fade">Deslizar a la izquieda (Sin fade)</string>
+    <string name="animation_slide_right_no_fade">Deslizar a la derecha (sin desvanecerse)</string>
+    <string name="animation_slide_left_no_fade">Deslizar a la izquierda (sin desvanecerse)</string>
     <string name="animation_slide_up">Deslizar desde abajo</string>
     <string name="animation_slide_down">Deslizar desde arriba</string>
     <string name="animation_default">Por defecto</string>
     <string name="animation_translucent">Translúcido</string>
-    <string name="animation_grow_shrink">Aparecer (desde arriba)</string>
-    <string name="animation_grow_shrink_center">Aparecer (desde el centro)</string>
-    <string name="animation_grow_shrink_bottom">Aparecer (desde abajo)</string>
-    <string name="animation_grow_shrink_left">Aparecer (por izquierda)</string>
-    <string name="animation_grow_shrink_right">Aparecer (desde la derecha)</string>
+    <string name="animation_grow_shrink">Expandirse (desde arriba)</string>
+    <string name="animation_grow_shrink_center">Expandirse (desde el centro)</string>
+    <string name="animation_grow_shrink_bottom">Expandirse (desde abajo)</string>
+    <string name="animation_grow_shrink_left">Expandirse (por izquierda)</string>
+    <string name="animation_grow_shrink_right">Expandirse (por derecha)</string>
     <string name="animation_ethans">Ethans</string>
     <string name="animation_random">Aleatorio</string>
-    <string name="action_null">En blanco</string>
+    <string name="action_null">Vacío</string>
 </resources>
