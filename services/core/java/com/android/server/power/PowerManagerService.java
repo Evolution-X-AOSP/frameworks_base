@@ -449,6 +449,8 @@ public final class PowerManagerService extends SystemService
     // True if doze should not be started until after the screen off transition.
     private boolean mDozeAfterScreenOff;
 
+    private boolean mEnableAutoSuspendConfig;
+
     // The minimum screen off timeout, in milliseconds.
     private long mMinimumScreenOffTimeoutConfig;
 
@@ -1082,6 +1084,8 @@ public final class PowerManagerService extends SystemService
                 com.android.internal.R.bool.config_powerDecoupleAutoSuspendModeFromDisplay);
         mDecoupleHalInteractiveModeFromDisplayConfig = resources.getBoolean(
                 com.android.internal.R.bool.config_powerDecoupleInteractiveModeFromDisplay);
+        mEnableAutoSuspendConfig = resources.getBoolean(
+                com.android.internal.R.bool.config_enableAutoSuspend);
         mWakeUpWhenPluggedOrUnpluggedConfig = resources.getBoolean(
                 com.android.internal.R.bool.config_unplugTurnsOnScreen);
         mWakeUpWhenPluggedOrUnpluggedInTheaterModeConfig = resources.getBoolean(
@@ -2958,7 +2962,8 @@ public final class PowerManagerService extends SystemService
                         if (!mDecoupleHalInteractiveModeFromDisplayConfig) {
                             setHalInteractiveModeLocked(false);
                         }
-                        if (!mDecoupleHalAutoSuspendModeFromDisplayConfig) {
+                        if (mEnableAutoSuspendConfig
+                                && !mDecoupleHalAutoSuspendModeFromDisplayConfig) {
                             setHalAutoSuspendModeLocked(true);
                         }
                     } else {
@@ -3003,7 +3008,7 @@ public final class PowerManagerService extends SystemService
     private void updateSuspendBlockerLocked() {
         final boolean needWakeLockSuspendBlocker = ((mWakeLockSummary & WAKE_LOCK_CPU) != 0);
         final boolean needDisplaySuspendBlocker = needDisplaySuspendBlockerLocked();
-        final boolean autoSuspend = !needDisplaySuspendBlocker;
+        final boolean autoSuspend = mEnableAutoSuspendConfig && !needDisplaySuspendBlocker;
         final boolean interactive = mDisplayPowerRequest.isBrightOrDim();
 
         // Disable auto-suspend if needed.

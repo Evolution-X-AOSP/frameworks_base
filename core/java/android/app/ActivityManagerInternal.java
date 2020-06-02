@@ -345,6 +345,9 @@ public abstract class ActivityManagerInternal {
      */
     public abstract void unregisterProcessObserver(IProcessObserver processObserver);
 
+    /** Returns true if the given UID is registered as an active instrumentation. */
+    public abstract boolean isActiveInstrumentation(int uid);
+
     // Starts a process as empty.
     public abstract int startActivityAsUserEmpty(Bundle options);
 }
