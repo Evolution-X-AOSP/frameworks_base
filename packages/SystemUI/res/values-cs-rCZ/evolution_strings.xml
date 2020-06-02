@@ -34,8 +34,11 @@
     <string name="accessibility_quick_settings_usb_tether_changed_off">USB tethering je vypnutý</string>
     <string name="accessibility_quick_settings_usb_tether_changed_on">USB tethering je zapnutý</string>
     <string name="quick_settings_usb_tether_label">USB tethering</string>
-    <!-- AOD QS tile -->
+    <!-- AOD QS tile states -->
     <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">AOD při nabíjení</string>
+    <string name="quick_settings_aod_off_label">AOD vypnuto</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD vyp.\nSpořič baterie</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Zvuk</string>
     <string name="quick_settings_sound_mute">Ztlumit</string>
@@ -98,6 +101,8 @@
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • DASH nabíjení (zbývá <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Warp nabíjení (zbývá <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> do plného nabití)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • VOOC nabíjení (zbývá <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> do plného nabití)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Režim čtení</string>
     <string name="accessibility_quick_settings_reading_mode_on">Režim čtení zap.</string>
@@ -214,4 +219,28 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Smart Pixels</string>
     <string name="quick_settings_smart_pixels_on_power_save">Automaticky povolit Smart Pixels</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Kurzor doleva</string>
+    <string name="accessibility_dpad_right">Kurzor doprava</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">Hudba</string>
+    <string name="quick_settings_music_play">Přehrát</string>
+    <string name="quick_settings_music_pause">Pozastavit</string>
+    <!-- QS Tuner Config -->
+    <string name="tuner_qs_long_press_action">Nezobrazovat panely při dlouhém stisku</string>
+    <!-- Other QS tiles -->
+    <string name="alarm_title_tile">Budík</string>
+    <string name="calc_title_tile">Kalkulačka</string>
+    <string name="calendar_title_tile">Přidat událost</string>
+    <string name="camera_title_tile">Fotoaparát</string>
+    <string name="call_title_tile">Aplikace pro volání</string>
+    <!-- Screen Stabilization -->
+    <string name="quick_settings_stabilization_label">Stabilizace obrazovky</string>
+    <string name="quick_settings_stabilization_off">Stabilizace je vypnuta</string>
+    <string name="quick_settings_stabilization_on">Stabilizace je zapnuta</string>
+    <string name="low_label">Méně</string>
+    <string name="high_label">Více</string>
+    <string name="stabilization_velocity_friction">Rychlost přesunu</string>
+    <string name="stabilization_velocity_amplitude">Amplituda rychlosti</string>
+    <string name="stabilization_position_friction">Pozice přesunu</string>
 </resources>
