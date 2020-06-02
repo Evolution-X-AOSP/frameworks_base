@@ -453,25 +453,25 @@ public class KeyguardStatusView extends GridLayout implements
                 mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
                 break;
             case 1:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
                 break;
             case 2:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
+                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif", Typeface.BOLD));
                 break;
             case 3:
                 mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
                 break;
             case 4:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
-                break;
-            case 5:
                 mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
                 break;
+            case 5:
+                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
+                break;
             case 6:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
+                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
                 break;
             case 7:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
+                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
                 break;
             case 8:
                 mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
@@ -486,16 +486,16 @@ public class KeyguardStatusView extends GridLayout implements
                 mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
                 break;
             case 12:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
-                break;
-            case 13:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
-                break;
-            case 14:
                 mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-condensed-light", Typeface.NORMAL));
                 break;
-            case 15:
+            case 13:
                 mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-condensed-light", Typeface.ITALIC));
+                break;
+            case 14:
+                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+                break;
+            case 15:
+                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
                 break;
             case 16:
                 mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-black", Typeface.NORMAL));
@@ -775,25 +775,25 @@ public class KeyguardStatusView extends GridLayout implements
                 mOwnerInfo.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
                 break;
             case 1:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+                mOwnerInfo.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
                 break;
             case 2:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
+                mOwnerInfo.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
                 break;
             case 3:
                 mOwnerInfo.setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
                 break;
             case 4:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
-                break;
-            case 5:
                 mOwnerInfo.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
                 break;
+            case 5:
+                mOwnerInfo.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
+                break;
             case 6:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
+                mOwnerInfo.setTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
                 break;
             case 7:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
+                mOwnerInfo.setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
                 break;
             case 8:
                 mOwnerInfo.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
@@ -808,16 +808,16 @@ public class KeyguardStatusView extends GridLayout implements
                 mOwnerInfo.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
                 break;
             case 12:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
-                break;
-            case 13:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
-                break;
-            case 14:
                 mOwnerInfo.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.NORMAL));
                 break;
-            case 15:
+            case 13:
                 mOwnerInfo.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.ITALIC));
+                break;
+            case 14:
+                mOwnerInfo.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+                break;
+            case 15:
+                mOwnerInfo.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
                 break;
             case 16:
                 mOwnerInfo.setTypeface(Typeface.create("sans-serif-black", Typeface.NORMAL));

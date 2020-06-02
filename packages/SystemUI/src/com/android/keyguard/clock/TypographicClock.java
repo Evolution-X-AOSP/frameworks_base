@@ -154,25 +154,25 @@ public class TypographicClock extends TextView {
                 setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
                 break;
             case 1:
-                setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+                setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
                 break;
             case 2:
-                setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
+                setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
                 break;
             case 3:
                 setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
                 break;
             case 4:
-                setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
-                break;
-            case 5:
                 setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
                 break;
+            case 5:
+                setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
+                break;
             case 6:
-                setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
+                setTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
                 break;
             case 7:
-                setTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
+                setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
                 break;
             case 8:
                 setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
@@ -187,16 +187,16 @@ public class TypographicClock extends TextView {
                 setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
                 break;
             case 12:
-                setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
-                break;
-            case 13:
-                setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
-                break;
-            case 14:
                 setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.NORMAL));
                 break;
-            case 15:
+            case 13:
                 setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.ITALIC));
+                break;
+            case 14:
+                setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+                break;
+            case 15:
+                setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
                 break;
             case 16:
                 setTypeface(Typeface.create("sans-serif-black", Typeface.NORMAL));

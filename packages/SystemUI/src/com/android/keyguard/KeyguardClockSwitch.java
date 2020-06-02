@@ -497,32 +497,32 @@ public class KeyguardClockSwitch extends RelativeLayout {
                 mClockViewBold.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
                 break;
             case 1:
-                mClockView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
-                mClockViewBold.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
-                break;
-            case 2:
                 mClockView.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
                 mClockViewBold.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
+                break;
+            case 2:
+                mClockView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+                mClockViewBold.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
                 break;
             case 3:
                 mClockView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
                 mClockViewBold.setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
                 break;
             case 4:
-                mClockView.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
-                mClockViewBold.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
-                break;
-            case 5:
                 mClockView.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
                 mClockViewBold.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
                 break;
-            case 6:
-                mClockView.setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
-                mClockViewBold.setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
+            case 5:
+                mClockView.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
+                mClockViewBold.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
                 break;
-            case 7:
+            case 6:
                 mClockView.setTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
                 mClockViewBold.setTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
+                break;
+            case 7:
+                mClockView.setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
+                mClockViewBold.setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
                 break;
             case 8:
                 mClockView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
@@ -541,20 +541,20 @@ public class KeyguardClockSwitch extends RelativeLayout {
                 mClockViewBold.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
                 break;
             case 12:
-                mClockView.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
-                mClockViewBold.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
-                break;
-            case 13:
-                mClockView.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
-                mClockViewBold.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
-                break;
-            case 14:
                 mClockView.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.NORMAL));
                 mClockViewBold.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.NORMAL));
                 break;
-            case 15:
+            case 13:
                 mClockView.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.ITALIC));
                 mClockViewBold.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.ITALIC));
+                break;
+            case 14:
+                mClockView.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+                mClockViewBold.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+                break;
+            case 15:
+                mClockView.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
+                mClockViewBold.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
                 break;
             case 16:
                 mClockView.setTypeface(Typeface.create("sans-serif-black", Typeface.NORMAL));
