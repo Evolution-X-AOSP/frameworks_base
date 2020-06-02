@@ -90,13 +90,16 @@
     <string name="vpn_credentials_username">ব্যবহারকারীর নাম</string>
     <string name="vpn_credentials_password">পাসওয়ার্ড</string>
     <string name="vpn_credentials_dialog_connect">সংযুক্ত করুন</string>
-    <!-- Reboot/Recovery QS Tile -->
+    <!-- Power off/Reboot/Recovery QS Tile -->
+    <string name="quick_settings_poweroff_label">পাওয়ার অফ</string>
     <string name="quick_settings_reboot_label">রিবুট</string>
     <string name="quick_settings_reboot_recovery_label">রিকভারি</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • ড্যাশ চার্জিং (<xliff:g id="charging_time_left" example="4 ঘন্টা 2 মিনিট">%s</xliff:g> সম্পূর্ণ না হওয়া পর্যন্ত)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • ওয়ার্প চার্জিং (<xliff:g id="charging_time_left" example="4 ঘন্টা 2 মিনিট">%s</xliff:g> সম্পূর্ণ না হওয়া পর্যন্ত)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • ভুক চার্জিং (<xliff:g id="charging_time_left" example="4 ঘন্টা 2 মিনিট">%1$s</xliff:g> সম্পূর্ণ না হওয়া পর্যন্ত)</string>
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">পড়ার মোড</string>
     <string name="accessibility_quick_settings_reading_mode_on">পড়ার মোড চালু।</string>

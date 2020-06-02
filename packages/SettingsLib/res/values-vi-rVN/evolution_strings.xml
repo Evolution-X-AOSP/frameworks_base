@@ -33,4 +33,9 @@
     <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
     <string name="battery_info_status_warp_charging">Đang sạc nhanh Warp</string>
     <string name="battery_info_status_warp_charging_lower">đang sạc nhanh warp</string>
+    <!-- Label for estimated remaining duration of VOOC battery charging -->
+    <string name="power_remaining_vooc_charging_duration_only">Sạc nhanh VOOC (<xliff:g id="time">%1$s</xliff:g> cho đến khi đầy)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a VOOC source.  -->
+    <string name="battery_info_status_vooc_charging">Sạc VOOC</string>
+    <string name="battery_info_status_vooc_charging_lower">sạc Vooc</string>
 </resources>
