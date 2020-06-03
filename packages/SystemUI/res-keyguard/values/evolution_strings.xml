@@ -22,6 +22,9 @@
     <string name="clock_title_mnml_box" translatable="false">MNML\'s Box</string>
     <string name="clock_title_mnml_minimal" translatable="false">MNML\'s Minimal</string>
 
+    <!-- Lineage clock -->
+    <string name="clock_title_lineage" translatable="false">LineageOS</string>
+
     <!-- Minutes displayed in words on the typographic clock face. [CHAR LIMIT=20] -->
     <string-array name="type_clock_minutes_alt">
         <item>O\u2019Clock</item>
