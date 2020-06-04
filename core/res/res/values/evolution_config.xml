@@ -405,12 +405,6 @@
     <!-- Aspect ratio of screen -->
     <item name="config_screenAspectRatio" format="float" type="dimen">2.1</item>
 
-    <!-- Library path of screen off fod handler -->
-    <string name="config_fodScreenOffHandlerLib" translatable="false"></string>
-
-    <!-- Class name of screen off fod handler -->
-    <string name="config_fodScreenOffHandlerClass" translatable="false"></string>
-
     <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
     <string name="config_oemFastChargerStatusPath" translatable="false"></string>
     <!-- Expected value from fast charging status file  -->

@@ -42,9 +42,6 @@
     <!-- Whether to show HD icon in the status bar for volte -->
     <bool name="config_display_hd_volte">false</bool>
 
-    <!-- Whether to show biometric help only when failed -->
-    <bool name="config_biometricHelpShowOnlyWhenFailed">false</bool>
-
     <!-- Asus stitch editor component name -->
     <string name="config_stitchEditor">com.asus.stitchimage/com.asus.stitchimage.editor.ScreenshotEditorActivity</string>
 
