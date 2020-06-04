@@ -295,12 +295,6 @@
   <java-symbol type="string" name="adb_both_active_notification_title" />
   <java-symbol type="string" name="adb_active_generic_notification_message" />
 
-    <!-- Library path of screen off fod handler -->
-    <java-symbol type="string" name="config_fodScreenOffHandlerLib" />
-
-    <!-- Class name of screen off fod handler -->
-    <java-symbol type="string" name="config_fodScreenOffHandlerClass" />
-
     <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
     <java-symbol type="string" name="config_oemFastChargerStatusPath" />
     <!-- Expected value from fast charging status file -->
