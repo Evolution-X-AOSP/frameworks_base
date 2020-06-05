@@ -310,10 +310,12 @@ public final class NotificationRecord {
         final Notification notification = getSbn().getNotification();
         final boolean insistent = (notification.flags & Notification.FLAG_INSISTENT) != 0;
         VibrationEffect defaultVibration = helper.createDefaultVibration(insistent);
+        VibrationEffect customVibration = helper.createWaveformVibration(
+                getChannel().getCustomVibrationPattern(), insistent);
         VibrationEffect vibration;
         if (getChannel().shouldVibrate()) {
             vibration = getChannel().getVibrationPattern() == null
-                    ? defaultVibration
+                    ? (customVibration != null ? customVibration : defaultVibration)
                     : helper.createWaveformVibration(getChannel().getVibrationPattern(), insistent);
         } else {
             vibration = null;
@@ -324,7 +326,7 @@ public final class NotificationRecord {
             final boolean useDefaultVibrate =
                     (notification.defaults & Notification.DEFAULT_VIBRATE) != 0;
             if (useDefaultVibrate) {
-                vibration = defaultVibration;
+                vibration = customVibration != null ? customVibration : defaultVibration;
             } else {
                 vibration = helper.createWaveformVibration(notification.vibrate, insistent);
             }
