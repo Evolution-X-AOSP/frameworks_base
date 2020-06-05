@@ -114,5 +114,6 @@ public class SystemSettings {
         Settings.System.AOD_NOTIFICATION_PULSE_TIMEOUT,
         Settings.System.NOTIFICATION_PULSE_DURATION,
         Settings.System.RINGTONE_VIBRATION_PATTERN,
+        Settings.System.CUSTOM_RINGTONE_VIBRATION_PATTERN,
     };
 }
