@@ -49,7 +49,7 @@ public class FODCircleViewImpl extends SystemUI implements CommandQueue.Callback
         } catch (RuntimeException e) {
             // do nothing
         }
-        mDisableNightMode = SystemProperties.getBoolean("persist.fod.night_mode_disabled", true);
+        mDisableNightMode = FodUtils.hasFodSupport(mContext);
     }
 
     @Override
