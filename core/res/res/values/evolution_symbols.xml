@@ -310,4 +310,7 @@
 
     <!-- Clipboard force notify packages -->
     <java-symbol type="array" name="config_notifyClipboardPackages" />
+
+    <!-- Default fod pressed icon -->
+    <java-symbol type="integer" name="config_pressed_fod_icon" />
 </resources>

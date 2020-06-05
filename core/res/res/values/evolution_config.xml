@@ -417,4 +417,7 @@
 
     <!-- Default state for LiveDisplay -->
     <bool name="config_liveDisplayAvailable">false</bool>
+
+    <!-- Default fod pressed icon -->
+    <integer name="config_pressed_fod_icon">1</integer>
 </resources>
