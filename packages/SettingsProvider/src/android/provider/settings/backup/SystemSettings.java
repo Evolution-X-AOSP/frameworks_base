@@ -110,5 +110,6 @@ public class SystemSettings {
         Settings.System.SENSOR_BLOCK,
         Settings.System.ENABLE_FLOATING_ROTATION_BUTTON,
         Settings.System.RINGTONE_VIBRATION_PATTERN,
+        Settings.System.CUSTOM_RINGTONE_VIBRATION_PATTERN,
     };
 }
