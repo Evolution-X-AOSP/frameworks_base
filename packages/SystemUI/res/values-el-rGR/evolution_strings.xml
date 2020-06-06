@@ -217,4 +217,7 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Έξυπνα Pixel</string>
     <string name="quick_settings_smart_pixels_on_power_save">Αυτόματη ενεργοποίηση Έξυπνων Pixel</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Κέρσορας αριστερά</string>
+    <string name="accessibility_dpad_right">Κέρσορας δεξιά</string>
 </resources>
