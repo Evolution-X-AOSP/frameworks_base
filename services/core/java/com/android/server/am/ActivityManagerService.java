@@ -226,6 +226,8 @@ import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.graphics.Rect;
 import android.hardware.display.DisplayManagerInternal;
+import android.hardware.SensorManager;
+import android.hardware.SystemSensorManager;
 import android.location.LocationManager;
 import android.media.audiofx.AudioEffect;
 import android.net.Proxy;
@@ -1612,6 +1614,7 @@ public class ActivityManagerService extends IActivityManager.Stub
     private CutoutFullscreenController mCutoutFullscreenController;
 
     private GamingModeController mGamingModeController;
+    private SystemSensorManager mSystemSensorManager;
 
     /**
      * Used to notify activity lifecycle events.
@@ -7665,6 +7668,8 @@ public class ActivityManagerService extends IActivityManager.Stub
 
         // Gaming mode provider
         mGamingModeController = new GamingModeController(mContext);
+
+        mSystemSensorManager = new SystemSensorManager(mContext, mHandler.getLooper());
     }
 
     void startPersistentApps(int matchFlags) {
@@ -15173,6 +15178,9 @@ public class ActivityManagerService extends IActivityManager.Stub
                                         mBatteryStatsService.notePackageUninstalled(ssp);
                                         if (mGamingModeController != null) {
                                              mGamingModeController.notePackageUninstalled(ssp);
+                                        }
+                                        if (mSystemSensorManager != null) {
+                                             mSystemSensorManager.notePackageUninstalled(ssp);
                                         }
                                     }
                                 } else {

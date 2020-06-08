@@ -7083,6 +7083,13 @@ public final class Settings {
         private static final Validator HIGH_TOUCH_SENSITIVITY_ENABLE_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
+        /**
+         * Sensor blocked packages
+         * @hide
+         */
+        public static final String SENSOR_BLOCKED_APP = "sensor_blocked_app";
+        public static final String SENSOR_BLOCKED_APP_DUMMY = "sensor_blocked_app_dummy";
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
