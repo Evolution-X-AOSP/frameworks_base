@@ -202,15 +202,6 @@ public class FODCircleView extends ImageView {
         }
 
         @Override
-        public void onBiometricHelp(int msgId, String helpString,
-                BiometricSourceType biometricSourceType) {
-            if (msgId == -1){ // Auth error
-                hideCircle();
-                mHandler.post(() -> mFODAnimation.hideFODanimation());
-            }
-        }
-
-        @Override
         public void onStrongAuthStateChanged(int userId) {
             mCanUnlockWithFp = canUnlockWithFp();
             if (!mCanUnlockWithFp){
@@ -412,7 +403,7 @@ public class FODCircleView extends ImageView {
         setDim(true);
         dispatchPress();
 
-        setImageResource(PRESSED_STYLES[mPressedIcon]);
+        setImageDrawable(null);
         invalidate();
     }
 
