@@ -499,7 +499,8 @@ public class StatusBar extends SystemUI implements DemoMode,
     private boolean mSysuiRoundedFwvals;
 
     private ImageButton mDismissAllButton;
-    public boolean mClearableNotifications = true;
+    private boolean mClearableNotifications = true;
+    private boolean mShowDimissButton;
 
     private final int[] mAbsPos = new int[2];
 
@@ -2383,6 +2384,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.BERRY_ROUNDED_STYLE),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.NOTIFICATION_MATERIAL_DISMISS),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -2424,6 +2428,8 @@ public class StatusBar extends SystemUI implements DemoMode,
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL)) ||
                 uri.equals(Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS_MODE))) {
                 setScreenBrightnessMode();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.NOTIFICATION_MATERIAL_DISMISS))) {
+                updateDismissStyle();
             }
         }
 
@@ -2439,7 +2445,14 @@ public class StatusBar extends SystemUI implements DemoMode,
             setScreenBrightnessMode();
             updateRoundedFwvals();
             handleCutout(null);
+            updateDismissStyle();
         }
+    }
+
+    private void updateDismissStyle() {
+        mShowDimissButton = Settings.System.getIntForUser(mContext.getContentResolver(),
+            Settings.System.NOTIFICATION_MATERIAL_DISMISS, 0, UserHandle.USER_CURRENT) == 1;
+        updateDismissAllVisibility(true);
     }
 
     private void updateRoundedFwvals() {
@@ -2837,7 +2850,8 @@ public class StatusBar extends SystemUI implements DemoMode,
     }
 
     public void updateDismissAllVisibility(boolean visible) {
-        if (mClearableNotifications && mState != StatusBarState.KEYGUARD && visible) {
+        if (mDismissAllButton == null) return;
+        if (mShowDimissButton && mClearableNotifications && mState != StatusBarState.KEYGUARD && visible) {
             mDismissAllButton.setVisibility(View.VISIBLE);
             int DismissAllAlpha = Math.round(255.0f * mNotificationPanelViewController.getExpandedFraction());
             mDismissAllButton.setAlpha(DismissAllAlpha);
@@ -2845,7 +2859,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         } else {
             mDismissAllButton.setAlpha(0);
             mDismissAllButton.getBackground().setAlpha(0);
-            mDismissAllButton.setVisibility(View.INVISIBLE);
+            mDismissAllButton.setVisibility(View.GONE);
         }
     }
 
