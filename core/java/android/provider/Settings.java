@@ -7119,6 +7119,16 @@ public final class Settings {
         /** @hide */
         public static final String STABILIZATION_VELOCITY_AMPLITUDE = "stabilization_velocity_amplitude";
 
+        /**
+         * The amount of time in milliseconds before the device goes to sleep or begins
+         * to dream after a period of inactivity in the keyguard.
+         * @hide
+         */
+        public static final String LOCKSCREEN_TIMEOUT = "lockscreen_timeout";
+
+        /** @hide */
+        private static Validator LOCKSCREEN_TIMEOUT_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
@@ -7268,6 +7278,7 @@ public final class Settings {
             LOCKSCREEN_INFO,
             LOCKSCREEN_MEDIA_BLUR,
             LOCKSCREEN_MEDIA_METADATA,
+            LOCKSCREEN_TIMEOUT,
             LOCK_CLOCK_FONTS,
             LOCK_DATE_FONTS,
             LOCK_OWNERINFO_FONTS,
@@ -7855,6 +7866,7 @@ public final class Settings {
             VALIDATORS.put(LOCKSCREEN_INFO, LOCKSCREEN_INFO_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_MEDIA_BLUR, LOCKSCREEN_MEDIA_BLUR_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_MEDIA_METADATA, LOCKSCREEN_MEDIA_METADATA_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_TIMEOUT, LOCKSCREEN_TIMEOUT_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED, LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED_VALIDATOR);
             VALIDATORS.put(LOCK_CLOCK_FONTS, LOCK_CLOCK_FONTS_VALIDATOR);
             VALIDATORS.put(LOCK_DATE_FONTS, LOCK_DATE_FONTS_VALIDATOR);
