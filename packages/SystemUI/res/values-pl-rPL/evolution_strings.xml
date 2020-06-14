@@ -216,4 +216,7 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Inteligentne piksele</string>
     <string name="quick_settings_smart_pixels_on_power_save">Automatyczne włączanie inteligentnych pikseli</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Kursor lewy</string>
+    <string name="accessibility_dpad_right">Kursor prawy</string>
 </resources>
