@@ -52,6 +52,7 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.IWindowManager;
 import android.view.InputDevice;
 import android.view.KeyCharacterMap;
@@ -596,5 +597,11 @@ public class EvolutionUtils {
     public static boolean isNewerPixelDevice() {
         String deviceName = android.os.Build.DEVICE;
             return ("coral".equals(deviceName) || "flame".equals(deviceName));
+    }
+
+    public static int getThemeAccentColor (final Context context) {
+        final TypedValue value = new TypedValue ();
+        context.getTheme ().resolveAttribute (android.R.attr.colorAccent, value, true);
+        return value.data;
     }
 }
