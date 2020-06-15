@@ -262,6 +262,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
+import com.android.internal.custom.hardware.LineageHardwareManager;
+
 import dalvik.system.PathClassLoader;
 
 /**
@@ -789,6 +791,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private boolean mLongSwipeDown;
     private static final int LONG_SWIPE_FLAGS = KeyEvent.FLAG_LONG_PRESS
             | KeyEvent.FLAG_FROM_SYSTEM | KeyEvent.FLAG_VIRTUAL_HARD_KEY;
+
+    private LineageHardwareManager mLineageHardware;
 
     private class PolicyHandler extends Handler {
         @Override
@@ -2464,6 +2468,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     }
 
     private void updateKeyAssignments() {
+        updateKeyDisablerState();
+
         int activeHardwareKeys = mDeviceHardwareKeys;
 
         final boolean hasMenu = (activeHardwareKeys & KEY_MASK_MENU) != 0;
@@ -2573,6 +2579,20 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         mEdgeLongSwipeAction = Action.fromSettings(resolver,
                 Settings.System.KEY_EDGE_LONG_SWIPE_ACTION,
                 mEdgeLongSwipeAction);
+    }
+
+    private void updateKeyDisablerState(){
+        if (mLineageHardware == null){
+            try{
+                mLineageHardware = LineageHardwareManager.getInstance(mContext);
+            }catch(Exception e){
+                mLineageHardware = null;
+            }
+        }
+        if (mLineageHardware != null &&
+            mLineageHardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE)){
+            mLineageHardware.set(LineageHardwareManager.FEATURE_KEY_DISABLE, mHasNavigationBar);
+        }
     }
 
     public void updateSettings() {
