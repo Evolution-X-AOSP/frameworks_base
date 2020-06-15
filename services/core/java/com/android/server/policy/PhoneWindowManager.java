@@ -3132,7 +3132,14 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         int mDeviceHardwareWakeKeys = mContext.getResources().getInteger(
                 com.android.internal.R.integer.config_deviceHardwareWakeKeys);
         synchronized (mLock) {
-            mHasNavigationBar = NavbarUtils.isEnabled(mContext);
+            boolean hasNavigationBar = NavbarUtils.isEnabled(mContext);
+            if (hasNavigationBar != mHasNavigationBar){
+                mHasNavigationBar = hasNavigationBar;
+                if (mLineageHardware.isSupported(LineageHardwareManager.FEATURE_KEY_DISABLE)) {
+                    mLineageHardware.set(LineageHardwareManager.FEATURE_KEY_DISABLE, mHasNavigationBar);
+                }
+            }
+
             mEndcallBehavior = Settings.System.getIntForUser(resolver,
                     Settings.System.END_BUTTON_BEHAVIOR,
                     Settings.System.END_BUTTON_BEHAVIOR_DEFAULT,
