@@ -2584,8 +2584,10 @@ public final class Settings {
             // At one time in System, then Global, but now back in Secure
             MOVED_TO_SECURE.add(Secure.INSTALL_NON_MARKET_APPS);
 
+            // Evolution X Settings
             MOVED_TO_SECURE.add(Secure.VOLUME_LINK_NOTIFICATION);
             MOVED_TO_SECURE.add(Secure.LOCKSCREEN_VISUALIZER_ENABLED);
+            // Evolution X Settings end
         }
 
         @UnsupportedAppUsage
@@ -4828,6 +4830,10 @@ public final class Settings {
          */
         public static final String POCKET_JUDGE = "pocket_judge";
 
+        /** @hide */
+        private static final Validator POCKET_JUDGE_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
         /**
          * @hide
          */
@@ -5254,6 +5260,10 @@ public final class Settings {
          * @hide
          */
         public static final String QS_ROWS_PORTRAIT = "qs_rows_portrait";
+		
+        /** @hide */
+        private static final Validator QS_ROWS_PORTRAIT_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
 
         /**
          * How many rows to show in the qs panel when in landscape
@@ -5261,17 +5271,29 @@ public final class Settings {
          */
         public static final String QS_ROWS_LANDSCAPE = "qs_rows_landscape";
 
+        /** @hide */
+        private static final Validator QS_ROWS_LANDSCAPE_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
         /**
          * How many columns to show in the qs panel when in portrait
          * @hide
          */
         public static final String QS_COLUMNS_PORTRAIT = "qs_columns_portrait";
+		
+        /** @hide */
+        private static final Validator QS_COLUMNS_PORTRAIT_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
 
         /**
          * How many columns to show in the qs panel when in landscape
          * @hide
          */
         public static final String QS_COLUMNS_LANDSCAPE = "qs_columns_landscape";
+		
+        /** @hide */
+        private static final Validator QS_COLUMNS_LANDSCAPE_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
 
         /**
          * @hide
@@ -5283,6 +5305,10 @@ public final class Settings {
          * @hide
          */
         public static final String QS_TILE_TITLE_VISIBILITY = "qs_tile_title_visibility";
+		
+        /** @hide */
+        private static final Validator QS_TILE_TITLE_VISIBILITY_VALIDATOR =
+                BOOLEAN_VALIDATOR;
 
         /**
          * Whether to show battery percent on ambient bottom
@@ -5627,6 +5653,10 @@ public final class Settings {
          * @hide
          */
         public static final String NOTIFICATION_SOUND_VIB_SCREEN_ON = "notification_sound_vib_screen_on";
+		
+        /** @hide */
+        private static final Validator NOTIFICATION_SOUND_VIB_SCREEN_ON_VALIDATOR =
+                BOOLEAN_VALIDATOR;
 
         /**
          * Change quick settings tiles animation style
@@ -5736,6 +5766,10 @@ public final class Settings {
          * @hide
          */
         public static final String QS_SHOW_BRIGHTNESS_ICON = "qs_show_brightness_icon";
+		
+        /** @hide */
+        private static final Validator QS_SHOW_BRIGHTNESS_ICON_VALIDATOR =
+                BOOLEAN_VALIDATOR;
 
         /**
          * @hide
@@ -5816,17 +5850,21 @@ public final class Settings {
         public static final Validator FOOTER_TEXT_STRING_VALIDATOR =
                 ANY_STRING_VALIDATOR;
 
-        /** @hide
-        * modify how the album art shows up on lockscreen
-        * 0 - normal
-        * 1 - grayscale
-        * 2 - accent tint
-        * 3 - blurry
-        * 4 - grayscale and blurry
-        * 5 - gradient blur (default)
-        * @hide
-        */
-       public static final String LOCKSCREEN_ALBUM_ART_FILTER = "lockscreen_album_art_filter";
+        /**
+         * modify how the album art shows up on lockscreen
+         * 0 - normal
+         * 1 - grayscale
+         * 2 - accent tint
+         * 3 - blurry
+         * 4 - grayscale and blurry
+         * 5 - gradient blur (default)
+         * @hide
+         */
+        public static final String LOCKSCREEN_ALBUM_ART_FILTER = "lockscreen_album_art_filter";
+		
+        /** @hide */
+        private static final Validator LOCKSCREEN_ALBUM_ART_FILTER_VALIDATOR =
+              new SettingsValidators.InclusiveIntegerRangeValidator(0, 5);
 
         /**
          * Display style of the status bar battery information
@@ -5933,6 +5971,7 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
 
+        /** @hide */
         private static final Validator LOCKSCREEN_MEDIA_BLUR_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
         /**
@@ -6178,6 +6217,10 @@ public final class Settings {
          * @hide
          */
         public static final String CHARGING_ANIMATION = "charging_animation";
+		
+        /** @hide */
+        private static final Validator CHARGING_ANIMATION_VALIDATOR =
+               BOOLEAN_VALIDATOR;
 
         /**
          * Whether to change the color of the qs panel
@@ -6353,6 +6396,10 @@ public final class Settings {
          * @hide
          */
         public static final String SCREENSHOT_SOUND = "screenshot_sound";
+
+        /** @hide */
+        private static final Validator SCREENSHOT_SOUND_VALIDATOR =
+                BOOLEAN_VALIDATOR;
 
         /**
          * FOD recognizing animation
@@ -6677,6 +6724,10 @@ public final class Settings {
          * @hide
          */
         public static final String SHOW_MEDIA_HEADS_UP = "show_media_heads_up";
+		
+        /** @hide */
+        private static final Validator SHOW_MEDIA_HEADS_UP_VALIDATOR =
+                BOOLEAN_VALIDATOR;
 
         /**
          * Screenrecord: video bitrate
@@ -6700,11 +6751,19 @@ public final class Settings {
          */
         public static final String ADAPTIVE_PLAYBACK_ENABLED = "adaptive_playback_enabled";
 
+        /** @hide */
+        private static final Validator ADAPTIVE_PLAYBACK_ENABLED_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
         /**
          * Adaptive playback's timeout in ms
          * @hide
          */
         public static final String ADAPTIVE_PLAYBACK_TIMEOUT = "adaptive_playback_timeout";
+
+        /** @hide */
+        private static final Validator ADAPTIVE_PLAYBACK_TIMEOUT_VALIDATOR =
+              new SettingsValidators.InclusiveIntegerRangeValidator(30000, 600000);
 
         /**
          * Whether to enable PULSE Edge lights
@@ -6712,6 +6771,7 @@ public final class Settings {
          */
         public static final String NOTIFICATION_PULSE = "pulse_ambient_light";
 
+        /** @hide */
         private static final Validator NOTIFICATION_PULSE_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
@@ -6721,6 +6781,7 @@ public final class Settings {
          */
         public static final String NOTIFICATION_PULSE_COLOR = "ambient_notification_light_color";
 
+        /** @hide */
         private static final Validator NOTIFICATION_PULSE_COLOR_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
 
@@ -6730,6 +6791,7 @@ public final class Settings {
          */
         public static final String AOD_NOTIFICATION_PULSE_TIMEOUT = "ambient_notification_light_timeout";
 
+        /** @hide */
         private static final Validator AOD_NOTIFICATION_PULSE_TIMEOUT_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
 
@@ -6739,6 +6801,7 @@ public final class Settings {
          */
         public static final String AOD_NOTIFICATION_PULSE = "ambient_notification_light_enabled";
 
+        /** @hide */
         private static final Validator AOD_NOTIFICATION_PULSE_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
@@ -6759,6 +6822,7 @@ public final class Settings {
          */
         public static final String AOD_NOTIFICATION_PULSE_CLEAR = "ambient_notification_light_hide_aod";
 
+        /** @hide */
         private static final Validator AOD_NOTIFICATION_PULSE_CLEAR_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
@@ -6768,6 +6832,7 @@ public final class Settings {
          */
         public static final String NOTIFICATION_PULSE_ACCENT = "ambient_notification_light_accent";
 
+        /** @hide */
         private static final Validator NOTIFICATION_PULSE_ACCENT_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
@@ -6776,6 +6841,7 @@ public final class Settings {
          */
         public static final String NOTIFICATION_PULSE_COLOR_AUTOMATIC = "ambient_notification_light_color_automatic";
 
+        /** @hide */
         private static final Validator NOTIFICATION_PULSE_COLOR_AUTOMATIC_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
@@ -6983,9 +7049,7 @@ public final class Settings {
          */
         public static final String STATUSBAR_PRIVACY_INDICATORS = "statusbar_privacy_indicators";
 
-        /**
-         * @hide
-         */
+        /** @hide */
         private static final Validator STATUSBAR_PRIVACY_INDICATORS_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
@@ -7096,156 +7160,172 @@ public final class Settings {
             ALARM_ALERT,
             NOTIFICATION_LIGHT_PULSE,
             // Evolution X Settings
-            BUTTON_BACKLIGHT_TIMEOUT,
-            BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED,
-            BUTTON_BRIGHTNESS,
-            AMBIENT_WAKE_GESTURES,
-            BACK_GESTURE_HEIGHT,
-            QS_BATTERY_MODE,
-            FOOTER_TEXT_SHOW,
-            FOOTER_TEXT_STRING,
-            SHOW_QS_CLOCK,
-            DOUBLE_TAP_SLEEP_GESTURE,
-            DOUBLE_TAP_SLEEP_LOCKSCREEN,
-            FINGERPRINT_SUCCESS_VIB,
-            FORCE_FULLSCREEN_CUTOUT_APPS,
-            NETWORK_TRAFFIC_STATE,
-            NETWORK_TRAFFIC_LOCATION,
-            NETWORK_TRAFFIC_TYPE,
-            NETWORK_TRAFFIC_LAYOUT,
-            NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD,
-            NETWORK_TRAFFIC_REFRESH_INTERVAL,
-            NETWORK_TRAFFIC_HIDEARROW,
-            NETWORK_TRAFFIC_EXPANDED_STATUS_BAR_STATE,
-            ALLOW_INCALL_HOME,
-            VOLUME_ROCKER_WAKE,
-            VOLUME_BUTTON_MUSIC_CONTROL,
-            VOLUME_KEY_CURSOR_CONTROL,
-            TORCH_LONG_PRESS_POWER_GESTURE,
-            TORCH_LONG_PRESS_POWER_TIMEOUT,
-            ANBI_ENABLED_OPTION,
-            NOTIFICATION_GUTS_KILL_APP_BUTTON,
-            LOCK_SHOW_STATUS_BAR,
-            DOZE_TRIGGER_DOUBLETAP,
-            LOCK_CLOCK_FONTS,
-            LOCK_DATE_FONTS,
-            LOCKDATE_FONT_SIZE,
-            LOCKCLOCK_FONT_SIZE,
-            LOCK_OWNERINFO_FONTS,
-            LOCKOWNER_FONT_SIZE,
-            BATTERY_LIGHT_ENABLED,
-            BATTERY_LIGHT_ALLOW_ON_DND,
-            BATTERY_LIGHT_LOW_BLINKING,
-            BATTERY_LIGHT_LOW_COLOR,
-            BATTERY_LIGHT_MEDIUM_COLOR,
-            BATTERY_LIGHT_FULL_COLOR,
-            BATTERY_LIGHT_REALLYFULL_COLOR,
-            HEADS_UP_STOPLIST_VALUES,
-            HEADS_UP_BLACKLIST_VALUES,
-            HEADS_UP_NOTIFICATION_SNOOZE,
-            HEADS_UP_TIMEOUT,
-            LESS_BORING_HEADS_UP,
-            ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER,
-            POWERMENU_SOUNDPANEL,
-            POWERMENU_SCREENSHOT,
-            POWERMENU_SETTINGS,
-            POWERMENU_LOCKDOWN,
-            POWERMENU_AIRPLANE,
-            POWERMENU_RESTART,
-            POWERMENU_RESTART_RECOVERY,
-            POWERMENU_POWER,
-            POWERMENU_USERS,
-            POWERMENU_LOGOUT,
-            POWERMENU_TORCH,
-            DOZE_ON_CHARGE,
-            STATUS_BAR_CLOCK,
-            STATUSBAR_CLOCK_STYLE,
-            STATUS_BAR_CLOCK_SECONDS,
-            STATUSBAR_CLOCK_AM_PM_STYLE,
-            STATUSBAR_CLOCK_DATE_DISPLAY,
-            STATUSBAR_CLOCK_DATE_STYLE,
-            STATUSBAR_CLOCK_DATE_FORMAT,
-            STATUSBAR_CLOCK_DATE_POSITION,
-            STATUS_BAR_BRIGHTNESS_CONTROL,
-            STATUS_BAR_QUICK_QS_PULLDOWN,
-            STATUS_BAR_BATTERY_STYLE,
-            STATUS_BAR_SHOW_BATTERY_PERCENT,
-            STATUS_BAR_BATTERY_TEXT_CHARGING,
-            STATUS_BAR_LOGO,
-            STATUS_BAR_LOGO_STYLE,
-            STATUS_BAR_SHOW_CARRIER,
-            CUSTOM_CARRIER_LABEL,
-            STATUS_BAR_CARRIER_COLOR,
-            STATUS_BAR_CARRIER_FONT_SIZE,
-            STATUS_BAR_CARRIER_FONT_STYLE,
-            QS_PANEL_BG_ALPHA,
-            SCREEN_OFF_ANIMATION,
-            PULSE_ON_NEW_TRACKS,
-            PULSE_BRIGHTNESS,
-            DOZE_BRIGHTNESS,
-            FLASHLIGHT_ON_CALL_WAITING,
-            AMBIENT_VISUALIZER_ENABLED,
-            USE_OLD_MOBILETYPE,
-            LOCKSCREEN_MEDIA_BLUR,
-            FLASHLIGHT_ON_CALL,
-            SENSOR_BLOCK,
-            OMNI_STATUS_BAR_CUSTOM_HEADER,
-            OMNI_STATUS_BAR_CUSTOM_HEADER_SHADOW,
-            OMNI_STATUS_BAR_DAYLIGHT_HEADER_PACK,
-            OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER,
-            OMNI_STATUS_BAR_CUSTOM_HEADER_IMAGE,
-            OMNI_STATUS_BAR_FILE_HEADER_IMAGE,
-            QS_HIDE_BATTERY,
-            NAVIGATION_HANDLE_WIDTH,
-            FORCE_SHOW_NAVBAR,
-            QS_PANEL_BG_COLOR,
-            QS_PANEL_BG_COLOR_WALL,
-            QS_PANEL_BG_USE_WALL,
-            QS_PANEL_BG_USE_FW,
-            VOLTE_ICON,
-            VOLTE_ICON_STYLE,
-            DATA_DISABLED_ICON,
-            THREE_FINGER_GESTURE,
+            ACCELEROMETER_ROTATION_ANGLES,
             ACCENT_COLOR,
-            QS_BG_COLOR,
-            STATUS_BAR_CUSTOM_HEADER_HEIGHT,
-            LOCKSCREEN_CLOCK,
-            LOCKSCREEN_INFO,
-            QS_BLUR,
-            QS_BLUR_ALPHA,
-            QS_BLUR_INTENSITY,
-            HEADSET_CONNECT_PLAYER,
-            FOD_ICON,
-            FOD_PRESSED_STATE,
-            FOD_RECOGNIZING_ANIMATION,
-            FOD_ANIM,
-            TEXT_CLOCK_ALIGNMENT,
-            TEXT_CLOCK_PADDING,
-            QS_PANEL_BG_USE_NEW_TINT,
-            BACK_GESTURE_BLOCK_IME,
-            ASPECT_RATIO_APPS_ENABLED,
-            ASPECT_RATIO_APPS_LIST,
-            NOTIFICATION_HEADERS,
-            BATTERY_BAR_LOCATION,
-            BATTERY_BAR_COLOR,
-            BATTERY_BAR_THICKNESS,
-            BATTERY_BAR_STYLE,
-            BATTERY_BAR_ANIMATE,
-            BATTERY_BAR_CHARGING_COLOR,
-            BATTERY_BAR_BATTERY_LOW_COLOR_WARNING,
-            BATTERY_BAR_HIGH_COLOR,
-            BATTERY_BAR_LOW_COLOR,
-            BATTERY_BAR_USE_GRADIENT_COLOR,
-            ENABLE_CONDITIONS,
-            GESTURE_NAVBAR_SHOW,
-            STATUSBAR_PRIVACY_INDICATORS,
-            NOTIFICATION_PULSE,
+            ADAPTIVE_PLAYBACK_ENABLED,
+            ADAPTIVE_PLAYBACK_TIMEOUT,
+            ALLOW_INCALL_HOME,
+            AMBIENT_VISUALIZER_ENABLED,
+            AMBIENT_WAKE_GESTURES,
+            ANBI_ENABLED_OPTION,
+            ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER,
             AOD_NOTIFICATION_PULSE,
             AOD_NOTIFICATION_PULSE_CLEAR,
             AOD_NOTIFICATION_PULSE_TIMEOUT,
+            ASPECT_RATIO_APPS_ENABLED,
+            ASPECT_RATIO_APPS_LIST,
+            BACK_GESTURE_BLOCK_IME,
+            BACK_GESTURE_HEIGHT,
+            BATTERY_BAR_ANIMATE,
+            BATTERY_BAR_BATTERY_LOW_COLOR_WARNING,
+            BATTERY_BAR_CHARGING_COLOR,
+            BATTERY_BAR_COLOR,
+            BATTERY_BAR_HIGH_COLOR,
+            BATTERY_BAR_LOCATION,
+            BATTERY_BAR_LOW_COLOR,
+            BATTERY_BAR_STYLE,
+            BATTERY_BAR_THICKNESS,
+            BATTERY_BAR_USE_GRADIENT_COLOR,
+            BATTERY_LIGHT_ALLOW_ON_DND,
+            BATTERY_LIGHT_ENABLED,
+            BATTERY_LIGHT_FULL_COLOR,
+            BATTERY_LIGHT_LOW_BLINKING,
+            BATTERY_LIGHT_LOW_COLOR,
+            BATTERY_LIGHT_MEDIUM_COLOR,
+            BATTERY_LIGHT_REALLYFULL_COLOR,
+            BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED,
+            BUTTON_BACKLIGHT_TIMEOUT,
+            BUTTON_BRIGHTNESS,
+            CHARGING_ANIMATION,
+            CUSTOM_CARRIER_LABEL,
+            DATA_DISABLED_ICON,
+            DOUBLE_TAP_SLEEP_GESTURE,
+            DOUBLE_TAP_SLEEP_LOCKSCREEN,
+            DOZE_BRIGHTNESS,
+            DOZE_ON_CHARGE,
+            DOZE_TRIGGER_DOUBLETAP,
+            ENABLE_CONDITIONS,
+            FINGERPRINT_SUCCESS_VIB,
+            FLASHLIGHT_ON_CALL,
+            FLASHLIGHT_ON_CALL_WAITING,
+            FOD_ANIM,
+            FOD_ICON,
+            FOD_PRESSED_STATE,
+            FOD_RECOGNIZING_ANIMATION,
+            FOOTER_TEXT_SHOW,
+            FOOTER_TEXT_STRING,
+            FORCE_FULLSCREEN_CUTOUT_APPS,
+            FORCE_SHOW_NAVBAR,
+            GESTURE_NAVBAR_SHOW,
+            HEADSET_CONNECT_PLAYER,
+            HEADS_UP_BLACKLIST_VALUES,
+            HEADS_UP_NOTIFICATION_SNOOZE,
+            HEADS_UP_STOPLIST_VALUES,
+            HEADS_UP_TIMEOUT,
+            LESS_BORING_HEADS_UP,
+            LOCKCLOCK_FONT_SIZE,
+            LOCKDATE_FONT_SIZE,
+            LOCKOWNER_FONT_SIZE,
+            LOCKSCREEN_ALBUM_ART_FILTER,
+            LOCKSCREEN_BATTERY_INFO,
+            LOCKSCREEN_CLOCK,
+            LOCKSCREEN_INFO,
+            LOCKSCREEN_MEDIA_BLUR,
+            LOCKSCREEN_MEDIA_METADATA,
+            LOCK_CLOCK_FONTS,
+            LOCK_DATE_FONTS,
+            LOCK_OWNERINFO_FONTS,
+            LOCK_SHOW_STATUS_BAR,
+            NAVIGATION_HANDLE_WIDTH,
+            NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD,
+            NETWORK_TRAFFIC_EXPANDED_STATUS_BAR_STATE,
+            NETWORK_TRAFFIC_HIDEARROW,
+            NETWORK_TRAFFIC_LAYOUT,
+            NETWORK_TRAFFIC_LOCATION,
+            NETWORK_TRAFFIC_REFRESH_INTERVAL,
+            NETWORK_TRAFFIC_STATE,
+            NETWORK_TRAFFIC_TYPE,
+            NOTIFICATION_GUTS_KILL_APP_BUTTON,
+            NOTIFICATION_HEADERS,
+            NOTIFICATION_PULSE,
             NOTIFICATION_PULSE_ACCENT,
             NOTIFICATION_PULSE_COLOR,
             NOTIFICATION_PULSE_COLOR_AUTOMATIC,
+            NOTIFICATION_SOUND_VIB_SCREEN_ON,
+            OMNI_STATUS_BAR_CUSTOM_HEADER,
+            OMNI_STATUS_BAR_CUSTOM_HEADER_IMAGE,
+            OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER,
+            OMNI_STATUS_BAR_CUSTOM_HEADER_SHADOW,
+            OMNI_STATUS_BAR_DAYLIGHT_HEADER_PACK,
+            OMNI_STATUS_BAR_FILE_HEADER_IMAGE,
+            POWERMENU_AIRPLANE,
+            POWERMENU_LOCKDOWN,
+            POWERMENU_LOGOUT,
+            POWERMENU_POWER,
+            POWERMENU_RESTART,
+            POWERMENU_RESTART_RECOVERY,
+            POWERMENU_SCREENSHOT,
+            POWERMENU_SETTINGS,
+            POWERMENU_SOUNDPANEL,
+            POWERMENU_TORCH,
+            POWERMENU_USERS,
+            PULSE_BRIGHTNESS,
+            PULSE_ON_NEW_TRACKS,
+            QS_BATTERY_MODE,
+            QS_BG_COLOR,
+            QS_BLUR,
+            QS_BLUR_ALPHA,
+            QS_BLUR_INTENSITY,
+            QS_COLUMNS_LANDSCAPE,
+            QS_COLUMNS_PORTRAIT,
+            QS_HIDE_BATTERY,
+            QS_PANEL_BG_ALPHA,
+            QS_PANEL_BG_COLOR,
+            QS_PANEL_BG_COLOR_WALL,
+            QS_PANEL_BG_USE_FW,
+            QS_PANEL_BG_USE_NEW_TINT,
+            QS_PANEL_BG_USE_WALL,
+            QS_ROWS_LANDSCAPE,
+            QS_ROWS_PORTRAIT,
+            QS_SHOW_BRIGHTNESS_ICON,
+            QS_TILE_TITLE_VISIBILITY,
+            SCREEN_OFF_ANIMATION,
+            SCREENSHOT_SOUND,
+            SENSOR_BLOCK,
+            SHOW_MEDIA_HEADS_UP,
+            SHOW_QS_CLOCK,
+            STATUSBAR_CLOCK_AM_PM_STYLE,
+            STATUSBAR_CLOCK_DATE_DISPLAY,
+            STATUSBAR_CLOCK_DATE_FORMAT,
+            STATUSBAR_CLOCK_DATE_POSITION,
+            STATUSBAR_CLOCK_DATE_STYLE,
+            STATUSBAR_CLOCK_STYLE,
+            STATUSBAR_PRIVACY_INDICATORS,
+            STATUS_BAR_BATTERY_STYLE,
+            STATUS_BAR_BATTERY_TEXT_CHARGING,
+            STATUS_BAR_BRIGHTNESS_CONTROL,
+            STATUS_BAR_CARRIER_COLOR,
+            STATUS_BAR_CARRIER_FONT_SIZE,
+            STATUS_BAR_CARRIER_FONT_STYLE,
+            STATUS_BAR_CLOCK,
+            STATUS_BAR_CLOCK_SECONDS,
+            STATUS_BAR_CUSTOM_HEADER_HEIGHT,
+            STATUS_BAR_LOGO,
+            STATUS_BAR_LOGO_STYLE,
+            STATUS_BAR_QUICK_QS_PULLDOWN,
+            STATUS_BAR_SHOW_BATTERY_PERCENT,
+            STATUS_BAR_SHOW_CARRIER,
+            TEXT_CLOCK_ALIGNMENT,
+            TEXT_CLOCK_PADDING,
+            THREE_FINGER_GESTURE,
+            TORCH_LONG_PRESS_POWER_GESTURE,
+            TORCH_LONG_PRESS_POWER_TIMEOUT,
+            USE_OLD_MOBILETYPE,
+            VOLTE_ICON,
+            VOLTE_ICON_STYLE,
+            VOLUME_BUTTON_MUSIC_CONTROL,
+            VOLUME_KEY_CURSOR_CONTROL,
+            VOLUME_ROCKER_WAKE,
             // Evolution X Settings end
         };
 
@@ -7367,152 +7447,170 @@ public final class Settings {
             PRIVATE_SETTINGS.add(EGG_MODE);
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_MODE);
             // Evolution X Settings
-            PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_TIMEOUT);
-            PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED);
-            PRIVATE_SETTINGS.add(BUTTON_BRIGHTNESS);
-            PRIVATE_SETTINGS.add(PROXIMITY_ON_WAKE);
-            PRIVATE_SETTINGS.add(BACK_GESTURE_HEIGHT);
-            PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_GESTURE);
-            PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_LOCKSCREEN);
-            PRIVATE_SETTINGS.add(FINGERPRINT_SUCCESS_VIB);
-            PRIVATE_SETTINGS.add(DISPLAY_TEMPERATURE_DAY);
-            PRIVATE_SETTINGS.add(DISPLAY_TEMPERATURE_NIGHT);
-            PRIVATE_SETTINGS.add(DISPLAY_TEMPERATURE_MODE);
-            PRIVATE_SETTINGS.add(DISPLAY_AUTO_OUTDOOR_MODE);
-            PRIVATE_SETTINGS.add(DISPLAY_READING_MODE);
-            PRIVATE_SETTINGS.add(DISPLAY_CABC);
-            PRIVATE_SETTINGS.add(DISPLAY_COLOR_ENHANCE);
-            PRIVATE_SETTINGS.add(DISPLAY_AUTO_CONTRAST);
-            PRIVATE_SETTINGS.add(DISPLAY_COLOR_ADJUSTMENT);
-            PRIVATE_SETTINGS.add(DISPLAY_PICTURE_ADJUSTMENT);
-            PRIVATE_SETTINGS.add(LIVE_DISPLAY_HINTED);
-            PRIVATE_SETTINGS.add(FORCE_FULLSCREEN_CUTOUT_APPS);
-            PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_STATE);
-            PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_LOCATION);
-            PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_TYPE);
-            PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_LAYOUT);
-            PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD);
-            PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_REFRESH_INTERVAL);
-            PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_HIDEARROW);
-            PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_EXPANDED_STATUS_BAR_STATE);
-            PRIVATE_SETTINGS.add(ALLOW_INCALL_HOME);
-            PRIVATE_SETTINGS.add(VOLUME_ROCKER_WAKE);
-            PRIVATE_SETTINGS.add(VOLUME_BUTTON_MUSIC_CONTROL);
-            PRIVATE_SETTINGS.add(VOLUME_KEY_CURSOR_CONTROL);
-            PRIVATE_SETTINGS.add(TORCH_LONG_PRESS_POWER_GESTURE);
-            PRIVATE_SETTINGS.add(TORCH_LONG_PRESS_POWER_TIMEOUT);
-            PRIVATE_SETTINGS.add(ANBI_ENABLED_OPTION);
-            PRIVATE_SETTINGS.add(NOTIFICATION_GUTS_KILL_APP_BUTTON);
-            PRIVATE_SETTINGS.add(LOCK_SHOW_STATUS_BAR);
-            PRIVATE_SETTINGS.add(FORCE_FULLSCREEN_CUTOUT_APPS);
-            PRIVATE_SETTINGS.add(BATTERY_LIGHT_ENABLED);
-            PRIVATE_SETTINGS.add(BATTERY_LIGHT_ALLOW_ON_DND);
-            PRIVATE_SETTINGS.add(BATTERY_LIGHT_LOW_BLINKING);
-            PRIVATE_SETTINGS.add(BATTERY_LIGHT_LOW_COLOR);
-            PRIVATE_SETTINGS.add(BATTERY_LIGHT_MEDIUM_COLOR);
-            PRIVATE_SETTINGS.add(BATTERY_LIGHT_FULL_COLOR);
-            PRIVATE_SETTINGS.add(BATTERY_LIGHT_REALLYFULL_COLOR);
-            PRIVATE_SETTINGS.add(HEADS_UP_STOPLIST_VALUES);
-            PRIVATE_SETTINGS.add(HEADS_UP_BLACKLIST_VALUES);
-            PRIVATE_SETTINGS.add(HEADS_UP_NOTIFICATION_SNOOZE);
-            PRIVATE_SETTINGS.add(HEADS_UP_TIMEOUT);
-            PRIVATE_SETTINGS.add(LESS_BORING_HEADS_UP);
-            PRIVATE_SETTINGS.add(ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER);
-            PRIVATE_SETTINGS.add(POWERMENU_SOUNDPANEL);
-            PRIVATE_SETTINGS.add(POWERMENU_SCREENSHOT);
-            PRIVATE_SETTINGS.add(POWERMENU_SETTINGS);
-            PRIVATE_SETTINGS.add(POWERMENU_LOCKDOWN);
-            PRIVATE_SETTINGS.add(POWERMENU_AIRPLANE);
-            PRIVATE_SETTINGS.add(POWERMENU_RESTART);
-            PRIVATE_SETTINGS.add(POWERMENU_RESTART_RECOVERY);
-            PRIVATE_SETTINGS.add(POWERMENU_POWER);
-            PRIVATE_SETTINGS.add(POWERMENU_USERS);
-            PRIVATE_SETTINGS.add(POWERMENU_LOGOUT);
-            PRIVATE_SETTINGS.add(POWERMENU_TORCH);
-            PRIVATE_SETTINGS.add(DOZE_ON_CHARGE);
-            PRIVATE_SETTINGS.add(STATUS_BAR_CLOCK);
-            PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_STYLE);
-            PRIVATE_SETTINGS.add(STATUS_BAR_CLOCK_SECONDS);
-            PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_AM_PM_STYLE);
-            PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_DISPLAY);
-            PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_STYLE);
-            PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_FORMAT);
-            PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_POSITION);
-            PRIVATE_SETTINGS.add(QS_PANEL_BG_ALPHA);
-            PRIVATE_SETTINGS.add(SCREEN_OFF_ANIMATION);
-            PRIVATE_SETTINGS.add(PULSE_BRIGHTNESS);
-            PRIVATE_SETTINGS.add(DOZE_BRIGHTNESS);
-            PRIVATE_SETTINGS.add(USE_OLD_MOBILETYPE);
-            PRIVATE_SETTINGS.add(LOCKSCREEN_MEDIA_BLUR);
-            PRIVATE_SETTINGS.add(VOLTE_ICON);
-            PRIVATE_SETTINGS.add(VOLTE_ICON_STYLE);
-            PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL);
-            PRIVATE_SETTINGS.add(STATUS_BAR_LOGO);
-            PRIVATE_SETTINGS.add(SENSOR_BLOCK);
-            PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_CUSTOM_HEADER);
-            PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_CUSTOM_HEADER_SHADOW);
-            PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_DAYLIGHT_HEADER_PACK);
-            PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER);
-            PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_CUSTOM_HEADER_IMAGE);
-            PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_FILE_HEADER_IMAGE);
-            PRIVATE_SETTINGS.add(NAVIGATION_HANDLE_WIDTH);
-            PRIVATE_SETTINGS.add(FORCE_SHOW_NAVBAR);
-            PRIVATE_SETTINGS.add(QS_PANEL_BG_COLOR);
-            PRIVATE_SETTINGS.add(QS_PANEL_BG_COLOR_WALL);
-            PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_WALL);
-            PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_FW);
-            PRIVATE_SETTINGS.add(DATA_DISABLED_ICON);
+            PRIVATE_SETTINGS.add(ACCELEROMETER_ROTATION_ANGLES);
             PRIVATE_SETTINGS.add(ACCENT_COLOR);
-            PRIVATE_SETTINGS.add(QS_BG_COLOR);
-            PRIVATE_SETTINGS.add(STATUS_BAR_CUSTOM_HEADER_HEIGHT);
-            PRIVATE_SETTINGS.add(LOCKSCREEN_CLOCK);
-            PRIVATE_SETTINGS.add(LOCKSCREEN_INFO);
-            PRIVATE_SETTINGS.add(HEADSET_CONNECT_PLAYER);
-            PRIVATE_SETTINGS.add(COLOR_BUCKET_OVERLAY);
-            PRIVATE_SETTINGS.add(TEXT_CLOCK_ALIGNMENT);
-            PRIVATE_SETTINGS.add(TEXT_CLOCK_PADDING);
-            PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_NEW_TINT);
-            PRIVATE_SETTINGS.add(INCALL_FEEDBACK_VIBRATE);
-            PRIVATE_SETTINGS.add(BACK_GESTURE_BLOCK_IME);
-            PRIVATE_SETTINGS.add(ASPECT_RATIO_APPS_ENABLED);
-            PRIVATE_SETTINGS.add(ASPECT_RATIO_APPS_LIST);
-            PRIVATE_SETTINGS.add(LOCKSCREEN_MEDIA_METADATA);
-            PRIVATE_SETTINGS.add(KEY_HOME_LONG_PRESS_ACTION);
-            PRIVATE_SETTINGS.add(KEY_HOME_LONG_PRESS_ACTION_NAVBAR);
-            PRIVATE_SETTINGS.add(KEY_HOME_DOUBLE_TAP_ACTION);
-            PRIVATE_SETTINGS.add(KEY_HOME_DOUBLE_TAP_ACTION_NAVBAR);
-            PRIVATE_SETTINGS.add(KEY_MENU_ACTION);
-            PRIVATE_SETTINGS.add(KEY_MENU_LONG_PRESS_ACTION);
-            PRIVATE_SETTINGS.add(KEY_ASSIST_ACTION);
-            PRIVATE_SETTINGS.add(KEY_ASSIST_LONG_PRESS_ACTION);
-            PRIVATE_SETTINGS.add(KEY_APP_SWITCH_ACTION);
-            PRIVATE_SETTINGS.add(KEY_APP_SWITCH_LONG_PRESS_ACTION);
-            PRIVATE_SETTINGS.add(KEY_APP_SWITCH_LONG_PRESS_ACTION_NAVBAR);
-            PRIVATE_SETTINGS.add(KEY_EDGE_LONG_SWIPE_ACTION);
-            PRIVATE_SETTINGS.add(HOME_WAKE_SCREEN);
-            PRIVATE_SETTINGS.add(BACK_WAKE_SCREEN);
-            PRIVATE_SETTINGS.add(MENU_WAKE_SCREEN);
-            PRIVATE_SETTINGS.add(ASSIST_WAKE_SCREEN);
-            PRIVATE_SETTINGS.add(APP_SWITCH_WAKE_SCREEN);
-            PRIVATE_SETTINGS.add(CAMERA_WAKE_SCREEN);
-            PRIVATE_SETTINGS.add(CAMERA_SLEEP_ON_RELEASE);
-            PRIVATE_SETTINGS.add(CAMERA_LAUNCH);
-            PRIVATE_SETTINGS.add(DISPLAY_CUTOUT_HIDDEN);
-            PRIVATE_SETTINGS.add(LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED);
-            PRIVATE_SETTINGS.add(LOCKSCREEN_BATTERY_INFO);
-            PRIVATE_SETTINGS.add(ENABLE_CONDITIONS);
-            PRIVATE_SETTINGS.add(GESTURE_NAVBAR_SHOW);
-            PRIVATE_SETTINGS.add(STATUSBAR_PRIVACY_INDICATORS);
-            PRIVATE_SETTINGS.add(NOTIFICATION_PULSE);
+            PRIVATE_SETTINGS.add(ADAPTIVE_PLAYBACK_ENABLED);
+            PRIVATE_SETTINGS.add(ADAPTIVE_PLAYBACK_TIMEOUT);
+            PRIVATE_SETTINGS.add(ALLOW_INCALL_HOME);
+            PRIVATE_SETTINGS.add(AMBIENT_WAKE_GESTURES);
+            PRIVATE_SETTINGS.add(ANBI_ENABLED_OPTION);
+            PRIVATE_SETTINGS.add(ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER);
             PRIVATE_SETTINGS.add(AOD_NOTIFICATION_PULSE);
             PRIVATE_SETTINGS.add(AOD_NOTIFICATION_PULSE_CLEAR);
             PRIVATE_SETTINGS.add(AOD_NOTIFICATION_PULSE_TIMEOUT);
+            PRIVATE_SETTINGS.add(APP_SWITCH_WAKE_SCREEN);
+            PRIVATE_SETTINGS.add(ASPECT_RATIO_APPS_ENABLED);
+            PRIVATE_SETTINGS.add(ASPECT_RATIO_APPS_LIST);
+            PRIVATE_SETTINGS.add(ASSIST_WAKE_SCREEN);
+            PRIVATE_SETTINGS.add(BACK_GESTURE_BLOCK_IME);
+            PRIVATE_SETTINGS.add(BACK_GESTURE_HEIGHT);
+            PRIVATE_SETTINGS.add(BACK_WAKE_SCREEN);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_ALLOW_ON_DND);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_ENABLED);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_FULL_COLOR);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_LOW_BLINKING);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_LOW_COLOR);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_MEDIUM_COLOR);
+            PRIVATE_SETTINGS.add(BATTERY_LIGHT_REALLYFULL_COLOR);
+            PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED);
+            PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_TIMEOUT);
+            PRIVATE_SETTINGS.add(BUTTON_BRIGHTNESS);
+            PRIVATE_SETTINGS.add(CAMERA_LAUNCH);
+            PRIVATE_SETTINGS.add(CAMERA_SLEEP_ON_RELEASE);
+            PRIVATE_SETTINGS.add(CAMERA_WAKE_SCREEN);
+            PRIVATE_SETTINGS.add(CHARGING_ANIMATION);
+            PRIVATE_SETTINGS.add(COLOR_BUCKET_OVERLAY);
+            PRIVATE_SETTINGS.add(DATA_DISABLED_ICON);
+            PRIVATE_SETTINGS.add(DISPLAY_AUTO_CONTRAST);
+            PRIVATE_SETTINGS.add(DISPLAY_AUTO_OUTDOOR_MODE);
+            PRIVATE_SETTINGS.add(DISPLAY_CABC);
+            PRIVATE_SETTINGS.add(DISPLAY_COLOR_ADJUSTMENT);
+            PRIVATE_SETTINGS.add(DISPLAY_COLOR_ENHANCE);
+            PRIVATE_SETTINGS.add(DISPLAY_CUTOUT_HIDDEN);
+            PRIVATE_SETTINGS.add(DISPLAY_PICTURE_ADJUSTMENT);
+            PRIVATE_SETTINGS.add(DISPLAY_READING_MODE);
+            PRIVATE_SETTINGS.add(DISPLAY_TEMPERATURE_DAY);
+            PRIVATE_SETTINGS.add(DISPLAY_TEMPERATURE_MODE);
+            PRIVATE_SETTINGS.add(DISPLAY_TEMPERATURE_NIGHT);
+            PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_GESTURE);
+            PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_LOCKSCREEN);
+            PRIVATE_SETTINGS.add(DOZE_BRIGHTNESS);
+            PRIVATE_SETTINGS.add(DOZE_ON_CHARGE);
+            PRIVATE_SETTINGS.add(DOZE_TRIGGER_DOUBLETAP);
+            PRIVATE_SETTINGS.add(ENABLE_CONDITIONS);
+            PRIVATE_SETTINGS.add(FEATURE_TOUCH_HOVERING);
+            PRIVATE_SETTINGS.add(FINGERPRINT_SUCCESS_VIB);
+            PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL);
+            PRIVATE_SETTINGS.add(FORCE_FULLSCREEN_CUTOUT_APPS);
+            PRIVATE_SETTINGS.add(FORCE_FULLSCREEN_CUTOUT_APPS);
+            PRIVATE_SETTINGS.add(FORCE_SHOW_NAVBAR);
+            PRIVATE_SETTINGS.add(GESTURE_NAVBAR_SHOW);
+            PRIVATE_SETTINGS.add(HEADSET_CONNECT_PLAYER);
+            PRIVATE_SETTINGS.add(HEADS_UP_BLACKLIST_VALUES);
+            PRIVATE_SETTINGS.add(HEADS_UP_NOTIFICATION_SNOOZE);
+            PRIVATE_SETTINGS.add(HEADS_UP_STOPLIST_VALUES);
+            PRIVATE_SETTINGS.add(HEADS_UP_TIMEOUT);
+            PRIVATE_SETTINGS.add(HIGH_TOUCH_SENSITIVITY_ENABLE);
+            PRIVATE_SETTINGS.add(HOME_WAKE_SCREEN);
+            PRIVATE_SETTINGS.add(INCALL_FEEDBACK_VIBRATE);
+            PRIVATE_SETTINGS.add(KEY_APP_SWITCH_ACTION);
+            PRIVATE_SETTINGS.add(KEY_APP_SWITCH_LONG_PRESS_ACTION);
+            PRIVATE_SETTINGS.add(KEY_APP_SWITCH_LONG_PRESS_ACTION_NAVBAR);
+            PRIVATE_SETTINGS.add(KEY_ASSIST_ACTION);
+            PRIVATE_SETTINGS.add(KEY_ASSIST_LONG_PRESS_ACTION);
+            PRIVATE_SETTINGS.add(KEY_EDGE_LONG_SWIPE_ACTION);
+            PRIVATE_SETTINGS.add(KEY_HOME_DOUBLE_TAP_ACTION);
+            PRIVATE_SETTINGS.add(KEY_HOME_DOUBLE_TAP_ACTION_NAVBAR);
+            PRIVATE_SETTINGS.add(KEY_HOME_LONG_PRESS_ACTION);
+            PRIVATE_SETTINGS.add(KEY_HOME_LONG_PRESS_ACTION_NAVBAR);
+            PRIVATE_SETTINGS.add(KEY_MENU_ACTION);
+            PRIVATE_SETTINGS.add(KEY_MENU_LONG_PRESS_ACTION);
+            PRIVATE_SETTINGS.add(LESS_BORING_HEADS_UP);
+            PRIVATE_SETTINGS.add(LIVE_DISPLAY_HINTED);
+            PRIVATE_SETTINGS.add(LOCKSCREEN_ALBUM_ART_FILTER);
+            PRIVATE_SETTINGS.add(LOCKSCREEN_BATTERY_INFO);
+            PRIVATE_SETTINGS.add(LOCKSCREEN_CLOCK);
+            PRIVATE_SETTINGS.add(LOCKSCREEN_INFO);
+            PRIVATE_SETTINGS.add(LOCKSCREEN_MEDIA_BLUR);
+            PRIVATE_SETTINGS.add(LOCKSCREEN_MEDIA_METADATA);
+            PRIVATE_SETTINGS.add(LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED);
+            PRIVATE_SETTINGS.add(LOCK_SHOW_STATUS_BAR);
+            PRIVATE_SETTINGS.add(MENU_WAKE_SCREEN);
+            PRIVATE_SETTINGS.add(NAVIGATION_BAR_MENU_ARROW_KEYS);
+            PRIVATE_SETTINGS.add(NAVIGATION_HANDLE_WIDTH);
+            PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD);
+            PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_EXPANDED_STATUS_BAR_STATE);
+            PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_HIDEARROW);
+            PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_LAYOUT);
+            PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_LOCATION);
+            PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_REFRESH_INTERVAL);
+            PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_STATE);
+            PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_TYPE);
+            PRIVATE_SETTINGS.add(NOTIFICATION_GUTS_KILL_APP_BUTTON);
+            PRIVATE_SETTINGS.add(NOTIFICATION_PULSE);
             PRIVATE_SETTINGS.add(NOTIFICATION_PULSE_ACCENT);
             PRIVATE_SETTINGS.add(NOTIFICATION_PULSE_COLOR);
             PRIVATE_SETTINGS.add(NOTIFICATION_PULSE_COLOR_AUTOMATIC);
-            PRIVATE_SETTINGS.add(NAVIGATION_BAR_MENU_ARROW_KEYS);
-            PRIVATE_SETTINGS.add(FEATURE_TOUCH_HOVERING);
-            PRIVATE_SETTINGS.add(HIGH_TOUCH_SENSITIVITY_ENABLE);
+            PRIVATE_SETTINGS.add(NOTIFICATION_SOUND_VIB_SCREEN_ON);
+            PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_CUSTOM_HEADER);
+            PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_CUSTOM_HEADER_IMAGE);
+            PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER);
+            PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_CUSTOM_HEADER_SHADOW);
+            PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_DAYLIGHT_HEADER_PACK);
+            PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_FILE_HEADER_IMAGE);
+            PRIVATE_SETTINGS.add(POWERMENU_AIRPLANE);
+            PRIVATE_SETTINGS.add(POWERMENU_LOCKDOWN);
+            PRIVATE_SETTINGS.add(POWERMENU_LOGOUT);
+            PRIVATE_SETTINGS.add(POWERMENU_POWER);
+            PRIVATE_SETTINGS.add(POWERMENU_RESTART);
+            PRIVATE_SETTINGS.add(POWERMENU_RESTART_RECOVERY);
+            PRIVATE_SETTINGS.add(POWERMENU_SCREENSHOT);
+            PRIVATE_SETTINGS.add(POWERMENU_SETTINGS);
+            PRIVATE_SETTINGS.add(POWERMENU_SOUNDPANEL);
+            PRIVATE_SETTINGS.add(POWERMENU_TORCH);
+            PRIVATE_SETTINGS.add(POWERMENU_USERS);
+            PRIVATE_SETTINGS.add(PROXIMITY_ON_WAKE);
+            PRIVATE_SETTINGS.add(PULSE_BRIGHTNESS);
+            PRIVATE_SETTINGS.add(PULSE_ON_NEW_TRACKS);
+            PRIVATE_SETTINGS.add(QS_BG_COLOR);
+            PRIVATE_SETTINGS.add(QS_COLUMNS_LANDSCAPE);
+            PRIVATE_SETTINGS.add(QS_COLUMNS_PORTRAIT);
+            PRIVATE_SETTINGS.add(QS_PANEL_BG_ALPHA);
+            PRIVATE_SETTINGS.add(QS_PANEL_BG_COLOR);
+            PRIVATE_SETTINGS.add(QS_PANEL_BG_COLOR_WALL);
+            PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_FW);
+            PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_NEW_TINT);
+            PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_WALL);
+            PRIVATE_SETTINGS.add(QS_ROWS_LANDSCAPE);
+            PRIVATE_SETTINGS.add(QS_ROWS_PORTRAIT);
+            PRIVATE_SETTINGS.add(QS_SHOW_BRIGHTNESS_ICON);
+            PRIVATE_SETTINGS.add(QS_TILE_TITLE_VISIBILITY);
+            PRIVATE_SETTINGS.add(SCREEN_OFF_ANIMATION);
+            PRIVATE_SETTINGS.add(SCREENSHOT_SOUND);
+            PRIVATE_SETTINGS.add(SENSOR_BLOCK);
+            PRIVATE_SETTINGS.add(SHOW_MEDIA_HEADS_UP);
+            PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_AM_PM_STYLE);
+            PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_DISPLAY);
+            PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_FORMAT);
+            PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_POSITION);
+            PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_STYLE);
+            PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_STYLE);
+            PRIVATE_SETTINGS.add(STATUSBAR_PRIVACY_INDICATORS);
+            PRIVATE_SETTINGS.add(STATUS_BAR_CLOCK);
+            PRIVATE_SETTINGS.add(STATUS_BAR_CLOCK_SECONDS);
+            PRIVATE_SETTINGS.add(STATUS_BAR_CUSTOM_HEADER_HEIGHT);
+            PRIVATE_SETTINGS.add(STATUS_BAR_LOGO);
+            PRIVATE_SETTINGS.add(TEXT_CLOCK_ALIGNMENT);
+            PRIVATE_SETTINGS.add(TEXT_CLOCK_PADDING);
+            PRIVATE_SETTINGS.add(THREE_FINGER_GESTURE);
+            PRIVATE_SETTINGS.add(TORCH_LONG_PRESS_POWER_GESTURE);
+            PRIVATE_SETTINGS.add(TORCH_LONG_PRESS_POWER_TIMEOUT);
+            PRIVATE_SETTINGS.add(USE_OLD_MOBILETYPE);
+            PRIVATE_SETTINGS.add(VOLTE_ICON);
+            PRIVATE_SETTINGS.add(VOLTE_ICON_STYLE);
+            PRIVATE_SETTINGS.add(VOLUME_BUTTON_MUSIC_CONTROL);
+            PRIVATE_SETTINGS.add(VOLUME_KEY_CURSOR_CONTROL);
+            PRIVATE_SETTINGS.add(VOLUME_ROCKER_WAKE);
             // Evolution X Settings end
         }
 
@@ -7608,207 +7706,211 @@ public final class Settings {
             VALIDATORS.put(WIFI_STATIC_DNS2, WIFI_STATIC_DNS2_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_LIGHT_PULSE, BOOLEAN_VALIDATOR);
             // Evolution X Settings
-            VALIDATORS.put(BUTTON_BACKLIGHT_TIMEOUT, BUTTON_BACKLIGHT_TIMEOUT_VALIDATOR);
-            VALIDATORS.put(BUTTON_BRIGHTNESS, BUTTON_BRIGHTNESS_VALIDATOR);
-            VALIDATORS.put(AMBIENT_WAKE_GESTURES, AMBIENT_WAKE_GESTURES_VALIDATOR);
-            VALIDATORS.put(PULSE_ON_NEW_TRACKS, PULSE_ON_NEW_TRACKS_VALIDATOR);
-            VALIDATORS.put(PROXIMITY_ON_WAKE, PROXIMITY_ON_WAKE_VALIDATOR);
-            VALIDATORS.put(BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED, BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED_VALIDATOR);
-            VALIDATORS.put(BACK_GESTURE_HEIGHT, BACK_GESTURE_HEIGHT_VALIDATOR);
-            VALIDATORS.put(DOUBLE_TAP_SLEEP_GESTURE,
-                    DOUBLE_TAP_SLEEP_GESTURE_VALIDATOR);
-            VALIDATORS.put(DOUBLE_TAP_SLEEP_LOCKSCREEN,
-                    DOUBLE_TAP_SLEEP_LOCKSCREEN_VALIDATOR);
-            VALIDATORS.put(FINGERPRINT_SUCCESS_VIB, FINGERPRINT_SUCCESS_VIB_VALIDATOR);
-            VALIDATORS.put(DISPLAY_TEMPERATURE_DAY, DISPLAY_TEMPERATURE_DAY_VALIDATOR);
-            VALIDATORS.put(DISPLAY_TEMPERATURE_NIGHT, DISPLAY_TEMPERATURE_NIGHT_VALIDATOR);
-            VALIDATORS.put(DISPLAY_TEMPERATURE_MODE, DISPLAY_TEMPERATURE_MODE_VALIDATOR);
-            VALIDATORS.put(DISPLAY_AUTO_OUTDOOR_MODE, DISPLAY_AUTO_OUTDOOR_MODE_VALIDATOR);
-            VALIDATORS.put(DISPLAY_READING_MODE, DISPLAY_READING_MODE_VALIDATOR);
-            VALIDATORS.put(DISPLAY_CABC, DISPLAY_CABC_VALIDATOR);
-            VALIDATORS.put(DISPLAY_COLOR_ENHANCE, DISPLAY_COLOR_ENHANCE_VALIDATOR);
-            VALIDATORS.put(DISPLAY_AUTO_CONTRAST, DISPLAY_AUTO_CONTRAST_VALIDATOR);
-            VALIDATORS.put(DISPLAY_COLOR_ADJUSTMENT, DISPLAY_COLOR_ADJUSTMENT_VALIDATOR);
-            VALIDATORS.put(DISPLAY_PICTURE_ADJUSTMENT, DISPLAY_PICTURE_ADJUSTMENT_VALIDATOR);
-            VALIDATORS.put(LIVE_DISPLAY_HINTED, LIVE_DISPLAY_HINTED_VALIDATOR);
-            VALIDATORS.put(FORCE_FULLSCREEN_CUTOUT_APPS, FORCE_FULLSCREEN_CUTOUT_APPS_VALIDATOR);
-            VALIDATORS.put(NETWORK_TRAFFIC_STATE, NETWORK_TRAFFIC_STATE_VALIDATOR);
-            VALIDATORS.put(NETWORK_TRAFFIC_LOCATION, NETWORK_TRAFFIC_LOCATION_VALIDATOR);
-            VALIDATORS.put(NETWORK_TRAFFIC_TYPE, NETWORK_TRAFFIC_TYPE_VALIDATOR);
-            VALIDATORS.put(NETWORK_TRAFFIC_LAYOUT, NETWORK_TRAFFIC_LAYOUT_VALIDATOR);
-            VALIDATORS.put(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD_VALIDATOR);
-            VALIDATORS.put(NETWORK_TRAFFIC_REFRESH_INTERVAL, NETWORK_TRAFFIC_REFRESH_INTERVAL_VALIDATOR);
-            VALIDATORS.put(NETWORK_TRAFFIC_HIDEARROW, NETWORK_TRAFFIC_HIDEARROW_VALIDATOR);
-            VALIDATORS.put(NETWORK_TRAFFIC_EXPANDED_STATUS_BAR_STATE, NETWORK_TRAFFIC_EXPANDED_STATUS_BAR_STATE_VALIDATOR);
-            VALIDATORS.put(ALLOW_INCALL_HOME, ALLOW_INCALL_HOME_VALIDATOR);
-            VALIDATORS.put(VOLUME_ROCKER_WAKE, VOLUME_ROCKER_WAKE_VALIDATOR);
-            VALIDATORS.put(VOLUME_BUTTON_MUSIC_CONTROL, VOLUME_BUTTON_MUSIC_CONTROL_VALIDATOR);
-            VALIDATORS.put(VOLUME_KEY_CURSOR_CONTROL, VOLUME_KEY_CURSOR_CONTROL_VALIDATOR);
-            VALIDATORS.put(TORCH_LONG_PRESS_POWER_GESTURE, TORCH_LONG_PRESS_POWER_GESTURE_VALIDATOR);
-            VALIDATORS.put(TORCH_LONG_PRESS_POWER_TIMEOUT, TORCH_LONG_PRESS_POWER_TIMEOUT_VALIDATOR);
-            VALIDATORS.put(ANBI_ENABLED_OPTION, ANBI_ENABLED_OPTION_VALIDATOR);
             VALIDATORS.put(ACCELEROMETER_ROTATION_ANGLES, ACCELEROMETER_ROTATION_ANGLES_VALIDATOR);
-            VALIDATORS.put(NOTIFICATION_GUTS_KILL_APP_BUTTON, NOTIFICATION_GUTS_KILL_APP_BUTTON_VALIDATOR);
-            VALIDATORS.put(LOCK_SHOW_STATUS_BAR, LOCK_SHOW_STATUS_BAR_VALIDATOR);
-            VALIDATORS.put(DOZE_TRIGGER_DOUBLETAP, DOZE_TRIGGER_DOUBLETAP_VALIDATOR);
-            VALIDATORS.put(LOCK_CLOCK_FONTS, LOCK_CLOCK_FONTS_VALIDATOR);
-            VALIDATORS.put(LOCK_DATE_FONTS, LOCK_DATE_FONTS_VALIDATOR);
-            VALIDATORS.put(LOCKDATE_FONT_SIZE, LOCKDATE_FONT_SIZE_VALIDATOR);
-            VALIDATORS.put(LOCKCLOCK_FONT_SIZE, LOCKCLOCK_FONT_SIZE_VALIDATOR);
-            VALIDATORS.put(LOCK_OWNERINFO_FONTS, LOCK_OWNERINFO_FONTS_VALIDATOR);
-            VALIDATORS.put(LOCKOWNER_FONT_SIZE, LOCKOWNER_FONT_SIZE_VALIDATOR);
-            VALIDATORS.put(FORCE_FULLSCREEN_CUTOUT_APPS, FORCE_FULLSCREEN_CUTOUT_APPS_VALIDATOR);
-            VALIDATORS.put(BATTERY_LIGHT_ENABLED, BATTERY_LIGHT_ENABLED_VALIDATOR);
-            VALIDATORS.put(BATTERY_LIGHT_ALLOW_ON_DND, BATTERY_LIGHT_ALLOW_ON_DND_VALIDATOR);
-            VALIDATORS.put(BATTERY_LIGHT_LOW_BLINKING, BATTERY_LIGHT_LOW_BLINKING_VALIDATOR);
-            VALIDATORS.put(BATTERY_LIGHT_LOW_COLOR, BATTERY_LIGHT_LOW_COLOR_VALIDATOR);
-            VALIDATORS.put(BATTERY_LIGHT_MEDIUM_COLOR, BATTERY_LIGHT_MEDIUM_COLOR_VALIDATOR);
-            VALIDATORS.put(BATTERY_LIGHT_FULL_COLOR, BATTERY_LIGHT_FULL_COLOR_VALIDATOR);
-            VALIDATORS.put(BATTERY_LIGHT_REALLYFULL_COLOR, BATTERY_LIGHT_REALLYFULL_COLOR_VALIDATOR);
-            VALIDATORS.put(HEADS_UP_STOPLIST_VALUES, HEADS_UP_STOPLIST_VALUES_VALIDATOR);
-            VALIDATORS.put(HEADS_UP_BLACKLIST_VALUES, HEADS_UP_BLACKLIST_VALUES_VALIDATOR);
-            VALIDATORS.put(HEADS_UP_NOTIFICATION_SNOOZE,HEADS_UP_NOTIFICATION_SNOOZE_VALIDATOR);
-            VALIDATORS.put(HEADS_UP_TIMEOUT,HEADS_UP_TIMEOUT_VALIDATOR);
-            VALIDATORS.put(LESS_BORING_HEADS_UP, LESS_BORING_HEADS_UP_VALIDATOR);
-            VALIDATORS.put(ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER,ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER_VALIDATOR);
-            VALIDATORS.put(POWERMENU_SOUNDPANEL, POWERMENU_SOUNDPANEL_VALIDATOR);
-            VALIDATORS.put(POWERMENU_SCREENSHOT, POWERMENU_SCREENSHOT_VALIDATOR);
-            VALIDATORS.put(POWERMENU_SETTINGS, POWERMENU_SETTINGS_VALIDATOR);
-            VALIDATORS.put(POWERMENU_LOCKDOWN, POWERMENU_LOCKDOWN_VALIDATOR);
-            VALIDATORS.put(POWERMENU_AIRPLANE, POWERMENU_AIRPLANE_VALIDATOR);
-            VALIDATORS.put(POWERMENU_RESTART, POWERMENU_RESTART_VALIDATOR);
-            VALIDATORS.put(POWERMENU_RESTART_RECOVERY, POWERMENU_RESTART_RECOVERY_VALIDATOR);
-            VALIDATORS.put(POWERMENU_POWER, POWERMENU_POWER_VALIDATOR);
-            VALIDATORS.put(POWERMENU_USERS, POWERMENU_USERS_VALIDATOR);
-            VALIDATORS.put(POWERMENU_LOGOUT, POWERMENU_LOGOUT_VALIDATOR);
-            VALIDATORS.put(POWERMENU_TORCH, POWERMENU_TORCH_VALIDATOR);
-            VALIDATORS.put(DOZE_ON_CHARGE, DOZE_ON_CHARGE_VALIDATOR);
-            VALIDATORS.put(QS_BATTERY_MODE, QS_BATTERY_MODE_VALIDATOR);
-            VALIDATORS.put(FOOTER_TEXT_SHOW, FOOTER_TEXT_SHOW_VALIDATOR);
-            VALIDATORS.put(FOOTER_TEXT_STRING, FOOTER_TEXT_STRING_VALIDATOR);
-            VALIDATORS.put(SHOW_QS_CLOCK, SHOW_QS_CLOCK_VALIDATOR);
-            VALIDATORS.put(STATUS_BAR_CLOCK, STATUS_BAR_CLOCK_VALIDATOR);
-            VALIDATORS.put(STATUSBAR_CLOCK_STYLE, STATUSBAR_CLOCK_STYLE_VALIDATOR);
-            VALIDATORS.put(STATUS_BAR_CLOCK_SECONDS, STATUS_BAR_CLOCK_SECONDS_VALIDATOR);
-            VALIDATORS.put(STATUSBAR_CLOCK_AM_PM_STYLE, STATUSBAR_CLOCK_AM_PM_STYLE_VALIDATOR);
-            VALIDATORS.put(STATUSBAR_CLOCK_DATE_DISPLAY, STATUSBAR_CLOCK_DATE_DISPLAY_VALIDATOR);
-            VALIDATORS.put(STATUSBAR_CLOCK_DATE_STYLE, STATUSBAR_CLOCK_DATE_STYLE_VALIDATOR);
-            VALIDATORS.put(STATUSBAR_CLOCK_DATE_FORMAT, STATUSBAR_CLOCK_DATE_FORMAT_VALIDATOR);
-            VALIDATORS.put(STATUSBAR_CLOCK_DATE_POSITION, STATUSBAR_CLOCK_DATE_POSITION_VALIDATOR);
-            VALIDATORS.put(STATUS_BAR_BRIGHTNESS_CONTROL, STATUS_BAR_BRIGHTNESS_CONTROL_VALIDATOR);
-            VALIDATORS.put(STATUS_BAR_QUICK_QS_PULLDOWN, STATUS_BAR_QUICK_QS_PULLDOWN_VALIDATOR);
-            VALIDATORS.put(STATUS_BAR_BATTERY_STYLE, STATUS_BAR_BATTERY_STYLE_VALIDATOR);
-            VALIDATORS.put(STATUS_BAR_BATTERY_TEXT_CHARGING, STATUS_BAR_BATTERY_TEXT_CHARGING_VALIDATOR);
-            VALIDATORS.put(STATUS_BAR_SHOW_BATTERY_PERCENT, STATUS_BAR_SHOW_BATTERY_PERCENT_VALIDATOR);
-            VALIDATORS.put(STATUS_BAR_LOGO, STATUS_BAR_LOGO_VALIDATOR);
-            VALIDATORS.put(STATUS_BAR_LOGO_STYLE, STATUS_BAR_LOGO_STYLE_VALIDATOR);
-            VALIDATORS.put(STATUS_BAR_SHOW_CARRIER, STATUS_BAR_SHOW_CARRIER_VALIDATOR);
-            VALIDATORS.put(CUSTOM_CARRIER_LABEL, CUSTOM_CARRIER_LABEL_VALIDATOR);
-            VALIDATORS.put(STATUS_BAR_CARRIER_COLOR, STATUS_BAR_CARRIER_COLOR_VALIDATOR);
-            VALIDATORS.put(STATUS_BAR_CARRIER_FONT_SIZE, STATUS_BAR_CARRIER_FONT_SIZE_VALIDATOR);
-            VALIDATORS.put(STATUS_BAR_CARRIER_FONT_STYLE, STATUS_BAR_CARRIER_FONT_STYLE_VALIDATOR);
-            VALIDATORS.put(QS_PANEL_BG_ALPHA, QS_PANEL_BG_ALPHA_VALIDATOR);
-            VALIDATORS.put(SCREEN_OFF_ANIMATION, SCREEN_OFF_ANIMATION_VALIDATOR);
-            VALIDATORS.put(PULSE_BRIGHTNESS, PULSE_BRIGHTNESS_VALIDATOR);
-            VALIDATORS.put(DOZE_BRIGHTNESS, DOZE_BRIGHTNESS_VALIDATOR);
-            VALIDATORS.put(FLASHLIGHT_ON_CALL_WAITING, FLASHLIGHT_ON_CALL_WAITING_VALIDATOR);
-            VALIDATORS.put(AMBIENT_VISUALIZER_ENABLED, AMBIENT_VISUALIZER_ENABLED_VALIDATOR);
-            VALIDATORS.put(USE_OLD_MOBILETYPE, USE_OLD_MOBILETYPE_VALIDATOR);
-            VALIDATORS.put(LOCKSCREEN_MEDIA_BLUR, LOCKSCREEN_MEDIA_BLUR_VALIDATOR);
-            VALIDATORS.put(VOLTE_ICON, VOLTE_ICON_VALIDATOR);
-            VALIDATORS.put(VOLTE_ICON_STYLE, VOLTE_ICON_STYLE_VALIDATOR);
-            VALIDATORS.put(FLASHLIGHT_ON_CALL, FLASHLIGHT_ON_CALL_VALIDATOR);
-            VALIDATORS.put(SENSOR_BLOCK, SENSOR_BLOCK_VALIDATOR);
-            VALIDATORS.put(OMNI_STATUS_BAR_CUSTOM_HEADER,
-                    OMNI_STATUS_BAR_CUSTOM_HEADER_VALIDATOR);
-            VALIDATORS.put(OMNI_STATUS_BAR_CUSTOM_HEADER_SHADOW,
-                    OMNI_STATUS_BAR_CUSTOM_HEADER_SHADOW_VALIDATOR);
-            VALIDATORS.put(OMNI_STATUS_BAR_DAYLIGHT_HEADER_PACK,
-                    OMNI_STATUS_BAR_DAYLIGHT_HEADER_PACK_VALIDATOR);
-            VALIDATORS.put(OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER,
-                    OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER_VALIDATOR);
-            VALIDATORS.put(OMNI_STATUS_BAR_CUSTOM_HEADER_IMAGE,
-                    OMNI_STATUS_BAR_CUSTOM_HEADER_IMAGE_VALIDATOR);
-            VALIDATORS.put(OMNI_STATUS_BAR_FILE_HEADER_IMAGE,
-                    OMNI_STATUS_BAR_FILE_HEADER_IMAGE_VALIDATOR);
-            VALIDATORS.put(QS_HIDE_BATTERY, QS_HIDE_BATTERY_VALIDATOR);
-            VALIDATORS.put(NAVIGATION_HANDLE_WIDTH, NAVIGATION_HANDLE_WIDTH_VALIDATOR);
-            VALIDATORS.put(FORCE_SHOW_NAVBAR, FORCE_SHOW_NAVBAR_VALIDATOR);
-            VALIDATORS.put(QS_PANEL_BG_COLOR, QS_PANEL_BG_COLOR_VALIDATOR);
-            VALIDATORS.put(QS_PANEL_BG_COLOR_WALL, QS_PANEL_BG_COLOR_WALL_VALIDATOR);
-            VALIDATORS.put(QS_PANEL_BG_USE_WALL, QS_PANEL_BG_USE_WALL_VALIDATOR);
-            VALIDATORS.put(QS_PANEL_BG_USE_FW, QS_PANEL_BG_USE_FW_VALIDATOR);
-            VALIDATORS.put(DATA_DISABLED_ICON, DATA_DISABLED_ICON_VALIDATOR);
-            VALIDATORS.put(THREE_FINGER_GESTURE, THREE_FINGER_GESTURE_VALIDATOR);
             VALIDATORS.put(ACCENT_COLOR, ACCENT_COLOR_VALIDATOR);
-            VALIDATORS.put(QS_BG_COLOR, QS_BG_COLOR_VALIDATOR);
-            VALIDATORS.put(STATUS_BAR_CUSTOM_HEADER_HEIGHT, STATUS_BAR_CUSTOM_HEADER_HEIGHT_VALIDATOR);
-            VALIDATORS.put(LOCKSCREEN_CLOCK, LOCKSCREEN_CLOCK_VALIDATOR);
-            VALIDATORS.put(LOCKSCREEN_INFO, LOCKSCREEN_INFO_VALIDATOR);
-            VALIDATORS.put(QS_BLUR, QS_BLUR_VALIDATOR);
-            VALIDATORS.put(QS_BLUR_ALPHA, QS_BLUR_ALPHA_VALIDATOR);
-            VALIDATORS.put(QS_BLUR_INTENSITY, QS_BLUR_INTENSITY_VALIDATOR);
-            VALIDATORS.put(HEADSET_CONNECT_PLAYER, HEADSET_CONNECT_PLAYER_VALIDATOR);
-            VALIDATORS.put(FOD_ICON, FOD_ICON_VALIDATOR);
-            VALIDATORS.put(FOD_PRESSED_STATE, FOD_PRESSED_STATE_VALIDATOR);
-            VALIDATORS.put(FOD_RECOGNIZING_ANIMATION, FOD_RECOGNIZING_ANIMATION_VALIDATOR);
-            VALIDATORS.put(FOD_ANIM, FOD_ANIM_VALIDATOR);
-            VALIDATORS.put(TEXT_CLOCK_ALIGNMENT, TEXT_CLOCK_ALIGNMENT_VALIDATOR);
-            VALIDATORS.put(TEXT_CLOCK_PADDING, TEXT_CLOCK_PADDING_VALIDATOR);
-            VALIDATORS.put(QS_PANEL_BG_USE_NEW_TINT, QS_PANEL_BG_USE_NEW_TINT_VALIDATOR);
-            VALIDATORS.put(INCALL_FEEDBACK_VIBRATE, INCALL_FEEDBACK_VIBRATE_VALIDATOR);
-            VALIDATORS.put(BACK_GESTURE_BLOCK_IME,BACK_GESTURE_BLOCK_IME_VALIDATOR);
-            VALIDATORS.put(ASPECT_RATIO_APPS_ENABLED, ASPECT_RATIO_APPS_ENABLED_VALIDATOR);
-            VALIDATORS.put(ASPECT_RATIO_APPS_LIST, ASPECT_RATIO_APPS_LIST_VALIDATOR);
-            VALIDATORS.put(LOCKSCREEN_MEDIA_METADATA,LOCKSCREEN_MEDIA_METADATA_VALIDATOR);
-            VALIDATORS.put(KEY_HOME_LONG_PRESS_ACTION, KEY_HOME_LONG_PRESS_ACTION_VALIDATOR);
-            VALIDATORS.put(KEY_HOME_LONG_PRESS_ACTION_NAVBAR, KEY_HOME_LONG_PRESS_ACTION_NAVBAR_VALIDATOR);
-            VALIDATORS.put(KEY_HOME_DOUBLE_TAP_ACTION, KEY_HOME_DOUBLE_TAP_ACTION_VALIDATOR);
-            VALIDATORS.put(KEY_HOME_DOUBLE_TAP_ACTION_NAVBAR, KEY_HOME_DOUBLE_TAP_ACTION_NAVBAR_VALIDATOR);
-            VALIDATORS.put(KEY_MENU_ACTION, KEY_MENU_ACTION_VALIDATOR);
-            VALIDATORS.put(KEY_MENU_LONG_PRESS_ACTION, KEY_MENU_LONG_PRESS_ACTION_VALIDATOR);
-            VALIDATORS.put(KEY_ASSIST_ACTION, KEY_ASSIST_ACTION_VALIDATOR);
-            VALIDATORS.put(KEY_ASSIST_LONG_PRESS_ACTION, KEY_ASSIST_LONG_PRESS_ACTION_VALIDATOR);
-            VALIDATORS.put(KEY_APP_SWITCH_ACTION, KEY_APP_SWITCH_ACTION_VALIDATOR);
-            VALIDATORS.put(KEY_APP_SWITCH_LONG_PRESS_ACTION, KEY_APP_SWITCH_LONG_PRESS_ACTION_VALIDATOR);
-            VALIDATORS.put(KEY_APP_SWITCH_LONG_PRESS_ACTION_NAVBAR, KEY_APP_SWITCH_LONG_PRESS_ACTION_NAVBAR_VALIDATOR);
-            VALIDATORS.put(KEY_EDGE_LONG_SWIPE_ACTION, KEY_EDGE_LONG_SWIPE_ACTION_VALIDATOR);
-            VALIDATORS.put(HOME_WAKE_SCREEN, HOME_WAKE_SCREEN_VALIDATOR);
-            VALIDATORS.put(BACK_WAKE_SCREEN, BACK_WAKE_SCREEN_VALIDATOR);
-            VALIDATORS.put(MENU_WAKE_SCREEN, MENU_WAKE_SCREENN_VALIDATOR);
-            VALIDATORS.put(ASSIST_WAKE_SCREEN, ASSIST_WAKE_SCREEN_VALIDATOR);
-            VALIDATORS.put(APP_SWITCH_WAKE_SCREEN, APP_SWITCH_WAKE_SCREEN_VALIDATOR);
-            VALIDATORS.put(CAMERA_WAKE_SCREEN, CAMERA_WAKE_SCREEN_VALIDATOR);
-            VALIDATORS.put(CAMERA_SLEEP_ON_RELEASE, CAMERA_SLEEP_ON_RELEASE_VALIDATOR);
-            VALIDATORS.put(CAMERA_LAUNCH, CAMERA_LAUNCH_VALIDATOR);
-            VALIDATORS.put(DISPLAY_CUTOUT_HIDDEN, DISPLAY_CUTOUT_HIDDEN_VALIDATOR);
-            VALIDATORS.put(LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED, LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED_VALIDATOR);
-            VALIDATORS.put(NOTIFICATION_HEADERS, NOTIFICATION_HEADERS_VALIDATOR);
-            VALIDATORS.put(LOCKSCREEN_BATTERY_INFO, LOCKSCREEN_BATTERY_INFO_VALIDATOR);
-            VALIDATORS.put(BATTERY_BAR_LOCATION, BATTERY_BAR_LOCATION_VALIDATOR);
-            VALIDATORS.put(BATTERY_BAR_COLOR, BATTERY_BAR_COLOR_VALIDATOR);
-            VALIDATORS.put(BATTERY_BAR_THICKNESS, BATTERY_BAR_THICKNESS_VALIDATOR);
-            VALIDATORS.put(BATTERY_BAR_STYLE, BATTERY_BAR_STYLE_VALIDATOR);
-            VALIDATORS.put(BATTERY_BAR_ANIMATE, BATTERY_BAR_ANIMATE_VALIDATOR);
-            VALIDATORS.put(BATTERY_BAR_CHARGING_COLOR, BATTERY_BAR_CHARGING_COLOR_VALIDATOR);
-            VALIDATORS.put(BATTERY_BAR_BATTERY_LOW_COLOR_WARNING, BATTERY_BAR_BATTERY_LOW_COLOR_WARNING_VALIDATOR);
-            VALIDATORS.put(BATTERY_BAR_HIGH_COLOR, BATTERY_BAR_HIGH_COLOR_VALIDATOR);
-            VALIDATORS.put(BATTERY_BAR_LOW_COLOR, BATTERY_BAR_LOW_COLOR_VALIDATOR);
-            VALIDATORS.put(BATTERY_BAR_USE_GRADIENT_COLOR, BATTERY_BAR_USE_GRADIENT_COLOR_VALIDATOR);
-            VALIDATORS.put(ENABLE_CONDITIONS, ENABLE_CONDITIONS_VALIDATOR);
-            VALIDATORS.put(GESTURE_NAVBAR_SHOW,GESTURE_NAVBAR_SHOW_VALIDATOR);
-            VALIDATORS.put(STATUSBAR_PRIVACY_INDICATORS, STATUSBAR_PRIVACY_INDICATORS_VALIDATOR);
-            VALIDATORS.put(NOTIFICATION_PULSE, NOTIFICATION_PULSE_VALIDATOR);
+            VALIDATORS.put(ADAPTIVE_PLAYBACK_ENABLED, ADAPTIVE_PLAYBACK_ENABLED_VALIDATOR);
+            VALIDATORS.put(ADAPTIVE_PLAYBACK_TIMEOUT, ADAPTIVE_PLAYBACK_TIMEOUT_VALIDATOR);
+            VALIDATORS.put(ALLOW_INCALL_HOME, ALLOW_INCALL_HOME_VALIDATOR);
+            VALIDATORS.put(AMBIENT_VISUALIZER_ENABLED, AMBIENT_VISUALIZER_ENABLED_VALIDATOR);
+            VALIDATORS.put(AMBIENT_WAKE_GESTURES, AMBIENT_WAKE_GESTURES_VALIDATOR);
+            VALIDATORS.put(ANBI_ENABLED_OPTION, ANBI_ENABLED_OPTION_VALIDATOR);
+            VALIDATORS.put(ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER,ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER_VALIDATOR);
             VALIDATORS.put(AOD_NOTIFICATION_PULSE, AOD_NOTIFICATION_PULSE_VALIDATOR);
             VALIDATORS.put(AOD_NOTIFICATION_PULSE_CLEAR, AOD_NOTIFICATION_PULSE_CLEAR_VALIDATOR);
             VALIDATORS.put(AOD_NOTIFICATION_PULSE_TIMEOUT, AOD_NOTIFICATION_PULSE_TIMEOUT_VALIDATOR);
+            VALIDATORS.put(APP_SWITCH_WAKE_SCREEN, APP_SWITCH_WAKE_SCREEN_VALIDATOR);
+            VALIDATORS.put(ASPECT_RATIO_APPS_ENABLED, ASPECT_RATIO_APPS_ENABLED_VALIDATOR);
+            VALIDATORS.put(ASPECT_RATIO_APPS_LIST, ASPECT_RATIO_APPS_LIST_VALIDATOR);
+            VALIDATORS.put(ASSIST_WAKE_SCREEN, ASSIST_WAKE_SCREEN_VALIDATOR);
+            VALIDATORS.put(BACK_GESTURE_BLOCK_IME,BACK_GESTURE_BLOCK_IME_VALIDATOR);
+            VALIDATORS.put(BACK_GESTURE_HEIGHT, BACK_GESTURE_HEIGHT_VALIDATOR);
+            VALIDATORS.put(BACK_WAKE_SCREEN, BACK_WAKE_SCREEN_VALIDATOR);
+            VALIDATORS.put(BATTERY_BAR_ANIMATE, BATTERY_BAR_ANIMATE_VALIDATOR);
+            VALIDATORS.put(BATTERY_BAR_BATTERY_LOW_COLOR_WARNING, BATTERY_BAR_BATTERY_LOW_COLOR_WARNING_VALIDATOR);
+            VALIDATORS.put(BATTERY_BAR_CHARGING_COLOR, BATTERY_BAR_CHARGING_COLOR_VALIDATOR);
+            VALIDATORS.put(BATTERY_BAR_COLOR, BATTERY_BAR_COLOR_VALIDATOR);
+            VALIDATORS.put(BATTERY_BAR_HIGH_COLOR, BATTERY_BAR_HIGH_COLOR_VALIDATOR);
+            VALIDATORS.put(BATTERY_BAR_LOCATION, BATTERY_BAR_LOCATION_VALIDATOR);
+            VALIDATORS.put(BATTERY_BAR_LOW_COLOR, BATTERY_BAR_LOW_COLOR_VALIDATOR);
+            VALIDATORS.put(BATTERY_BAR_STYLE, BATTERY_BAR_STYLE_VALIDATOR);
+            VALIDATORS.put(BATTERY_BAR_THICKNESS, BATTERY_BAR_THICKNESS_VALIDATOR);
+            VALIDATORS.put(BATTERY_BAR_USE_GRADIENT_COLOR, BATTERY_BAR_USE_GRADIENT_COLOR_VALIDATOR);
+            VALIDATORS.put(BATTERY_LIGHT_ALLOW_ON_DND, BATTERY_LIGHT_ALLOW_ON_DND_VALIDATOR);
+            VALIDATORS.put(BATTERY_LIGHT_ENABLED, BATTERY_LIGHT_ENABLED_VALIDATOR);
+            VALIDATORS.put(BATTERY_LIGHT_FULL_COLOR, BATTERY_LIGHT_FULL_COLOR_VALIDATOR);
+            VALIDATORS.put(BATTERY_LIGHT_LOW_BLINKING, BATTERY_LIGHT_LOW_BLINKING_VALIDATOR);
+            VALIDATORS.put(BATTERY_LIGHT_LOW_COLOR, BATTERY_LIGHT_LOW_COLOR_VALIDATOR);
+            VALIDATORS.put(BATTERY_LIGHT_MEDIUM_COLOR, BATTERY_LIGHT_MEDIUM_COLOR_VALIDATOR);
+            VALIDATORS.put(BATTERY_LIGHT_REALLYFULL_COLOR, BATTERY_LIGHT_REALLYFULL_COLOR_VALIDATOR);
+            VALIDATORS.put(BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED, BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED_VALIDATOR);
+            VALIDATORS.put(BUTTON_BACKLIGHT_TIMEOUT, BUTTON_BACKLIGHT_TIMEOUT_VALIDATOR);
+            VALIDATORS.put(BUTTON_BRIGHTNESS, BUTTON_BRIGHTNESS_VALIDATOR);
+            VALIDATORS.put(CAMERA_LAUNCH, CAMERA_LAUNCH_VALIDATOR);
+            VALIDATORS.put(CAMERA_SLEEP_ON_RELEASE, CAMERA_SLEEP_ON_RELEASE_VALIDATOR);
+            VALIDATORS.put(CAMERA_WAKE_SCREEN, CAMERA_WAKE_SCREEN_VALIDATOR);
+            VALIDATORS.put(CHARGING_ANIMATION, CHARGING_ANIMATION_VALIDATOR);
+            VALIDATORS.put(CUSTOM_CARRIER_LABEL, CUSTOM_CARRIER_LABEL_VALIDATOR);
+            VALIDATORS.put(DATA_DISABLED_ICON, DATA_DISABLED_ICON_VALIDATOR);
+            VALIDATORS.put(DISPLAY_AUTO_CONTRAST, DISPLAY_AUTO_CONTRAST_VALIDATOR);
+            VALIDATORS.put(DISPLAY_AUTO_OUTDOOR_MODE, DISPLAY_AUTO_OUTDOOR_MODE_VALIDATOR);
+            VALIDATORS.put(DISPLAY_CABC, DISPLAY_CABC_VALIDATOR);
+            VALIDATORS.put(DISPLAY_COLOR_ADJUSTMENT, DISPLAY_COLOR_ADJUSTMENT_VALIDATOR);
+            VALIDATORS.put(DISPLAY_COLOR_ENHANCE, DISPLAY_COLOR_ENHANCE_VALIDATOR);
+            VALIDATORS.put(DISPLAY_CUTOUT_HIDDEN, DISPLAY_CUTOUT_HIDDEN_VALIDATOR);
+            VALIDATORS.put(DISPLAY_PICTURE_ADJUSTMENT, DISPLAY_PICTURE_ADJUSTMENT_VALIDATOR);
+            VALIDATORS.put(DISPLAY_READING_MODE, DISPLAY_READING_MODE_VALIDATOR);
+            VALIDATORS.put(DISPLAY_TEMPERATURE_DAY, DISPLAY_TEMPERATURE_DAY_VALIDATOR);
+            VALIDATORS.put(DISPLAY_TEMPERATURE_MODE, DISPLAY_TEMPERATURE_MODE_VALIDATOR);
+            VALIDATORS.put(DISPLAY_TEMPERATURE_NIGHT, DISPLAY_TEMPERATURE_NIGHT_VALIDATOR);
+            VALIDATORS.put(DOUBLE_TAP_SLEEP_GESTURE, DOUBLE_TAP_SLEEP_GESTURE_VALIDATOR);
+            VALIDATORS.put(DOUBLE_TAP_SLEEP_LOCKSCREEN, DOUBLE_TAP_SLEEP_LOCKSCREEN_VALIDATOR);
+            VALIDATORS.put(DOZE_BRIGHTNESS, DOZE_BRIGHTNESS_VALIDATOR);
+            VALIDATORS.put(DOZE_ON_CHARGE, DOZE_ON_CHARGE_VALIDATOR);
+            VALIDATORS.put(DOZE_TRIGGER_DOUBLETAP, DOZE_TRIGGER_DOUBLETAP_VALIDATOR);
+            VALIDATORS.put(ENABLE_CONDITIONS, ENABLE_CONDITIONS_VALIDATOR);
+            VALIDATORS.put(FEATURE_TOUCH_HOVERING, FEATURE_TOUCH_HOVERING_VALIDATOR);
+            VALIDATORS.put(FINGERPRINT_SUCCESS_VIB, FINGERPRINT_SUCCESS_VIB_VALIDATOR);
+            VALIDATORS.put(FLASHLIGHT_ON_CALL, FLASHLIGHT_ON_CALL_VALIDATOR);
+            VALIDATORS.put(FLASHLIGHT_ON_CALL_WAITING, FLASHLIGHT_ON_CALL_WAITING_VALIDATOR);
+            VALIDATORS.put(FOD_ANIM, FOD_ANIM_VALIDATOR);
+            VALIDATORS.put(FOD_ICON, FOD_ICON_VALIDATOR);
+            VALIDATORS.put(FOD_PRESSED_STATE, FOD_PRESSED_STATE_VALIDATOR);
+            VALIDATORS.put(FOD_RECOGNIZING_ANIMATION, FOD_RECOGNIZING_ANIMATION_VALIDATOR);
+            VALIDATORS.put(FOOTER_TEXT_SHOW, FOOTER_TEXT_SHOW_VALIDATOR);
+            VALIDATORS.put(FOOTER_TEXT_STRING, FOOTER_TEXT_STRING_VALIDATOR);
+            VALIDATORS.put(FORCE_FULLSCREEN_CUTOUT_APPS, FORCE_FULLSCREEN_CUTOUT_APPS_VALIDATOR);
+            VALIDATORS.put(FORCE_FULLSCREEN_CUTOUT_APPS, FORCE_FULLSCREEN_CUTOUT_APPS_VALIDATOR);
+            VALIDATORS.put(FORCE_SHOW_NAVBAR, FORCE_SHOW_NAVBAR_VALIDATOR);
+            VALIDATORS.put(GESTURE_NAVBAR_SHOW, GESTURE_NAVBAR_SHOW_VALIDATOR);
+            VALIDATORS.put(HEADSET_CONNECT_PLAYER, HEADSET_CONNECT_PLAYER_VALIDATOR);
+            VALIDATORS.put(HEADS_UP_BLACKLIST_VALUES, HEADS_UP_BLACKLIST_VALUES_VALIDATOR);
+            VALIDATORS.put(HEADS_UP_NOTIFICATION_SNOOZE, HEADS_UP_NOTIFICATION_SNOOZE_VALIDATOR);
+            VALIDATORS.put(HEADS_UP_STOPLIST_VALUES, HEADS_UP_STOPLIST_VALUES_VALIDATOR);
+            VALIDATORS.put(HEADS_UP_TIMEOUT,HEADS_UP_TIMEOUT_VALIDATOR);
+            VALIDATORS.put(HIGH_TOUCH_SENSITIVITY_ENABLE, HIGH_TOUCH_SENSITIVITY_ENABLE_VALIDATOR);
+            VALIDATORS.put(HOME_WAKE_SCREEN, HOME_WAKE_SCREEN_VALIDATOR);
+            VALIDATORS.put(INCALL_FEEDBACK_VIBRATE, INCALL_FEEDBACK_VIBRATE_VALIDATOR);
+            VALIDATORS.put(KEY_APP_SWITCH_ACTION, KEY_APP_SWITCH_ACTION_VALIDATOR);
+            VALIDATORS.put(KEY_APP_SWITCH_LONG_PRESS_ACTION, KEY_APP_SWITCH_LONG_PRESS_ACTION_VALIDATOR);
+            VALIDATORS.put(KEY_APP_SWITCH_LONG_PRESS_ACTION_NAVBAR, KEY_APP_SWITCH_LONG_PRESS_ACTION_NAVBAR_VALIDATOR);
+            VALIDATORS.put(KEY_ASSIST_ACTION, KEY_ASSIST_ACTION_VALIDATOR);
+            VALIDATORS.put(KEY_ASSIST_LONG_PRESS_ACTION, KEY_ASSIST_LONG_PRESS_ACTION_VALIDATOR);
+            VALIDATORS.put(KEY_EDGE_LONG_SWIPE_ACTION, KEY_EDGE_LONG_SWIPE_ACTION_VALIDATOR);
+            VALIDATORS.put(KEY_HOME_DOUBLE_TAP_ACTION, KEY_HOME_DOUBLE_TAP_ACTION_VALIDATOR);
+            VALIDATORS.put(KEY_HOME_DOUBLE_TAP_ACTION_NAVBAR, KEY_HOME_DOUBLE_TAP_ACTION_NAVBAR_VALIDATOR);
+            VALIDATORS.put(KEY_HOME_LONG_PRESS_ACTION, KEY_HOME_LONG_PRESS_ACTION_VALIDATOR);
+            VALIDATORS.put(KEY_HOME_LONG_PRESS_ACTION_NAVBAR, KEY_HOME_LONG_PRESS_ACTION_NAVBAR_VALIDATOR);
+            VALIDATORS.put(KEY_MENU_ACTION, KEY_MENU_ACTION_VALIDATOR);
+            VALIDATORS.put(KEY_MENU_LONG_PRESS_ACTION, KEY_MENU_LONG_PRESS_ACTION_VALIDATOR);
+            VALIDATORS.put(LESS_BORING_HEADS_UP, LESS_BORING_HEADS_UP_VALIDATOR);
+            VALIDATORS.put(LIVE_DISPLAY_HINTED, LIVE_DISPLAY_HINTED_VALIDATOR);
+            VALIDATORS.put(LOCKCLOCK_FONT_SIZE, LOCKCLOCK_FONT_SIZE_VALIDATOR);
+            VALIDATORS.put(LOCKDATE_FONT_SIZE, LOCKDATE_FONT_SIZE_VALIDATOR);
+            VALIDATORS.put(LOCKOWNER_FONT_SIZE, LOCKOWNER_FONT_SIZE_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_ALBUM_ART_FILTER, LOCKSCREEN_ALBUM_ART_FILTER_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_BATTERY_INFO, LOCKSCREEN_BATTERY_INFO_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_CLOCK, LOCKSCREEN_CLOCK_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_INFO, LOCKSCREEN_INFO_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_MEDIA_BLUR, LOCKSCREEN_MEDIA_BLUR_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_MEDIA_METADATA, LOCKSCREEN_MEDIA_METADATA_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED, LOCKSCREEN_TRANSLUCENT_NOTIFICATIONS_BG_ENABLED_VALIDATOR);
+            VALIDATORS.put(LOCK_CLOCK_FONTS, LOCK_CLOCK_FONTS_VALIDATOR);
+            VALIDATORS.put(LOCK_DATE_FONTS, LOCK_DATE_FONTS_VALIDATOR);
+            VALIDATORS.put(LOCK_OWNERINFO_FONTS, LOCK_OWNERINFO_FONTS_VALIDATOR);
+            VALIDATORS.put(LOCK_SHOW_STATUS_BAR, LOCK_SHOW_STATUS_BAR_VALIDATOR);
+            VALIDATORS.put(MENU_WAKE_SCREEN, MENU_WAKE_SCREENN_VALIDATOR);
+            VALIDATORS.put(NAVIGATION_BAR_MENU_ARROW_KEYS, NAVIGATION_BAR_MENU_ARROW_KEYS_VALIDATOR);
+            VALIDATORS.put(NAVIGATION_HANDLE_WIDTH, NAVIGATION_HANDLE_WIDTH_VALIDATOR);
+            VALIDATORS.put(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD_VALIDATOR);
+            VALIDATORS.put(NETWORK_TRAFFIC_EXPANDED_STATUS_BAR_STATE, NETWORK_TRAFFIC_EXPANDED_STATUS_BAR_STATE_VALIDATOR);
+            VALIDATORS.put(NETWORK_TRAFFIC_HIDEARROW, NETWORK_TRAFFIC_HIDEARROW_VALIDATOR);
+            VALIDATORS.put(NETWORK_TRAFFIC_LAYOUT, NETWORK_TRAFFIC_LAYOUT_VALIDATOR);
+            VALIDATORS.put(NETWORK_TRAFFIC_LOCATION, NETWORK_TRAFFIC_LOCATION_VALIDATOR);
+            VALIDATORS.put(NETWORK_TRAFFIC_REFRESH_INTERVAL, NETWORK_TRAFFIC_REFRESH_INTERVAL_VALIDATOR);
+            VALIDATORS.put(NETWORK_TRAFFIC_STATE, NETWORK_TRAFFIC_STATE_VALIDATOR);
+            VALIDATORS.put(NETWORK_TRAFFIC_TYPE, NETWORK_TRAFFIC_TYPE_VALIDATOR);
+            VALIDATORS.put(NOTIFICATION_GUTS_KILL_APP_BUTTON, NOTIFICATION_GUTS_KILL_APP_BUTTON_VALIDATOR);
+            VALIDATORS.put(NOTIFICATION_HEADERS, NOTIFICATION_HEADERS_VALIDATOR);
+            VALIDATORS.put(NOTIFICATION_PULSE, NOTIFICATION_PULSE_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_PULSE_ACCENT, NOTIFICATION_PULSE_ACCENT_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_PULSE_COLOR, NOTIFICATION_PULSE_COLOR_VALIDATOR);
-            VALIDATORS.put(NOTIFICATION_PULSE_COLOR_AUTOMATIC,
-                    NOTIFICATION_PULSE_COLOR_AUTOMATIC_VALIDATOR);
-            VALIDATORS.put(NAVIGATION_BAR_MENU_ARROW_KEYS, NAVIGATION_BAR_MENU_ARROW_KEYS_VALIDATOR);
-            VALIDATORS.put(FEATURE_TOUCH_HOVERING, FEATURE_TOUCH_HOVERING_VALIDATOR);
-            VALIDATORS.put(HIGH_TOUCH_SENSITIVITY_ENABLE, HIGH_TOUCH_SENSITIVITY_ENABLE_VALIDATOR);
+            VALIDATORS.put(NOTIFICATION_PULSE_COLOR_AUTOMATIC, NOTIFICATION_PULSE_COLOR_AUTOMATIC_VALIDATOR);
+            VALIDATORS.put(NOTIFICATION_SOUND_VIB_SCREEN_ON, NOTIFICATION_SOUND_VIB_SCREEN_ON_VALIDATOR);
+            VALIDATORS.put(OMNI_STATUS_BAR_CUSTOM_HEADER, OMNI_STATUS_BAR_CUSTOM_HEADER_VALIDATOR);
+            VALIDATORS.put(OMNI_STATUS_BAR_CUSTOM_HEADER_IMAGE, OMNI_STATUS_BAR_CUSTOM_HEADER_IMAGE_VALIDATOR);
+            VALIDATORS.put(OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER, OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER_VALIDATOR);
+            VALIDATORS.put(OMNI_STATUS_BAR_CUSTOM_HEADER_SHADOW, OMNI_STATUS_BAR_CUSTOM_HEADER_SHADOW_VALIDATOR);
+            VALIDATORS.put(OMNI_STATUS_BAR_DAYLIGHT_HEADER_PACK, OMNI_STATUS_BAR_DAYLIGHT_HEADER_PACK_VALIDATOR);
+            VALIDATORS.put(OMNI_STATUS_BAR_FILE_HEADER_IMAGE, OMNI_STATUS_BAR_FILE_HEADER_IMAGE_VALIDATOR);
+            VALIDATORS.put(POWERMENU_AIRPLANE, POWERMENU_AIRPLANE_VALIDATOR);
+            VALIDATORS.put(POWERMENU_LOCKDOWN, POWERMENU_LOCKDOWN_VALIDATOR);
+            VALIDATORS.put(POWERMENU_LOGOUT, POWERMENU_LOGOUT_VALIDATOR);
+            VALIDATORS.put(POWERMENU_POWER, POWERMENU_POWER_VALIDATOR);
+            VALIDATORS.put(POWERMENU_RESTART, POWERMENU_RESTART_VALIDATOR);
+            VALIDATORS.put(POWERMENU_RESTART_RECOVERY, POWERMENU_RESTART_RECOVERY_VALIDATOR);
+            VALIDATORS.put(POWERMENU_SCREENSHOT, POWERMENU_SCREENSHOT_VALIDATOR);
+            VALIDATORS.put(POWERMENU_SETTINGS, POWERMENU_SETTINGS_VALIDATOR);
+            VALIDATORS.put(POWERMENU_SOUNDPANEL, POWERMENU_SOUNDPANEL_VALIDATOR);
+            VALIDATORS.put(POWERMENU_TORCH, POWERMENU_TORCH_VALIDATOR);
+            VALIDATORS.put(POWERMENU_USERS, POWERMENU_USERS_VALIDATOR);
+            VALIDATORS.put(PROXIMITY_ON_WAKE, PROXIMITY_ON_WAKE_VALIDATOR);
+            VALIDATORS.put(PULSE_BRIGHTNESS, PULSE_BRIGHTNESS_VALIDATOR);
+            VALIDATORS.put(PULSE_ON_NEW_TRACKS, PULSE_ON_NEW_TRACKS_VALIDATOR);
+            VALIDATORS.put(QS_BATTERY_MODE, QS_BATTERY_MODE_VALIDATOR);
+            VALIDATORS.put(QS_BG_COLOR, QS_BG_COLOR_VALIDATOR);
+            VALIDATORS.put(QS_BLUR, QS_BLUR_VALIDATOR);
+            VALIDATORS.put(QS_BLUR_ALPHA, QS_BLUR_ALPHA_VALIDATOR);
+            VALIDATORS.put(QS_BLUR_INTENSITY, QS_BLUR_INTENSITY_VALIDATOR);
+            VALIDATORS.put(QS_COLUMNS_LANDSCAPE, QS_COLUMNS_LANDSCAPE_VALIDATOR);
+            VALIDATORS.put(QS_COLUMNS_PORTRAIT, QS_COLUMNS_PORTRAIT_VALIDATOR);
+            VALIDATORS.put(QS_HIDE_BATTERY, QS_HIDE_BATTERY_VALIDATOR);
+            VALIDATORS.put(QS_PANEL_BG_ALPHA, QS_PANEL_BG_ALPHA_VALIDATOR);
+            VALIDATORS.put(QS_PANEL_BG_COLOR, QS_PANEL_BG_COLOR_VALIDATOR);
+            VALIDATORS.put(QS_PANEL_BG_COLOR_WALL, QS_PANEL_BG_COLOR_WALL_VALIDATOR);
+            VALIDATORS.put(QS_PANEL_BG_USE_FW, QS_PANEL_BG_USE_FW_VALIDATOR);
+            VALIDATORS.put(QS_PANEL_BG_USE_NEW_TINT, QS_PANEL_BG_USE_NEW_TINT_VALIDATOR);
+            VALIDATORS.put(QS_PANEL_BG_USE_WALL, QS_PANEL_BG_USE_WALL_VALIDATOR);
+            VALIDATORS.put(QS_ROWS_LANDSCAPE, QS_ROWS_LANDSCAPE_VALIDATOR);
+            VALIDATORS.put(QS_ROWS_PORTRAIT, QS_ROWS_PORTRAIT_VALIDATOR);
+            VALIDATORS.put(QS_SHOW_BRIGHTNESS_ICON, QS_SHOW_BRIGHTNESS_ICON_VALIDATOR);
+            VALIDATORS.put(QS_TILE_TITLE_VISIBILITY, QS_TILE_TITLE_VISIBILITY_VALIDATOR);
+            VALIDATORS.put(SCREEN_OFF_ANIMATION, SCREEN_OFF_ANIMATION_VALIDATOR);
+            VALIDATORS.put(SCREENSHOT_SOUND, SCREENSHOT_SOUND_VALIDATOR);
+            VALIDATORS.put(SENSOR_BLOCK, SENSOR_BLOCK_VALIDATOR);
+            VALIDATORS.put(SHOW_MEDIA_HEADS_UP, SHOW_MEDIA_HEADS_UP_VALIDATOR);
+            VALIDATORS.put(SHOW_QS_CLOCK, SHOW_QS_CLOCK_VALIDATOR);
+            VALIDATORS.put(STATUSBAR_CLOCK_AM_PM_STYLE, STATUSBAR_CLOCK_AM_PM_STYLE_VALIDATOR);
+            VALIDATORS.put(STATUSBAR_CLOCK_DATE_DISPLAY, STATUSBAR_CLOCK_DATE_DISPLAY_VALIDATOR);
+            VALIDATORS.put(STATUSBAR_CLOCK_DATE_FORMAT, STATUSBAR_CLOCK_DATE_FORMAT_VALIDATOR);
+            VALIDATORS.put(STATUSBAR_CLOCK_DATE_POSITION, STATUSBAR_CLOCK_DATE_POSITION_VALIDATOR);
+            VALIDATORS.put(STATUSBAR_CLOCK_DATE_STYLE, STATUSBAR_CLOCK_DATE_STYLE_VALIDATOR);
+            VALIDATORS.put(STATUSBAR_CLOCK_STYLE, STATUSBAR_CLOCK_STYLE_VALIDATOR);
+            VALIDATORS.put(STATUSBAR_PRIVACY_INDICATORS, STATUSBAR_PRIVACY_INDICATORS_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_BATTERY_STYLE, STATUS_BAR_BATTERY_STYLE_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_BATTERY_TEXT_CHARGING, STATUS_BAR_BATTERY_TEXT_CHARGING_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_BRIGHTNESS_CONTROL, STATUS_BAR_BRIGHTNESS_CONTROL_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_CARRIER_COLOR, STATUS_BAR_CARRIER_COLOR_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_CARRIER_FONT_SIZE, STATUS_BAR_CARRIER_FONT_SIZE_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_CARRIER_FONT_STYLE, STATUS_BAR_CARRIER_FONT_STYLE_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_CLOCK, STATUS_BAR_CLOCK_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_CLOCK_SECONDS, STATUS_BAR_CLOCK_SECONDS_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_CUSTOM_HEADER_HEIGHT, STATUS_BAR_CUSTOM_HEADER_HEIGHT_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_LOGO, STATUS_BAR_LOGO_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_LOGO_STYLE, STATUS_BAR_LOGO_STYLE_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_QUICK_QS_PULLDOWN, STATUS_BAR_QUICK_QS_PULLDOWN_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_SHOW_BATTERY_PERCENT, STATUS_BAR_SHOW_BATTERY_PERCENT_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_SHOW_CARRIER, STATUS_BAR_SHOW_CARRIER_VALIDATOR);
+            VALIDATORS.put(TEXT_CLOCK_ALIGNMENT, TEXT_CLOCK_ALIGNMENT_VALIDATOR);
+            VALIDATORS.put(TEXT_CLOCK_PADDING, TEXT_CLOCK_PADDING_VALIDATOR);
+            VALIDATORS.put(THREE_FINGER_GESTURE, THREE_FINGER_GESTURE_VALIDATOR);
+            VALIDATORS.put(TORCH_LONG_PRESS_POWER_GESTURE, TORCH_LONG_PRESS_POWER_GESTURE_VALIDATOR);
+            VALIDATORS.put(TORCH_LONG_PRESS_POWER_TIMEOUT, TORCH_LONG_PRESS_POWER_TIMEOUT_VALIDATOR);
+            VALIDATORS.put(USE_OLD_MOBILETYPE, USE_OLD_MOBILETYPE_VALIDATOR);
+            VALIDATORS.put(VOLTE_ICON, VOLTE_ICON_VALIDATOR);
+            VALIDATORS.put(VOLTE_ICON_STYLE, VOLTE_ICON_STYLE_VALIDATOR);
+            VALIDATORS.put(VOLUME_BUTTON_MUSIC_CONTROL, VOLUME_BUTTON_MUSIC_CONTROL_VALIDATOR);
+            VALIDATORS.put(VOLUME_KEY_CURSOR_CONTROL, VOLUME_KEY_CURSOR_CONTROL_VALIDATOR);
+            VALIDATORS.put(VOLUME_ROCKER_WAKE, VOLUME_ROCKER_WAKE_VALIDATOR);
             // Evolution X Settings end
         }
 
@@ -12447,22 +12549,22 @@ public final class Settings {
             AWARE_TAP_PAUSE_GESTURE_COUNT,
             AWARE_TAP_PAUSE_TOUCH_COUNT,
             // Evolution X Settings
-            VOLUME_LINK_NOTIFICATION,
-            SYSUI_ROUNDED_FWVALS,
-            SYSUI_ROUNDED_SIZE,
-            SYSUI_ROUNDED_CONTENT_PADDING,
-            SYSUI_STATUS_BAR_PADDING,
+            HIDE_LOCKICON,
             LOCKSCREEN_CLOCK_SELECTION,
             LOCKSCREEN_DATE_SELECTION,
-            LOCKSCREEN_VISUALIZER_ENABLED,
             LOCKSCREEN_LAVALAMP_ENABLED,
             LOCKSCREEN_LAVALAMP_SPEED,
+            LOCKSCREEN_SOLID_FUDGE_FACTOR,
+            LOCKSCREEN_SOLID_UNITS_COUNT,
+            LOCKSCREEN_SOLID_UNITS_OPACITY,
             LOCKSCREEN_VISUALIZER_AUTOCOLOR,
             LOCKSCREEN_VISUALIZER_COLOR,
-            LOCKSCREEN_SOLID_UNITS_COUNT,
-            LOCKSCREEN_SOLID_FUDGE_FACTOR,
-            LOCKSCREEN_SOLID_UNITS_OPACITY,
-            HIDE_LOCKICON,
+            LOCKSCREEN_VISUALIZER_ENABLED,
+            SYSUI_ROUNDED_CONTENT_PADDING,
+            SYSUI_ROUNDED_FWVALS,
+            SYSUI_ROUNDED_SIZE,
+            SYSUI_STATUS_BAR_PADDING,
+            VOLUME_LINK_NOTIFICATION,
             // Evolution X Settings end
         };
 
@@ -12665,25 +12767,25 @@ public final class Settings {
             VALIDATORS.put(AWARE_TAP_PAUSE_TOUCH_COUNT, NON_NEGATIVE_INTEGER_VALIDATOR);
             VALIDATORS.put(TAP_GESTURE, TAP_GESTURE_VALIDATOR);
             // Evolution X Settings
-            VALIDATORS.put(VOLUME_LINK_NOTIFICATION, VOLUME_LINK_NOTIFICATION_VALIDATOR);
+            VALIDATORS.put(HIDE_LOCKICON, HIDE_LOCKICON_VALIDATOR);
+            VALIDATORS.put(KILL_APP_LONGPRESS_BACK, KILL_APP_LONGPRESS_BACK_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_CLOCK_SELECTION, LOCKSCREEN_CLOCK_SELECTION_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_DATE_SELECTION,LOCKSCREEN_DATE_SELECTION_VALIDATOR);
-            VALIDATORS.put(LOCKSCREEN_VISUALIZER_ENABLED, LOCKSCREEN_VISUALIZER_ENABLED_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_LAVALAMP_ENABLED, LOCKSCREEN_LAVALAMP_ENABLED_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_LAVALAMP_SPEED, LOCKSCREEN_LAVALAMP_SPEED_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_SOLID_FUDGE_FACTOR, LOCKSCREEN_SOLID_FUDGE_FACTOR_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_SOLID_UNITS_COUNT, LOCKSCREEN_SOLID_UNITS_COUNT_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_SOLID_UNITS_OPACITY, LOCKSCREEN_SOLID_UNITS_OPACITY_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_VISUALIZER_AUTOCOLOR, LOCKSCREEN_VISUALIZER_AUTOCOLOR_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_VISUALIZER_COLOR, LOCKSCREEN_VISUALIZER_COLOR_VALIDATOR);
-            VALIDATORS.put(LOCKSCREEN_SOLID_UNITS_COUNT, LOCKSCREEN_SOLID_UNITS_COUNT_VALIDATOR);
-            VALIDATORS.put(LOCKSCREEN_SOLID_FUDGE_FACTOR, LOCKSCREEN_SOLID_FUDGE_FACTOR_VALIDATOR);
-            VALIDATORS.put(LOCKSCREEN_SOLID_UNITS_OPACITY, LOCKSCREEN_SOLID_UNITS_OPACITY_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_VISUALIZER_ENABLED, LOCKSCREEN_VISUALIZER_ENABLED_VALIDATOR);
             VALIDATORS.put(QUICK_SETTINGS_TILES_VIBRATE, QUICK_SETTINGS_TILES_VIBRATE_VALIDATOR);
+            VALIDATORS.put(SYSUI_ROUNDED_CONTENT_PADDING, SYSUI_ROUNDED_CONTENT_PADDING_VALIDATOR);
             VALIDATORS.put(SYSUI_ROUNDED_FWVALS, SYSUI_ROUNDED_FWVALS_VALIDATOR);
             VALIDATORS.put(SYSUI_ROUNDED_SIZE, SYSUI_ROUNDED_SIZE_VALIDATOR);
-            VALIDATORS.put(SYSUI_ROUNDED_CONTENT_PADDING, SYSUI_ROUNDED_CONTENT_PADDING_VALIDATOR);
             VALIDATORS.put(SYSUI_STATUS_BAR_PADDING, SYSUI_STATUS_BAR_PADDING_VALIDATOR);
-            VALIDATORS.put(HIDE_LOCKICON, HIDE_LOCKICON_VALIDATOR);
             VALIDATORS.put(TETHERING_ALLOW_VPN_UPSTREAMS, TETHERING_ALLOW_VPN_UPSTREAMS_VALIDATOR);
-            VALIDATORS.put(KILL_APP_LONGPRESS_BACK, KILL_APP_LONGPRESS_BACK_VALIDATOR);
+            VALIDATORS.put(VOLUME_LINK_NOTIFICATION, VOLUME_LINK_NOTIFICATION_VALIDATOR);
             // Evolution X Settings end
         }
 
