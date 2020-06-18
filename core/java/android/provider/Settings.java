@@ -4033,6 +4033,11 @@ public final class Settings {
         public static final String SCREEN_BRIGHTNESS_MODE = "screen_brightness_mode";
 
         /**
+         * Last mode of RebootTile
+         */
+        public static final String REBOOT_TILE_LAST_MODE = "reboot_tile_last_mode";
+
+        /**
          * Adjustment to auto-brightness to make it generally more (>0.0 <1.0)
          * or less (<0.0 >-1.0) bright.
          * @hide

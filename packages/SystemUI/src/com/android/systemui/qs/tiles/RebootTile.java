@@ -21,6 +21,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.PowerManager;
 import android.service.quicksettings.Tile;
+import android.provider.Settings;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
@@ -33,7 +34,7 @@ import javax.inject.Inject;
 
 public class RebootTile extends QSTileImpl<BooleanState> {
 
-    private int mRebootToRecovery = 0;
+    private int mRebootToRecovery = getRebootTileMode();
 
     @Inject
     public RebootTile(QSHost host) {
@@ -49,10 +50,13 @@ public class RebootTile extends QSTileImpl<BooleanState> {
     public void handleClick() {
         if (mRebootToRecovery == 0) {
             mRebootToRecovery = 1;
+            setRebootTileMode(1);
         } else if (mRebootToRecovery == 1) {
             mRebootToRecovery = 2;
+            setRebootTileMode(2);
         } else {
             mRebootToRecovery = 0;
+            setRebootTileMode(0);
         }
         refreshState();
     }
@@ -104,6 +108,16 @@ public class RebootTile extends QSTileImpl<BooleanState> {
             state.icon = ResourceIcon.get(R.drawable.ic_qs_reboot);
         }
         state.state = Tile.STATE_INACTIVE;
+    }
+
+    private int getRebootTileMode() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.REBOOT_TILE_LAST_MODE, 0);
+    }
+
+    private void setRebootTileMode(int mode) {
+        Settings.System.putInt(mContext.getContentResolver(),
+                Settings.System.REBOOT_TILE_LAST_MODE, mode);
     }
 
     @Override
