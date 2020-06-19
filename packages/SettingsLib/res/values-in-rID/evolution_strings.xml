@@ -37,5 +37,5 @@
     <string name="power_remaining_vooc_charging_duration_only">Pengisian VOOC (<xliff:g id="time">%1$s</xliff:g> tersisa, sampai penuh)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a VOOC source.  -->
     <string name="battery_info_status_vooc_charging">Pengisian VOOC</string>
-    <string name="battery_info_status_vooc_charging_lower">pengisian Vooc</string>
+    <string name="battery_info_status_vooc_charging_lower">pengisian vooc</string>
 </resources>
