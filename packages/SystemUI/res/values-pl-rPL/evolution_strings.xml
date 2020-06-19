@@ -219,4 +219,8 @@
     <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">Kursor lewy</string>
     <string name="accessibility_dpad_right">Kursor prawy</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">Muzyka</string>
+    <string name="quick_settings_music_play">Odtwórz</string>
+    <string name="quick_settings_music_pause">Zapauzuj</string>
 </resources>
