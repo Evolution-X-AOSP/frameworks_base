@@ -219,4 +219,8 @@
     <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">Курсор налева</string>
     <string name="accessibility_dpad_right">Курсор направа</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">Музыка</string>
+    <string name="quick_settings_music_play">Прайграць</string>
+    <string name="quick_settings_music_pause">Паўза</string>
 </resources>
