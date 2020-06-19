@@ -219,4 +219,8 @@
     <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">İmleç sola</string>
     <string name="accessibility_dpad_right">İmleç sağa</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">Müzik</string>
+    <string name="quick_settings_music_play">Oynat</string>
+    <string name="quick_settings_music_pause">Duraklat</string>
 </resources>
