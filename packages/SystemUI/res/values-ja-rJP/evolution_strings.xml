@@ -219,4 +219,8 @@
     <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">カーソルを左</string>
     <string name="accessibility_dpad_right">カーソルを右</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">音楽</string>
+    <string name="quick_settings_music_play">再生</string>
+    <string name="quick_settings_music_pause">一時停止</string>
 </resources>
