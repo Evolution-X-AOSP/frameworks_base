@@ -219,4 +219,8 @@
     <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">光标左移</string>
     <string name="accessibility_dpad_right">光标右移</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">音乐</string>
+    <string name="quick_settings_music_play">播放</string>
+    <string name="quick_settings_music_pause">暂停</string>
 </resources>
