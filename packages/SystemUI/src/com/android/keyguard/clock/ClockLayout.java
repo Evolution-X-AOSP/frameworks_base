@@ -26,6 +26,8 @@ import android.widget.FrameLayout;
 
 import com.android.systemui.R;
 
+import java.util.ArrayList;
+
 /**
  * Positions clock faces (analog, digital, typographic) and handles pixel shifting
  * to prevent screen burn-in.
@@ -33,6 +35,7 @@ import com.android.systemui.R;
 public class ClockLayout extends FrameLayout {
 
     private static final int ANALOG_CLOCK_SHIFT_FACTOR = 3;
+    ArrayList<View> customClocks = new ArrayList<>();
     /**
      * Clock face views.
      */
@@ -65,6 +68,11 @@ public class ClockLayout extends FrameLayout {
         super.onFinishInflate();
         mAnalogClock = findViewById(R.id.analog_clock);
         mTypeClock = findViewById(R.id.type_clock);
+
+        customClocks.add(findViewById(R.id.divided_lines));
+        customClocks.add(findViewById(R.id.mnml_box));
+        customClocks.add(findViewById(R.id.mnml_minimal));
+        customClocks.add(findViewById(R.id.sfuny));
 
         // Get pixel shifting X, Y amplitudes from resources.
         Resources resources = getResources();
@@ -116,6 +124,15 @@ public class ClockLayout extends FrameLayout {
         if (mTypeClock != null) {
             mTypeClock.setX(offsetX);
             mTypeClock.setY(0.2f * getHeight() + offsetY);
+        }
+
+        for (View v : customClocks) {
+           if (v != null) {
+              v.setX(Math.max(0f, 0.5f * (getWidth() - v.getWidth()))
+                    + ANALOG_CLOCK_SHIFT_FACTOR * offsetX);
+              v.setY(Math.max(0f, 0.5f * (getHeight() - mAnalogClock.getHeight()))
+                    + ANALOG_CLOCK_SHIFT_FACTOR * offsetY);
+           }
         }
     }
 }
