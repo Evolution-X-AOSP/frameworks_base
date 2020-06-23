@@ -224,4 +224,6 @@
     <string name="quick_settings_music_label">Μουσική</string>
     <string name="quick_settings_music_play">Αναπαραγωγή</string>
     <string name="quick_settings_music_pause">Παύση</string>
+    <!-- QS Tuner Config -->
+    <string name="tuner_qs_long_press_action">Να μην εμφανίζονται πάνελ σε παρατεταμένο πάτημα</string>
 </resources>
