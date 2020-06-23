@@ -104,6 +104,9 @@ public class MobileSignalController extends SignalController<
     // Some specific carriers have 5GE network which is special LTE CA network.
     private static final int NETWORK_TYPE_LTE_CA_5GE = TelephonyManager.MAX_NETWORK_TYPE + 1;
 
+    // Vowifi Icon
+    private boolean mVoWiFiIconShowing = false;
+
     // Data disabled icon
     private boolean mDataDisabledIcon;
 
@@ -433,7 +436,7 @@ public class MobileSignalController extends SignalController<
     private int getVolteResId() {
         int resId = 0;
         if ((mCurrentState.voiceCapable || mCurrentState.videoCapable)
-                &&  mCurrentState.imsRegistered && volteEnabled()) {
+                && mCurrentState.imsRegistered && volteEnabled() && !mVoWiFiIconShowing) {
             switch(volteStyle()) {
                 //Vo
                 case 0:
@@ -565,8 +568,6 @@ public class MobileSignalController extends SignalController<
                 && mCurrentState.activityOut;
         showDataIcon &= mCurrentState.isDefault || dataDisabled;
         int typeIcon = (showDataIcon || mConfig.alwaysShowDataRatIcon) ? icons.mDataType : 0;
-        int volteIcon = mConfig.showVolteIcon && isVolteSwitchOn() && volteEnabled()
-                ? getVolteResId() : 0;
 
         MobileIconGroup vowifiIconGroup = getVowifiIconGroup();
         if (mConfig.showVowifiIcon && vowifiEnabled() && vowifiIconGroup != null) {
@@ -574,7 +575,12 @@ public class MobileSignalController extends SignalController<
             statusIcon = new IconState(true,
                     mCurrentState.enabled && !mCurrentState.airplaneMode? statusIcon.icon : 0,
                     statusIcon.contentDescription);
+            mVoWiFiIconShowing = true;
+        } else {
+            mVoWiFiIconShowing = false;
         }
+        int volteIcon = mConfig.showVolteIcon && isVolteSwitchOn() && volteEnabled()
+                ? getVolteResId() : 0;
 
         callback.setMobileDataIndicators(statusIcon, qsIcon, typeIcon, qsTypeIcon,
                 activityIn, activityOut, volteIcon, dataContentDescription, dataContentDescriptionHtml,
