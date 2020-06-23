@@ -221,6 +221,8 @@
     <string name="accessibility_dpad_right">Kursor kanan</string>
     <!-- Music tile -->
     <string name="quick_settings_music_label">Musik</string>
-    <string name="quick_settings_music_play">Putar</string>
+    <string name="quick_settings_music_play">Mainkan</string>
     <string name="quick_settings_music_pause">Jeda</string>
+    <!-- QS Tuner Config -->
+    <string name="tuner_qs_long_press_action">Jangan tampilkan panel pada tekan lama</string>
 </resources>
