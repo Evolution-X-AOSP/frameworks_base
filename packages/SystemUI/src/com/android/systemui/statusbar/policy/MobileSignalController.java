@@ -207,6 +207,9 @@ public class MobileSignalController extends SignalController<
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.VOWIFI_ICON),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.VOWIFI_ICON_STYLE),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -216,6 +219,7 @@ public class MobileSignalController extends SignalController<
                     || uri.equals(Settings.System.getUriFor(Settings.System.VOLTE_ICON))
                     || uri.equals(Settings.System.getUriFor(Settings.System.VOLTE_ICON_STYLE))
                     || uri.equals(Settings.System.getUriFor(Settings.System.VOWIFI_ICON))
+                    || uri.equals(Settings.System.getUriFor(Settings.System.VOWIFI_ICON_STYLE))
                     || uri.equals(Settings.System.getUriFor(Settings.System.USE_OLD_MOBILETYPE))
                     || uri.equals(Settings.System.getUriFor(Settings.System.DATA_DISABLED_ICON))) {
                 updateSettings();
@@ -243,6 +247,11 @@ public class MobileSignalController extends SignalController<
     private int volteStyle() {
         return Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.VOLTE_ICON_STYLE, 0, UserHandle.USER_CURRENT);
+    }
+
+    private int vowifiStyle() {
+        return Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.VOWIFI_ICON_STYLE, 0, UserHandle.USER_CURRENT);
     }
 
     private boolean dataDisabledIcon() {
@@ -897,7 +906,23 @@ public class MobileSignalController extends SignalController<
         if (isVowifiAvailable() && !isCallIdle()) {
             return TelephonyIcons.VOWIFI_CALLING;
         } else if (isVowifiAvailable()) {
-            return TelephonyIcons.VOWIFI;
+            switch (vowifiStyle()) {
+                case 0:
+                default:
+                    return TelephonyIcons.VOWIFI;
+                // OOS
+                case 1:
+                    return TelephonyIcons.VOWIFI_ONEPLUS;
+                // Motorola
+                case 2:
+                    return TelephonyIcons.VOWIFI_MOTO;
+                // ASUS
+                case 3:
+                    return TelephonyIcons.VOWIFI_ASUS;
+                // EMUI (Huawei P10)
+                case 4:
+                    return TelephonyIcons.VOWIFI_EMUI;
+            }
         } else {
             return null;
         }
