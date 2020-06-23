@@ -480,6 +480,10 @@ public class MobileSignalController extends SignalController<
                 case 7:
                     resId = R.drawable.ic_volte_miui;
                     break;
+                // EMUI icon
+                case 8:
+                    resId = R.drawable.ic_volte_emui;
+                    break;
             }
         }
         return resId;
