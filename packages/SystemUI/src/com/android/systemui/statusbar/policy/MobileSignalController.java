@@ -204,6 +204,9 @@ public class MobileSignalController extends SignalController<
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.DATA_DISABLED_ICON),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.VOWIFI_ICON),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -213,7 +216,8 @@ public class MobileSignalController extends SignalController<
                     || uri.equals(Settings.System.getUriFor(Settings.System.VOLTE_ICON))
                     || uri.equals(Settings.System.getUriFor(Settings.System.VOLTE_ICON_STYLE))
                     || uri.equals(Settings.System.getUriFor(Settings.System.USE_OLD_MOBILETYPE))
-                    || uri.equals(Settings.System.getUriFor(Settings.System.DATA_DISABLED_ICON))) {
+                    || uri.equals(Settings.System.getUriFor(Settings.System.DATA_DISABLED_ICON))
+                    || uri.equals(Settings.System.getUriFor(Settings.System.VOWIFI_ICON))) {
                 updateSettings();
             }
         }
@@ -229,6 +233,11 @@ public class MobileSignalController extends SignalController<
     private boolean volteEnabled() {
         return Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.VOLTE_ICON, 1, UserHandle.USER_CURRENT) == 1;
+    }
+
+    private boolean vowifiEnabled() {
+        return Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.VOWIFI_ICON, 1, UserHandle.USER_CURRENT) == 1;
     }
 
     private int volteStyle() {
@@ -568,7 +577,7 @@ public class MobileSignalController extends SignalController<
         int volteIcon = (volteEnabled() && mConfig.showVolteIcon
                 && isVolteSwitchOn()) ? getVolteResId() : 0;
         MobileIconGroup vowifiIconGroup = getVowifiIconGroup();
-        if (mConfig.showVowifiIcon && vowifiIconGroup != null) {
+        if (vowifiEnabled() && mConfig.showVowifiIcon && vowifiIconGroup != null) {
             typeIcon = vowifiIconGroup.mDataType;
             statusIcon = new IconState(true,
                     mCurrentState.enabled && !mCurrentState.airplaneMode ? statusIcon.icon : 0,
