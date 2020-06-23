@@ -223,4 +223,6 @@
     <string name="quick_settings_music_label">Музика</string>
     <string name="quick_settings_music_play">Відтворити</string>
     <string name="quick_settings_music_pause">Пауза</string>
+    <!-- QS Tuner Config -->
+    <string name="tuner_qs_long_press_action">Не показувати панелі при довгому натисканні</string>
 </resources>
