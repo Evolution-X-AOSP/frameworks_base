@@ -223,4 +223,6 @@
     <string name="quick_settings_music_label">Muzyka</string>
     <string name="quick_settings_music_play">Odtwórz</string>
     <string name="quick_settings_music_pause">Zapauzuj</string>
+    <!-- QS Tuner Config -->
+    <string name="tuner_qs_long_press_action">Nie pokazuj paneli po długim naciśnięciu</string>
 </resources>
