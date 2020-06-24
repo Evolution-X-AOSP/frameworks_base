@@ -140,7 +140,7 @@ public class QuickQSPanel extends QSPanel {
             // No Brightness or Tooltip for you!
             super.onTuningChanged(key, "0");
         } else if (QS_SHOW_SECURITY.equals(key)) {
-            mFooter.setForceHide(newValue != null && Integer.parseInt(newValue) == 0);
+            mFooter.setForceHide(true);
         }
     }
 
