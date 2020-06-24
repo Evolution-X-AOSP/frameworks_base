@@ -223,4 +223,6 @@
     <string name="quick_settings_music_label">音楽</string>
     <string name="quick_settings_music_play">再生</string>
     <string name="quick_settings_music_pause">一時停止</string>
+    <!-- QS Tuner Config -->
+    <string name="tuner_qs_long_press_action">長押しでパネルを非表示</string>
 </resources>
