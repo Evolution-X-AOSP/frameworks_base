@@ -18,62 +18,61 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := frameworks-base-overlays
 LOCAL_REQUIRED_MODULES := \
 	AccentColorBlackOverlay \
-	AccentColorCinnamonOverlay \
-	AccentColorOceanOverlay \
-	AccentColorOrchidOverlay \
-	AccentColorSpaceOverlay \
-	AccentColorGreenOverlay \
-	AccentColorPurpleOverlay \
 	AccentColorBlueGrayOverlay \
-	AccentColorCyanOverlay \
-	AccentColorDorsetGoldOverlay \
-	AccentColorFlatPinkOverlay \
-	AccentColorIndigoOverlay \
-	AccentColorInfernoRedOverlay \
-	AccentColorLightPurpleOverlay \
-	AccentColorMetallicGoldOverlay \
-	AccentColorPinkOverlay \
-	AccentColorRedOverlay \
-	AccentColorTealOverlay \
+	AccentColorCinnamonOverlay \
 	AccentColorCocaColaOverlay \
+	AccentColorCyanOverlay \
 	AccentColorDiscordOverlay \
+	AccentColorDorsetGoldOverlay \
 	AccentColorEvolutionBlueOverlay \
 	AccentColorEvolutionGreenOverlay \
 	AccentColorEvolutionRedOverlay \
 	AccentColorEvolutionYellowOverlay \
+	AccentColorFlatPinkOverlay \
 	AccentColorGoldenShowerOverlay \
+	AccentColorGreenOverlay \
+	AccentColorIndigoOverlay \
+	AccentColorInfernoRedOverlay \
 	AccentColorJollibeeOverlay \
+	AccentColorLightPurpleOverlay \
 	AccentColorMatrixOverlay \
+	AccentColorMetallicGoldOverlay \
 	AccentColorNextbitOverlay \
+	AccentColorOceanOverlay \
 	AccentColorOnePlusOverlay \
 	AccentColorOrangeOverlay \
+	AccentColorOrchidOverlay \
 	AccentColorParanoidOverlay \
 	AccentColorPepsiOverlay \
+	AccentColorPinkOverlay \
 	AccentColorPixelBlueOverlay \
+	AccentColorPurpleOverlay \
 	AccentColorRazerOverlay \
+	AccentColorRedOverlay \
 	AccentColorSalmonOverlay \
+	AccentColorSpaceOverlay \
 	AccentColorStarbucksOverlay \
+	AccentColorTealOverlay \
 	AccentColorUbuntuOverlay \
 	AccentColorXboxOverlay \
 	AccentColorXiaomiOverlay \
 	DisplayCutoutEmulationCornerOverlay \
 	DisplayCutoutEmulationDoubleOverlay \
 	DisplayCutoutEmulationTallOverlay \
-	FontArbutusSourceOverlay \
-	FontArvoLatoOverlay \
-	FontGoogleSansOverlay \
-	FontNotoSerifSourceOverlay \
-	FontRubikRubikOverlay \
-	FontCircularStdOverlay \
-	FontSlateForOnePlusOverlay \
 	FontAclonicaSourceOverlay \
 	FontAmaranteSourceOverlay \
+	FontArbutusSourceOverlay \
+	FontArvoLatoOverlay \
 	FontBariolSourceOverlay \
 	FontCagliostroSourceOverlay \
+	FontCircularStdOverlay \
 	FontCoolstorySourceOverlay \
+	FontGoogleSansOverlay \
 	FontLGSmartGothicSourceOverlay \
 	FontNotoSerifSourceOverlay \
 	FontRosemarySourceOverlay \
+	FontRubikRubikOverlay \
+	FontSlateForOnePlusOverlay \
 	FontSonySketchSourceOverlay \
 	FontSurferSourceOverlay \
 	IconPackCircularAndroidOverlay \
@@ -93,17 +92,20 @@ LOCAL_REQUIRED_MODULES := \
 	IconPackRoundedSystemUIOverlay \
 	IconShapeCylinderOverlay \
 	IconShapeHexagonOverlay \
+	IconShapePebbleOverlay \
 	IconShapeRoundedHexagonOverlay \
 	IconShapeRoundedRectOverlay \
 	IconShapeSquareOverlay \
 	IconShapeSquircleOverlay \
+	IconShapeTaperedRectOverlay \
 	IconShapeTeardropOverlay \
-	NavigationBarMode3ButtonOverlay \
+	IconShapeVesselOverlay \
 	NavigationBarMode2ButtonOverlay \
+	NavigationBarMode3ButtonOverlay \
 	NavigationBarModeGesturalOverlay \
+	NavigationBarModeGesturalOverlayExtraWideBack \
 	NavigationBarModeGesturalOverlayNarrowBack \
-	NavigationBarModeGesturalOverlayWideBack \
-	NavigationBarModeGesturalOverlayExtraWideBack
+	NavigationBarModeGesturalOverlayWideBack
 
 include $(BUILD_PHONY_PACKAGE)
 include $(CLEAR_VARS)
