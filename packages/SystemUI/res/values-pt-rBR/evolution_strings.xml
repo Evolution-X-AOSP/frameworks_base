@@ -219,4 +219,10 @@
     <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">Cursor à esquerda</string>
     <string name="accessibility_dpad_right">Cursor à direita</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">Música</string>
+    <string name="quick_settings_music_play">Tocar</string>
+    <string name="quick_settings_music_pause">Pausar</string>
+    <!-- QS Tuner Config -->
+    <string name="tuner_qs_long_press_action">Não mostrar painéis ao pressionar longamente</string>
 </resources>
