@@ -21,6 +21,7 @@ LOCAL_REQUIRED_MODULES := \
 	AccentColorBlueGrayOverlay \
 	AccentColorCinnamonOverlay \
 	AccentColorCocaColaOverlay \
+	AccentColorCoralOverlay \
 	AccentColorCyanOverlay \
 	AccentColorDiscordOverlay \
 	AccentColorDorsetGoldOverlay \
@@ -28,6 +29,7 @@ LOCAL_REQUIRED_MODULES := \
 	AccentColorEvolutionGreenOverlay \
 	AccentColorEvolutionRedOverlay \
 	AccentColorEvolutionYellowOverlay \
+	AccentColorFerrariRedOverlay \
 	AccentColorFlatPinkOverlay \
 	AccentColorGoldenShowerOverlay \
 	AccentColorGreenOverlay \
