@@ -7284,6 +7284,12 @@ public final class Settings {
          */
         public static final String SHOW_CLIPBOARD_TOAST = "show_clipboard_toast";
 
+        /**
+         * Holds current enabled volume panel implementation
+         * @hide
+         */
+        public static final String SYSTEMUI_PLUGIN_VOLUME = "systemui_plugin_volume";
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
@@ -7819,6 +7825,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_CLOCK_SECONDS);
             PRIVATE_SETTINGS.add(STATUS_BAR_CUSTOM_HEADER_HEIGHT);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO);
+            PRIVATE_SETTINGS.add(SYSTEMUI_PLUGIN_VOLUME);
             PRIVATE_SETTINGS.add(TEXT_CLOCK_ALIGNMENT);
             PRIVATE_SETTINGS.add(TEXT_CLOCK_PADDING);
             PRIVATE_SETTINGS.add(THREE_FINGER_GESTURE);
