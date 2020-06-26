@@ -5986,7 +5986,7 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
-         * Whether to show VoLTE icon
+         * Whether to show VoLTE icon or not
          * @hide
          */
         public static final String VOLTE_ICON = "volte_icon";
@@ -5995,22 +5995,13 @@ public final class Settings {
         private static final Validator VOLTE_ICON_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
-         * Whether to show VoLTE icon or not
+         * VoLTE icon style
          * @hide
          */
         public static final String VOLTE_ICON_STYLE = "volte_icon_style";
 
         /** @hide */
         public static final Validator VOLTE_ICON_STYLE_VALIDATOR = ANY_INTEGER_VALIDATOR;
-
-        /**
-         * Whether to show VoWiFi icon or not
-         * @hide
-         */
-        public static final String SHOW_VOWIFI_ICON = "show_vowifi_icon";
-
-        /** @hide */
-        public static final Validator SHOW_VOWIFI_ICON_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
          * Whether to blink flashlight for incoming calls
@@ -7310,7 +7301,6 @@ public final class Settings {
             SENSOR_BLOCK,
             SHOW_MEDIA_HEADS_UP,
             SHOW_QS_CLOCK,
-            SHOW_VOWIFI_ICON,
             STATUSBAR_CLOCK_AM_PM_STYLE,
             STATUSBAR_CLOCK_DATE_DISPLAY,
             STATUSBAR_CLOCK_DATE_FORMAT,
@@ -7606,7 +7596,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(SCREENSHOT_SOUND);
             PRIVATE_SETTINGS.add(SENSOR_BLOCK);
             PRIVATE_SETTINGS.add(SHOW_MEDIA_HEADS_UP);
-            PRIVATE_SETTINGS.add(SHOW_VOWIFI_ICON);
             PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_AM_PM_STYLE);
             PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_DISPLAY);
             PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_FORMAT);
@@ -7897,7 +7886,6 @@ public final class Settings {
             VALIDATORS.put(SENSOR_BLOCK, SENSOR_BLOCK_VALIDATOR);
             VALIDATORS.put(SHOW_MEDIA_HEADS_UP, SHOW_MEDIA_HEADS_UP_VALIDATOR);
             VALIDATORS.put(SHOW_QS_CLOCK, SHOW_QS_CLOCK_VALIDATOR);
-            VALIDATORS.put(SHOW_VOWIFI_ICON, SHOW_VOWIFI_ICON_VALIDATOR);
             VALIDATORS.put(STATUSBAR_CLOCK_AM_PM_STYLE, STATUSBAR_CLOCK_AM_PM_STYLE_VALIDATOR);
             VALIDATORS.put(STATUSBAR_CLOCK_DATE_DISPLAY, STATUSBAR_CLOCK_DATE_DISPLAY_VALIDATOR);
             VALIDATORS.put(STATUSBAR_CLOCK_DATE_FORMAT, STATUSBAR_CLOCK_DATE_FORMAT_VALIDATOR);
