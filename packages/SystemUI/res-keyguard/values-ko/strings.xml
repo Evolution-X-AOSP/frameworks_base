@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+<!--
 /* //device/apps/common/assets/res/any/strings.xml
 **
 ** Copyright 2006, The Android Open Source Project
@@ -138,8 +138,10 @@
     <string name="clock_title_bubble" msgid="2204559396790593213">"버블"</string>
     <string name="clock_title_analog" msgid="8409262532900918273">"아날로그"</string>
     <plurals name="type_clock_header" formatted="false" msgid="6782840450655632763">
-      <item quantity="other">"<annotation name="color">"현재 시각:"</annotation>\n"^1\n^2</item>
       <item quantity="one">"<annotation name="color">"현재 시각:"</annotation>\n"^1\n^2</item>
+      <item quantity="few">"<annotation name="color">"현재 시각:"</annotation>\n"^1\n^2</item>
+      <item quantity="many">"<annotation name="color">"현재 시각:"</annotation>\n"^1\n^2</item>
+      <item quantity="other">"<annotation name="color">"현재 시각:"</annotation>\n"^1\n^2</item>
     </plurals>
   <string-array name="type_clock_hours">
     <item msgid="3543074812389379830">"열두 시"</item>
@@ -177,44 +179,44 @@
     <item msgid="3881477602692646573">"십팔 분"</item>
     <item msgid="3358129827772984226">"십구 분"</item>
     <item msgid="3308575407402865807">"이십 분"</item>
-    <item msgid="5346560955382229629">"이십\n일 분"</item>
-    <item msgid="226750304761473436">"이십\n이 분"</item>
-    <item msgid="616811325336838734">"이십\n삼 분"</item>
-    <item msgid="616346116869053440">"이십\n사 분"</item>
-    <item msgid="4642996410384042830">"이십\n오 분"</item>
-    <item msgid="7506092849993571465">"이십\n육 분"</item>
-    <item msgid="1915078191101042031">"이십\n칠 분"</item>
-    <item msgid="4292378641900520252">"이십\n팔 분"</item>
-    <item msgid="5339513901773103696">"이십\n구 분"</item>
+    <item msgid="5346560955382229629">"이십일 분"</item>
+    <item msgid="226750304761473436">"이십이 분"</item>
+    <item msgid="616811325336838734">"이십삼 분"</item>
+    <item msgid="616346116869053440">"이십사 분"</item>
+    <item msgid="4642996410384042830">"이십오 분"</item>
+    <item msgid="7506092849993571465">"이십육 분"</item>
+    <item msgid="1915078191101042031">"이십칠 분"</item>
+    <item msgid="4292378641900520252">"이십팔 분"</item>
+    <item msgid="5339513901773103696">"이십구 분"</item>
     <item msgid="3574673250891657607">"삼십 분"</item>
-    <item msgid="5796923836589110940">"삼십\n일 분"</item>
-    <item msgid="5859323597571702052">"삼십\n이 분"</item>
-    <item msgid="5133326723148876507">"삼십\n삼 분"</item>
-    <item msgid="2693999494655663096">"삼십\n사분"</item>
-    <item msgid="3316754944962836197">"삼십\n오 분"</item>
-    <item msgid="816891008836796723">"삼십\n육 분"</item>
-    <item msgid="9158890488666520078">"삼십\n칠 분"</item>
-    <item msgid="1894769703213894011">"삼십\n팔 분"</item>
-    <item msgid="5638820345598572399">"삼십\n구 분"</item>
+    <item msgid="5796923836589110940">"삼십일 분"</item>
+    <item msgid="5859323597571702052">"삼십이 분"</item>
+    <item msgid="5133326723148876507">"삼십삼 분"</item>
+    <item msgid="2693999494655663096">"삼십사 분"</item>
+    <item msgid="3316754944962836197">"삼십오 분"</item>
+    <item msgid="816891008836796723">"삼십육 분"</item>
+    <item msgid="9158890488666520078">"삼십칠 분"</item>
+    <item msgid="1894769703213894011">"삼십팔 분"</item>
+    <item msgid="5638820345598572399">"삼십구 분"</item>
     <item msgid="8838304023017895439">"사십 분"</item>
-    <item msgid="1834742948932559597">"사십\n일 분"</item>
-    <item msgid="6573707308847773944">"사십\n이 분"</item>
-    <item msgid="2450149950652678001">"사십\n삼 분"</item>
-    <item msgid="2874667401318178036">"사십\n사 분"</item>
-    <item msgid="3391101532763048862">"사십\n오 분"</item>
-    <item msgid="1671489330863254362">"사십\n육분"</item>
-    <item msgid="5916017359554531038">"사십\n칠 분"</item>
-    <item msgid="8205413177993059967">"사십\n팔 분"</item>
-    <item msgid="6607867415142171302">"사십\n구 분"</item>
+    <item msgid="1834742948932559597">"사십일 분"</item>
+    <item msgid="6573707308847773944">"사십이 분"</item>
+    <item msgid="2450149950652678001">"사십삼 분"</item>
+    <item msgid="2874667401318178036">"사십사 분"</item>
+    <item msgid="3391101532763048862">"사십오 분"</item>
+    <item msgid="1671489330863254362">"사십육 분"</item>
+    <item msgid="5916017359554531038">"사십칠 분"</item>
+    <item msgid="8205413177993059967">"사십팔 분"</item>
+    <item msgid="6607867415142171302">"사십구 분"</item>
     <item msgid="8358850748472089162">"오십 분"</item>
-    <item msgid="3551313125255080234">"오십\n일 분"</item>
-    <item msgid="1559678130725716542">"오십\n이 분"</item>
-    <item msgid="431441994725492377">"오십\n삼 분"</item>
-    <item msgid="6345774640539623024">"사십\n사 분"</item>
-    <item msgid="8018192990793931120">"오십\n오 분"</item>
-    <item msgid="6187650843754604534">"오십\n육 분"</item>
-    <item msgid="8727240174015993259">"오십\n칠 분"</item>
-    <item msgid="848339003778952950">"사십\n팔 분"</item>
-    <item msgid="5798985802835423618">"오십\n구 분"</item>
+    <item msgid="3551313125255080234">"오십일 분"</item>
+    <item msgid="1559678130725716542">"오십이 분"</item>
+    <item msgid="431441994725492377">"오십삼 분"</item>
+    <item msgid="6345774640539623024">"오십사 분"</item>
+    <item msgid="8018192990793931120">"오십오 분"</item>
+    <item msgid="6187650843754604534">"오십육 분"</item>
+    <item msgid="8727240174015993259">"오십칠 분"</item>
+    <item msgid="848339003778952950">"오십팔 분"</item>
+    <item msgid="5798985802835423618">"오십구 분"</item>
   </string-array>
 </resources>
