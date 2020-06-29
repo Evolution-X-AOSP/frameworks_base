@@ -93,8 +93,7 @@ public class AODTile extends QSTileImpl<State> implements
 
     @Override
     public Intent getLongClickIntent() {
-        return new Intent().setComponent(new ComponentName(
-            "com.android.settings", "com.android.settings.Settings$LockscreenDisplayActivity"));
+        return null;
     }
 
     @Override
