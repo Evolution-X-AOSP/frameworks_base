@@ -20,8 +20,8 @@ import android.util.Log;
 public class AccentUtils {
     private static final String TAG = "AccentUtils";
 
-    private static final String ACCENT_COLOR_PROP = "persist.sys.evolution.accent_color";
-    private static final String QS_BG_COLOR_PROP = "persist.sys.evolution.qs_bg_color";
+    private static final String ACCENT_COLOR_PROP = "persist.sys.theme.accent_color";
+    private static final String QS_BG_COLOR_PROP = "persist.sys.theme.qs_bg_color";
 
     static boolean isResourceAccent(String resName) {
         return resName.contains("accent_device_default_light")

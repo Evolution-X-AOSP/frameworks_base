@@ -86,8 +86,8 @@ final class UiModeManagerService extends SystemService {
     private static final String SYSTEM_PROPERTY_DEVICE_THEME = "persist.sys.theme";
 
     private IOverlayManager mOverlayManager;
-    private static final String ACCENT_COLOR_PROP = "persist.sys.evolution.accent_color";
-    private static final String QS_BG_COLOR_PROP = "persist.sys.evolution.qs_bg_color";
+    private static final String ACCENT_COLOR_PROP = "persist.sys.theme.accent_color";
+    private static final String QS_BG_COLOR_PROP = "persist.sys.theme.qs_bg_color";
 
     final Object mLock = new Object();
     private int mDockState = Intent.EXTRA_DOCK_STATE_UNDOCKED;
