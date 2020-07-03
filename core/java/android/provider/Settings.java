@@ -7115,6 +7115,12 @@ public final class Settings {
         private static final Validator QS_TILE_STYLE_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
 
+        /**
+         * A2DP codec priority
+         * @hide
+         */
+        public static final String A2DP_SOURCE_CODEC_PRIORITY = "a2dp_source_codec_priority";
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
