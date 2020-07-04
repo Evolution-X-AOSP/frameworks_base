@@ -42,6 +42,9 @@
     <!-- Whether to show HD icon in the status bar for volte -->
     <bool name="config_display_hd_volte">false</bool>
 
+    <!-- Whether to show vowifi icon in status bar -->
+    <bool name="config_display_vowifi">true</bool>
+
     <!-- Asus stitch editor component name -->
     <string name="config_stitchEditor">com.asus.stitchimage/com.asus.stitchimage.editor.ScreenshotEditorActivity</string>
 
