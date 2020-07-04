@@ -72,5 +72,6 @@ public class ThemeConstants {
         {"rosemary-sys","NORMAL"},
         {"sonysketch-sys","NORMAL"},
         {"surfer-sys","NORMAL"},
+        {"linotte-sys","NORMAL"},
     };
 }

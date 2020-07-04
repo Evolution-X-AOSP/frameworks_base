@@ -71,6 +71,7 @@ LOCAL_REQUIRED_MODULES := \
 	FontCoolstorySourceOverlay \
 	FontGoogleSansOverlay \
 	FontLGSmartGothicSourceOverlay \
+	FontLinotteSourceOverlay \
 	FontNotoSerifSourceOverlay \
 	FontRosemarySourceOverlay \
 	FontRubikRubikOverlay \
