@@ -907,9 +907,7 @@ public class MobileSignalController extends SignalController<
     }
 
     private MobileIconGroup getVowifiIconGroup() {
-        if (isVowifiAvailable() && !isCallIdle()) {
-            return TelephonyIcons.VOWIFI_CALLING;
-        } else if (isVowifiAvailable()) {
+        if (isVowifiAvailable()) {
             switch (vowifiStyle()) {
                 case 0:
                 default:
