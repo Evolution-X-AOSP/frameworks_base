@@ -44,6 +44,7 @@ import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.android.ims.ImsConfig;
 import com.android.ims.ImsException;
 import com.android.ims.ImsManager;
 import com.android.ims.FeatureConnector;
@@ -506,9 +507,37 @@ public class MobileSignalController extends SignalController<
                 && mCurrentState.activityOut;
         showDataIcon &= mCurrentState.isDefault || dataDisabled;
         int typeIcon = (showDataIcon || mConfig.alwaysShowDataRatIcon) ? icons.mDataType : 0;
-        int volteIcon = (mConfig.showVolteIcon && isVolteSwitchOn()) ? getVolteResId() : 0;
+        int volteResId = isVolteSwitchOn() ? getVolteResId() : 0;
+        int volteIcon = mConfig.showVolteIcon ? volteResId : 0;
         MobileIconGroup vowifiIconGroup = getVowifiIconGroup();
-        if (mConfig.showVowifiIcon && vowifiIconGroup != null) {
+        boolean vowifiIcon = mConfig.showVowifiIcon && vowifiIconGroup != null;
+        if (mImsManager != null) {
+            if (mImsManager.isWfcEnabledByUser()) {
+                switch (mImsManager.getWfcMode(mCurrentState.roaming)) {
+                    case ImsConfig.WfcModeFeatureValueConstants.WIFI_ONLY:
+                        // Don't show volte Icon if vowifi only
+                        volteIcon = 0;
+                        break;
+                    case ImsConfig.WfcModeFeatureValueConstants.WIFI_PREFERRED:
+                        // Don't show volte Icon if vowifi preferred and available
+                        volteIcon = vowifiIconGroup != null ? 0 : volteIcon;
+                        break;
+                    case ImsConfig.WfcModeFeatureValueConstants.CELLULAR_PREFERRED:
+                        // Don't show vowifi Icon if cellular/volte preferred and available
+                        vowifiIcon = volteResId != 0 ? false : vowifiIcon;
+                        break;
+                    default:
+                        vowifiIcon = false;
+                        break;
+                }
+            } else {
+                 vowifiIcon = false;
+            }
+        } else {
+            volteIcon = 0;
+            vowifiIcon = false;
+        }
+        if (vowifiIcon) {
             typeIcon = vowifiIconGroup.mDataType;
             statusIcon = new IconState(true,
                     mCurrentState.enabled && !mCurrentState.airplaneMode ? statusIcon.icon : 0,
