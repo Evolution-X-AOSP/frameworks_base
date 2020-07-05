@@ -68,4 +68,7 @@
         <item>@string/accessibility_quick_settings_live_display_changed_outdoor</item>
     </string-array>
 
+    <string-array translatable="false" name="config_notifyClipboardPackages">
+        <item>com.android.chrome</item>
+    </string-array>
 </resources>
