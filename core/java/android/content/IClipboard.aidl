@@ -35,7 +35,7 @@ interface IClipboard {
             String callingPackage, int userId);
     void removePrimaryClipChangedListener(in IOnPrimaryClipChangedListener listener,
             String callingPackage, int userId);
-
+    void displayToast(String destPkg);
     /**
      * Returns true if the clipboard contains text; false otherwise.
      */
