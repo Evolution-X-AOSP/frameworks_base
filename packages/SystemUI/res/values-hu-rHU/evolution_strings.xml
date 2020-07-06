@@ -34,8 +34,11 @@
     <string name="accessibility_quick_settings_usb_tether_changed_off">USB megosztás kikapcsolva</string>
     <string name="accessibility_quick_settings_usb_tether_changed_on">USB megosztás bekapcsolva</string>
     <string name="quick_settings_usb_tether_label">USB megosztás</string>
-    <!-- AOD QS tile -->
+    <!-- AOD QS tile states -->
     <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">AOD töltés közben</string>
+    <string name="quick_settings_aod_off_label">AOD ki</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD ki\nAkkukímélő</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Hang</string>
     <string name="quick_settings_sound_mute">Némít</string>
@@ -219,4 +222,16 @@
     <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">Kurzor balra</string>
     <string name="accessibility_dpad_right">Kurzor jobbra</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">Zene</string>
+    <string name="quick_settings_music_play">Lejátszás</string>
+    <string name="quick_settings_music_pause">Szüneteltetés</string>
+    <!-- QS Tuner Config -->
+    <string name="tuner_qs_long_press_action">Nyomva tartásnál ne jelenjenek meg a panelek</string>
+    <!-- Other QS tiles -->
+    <string name="alarm_title_tile">Ébresztő</string>
+    <string name="calc_title_tile">Számológép</string>
+    <string name="calendar_title_tile">Esemény hozzáadása</string>
+    <string name="camera_title_tile">Kamera</string>
+    <string name="call_title_tile">Tárcsázó</string>
 </resources>
