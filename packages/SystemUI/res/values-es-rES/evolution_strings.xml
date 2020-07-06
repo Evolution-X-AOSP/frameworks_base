@@ -34,8 +34,11 @@
     <string name="accessibility_quick_settings_usb_tether_changed_off">El anclaje USB ha sido desactivado</string>
     <string name="accessibility_quick_settings_usb_tether_changed_on">El anclaje USB ha sido activado</string>
     <string name="quick_settings_usb_tether_label">Anclaje USB</string>
-    <!-- AOD QS tile -->
+    <!-- AOD QS tile states -->
     <string name="quick_settings_aod_label">AOD (Pantalla siempre encendida)</string>
+    <string name="quick_settings_aod_on_charge_label">AOD en carga</string>
+    <string name="quick_settings_aod_off_label">AOD apagado</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD apagado\nAhorro de Batería</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Sonido</string>
     <string name="quick_settings_sound_mute">Silenciar</string>
@@ -223,4 +226,12 @@
     <string name="quick_settings_music_label">Música</string>
     <string name="quick_settings_music_play">Reproducir</string>
     <string name="quick_settings_music_pause">Pausa</string>
+    <!-- QS Tuner Config -->
+    <string name="tuner_qs_long_press_action">No mostrar paneles en pulsaciones largas</string>
+    <!-- Other QS tiles -->
+    <string name="alarm_title_tile">Alarma</string>
+    <string name="calc_title_tile">Calculadora</string>
+    <string name="calendar_title_tile">Añadir evento</string>
+    <string name="camera_title_tile">Cámara</string>
+    <string name="call_title_tile">Marcador</string>
 </resources>
