@@ -34,8 +34,11 @@
     <string name="accessibility_quick_settings_usb_tether_changed_off">USB テザリングを OFF にしました</string>
     <string name="accessibility_quick_settings_usb_tether_changed_on">USB テザリングを ON にしました</string>
     <string name="quick_settings_usb_tether_label">USB\nテザリング</string>
-    <!-- AOD QS tile -->
+    <!-- AOD QS tile states -->
     <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">充電時の Always On Display</string>
+    <string name="quick_settings_aod_off_label">AOD off</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD OFF\nバッテリー節約</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">音声</string>
     <string name="quick_settings_sound_mute">消音</string>
@@ -225,4 +228,10 @@
     <string name="quick_settings_music_pause">一時停止</string>
     <!-- QS Tuner Config -->
     <string name="tuner_qs_long_press_action">長押しでパネルを非表示</string>
+    <!-- Other QS tiles -->
+    <string name="alarm_title_tile">アラーム</string>
+    <string name="calc_title_tile">電卓</string>
+    <string name="calendar_title_tile">イベントを追加</string>
+    <string name="camera_title_tile">カメラ</string>
+    <string name="call_title_tile">電話</string>
 </resources>
