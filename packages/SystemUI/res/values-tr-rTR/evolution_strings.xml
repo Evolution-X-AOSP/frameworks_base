@@ -34,8 +34,11 @@
     <string name="accessibility_quick_settings_usb_tether_changed_off">USB internet paylaşımı kapatıldı</string>
     <string name="accessibility_quick_settings_usb_tether_changed_on">USB internet paylaşımı açıldı</string>
     <string name="quick_settings_usb_tether_label">USB internet paylaşımı</string>
-    <!-- AOD QS tile -->
+    <!-- AOD QS tile states -->
     <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">Şarj olurken her zaman açık ekran</string>
+    <string name="quick_settings_aod_off_label">Her zaman açık ekran kapalı</string>
+    <string name="quick_settings_aod_off_powersave_label">Her zaman açık ekran kapalı\nPil tasarrufu</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Ses</string>
     <string name="quick_settings_sound_mute">Sessiz</string>
@@ -225,4 +228,10 @@
     <string name="quick_settings_music_pause">Duraklat</string>
     <!-- QS Tuner Config -->
     <string name="tuner_qs_long_press_action">Uzunca basıldığında panelleri gösterme</string>
+    <!-- Other QS tiles -->
+    <string name="alarm_title_tile">Alarm</string>
+    <string name="calc_title_tile">Hesap makinesi</string>
+    <string name="calendar_title_tile">Etkinlik Ekle</string>
+    <string name="camera_title_tile">Kamera</string>
+    <string name="call_title_tile">Çevirici</string>
 </resources>
