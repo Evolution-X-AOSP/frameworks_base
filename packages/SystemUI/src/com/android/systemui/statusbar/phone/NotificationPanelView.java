@@ -3559,7 +3559,8 @@ public class NotificationPanelView extends PanelView implements
                     Log.d(TAG, "setPulsing notification = " + row.getStatusBarNotification());
                 }
                 if (pulseColorAutomatic) {
-                    int notificationColor = row.getStatusBarNotification().getNotification().color;
+                    int notificationColor = (row != null) ? row.getStatusBarNotification().getNotification().color
+                                : Notification.COLOR_DEFAULT;
                     if (notificationColor != Notification.COLOR_DEFAULT) {
                         pulseColor = notificationColor;
                     }
