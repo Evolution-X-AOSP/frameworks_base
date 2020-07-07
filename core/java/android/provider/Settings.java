@@ -6318,6 +6318,12 @@ public final class Settings {
         public static final String LOCKSCREEN_SOLID_UNITS_OPACITY = "lockscreen_solid_units_opacity";
 
         /**
+         * SBC HD priority - whether to use dual channel for SBC by default
+         * @hide
+         */
+        public static final String SBC_HD_PRIORITY = "sbc_hd_priority";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
