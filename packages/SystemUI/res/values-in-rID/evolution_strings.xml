@@ -34,8 +34,11 @@
     <string name="accessibility_quick_settings_usb_tether_changed_off">Penambatan USB dimatikan</string>
     <string name="accessibility_quick_settings_usb_tether_changed_on">Penambatan USB dinyalakan</string>
     <string name="quick_settings_usb_tether_label">Penambatan USB</string>
-    <!-- AOD QS tile -->
+    <!-- AOD QS tile states -->
     <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">AOD saat cas</string>
+    <string name="quick_settings_aod_off_label">AOD mati</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD nonaktif\nPenghemat baterai</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Suara</string>
     <string name="quick_settings_sound_mute">Senyap</string>
@@ -225,4 +228,10 @@
     <string name="quick_settings_music_pause">Jeda</string>
     <!-- QS Tuner Config -->
     <string name="tuner_qs_long_press_action">Jangan tampilkan panel pada tekan lama</string>
+    <!-- Other QS tiles -->
+    <string name="alarm_title_tile">Alarm</string>
+    <string name="calc_title_tile">Kalkulator</string>
+    <string name="calendar_title_tile">Tambahkan Acara</string>
+    <string name="camera_title_tile">Kamera</string>
+    <string name="call_title_tile">Panggilan</string>
 </resources>
