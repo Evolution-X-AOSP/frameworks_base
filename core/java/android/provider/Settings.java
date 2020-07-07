@@ -4874,6 +4874,23 @@ public final class Settings {
         public static final String SHOW_BATTERY_PERCENT = "dummy_show_battery_percent";
 
         /**
+         * Whether or not to enable multiple audio focus.
+         * When enabled, requires more management by user over application playback activity,
+         * for instance pausing media apps when another starts.
+         * @hide
+         */
+        public static final String MULTI_AUDIO_FOCUS_ENABLED = "multi_audio_focus_enabled";
+
+        /**
+         * IMPORTANT: If you add a new public settings you also have to add it to
+         * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
+         * it to PRIVATE_SETTINGS below. Also add a validator that can validate
+         * the setting value. See an example above.
+         */
+
+        /** Evolution X Customization **/
+
+        /**
          * The time in ms to keep the button backlight on after pressing a button.
          * A value of 0 will keep the buttons on for as long as the screen is on.
          * @hide
@@ -4894,16 +4911,6 @@ public final class Settings {
          */
         public static final String BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED =
                 "button_backlight_only_when_pressed";
-
-        /**
-         * Whether or not to enable multiple audio focus.
-         * When enabled, requires more management by user over application playback activity,
-         * for instance pausing media apps when another starts.
-         * @hide
-         */
-        public static final String MULTI_AUDIO_FOCUS_ENABLED = "multi_audio_focus_enabled";
-
-        /** Evolution X Customization **/
 
         /**
          * Enable statusbar double tap gesture on to put device to sleep
@@ -6337,13 +6344,6 @@ public final class Settings {
         public static final String ALERT_SLIDER_NOTIFICATIONS = "alert_slider_notifications";
 
         /**
-         * IMPORTANT: If you add a new public settings you also have to add it to
-         * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
-         * it to PRIVATE_SETTINGS below. Also add a validator that can validate
-         * the setting value. See an example above.
-         */
-
-        /**
          * Hold current font name and name of the originating package Uses "|" as a delimiter
          * @hide
          */
@@ -6360,6 +6360,18 @@ public final class Settings {
          * @hide
          */
         public static final String AUTO_BRIGHTNESS_ONE_SHOT = "auto_brightness_one_shot";
+
+        /**
+         * Control how to handle the display cutout
+         * @hide
+         */
+        public static final String DISPLAY_CUTOUT_MODE = "display_cutout_mode";
+
+        /**
+         * Control how to handle the display cutout
+         * @hide
+         */
+        public static final String STOCK_STATUSBAR_IN_HIDE = "stock_statusbar_in_hide";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to
@@ -6563,6 +6575,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(CAMERA_LAUNCH);
             PRIVATE_SETTINGS.add(TOUCHSCREEN_GESTURE_HAPTIC_FEEDBACK);
             PRIVATE_SETTINGS.add(HIGH_TOUCH_SENSITIVITY_ENABLE);
+            PRIVATE_SETTINGS.add(DISPLAY_CUTOUT_MODE);
+            PRIVATE_SETTINGS.add(STOCK_STATUSBAR_IN_HIDE);
         }
 
         /**

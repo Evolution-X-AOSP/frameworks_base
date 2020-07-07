@@ -1229,6 +1229,7 @@ public class StatusBar extends SystemUI implements DemoMode,
                             mStatusBarView.findViewById(R.id.notification_lights_out));
                     mNotificationShadeWindowViewController.setStatusBarView(mStatusBarView);
                     checkBarModes();
+                    handleCutout(null);
                     mBurnInProtectionController =
                         new BurnInProtectionController(mContext, this, mStatusBarView);
                 }).getFragmentManager()
@@ -2285,6 +2286,15 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                     Settings.Secure.SYSUI_ROUNDED_FWVALS),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.Secure.getUriFor(
+                    "sysui_rounded_size"),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STOCK_STATUSBAR_IN_HIDE),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.DISPLAY_CUTOUT_MODE),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -2320,6 +2330,10 @@ public class StatusBar extends SystemUI implements DemoMode,
                 updateSwitchStyle();
             } else if (uri.equals(Settings.Secure.getUriFor(Settings.Secure.SYSUI_ROUNDED_FWVALS))) {
                 updateCorners();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.DISPLAY_CUTOUT_MODE)) ||
+                    uri.equals(Settings.System.getUriFor(Settings.System.STOCK_STATUSBAR_IN_HIDE))||
+                    uri.equals(Settings.Secure.getUriFor("sysui_rounded_size"))) {
+                handleCutout(null);
             }
         }
 
@@ -2335,6 +2349,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             setScreenBrightnessMode();
             setGamingMode();
             updateCorners();
+            handleCutout(null);
         }
     }
 
@@ -2350,7 +2365,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             int resourceIdPadding = (int) mContext.getResources().getDimension(R.dimen.rounded_corner_content_padding);
             Settings.Secure.putIntForUser(mContext.getContentResolver(),
                 Settings.Secure.SYSUI_ROUNDED_CONTENT_PADDING, (int) (resourceIdPadding / density), UserHandle.USER_CURRENT);
->>>>>>> 2889ffff20df... Custom Rounded Corner and Padding preferences [1/2] (WIP)
         }
     }
 
@@ -3441,6 +3455,7 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         mViewHierarchyManager.updateRowStates();
         mScreenPinningRequest.onConfigurationChanged();
+        handleCutout(newConfig);
     }
 
     public NotificationLockscreenUserManager getNotificationLockscreenUserManager() {
@@ -4479,6 +4494,70 @@ public class StatusBar extends SystemUI implements DemoMode,
             updateIsKeyguard();
         }
     };
+
+    private void setBlackStatusBar(boolean enable) {
+        if (getStatusBarTransitions() == null) return;
+        if (enable) {
+            getStatusBarTransitions().getBackground().setColorOverride(new Integer(0xFF000000));
+        } else {
+            getStatusBarTransitions().getBackground().setColorOverride(null);
+        }
+    }
+
+    private void setCutoutOverlay(boolean enable) {
+        try {
+            mOverlayManager.setEnabled("co.potatoproject.overlay.hidecutout",
+                        enable, mLockscreenUserManager.getCurrentUserId());
+        } catch (RemoteException e) {
+            Log.w(TAG, "Failed to handle cutout overlay", e);
+        }
+    }
+
+    private void setStatusBarStockOverlay(boolean enable) {
+        try {
+            mOverlayManager.setEnabled("co.potatoproject.overlay.statusbarstock",
+                        enable, mLockscreenUserManager.getCurrentUserId());
+        } catch (RemoteException e) {
+            Log.w(TAG, "Failed to handle statusbar height overlay", e);
+        }
+    }
+
+    private void setNotificationPanelPadding(boolean enable) {
+        if (mNotificationPanelViewController == null
+                        || mNotificationPanelViewController.getView() == null) return;
+        if (enable) {
+            int size = (int) (Settings.Secure.getIntForUser(mContext.getContentResolver(),
+                    "sysui_rounded_size", -1, UserHandle.USER_CURRENT) * getDisplayDensity());
+            // Choose a sane safe size in immerse, often
+            // defaults are too large
+            if (size < 0) {
+                size = (int) (20 * getDisplayDensity());
+            }
+            mNotificationPanelViewController.getView().setPadding(size, 0, size, 0);
+        } else {
+            mNotificationPanelViewController.getView().setPadding(0, 0, 0, 0);
+        }
+
+    }
+
+    private void handleCutout(Configuration newConfig) {
+        boolean immerseMode;
+        if (newConfig == null) newConfig = mContext.getResources().getConfiguration();
+        if (newConfig == null || newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            immerseMode = Settings.System.getIntForUser(mContext.getContentResolver(),
+                        Settings.System.DISPLAY_CUTOUT_MODE, 0, UserHandle.USER_CURRENT) == 1;
+        } else {
+            immerseMode = false;
+        }
+        final boolean hideCutoutMode = Settings.System.getIntForUser(mContext.getContentResolver(),
+                        Settings.System.DISPLAY_CUTOUT_MODE, 0, UserHandle.USER_CURRENT) == 2;
+        final boolean statusBarStock = Settings.System.getIntForUser(mContext.getContentResolver(),
+                        Settings.System.STOCK_STATUSBAR_IN_HIDE, 1, UserHandle.USER_CURRENT) == 1;
+        setBlackStatusBar(immerseMode);
+        setCutoutOverlay(hideCutoutMode);
+        setNotificationPanelPadding(immerseMode);
+        setStatusBarStockOverlay(hideCutoutMode && statusBarStock);
+    }
 
     public int getWakefulnessState() {
         return mWakefulnessLifecycle.getWakefulness();
