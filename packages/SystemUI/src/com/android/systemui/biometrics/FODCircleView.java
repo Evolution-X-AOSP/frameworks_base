@@ -458,7 +458,7 @@ public class FODCircleView extends ImageView {
         mSelectedIcon = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.FOD_ICON, 0);
         mPressedIcon = Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.FOD_PRESSED_STATE, 0);
+                Settings.System.FOD_PRESSED_STATE, 5);
         if (mFODAnimation != null) {
             mFODAnimation.update();
         }
