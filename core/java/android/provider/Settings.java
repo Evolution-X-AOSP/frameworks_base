@@ -7290,6 +7290,15 @@ public final class Settings {
          */
         public static final String SYSTEMUI_PLUGIN_VOLUME = "systemui_plugin_volume";
 
+        /**
+         * Screen off fod
+         * @hide
+         */
+        public static final String FOD_GESTURE = "fod_gesture";
+
+        /** @hide */
+        public static final Validator FOD_GESTURE_VALIDATOR = BOOLEAN_VALIDATOR;
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
