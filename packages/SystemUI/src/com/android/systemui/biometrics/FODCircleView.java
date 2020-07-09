@@ -130,6 +130,7 @@ public class FODCircleView extends ImageView {
     private final int[] PRESSED_STYLES = {
         R.drawable.fod_icon_pressed_miui_cyan_light,
         R.drawable.fod_icon_pressed_miui_white_light,
+        R.drawable.fod_icon_pressed_realme_green_shadow,
         R.drawable.fod_icon_pressed_vivo_cyan,
         R.drawable.fod_icon_pressed_vivo_cyan_shadow,
         R.drawable.fod_icon_pressed_vivo_cyan_shadow_et713,
@@ -458,7 +459,7 @@ public class FODCircleView extends ImageView {
         mSelectedIcon = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.FOD_ICON, 0);
         mPressedIcon = Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.FOD_PRESSED_STATE, 5);
+                Settings.System.FOD_PRESSED_STATE, 2);
         if (mFODAnimation != null) {
             mFODAnimation.update();
         }
