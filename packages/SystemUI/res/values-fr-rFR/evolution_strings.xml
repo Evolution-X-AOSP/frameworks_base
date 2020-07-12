@@ -234,4 +234,8 @@
     <string name="calendar_title_tile">Ajouter événement</string>
     <string name="camera_title_tile">Appareil photo</string>
     <string name="call_title_tile">Téléphone</string>
+    <!-- Text to use when the number in a notification info is too large
+         (greater than status_bar_notification_info_maxnum, defined in
+         values/config.xml) and must be truncated.
+         [CHAR LIMIT=4] -->
 </resources>
