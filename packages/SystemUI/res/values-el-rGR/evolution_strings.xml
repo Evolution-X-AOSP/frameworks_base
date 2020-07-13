@@ -235,8 +235,13 @@
     <string name="calendar_title_tile">Προσθήκη συμβάντος</string>
     <string name="camera_title_tile">Φωτογραφική μηχανή</string>
     <string name="call_title_tile">Εφαρμογή κλήσεων</string>
-    <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
+    <!-- Screen Stabilization -->
+    <string name="quick_settings_stabilization_label">Σταθεροποίηση οθόνης</string>
+    <string name="quick_settings_stabilization_off">Η σταθεροποίηση είναι απενεργοποιημένη</string>
+    <string name="quick_settings_stabilization_on">Η σταθεροποίηση είναι ενεργοποιημένη</string>
+    <string name="low_label">Χαμηλό</string>
+    <string name="high_label">Υψηλό</string>
+    <string name="stabilization_velocity_friction">Ταχύτητα τριβής</string>
+    <string name="stabilization_velocity_amplitude">Εύρος ταχύτητας</string>
+    <string name="stabilization_position_friction">Θέση τριβής</string>
 </resources>
