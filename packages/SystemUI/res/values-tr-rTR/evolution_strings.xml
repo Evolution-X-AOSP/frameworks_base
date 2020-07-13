@@ -234,8 +234,13 @@
     <string name="calendar_title_tile">Etkinlik Ekle</string>
     <string name="camera_title_tile">Kamera</string>
     <string name="call_title_tile">Çevirici</string>
-    <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
+    <!-- Screen Stabilization -->
+    <string name="quick_settings_stabilization_label">Ekran Stabilizasyonu</string>
+    <string name="quick_settings_stabilization_off">Stabilizasyon devre dışı</string>
+    <string name="quick_settings_stabilization_on">Stabilizasyon etkin</string>
+    <string name="low_label">Düşük</string>
+    <string name="high_label">Yüksek</string>
+    <string name="stabilization_velocity_friction">Sürtünme hızı</string>
+    <string name="stabilization_velocity_amplitude">Hız Açıklığı</string>
+    <string name="stabilization_position_friction">Sürtünme pozisyonu</string>
 </resources>
