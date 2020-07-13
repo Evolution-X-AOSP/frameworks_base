@@ -234,8 +234,13 @@
     <string name="calendar_title_tile">イベントを追加</string>
     <string name="camera_title_tile">カメラ</string>
     <string name="call_title_tile">電話</string>
-    <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
+    <!-- Screen Stabilization -->
+    <string name="quick_settings_stabilization_label">画面の安定化</string>
+    <string name="quick_settings_stabilization_off">安定化は無効です</string>
+    <string name="quick_settings_stabilization_on">安定化は有効です</string>
+    <string name="low_label">低</string>
+    <string name="high_label">高</string>
+    <string name="stabilization_velocity_friction">速度の摩擦</string>
+    <string name="stabilization_velocity_amplitude">速度の振幅</string>
+    <string name="stabilization_position_friction">位置の摩擦</string>
 </resources>
