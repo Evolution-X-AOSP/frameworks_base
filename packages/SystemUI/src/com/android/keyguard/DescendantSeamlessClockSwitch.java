@@ -43,6 +43,7 @@ public class DescendantSeamlessClockSwitch {
         "com.android.keyguard.clock.MNMLBoxClockController",
         "com.android.keyguard.clock.MNMLMinimalClockController",
         "com.android.keyguard.clock.OPMinimalClockController",
+        "com.android.keyguard.clock.OPNumbersClockController",
         "com.android.keyguard.clock.OPRomanClockController",
         "com.android.keyguard.clock.SfunyClockController",
         "com.android.keyguard.clock.ShapeShiftClockController",
