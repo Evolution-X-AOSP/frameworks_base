@@ -4647,7 +4647,7 @@ public final class Settings {
         public static final String HAPTIC_ON_ACTION_KEY = "haptic_on_action_key";
 
         /**
-         *  Enable statusbar double tap gesture on to put device to sleep
+         * Enable statusbar double tap gesture on to put device to sleep
          * @hide
          */
         public static final String DOUBLE_TAP_SLEEP_GESTURE = "double_tap_sleep_gesture";
@@ -4668,8 +4668,7 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
-         * whether to enable or disable vibration on succesful fingerprint auth
-         *
+         * Whether to enable or disable vibration on succesful fingerprint auth
          * @hide
          */
         public static final String FINGERPRINT_SUCCESS_VIB = "fingerprint_success_vib";
@@ -4889,11 +4888,11 @@ public final class Settings {
          * Whether to show network traffic indicator in statusbar
          * @hide
          */
-        public static final String NETWORK_TRAFFIC_EXPANDED_STATUS_BAR_STATE =
-                "network_traffic_expanded_status_bar_state";
+        public static final String NETWORK_TRAFFIC_EXPANDED_STATUS_BAR_STATE = "network_traffic_expanded_status_bar_state";
 
         /** @hide */
-        private static final Validator NETWORK_TRAFFIC_EXPANDED_STATUS_BAR_STATE_VALIDATOR = BOOLEAN_VALIDATOR;
+        private static final Validator NETWORK_TRAFFIC_EXPANDED_STATUS_BAR_STATE_VALIDATOR =
+                BOOLEAN_VALIDATOR;
 
         /**
          * Network traffic location
@@ -5032,7 +5031,6 @@ public final class Settings {
 
         /**
          * Indicates whether ANBI (Accidental navigation button interaction) is enabled.
-         *
          * @hide
          */
         public static final String ANBI_ENABLED_OPTION = "anbi_enabled_option";
@@ -5312,18 +5310,16 @@ public final class Settings {
 
         /**
          * Whether to display sound panel in the power menu
-         *
          * @hide
          */
         public static final String POWERMENU_SOUNDPANEL = "powermenu_soundpanel";
-        /** @hide */
 
+        /** @hide */
         private static final Validator POWERMENU_SOUNDPANEL_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
         /**
          * Whether to display screenshot in the power menu
-         *
          * @hide
          */
         public static final String POWERMENU_SCREENSHOT = "powermenu_screenshot";
@@ -5334,7 +5330,6 @@ public final class Settings {
 
         /**
          * Whether to display settings in the power menu
-         *
          * @hide
          */
         public static final String POWERMENU_SETTINGS = "powermenu_settings";
@@ -5345,7 +5340,6 @@ public final class Settings {
 
         /**
          * Whether to display lock in the power menu
-         *
          * @hide
          */
         public static final String POWERMENU_LOCKDOWN = "powermenu_lockdown";
@@ -5356,7 +5350,6 @@ public final class Settings {
 
         /**
          * Whether to display airplane in the power menu
-         *
          * @hide
          */
         public static final String POWERMENU_AIRPLANE = "powermenu_airplane";
@@ -5367,7 +5360,6 @@ public final class Settings {
 
         /**
          * Whether to display reboot in the power menu
-         *
          * @hide
          */
         public static final String POWERMENU_RESTART = "powermenu_restart";
@@ -5378,7 +5370,6 @@ public final class Settings {
 
         /**
          * Whether to display advanced reboot in the power menu
-         *
          * @hide
          */
         public static final String POWERMENU_RESTART_RECOVERY = "powermenu_restart_recovery";
@@ -5389,7 +5380,6 @@ public final class Settings {
 
         /**
          * Whether to display power in the power menu
-         *
          * @hide
          */
         public static final String POWERMENU_POWER = "powermenu_power";
@@ -5400,7 +5390,6 @@ public final class Settings {
 
         /**
          * Whether to display the users option in the power menu
-         *
          * @hide
          */
         public static final String POWERMENU_USERS = "powermenu_users";
@@ -5483,7 +5472,6 @@ public final class Settings {
         public static final Validator STATUSBAR_CLOCK_DATE_STYLE_VALIDATOR =
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 2);
 
-
         /**
          * Stores the java DateFormat string for the date
          * @hide
@@ -5556,10 +5544,11 @@ public final class Settings {
          */
         public static final String DOZE_ON_CHARGE = "doze_on_charge";
 
+        /** @hide */
         private static final Validator DOZE_ON_CHARGE_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
-         * hidden stting of the current atate of DOZE only when charging
+         * Hidden setting of the current atate of DOZE only when charging
          * @hide
          */
         public static final String DOZE_ON_CHARGE_NOW = "doze_on_charge_now";
@@ -5647,28 +5636,25 @@ public final class Settings {
          * @hide
          */
         public static final String NOTIFICATION_SOUND_VIB_SCREEN_ON = "notification_sound_vib_screen_on";
-		
+
         /** @hide */
         private static final Validator NOTIFICATION_SOUND_VIB_SCREEN_ON_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
         /**
          * Change quick settings tiles animation style
-         *
          * @hide
          */
         public static final String ANIM_TILE_STYLE = "anim_tile_style";
 
         /**
          * Change quick settings tiles animation duration
-         *
          * @hide
          */
         public static final String ANIM_TILE_DURATION = "anim_tile_duration";
 
         /**
          * Change quick settings tiles interpolator
-         *
          * @hide
          */
         public static final String ANIM_TILE_INTERPOLATOR = "anim_tile_interpolator";
@@ -5684,7 +5670,6 @@ public final class Settings {
          * @hide
          */
         public static final String GAMING_MODE_ACTIVE = "gaming_mode_active";
-
 
         /**
          * Package name of apps for enabling Gaming mode
@@ -5760,7 +5745,7 @@ public final class Settings {
          * @hide
          */
         public static final String QS_SHOW_BRIGHTNESS_ICON = "qs_show_brightness_icon";
-		
+
         /** @hide */
         private static final Validator QS_SHOW_BRIGHTNESS_ICON_VALIDATOR =
                 BOOLEAN_VALIDATOR;
@@ -5787,7 +5772,6 @@ public final class Settings {
 
         /**
          * User definable value of pulse notification screen brightness
-         *
          * @hide
          */
         public static final String PULSE_BRIGHTNESS = "pulse_brightness";
@@ -5798,7 +5782,6 @@ public final class Settings {
 
         /**
          * User definable value of aod screen brightness
-         *
          * @hide
          */
         public static final String DOZE_BRIGHTNESS = "doze_brightness";
@@ -5816,7 +5799,7 @@ public final class Settings {
         private static final Validator USE_OLD_MOBILETYPE_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
-        /*
+        /**
          * Whether to auto hide clock
          * @hide
          */
@@ -5855,7 +5838,7 @@ public final class Settings {
          * @hide
          */
         public static final String LOCKSCREEN_ALBUM_ART_FILTER = "lockscreen_album_art_filter";
-		
+
         /** @hide */
         private static final Validator LOCKSCREEN_ALBUM_ART_FILTER_VALIDATOR =
               new SettingsValidators.InclusiveIntegerRangeValidator(0, 5);
@@ -5933,28 +5916,24 @@ public final class Settings {
 
          /**
          * Whether to display the power menu reboot option on a secured lockscreen
-         *
          * @hide
          */
         public static final String POWERMENU_LS_REBOOT = "powermenu_ls_reboot";
 
         /**
          * Whether to display the power menu advanced reboot option on a secured lockscreen
-         *
          * @hide
          */
         public static final String POWERMENU_LS_ADVANCED_REBOOT = "powermenu_ls_advanced_reboot";
 
         /**
          * Whether to display the power menu screenshot option on a secured lockscreen
-         *
          * @hide
          */
         public static final String POWERMENU_LS_SCREENSHOT = "powermenu_ls_screenshot";
 
         /**
          * Whether to display the power menu torch option on a secured lockscreen
-         *
          * @hide
          */
         public static final String POWERMENU_LS_TORCH = "powermenu_ls_torch";
@@ -5970,7 +5949,6 @@ public final class Settings {
 
         /**
          * Ambient Display Visualizer
-         *
          * @hide
          */
         public static final String AMBIENT_VISUALIZER_ENABLED = "ambient_visualizer_enabled";
@@ -6056,6 +6034,7 @@ public final class Settings {
          */
         public static final String SENSOR_BLOCK = "sensor_block";
 
+        /** @hide */
         private static final Validator SENSOR_BLOCK_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
@@ -6067,7 +6046,6 @@ public final class Settings {
 
         /**
          * Change fonts for the system lockscreen clock widget
-         *
          * @hide
          */
         public static final String LOCK_CLOCK_FONTS = "lock_clock_fonts";
@@ -6078,7 +6056,6 @@ public final class Settings {
 
         /**
          * Change fonts for the system lockscreen date
-         *
          * @hide
          */
         public static final String LOCK_DATE_FONTS = "lock_date_fonts";
@@ -6089,7 +6066,6 @@ public final class Settings {
 
         /**
          * Change font size for the system lockscreen date
-         *
          * @hide
          */
         public static final String LOCKDATE_FONT_SIZE = "lockdate_font_size";
@@ -6100,7 +6076,6 @@ public final class Settings {
 
         /**
          * Change font size for the system lockscreen clock widget
-         *
          * @hide
          */
         public static final String LOCKCLOCK_FONT_SIZE = "lockclock_font_size";
@@ -6111,7 +6086,6 @@ public final class Settings {
 
         /**
          * Change fonts for the system lockscreen Owner info
-         *
          * @hide
          */
         public static final String LOCK_OWNERINFO_FONTS = "lock_ownerinfo_fonts";
@@ -6122,7 +6096,6 @@ public final class Settings {
 
         /**
          * Change font size for the system lockscreen owner
-         *
          * @hide
          */
         public static final String LOCKOWNER_FONT_SIZE= "lockowner_font_size";
@@ -6137,6 +6110,7 @@ public final class Settings {
          */
         public static final String OMNI_STATUS_BAR_CUSTOM_HEADER = "status_bar_custom_header";
 
+        /** @hide */
         private static final Validator OMNI_STATUS_BAR_CUSTOM_HEADER_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
@@ -6148,6 +6122,7 @@ public final class Settings {
         public static final String OMNI_STATUS_BAR_CUSTOM_HEADER_SHADOW =
                 "status_bar_custom_header_shadow";
 
+        /** @hide */
         private static final Validator OMNI_STATUS_BAR_CUSTOM_HEADER_SHADOW_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
 
@@ -6158,6 +6133,7 @@ public final class Settings {
         public static final String OMNI_STATUS_BAR_DAYLIGHT_HEADER_PACK =
                 "status_bar_daylight_header_pack";
 
+        /** @hide */
         private static final Validator OMNI_STATUS_BAR_DAYLIGHT_HEADER_PACK_VALIDATOR =
                 ANY_STRING_VALIDATOR;
 
@@ -6168,6 +6144,7 @@ public final class Settings {
         public static final String OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER =
                 "status_bar_custom_header_provider";
 
+        /** @hide */
         private static final Validator OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER_VALIDATOR =
                 ANY_STRING_VALIDATOR;
 
@@ -6178,6 +6155,7 @@ public final class Settings {
         public static final String OMNI_STATUS_BAR_CUSTOM_HEADER_IMAGE =
                 "status_bar_custom_header_image";
 
+        /** @hide */
         private static final Validator OMNI_STATUS_BAR_CUSTOM_HEADER_IMAGE_VALIDATOR =
                 ANY_STRING_VALIDATOR;
 
@@ -6187,6 +6165,7 @@ public final class Settings {
         public static final String OMNI_STATUS_BAR_FILE_HEADER_IMAGE =
                 "status_bar_file_header_image";
 
+        /** @hide */
         private static final Validator OMNI_STATUS_BAR_FILE_HEADER_IMAGE_VALIDATOR =
                 ANY_STRING_VALIDATOR;
 
@@ -6198,28 +6177,24 @@ public final class Settings {
 
         /**
          * Show Settings icon in QS Footer
-         *
          * @hide
          */
         public static final String QS_FOOTER_SHOW_SETTINGS = "qs_footer_show_settings";
 
         /**
          * Show Running Services icon in QS Footer.
-         *
          * @hide
          */
         public static final String QS_FOOTER_SHOW_SERVICES = "qs_footer_show_services";
 
         /**
          * Show Edit icon in QS Footer.
-         *
          * @hide
          */
         public static final String QS_FOOTER_SHOW_EDIT = "qs_footer_show_edit";
 
         /**
          * Show User switcher icon in QS Footer.
-         *
          * @hide
          */
         public static final String QS_FOOTER_SHOW_USER = "qs_footer_show_user";
@@ -6229,7 +6204,7 @@ public final class Settings {
          * @hide
          */
         public static final String CHARGING_ANIMATION = "charging_animation";
-		
+
         /** @hide */
         private static final Validator CHARGING_ANIMATION_VALIDATOR =
                BOOLEAN_VALIDATOR;
@@ -6332,6 +6307,7 @@ public final class Settings {
          */
         public static final String STATUS_BAR_CUSTOM_HEADER_HEIGHT = "status_bar_custom_header_height";
 
+        /** @hide */
         private static final Validator STATUS_BAR_CUSTOM_HEADER_HEIGHT_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
         /**
@@ -6736,7 +6712,7 @@ public final class Settings {
          * @hide
          */
         public static final String SHOW_MEDIA_HEADS_UP = "show_media_heads_up";
-		
+
         /** @hide */
         private static final Validator SHOW_MEDIA_HEADS_UP_VALIDATOR =
                 BOOLEAN_VALIDATOR;
@@ -6829,7 +6805,7 @@ public final class Settings {
         public static final String AOD_NOTIFICATION_PULSE_ACTIVATED = "ambient_notification_light_activated";
 
         /**
-         * Whether hide everything on aod when  ambient lights are enabled
+         * Whether to hide everything on aod when ambient lights are enabled
          * @hide
          */
         public static final String AOD_NOTIFICATION_PULSE_CLEAR = "ambient_notification_light_hide_aod";
@@ -6921,6 +6897,7 @@ public final class Settings {
          */
         public static final String NOTIFICATION_HEADERS = "notification_headers";
 
+        /** @hide */
         private static final Validator NOTIFICATION_HEADERS_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
@@ -12315,7 +12292,7 @@ public final class Settings {
          * Evolution X Secure Settings start
          ************************************/
 
-        /*
+        /**
          * Boolean value whether to link ringtone and notification volume
          * @hide
          */
@@ -12345,6 +12322,7 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_LAVALAMP_ENABLED = "lockscreen_lavalamp_enabled";
 
+        /** @hide */
         private static final Validator LOCKSCREEN_LAVALAMP_ENABLED_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
@@ -12354,6 +12332,7 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_LAVALAMP_SPEED = "lockscreen_lavalamp_speed";
 
+        /** @hide */
         private static final Validator LOCKSCREEN_LAVALAMP_SPEED_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
 
@@ -12363,6 +12342,7 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_VISUALIZER_AUTOCOLOR = "lockscreen_visualizer_autocolor";
 
+        /** @hide */
         private static final Validator LOCKSCREEN_VISUALIZER_AUTOCOLOR_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
@@ -12372,6 +12352,7 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_VISUALIZER_COLOR = "lockscreen_visualizer_color";
 
+        /** @hide */
         private static final Validator LOCKSCREEN_VISUALIZER_COLOR_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
 
@@ -12381,6 +12362,7 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_SOLID_UNITS_COUNT = "lockscreen_solid_units_count";
 
+        /** @hide */
         private static final Validator LOCKSCREEN_SOLID_UNITS_COUNT_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
 
@@ -12390,6 +12372,7 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_SOLID_FUDGE_FACTOR = "lockscreen_solid_fudge_factor";
 
+        /** @hide */
         private static final Validator LOCKSCREEN_SOLID_FUDGE_FACTOR_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
 
@@ -12399,6 +12382,7 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_SOLID_UNITS_OPACITY = "lockscreen_solid_units_opacity";
 
+        /** @hide */
         private static final Validator LOCKSCREEN_SOLID_UNITS_OPACITY_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
 
@@ -12408,6 +12392,7 @@ public final class Settings {
          */
         public static final String SYSUI_ROUNDED_SIZE = "sysui_rounded_size";
 
+        /** @hide */
         private static final Validator SYSUI_ROUNDED_SIZE_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
 
@@ -12417,6 +12402,7 @@ public final class Settings {
          */
         public static final String SYSUI_ROUNDED_CONTENT_PADDING = "sysui_rounded_content_padding";
 
+        /** @hide */
         private static final Validator SYSUI_ROUNDED_CONTENT_PADDING_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
 
@@ -12426,6 +12412,7 @@ public final class Settings {
          */
         public static final String SYSUI_STATUS_BAR_PADDING = "sysui_status_bar_padding";
 
+        /** @hide */
         private static final Validator SYSUI_STATUS_BAR_PADDING_VALIDATOR =
                 ANY_INTEGER_VALIDATOR;
 
@@ -12435,6 +12422,7 @@ public final class Settings {
          */
         public static final String SYSUI_ROUNDED_FWVALS = "sysui_rounded_fwvals";
 
+        /** @hide */
         private static final Validator SYSUI_ROUNDED_FWVALS_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
@@ -12461,6 +12449,7 @@ public final class Settings {
          */
         public static final String HIDE_LOCKICON = "hide_lockicon";
 
+        /** @hide */
         private static final Validator HIDE_LOCKICON_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
