@@ -234,8 +234,13 @@
     <string name="calendar_title_tile">Дадаць падзею</string>
     <string name="camera_title_tile">Камера</string>
     <string name="call_title_tile">Набіральнік нумара</string>
-    <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
+    <!-- Screen Stabilization -->
+    <string name="quick_settings_stabilization_label">Стабілізацыя экрана</string>
+    <string name="quick_settings_stabilization_off">Стабілізацыя адключана</string>
+    <string name="quick_settings_stabilization_on">Стабілізацыя уключана</string>
+    <string name="low_label">Нізкі</string>
+    <string name="high_label">Высокі</string>
+    <string name="stabilization_velocity_friction">Хуткасць перамяшчэння</string>
+    <string name="stabilization_velocity_amplitude">Амплітуда хуткасці</string>
+    <string name="stabilization_position_friction">Пазіцыі перамяшчэння</string>
 </resources>
