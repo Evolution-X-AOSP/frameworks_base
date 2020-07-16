@@ -56,7 +56,7 @@ public class AODTile extends QSTileImpl<State> implements
         int aodState = Settings.Secure.getIntForUser(mContext.getContentResolver(),
                 Settings.Secure.DOZE_ALWAYS_ON, 0, UserHandle.USER_CURRENT);
         if (aodState == 0) {
-            aodState = Settings.Secure.getIntForUser(mContext.getContentResolver(),
+            aodState = Settings.System.getIntForUser(mContext.getContentResolver(),
                     Settings.System.DOZE_ON_CHARGE, 0, UserHandle.USER_CURRENT) == 1 ? 2 : 0;
         }
         return aodState;
@@ -86,7 +86,7 @@ public class AODTile extends QSTileImpl<State> implements
         Settings.Secure.putIntForUser(mContext.getContentResolver(),
                 Settings.Secure.DOZE_ALWAYS_ON, aodState == 2 ? 0 : aodState,
                 UserHandle.USER_CURRENT);
-        Settings.Secure.putIntForUser(mContext.getContentResolver(),
+        Settings.System.putIntForUser(mContext.getContentResolver(),
                 Settings.System.DOZE_ON_CHARGE, aodState == 2 ? 1 : 0, UserHandle.USER_CURRENT);
         refreshState();
     }
