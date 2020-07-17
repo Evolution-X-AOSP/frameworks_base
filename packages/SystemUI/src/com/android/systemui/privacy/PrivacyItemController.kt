@@ -43,8 +43,7 @@ import javax.inject.Inject
 import javax.inject.Named
 import javax.inject.Singleton
 
-fun isPermissionsHubEnabled() = DeviceConfig.getBoolean(DeviceConfig.NAMESPACE_PRIVACY,
-                SystemUiDeviceConfigFlags.PROPERTY_PERMISSIONS_HUB_ENABLED, true)
+fun isPermissionsHubEnabled() = true
 
 @Singleton
 class PrivacyItemController @Inject constructor(
