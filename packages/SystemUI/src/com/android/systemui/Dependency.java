@@ -34,6 +34,7 @@ import com.android.keyguard.KeyguardSecurityModel;
 import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.keyguard.clock.ClockManager;
 import com.android.settingslib.bluetooth.LocalBluetoothManager;
+import com.android.systemui.ScreenDecorations;
 import com.android.systemui.appops.AppOpsController;
 import com.android.systemui.assist.AssistManager;
 import com.android.systemui.broadcast.BroadcastDispatcher;
@@ -330,6 +331,7 @@ public class Dependency {
     @Inject Lazy<Divider> mDivider;
     @Inject Lazy<MediaOutputDialogFactory> mMediaOutputDialogFactory;
     @Inject Lazy<TaskHelper> mTaskHelper;
+    @Inject Lazy<ScreenDecorations> mScreenDecorations;
 
     @Inject
     public Dependency() {
@@ -530,6 +532,8 @@ public class Dependency {
         mProviders.put(Divider.class, mDivider::get);
 
         mProviders.put(MediaOutputDialogFactory.class, mMediaOutputDialogFactory::get);
+
+        mProviders.put(ScreenDecorations.class, mScreenDecorations::get);
 
         sDependency = this;
     }
