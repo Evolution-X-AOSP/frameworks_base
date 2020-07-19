@@ -36,6 +36,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.android.internal.util.evolution.EvolutionUtils;
+import com.android.internal.util.evolution.ThemeConstants;
 import com.android.internal.telephony.TelephonyIntents;
 
 import com.android.systemui.Dependency;
@@ -54,59 +55,10 @@ public class CarrierLabel extends TextView implements DarkReceiver {
     private Context mContext;
     private boolean mAttached;
     private static boolean isCN;
+    private int mCarrierLabelFontStyle = 28;
     private int mCarrierFontSize = 11;
     private int mCarrierColor = 0xffffffff;
     private int mTintColor = Color.WHITE;
-
-    private int mCarrierLabelFontStyle = GOOGLESANS;
-    public static final int FONT_NORMAL = 0;
-    public static final int FONT_ITALIC = 1;
-    public static final int FONT_BOLD = 2;
-    public static final int FONT_BOLD_ITALIC = 3;
-    public static final int FONT_LIGHT = 4;
-    public static final int FONT_LIGHT_ITALIC = 5;
-    public static final int FONT_THIN = 6;
-    public static final int FONT_THIN_ITALIC = 7;
-    public static final int FONT_CONDENSED = 8;
-    public static final int FONT_CONDENSED_ITALIC = 9;
-    public static final int FONT_CONDENSED_BOLD = 10;
-    public static final int FONT_CONDENSED_BOLD_ITALIC = 11;
-    public static final int FONT_CONDENSED_LIGHT = 12;
-    public static final int FONT_CONDENSED_LIGHT_ITALIC = 13;
-    public static final int FONT_MEDIUM = 14;
-    public static final int FONT_MEDIUM_ITALIC = 15;
-    public static final int FONT_BLACK = 16;
-    public static final int FONT_BLACK_ITALIC = 17;
-    public static final int FONT_DANCINGSCRIPT = 18;
-    public static final int FONT_DANCINGSCRIPT_BOLD = 19;
-    public static final int FONT_COMINGSOON = 20;
-    public static final int FONT_NOTOSERIF = 21;
-    public static final int FONT_NOTOSERIF_ITALIC = 22;
-    public static final int FONT_NOTOSERIF_BOLD = 23;
-    public static final int FONT_NOTOSERIF_BOLD_ITALIC = 24;
-    public static final int GOBOLD_LIGHT = 25;
-    public static final int ROADRAGE = 26;
-    public static final int SNOWSTORM = 27;
-    public static final int GOOGLESANS = 28;
-    public static final int NEONEON = 29;
-    public static final int THEMEABLE = 30;
-    public static final int SAMSUNG = 31;
-    public static final int MEXCELLENT = 32;
-    public static final int BURNSTOWN = 33;
-    public static final int DUMBLEDOR = 34;
-    public static final int PHANTOMBOLD = 35;
-    public static final int SOURCESANSPRO = 36;
-    public static final int CIRCULARSTD = 37;
-    public static final int ONEPLUSSLATE = 38;
-    public static final int ACLONICA = 39;
-    public static final int AMARANTE = 40;
-    public static final int BARIOL = 41;
-    public static final int CAGLIOSTRO = 42;
-    public static final int COOLSTORY = 43;
-    public static final int LGSMARTGOTHIC = 44;
-    public static final int ROSEMARY = 45;
-    public static final int SONYSKETCH = 46;
-    public static final int SURFER = 47;
 
     Handler mHandler;
 
@@ -249,201 +201,24 @@ public class CarrierLabel extends TextView implements DarkReceiver {
     }
 
     public void getFontStyle(int font) {
-        switch (font) {
-            case FONT_NORMAL:
-                setTypeface(Typeface.create("sans-serif",
-                    Typeface.NORMAL));
+        String[][] fontsArray = ThemeConstants.FONTS;
+
+        int fontType = Typeface.NORMAL;
+        switch (fontsArray[font][1]) {
+            case "ITALIC":
+                fontType = Typeface.ITALIC;
                 break;
-            case FONT_ITALIC:
-                setTypeface(Typeface.create("sans-serif",
-                    Typeface.ITALIC));
+            case "BOLD":
+                fontType = Typeface.BOLD;
                 break;
-            case FONT_BOLD:
-                setTypeface(Typeface.create("sans-serif",
-                    Typeface.BOLD));
+            case "BOLD_ITALIC":
+                fontType = Typeface.BOLD_ITALIC;
                 break;
-            case FONT_BOLD_ITALIC:
-                setTypeface(Typeface.create("sans-serif",
-                    Typeface.BOLD_ITALIC));
-                break;
-            case FONT_LIGHT:
-                setTypeface(Typeface.create("sans-serif-light",
-                    Typeface.NORMAL));
-                break;
-            case FONT_LIGHT_ITALIC:
-                setTypeface(Typeface.create("sans-serif-light",
-                    Typeface.ITALIC));
-                break;
-            case FONT_THIN:
-                setTypeface(Typeface.create("sans-serif-thin",
-                    Typeface.NORMAL));
-                break;
-            case FONT_THIN_ITALIC:
-                setTypeface(Typeface.create("sans-serif-thin",
-                    Typeface.ITALIC));
-                break;
-            case FONT_CONDENSED:
-                setTypeface(Typeface.create("sans-serif-condensed",
-                    Typeface.NORMAL));
-                break;
-            case FONT_CONDENSED_ITALIC:
-                setTypeface(Typeface.create("sans-serif-condensed",
-                    Typeface.ITALIC));
-                break;
-            case FONT_CONDENSED_LIGHT:
-                setTypeface(Typeface.create("sans-serif-condensed-light",
-                    Typeface.NORMAL));
-                break;
-            case FONT_CONDENSED_LIGHT_ITALIC:
-                setTypeface(Typeface.create("sans-serif-condensed-light",
-                    Typeface.ITALIC));
-                break;
-            case FONT_CONDENSED_BOLD:
-                setTypeface(Typeface.create("sans-serif-condensed",
-                    Typeface.BOLD));
-                break;
-            case FONT_CONDENSED_BOLD_ITALIC:
-                setTypeface(Typeface.create("sans-serif-condensed",
-                    Typeface.BOLD_ITALIC));
-                break;
-            case FONT_MEDIUM:
-                setTypeface(Typeface.create("sans-serif-medium",
-                    Typeface.NORMAL));
-                break;
-            case FONT_MEDIUM_ITALIC:
-                setTypeface(Typeface.create("sans-serif-medium",
-                    Typeface.ITALIC));
-                break;
-            case FONT_BLACK:
-                setTypeface(Typeface.create("sans-serif-black",
-                    Typeface.NORMAL));
-                break;
-            case FONT_BLACK_ITALIC:
-                setTypeface(Typeface.create("sans-serif-black",
-                    Typeface.ITALIC));
-                break;
-            case FONT_DANCINGSCRIPT:
-                setTypeface(Typeface.create("cursive",
-                    Typeface.NORMAL));
-                break;
-            case FONT_DANCINGSCRIPT_BOLD:
-                setTypeface(Typeface.create("cursive",
-                    Typeface.BOLD));
-                break;
-            case FONT_COMINGSOON:
-                setTypeface(Typeface.create("casual",
-                    Typeface.NORMAL));
-                break;
-            case FONT_NOTOSERIF:
-                setTypeface(Typeface.create("serif",
-                    Typeface.NORMAL));
-                break;
-            case FONT_NOTOSERIF_ITALIC:
-                setTypeface(Typeface.create("serif",
-                    Typeface.ITALIC));
-                break;
-            case FONT_NOTOSERIF_BOLD:
-                setTypeface(Typeface.create("serif",
-                    Typeface.BOLD));
-                break;
-            case FONT_NOTOSERIF_BOLD_ITALIC:
-                setTypeface(Typeface.create("serif",
-                    Typeface.BOLD_ITALIC));
-                break;
-            case GOBOLD_LIGHT:
-                setTypeface(Typeface.create("gobold-light-sys",
-                    Typeface.NORMAL));
-                break;
-            case ROADRAGE:
-                setTypeface(Typeface.create("roadrage-sys",
-		   Typeface.NORMAL));
-                break;
-            case SNOWSTORM:
-                setTypeface(Typeface.create("snowstorm-sys",
-                    Typeface.NORMAL));
-                break;
-            case GOOGLESANS:
             default:
-                setTypeface(Typeface.create("googlesans-sys",
-                    Typeface.NORMAL));
-                break;
-            case NEONEON:
-                setTypeface(Typeface.create("neoneon-sys",
-                    Typeface.NORMAL));
-                break;
-            case THEMEABLE:
-                setTypeface(Typeface.create("themeable-sys",
-                    Typeface.NORMAL));
-                break;
-            case SAMSUNG:
-                setTypeface(Typeface.create("samsung-sys",
-                    Typeface.NORMAL));
-                break;
-            case MEXCELLENT:
-                setTypeface(Typeface.create("mexcellent-sys",
-                    Typeface.NORMAL));
-                break;
-            case BURNSTOWN:
-                setTypeface(Typeface.create("burnstown-sys",
-                    Typeface.NORMAL));
-                break;
-            case DUMBLEDOR:
-                setTypeface(Typeface.create("dumbledor-sys",
-                    Typeface.NORMAL));
-                break;
-            case PHANTOMBOLD:
-                setTypeface(Typeface.create("phantombold-sys",
-                    Typeface.NORMAL));
-                break;
-            case SOURCESANSPRO:
-                setTypeface(Typeface.create("sourcesanspro-sys",
-                    Typeface.NORMAL));
-                break;
-            case CIRCULARSTD:
-                setTypeface(Typeface.create("circularstd-sys",
-                    Typeface.NORMAL));
-                break;
-            case ONEPLUSSLATE:
-                setTypeface(Typeface.create("oneplusslate-sys",
-                    Typeface.NORMAL));
-                break;
-            case ACLONICA:
-                setTypeface(Typeface.create("aclonica-sys",
-                    Typeface.NORMAL));
-                break;
-            case AMARANTE:
-                setTypeface(Typeface.create("amarante-sys",
-                    Typeface.NORMAL));
-                break;
-            case BARIOL:
-                setTypeface(Typeface.create("bariol-sys",
-                    Typeface.NORMAL));
-                break;
-            case CAGLIOSTRO:
-                setTypeface(Typeface.create("cagliostro-sys",
-                    Typeface.NORMAL));
-                break;
-            case COOLSTORY:
-                setTypeface(Typeface.create("coolstory-sys",
-                    Typeface.NORMAL));
-                break;
-            case LGSMARTGOTHIC:
-                setTypeface(Typeface.create("lgsmartgothic-sys",
-                    Typeface.NORMAL));
-                break;
-            case ROSEMARY:
-                setTypeface(Typeface.create("rosemary-sys",
-                    Typeface.NORMAL));
-                break;
-            case SONYSKETCH:
-                setTypeface(Typeface.create("sonysketch-sys",
-                    Typeface.NORMAL));
-                break;
-            case SURFER:
-                setTypeface(Typeface.create("surfer-sys",
-                    Typeface.NORMAL));
                 break;
         }
+
+        setTypeface(Typeface.create(fontsArray[font][0], fontType));
     }
 
     private void updateColor() {
@@ -464,7 +239,7 @@ public class CarrierLabel extends TextView implements DarkReceiver {
 
     private void updateStyle() {
         mCarrierLabelFontStyle = Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.STATUS_BAR_CARRIER_FONT_STYLE, GOOGLESANS);
+                Settings.System.STATUS_BAR_CARRIER_FONT_STYLE, 28);
         getFontStyle(mCarrierLabelFontStyle);
     }
 }

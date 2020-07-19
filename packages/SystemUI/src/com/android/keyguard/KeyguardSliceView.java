@@ -119,7 +119,7 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
     private boolean mHasHeader;
     private final int mRowWithHeaderPadding;
     private final int mRowPadding;
-    private int mRowTextSize;
+    private float mRowTextSize;
     private float mRowWithHeaderTextSize;
 
     @Inject
@@ -156,10 +156,9 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
         mRowContainer = findViewById(R.id.row_maincenter);
         mRow = findViewById(R.id.row);
         mTextColor = Utils.getColorAttrDefaultColor(mContext, R.attr.wallpaperTextColor);
-        mIconSize = mRowTextSize;
+        mIconSize = (int) mRowTextSize;
         mIconSizeWithHeader = (int) mContext.getResources().getDimension(R.dimen.header_icon_size);
-        mRowTextSize = mContext.getResources().getDimensionPixelSize(
-                R.dimen.lock_date_font_size_18);
+        mRowTextSize = (float) 18;
         mRowWithHeaderTextSize = mContext.getResources().getDimensionPixelSize(
                 R.dimen.header_row_font_size);
         mTitle.setOnClickListener(this);
@@ -460,10 +459,9 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
 
     @Override
     public void onDensityOrFontScaleChanged() {
-        mIconSize = mRowTextSize;
+        mIconSize = (int) mRowTextSize;
         mIconSizeWithHeader = (int) mContext.getResources().getDimension(R.dimen.header_icon_size);
-        mRowTextSize = mContext.getResources().getDimensionPixelSize(
-                R.dimen.lock_date_font_size_18);
+        mRowTextSize = (float) 18;
         mRowWithHeaderTextSize = mContext.getResources().getDimensionPixelSize(
                 R.dimen.header_row_font_size);
     }
@@ -489,105 +487,11 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
     }
 
     public void refreshdatesize() {
-        final Resources res = getContext().getResources();
         boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
         int lockDateSize = isPrimary ? getLockDateSize() : 18;
-
-        switch (lockDateSize) {
-            case 10:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_10);
-                break;
-            case 11:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_11);
-                break;
-            case 12:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_12);
-                break;
-            case 13:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_13);
-                break;
-            case 14:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_14);
-                break;
-            case 15:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_15);
-                break;
-            case 16:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_16);
-                break;
-            case 17:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_17);
-                break;
-            case 18:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_18);
-                break;
-            case 19:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_19);
-                break;
-            case 20:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_20);
-                break;
-            case 21:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_21);
-                break;
-            case 22:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_22);
-                break;
-            case 23:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_23);
-                break;
-            case 24:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_24);
-                break;
-            case 25:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_25);
-                break;
-            case 26:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_26);
-                break;
-            case 27:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_27);
-                break;
-            case 28:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_28);
-                break;
-            case 29:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_29);
-                break;
-            case 30:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_30);
-                break;
-            case 31:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_31);
-                break;
-            case 32:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_32);
-                break;
-            case 33:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_33);
-                break;
-            case 34:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_34);
-                break;
-            case 35:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_35);
-                break;
-            case 36:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_36);
-                break;
-            case 37:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_37);
-                break;
-            case 38:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_38);
-                break;
-            case 39:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_39);
-                break;
-            case 40:
-                mRowTextSize = mContext.getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_40);
-                break;
-        }
+        mRowTextSize = Math.round(TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, lockDateSize,
+                getResources().getDisplayMetrics()));
     }
 
     public void dump(FileDescriptor fd, PrintWriter pw, String[] args) {

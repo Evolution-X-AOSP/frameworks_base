@@ -45,6 +45,7 @@ import android.widget.TextView;
 
 import androidx.core.graphics.ColorUtils;
 
+import com.android.internal.util.evolution.ThemeConstants;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.keyguard.clock.CustomTextClock;
 import com.android.systemui.Dependency;
@@ -288,8 +289,7 @@ public class KeyguardStatusView extends GridLayout implements
             mClockView.refreshclocksize();
         }
         if (mOwnerInfo != null) {
-            mOwnerInfo.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                    getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_18));
+            mOwnerInfo.setTextSize(TypedValue.COMPLEX_UNIT_PX, (float) 18);
         }
         loadBottomMargin();
     }
@@ -302,38 +302,51 @@ public class KeyguardStatusView extends GridLayout implements
     private void refreshTime() {
         mClockView.refresh();
 
-        if (mClockSelection == 0) { // default
-            mClockView.setFormat12Hour(Patterns.clockView12);
-            mClockView.setFormat24Hour(Patterns.clockView24);
-        } else if (mClockSelection == 1) { // bold
-            mClockView.setFormat12Hour(Html.fromHtml("<strong>hh</strong>:mm"));
-            mClockView.setFormat24Hour(Html.fromHtml("<strong>kk</strong>:mm"));
-        } else if (mClockSelection == 2) { // accent
-            mClockView.setFormat12Hour(Html.fromHtml("<font color=" + getResources().getColor(R.color.accent_device_default_light) + ">hh:mm</font>"));
-            mClockView.setFormat24Hour(Html.fromHtml("<font color=" + getResources().getColor(R.color.accent_device_default_light) + ">kk:mm</font>"));
-        } else if (mClockSelection == 3) { // accent hour
-            mClockView.setFormat12Hour(Html.fromHtml("<font color=" + getResources().getColor(R.color.accent_device_default_light) + ">hh</font>:mm"));
-            mClockView.setFormat24Hour(Html.fromHtml("<font color=" + getResources().getColor(R.color.accent_device_default_light) + ">kk</font>:mm"));
-        } else if (mClockSelection == 4) { // accent min
-            mClockView.setFormat12Hour(Html.fromHtml("hh<font color=" + getResources().getColor(R.color.accent_device_default_light) + ">:mm</font>"));
-            mClockView.setFormat24Hour(Html.fromHtml("kk<font color=" + getResources().getColor(R.color.accent_device_default_light) + ">:mm</font>"));
-        } else if (mClockSelection == 5) { // sammy
-            mClockView.setFormat12Hour("hh\nmm");
-            mClockView.setFormat24Hour("kk\nmm");
-        } else if (mClockSelection == 6) { // sammy bold
-            mClockView.setFormat12Hour(Html.fromHtml("<strong>hh</strong><br>mm"));
-            mClockView.setFormat24Hour(Html.fromHtml("<strong>kk</strong><br>mm"));
-        } else if (mClockSelection == 7) { // sammy accent
-            mClockView.setFormat12Hour(Html.fromHtml("<font color=" + getResources().getColor(R.color.accent_device_default_light) + ">hh<br>mm</font>"));
-            mClockView.setFormat24Hour(Html.fromHtml("<font color=" + getResources().getColor(R.color.accent_device_default_light) + ">kk<br>mm</font>"));
-        } else if (mClockSelection == 8) { // sammy accent hour
-            mClockView.setFormat12Hour(Html.fromHtml("<font color=" + getResources().getColor(R.color.accent_device_default_light) + ">hh</font><br>mm"));
-            mClockView.setFormat24Hour(Html.fromHtml("<font color=" + getResources().getColor(R.color.accent_device_default_light) + ">kk</font><br>mm"));
-        } else if (mClockSelection == 9) { // sammy accent min
-            mClockView.setFormat12Hour(Html.fromHtml("hh<br><font color=" + getResources().getColor(R.color.accent_device_default_light) + ">mm</font>"));
-            mClockView.setFormat24Hour(Html.fromHtml("kk<br><font color=" + getResources().getColor(R.color.accent_device_default_light) + ">mm</font>"));
-        } else if (mClockSelection == 10 || mClockSelection == 11) { // text
-            mTextClock.onTimeChanged();
+        switch (mClockSelection) {
+            case 0: // default
+                mClockView.setFormat12Hour(Patterns.clockView12);
+                mClockView.setFormat24Hour(Patterns.clockView24);
+                break;
+            case 1: // bold
+                mClockView.setFormat12Hour(Html.fromHtml("<strong>h</strong>:mm"));
+                mClockView.setFormat24Hour(Html.fromHtml("<strong>kk</strong>:mm"));
+                break;
+            case 2: // accent
+                mClockView.setFormat12Hour(Html.fromHtml("<font color=" + getResources().getColor(R.color.accent_device_default_light) + ">hh:mm</font>"));
+                mClockView.setFormat24Hour(Html.fromHtml("<font color=" + getResources().getColor(R.color.accent_device_default_light) + ">kk:mm</font>"));
+                break;
+            case 3: // accent hour
+                mClockView.setFormat12Hour(Html.fromHtml("<font color=" + getResources().getColor(R.color.accent_device_default_light) + ">hh</font>:mm"));
+                mClockView.setFormat24Hour(Html.fromHtml("<font color=" + getResources().getColor(R.color.accent_device_default_light) + ">kk</font>:mm"));
+                break;
+            case 4: // accent min
+                mClockView.setFormat12Hour(Html.fromHtml("h<font color=" + getResources().getColor(R.color.accent_device_default_light) + ">:mm</font>"));
+                mClockView.setFormat24Hour(Html.fromHtml("kk<font color=" + getResources().getColor(R.color.accent_device_default_light) + ">:mm</font>"));
+                break;
+            case 5: // sammy
+                mClockView.setFormat12Hour("hh\nmm");
+                mClockView.setFormat24Hour("kk\nmm");
+                break;
+            case 6: // sammy bold
+                mClockView.setFormat12Hour(Html.fromHtml("<strong>hh</strong><br>mm"));
+                mClockView.setFormat24Hour(Html.fromHtml("<strong>kk</strong><br>mm"));
+                break;
+            case 7: // sammy accent
+                mClockView.setFormat12Hour(Html.fromHtml("<font color=" + getResources().getColor(R.color.accent_device_default_light) + ">hh<br>mm</font>"));
+                mClockView.setFormat24Hour(Html.fromHtml("<font color=" + getResources().getColor(R.color.accent_device_default_light) + ">kk<br>mm</font>"));
+                break;
+            case 8: // sammy accent hour
+                mClockView.setFormat12Hour(Html.fromHtml("<font color=" + getResources().getColor(R.color.accent_device_default_light) + ">hh</font><br>mm"));
+                mClockView.setFormat24Hour(Html.fromHtml("<font color=" + getResources().getColor(R.color.accent_device_default_light) + ">kk</font><br>mm"));
+                break;
+            case 9: // sammy accent min
+                mClockView.setFormat12Hour(Html.fromHtml("hh<br><font color=" + getResources().getColor(R.color.accent_device_default_light) + ">mm</font>"));
+                mClockView.setFormat24Hour(Html.fromHtml("kk<br><font color=" + getResources().getColor(R.color.accent_device_default_light) + ">mm</font>"));
+                break;
+            case 10: // text
+            case 11:
+                mTextClock.onTimeChanged();
+                break;
         }
     }
 
@@ -445,155 +458,26 @@ public class KeyguardStatusView extends GridLayout implements
     }
 
     private void refreshLockDateFont() {
-        final Resources res = getContext().getResources();
+        String[][] fontsArray = ThemeConstants.FONTS;
         boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
         int lockDateFont = isPrimary ? getLockDateFont() : 28;
-        switch (lockDateFont) {
-            case 0:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
+
+        int fontType = Typeface.NORMAL;
+        switch (fontsArray[lockDateFont][1]) {
+            case "ITALIC":
+                fontType = Typeface.ITALIC;
                 break;
-            case 1:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
+            case "BOLD":
+                fontType = Typeface.BOLD;
                 break;
-            case 2:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+            case "BOLD_ITALIC":
+                fontType = Typeface.BOLD_ITALIC;
                 break;
-            case 3:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
-                break;
-            case 4:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
-                break;
-            case 5:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
-                break;
-            case 6:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
-                break;
-            case 7:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
-                break;
-            case 8:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
-                break;
-            case 9:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
-                break;
-            case 10:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
-                break;
-            case 11:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
-                break;
-            case 12:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-condensed-light", Typeface.NORMAL));
-                break;
-            case 13:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-condensed-light", Typeface.ITALIC));
-                break;
-            case 14:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
-                break;
-            case 15:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
-                break;
-            case 16:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-black", Typeface.NORMAL));
-                break;
-            case 17:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-black", Typeface.ITALIC));
-                break;
-            case 18:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("cursive", Typeface.NORMAL));
-                break;
-            case 19:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("cursive", Typeface.BOLD));
-                break;
-            case 20:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("casual", Typeface.NORMAL));
-                break;
-            case 21:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("serif", Typeface.NORMAL));
-                break;
-            case 22:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("serif", Typeface.ITALIC));
-                break;
-            case 23:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("serif", Typeface.BOLD));
-                break;
-            case 24:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("serif", Typeface.BOLD_ITALIC));
-                break;
-            case 25:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("gobold-light-sys", Typeface.NORMAL));
-                break;
-            case 26:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("roadrage-sys", Typeface.NORMAL));
-                break;
-            case 27:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("snowstorm-sys", Typeface.NORMAL));
-                break;
-            case 28:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("googlesans-sys", Typeface.NORMAL));
-                break;
-            case 29:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("neoneon-sys", Typeface.NORMAL));
-                break;
-            case 30:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("themeable-sys", Typeface.NORMAL));
-                break;
-            case 31:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("samsung-sys", Typeface.NORMAL));
-                break;
-            case 32:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("mexcellent-sys", Typeface.NORMAL));
-                break;
-            case 33:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("burnstown-sys", Typeface.NORMAL));
-                break;
-            case 34:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("dumbledor-sys", Typeface.NORMAL));
-                break;
-            case 35:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("phantombold-sys", Typeface.NORMAL));
-                break;
-            case 36:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sourcesanspro-sys", Typeface.NORMAL));
-                break;
-            case 37:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("circularstd-sys", Typeface.NORMAL));
-                break;
-            case 38:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("oneplusslate-sys", Typeface.NORMAL));
-                break;
-            case 39:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("aclonica-sys", Typeface.NORMAL));
-                break;
-            case 40:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("amarante-sys", Typeface.NORMAL));
-                break;
-            case 41:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("bariol-sys", Typeface.NORMAL));
-                break;
-            case 42:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("cagliostro-sys", Typeface.NORMAL));
-                break;
-            case 43:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("coolstory-sys", Typeface.NORMAL));
-                break;
-            case 44:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("lgsmartgothic-sys", Typeface.NORMAL));
-                break;
-            case 45:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("rosemary-sys", Typeface.NORMAL));
-                break;
-            case 46:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sonysketch-sys", Typeface.NORMAL));
-                break;
-            case 47:
-                mKeyguardSlice.setViewsTypeface(Typeface.create("surfer-sys", Typeface.NORMAL));
+            default:
                 break;
         }
+
+        mKeyguardSlice.setViewsTypeface(Typeface.create(fontsArray[lockDateFont][0], fontType));
     }
 
     public float getClockTextSize() {
@@ -713,209 +597,30 @@ public class KeyguardStatusView extends GridLayout implements
         final Resources res = getContext().getResources();
         boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
         int ownerInfoSize = isPrimary ? getOwnerInfoSize() : 18;
-
-        if (ownerInfoSize == 10) {
-        mOwnerInfo.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_10));
-        } else if (ownerInfoSize == 11) {
-        mOwnerInfo.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_11));
-        } else if (ownerInfoSize == 12) {
-        mOwnerInfo.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_12));
-        } else if (ownerInfoSize == 13) {
-        mOwnerInfo.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_13));
-        } else if (ownerInfoSize == 14) {
-        mOwnerInfo.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_14));
-        }  else if (ownerInfoSize == 15) {
-        mOwnerInfo.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_15));
-        } else if (ownerInfoSize == 16) {
-        mOwnerInfo.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_16));
-        } else if (ownerInfoSize == 17) {
-        mOwnerInfo.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_17));
-        } else if (ownerInfoSize == 18) {
-        mOwnerInfo.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_18));
-        } else if (ownerInfoSize == 19) {
-        mOwnerInfo.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_19));
-        } else if (ownerInfoSize == 20) {
-        mOwnerInfo.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_20));
-        } else if (ownerInfoSize == 21) {
-        mOwnerInfo.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_21));
-        } else if (ownerInfoSize == 22) {
-        mOwnerInfo.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_22));
-        } else if (ownerInfoSize == 23) {
-        mOwnerInfo.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_23));
-        } else if (ownerInfoSize == 24) {
-        mOwnerInfo.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_24));
-        } else if (ownerInfoSize == 25) {
-        mOwnerInfo.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                getResources().getDimensionPixelSize(R.dimen.lock_date_font_size_25));
-        }
+        mOwnerInfo.setTextSize(TypedValue.COMPLEX_UNIT_DIP, ownerInfoSize);
     }
 
     private void refreshOwnerInfoFont() {
-        final Resources res = getContext().getResources();
+        String[][] fontsArray = ThemeConstants.FONTS;
         boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
         int ownerinfoFont = isPrimary ? getOwnerInfoFont() : 28;
 
-        switch (ownerinfoFont) {
-            case 0:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
+        int fontType = Typeface.NORMAL;
+        switch (fontsArray[ownerinfoFont][1]) {
+            case "ITALIC":
+                fontType = Typeface.ITALIC;
                 break;
-            case 1:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
+            case "BOLD":
+                fontType = Typeface.BOLD;
                 break;
-            case 2:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+            case "BOLD_ITALIC":
+                fontType = Typeface.BOLD_ITALIC;
                 break;
-            case 3:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
-                break;
-            case 4:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
-                break;
-            case 5:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
-                break;
-            case 6:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
-                break;
-            case 7:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
-                break;
-            case 8:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
-                break;
-            case 9:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
-                break;
-            case 10:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
-                break;
-            case 11:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
-                break;
-            case 12:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.NORMAL));
-                break;
-            case 13:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.ITALIC));
-                break;
-            case 14:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
-                break;
-            case 15:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
-                break;
-            case 16:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-black", Typeface.NORMAL));
-                break;
-            case 17:
-                mOwnerInfo.setTypeface(Typeface.create("sans-serif-black", Typeface.ITALIC));
-                break;
-            case 18:
-                mOwnerInfo.setTypeface(Typeface.create("cursive", Typeface.NORMAL));
-                break;
-            case 19:
-                mOwnerInfo.setTypeface(Typeface.create("cursive", Typeface.BOLD));
-                break;
-            case 20:
-                mOwnerInfo.setTypeface(Typeface.create("casual", Typeface.NORMAL));
-                break;
-            case 21:
-                mOwnerInfo.setTypeface(Typeface.create("serif", Typeface.NORMAL));
-                break;
-            case 22:
-                mOwnerInfo.setTypeface(Typeface.create("serif", Typeface.ITALIC));
-                break;
-            case 23:
-                mOwnerInfo.setTypeface(Typeface.create("serif", Typeface.BOLD));
-                break;
-            case 24:
-                mOwnerInfo.setTypeface(Typeface.create("serif", Typeface.BOLD_ITALIC));
-                break;
-            case 25:
-                mOwnerInfo.setTypeface(Typeface.create("gobold-light-sys", Typeface.NORMAL));
-                break;
-            case 26:
-                mOwnerInfo.setTypeface(Typeface.create("roadrage-sys", Typeface.NORMAL));
-                break;
-            case 27:
-                mOwnerInfo.setTypeface(Typeface.create("snowstorm-sys", Typeface.NORMAL));
-                break;
-            case 28:
-                mOwnerInfo.setTypeface(Typeface.create("googlesans-sys", Typeface.NORMAL));
-                break;
-            case 29:
-                mOwnerInfo.setTypeface(Typeface.create("neoneon-sys", Typeface.NORMAL));
-                break;
-            case 30:
-                mOwnerInfo.setTypeface(Typeface.create("themeable-sys", Typeface.NORMAL));
-                break;
-            case 31:
-                mOwnerInfo.setTypeface(Typeface.create("samsung-sys", Typeface.NORMAL));
-                break;
-            case 32:
-                mOwnerInfo.setTypeface(Typeface.create("mexcellent-sys", Typeface.NORMAL));
-                break;
-            case 33:
-                mOwnerInfo.setTypeface(Typeface.create("burnstown-sys", Typeface.NORMAL));
-                break;
-            case 34:
-                mOwnerInfo.setTypeface(Typeface.create("dumbledor-sys", Typeface.NORMAL));
-                break;
-            case 35:
-                mOwnerInfo.setTypeface(Typeface.create("phantombold-sys", Typeface.NORMAL));
-                break;
-            case 36:
-                mOwnerInfo.setTypeface(Typeface.create("sourcesanspro-sys", Typeface.NORMAL));
-                break;
-            case 37:
-                mOwnerInfo.setTypeface(Typeface.create("circularstd-sys", Typeface.NORMAL));
-                break;
-            case 38:
-                mOwnerInfo.setTypeface(Typeface.create("oneplusslate-sys", Typeface.NORMAL));
-                break;
-            case 39:
-                mOwnerInfo.setTypeface(Typeface.create("aclonica-sys", Typeface.NORMAL));
-                break;
-            case 40:
-                mOwnerInfo.setTypeface(Typeface.create("amarante-sys", Typeface.NORMAL));
-                break;
-            case 41:
-                mOwnerInfo.setTypeface(Typeface.create("bariol-sys", Typeface.NORMAL));
-                break;
-            case 42:
-                mOwnerInfo.setTypeface(Typeface.create("cagliostro-sys", Typeface.NORMAL));
-                break;
-            case 43:
-                mOwnerInfo.setTypeface(Typeface.create("coolstory-sys", Typeface.NORMAL));
-                break;
-            case 44:
-                mOwnerInfo.setTypeface(Typeface.create("lgsmartgothic-sys", Typeface.NORMAL));
-                break;
-            case 45:
-                mOwnerInfo.setTypeface(Typeface.create("rosemary-sys", Typeface.NORMAL));
-                break;
-            case 46:
-                mOwnerInfo.setTypeface(Typeface.create("sonysketch-sys", Typeface.NORMAL));
-                break;
-            case 47:
-                mOwnerInfo.setTypeface(Typeface.create("surfer-sys", Typeface.NORMAL));
+            default:
                 break;
         }
+
+        mOwnerInfo.setTypeface(Typeface.create(fontsArray[ownerinfoFont][0], fontType));
     }
 
     private void updateSettings() {
@@ -1104,211 +809,6 @@ public class KeyguardStatusView extends GridLayout implements
         final ContentResolver resolver = getContext().getContentResolver();
         int mTextClockPadding = Settings.System.getIntForUser(resolver,
                 Settings.System.TEXT_CLOCK_PADDING, 55, UserHandle.USER_CURRENT);
-
-        switch (mTextClockPadding) {
-            case 0:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_0);
-            case 1:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_1);
-            case 2:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_2);
-            case 3:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_3);
-            case 4:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_4);
-            case 5:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_5);
-            case 6:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_6);
-            case 7:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_7);
-            case 8:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_8);
-            case 9:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_9);
-            case 10:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_10);
-            case 11:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_11);
-            case 12:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_12);
-            case 13:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_13);
-            case 14:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_14);
-            case 15:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_15);
-            case 16:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_16);
-            case 17:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_17);
-            case 18:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_18);
-            case 19:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_19);
-            case 20:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_20);
-            case 21:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_21);
-            case 22:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_22);
-            case 23:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_23);
-            case 24:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_24);
-            case 25:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_25);
-            case 26:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_26);
-            case 27:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_27);
-            case 28:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_28);
-            case 29:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_29);
-            case 30:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_30);
-            case 31:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_31);
-            case 32:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_32);
-            case 33:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_33);
-            case 34:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_34);
-            case 35:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_35);
-            case 36:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_36);
-            case 37:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_37);
-            case 38:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_38);
-            case 39:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_39);
-            case 40:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_40);
-            case 41:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_41);
-            case 42:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_42);
-            case 43:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_43);
-            case 44:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_44);
-            case 45:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_45);
-            case 46:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_46);
-            case 47:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_47);
-            case 48:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_48);
-            case 49:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_49);
-            case 50:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_date_font_size_50);
-            case 51:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_51);
-            case 52:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_52);
-            case 53:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_53);
-            case 54:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_54);
-            case 55:
-            default:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_55);
-            case 56:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_56);
-            case 57:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_57);
-            case 58:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_58);
-            case 59:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_59);
-            case 60:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_60);
-            case 61:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_61);
-            case 62:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_62);
-            case 63:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_63);
-            case 64:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_64);
-            case 65:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_65);
-            case 66:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_66);
-            case 67:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_67);
-            case 68:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_68);
-            case 69:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_69);
-            case 70:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_70);
-            case 71:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_71);
-            case 72:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_72);
-            case 73:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_73);
-            case 74:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_74);
-            case 75:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_75);
-            case 76:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_76);
-            case 77:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_77);
-            case 78:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_78);
-            case 79:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_79);
-            case 80:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_80);
-            case 81:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_81);
-            case 82:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_82);
-            case 83:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_83);
-            case 84:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_84);
-            case 85:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_85);
-            case 86:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_86);
-            case 87:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_87);
-            case 88:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_88);
-            case 89:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_89);
-            case 90:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_90);
-            case 91:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_91);
-            case 92:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_92);
-            case 93:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_93);
-            case 94:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_94);
-            case 95:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_95);
-            case 96:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_96);
-            case 97:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_97);
-            case 98:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_98);
-            case 99:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_99);
-            case 100:
-                return (int) mContext.getResources().getDimension(R.dimen.lock_clock_font_size_100);
-        }
+        return mTextClockPadding;
     }
 }
