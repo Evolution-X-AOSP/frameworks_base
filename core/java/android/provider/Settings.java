@@ -7256,6 +7256,12 @@ public final class Settings {
         /** @hide */
         private static Validator LOCKSCREEN_TIMEOUT_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
+        /**
+         * Toggle for clipboard access toast.
+         * @hide
+         */
+        public static final String SHOW_CLIPBOARD_TOAST = "show_clipboard_toast";
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
