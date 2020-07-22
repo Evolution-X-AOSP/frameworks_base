@@ -34,8 +34,11 @@
     <string name="accessibility_quick_settings_usb_tether_changed_off">Tethering przez USB został wył.</string>
     <string name="accessibility_quick_settings_usb_tether_changed_on">Tethering przez USB został wł.</string>
     <string name="quick_settings_usb_tether_label">Tethering USB</string>
-    <!-- AOD QS tile -->
+    <!-- AOD QS tile states -->
     <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">AOD przy ładowaniu</string>
+    <string name="quick_settings_aod_off_label">AOD wyłączone</string>
+    <string name="quick_settings_aod_off_powersave_label">Podgląd wył.\nOszczędzanie baterii</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Dźwięk</string>
     <string name="quick_settings_sound_mute">Wycisz</string>
@@ -225,4 +228,19 @@
     <string name="quick_settings_music_pause">Zapauzuj</string>
     <!-- QS Tuner Config -->
     <string name="tuner_qs_long_press_action">Nie pokazuj paneli po długim naciśnięciu</string>
+    <!-- Other QS tiles -->
+    <string name="alarm_title_tile">Alarm</string>
+    <string name="calc_title_tile">Kalkulator</string>
+    <string name="calendar_title_tile">Dodaj wydarzenie</string>
+    <string name="camera_title_tile">Aparat</string>
+    <string name="call_title_tile">Telefon</string>
+    <!-- Screen Stabilization -->
+    <string name="quick_settings_stabilization_label">Stabilizacja ekranu</string>
+    <string name="quick_settings_stabilization_off">Stabilizacja jest wyłączona</string>
+    <string name="quick_settings_stabilization_on">Stabilizacja jest włączona</string>
+    <string name="low_label">Słabo</string>
+    <string name="high_label">Mocno</string>
+    <string name="stabilization_velocity_friction">Prędkość tarcia</string>
+    <string name="stabilization_velocity_amplitude">Amplituda prędkości</string>
+    <string name="stabilization_position_friction">Pozycja tarcia</string>
 </resources>
