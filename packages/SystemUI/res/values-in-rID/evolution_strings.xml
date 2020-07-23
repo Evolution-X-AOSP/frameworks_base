@@ -234,8 +234,13 @@
     <string name="calendar_title_tile">Tambahkan Acara</string>
     <string name="camera_title_tile">Kamera</string>
     <string name="call_title_tile">Panggilan</string>
-    <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
+    <!-- Screen Stabilization -->
+    <string name="quick_settings_stabilization_label">Stabilisasi Layar</string>
+    <string name="quick_settings_stabilization_off">Stabilisasi dinonaktifkan</string>
+    <string name="quick_settings_stabilization_on">Stabilisasi diaktifkan</string>
+    <string name="low_label">Rendah</string>
+    <string name="high_label">Tinggi</string>
+    <string name="stabilization_velocity_friction">Gesekan Kecepatan</string>
+    <string name="stabilization_velocity_amplitude">Amplitudo Kecepatan</string>
+    <string name="stabilization_position_friction">Gesekan posisi</string>
 </resources>
