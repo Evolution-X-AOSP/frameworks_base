@@ -95,7 +95,9 @@ import android.hardware.biometrics.IAuthService;
 import android.hardware.camera2.CameraManager;
 import android.hardware.devicestate.DeviceStateManager;
 import android.hardware.display.ColorDisplayManager;
+import android.hardware.display.DcDimmingManager;
 import android.hardware.display.DisplayManager;
+import android.hardware.display.IDcDimmingManager;
 import android.hardware.face.FaceManager;
 import android.hardware.face.IFaceService;
 import android.hardware.fingerprint.FingerprintManager;
@@ -963,6 +965,19 @@ public final class SystemServiceRegistry {
                 IPocketService service = IPocketService.Stub.asInterface(binder);
                 return new PocketManager(ctx.getOuterContext(), service);
             }});
+
+        registerService(Context.DC_DIM_SERVICE, DcDimmingManager.class,
+                new CachedServiceFetcher<DcDimmingManager>() {
+                    @Override
+                    public DcDimmingManager createService(ContextImpl ctx) throws ServiceNotFoundException {
+                        if (Resources.getSystem().getString(
+                                com.android.internal.R.string.config_deviceDcDimmingSysfsNode).isEmpty()) {
+                            return null;
+                        }
+                        IBinder b = ServiceManager.getServiceOrThrow(Context.DC_DIM_SERVICE);
+                        IDcDimmingManager service = IDcDimmingManager.Stub.asInterface(b);
+                        return new DcDimmingManager(service);
+                    }});
 
         registerService(Context.TV_INPUT_SERVICE, TvInputManager.class,
                 new CachedServiceFetcher<TvInputManager>() {

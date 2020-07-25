@@ -309,4 +309,9 @@
     <java-symbol type="string" name="sleep_mode_notification_content" />
     <java-symbol type="string" name="sleep_mode_enabled_toast" />
     <java-symbol type="string" name="sleep_mode_disabled_toast" />
+
+    <!-- DC Dimming -->
+    <java-symbol type="string" name="config_deviceDcDimmingSysfsNode" />
+    <java-symbol type="string" name="config_deviceDcDimmingEnableValue" />
+    <java-symbol type="string" name="config_deviceDcDimmingDisableValue" />
 </resources>

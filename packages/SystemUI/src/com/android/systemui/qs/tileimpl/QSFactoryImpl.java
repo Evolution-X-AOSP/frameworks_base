@@ -44,6 +44,7 @@ import com.android.systemui.qs.tiles.ColorInversionTile;
 import com.android.systemui.qs.tiles.CompassTile;
 import com.android.systemui.qs.tiles.DataSaverTile;
 import com.android.systemui.qs.tiles.DataSwitchTile;
+import com.android.systemui.qs.tiles.DcDimmingTile;
 import com.android.systemui.qs.tiles.DeviceControlsTile;
 import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.DreamTile;
@@ -150,6 +151,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<CompassTile> mCompassTileProvider;
     private final Provider<SmartPixelsTile> mSmartPixelsTileProvider;
     private final Provider<SleepModeTile> mSleepModeTileProvider;
+    private final Provider<DcDimmingTile> mDcDimmingTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
     private final Provider<CustomTile.Builder> mCustomTileBuilderProvider;
@@ -213,7 +215,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<GloveModeTile> gloveModeTileProvider,
             Provider<CompassTile> compassTileProvider,
             Provider<SmartPixelsTile> smartPixelsTileProvider,
-            Provider<SleepModeTile> sleepModeTileProvider) {
+            Provider<SleepModeTile> sleepModeTileProvider,
+            Provider<DcDimmingTile> dcDimTileProvider) {
         mQsHostLazy = qsHostLazy;
         mCustomTileBuilderProvider = customTileBuilderProvider;
 
@@ -273,6 +276,7 @@ public class QSFactoryImpl implements QSFactory {
         mCompassTileProvider = compassTileProvider;
         mSmartPixelsTileProvider = smartPixelsTileProvider;
         mSleepModeTileProvider = sleepModeTileProvider;
+        mDcDimmingTileProvider = dcDimTileProvider;
     }
 
     /** Creates a tile with a type based on {@code tileSpec} */
@@ -401,6 +405,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mSmartPixelsTileProvider.get();
             case "sleep_mode":
                 return mSleepModeTileProvider.get();
+            case "dc_dimming":
+                return mDcDimmingTileProvider.get();
         }
         // Custom tiles
         if (tileSpec.startsWith(CustomTile.PREFIX)) {
