@@ -60,4 +60,7 @@
     <string name="sleep_mode_notification_content">Tap to turn off sleep mode</string>
     <string name="sleep_mode_enabled_toast">Sleep mode turned on</string>
     <string name="sleep_mode_disabled_toast">Sleep mode turned off</string>
+
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Calls and notifications will ring</string>
 </resources>
