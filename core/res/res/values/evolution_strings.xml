@@ -24,6 +24,9 @@
     <string name="reboot_title">Reboot</string>
     <string name="reboot_message">Rebooting system</string>
 
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Calls and notifications will ring</string>
+
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Press and hold power button to unlock</string>
 
