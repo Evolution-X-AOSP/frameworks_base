@@ -7161,6 +7161,21 @@ public final class Settings {
         private static final Validator OMNI_DOZE_BRIGHTNESS_FORCE_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
+        /**
+         * QS header style
+         * 0 = Default
+         * 1 = Gray
+         * 2 = Light Gray
+         * 3 = Accent
+         * 4 = Transparent
+         * @hide
+         */
+        public static final String QS_HEADER_STYLE = "qs_header_style";
+
+        /** @hide */
+        private static final Validator QS_HEADER_STYLE_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 4);
+
         /**********************************
          * Evolution X System Settings end
          **********************************/
@@ -7358,6 +7373,7 @@ public final class Settings {
             QS_BLUR_INTENSITY,
             QS_COLUMNS_LANDSCAPE,
             QS_COLUMNS_PORTRAIT,
+            QS_HEADER_STYLE,
             QS_HIDE_BATTERY,
             QS_PANEL_BG_ALPHA,
             QS_PANEL_BG_COLOR,
@@ -7659,6 +7675,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(PULSE_ON_NEW_TRACKS);
             PRIVATE_SETTINGS.add(QS_COLUMNS_LANDSCAPE);
             PRIVATE_SETTINGS.add(QS_COLUMNS_PORTRAIT);
+            PRIVATE_SETTINGS.add(QS_HEADER_STYLE);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_ALPHA);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_COLOR);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_COLOR_WALL);
@@ -7952,6 +7969,7 @@ public final class Settings {
             VALIDATORS.put(QS_BLUR_INTENSITY, QS_BLUR_INTENSITY_VALIDATOR);
             VALIDATORS.put(QS_COLUMNS_LANDSCAPE, QS_COLUMNS_LANDSCAPE_VALIDATOR);
             VALIDATORS.put(QS_COLUMNS_PORTRAIT, QS_COLUMNS_PORTRAIT_VALIDATOR);
+            VALIDATORS.put(QS_HEADER_STYLE, QS_HEADER_STYLE_VALIDATOR);
             VALIDATORS.put(QS_HIDE_BATTERY, QS_HIDE_BATTERY_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_ALPHA, QS_PANEL_BG_ALPHA_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_COLOR, QS_PANEL_BG_COLOR_VALIDATOR);
