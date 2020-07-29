@@ -957,7 +957,7 @@ public class VolumeDialogImpl implements VolumeDialog,
             enableRingerViewsH(!isZenMuted);
             switch (mState.ringerModeInternal) {
                 case AudioManager.RINGER_MODE_VIBRATE:
-                    mRingerIcon.setImageResource(R.drawable.ic_volume_ringer_vibrate);
+                    mRingerIcon.setImageResource(R.drawable.ic_volume_ringer_vibrate_vol);
                     addAccessibilityDescription(mRingerIcon, RINGER_MODE_VIBRATE,
                             mContext.getString(R.string.volume_ringer_hint_mute));
                     mRingerIcon.setTag(Events.ICON_STATE_VIBRATE);
@@ -1167,7 +1167,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         row.icon.setEnabled(iconEnabled);
         row.icon.setAlpha(iconEnabled ? 1 : 0.5f);
         final int iconRes =
-                isRingVibrate ? R.drawable.ic_volume_ringer_vibrate
+                isRingVibrate ? R.drawable.ic_volume_ringer_vibrate_vol
                 : isRingSilent || zenMuted ? row.iconMuteRes
                 : ss.routedToBluetooth ?
                         (ss.muted ? R.drawable.ic_volume_media_bt_mute
@@ -1176,7 +1176,7 @@ public class VolumeDialogImpl implements VolumeDialog,
                 : (ss.muted ? row.iconMuteRes : row.iconRes);
         row.icon.setImageResource(iconRes);
         row.iconState =
-                iconRes == R.drawable.ic_volume_ringer_vibrate ? Events.ICON_STATE_VIBRATE
+                iconRes == R.drawable.ic_volume_ringer_vibrate_vol ? Events.ICON_STATE_VIBRATE
                 : (iconRes == R.drawable.ic_volume_media_bt_mute || iconRes == row.iconMuteRes)
                         ? Events.ICON_STATE_MUTE
                 : (iconRes == R.drawable.ic_volume_media_bt || iconRes == row.iconRes)
