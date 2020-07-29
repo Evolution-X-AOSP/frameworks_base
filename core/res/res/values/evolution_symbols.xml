@@ -132,6 +132,7 @@
   <java-symbol type="string" name="live_display_outdoor" />
   <java-symbol type="string" name="live_display_outdoor_summary" />
   <java-symbol type="drawable" name="ic_livedisplay_notif" />
+
   <java-symbol type="array" name="live_display_announcement" />
   <java-symbol type="array" name="live_display_description" />
   <java-symbol type="array" name="live_display_drawables" />
@@ -145,11 +146,14 @@
   <java-symbol type="integer" name="config_defaultLiveDisplayMode" />
   <java-symbol type="integer" name="config_minColorTemperature" />
   <java-symbol type="integer" name="config_maxColorTemperature" />
+
   <java-symbol type="bool" name="config_enableLiveDisplay" />
   <java-symbol type="bool" name="config_defaultAutoContrast" />
   <java-symbol type="bool" name="config_defaultAutoOutdoorMode" />
   <java-symbol type="bool" name="config_defaultColorEnhancement" />
   <java-symbol type="bool" name="config_defaultCABC" />
+  <java-symbol type="bool" name="config_defaultAntiFlicker" />
+
   <java-symbol type="bool" name="config_filterDisplayModes" />
   <java-symbol type="array" name="config_displayModeMappings" />
 
