@@ -5979,6 +5979,13 @@ public final class Settings {
         public static final String LIVE_DISPLAY_HINTED = "live_display_hinted";
 
         /**
+         * Anti flicker
+         * 0 = 0ff, 1 = on
+         * @hide
+         */
+        public static final String DISPLAY_ANTI_FLICKER = "display_anti_flicker";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
