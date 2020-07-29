@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2019-2020 The Evolution X Project
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Compass directions for the compass tile -->
+    <string-array name="cardinal_directions">
+        <item>\@σειρα/γρήγορες_ρυθμισεις_πυξιδας_Β</item>
+        <!-- North -->
+        <item>\@σειρα/γρήγορες_ρυθμισεις_πυξιδας_ΒΑ</item>
+        <!-- North east -->
+        <item>\@σειρα/γρήγορες_ρυθμισεις_πυξιδας_Α</item>
+        <!-- East -->
+        <item>\@σειρα/γρήγορες_ρυθμισεις_πυξιδας_ΝΑ</item>
+        <!-- South east -->
+        <item>\@σειρα/γρήγορες_ρυθμισεις_πυξιδας_Ν</item>
+        <!-- South -->
+        <item>\@σειρα/γρήγορες_ρυθμισεις_πυξιδας_ΝΔ</item>
+        <!-- South west -->
+        <item>\@σειρα/γρήγορες_ρυθμισεις_πυξιδας_Δ</item>
+        <!-- West -->
+        <item>\@σειρα/γρήγορες_ρυθμισεις_πυξιδας_ΒΔ</item>
+        <!-- North west -->
+    </string-array>
+    <!-- Video quality entries, Hardcoded because it's pointless to translate them -->
+    <!-- Audio recorder entries -->
+</resources>
