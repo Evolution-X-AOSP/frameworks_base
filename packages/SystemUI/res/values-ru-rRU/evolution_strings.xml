@@ -22,6 +22,7 @@
     <string name="global_action_restart_recovery">Рекавери</string>
     <string name="global_action_restart_bootloader">Загрузчик</string>
     <string name="global_action_restart_ui">Системный интерфейс</string>
+    <string name="global_action_screenrecord">Запись экрана</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">Скриншот</string>
     <string name="quick_settings_region_screenshot_label">Частичный скриншот</string>
