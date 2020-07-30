@@ -22,6 +22,7 @@
     <string name="global_action_restart_recovery">Ανάκτηση</string>
     <string name="global_action_restart_bootloader">Αρχικός εκκινητής/Bootloader</string>
     <string name="global_action_restart_ui">ΣύστημαUI</string>
+    <string name="global_action_screenrecord">Εγγραφή οθόνης</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">Στιγμιότυπο οθόνης</string>
     <string name="quick_settings_region_screenshot_label">Μερικό στιγμιότυπο οθόνης</string>
