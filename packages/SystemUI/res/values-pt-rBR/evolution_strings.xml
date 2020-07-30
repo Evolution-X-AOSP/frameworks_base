@@ -22,6 +22,7 @@
     <string name="global_action_restart_recovery">Recuperação</string>
     <string name="global_action_restart_bootloader">Fastboot</string>
     <string name="global_action_restart_ui">Interface do sistema</string>
+    <string name="global_action_screenrecord">Gravação de Tela</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">Captura de tela</string>
     <string name="quick_settings_region_screenshot_label">Captura de tela parcial</string>
