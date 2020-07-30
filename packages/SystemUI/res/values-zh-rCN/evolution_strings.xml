@@ -22,6 +22,7 @@
     <string name="global_action_restart_recovery">恢复模式</string>
     <string name="global_action_restart_bootloader">引导模式</string>
     <string name="global_action_restart_ui">软重启</string>
+    <string name="global_action_screenrecord">屏幕录制</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">屏幕截图</string>
     <string name="quick_settings_region_screenshot_label">部分</string>
