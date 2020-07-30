@@ -35,7 +35,12 @@ public class DeviceKeysConstants {
         LAUNCH_CAMERA,
         SLEEP,
         SPLIT_SCREEN,
-        SCREENSHOT;
+        SCREENSHOT,
+        VOLUME_PANEL,
+        NOTIFICATION_PANEL,
+        QS_PANEL,
+        CLEAR_NOTIFICATIONS,
+        RINGER_MODES;
 
         public static Action fromIntSafe(int id) {
             if (id < NOTHING.ordinal() || id > Action.values().length) {

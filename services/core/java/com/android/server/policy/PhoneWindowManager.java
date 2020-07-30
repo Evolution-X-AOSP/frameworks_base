@@ -1986,7 +1986,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 break;
             case VOICE_SEARCH:
                 launchAssistLongPressAction();
-              break;
+                break;
             case IN_APP_SEARCH:
                 triggerVirtualKeypress(KeyEvent.KEYCODE_SEARCH);
                 break;
@@ -1994,13 +1994,28 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 launchCameraAction();
                 break;
             case SLEEP:
-                mPowerManager.goToSleep(SystemClock.uptimeMillis());
+                EvolutionUtils.switchScreenOff(mContext);
                 break;
             case SPLIT_SCREEN:
                 toggleSplitScreen();
                 break;
             case SCREENSHOT:
-                mHandler.post(mScreenshotRunnable);
+                EvolutionUtils.takeScreenshot(true);
+                break;
+            case VOLUME_PANEL:
+                EvolutionUtils.toggleVolumePanel(mContext);
+                break;
+            case NOTIFICATION_PANEL:
+                EvolutionUtils.toggleNotifications();
+                break;
+            case QS_PANEL:
+                EvolutionUtils.toggleQsPanel();
+                break;
+            case CLEAR_NOTIFICATIONS:
+                EvolutionUtils.clearAllNotifications();
+                break;
+            case RINGER_MODES:
+                EvolutionUtils.toggleRingerModes(mContext);
                 break;
             default:
                 break;
