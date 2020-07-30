@@ -22,6 +22,7 @@
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">Rendszer UI</string>
+    <string name="global_action_screenrecord">Képernyőfelvétel</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">Képernyőmentés</string>
     <string name="quick_settings_region_screenshot_label">Részleges képernyőmentés</string>
