@@ -22,6 +22,7 @@
     <string name="global_action_restart_recovery">リカバリー</string>
     <string name="global_action_restart_bootloader">ブートローダー</string>
     <string name="global_action_restart_ui">システム UI</string>
+    <string name="global_action_screenrecord">画面録画</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">スクリーン\nショット</string>
     <string name="quick_settings_region_screenshot_label">範囲選択</string>
