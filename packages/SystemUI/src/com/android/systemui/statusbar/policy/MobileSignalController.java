@@ -30,9 +30,6 @@ import android.telephony.CdmaEriInformation;
 import android.telephony.CellSignalStrength;
 import android.telephony.CellSignalStrengthCdma;
 import android.telephony.NetworkRegistrationInfo;
-import android.telephony.ims.ImsMmTelManager;
-import android.telephony.ims.ImsReasonInfo;
-import android.telephony.ims.feature.MmTelFeature;
 import android.telephony.PhoneStateListener;
 import android.telephony.ServiceState;
 import android.telephony.SignalStrength;
@@ -40,6 +37,9 @@ import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyDisplayInfo;
 import android.telephony.TelephonyManager;
+import android.telephony.ims.ImsMmTelManager;
+import android.telephony.ims.ImsReasonInfo;
+import android.telephony.ims.feature.MmTelFeature;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
@@ -151,7 +151,6 @@ public class MobileSignalController extends SignalController<
                         removeListeners();
                     }
         }, "?");
-
 
         mObserver = new ContentObserver(new Handler(receiverLooper)) {
             @Override
@@ -403,8 +402,8 @@ public class MobileSignalController extends SignalController<
 
     private int getVolteResId() {
         int resId = 0;
-        if ( (mCurrentState.voiceCapable || mCurrentState.videoCapable)
-                &&  mCurrentState.imsRegistered ) {
+        if ((mCurrentState.voiceCapable || mCurrentState.videoCapable)
+                && mCurrentState.imsRegistered) {
             resId = R.drawable.ic_volte;
         }
         return resId;
@@ -502,7 +501,7 @@ public class MobileSignalController extends SignalController<
                 && mCurrentState.activityOut;
         showDataIcon &= mCurrentState.isDefault || dataDisabled;
         int typeIcon = (showDataIcon || mConfig.alwaysShowDataRatIcon) ? icons.mDataType : 0;
-        int volteIcon = mConfig.showVolteIcon && isVolteSwitchOn() ? getVolteResId() : 0;
+        int volteIcon = (mConfig.showVolteIcon && isVolteSwitchOn()) ? getVolteResId() : 0;
         callback.setMobileDataIndicators(statusIcon, qsIcon, typeIcon, qsTypeIcon,
                 activityIn, activityOut, volteIcon, dataContentDescription, dataContentDescriptionHtml,
                 description, icons.mIsWide, mSubscriptionInfo.getSubscriptionId(),
@@ -704,6 +703,11 @@ public class MobileSignalController extends SignalController<
         return !mPhone.isDataConnectionAllowed();
     }
 
+    private int getVoiceNetworkType() {
+        return mServiceState != null
+                ? mServiceState.getVoiceNetworkType() : TelephonyManager.NETWORK_TYPE_UNKNOWN;
+    }
+
     @VisibleForTesting
     void setActivity(int activity) {
         mCurrentState.activityIn = activity == TelephonyManager.DATA_ACTIVITY_INOUT
@@ -803,7 +807,8 @@ public class MobileSignalController extends SignalController<
         }
     }
 
-    private ImsMmTelManager.CapabilityCallback mCapabilityCallback = new ImsMmTelManager.CapabilityCallback() {
+    private ImsMmTelManager.CapabilityCallback mCapabilityCallback =
+            new ImsMmTelManager.CapabilityCallback() {
         @Override
         public void onCapabilitiesStatusChanged(MmTelFeature.MmTelCapabilities config) {
             mCurrentState.voiceCapable =
@@ -818,26 +823,26 @@ public class MobileSignalController extends SignalController<
 
     private final ImsMmTelManager.RegistrationCallback mImsRegistrationCallback =
             new ImsMmTelManager.RegistrationCallback() {
-                @Override
-                public void onRegistered(int imsTransportType) {
-                    Log.d(mTag, "onRegistered imsTransportType=" + imsTransportType);
-                    mCurrentState.imsRegistered = true;
-                    notifyListenersIfNecessary();
-                }
+        @Override
+        public void onRegistered(int imsTransportType) {
+            Log.d(mTag, "onRegistered imsTransportType=" + imsTransportType);
+            mCurrentState.imsRegistered = true;
+            notifyListenersIfNecessary();
+        }
 
-                @Override
-                public void onRegistering(int imsTransportType) {
-                    Log.d(mTag, "onRegistering imsTransportType=" + imsTransportType);
-                    mCurrentState.imsRegistered = false;
-                    notifyListenersIfNecessary();
-                }
+        @Override
+        public void onRegistering(int imsTransportType) {
+            Log.d(mTag, "onRegistering imsTransportType=" + imsTransportType);
+            mCurrentState.imsRegistered = false;
+            notifyListenersIfNecessary();
+        }
 
-                @Override
-                public void onUnregistered(ImsReasonInfo info) {
-                    Log.d(mTag, "onDeregistered imsReasonInfo=" + info);
-                    mCurrentState.imsRegistered = false;
-                    notifyListenersIfNecessary();
-                }
+        @Override
+        public void onUnregistered(ImsReasonInfo info) {
+            Log.d(mTag, "onDeregistered imsReasonInfo=" + info);
+            mCurrentState.imsRegistered = false;
+            notifyListenersIfNecessary();
+        }
     };
 
     private final BroadcastReceiver mVolteSwitchObserver = new BroadcastReceiver() {
