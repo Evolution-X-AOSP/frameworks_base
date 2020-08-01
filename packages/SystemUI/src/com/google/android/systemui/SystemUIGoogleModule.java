@@ -1,6 +1,7 @@
 package com.google.android.systemui;
 
 import com.android.systemui.statusbar.NotificationLockscreenUserManager;
+import com.google.android.systemui.NotificationLockscreenUserManagerGoogle;
 
 import dagger.Binds;
 import dagger.Module;
