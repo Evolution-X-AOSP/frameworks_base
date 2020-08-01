@@ -165,7 +165,7 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
         newState.contentDescription = statusIcon.contentDescription;
 
         MobileIconState first = getFirstMobileState();
-        newState.signalSpacerVisible = first != null && first.typeId != 0;
+        newState.signalSpacerVisible = first != null && (first.typeId != 0 || first.volteId != 0);
 
         updateWifiIconWithState(newState);
         mWifiIconState = newState;
@@ -173,7 +173,7 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
 
     private void updateShowWifiSignalSpacer(WifiIconState state) {
         MobileIconState first = getFirstMobileState();
-        state.signalSpacerVisible = first != null && first.typeId != 0;
+        state.signalSpacerVisible = first != null && (first.typeId != 0 || first.volteId != 0);
     }
 
     private void updateWifiIconWithState(WifiIconState state) {
@@ -196,8 +196,9 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
             return;
         }
 
-        // Visibility of the data type indicator changed
-        boolean typeChanged = statusType != state.typeId && (statusType == 0 || state.typeId == 0);
+        // Visibility of the data type indicator changed or stackedVoiceId changed
+        boolean typeChanged = (statusType != state.typeId && (statusType == 0 || state.typeId == 0))
+                || (stackedVoiceId != state.volteId && (stackedVoiceId == 0 || state.volteId == 0));
 
         state.visible = statusIcon.visible && !mBlockMobile;
         state.strengthId = statusIcon.icon;
@@ -422,8 +423,8 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
                     typeId == that.typeId &&
                     roaming == that.roaming &&
                     needsLeadingPadding == that.needsLeadingPadding &&
-                    volteId == that.volteId &&
-                    Objects.equals(typeContentDescription, that.typeContentDescription);
+                    Objects.equals(typeContentDescription, that.typeContentDescription) &&
+                    volteId == that.volteId;
         }
 
         @Override
