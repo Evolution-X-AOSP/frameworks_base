@@ -63,12 +63,14 @@ LOCAL_REQUIRED_MODULES := \
 	DisplayCutoutEmulationTallOverlay \
 	FontAclonicaSourceOverlay \
 	FontAmaranteSourceOverlay \
+	FontAnaheimSourceOverlay \
 	FontArbutusSourceOverlay \
 	FontArvoLatoOverlay \
 	FontBariolSourceOverlay \
 	FontCagliostroSourceOverlay \
 	FontCircularStdOverlay \
 	FontCoolstorySourceOverlay \
+	FontEvolveSansSourceOverlay \
 	FontGoogleSansOverlay \
 	FontLGSmartGothicSourceOverlay \
 	FontLinotteSourceOverlay \
@@ -78,6 +80,7 @@ LOCAL_REQUIRED_MODULES := \
 	FontSlateForOnePlusOverlay \
 	FontSonySketchSourceOverlay \
 	FontSurferSourceOverlay \
+	FontTinkerbellSourceOverlay \
 	IconPackCircularAndroidOverlay \
 	IconPackCircularPixelLauncherOverlay \
 	IconPackCircularPixelThemePickerOverlay \
