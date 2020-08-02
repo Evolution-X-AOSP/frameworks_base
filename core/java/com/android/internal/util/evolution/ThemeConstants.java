@@ -73,5 +73,7 @@ public class ThemeConstants {
         {"sonysketch-sys","NORMAL"},
         {"surfer-sys","NORMAL"},
         {"linotte-sys","NORMAL"},
+        {"anaheim-sys","NORMAL"},
+        {"tinkerbell-sys","NORMAL"},
     };
 }
