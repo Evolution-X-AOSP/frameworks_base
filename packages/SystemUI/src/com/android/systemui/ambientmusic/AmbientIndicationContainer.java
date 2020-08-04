@@ -27,6 +27,7 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -46,6 +47,7 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
 
     public static final boolean DEBUG_AMBIENTMUSIC = false;
 
+    private final int mFODmargin;
     private View mAmbientIndication;
     private boolean mDozing;
     private boolean mKeyguard;
@@ -80,6 +82,8 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         initializeMedia();
         mTrackInfoSeparator = getResources().getString(R.string.ambientmusic_songinfo);
         mAmbientMusicTicker = getAmbientMusicTickerStyle();
+        mFODmargin = mContext.getResources().getDimensionPixelSize(
+                R.dimen.keyguard_security_fod_view_margin);
     }
 
     private class CustomSettingsObserver extends ContentObserver {
@@ -160,6 +164,19 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         mMediaManager.addCallback(this);
     }
 
+    private void updatePosition() {
+        FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.getLayoutParams();
+        if (hasInDisplayFingerprint()) {
+            lp.setMargins(0, 0, 0, mFODmargin);
+        }
+        this.setLayoutParams(lp);
+    }
+
+    private boolean hasInDisplayFingerprint() {
+        return mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_needCustomFODView);
+    }
+
     public void updateKeyguardState(boolean keyguard) {
         if (keyguard && (mInfoAvailable || mNpInfoAvailable)) {
             mText.setText(mInfoToSet);
@@ -176,6 +193,9 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
             mDozing = dozing;
         }
         mAmbientIndication.setVisibility(shouldShow() ? View.VISIBLE : View.INVISIBLE);
+        if (hasInDisplayFingerprint() && shouldShow()) {
+            updatePosition();
+        }
 
         if (DEBUG_AMBIENTMUSIC) {
             Log.d("AmbientIndicationContainer", "updateDozingState: dozing=" + dozing + " shouldShow=" + shouldShow());
@@ -239,6 +259,9 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         if (mInfoToSet != null) {
             mText.setText(mInfoToSet);
             mAmbientIndication.setVisibility(shouldShow() ? View.VISIBLE : View.INVISIBLE);
+            if (hasInDisplayFingerprint() && shouldShow()) {
+                updatePosition();
+            }
         } else {
             hideIndication();
         }
