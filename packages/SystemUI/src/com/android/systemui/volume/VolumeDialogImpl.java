@@ -191,10 +191,7 @@ public class VolumeDialogImpl implements VolumeDialog,
 
     private boolean mExpanded;
 
-    private boolean isMediaShowing = true;
-    private boolean isRingerShowing = false;
     private boolean isNotificationShowing = false;
-    private boolean isAlarmShowing = false;
     private boolean isVoiceShowing = false;
     private boolean isBTSCOShowing = false;
 
@@ -204,10 +201,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         }
 
         void observe() {
-            mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(Settings.System.AUDIO_PANEL_VIEW_MEDIA), false, this, UserHandle.USER_ALL);
-            mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(Settings.System.AUDIO_PANEL_VIEW_RINGER), false, this, UserHandle.USER_ALL);
             mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(Settings.System.AUDIO_PANEL_VIEW_NOTIFICATION), false, this, UserHandle.USER_ALL);
-            mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(Settings.System.AUDIO_PANEL_VIEW_ALARM), false, this, UserHandle.USER_ALL);
             mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(Settings.System.AUDIO_PANEL_VIEW_VOICE), false, this, UserHandle.USER_ALL);
             mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(Settings.System.AUDIO_PANEL_VIEW_BT_SCO), false, this, UserHandle.USER_ALL);
             update();
@@ -219,10 +213,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         }
 
         public void update() {
-             isMediaShowing = Settings.System.getIntForUser(mContext.getContentResolver(), Settings.System.AUDIO_PANEL_VIEW_MEDIA, 1, UserHandle.USER_CURRENT) == 1;
-             isRingerShowing = Settings.System.getIntForUser(mContext.getContentResolver(), Settings.System.AUDIO_PANEL_VIEW_RINGER, 0, UserHandle.USER_CURRENT) == 1;
              isNotificationShowing = Settings.System.getIntForUser(mContext.getContentResolver(), Settings.System.AUDIO_PANEL_VIEW_NOTIFICATION, 0, UserHandle.USER_CURRENT) == 1;
-             isAlarmShowing = Settings.System.getIntForUser(mContext.getContentResolver(), Settings.System.AUDIO_PANEL_VIEW_ALARM, 0, UserHandle.USER_CURRENT) == 1;
              isVoiceShowing = Settings.System.getIntForUser(mContext.getContentResolver(), Settings.System.AUDIO_PANEL_VIEW_VOICE, 0, UserHandle.USER_CURRENT) == 1;
              isBTSCOShowing = Settings.System.getIntForUser(mContext.getContentResolver(), Settings.System.AUDIO_PANEL_VIEW_BT_SCO, 0, UserHandle.USER_CURRENT) == 1;
              updateRowsH(getActiveRow());
@@ -1020,16 +1011,7 @@ public class VolumeDialogImpl implements VolumeDialog,
     }
 
     private boolean shouldBeVisibleH(VolumeRow row, VolumeRow activeRow) {
-        if (row.stream == AudioManager.STREAM_MUSIC && isMediaShowing){
-            return true;
-        }
-        if (row.stream == AudioManager.STREAM_RING && isRingerShowing){
-            return true;
-        }
         if (row.stream == AudioManager.STREAM_NOTIFICATION && isNotificationShowing){
-            return true;
-        }
-        if (row.stream == AudioManager.STREAM_ALARM && isAlarmShowing){
             return true;
         }
         if (row.stream == AudioManager.STREAM_VOICE_CALL && isVoiceShowing){
