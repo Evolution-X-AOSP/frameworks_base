@@ -63,6 +63,7 @@ LOCAL_REQUIRED_MODULES := \
 	DisplayCutoutEmulationTallOverlay \
 	FontAclonicaSourceOverlay \
 	FontAmaranteSourceOverlay \
+	FontAnaheimSourceOverlay \
 	FontArbutusSourceOverlay \
 	FontArvoLatoOverlay \
 	FontBariolSourceOverlay \
@@ -78,6 +79,7 @@ LOCAL_REQUIRED_MODULES := \
 	FontSlateForOnePlusOverlay \
 	FontSonySketchSourceOverlay \
 	FontSurferSourceOverlay \
+	FontTinkerbellSourceOverlay \
 	IconPackCircularAndroidOverlay \
 	IconPackCircularPixelLauncherOverlay \
 	IconPackCircularPixelThemePickerOverlay \

@@ -743,19 +743,6 @@ public class StatusBar extends SystemUI implements DemoMode,
         mNotificationInterruptionStateProvider.setPartialScreenshot(active);
     }
 
-    private int mRunningTaskId;
-    private IntentFilter mDefaultHomeIntentFilter;
-    private static final String[] DEFAULT_HOME_CHANGE_ACTIONS = new String[] {
-            PackageManagerWrapper.ACTION_PREFERRED_ACTIVITY_CHANGED,
-            Intent.ACTION_BOOT_COMPLETED,
-            Intent.ACTION_PACKAGE_ADDED,
-            Intent.ACTION_PACKAGE_CHANGED,
-            Intent.ACTION_PACKAGE_REMOVED
-    };
-    @Nullable private ComponentName mDefaultHome;
-    private boolean mIsLauncherShowing;
-    private ComponentName mTaskComponentName = null;
-
     private EvolutionSettingsObserver mEvolutionSettingsObserver;
 
     @Override
