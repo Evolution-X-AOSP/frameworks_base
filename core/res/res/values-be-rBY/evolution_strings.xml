@@ -92,4 +92,7 @@
     <string name="animation_ethans">Ethans</string>
     <string name="animation_random">Выпадковая</string>
     <string name="action_null">Пуста</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Неабходна перазагрузка карыстацкага інтэрфейсу</string>
+    <string name="systemui_restart_message">Каб усе змены набылі сілу, патрабуецца перазагрузка карыстацкага інтэрфейсу. Перазагрузіць інтэрфейс?</string>
 </resources>
