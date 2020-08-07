@@ -200,8 +200,9 @@
     <string name="right">右</string>
     <string name="navbar_editor_title">エディタ</string>
     <string name="navbar_editor_summary">ナビゲーションバーを編集する</string>
-    <string name="recents_app_killed">アプリを終了しました</string>
-    <string name="nope_cant_kill">ランチャーを終了できません</string>
+    <!-- Long swipe gesture actions -->
+    <string name="task_helper_app_killed">%1$s を強制停止しました</string>
+    <string name="empty_app_killed">アプリ</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">長押しして移動するかタップしてタイルを追加する</string>
     <!-- Label for header of customize QS -->
