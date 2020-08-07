@@ -6558,6 +6558,12 @@ public final class Settings {
         public static final String GAMING_MODE_USE_GAME_DRIVER = "gaming_mode_use_game_driver";
 
         /**
+         * Whether to enable permissions hub
+         * @hide
+         */
+        public static final String PERMISSIONS_HUB_ENABLED = "permissions_hub_enabled";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
