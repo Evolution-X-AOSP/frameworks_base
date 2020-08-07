@@ -22,6 +22,7 @@
     <string name="global_action_restart_recovery">Рэжым аднаўлення</string>
     <string name="global_action_restart_bootloader">Загрузчык</string>
     <string name="global_action_restart_ui">Сістэмны інтэрфейс</string>
+    <string name="global_action_screenrecord">Запіс экрана</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">Здымак экрану</string>
     <string name="quick_settings_region_screenshot_label">Здымак выбранай вобласці экрана</string>
@@ -199,8 +200,9 @@
     <string name="right">Справа</string>
     <string name="navbar_editor_title">Рэдактар</string>
     <string name="navbar_editor_summary">Налады панэлі навігацыі</string>
-    <string name="recents_app_killed">Праграма завершана</string>
-    <string name="nope_cant_kill">Праграма галоўнага экрана не можа быць завершана</string>
+    <!-- Long swipe gesture actions -->
+    <string name="task_helper_app_killed">%1$s прымусова спынена</string>
+    <string name="empty_app_killed">Праграма</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">Утрымлівайце &amp; і перацягвайце, каб дадаць пліткі</string>
     <!-- Label for header of customize QS -->
