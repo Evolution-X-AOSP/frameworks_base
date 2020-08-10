@@ -89,6 +89,7 @@
     <dimen name="net_traffic_txt_img_padding">4dp</dimen>
 
     <!-- Custom header -->
+    <dimen name="qs_header_image_offset">25dp</dimen>
     <dimen name="qs_header_image_side_margin">4dp</dimen>
     <dimen name="qs_header_image_top_margin">4dp</dimen>
     <dimen name="qs_header_image_bottom_margin">4dp</dimen>

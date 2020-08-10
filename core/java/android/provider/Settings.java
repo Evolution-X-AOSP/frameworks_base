@@ -6020,12 +6020,6 @@ public final class Settings {
         public static final String QS_DATAUSAGE = "qs_datausage";
 
         /**
-         * Whether to enable SmartSpace
-         * @hide
-         */
-        public static final String SMART_SPACE = "smart_space";
-
-        /**
          * media artwork wallpaper blur level on lockscreen
          * @hide
          */

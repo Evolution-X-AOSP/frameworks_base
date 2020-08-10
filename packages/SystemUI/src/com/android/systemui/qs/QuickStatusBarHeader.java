@@ -123,11 +123,11 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     public static final int MAX_TOOLTIP_SHOWN_COUNT = 2;
 
     private static final String QS_SHOW_AUTO_BRIGHTNESS =
-                                Settings.Secure.QS_SHOW_AUTO_BRIGHTNESS;
+            Settings.Secure.QS_SHOW_AUTO_BRIGHTNESS;
     private static final String QS_SHOW_BRIGHTNESS_SLIDER =
-                                Settings.Secure.QS_SHOW_BRIGHTNESS_SLIDER;
+            Settings.Secure.QS_SHOW_BRIGHTNESS_SLIDER;
     public static final String STATUS_BAR_CUSTOM_HEADER =
-                                Settings.System.STATUS_BAR_CUSTOM_HEADER;
+            "system:" + Settings.System.STATUS_BAR_CUSTOM_HEADER;
 
     private final NextAlarmController mAlarmController;
     private final ZenModeController mZenController;
@@ -309,6 +309,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
 
         mClockView = findViewById(R.id.clock);
         mClockView.setOnClickListener(this);
+        mClockView.setQsHeader();
         mDateView = findViewById(R.id.date);
         mDateView.setOnClickListener(this);
         mDataUsageLayout = findViewById(R.id.daily_data_usage_layout);
@@ -319,7 +320,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         // Set the correct tint for the data usage icons so they contrast
         mDataUsageImage.setImageTintList(ColorStateList.valueOf(fillColor));
         mSpace = findViewById(R.id.space);
-        mClockView.setQsHeader();
 
         // Tint for the battery icons are handled in setupHost()
         mBatteryRemainingIcon = findViewById(R.id.batteryRemainingIcon);
@@ -465,6 +465,10 @@ public class QuickStatusBarHeader extends RelativeLayout implements
                     + mContext.getResources().getDimensionPixelSize(
                     R.dimen.qs_tile_margin_top);
         }
+        if (mHeaderImageEnabled) {
+            qqsHeight += mContext.getResources().getDimensionPixelSize(
+                    R.dimen.qs_header_image_offset);
+        }
 
         setMinimumHeight(sbHeight + qqsHeight);
     }
@@ -483,7 +487,8 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mHeaderTextContainerView.setLayoutParams(mHeaderTextContainerView.getLayoutParams());
 
         int topMargin = resources.getDimensionPixelSize(
-                com.android.internal.R.dimen.quick_qs_offset_height);
+                com.android.internal.R.dimen.quick_qs_offset_height) + (mHeaderImageEnabled ?
+                resources.getDimensionPixelSize(R.dimen.qs_header_image_offset) : 0);
 
         mSystemIconsView.getLayoutParams().height = topMargin;
         mSystemIconsView.setLayoutParams(mSystemIconsView.getLayoutParams());
@@ -629,16 +634,16 @@ public class QuickStatusBarHeader extends RelativeLayout implements
                 mHeaderTextContainerView.setVisibility(INVISIBLE);
             }
         }
+        if (mPrivacyChipAlphaAnimator != null) {
+            mPrivacyChip.setExpanded(expansionFraction > 0.5);
+            mPrivacyChipAlphaAnimator.setPosition(keyguardExpansionFraction);
+        }
         if (mIsQuickQsBrightnessEnabled) {
             if (keyguardExpansionFraction > 0) {
                 mQuickQsBrightness.setVisibility(INVISIBLE);
             } else {
                 mQuickQsBrightness.setVisibility(VISIBLE);
             }
-        }
-        if (mPrivacyChipAlphaAnimator != null) {
-            mPrivacyChip.setExpanded(expansionFraction > 0.5);
-            mPrivacyChipAlphaAnimator.setPosition(keyguardExpansionFraction);
         }
         if (expansionFraction < 1 && expansionFraction > 0.99) {
             if (mHeaderQsPanel.switchTileLayout()) {
@@ -920,6 +925,10 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         }
     }
 
+    private boolean getChipEnabled() {
+        return mMicCameraIndicatorsEnabled || mAllIndicatorsEnabled;
+    }
+
     @Override
     public void onTuningChanged(String key, String newValue) {
         switch (key) {
@@ -939,9 +948,5 @@ public class QuickStatusBarHeader extends RelativeLayout implements
             default:
                 break;
         }
-    }
-
-    private boolean getChipEnabled() {
-        return mMicCameraIndicatorsEnabled || mAllIndicatorsEnabled;
     }
 }
