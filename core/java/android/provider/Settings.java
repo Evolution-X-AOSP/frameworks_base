@@ -12147,6 +12147,14 @@ public final class Settings {
         private static final Validator FP_SWIPE_TO_DISMISS_NOTIFICATIONS_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * Whether longpress back button to Kill appkeys is enabled.
+         * @hide
+         */
+        public static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
+
+        private static final Validator KILL_APP_LONGPRESS_BACK_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * Holds comma separated list of ordering of QS tiles.
          * @hide
          */
@@ -13030,6 +13038,7 @@ public final class Settings {
             VALIDATORS.put(TAP_GESTURE, TAP_GESTURE_VALIDATOR);
             // Evolution X Settings
             VALIDATORS.put(HIDE_LOCKICON, HIDE_LOCKICON_VALIDATOR);
+            VALIDATORS.put(KILL_APP_LONGPRESS_BACK, KILL_APP_LONGPRESS_BACK_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_CLOCK_SELECTION, LOCKSCREEN_CLOCK_SELECTION_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_DATE_SELECTION,LOCKSCREEN_DATE_SELECTION_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_LAVALAMP_ENABLED, LOCKSCREEN_LAVALAMP_ENABLED_VALIDATOR);
