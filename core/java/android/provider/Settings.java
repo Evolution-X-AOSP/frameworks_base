@@ -12652,6 +12652,7 @@ public final class Settings {
         public static final String ADB_PORT = "adb_port";
 
         /**
+         * Custom device hostname
          * @hide
          */
         public static final String DEVICE_HOSTNAME = "device_hostname";
