@@ -129,40 +129,27 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
     }
 
     private void handleState(boolean enabled) {
-        // Heads up
-        boolean headsUpEnabled = Settings.Global.getInt(mContext.getContentResolver(),
-                Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, 1) == 1;
-        if (enabled && headsUpEnabled) {
+        if (enabled) {
             Settings.Global.putInt(mContext.getContentResolver(),
                     Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, 0);
-        } else if (!enabled) {
-            Settings.Global.putInt(mContext.getContentResolver(),
-                        Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, 1);
-        }
-        // Hardware keys
-        boolean isHwKeysOn = Settings.Secure.getInt(mContext.getContentResolver(),
-                Settings.Secure.HARDWARE_KEYS_DISABLE, 0) == 0;
-        if (enabled && isHwKeysOn) {
             Settings.Secure.putInt(mContext.getContentResolver(),
                     Settings.Secure.HARDWARE_KEYS_DISABLE, 1);
-        } else if (!enabled) {
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.ENABLE_GAMING_MODE, 1);
+            SysUIToast.makeText(mContext, mContext.getString(
+                    R.string.gaming_mode_tile_toast),
+                    Toast.LENGTH_SHORT).show();
+        } else {
+            Settings.Global.putInt(mContext.getContentResolver(),
+                    Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, 1);
             Settings.Secure.putInt(mContext.getContentResolver(),
                     Settings.Secure.HARDWARE_KEYS_DISABLE, 0);
-        }
-        // Show a toast
-        if (enabled) {
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.ENABLE_GAMING_MODE, 0);
             SysUIToast.makeText(mContext, mContext.getString(
-                R.string.gaming_mode_tile_toast),
-                Toast.LENGTH_SHORT).show();
-        } else if (!enabled) {
-            SysUIToast.makeText(mContext, mContext.getString(
-                R.string.gaming_mode_tile_toast_disabled),
-                Toast.LENGTH_SHORT).show();
+                    R.string.gaming_mode_tile_toast_disabled),
+                    Toast.LENGTH_SHORT).show();
         }
-
-        Settings.System.putInt(mContext.getContentResolver(),
-                Settings.System.ENABLE_GAMING_MODE,
-                enabled ? 1 : 0);
     }
 
     @Override
