@@ -93,6 +93,6 @@
     <string name="animation_random">Τυχαίο</string>
     <string name="action_null">Κενό</string>
     <!-- SystemUI Restart -->
-    <string name="systemui_restart_title">Απαιτείται επανεκκίνηση του Συστηματος Ui</string>
-    <string name="systemui_restart_message">Για να εφαρμοστούν όλες οι αλλαγές, απαιτείται επανεκκίνηση του Συστήματος UI. Επανεκκινήστε το Σύστημα UI τώρα;</string>
+    <string name="systemui_restart_title">Απαιτείται επανεκκίνηση του Συστήματος UI</string>
+    <string name="systemui_restart_message">Για να εφαρμοστούν όλες οι αλλαγές, απαιτείται επανεκκίνηση του Συστήματος UI. Επανεκκίνηση Συστήματος UI τώρα;</string>
 </resources>
