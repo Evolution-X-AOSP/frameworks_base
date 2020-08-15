@@ -37,8 +37,8 @@
     <string name="quick_settings_usb_tether_label">USB tethering</string>
     <!-- AOD QS tile states -->
     <string name="quick_settings_aod_label">AOD</string>
-    <string name="quick_settings_aod_on_charge_label">AOD με φόρτιση</string>
-    <string name="quick_settings_aod_off_label">Aod ανενεργό</string>
+    <string name="quick_settings_aod_on_charge_label">AOD κατά την φόρτιση</string>
+    <string name="quick_settings_aod_off_label">AOD ανενεργό</string>
     <string name="quick_settings_aod_off_powersave_label">AOD ανενεργό\nΕξοικονόμηση μπαταρίας</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Ήχος</string>
@@ -201,8 +201,9 @@
     <string name="right">Δεξιά</string>
     <string name="navbar_editor_title">Πρόγραμμα επεξεργασίας</string>
     <string name="navbar_editor_summary">Διαμόρφωση μπάρας πλοήγησης</string>
-    <string name="recents_app_killed">Η εφαρμογή τερματίστηκε</string>
-    <string name="nope_cant_kill">Ο launcher δεν μπορεί να τερματιστεί</string>
+    <!-- Long swipe gesture actions -->
+    <string name="task_helper_app_killed">%1$s αναγκαστικό κλείσιμο</string>
+    <string name="empty_app_killed">Εφαρμογή</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">Κρατήστε &amp; σύρετε ή πατήστε για να προσθέσετε πλακίδια</string>
     <!-- Label for header of customize QS -->
@@ -240,8 +241,8 @@
     <string name="quick_settings_stabilization_label">Σταθεροποίηση οθόνης</string>
     <string name="quick_settings_stabilization_off">Η σταθεροποίηση είναι απενεργοποιημένη</string>
     <string name="quick_settings_stabilization_on">Η σταθεροποίηση είναι ενεργοποιημένη</string>
-    <string name="low_label">Χαμηλό</string>
-    <string name="high_label">Υψηλό</string>
+    <string name="low_label">Χαμηλή</string>
+    <string name="high_label">Υψηλή</string>
     <string name="stabilization_velocity_friction">Ταχύτητα τριβής</string>
     <string name="stabilization_velocity_amplitude">Εύρος ταχύτητας</string>
     <string name="stabilization_position_friction">Θέση τριβής</string>
