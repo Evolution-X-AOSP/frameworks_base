@@ -6894,6 +6894,16 @@ public final class Settings {
         private static final Validator NOTIFICATION_HEADERS_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * Controls whether to center R style notification headers
+         * by.tikkiX2
+         * @hide
+         */
+        public static final String CENTER_NOTIFICATION_HEADERS = "center_notification_headers";
+
+        /** @hide */
+        private static final Validator CENTER_NOTIFICATION_HEADERS_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * Whether to show the battery info on the lockscreen while charging
          * @hide
          */
@@ -7273,6 +7283,7 @@ public final class Settings {
             BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED,
             BUTTON_BACKLIGHT_TIMEOUT,
             BUTTON_BRIGHTNESS,
+            CENTER_NOTIFICATION_HEADERS,
             CHARGING_ANIMATION,
             CUSTOM_CARRIER_LABEL,
             DATA_DISABLED_ICON,
@@ -7560,6 +7571,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(CAMERA_LAUNCH);
             PRIVATE_SETTINGS.add(CAMERA_SLEEP_ON_RELEASE);
             PRIVATE_SETTINGS.add(CAMERA_WAKE_SCREEN);
+            PRIVATE_SETTINGS.add(CENTER_NOTIFICATION_HEADERS);
             PRIVATE_SETTINGS.add(CHARGING_ANIMATION);
             PRIVATE_SETTINGS.add(COLOR_BUCKET_OVERLAY);
             PRIVATE_SETTINGS.add(DATA_DISABLED_ICON);
@@ -7834,6 +7846,7 @@ public final class Settings {
             VALIDATORS.put(CAMERA_LAUNCH, CAMERA_LAUNCH_VALIDATOR);
             VALIDATORS.put(CAMERA_SLEEP_ON_RELEASE, CAMERA_SLEEP_ON_RELEASE_VALIDATOR);
             VALIDATORS.put(CAMERA_WAKE_SCREEN, CAMERA_WAKE_SCREEN_VALIDATOR);
+            VALIDATORS.put(CENTER_NOTIFICATION_HEADERS, CENTER_NOTIFICATION_HEADERS_VALIDATOR);
             VALIDATORS.put(CHARGING_ANIMATION, CHARGING_ANIMATION_VALIDATOR);
             VALIDATORS.put(CUSTOM_CARRIER_LABEL, CUSTOM_CARRIER_LABEL_VALIDATOR);
             VALIDATORS.put(DATA_DISABLED_ICON, DATA_DISABLED_ICON_VALIDATOR);
