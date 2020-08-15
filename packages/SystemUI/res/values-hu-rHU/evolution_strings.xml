@@ -200,8 +200,9 @@
     <string name="right">Jobbra</string>
     <string name="navbar_editor_title">Szerkesztés</string>
     <string name="navbar_editor_summary">A Navigációs sáv beállítása</string>
-    <string name="recents_app_killed">Alkalmazás kilőve</string>
-    <string name="nope_cant_kill">Launcher-t nem lehet kilőni</string>
+    <!-- Long swipe gesture actions -->
+    <string name="task_helper_app_killed">%1$s kilőve</string>
+    <string name="empty_app_killed">Alkalmazás</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">Tartsa &amp; húzza vagy koppintson a csempék hozzáadásához</string>
     <!-- Label for header of customize QS -->
