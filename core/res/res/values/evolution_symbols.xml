@@ -253,4 +253,7 @@
 
   <!-- Switch USB controller on Asus ROG devices-->
   <java-symbol type="bool" name="config_switchUsbController" />
+
+  <!-- Power button fingerprint -->
+  <java-symbol type="bool" name="config_powerButtonFingerprint" />
 </resources>

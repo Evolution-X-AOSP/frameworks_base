@@ -325,6 +325,11 @@ public class Utils {
         return isEncrypted || isLockDown;
     }
 
+    // Check to see if device has power button fingerprint
+    public static boolean hasPowerButtonFingerprint(Context context) {
+        return context.getResources().getBoolean(com.android.internal.R.bool.config_powerButtonFingerprint);
+    }
+
     public static String[] getConfiguration(Context context) {
         ArrayList<String> sensors = new ArrayList();
         Collections.addAll(sensors, context.getResources().getStringArray(
