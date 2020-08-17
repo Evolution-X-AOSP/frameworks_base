@@ -107,5 +107,12 @@ public class SystemSettings {
         Settings.System.QS_BRIGHTNESS_POSITION_BOTTOM,
         Settings.System.QS_SHOW_AUTO_BRIGHTNESS_BUTTON,
         Settings.System.COLOR_BUCKET_OVERLAY,
+        Settings.System.GAMING_MODE_HEADS_UP,
+        Settings.System.GAMING_MODE_ZEN,
+        Settings.System.GAMING_MODE_NAVBAR,
+        Settings.System.GAMING_MODE_HW_BUTTONS,
+        Settings.System.GAMING_MODE_BRIGHTNESS_ENABLED,
+        Settings.System.GAMING_MODE_MEDIA_ENABLED,
+        Settings.System.GAMING_MODE_MEDIA,
     };
 }

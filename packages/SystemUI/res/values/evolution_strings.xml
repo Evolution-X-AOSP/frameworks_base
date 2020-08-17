@@ -198,8 +198,14 @@
     <string name="gaming_mode_tile_toast">Gaming mode enabled</string>
     <string name="gaming_mode_tile_toast_disabled">Gaming mode disabled</string>
     <string name="gaming_mode_dialog_title">Gaming Mode</string>
-    <string name="gaming_mode_dialog_message">When gaming mode is enabled, all heads-up messages will be disabled and hardware keys will be turned off. All the disabled settings will be reset to default once you exit Gaming Mode.</string>
+    <string name="gaming_mode_dialog_message">Gaming mode is capable of toggling heads-up, hardware keys, DND, nav-bar, auto brightness and setting media volume. All of the toggled settings will be toggled back once you exit Gaming Mode. Long press for settings</string>
     <string name="accessibility_quick_settings_gaming_mode_on">Gaming mode on</string>
     <string name="accessibility_quick_settings_gaming_mode_off">Gaming mode off</string>
+    <string name="gaming_mode_panel_headsup_title">Disable Heads Up</string>
+    <string name="gaming_mode_panel_zen_title">Enable Do Not Disturb</string>
+    <string name="gaming_mode_panel_navbar_title">Disable navigation bar</string>
+    <string name="gaming_mode_panel_hw_title">Disable hardware navigation keys</string>
+    <string name="gaming_mode_panel_brightness_title">Disable automatic brightness</string>
+    <string name="gaming_mode_panel_media_title">Set Media Volume</string>
 
 </resources>
