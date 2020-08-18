@@ -24,10 +24,10 @@
         <item>SBC</item>
         <item>AAC</item>
         <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx">aptX™</xliff:g> ήχος</item>
-        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_hd">aptX™ Υψηλή Ανάλυση</xliff:g> ήχος</item>
+        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_hd">aptX™ HD</xliff:g> ήχος</item>
         <item>LDAC</item>
-        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_adaptive">aptX™ Προσαρμοστικός</xliff:g> ηχος</item>
-        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_twsp">aptX™ Πραγματικα Ασύρματο Στερεοφωνικά+</xliff:g> ηχος</item>
+        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_adaptive">aptX™ Προσαρμοστικός</xliff:g>ήχος</item>
+        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_twsp">aptX™ TWS+</xliff:g> ήχος</item>
         <item>Ενεργοποίηση προαιρετικών κωδικοποιητών</item>
         <item>Απενεργοποίηση προαιρετικών κωδικοποιητών</item>
     </string-array>
@@ -36,11 +36,11 @@
         <item>Χρήση Επιλογής Συστήματος (Προεπιλογή)</item>
         <item>SBC</item>
         <item>AAC</item>
-        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx">aptX™</xliff:g> ηχος</item>
-        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_hd">aptX™ Υψηλή Ανάλυση</xliff:g> ηχος</item>
+        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx">aptX™</xliff:g> ήχος</item>
+        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_hd">aptX™ HD</xliff:g> ήχος</item>
         <item>LDAC</item>
-        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_adaptive">aptX™ Προσαρμοστικός</xliff:g> ηχος</item>
-        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_twsp">aptX™ Πραγματικα Ασύρματο Στερεοφωνικά+</xliff:g> ηχος</item>
+        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_adaptive">aptX™ Προσαρμοστικός</xliff:g> ήχος</item>
+        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_twsp">aptX™ TWS+</xliff:g> ήχος</item>
         <item>Ενεργοποίηση προαιρετικών κωδικοποιητών</item>
         <item>Απενεργοποίηση προαιρετικών κωδικοποιητών</item>
     </string-array>
@@ -49,10 +49,10 @@
         <item>Χρήση Επιλογής Συστήματος (Προεπιλογή)</item>
         <item>SBC</item>
         <item>AAC</item>
-        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx">aptX™</xliff:g> ηχος</item>
-        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_hd">aptX™ Υψηλή Ανάλυση</xliff:g> ηχος</item>
+        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx">aptX™</xliff:g> ήχος</item>
+        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_hd">aptX™ HD</xliff:g> ήχος</item>
         <item>LDAC</item>
-        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_προσαρμοστικος">aptX™ Προσαρμοστικός</xliff:g> ηχος</item>
-        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_twsp">aptX™ Πραγματικα Ασύρματο Στερεοφωνικά+</xliff:g> ηχος</item>
+        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_προσαρμοστικος">aptX™ Προσαρμοστικός</xliff:g> ήχος</item>
+        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_twsp">aptX™ TWS+</xliff:g> ήχος</item>
     </string-array>
 </resources>
