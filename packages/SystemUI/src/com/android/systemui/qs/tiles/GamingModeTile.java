@@ -70,9 +70,19 @@ import javax.inject.Inject;
 /** Quick settings tile: Gaming Mode tile **/
 public class GamingModeTile extends QSTileImpl<BooleanState> {
 
+    // saved settings state keys
+    private static final String KEY_HEADSUP_STATE = "gaming_mode_state_headsup";
+    private static final String KEY_ZEN_STATE = "gaming_mode_state_zen";
+    private static final String KEY_NAVBAR_STATE = "gaming_mode_state_navbar";
+    private static final String KEY_HW_KEYS_STATE = "gaming_mode_state_hw_keys";
+    private static final String KEY_BRIGHTNESS_STATE = "gaming_mode_state_brightness";
+    private static final String KEY_MEDIA_LEVEL = "gaming_mode_level_media";
+
     private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_gaming_mode);
     private final SystemSetting mSetting;
     private final GamingModeTileDetailAdapter mDetailAdapter;
+    private AudioManager mAudio;
+    private NotificationManager mNm;
     private ContentResolver mResolver;
     private boolean mHasHWKeys;
 
@@ -98,6 +108,8 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
         };
         mResolver = mContext.getContentResolver();
         mDetailAdapter = (GamingModeTileDetailAdapter) createDetailAdapter();
+        mAudio = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
+        mNm = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
 
         // find out if a physical navbar is present
         Configuration c = mContext.getResources().getConfiguration();
@@ -160,73 +172,63 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
     }
 
     private void handleState(boolean enabled) {
-        final ContentResolver resolver = mContext.getContentResolver();
+        if (enabled) {
+            saveSettingsState();
 
-        boolean headsUpEnabled = Settings.System.getInt(resolver,
-                Settings.System.GAMING_MODE_HEADS_UP, 1) == 1;
-        boolean zenEnabled = Settings.System.getInt(resolver,
-                Settings.System.GAMING_MODE_ZEN, 0) == 1;
-        boolean navBarEnabled = Settings.System.getInt(mResolver,
-                Settings.System.GAMING_MODE_NAVBAR, 0) == 1;
-        boolean hwKeysEnabled = Settings.System.getInt(resolver,
-                Settings.System.GAMING_MODE_HW_BUTTONS, 1) == 1;
-        boolean brightnessEnabled = Settings.System.getInt(resolver,
-                Settings.System.GAMING_MODE_BRIGHTNESS_ENABLED, 0) == 1;
-        boolean mediaEnabled = Settings.System.getInt(resolver,
-                Settings.System.GAMING_MODE_MEDIA_ENABLED, 0) == 1;
+            boolean headsUpEnabled = Settings.System.getInt(mResolver,
+                    Settings.System.GAMING_MODE_HEADS_UP, 1) == 1;
+            boolean zenEnabled = Settings.System.getInt(mResolver,
+                    Settings.System.GAMING_MODE_ZEN, 0) == 1;
+            boolean navBarEnabled = Settings.System.getInt(mResolver,
+                    Settings.System.GAMING_MODE_NAVBAR, 0) == 1;
+            boolean hwKeysEnabled = Settings.System.getInt(mResolver,
+                    Settings.System.GAMING_MODE_HW_BUTTONS, 1) == 1;
+            boolean brightnessEnabled = Settings.System.getInt(mResolver,
+                    Settings.System.GAMING_MODE_BRIGHTNESS_ENABLED, 0) == 1;
+            boolean mediaEnabled = Settings.System.getInt(mResolver,
+                    Settings.System.GAMING_MODE_MEDIA_ENABLED, 0) == 1;
 
-        if (headsUpEnabled) {
-            Settings.Global.putInt(resolver,
-                    Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED,
-                    enabled ? 0 : 1);
-        }
+            if (headsUpEnabled) {
+                Settings.Global.putInt(mResolver,
+                        Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, 0);
+            }
 
-        if (zenEnabled) {
-            NotificationManager nm = (NotificationManager)
-                    mContext.getSystemService(Context.NOTIFICATION_SERVICE);
-            nm.setInterruptionFilter(enabled
-                    ? NotificationManager.INTERRUPTION_FILTER_PRIORITY
-                    : NotificationManager.INTERRUPTION_FILTER_ALL);
-        }
+            if (zenEnabled) {
+                mNm.setInterruptionFilter(
+                        NotificationManager.INTERRUPTION_FILTER_PRIORITY);
+            }
 
-        if (navBarEnabled) {
-            Settings.System.putInt(resolver,
-                    Settings.System.FORCE_SHOW_NAVBAR,
-                    enabled ? 0 : 1);
-        }
+            if (navBarEnabled) {
+                Settings.System.putInt(mResolver,
+                        Settings.System.FORCE_SHOW_NAVBAR, 0);
+            }
 
-        if (hwKeysEnabled && mHasHWKeys) {
-            Settings.Secure.putInt(resolver,
-                    Settings.Secure.HARDWARE_KEYS_DISABLE,
-                    enabled ? 1 : 0);
-        }
+            if (hwKeysEnabled && mHasHWKeys) {
+                Settings.Secure.putInt(mResolver,
+                        Settings.Secure.HARDWARE_KEYS_DISABLE, 1);
+            }
 
-        if (brightnessEnabled) {
-            if (enabled) {
-                Settings.System.putInt(resolver,
+            if (brightnessEnabled) {
+                Settings.System.putInt(mResolver,
                         Settings.System.SCREEN_BRIGHTNESS_MODE,
                         Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
-            } else {
-                Settings.System.putInt(resolver,
-                        Settings.System.SCREEN_BRIGHTNESS_MODE,
-                        Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC);
             }
+
+            if (mediaEnabled) {
+                int level = Settings.System.getInt(mResolver,
+                        Settings.System.GAMING_MODE_MEDIA, 80);
+                int steps = Settings.System.getInt(mResolver,
+                        "volume_steps_music", 25);
+                // percentage of user set volume steps
+                level = Math.round((float)steps * ((float)level / 100f));
+                mAudio.setStreamVolume(AudioManager.STREAM_MUSIC, level,
+                        AudioManager.FLAG_SHOW_UI);
+            }
+        } else {
+            restoreSettingsState();
         }
 
-        if (mediaEnabled && enabled) {
-            int level = Settings.System.getInt(resolver,
-                    Settings.System.GAMING_MODE_MEDIA, 80);
-            int steps = Settings.System.getInt(mResolver,
-                    "volume_steps_music", 25);
-            // percentage of user set volume steps
-            level = Math.round((float)steps * ((float)level / 100f));
-            AudioManager audio = (AudioManager)
-                    mContext.getSystemService(Context.AUDIO_SERVICE);
-            audio.setStreamVolume(AudioManager.STREAM_MUSIC, level,
-                    AudioManager.FLAG_SHOW_UI);
-        }
-
-        Settings.System.putInt(resolver,
+        Settings.System.putInt(mResolver,
                 Settings.System.ENABLE_GAMING_MODE, enabled ? 1 : 0);
     }
 
@@ -276,6 +278,45 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
     @Override
     public void handleSetListening(boolean listening) {
         // no-op
+    }
+
+    private void saveSettingsState() {
+        Prefs.putInt(mContext, KEY_HEADSUP_STATE, Settings.Global.getInt(mResolver,
+                Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, 1));
+        Prefs.putInt(mContext, KEY_ZEN_STATE, Settings.Global.getInt(mResolver,
+                Settings.Global.ZEN_MODE, 0) != 0 ? 1 : 0);
+        Prefs.putInt(mContext, KEY_NAVBAR_STATE, Settings.System.getInt(mResolver,
+                Settings.System.FORCE_SHOW_NAVBAR, 1));
+        Prefs.putInt(mContext, KEY_HW_KEYS_STATE, Settings.Secure.getInt(mResolver,
+                Settings.Secure.HARDWARE_KEYS_DISABLE, 0));
+        Prefs.putInt(mContext, KEY_BRIGHTNESS_STATE, Settings.System.getInt(mResolver,
+                Settings.System.SCREEN_BRIGHTNESS_MODE,
+                Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC));
+        Prefs.putInt(mContext, KEY_MEDIA_LEVEL, mAudio.getStreamVolume(AudioManager.STREAM_MUSIC));
+    }
+
+    private void restoreSettingsState() {
+        Settings.Global.putInt(mResolver,
+                Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED,
+                Prefs.getInt(mContext, KEY_HEADSUP_STATE, 1));
+        mNm.setInterruptionFilter(Prefs.getInt(mContext, KEY_ZEN_STATE, 0) == 1
+                ? NotificationManager.INTERRUPTION_FILTER_PRIORITY
+                : NotificationManager.INTERRUPTION_FILTER_ALL);
+        Settings.System.putInt(mResolver,
+                Settings.System.FORCE_SHOW_NAVBAR,
+                Prefs.getInt(mContext, KEY_NAVBAR_STATE, 1));
+        Settings.Secure.putInt(mResolver,
+                Settings.Secure.HARDWARE_KEYS_DISABLE,
+                Prefs.getInt(mContext, KEY_HW_KEYS_STATE, 0));
+        Settings.System.putInt(mResolver,
+                Settings.System.SCREEN_BRIGHTNESS_MODE,
+                Prefs.getInt(mContext, KEY_BRIGHTNESS_STATE,
+                Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC));
+        // This code assumes media volume steps was not changed while gaming mode was enabled
+        // TODO: Consider accounting for above
+        mAudio.setStreamVolume(AudioManager.STREAM_MUSIC,
+                Prefs.getInt(mContext, KEY_MEDIA_LEVEL, 0),
+                AudioManager.FLAG_SHOW_UI);
     }
 
     private class GamingModeTileDetailAdapter implements DetailAdapter {
