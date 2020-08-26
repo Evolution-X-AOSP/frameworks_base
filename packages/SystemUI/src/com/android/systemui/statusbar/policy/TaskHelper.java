@@ -213,13 +213,7 @@ public class TaskHelper implements CommandQueue.Callbacks, KeyguardMonitor.Callb
             killed = false;
         }
         if (killed) {
-            String appLabel = null;
-            try {
-                appLabel = mPm.getActivityInfo(mTaskComponentName, 0).applicationInfo
-                        .loadLabel(mPm).toString();
-            } catch (Exception e) {
-
-            }
+            String appLabel = getForegroundAppLabel();
             if (appLabel == null || appLabel.length() == 0) {
                 appLabel = mContext.getString(R.string.empty_app_killed);
             }
@@ -239,6 +233,15 @@ public class TaskHelper implements CommandQueue.Callbacks, KeyguardMonitor.Callb
     public String getForegroundApp() {
         if (mForegroundAppPackageName == null) return "";
         return mForegroundAppPackageName;
+    }
+
+    public String getForegroundAppLabel() {
+        try {
+            return mPm.getActivityInfo(mTaskComponentName, 0).applicationInfo
+                    .loadLabel(mPm).toString();
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public boolean isLauncherShowing() {
