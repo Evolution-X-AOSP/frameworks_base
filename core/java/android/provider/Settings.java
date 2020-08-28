@@ -2586,7 +2586,6 @@ public final class Settings {
 
             // Evolution X Settings
             MOVED_TO_SECURE.add(Secure.VOLUME_LINK_NOTIFICATION);
-            MOVED_TO_SECURE.add(Secure.LOCKSCREEN_VISUALIZER_ENABLED);
             // Evolution X Settings end
         }
 
@@ -6100,16 +6099,6 @@ public final class Settings {
         private static final Validator LOCKSCREEN_MEDIA_BLUR_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
         /**
-         * Ambient Display Visualizer
-         * @hide
-         */
-        public static final String AMBIENT_VISUALIZER_ENABLED = "ambient_visualizer_enabled";
-
-        /** @hide */
-        private static final Validator AMBIENT_VISUALIZER_ENABLED_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
          * Whether to show VoLTE icon or not
          * @hide
          */
@@ -7386,7 +7375,6 @@ public final class Settings {
             ADAPTIVE_PLAYBACK_ENABLED,
             ADAPTIVE_PLAYBACK_TIMEOUT,
             ALLOW_INCALL_HOME,
-            AMBIENT_VISUALIZER_ENABLED,
             AMBIENT_WAKE_GESTURES,
             ANBI_ENABLED_OPTION,
             ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER,
@@ -7952,7 +7940,6 @@ public final class Settings {
             VALIDATORS.put(ADAPTIVE_PLAYBACK_ENABLED, ADAPTIVE_PLAYBACK_ENABLED_VALIDATOR);
             VALIDATORS.put(ADAPTIVE_PLAYBACK_TIMEOUT, ADAPTIVE_PLAYBACK_TIMEOUT_VALIDATOR);
             VALIDATORS.put(ALLOW_INCALL_HOME, ALLOW_INCALL_HOME_VALIDATOR);
-            VALIDATORS.put(AMBIENT_VISUALIZER_ENABLED, AMBIENT_VISUALIZER_ENABLED_VALIDATOR);
             VALIDATORS.put(AMBIENT_WAKE_GESTURES, AMBIENT_WAKE_GESTURES_VALIDATOR);
             VALIDATORS.put(ANBI_ENABLED_OPTION, ANBI_ENABLED_OPTION_VALIDATOR);
             VALIDATORS.put(ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER,ANSWER_VOLUME_BUTTON_BEHAVIOR_ANSWER_VALIDATOR);
@@ -12521,85 +12508,6 @@ public final class Settings {
                 "status_bar_locked_on_secure_keyguard";
 
         /**
-         * Enable and disable Lockscreen visualizer
-         * @hide
-         */
-        public static final String LOCKSCREEN_VISUALIZER_ENABLED = "lockscreen_visualizer_enabled";
-
-        /** @hide */
-        private static final Validator LOCKSCREEN_VISUALIZER_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
-
-        /**
-         * Lockscreen lavalamp psychedelic colors
-         * @hide
-         */
-        public static final String LOCKSCREEN_LAVALAMP_ENABLED = "lockscreen_lavalamp_enabled";
-
-        /** @hide */
-        private static final Validator LOCKSCREEN_LAVALAMP_ENABLED_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-         * Lockscreen lavalamp animation speed
-         * @hide
-         */
-        public static final String LOCKSCREEN_LAVALAMP_SPEED = "lockscreen_lavalamp_speed";
-
-        /** @hide */
-        private static final Validator LOCKSCREEN_LAVALAMP_SPEED_VALIDATOR =
-                ANY_INTEGER_VALIDATOR;
-
-        /**
-         * Whether to use automatic color for visualizer
-         * @hide
-         */
-        public static final String LOCKSCREEN_VISUALIZER_AUTOCOLOR = "lockscreen_visualizer_autocolor";
-
-        /** @hide */
-        private static final Validator LOCKSCREEN_VISUALIZER_AUTOCOLOR_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-         * Default color of the visualizer
-         * @hide
-         */
-        public static final String LOCKSCREEN_VISUALIZER_COLOR = "lockscreen_visualizer_color";
-
-        /** @hide */
-        private static final Validator LOCKSCREEN_VISUALIZER_COLOR_VALIDATOR =
-                ANY_INTEGER_VALIDATOR;
-
-        /**
-         * Number of bars shown in visualizer
-         * @hide
-         */
-        public static final String LOCKSCREEN_SOLID_UNITS_COUNT = "lockscreen_solid_units_count";
-
-        /** @hide */
-        private static final Validator LOCKSCREEN_SOLID_UNITS_COUNT_VALIDATOR =
-                ANY_INTEGER_VALIDATOR;
-
-        /**
-         * Visualizer sanity level
-         * @hide
-         */
-        public static final String LOCKSCREEN_SOLID_FUDGE_FACTOR = "lockscreen_solid_fudge_factor";
-
-        /** @hide */
-        private static final Validator LOCKSCREEN_SOLID_FUDGE_FACTOR_VALIDATOR =
-                ANY_INTEGER_VALIDATOR;
-
-        /**
-         * Visualizer opacity
-         * @hide
-         */
-        public static final String LOCKSCREEN_SOLID_UNITS_OPACITY = "lockscreen_solid_units_opacity";
-
-        /** @hide */
-        private static final Validator LOCKSCREEN_SOLID_UNITS_OPACITY_VALIDATOR =
-                ANY_INTEGER_VALIDATOR;
-
-        /**
          * Rounded corners radius
          * @hide
          */
@@ -12823,14 +12731,6 @@ public final class Settings {
             HIDE_LOCKICON,
             LOCKSCREEN_CLOCK_SELECTION,
             LOCKSCREEN_DATE_SELECTION,
-            LOCKSCREEN_LAVALAMP_ENABLED,
-            LOCKSCREEN_LAVALAMP_SPEED,
-            LOCKSCREEN_SOLID_FUDGE_FACTOR,
-            LOCKSCREEN_SOLID_UNITS_COUNT,
-            LOCKSCREEN_SOLID_UNITS_OPACITY,
-            LOCKSCREEN_VISUALIZER_AUTOCOLOR,
-            LOCKSCREEN_VISUALIZER_COLOR,
-            LOCKSCREEN_VISUALIZER_ENABLED,
             SYSUI_ROUNDED_CONTENT_PADDING,
             SYSUI_ROUNDED_FWVALS,
             SYSUI_ROUNDED_SIZE,
@@ -13042,14 +12942,6 @@ public final class Settings {
             VALIDATORS.put(KILL_APP_LONGPRESS_BACK, KILL_APP_LONGPRESS_BACK_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_CLOCK_SELECTION, LOCKSCREEN_CLOCK_SELECTION_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_DATE_SELECTION,LOCKSCREEN_DATE_SELECTION_VALIDATOR);
-            VALIDATORS.put(LOCKSCREEN_LAVALAMP_ENABLED, LOCKSCREEN_LAVALAMP_ENABLED_VALIDATOR);
-            VALIDATORS.put(LOCKSCREEN_LAVALAMP_SPEED, LOCKSCREEN_LAVALAMP_SPEED_VALIDATOR);
-            VALIDATORS.put(LOCKSCREEN_SOLID_FUDGE_FACTOR, LOCKSCREEN_SOLID_FUDGE_FACTOR_VALIDATOR);
-            VALIDATORS.put(LOCKSCREEN_SOLID_UNITS_COUNT, LOCKSCREEN_SOLID_UNITS_COUNT_VALIDATOR);
-            VALIDATORS.put(LOCKSCREEN_SOLID_UNITS_OPACITY, LOCKSCREEN_SOLID_UNITS_OPACITY_VALIDATOR);
-            VALIDATORS.put(LOCKSCREEN_VISUALIZER_AUTOCOLOR, LOCKSCREEN_VISUALIZER_AUTOCOLOR_VALIDATOR);
-            VALIDATORS.put(LOCKSCREEN_VISUALIZER_COLOR, LOCKSCREEN_VISUALIZER_COLOR_VALIDATOR);
-            VALIDATORS.put(LOCKSCREEN_VISUALIZER_ENABLED, LOCKSCREEN_VISUALIZER_ENABLED_VALIDATOR);
             VALIDATORS.put(QUICK_SETTINGS_TILES_VIBRATE, QUICK_SETTINGS_TILES_VIBRATE_VALIDATOR);
             VALIDATORS.put(SYSUI_ROUNDED_CONTENT_PADDING, SYSUI_ROUNDED_CONTENT_PADDING_VALIDATOR);
             VALIDATORS.put(SYSUI_ROUNDED_FWVALS, SYSUI_ROUNDED_FWVALS_VALIDATOR);
