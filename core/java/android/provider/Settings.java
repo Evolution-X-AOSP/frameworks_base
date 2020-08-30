@@ -6280,15 +6280,6 @@ public final class Settings {
         private static final Validator ACCENT_COLOR_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
         /**
-         * QS statusbar background color
-         * @hide
-         */
-        public static final String QS_BG_COLOR = "qs_bg_color";
-
-        /** @hide */
-        private static final Validator QS_BG_COLOR_VALIDATOR = ANY_INTEGER_VALIDATOR;
-
-        /**
          * Statusbar header image height
          * @hide
          */
@@ -7362,7 +7353,6 @@ public final class Settings {
             PULSE_BRIGHTNESS,
             PULSE_ON_NEW_TRACKS,
             QS_BATTERY_MODE,
-            QS_BG_COLOR,
             QS_BLUR,
             QS_BLUR_ALPHA,
             QS_BLUR_INTENSITY,
@@ -7667,7 +7657,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(PROXIMITY_ON_WAKE);
             PRIVATE_SETTINGS.add(PULSE_BRIGHTNESS);
             PRIVATE_SETTINGS.add(PULSE_ON_NEW_TRACKS);
-            PRIVATE_SETTINGS.add(QS_BG_COLOR);
             PRIVATE_SETTINGS.add(QS_COLUMNS_LANDSCAPE);
             PRIVATE_SETTINGS.add(QS_COLUMNS_PORTRAIT);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_ALPHA);
@@ -7958,7 +7947,6 @@ public final class Settings {
             VALIDATORS.put(PULSE_BRIGHTNESS, PULSE_BRIGHTNESS_VALIDATOR);
             VALIDATORS.put(PULSE_ON_NEW_TRACKS, PULSE_ON_NEW_TRACKS_VALIDATOR);
             VALIDATORS.put(QS_BATTERY_MODE, QS_BATTERY_MODE_VALIDATOR);
-            VALIDATORS.put(QS_BG_COLOR, QS_BG_COLOR_VALIDATOR);
             VALIDATORS.put(QS_BLUR, QS_BLUR_VALIDATOR);
             VALIDATORS.put(QS_BLUR_ALPHA, QS_BLUR_ALPHA_VALIDATOR);
             VALIDATORS.put(QS_BLUR_INTENSITY, QS_BLUR_INTENSITY_VALIDATOR);
