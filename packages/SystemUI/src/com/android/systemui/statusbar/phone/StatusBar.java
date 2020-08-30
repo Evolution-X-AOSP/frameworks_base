@@ -139,6 +139,7 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.statusbar.IStatusBarService;
 import com.android.internal.statusbar.RegisterStatusBarResult;
 import com.android.internal.util.evolution.EvolutionUtils;
+import com.android.internal.util.evolution.ThemesUtils;
 import com.android.internal.util.hwkeys.ActionConstants;
 import com.android.internal.util.hwkeys.ActionUtils;
 import com.android.internal.util.hwkeys.PackageMonitor;
@@ -351,27 +352,6 @@ public class StatusBar extends SystemUI implements DemoMode,
     public static final int FADE_KEYGUARD_START_DELAY = 0;
     public static final int FADE_KEYGUARD_DURATION = 0;
     public static final int FADE_KEYGUARD_DURATION_PULSING = 96;
-
-    private static final String[] QS_TILE_THEMES = {
-        "com.android.systemui.qstile.default", // 0
-        "com.android.systemui.qstile.circletrim", // 1
-        "com.android.systemui.qstile.dualtonecircletrim", // 2
-        "com.android.systemui.qstile.squircletrim", // 3
-        "com.android.systemui.qstile.wavey", // 4
-        "com.android.systemui.qstile.pokesign", // 5
-        "com.android.systemui.qstile.ninja", // 6
-        "com.android.systemui.qstile.dottedcircle", // 7
-        "com.android.systemui.qstile.attemptmountain", // 8
-        "com.android.systemui.qstile.squaremedo", // 9
-        "com.android.systemui.qstile.inkdrop", // 10
-        "com.android.systemui.qstile.cookie", // 11
-        "com.android.systemui.qstile.circleoutline", // 12
-        "com.bootleggers.qstile.cosmos", // 13
-        "com.bootleggers.qstile.divided", // 14
-        "com.bootleggers.qstile.neonlike", // 15
-        "com.bootleggers.qstile.oos", // 16
-        "com.bootleggers.qstile.triangles", // 17
-    };
 
     /** If true, the system is in the half-boot-to-decryption-screen state.
      * Prudently disable QS and notifications.  */
@@ -3807,7 +3787,12 @@ public class StatusBar extends SystemUI implements DemoMode,
     public void updateTileStyle() {
         int qsTileStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.QS_TILE_STYLE, 0, mLockscreenUserManager.getCurrentUserId());
-        updateNewTileStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), qsTileStyle);
+        ThemesUtils.updateNewTileStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), qsTileStyle);
+    }
+
+    // Unload all qs tile styles back to stock
+    public void stockTileStyle() {
+        ThemesUtils.stockNewTileStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
     }
 
     /**
@@ -3861,11 +3846,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             }
 
         }
-    }
-
-    // Switches qs tile style back to stock.
-    public void stockTileStyle() {
-        stockNewTileStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
     }
 
     private void updateDozingState() {
@@ -4655,34 +4635,6 @@ public class StatusBar extends SystemUI implements DemoMode,
     private void setHideArrowForBackGesture() {
         if (getNavigationBarView() != null) {
             getNavigationBarView().updateBackArrowForGesture();
-        }
-    }
-
-    // Switches qs tile style to user selected.
-    public static void updateNewTileStyle(IOverlayManager om, int userId, int qsTileStyle) {
-        if (qsTileStyle == 0) {
-            stockNewTileStyle(om, userId);
-        } else {
-            try {
-                om.setEnabled(QS_TILE_THEMES[qsTileStyle],
-                        true, userId);
-            } catch (RemoteException e) {
-                Log.w(TAG, "Can't change qs tile style", e);
-            }
-        }
-    }
-
-    // Switches qs tile style back to stock.
-    public static void stockNewTileStyle(IOverlayManager om, int userId) {
-        // skip index 0
-        for (int i = 1; i < QS_TILE_THEMES.length; i++) {
-            String qstiletheme = QS_TILE_THEMES[i];
-            try {
-                om.setEnabled(qstiletheme,
-                        false /*disable*/, userId);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
         }
     }
 
