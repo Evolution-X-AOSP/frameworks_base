@@ -5564,11 +5564,6 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
-         * @hide
-         */
-        public static final String REFRESH_RATE_SETTING = "refresh_rate_setting";
-
-        /**
          * Whether to show charging animation on lock screen
          * @hide
          */

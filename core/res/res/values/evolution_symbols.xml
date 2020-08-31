@@ -154,11 +154,6 @@
     <java-symbol type="bool" name="config_hasAlertSlider" />
     <java-symbol type="integer" name="config_alertSliderLocation" />
 
-    <!-- Whether device supports variable refresh rate -->
-    <java-symbol type="bool" name="config_hasVariableRefreshRate" />
-
-    <java-symbol type="integer" name="config_defaultRefreshRate" />
-
     <!-- Whether device has a physical display cutout -->
     <java-symbol type="bool" name="config_physicalDisplayCutout" />
 
