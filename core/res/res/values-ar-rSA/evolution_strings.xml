@@ -75,4 +75,25 @@
     <string name="adb_both_active_notification_title">تم تمكين ADB عبر شبكة USB &amp;</string>
     <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">انقر لتعطيل تصحيح الأخطاء.</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">التلاشي</string>
+    <string name="animation_slide_right">الإنزلاق نحو اليمين</string>
+    <string name="animation_slide_left">انزلاق في اليسار</string>
+    <string name="animation_slide_right_no_fade">انزلاق إلى اليمين (بدون تلاشي)</string>
+    <string name="animation_slide_left_no_fade">انزلاق في اليسار (لا تتلاشى)</string>
+    <string name="animation_slide_up">شريحة للأسفل</string>
+    <string name="animation_slide_down">الانزلاق في الأعلى</string>
+    <string name="animation_default">الإفتراضي</string>
+    <string name="animation_translucent">شبه شفاف</string>
+    <string name="animation_grow_shrink">النمو من (الاعلى)</string>
+    <string name="animation_grow_shrink_center">نمو نحو (الوسط)</string>
+    <string name="animation_grow_shrink_bottom">تنمو في (أسفل)</string>
+    <string name="animation_grow_shrink_left">نمو نحو (اليسار)</string>
+    <string name="animation_grow_shrink_right">النمو من اليمين</string>
+    <string name="animation_ethans">ايثان</string>
+    <string name="animation_random">رقم عشوائي</string>
+    <string name="action_null">فارغة</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">مطلوب إعادة تشغيل واجهة النظام</string>
+    <string name="systemui_restart_message">لتكون كافة التغييرات نافذة المفعول، مطلوب إعادة تشغيل واجهة النظام. هل تريد إعادة تشغيل واجهة النظام الآن؟</string>
 </resources>
