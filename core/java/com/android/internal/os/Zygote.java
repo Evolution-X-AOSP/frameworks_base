@@ -830,6 +830,9 @@ public final class Zygote {
         } else if (args.mHiddenApiAccessStatslogSampleRate != -1) {
             throw new IllegalArgumentException(
                     USAP_ERROR_PREFIX + "--hidden-api-statslog-sampling-rate=");
+        } else if (args.refreshTypeface) {
+            throw new IllegalArgumentException(
+                    USAP_ERROR_PREFIX + "--refresh-typeface");
         } else if (args.mInvokeWith != null) {
             throw new IllegalArgumentException(USAP_ERROR_PREFIX + "--invoke-with");
         } else if (args.mPermittedCapabilities != 0 || args.mEffectiveCapabilities != 0) {
