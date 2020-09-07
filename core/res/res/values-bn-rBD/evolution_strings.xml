@@ -91,4 +91,7 @@
     <string name="animation_ethans">ইথান্স</string>
     <string name="animation_random">এলোমেলো</string>
     <string name="action_null">খালি</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">SystemUI রিস্টার্ট করা প্রয়োজন</string>
+    <string name="systemui_restart_message">সমস্ত পরিবর্তন কার্যকর করার জন্য, SystemUI রিস্টার্ট করা আবশ্যক। এখনই SystemUI পুনরারম্ভ করবেন?</string>
 </resources>
