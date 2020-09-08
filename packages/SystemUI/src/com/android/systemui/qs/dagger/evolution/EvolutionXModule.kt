@@ -19,6 +19,7 @@ package com.android.systemui.qs.dagger.evolution
 import com.android.systemui.qs.tileimpl.QSTileImpl
 import com.android.systemui.qs.tiles.AODTile
 import com.android.systemui.qs.tiles.AmbientDisplayTile
+import com.android.systemui.qs.tiles.AntiFlickerTile
 import com.android.systemui.qs.tiles.HeadsUpTile
 import com.android.systemui.qs.tiles.PowerShareTile
 import com.android.systemui.qs.tiles.ReadingModeTile
@@ -80,4 +81,10 @@ interface EvolutionXModule {
     @IntoMap
     @StringKey(ReadingModeTile.TILE_SPEC)
     fun bindReadingModeTile(readingModeTile: ReadingModeTile): QSTileImpl<*>
+
+    /** Inject AntiFlickerTile into tileMap in QSModule */
+    @Binds
+    @IntoMap
+    @StringKey(AntiFlickerTile.TILE_SPEC)
+    fun bindAntiFlickerTile(antiFlickerTile: AntiFlickerTile): QSTileImpl<*>
 }
