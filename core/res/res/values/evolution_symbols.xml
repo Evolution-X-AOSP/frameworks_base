@@ -302,4 +302,7 @@
 
     <!-- Pocket Service -->
     <java-symbol type="string" name="config_pocketJudgeVendorSensorName" />
+
+    <!-- Whether device uses linear screen brightness slider -->
+    <java-symbol type="bool" name="config_linearBrightnessSlider" />
 </resources>
