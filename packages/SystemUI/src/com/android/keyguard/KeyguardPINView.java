@@ -25,9 +25,6 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 
-import com.android.internal.widget.LockPatternUtils.RequestThrottledException;
-import com.android.keyguard.PasswordTextView.QuickUnlockListener;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -54,8 +51,6 @@ public class KeyguardPINView extends KeyguardPinBasedInputView {
     private int mDisappearYTranslation;
     private View[][] mViews;
     private final KeyguardUpdateMonitor mKeyguardUpdateMonitor;
-
-    private final int userId = KeyguardUpdateMonitor.getCurrentUser();
 
     private static List<Integer> sNumbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 0);
 
@@ -133,19 +128,6 @@ public class KeyguardPINView extends KeyguardPinBasedInputView {
                 mCallback.reset();
                 mCallback.onCancelClicked();
             });
-        }
-
-        boolean quickUnlock = (Settings.System.getIntForUser(getContext().getContentResolver(),
-                Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0, UserHandle.USER_CURRENT) == 1);
-
-        if (quickUnlock) {
-            mPasswordEntry.setQuickUnlockListener(new QuickUnlockListener() {
-                public void onValidateQuickUnlock(String password) {
-                    validateQuickUnlock(password);
-                }
-            });
-        } else {
-            mPasswordEntry.setQuickUnlockListener(null);
         }
 
         boolean scramblePin = Settings.System.getIntForUser(mContext.getContentResolver(),
@@ -236,25 +218,5 @@ public class KeyguardPINView extends KeyguardPinBasedInputView {
     @Override
     public boolean hasOverlappingRendering() {
         return false;
-    }
-
-    private void validateQuickUnlock(String password) {
-        if (password != null) {
-            if (password.length() > MINIMUM_PASSWORD_LENGTH_BEFORE_REPORT
-                    && kpvCheckPassword(password)) {
-                mPasswordEntry.setEnabled(false);
-                mCallback.reportUnlockAttempt(userId, true, 0);
-                mCallback.dismiss(true, userId);
-                resetPasswordText(true, true);
-            }
-        }
-    }
-
-    private boolean kpvCheckPassword(String password) {
-        try {
-            return mLockPatternUtils.checkPassword(password, userId);
-        } catch (RequestThrottledException ex) {
-            return false;
-        }
     }
 }
