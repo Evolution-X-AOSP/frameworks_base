@@ -260,4 +260,9 @@
     <!-- List of system apps that are allowed to be locked with app lock.
           Use with extreme caution. -->
     <string-array name="config_appLockAllowedSystemApps" translatable="false" />
+
+    <!-- The list of vendor package signatures that should also be considered
+         platform signatures, specifically for use on devices with a vendor partition. -->
+    <string-array name="config_vendorPlatformSignatures">
+    </string-array>
 </resources>

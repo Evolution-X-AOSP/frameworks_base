@@ -194,4 +194,8 @@
     <java-symbol type="style" name="GlobalActionsAnimationXylon" />
     <java-symbol type="style" name="GlobalActionsAnimationCard" />
     <java-symbol type="style" name="GlobalActionsAnimationRotate" />
+
+    <!-- The list of vendor package signatures that should also be considered
+         platform signatures, specifically for use on devices with a vendor partition. -->
+    <java-symbol type="array" name="config_vendorPlatformSignatures" />
 </resources>
