@@ -88,6 +88,7 @@ import android.util.SparseBooleanArray;
 import androidx.lifecycle.Observer;
 
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.internal.util.evolution.fod.FodUtils;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.settingslib.WirelessUtils;
 import com.android.settingslib.fuelgauge.BatteryStatus;
@@ -302,6 +303,8 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
     private int mHardwareFaceUnavailableRetryCount = 0;
     private static final int HAL_ERROR_RETRY_TIMEOUT = 500; // ms
     private static final int HAL_ERROR_RETRY_MAX = 10;
+
+    private boolean mHasFod;
 
     private final Runnable mCancelNotReceived = new Runnable() {
         @Override
@@ -695,6 +698,9 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
     }
 
     private void handleFingerprintHelp(int msgId, String helpString) {
+        if (mIsDeviceInPocket && mHasFod){
+            return;
+        }
         Assert.isMainThread();
         for (int i = 0; i < mCallbacks.size(); i++) {
             KeyguardUpdateMonitorCallback cb = mCallbacks.get(i).get();
@@ -1841,6 +1847,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
                 }
             }
         }
+        mHasFod = FodUtils.hasFodSupport(mContext);
     }
 
     private final UserSwitchObserver mUserSwitchObserver = new UserSwitchObserver() {
@@ -1971,7 +1978,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
                 shouldListenForFingerprintAssistant() || (mKeyguardOccluded && mIsDreaming))
                 && !mSwitchingUser && !isFingerprintDisabled(getCurrentUser())
                 && (!mKeyguardGoingAway || !mDeviceInteractive) && mIsPrimaryUser
-                && allowedOnBouncer && !mIsDeviceInPocket;
+                && allowedOnBouncer && (mHasFod || !mIsDeviceInPocket);
         return shouldListen;
     }
 
