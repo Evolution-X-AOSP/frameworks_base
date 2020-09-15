@@ -6405,22 +6405,6 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
-         * @hide
-         */
-        public static final String ASPECT_RATIO_APPS_LIST = "aspect_ratio_apps_list";
-
-        /** @hide */
-        private static final Validator ASPECT_RATIO_APPS_LIST_VALIDATOR = ANY_STRING_VALIDATOR;
-
-        /**
-         * @hide
-         */
-        public static final String ASPECT_RATIO_APPS_ENABLED = "aspect_ratio_apps_enabled";
-
-        /** @hide */
-        private static final Validator ASPECT_RATIO_APPS_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
-
-        /**
          * Whether to show media art on lockscreen
          * @hide
          */
@@ -7261,8 +7245,6 @@ public final class Settings {
             AOD_NOTIFICATION_PULSE,
             AOD_NOTIFICATION_PULSE_CLEAR,
             AOD_NOTIFICATION_PULSE_TIMEOUT,
-            ASPECT_RATIO_APPS_ENABLED,
-            ASPECT_RATIO_APPS_LIST,
             AUTO_BRIGHTNESS_MIN_VALUE,
             BACK_GESTURE_BLOCK_IME,
             BACK_GESTURE_HEIGHT,
@@ -7556,8 +7538,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(AOD_NOTIFICATION_PULSE_CLEAR);
             PRIVATE_SETTINGS.add(AOD_NOTIFICATION_PULSE_TIMEOUT);
             PRIVATE_SETTINGS.add(APP_SWITCH_WAKE_SCREEN);
-            PRIVATE_SETTINGS.add(ASPECT_RATIO_APPS_ENABLED);
-            PRIVATE_SETTINGS.add(ASPECT_RATIO_APPS_LIST);
             PRIVATE_SETTINGS.add(ASSIST_WAKE_SCREEN);
             PRIVATE_SETTINGS.add(AUTO_BRIGHTNESS_MIN_VALUE);
             PRIVATE_SETTINGS.add(BACK_GESTURE_BLOCK_IME);
@@ -7823,8 +7803,6 @@ public final class Settings {
             VALIDATORS.put(AOD_NOTIFICATION_PULSE_CLEAR, AOD_NOTIFICATION_PULSE_CLEAR_VALIDATOR);
             VALIDATORS.put(AOD_NOTIFICATION_PULSE_TIMEOUT, AOD_NOTIFICATION_PULSE_TIMEOUT_VALIDATOR);
             VALIDATORS.put(APP_SWITCH_WAKE_SCREEN, APP_SWITCH_WAKE_SCREEN_VALIDATOR);
-            VALIDATORS.put(ASPECT_RATIO_APPS_ENABLED, ASPECT_RATIO_APPS_ENABLED_VALIDATOR);
-            VALIDATORS.put(ASPECT_RATIO_APPS_LIST, ASPECT_RATIO_APPS_LIST_VALIDATOR);
             VALIDATORS.put(ASSIST_WAKE_SCREEN, ASSIST_WAKE_SCREEN_VALIDATOR);
             VALIDATORS.put(AUTO_BRIGHTNESS_MIN_VALUE, AUTO_BRIGHTNESS_MIN_VALUE_VALIDATOR);
             VALIDATORS.put(BACK_GESTURE_BLOCK_IME,BACK_GESTURE_BLOCK_IME_VALIDATOR);

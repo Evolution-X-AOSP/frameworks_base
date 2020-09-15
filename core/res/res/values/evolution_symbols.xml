@@ -268,10 +268,6 @@
   <!-- Whether key handler sends intent when changing slider position -->
   <java-symbol type="string" name="config_alertSliderIntent" />
 
-    <!-- Full screen aspect ratio -->
-    <java-symbol type="bool" name="config_haveHigherAspectRatioScreen" />
-    <java-symbol type="dimen" name="config_screenAspectRatio" />
-
   <!-- ADB notification -->
   <java-symbol type="string" name="adb_net_active_notification_title" />
   <java-symbol type="string" name="adb_both_active_notification_title" />
