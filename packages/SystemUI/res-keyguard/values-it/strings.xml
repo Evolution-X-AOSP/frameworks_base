@@ -155,8 +155,8 @@
     <string name="clock_title_bubble" msgid="2204559396790593213">"Bolla"</string>
     <string name="clock_title_analog" msgid="8409262532900918273">"Analogico"</string>
     <plurals name="type_clock_header" formatted="false" msgid="6782840450655632763">
-      <item quantity="other">"<annotation name="color">"Ora: "</annotation>\n"^1\n^2</item>
-      <item quantity="one">"<annotation name="color">"Ora: "</annotation>\n"^1\n^2</item>
+      <item quantity="other">"<annotation name="color">"Sono le"</annotation>\n"^1\n^2</item>
+      <item quantity="one">"<annotation name="color">"Sono le"</annotation>\n"^1\n^2</item>
     </plurals>
   <string-array name="type_clock_hours">
     <item msgid="3543074812389379830">"Dodici"</item>
@@ -174,64 +174,64 @@
   </string-array>
   <string-array name="type_clock_minutes">
     <item msgid="8322049385467207985">"in punto"</item>
-    <item msgid="2091812961809760681">"e uno"</item>
-    <item msgid="1496435384877290709">"e due"</item>
-    <item msgid="881846472976674129">"e tre"</item>
-    <item msgid="2784477043911540584">"e quattro"</item>
-    <item msgid="1610928853656700614">"e cinque"</item>
-    <item msgid="2317806244043886658">"e sei"</item>
-    <item msgid="3318687539120971327">"e sette"</item>
-    <item msgid="5701600693712102348">"e otto"</item>
-    <item msgid="3247381605947372495">"e nove"</item>
-    <item msgid="3508406095411245038">"e dieci"</item>
-    <item msgid="7161996337755311711">"e undici"</item>
-    <item msgid="4044549963329624197">"e dodici"</item>
-    <item msgid="333373157917379088">"e tredici"</item>
-    <item msgid="2631202907124819385">"e quattordici"</item>
-    <item msgid="6472396076858033453">"e quindici"</item>
-    <item msgid="8656981856181581643">"e sedici"</item>
-    <item msgid="7289026608562030619">"e diciassette"</item>
-    <item msgid="3881477602692646573">"e diciotto"</item>
-    <item msgid="3358129827772984226">"e diciannove"</item>
-    <item msgid="3308575407402865807">"e venti"</item>
-    <item msgid="5346560955382229629">"e ventuno\n"</item>
-    <item msgid="226750304761473436">"e ventidue\n"</item>
-    <item msgid="616811325336838734">"e ventitre\n"</item>
-    <item msgid="616346116869053440">"e ventiquattro\n"</item>
-    <item msgid="4642996410384042830">"e venticinque\n"</item>
-    <item msgid="7506092849993571465">"e ventisei\n"</item>
-    <item msgid="1915078191101042031">"e ventisette\n"</item>
-    <item msgid="4292378641900520252">"e ventotto\n"</item>
-    <item msgid="5339513901773103696">"e ventinove\n"</item>
-    <item msgid="3574673250891657607">"e trenta"</item>
-    <item msgid="5796923836589110940">"e trentuno\n"</item>
-    <item msgid="5859323597571702052">"e trentadue\n"</item>
-    <item msgid="5133326723148876507">"e trentatre\n"</item>
-    <item msgid="2693999494655663096">"e trentaquattro\n"</item>
-    <item msgid="3316754944962836197">"e trentacinque\n"</item>
-    <item msgid="816891008836796723">"e trentasei\n"</item>
-    <item msgid="9158890488666520078">"e trentasette\n"</item>
-    <item msgid="1894769703213894011">"e trentotto\n"</item>
-    <item msgid="5638820345598572399">"e trentanove\n"</item>
-    <item msgid="8838304023017895439">"e quaranta"</item>
-    <item msgid="1834742948932559597">"e quarantuno\n"</item>
-    <item msgid="6573707308847773944">"e quarantadue\n"</item>
-    <item msgid="2450149950652678001">"e quarantatre\n"</item>
-    <item msgid="2874667401318178036">"e quarantaquattro\n"</item>
-    <item msgid="3391101532763048862">"e quarantacinque\n"</item>
-    <item msgid="1671489330863254362">"e quarantasei\n"</item>
-    <item msgid="5916017359554531038">"e quarantasette\n"</item>
-    <item msgid="8205413177993059967">"e quarantotto\n"</item>
-    <item msgid="6607867415142171302">"e quarantanove\n"</item>
-    <item msgid="8358850748472089162">"e cinquanta"</item>
-    <item msgid="3551313125255080234">"e cinquantuno\n"</item>
-    <item msgid="1559678130725716542">"e cinquantadue\n"</item>
-    <item msgid="431441994725492377">"e cinquantatre\n"</item>
-    <item msgid="6345774640539623024">"e cinquantaquattro\n"</item>
-    <item msgid="8018192990793931120">"e cinquantacinque\n"</item>
-    <item msgid="6187650843754604534">"e cinquantasei\n"</item>
-    <item msgid="8727240174015993259">"e cinquantasette\n"</item>
-    <item msgid="848339003778952950">"e cinquantotto\n"</item>
-    <item msgid="5798985802835423618">"e cinquantanove\n"</item>
+    <item msgid="2091812961809760681">"e \nuno"</item>
+    <item msgid="1496435384877290709">"e \ndue"</item>
+    <item msgid="881846472976674129">"e \ntre"</item>
+    <item msgid="2784477043911540584">"e \nquattro"</item>
+    <item msgid="1610928853656700614">"e \ncinque"</item>
+    <item msgid="2317806244043886658">"e \nsei"</item>
+    <item msgid="3318687539120971327">"e \nsette"</item>
+    <item msgid="5701600693712102348">"e \notto"</item>
+    <item msgid="3247381605947372495">"e \nnove"</item>
+    <item msgid="3508406095411245038">"e \ndieci"</item>
+    <item msgid="7161996337755311711">"e \nundici"</item>
+    <item msgid="4044549963329624197">"e \ndodici"</item>
+    <item msgid="333373157917379088">"e \ntredici"</item>
+    <item msgid="2631202907124819385">"e \nquattordici"</item>
+    <item msgid="6472396076858033453">"e \nquindici"</item>
+    <item msgid="8656981856181581643">"e \nsedici"</item>
+    <item msgid="7289026608562030619">"e \ndiciassette"</item>
+    <item msgid="3881477602692646573">"e \ndiciotto"</item>
+    <item msgid="3358129827772984226">"e \ndiciannove"</item>
+    <item msgid="3308575407402865807">"e \nventi"</item>
+    <item msgid="5346560955382229629">"e \nventuno\n"</item>
+    <item msgid="226750304761473436">"e \nventidue\n"</item>
+    <item msgid="616811325336838734">"e \nventitre\n"</item>
+    <item msgid="616346116869053440">"e \nventiquattro\n"</item>
+    <item msgid="4642996410384042830">"e \nventicinque\n"</item>
+    <item msgid="7506092849993571465">"e \nventisei\n"</item>
+    <item msgid="1915078191101042031">"e \nventisette\n"</item>
+    <item msgid="4292378641900520252">"e \nventotto\n"</item>
+    <item msgid="5339513901773103696">"e \nventinove\n"</item>
+    <item msgid="3574673250891657607">"e \ntrenta"</item>
+    <item msgid="5796923836589110940">"e \ntrentuno\n"</item>
+    <item msgid="5859323597571702052">"e \ntrentadue\n"</item>
+    <item msgid="5133326723148876507">"e \ntrentatre\n"</item>
+    <item msgid="2693999494655663096">"e \ntrentaquattro\n"</item>
+    <item msgid="3316754944962836197">"e \ntrentacinque\n"</item>
+    <item msgid="816891008836796723">"e \ntrentasei\n"</item>
+    <item msgid="9158890488666520078">"e \ntrentasette\n"</item>
+    <item msgid="1894769703213894011">"e \ntrentotto\n"</item>
+    <item msgid="5638820345598572399">"e \ntrentanove\n"</item>
+    <item msgid="8838304023017895439">"e \nquaranta"</item>
+    <item msgid="1834742948932559597">"e \nquarantuno\n"</item>
+    <item msgid="6573707308847773944">"e \nquarantadue\n"</item>
+    <item msgid="2450149950652678001">"e \nquarantatre\n"</item>
+    <item msgid="2874667401318178036">"e \nquarantaquattro\n"</item>
+    <item msgid="3391101532763048862">"e \nquarantacinque\n"</item>
+    <item msgid="1671489330863254362">"e \nquarantasei\n"</item>
+    <item msgid="5916017359554531038">"e \nquarantasette\n"</item>
+    <item msgid="8205413177993059967">"e \nquarantotto\n"</item>
+    <item msgid="6607867415142171302">"e \nquarantanove\n"</item>
+    <item msgid="8358850748472089162">"e \ncinquanta"</item>
+    <item msgid="3551313125255080234">"e \ncinquantuno\n"</item>
+    <item msgid="1559678130725716542">"e \ncinquantadue\n"</item>
+    <item msgid="431441994725492377">"e \ncinquantatre\n"</item>
+    <item msgid="6345774640539623024">"e \ncinquantaquattro\n"</item>
+    <item msgid="8018192990793931120">"e \ncinquantacinque\n"</item>
+    <item msgid="6187650843754604534">"e \ncinquantasei\n"</item>
+    <item msgid="8727240174015993259">"e \ncinquantasette\n"</item>
+    <item msgid="848339003778952950">"e \ncinquantotto\n"</item>
+    <item msgid="5798985802835423618">"e \ncinquantanove\n"</item>
   </string-array>
 </resources>
