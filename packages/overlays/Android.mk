@@ -70,9 +70,9 @@ LOCAL_REQUIRED_MODULES := \
 	FontCagliostroSourceOverlay \
 	FontCircularStdOverlay \
 	FontCoolstorySourceOverlay \
-	FontGoogleSansOverlay \
 	FontLGSmartGothicSourceOverlay \
 	FontLinotteSourceOverlay \
+	FontManropeSourceOverlay \
 	FontNotoSerifSourceOverlay \
 	FontRosemarySourceOverlay \
 	FontRubikRubikOverlay \

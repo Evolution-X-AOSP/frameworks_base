@@ -52,7 +52,7 @@ public class ThemeConstants {
         {"gobold-light-sys","NORMAL"},
         {"roadrage-sys","NORMAL"},
         {"snowstorm-sys","NORMAL"},
-        {"googlesans-sys","NORMAL"},
+        {"manrope-sys","NORMAL"},
         {"neoneon-sys","NORMAL"},
         {"themeable-sys","NORMAL"},
         {"samsung-sys","NORMAL"},
