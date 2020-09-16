@@ -268,6 +268,7 @@ public class KeyguardSimPukView extends KeyguardPinBasedInputView {
         }
         mSimImageView = findViewById(R.id.keyguard_sim);
         mPasswordEntry.setQuickUnlockListener(null);
+        setButtonVisibility(getOkButton(), true);
     }
 
     @Override
@@ -471,5 +472,3 @@ public class KeyguardSimPukView extends KeyguardPinBasedInputView {
                 com.android.internal.R.string.keyguard_accessibility_sim_puk_unlock);
     }
 }
-
-

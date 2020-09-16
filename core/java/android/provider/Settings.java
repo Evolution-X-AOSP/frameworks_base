@@ -4622,16 +4622,6 @@ public final class Settings {
         /** @hide */
         private static final Validator AMBIENT_WAKE_GESTURES_VALIDATOR = BOOLEAN_VALIDATOR;
 
-        /**
-         * Check the proximity sensor during wakeup
-         * @hide
-         */
-        public static final String PROXIMITY_ON_WAKE = "proximity_on_wake";
-
-        /** @hide */
-        public static final Validator PROXIMITY_ON_WAKE_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
         /** @hide */
         public static final String BACK_GESTURE_HEIGHT = "back_gesture_height";
 
@@ -4829,8 +4819,7 @@ public final class Settings {
         public static final String POCKET_JUDGE = "pocket_judge";
 
         /** @hide */
-        private static final Validator POCKET_JUDGE_VALIDATOR =
-                BOOLEAN_VALIDATOR;
+        public static final Validator POCKET_JUDGE_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
          * @hide
@@ -6423,22 +6412,6 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
-         * @hide
-         */
-        public static final String ASPECT_RATIO_APPS_LIST = "aspect_ratio_apps_list";
-
-        /** @hide */
-        private static final Validator ASPECT_RATIO_APPS_LIST_VALIDATOR = ANY_STRING_VALIDATOR;
-
-        /**
-         * @hide
-         */
-        public static final String ASPECT_RATIO_APPS_ENABLED = "aspect_ratio_apps_enabled";
-
-        /** @hide */
-        private static final Validator ASPECT_RATIO_APPS_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
-
-        /**
          * Whether to show media art on lockscreen
          * @hide
          */
@@ -7279,8 +7252,6 @@ public final class Settings {
             AOD_NOTIFICATION_PULSE,
             AOD_NOTIFICATION_PULSE_CLEAR,
             AOD_NOTIFICATION_PULSE_TIMEOUT,
-            ASPECT_RATIO_APPS_ENABLED,
-            ASPECT_RATIO_APPS_LIST,
             AUTO_BRIGHTNESS_MIN_VALUE,
             BACK_GESTURE_BLOCK_IME,
             BACK_GESTURE_HEIGHT,
@@ -7574,8 +7545,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(AOD_NOTIFICATION_PULSE_CLEAR);
             PRIVATE_SETTINGS.add(AOD_NOTIFICATION_PULSE_TIMEOUT);
             PRIVATE_SETTINGS.add(APP_SWITCH_WAKE_SCREEN);
-            PRIVATE_SETTINGS.add(ASPECT_RATIO_APPS_ENABLED);
-            PRIVATE_SETTINGS.add(ASPECT_RATIO_APPS_LIST);
             PRIVATE_SETTINGS.add(ASSIST_WAKE_SCREEN);
             PRIVATE_SETTINGS.add(AUTO_BRIGHTNESS_MIN_VALUE);
             PRIVATE_SETTINGS.add(BACK_GESTURE_BLOCK_IME);
@@ -7676,6 +7645,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_CUSTOM_HEADER_SHADOW);
             PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_DAYLIGHT_HEADER_PACK);
             PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_FILE_HEADER_IMAGE);
+            PRIVATE_SETTINGS.add(POCKET_JUDGE);
             PRIVATE_SETTINGS.add(POWERMENU_AIRPLANE);
             PRIVATE_SETTINGS.add(POWERMENU_LOCKDOWN);
             PRIVATE_SETTINGS.add(POWERMENU_LOGOUT);
@@ -7687,7 +7657,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(POWERMENU_SOUNDPANEL);
             PRIVATE_SETTINGS.add(POWERMENU_TORCH);
             PRIVATE_SETTINGS.add(POWERMENU_USERS);
-            PRIVATE_SETTINGS.add(PROXIMITY_ON_WAKE);
             PRIVATE_SETTINGS.add(PULSE_BRIGHTNESS);
             PRIVATE_SETTINGS.add(PULSE_ON_NEW_TRACKS);
             PRIVATE_SETTINGS.add(QS_COLUMNS_LANDSCAPE);
@@ -7841,8 +7810,6 @@ public final class Settings {
             VALIDATORS.put(AOD_NOTIFICATION_PULSE_CLEAR, AOD_NOTIFICATION_PULSE_CLEAR_VALIDATOR);
             VALIDATORS.put(AOD_NOTIFICATION_PULSE_TIMEOUT, AOD_NOTIFICATION_PULSE_TIMEOUT_VALIDATOR);
             VALIDATORS.put(APP_SWITCH_WAKE_SCREEN, APP_SWITCH_WAKE_SCREEN_VALIDATOR);
-            VALIDATORS.put(ASPECT_RATIO_APPS_ENABLED, ASPECT_RATIO_APPS_ENABLED_VALIDATOR);
-            VALIDATORS.put(ASPECT_RATIO_APPS_LIST, ASPECT_RATIO_APPS_LIST_VALIDATOR);
             VALIDATORS.put(ASSIST_WAKE_SCREEN, ASSIST_WAKE_SCREEN_VALIDATOR);
             VALIDATORS.put(AUTO_BRIGHTNESS_MIN_VALUE, AUTO_BRIGHTNESS_MIN_VALUE_VALIDATOR);
             VALIDATORS.put(BACK_GESTURE_BLOCK_IME,BACK_GESTURE_BLOCK_IME_VALIDATOR);
@@ -7968,6 +7935,7 @@ public final class Settings {
             VALIDATORS.put(OMNI_STATUS_BAR_CUSTOM_HEADER_SHADOW, OMNI_STATUS_BAR_CUSTOM_HEADER_SHADOW_VALIDATOR);
             VALIDATORS.put(OMNI_STATUS_BAR_DAYLIGHT_HEADER_PACK, OMNI_STATUS_BAR_DAYLIGHT_HEADER_PACK_VALIDATOR);
             VALIDATORS.put(OMNI_STATUS_BAR_FILE_HEADER_IMAGE, OMNI_STATUS_BAR_FILE_HEADER_IMAGE_VALIDATOR);
+            VALIDATORS.put(POCKET_JUDGE, POCKET_JUDGE_VALIDATOR);
             VALIDATORS.put(POWERMENU_AIRPLANE, POWERMENU_AIRPLANE_VALIDATOR);
             VALIDATORS.put(POWERMENU_LOCKDOWN, POWERMENU_LOCKDOWN_VALIDATOR);
             VALIDATORS.put(POWERMENU_LOGOUT, POWERMENU_LOGOUT_VALIDATOR);
@@ -7979,7 +7947,6 @@ public final class Settings {
             VALIDATORS.put(POWERMENU_SOUNDPANEL, POWERMENU_SOUNDPANEL_VALIDATOR);
             VALIDATORS.put(POWERMENU_TORCH, POWERMENU_TORCH_VALIDATOR);
             VALIDATORS.put(POWERMENU_USERS, POWERMENU_USERS_VALIDATOR);
-            VALIDATORS.put(PROXIMITY_ON_WAKE, PROXIMITY_ON_WAKE_VALIDATOR);
             VALIDATORS.put(PULSE_BRIGHTNESS, PULSE_BRIGHTNESS_VALIDATOR);
             VALIDATORS.put(PULSE_ON_NEW_TRACKS, PULSE_ON_NEW_TRACKS_VALIDATOR);
             VALIDATORS.put(QS_BATTERY_MODE, QS_BATTERY_MODE_VALIDATOR);

@@ -1253,6 +1253,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
         @Override
         public void onClickItem(int position) {
+            if (mDialog == null) return;
             Action item = mAdapter.getItem(position);
             if (!(item instanceof SilentModeTriStateAction)) {
                 if (mDialog != null) mDialog.dismiss();

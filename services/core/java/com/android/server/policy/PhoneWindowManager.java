@@ -1612,7 +1612,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case LONG_PRESS_POWER_HIDE_POCKET_LOCK:
                 mPowerKeyHandled = true;
                 performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, false, "Power - Long-Press - Hide Pocket Lock");
-                hidePocketLock();
+                hidePocketLock(true);
                 mPocketManager.setListeningExternal(false);
                 break;
         }
@@ -1800,7 +1800,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
         @Override
         public void run() {
-            if(!mPocketLockShowing) {
+            if (!mPocketLockShowing) {
                 mDefaultDisplayPolicy.takeScreenshot(mScreenshotType);
             }
         }
@@ -4588,7 +4588,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 && mGlobalKeyManager.shouldHandleGlobalKey(keyCode, event)) {
             if (isWakeKey) {
                 wakeUp(event.getEventTime(), mAllowTheaterModeWakeFromKey,
-                        PowerManager.WAKE_REASON_WAKE_KEY, "android.policy:KEY", true);
+                        PowerManager.WAKE_REASON_WAKE_KEY, "android.policy:KEY");
             }
             return result;
         }
@@ -5099,8 +5099,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
         if (isWakeKey) {
             wakeUp(event.getEventTime(), mAllowTheaterModeWakeFromKey,
-                    PowerManager.WAKE_REASON_WAKE_KEY, "android.policy:KEY",
-                    event.getKeyCode() == KeyEvent.KEYCODE_WAKEUP);
+                    PowerManager.WAKE_REASON_WAKE_KEY, "android.policy:KEY");
         }
 
         return result;
@@ -5610,11 +5609,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     private boolean wakeUp(long wakeTime, boolean wakeInTheaterMode, @WakeReason int reason,
             String details) {
-        return wakeUp(wakeTime, wakeInTheaterMode, reason, details, false);
-    }
-
-    private boolean wakeUp(long wakeTime, boolean wakeInTheaterMode, @WakeReason int reason,
-            String details, final boolean withProximityCheck) {
         final boolean theaterModeEnabled = isTheaterModeEnabled();
         if (!wakeInTheaterMode && theaterModeEnabled) {
             return false;
@@ -5625,11 +5619,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     Settings.Global.THEATER_MODE_ON, 0);
         }
 
-        if (withProximityCheck) {
-            mPowerManager.wakeUpWithProximityCheck(wakeTime, reason, details);
-        } else {
-            mPowerManager.wakeUp(wakeTime, reason, details);
-        }
+        mPowerManager.wakeUp(wakeTime, reason, details);
         return true;
     }
 
@@ -5785,9 +5775,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private void handleDevicePocketStateChanged() {
         final boolean interactive = mPowerManager.isInteractive();
         if (mIsDeviceInPocket) {
-            showPocketLock();
+            showPocketLock(interactive);
         } else {
-            hidePocketLock();
+            hidePocketLock(interactive);
         }
     }
 
@@ -5798,7 +5788,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
      * @see this.mPocketCallback;
      * @author Carlo Savignano
      */
-    private void showPocketLock() {
+    private void showPocketLock(boolean animate) {
         if (!mSystemReady || !mSystemBooted || !mKeyguardDrawnOnce
                 || mPocketLock == null || mPocketLockShowing) {
             return;
@@ -5809,10 +5799,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
 
         if (DEBUG) {
-            Log.d(TAG, "showPocketLock");
+            Log.d(TAG, "showPocketLock, animate=" + animate);
         }
 
-        mPocketLock.show();
+        mPocketLock.show(animate);
         mPocketLockShowing = true;
 
         mPocketManager.setPocketLockVisible(true);
@@ -5825,17 +5815,17 @@ public class PhoneWindowManager implements WindowManagerPolicy {
      * @see this.mPocketCallback;
      * @author Carlo Savignano
      */
-    private void hidePocketLock() {
+    private void hidePocketLock(boolean animate) {
         if (!mSystemReady || !mSystemBooted || !mKeyguardDrawnOnce
                 || mPocketLock == null || !mPocketLockShowing) {
             return;
         }
 
         if (DEBUG) {
-            Log.d(TAG, "hidePocketLock");
+            Log.d(TAG, "hidePocketLock, animate=" + animate);
         }
 
-        mPocketLock.hide();
+        mPocketLock.hide(animate);
         mPocketLockShowing = false;
 
         mPocketManager.setPocketLockVisible(false);

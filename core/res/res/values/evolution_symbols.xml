@@ -25,15 +25,6 @@
     <java-symbol type="array" name="config_globallyDisabledComponents" />
     <java-symbol type="array" name="config_forceEnabledComponents" />
 
-    <!-- Proximity check on screen on -->
-    <java-symbol type="bool" name="config_proximityCheckOnWake" />
-
-    <!-- Proximity check timeout -->
-    <java-symbol type="integer" name="config_proximityCheckTimeout" />
-
-    <!-- Proximity check on screen on default -->
-    <java-symbol type="bool" name="config_proximityCheckOnWakeEnabledByDefault" />
-
     <!-- Device keyhandlers -->
     <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
     <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
@@ -125,6 +116,7 @@
 
     <!-- Pocket bridge -->
     <java-symbol type="string" name="config_pocketBridgeSysfsInpocket" />
+    <java-symbol type="bool" name="config_pocketModeSupported" />
 
     <!-- HW keys binding -->
     <java-symbol type="anim" name="custom_app_in" />
@@ -276,10 +268,6 @@
   <!-- Whether key handler sends intent when changing slider position -->
   <java-symbol type="string" name="config_alertSliderIntent" />
 
-    <!-- Full screen aspect ratio -->
-    <java-symbol type="bool" name="config_haveHigherAspectRatioScreen" />
-    <java-symbol type="dimen" name="config_screenAspectRatio" />
-
   <!-- ADB notification -->
   <java-symbol type="string" name="adb_net_active_notification_title" />
   <java-symbol type="string" name="adb_both_active_notification_title" />
@@ -311,4 +299,7 @@
 
     <!-- Pocket Service -->
     <java-symbol type="string" name="config_pocketJudgeVendorSensorName" />
+
+    <!-- Whether device uses linear screen brightness slider -->
+    <java-symbol type="bool" name="config_linearBrightnessSlider" />
 </resources>

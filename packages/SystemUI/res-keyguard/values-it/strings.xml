@@ -156,7 +156,7 @@
     <string name="clock_title_analog" msgid="8409262532900918273">"Analogico"</string>
     <plurals name="type_clock_header" formatted="false" msgid="6782840450655632763">
       <item quantity="other">"<annotation name="color">"Ora: "</annotation>\n"^1\n^2</item>
-     <item quantity="one">"<annotation name="color">"Ora: "</annotation>\ ^1\n^2\</item>
+      <item quantity="one">"<annotation name="color">"Ora: "</annotation>\ ^1\n^2\</item>
     </plurals>
   <string-array name="type_clock_hours">
     <item msgid="3543074812389379830">"Dodici"</item>

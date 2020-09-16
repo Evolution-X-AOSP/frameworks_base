@@ -25,14 +25,13 @@ import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 
-import com.android.internal.widget.LockPatternUtils.RequestThrottledException;
-import com.android.keyguard.PasswordTextView.QuickUnlockListener;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import com.android.internal.widget.LockPatternUtils.RequestThrottledException;
+import com.android.keyguard.PasswordTextView.QuickUnlockListener;
 import com.android.settingslib.animation.AppearAnimationUtils;
 import com.android.settingslib.animation.DisappearAnimationUtils;
 import com.android.systemui.R;
@@ -55,9 +54,9 @@ public class KeyguardPINView extends KeyguardPinBasedInputView {
     private View[][] mViews;
     private final KeyguardUpdateMonitor mKeyguardUpdateMonitor;
 
-    private final int userId = KeyguardUpdateMonitor.getCurrentUser();
-
     private static List<Integer> sNumbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 0);
+
+    private final int userId = KeyguardUpdateMonitor.getCurrentUser();
 
     public KeyguardPINView(Context context) {
         this(context, null);
@@ -135,19 +134,6 @@ public class KeyguardPINView extends KeyguardPinBasedInputView {
             });
         }
 
-        boolean quickUnlock = (Settings.System.getIntForUser(getContext().getContentResolver(),
-                Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0, UserHandle.USER_CURRENT) == 1);
-
-        if (quickUnlock) {
-            mPasswordEntry.setQuickUnlockListener(new QuickUnlockListener() {
-                public void onValidateQuickUnlock(String password) {
-                    validateQuickUnlock(password);
-                }
-            });
-        } else {
-            mPasswordEntry.setQuickUnlockListener(null);
-        }
-
         boolean scramblePin = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.LOCKSCREEN_PIN_SCRAMBLE_LAYOUT, 0, UserHandle.USER_CURRENT) == 1;
 
@@ -174,6 +160,20 @@ public class KeyguardPINView extends KeyguardPinBasedInputView {
                 view.setDigit(sNumbers.get(i));
             }
         }
+
+        boolean quickUnlock = (Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL, 0, UserHandle.USER_CURRENT) == 1);
+
+        if (quickUnlock) {
+            mPasswordEntry.setQuickUnlockListener(new QuickUnlockListener() {
+                public void onValidateQuickUnlock(String password) {
+                    validateQuickUnlock(password);
+                }
+            });
+        } else {
+            mPasswordEntry.setQuickUnlockListener(null);
+        }
+        setButtonVisibility(getOkButton(), !quickUnlock);
     }
 
     @Override

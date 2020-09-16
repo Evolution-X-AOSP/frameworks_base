@@ -88,7 +88,4 @@ interface IPowerManager
 
     // blocked wakelock support
     String getSeenWakeLocks();
-
-    // Evolution X custom API
-    void wakeUpWithProximityCheck(long time, int reason, String details, String opPackageName);
 }

@@ -18,10 +18,11 @@
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">스크린샷이 삭제되었습니다.</string>
     <!-- Advanced reboot -->
-    <string name="global_action_restart_advanced">고급 설정</string>
+    <string name="global_action_restart_advanced">다시 시작 (고급)</string>
     <string name="global_action_restart_recovery">복구모드(Recovery)</string>
-    <string name="global_action_restart_bootloader">부트로더(Bootloader)</string>
+    <string name="global_action_restart_bootloader">부트로더</string>
     <string name="global_action_restart_ui">시스템 UI</string>
+    <string name="global_action_screenrecord">화면녹화</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">스크린샷</string>
     <string name="quick_settings_region_screenshot_label">부분 스크린샷</string>
@@ -34,8 +35,11 @@
     <string name="accessibility_quick_settings_usb_tether_changed_off">USB 테더링이 꺼졌습니다</string>
     <string name="accessibility_quick_settings_usb_tether_changed_on">USB 테더링이 켜졌습니다</string>
     <string name="quick_settings_usb_tether_label">USB 테더링</string>
-    <!-- AOD QS tile -->
-    <string name="quick_settings_aod_label">Always On Display</string>
+    <!-- AOD QS tile states -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">AOD (충전 중)</string>
+    <string name="quick_settings_aod_off_label">AOD 사용 안함</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD 사용 안함\n절전 모드</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">소리</string>
     <string name="quick_settings_sound_mute">음소거</string>
@@ -62,11 +66,11 @@
     <!-- Compass QS Tile -->
     <string name="quick_settings_compass_label">나침반</string>
     <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
-    <string name="quick_settings_compass_init">초기화\u2026</string>
+    <string name="quick_settings_compass_init">초기화 중\u2026</string>
     <string name="accessibility_quick_settings_compass_off">나침반 꺼짐</string>
     <string name="accessibility_quick_settings_compass_on">나침반 켜기</string>
-    <string name="accessibility_quick_settings_compass_changed_off">나침반 꺼짐</string>
-    <string name="accessibility_quick_settings_compass_changed_on">나침반 켜짐</string>
+    <string name="accessibility_quick_settings_compass_changed_off">나침반이 꺼졌습니다</string>
+    <string name="accessibility_quick_settings_compass_changed_on">나침반이 켜졌습니다</string>
     <string name="quick_settings_compass_N">북</string>
     <string name="quick_settings_compass_NE">북동</string>
     <string name="quick_settings_compass_E">동</string>
@@ -85,31 +89,34 @@
     <string name="quick_settings_sleepscreen_label">절전 화면</string>
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
-    <string name="quick_settings_vpn_connect_dialog_title">\u2026에 연결하기</string>
+    <string name="quick_settings_vpn_connect_dialog_title">연결 중\u2026</string>
     <string name="vpn_credentials_hint"><xliff:g id="name">%s</xliff:g>에 연결하기 위해 자격 증명을 입력하세요</string>
     <string name="vpn_credentials_username">사용자 이름</string>
     <string name="vpn_credentials_password">비밀번호</string>
     <string name="vpn_credentials_dialog_connect">연결</string>
-    <!-- Reboot/Recovery QS Tile -->
+    <!-- Power off/Reboot/Recovery QS Tile -->
+    <string name="quick_settings_poweroff_label">종료</string>
     <string name="quick_settings_reboot_label">다시 시작</string>
-    <string name="quick_settings_reboot_recovery_label">복구모드(Recovery)</string>
+    <string name="quick_settings_reboot_recovery_label">복구 모드</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • 고속 충전 중 (완전 충전까지 <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> 남음)</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash 충전 중 (완전 충전까지 <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> 남음)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • 고속 충전 중 (완전 충전까지 <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> 남음)</string>
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Wrap 충전 중 (완전 충전까지 <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> 남음)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • VOOC 충전 (완전 충전까지 <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> 남음)</string>
     <!-- Reader mode QS tile -->
-    <string name="quick_settings_reading_mode">독서 모드</string>
-    <string name="accessibility_quick_settings_reading_mode_on">독서 모드를 켭니다.</string>
-    <string name="accessibility_quick_settings_reading_mode_off">독서 모드를 끕니다.</string>
-    <string name="accessibility_quick_settings_reading_mode_changed_on">독서 모드가 켜졌습니다</string>
-    <string name="accessibility_quick_settings_reading_mode_changed_off">독서 모드가 꺼졌습니다.</string>
+    <string name="quick_settings_reading_mode">읽기 모드</string>
+    <string name="accessibility_quick_settings_reading_mode_on">읽기 모드를 켭니다.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">읽기 모드를 끕니다.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">읽기 모드가 켜졌습니다.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">읽기 모드가 꺼졌습니다.</string>
     <string name="statusbar_items_title">상태 표시줄 아이콘</string>
     <string name="lockscreen_default">기본설정</string>
     <string name="lockscreen_hidden">없음</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">실행하려면 아이콘에서 스와이프하세요.</string>
     <!--Screenrecord Tile-->
-    <string name="screenrecorder_title_tile">화면녹화</string>
+    <string name="screenrecorder_title_tile">화면 녹화</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">하드웨어 키 사용</string>
     <string name="accessibility_quick_settings_hwkeys_off">하드웨어 키 사용 안함</string>
@@ -154,16 +161,16 @@
     <string name="quick_settings_immersive_tile_navbar">전체 화면 내비게이션 바</string>
     <string name="quick_settings_immersive_tile_full">전체화면 꽉차게</string>
     <!-- Screen record -->
-    <string name="screenrecord_dialog_title">녹화 시작?</string>
-    <string name="screenrecord_dialog_summary">녹화 중에는 화면에 보이는 비밀번호, 결제 정보, 사진, 메세지, 소리 등의 민감한 정보가 녹화될 수 있습니다.</string>
+    <string name="screenrecord_dialog_title">녹화를 시작하시겠습니까?</string>
+    <string name="screenrecord_dialog_summary">Android 시스템이 녹화 중에 화면에 표시되거나 기기에서 재생되는 민감한 정보를 캡처할 수 있습니다. 여기에는 비밀번호, 결제 정보, 사진, 메시지 및 오디오가 포함됩니다.</string>
     <string name="screenrecord_dialog_start">시작</string>
     <string name="screenrecord_dialog_cancel">취소</string>
-    <string name="screenrecord_audio_recording_title">오디오 소스</string>
-    <string name="screenrecord_audio_recording_internal">내부메모리</string>
-    <string name="screenrecord_audio_recording_microphone">마이크로폰</string>
+    <string name="screenrecord_audio_recording_title">오디오 녹음</string>
+    <string name="screenrecord_audio_recording_internal">기기 오디오</string>
+    <string name="screenrecord_audio_recording_microphone">마이크</string>
     <string name="screenrecord_audio_recording_off">사용 안 함</string>
     <string name="screenrecord_taps_title">화면에 터치 표시</string>
-    <string name="screenrecord_stopdot_title">정지 점 표시</string>
+    <string name="screenrecord_stopdot_title">정지 버튼 표시</string>
     <string name="screenrecord_video_bitrate_title">비디오 비트레이트</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">스크린샷</string>
@@ -193,8 +200,9 @@
     <string name="right">오른쪽</string>
     <string name="navbar_editor_title">편집기</string>
     <string name="navbar_editor_summary">내비게이션 바 설정</string>
-    <string name="recents_app_killed">앱이 종료되었습니다</string>
-    <string name="nope_cant_kill">런처는 종료될 수 없습니다</string>
+    <!-- Long swipe gesture actions -->
+    <string name="task_helper_app_killed">%1$s가 중지됨</string>
+    <string name="empty_app_killed">앱</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">&amp; 타일을 추가하려면 드래그하거나 탭하세요</string>
     <!-- Label for header of customize QS -->
@@ -213,4 +221,28 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">스마트 픽셀</string>
     <string name="quick_settings_smart_pixels_on_power_save">스마트 픽셀 자동으로 켜기</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">왼쪽 커서</string>
+    <string name="accessibility_dpad_right">오른쪽 커서</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">음악</string>
+    <string name="quick_settings_music_play">재생</string>
+    <string name="quick_settings_music_pause">일시 중지</string>
+    <!-- QS Tuner Config -->
+    <string name="tuner_qs_long_press_action">길게 누를 때 패널 표시 안함</string>
+    <!-- Other QS tiles -->
+    <string name="alarm_title_tile">알람</string>
+    <string name="calc_title_tile">계산기</string>
+    <string name="calendar_title_tile">일정 추가</string>
+    <string name="camera_title_tile">카메라</string>
+    <string name="call_title_tile">전화</string>
+    <!-- Screen Stabilization -->
+    <string name="quick_settings_stabilization_label">화면 안정화</string>
+    <string name="quick_settings_stabilization_off">안정화 비활성화되었습니다</string>
+    <string name="quick_settings_stabilization_on">안정화가 활성화되었습니다</string>
+    <string name="low_label">낮음</string>
+    <string name="high_label">높음</string>
+    <string name="stabilization_velocity_friction">속도 마찰</string>
+    <string name="stabilization_velocity_amplitude">속도 진폭</string>
+    <string name="stabilization_position_friction">위치 마찰</string>
 </resources>
