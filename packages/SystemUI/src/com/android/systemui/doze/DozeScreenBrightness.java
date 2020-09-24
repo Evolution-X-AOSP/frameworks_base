@@ -112,6 +112,11 @@ public class DozeScreenBrightness extends BroadcastReceiver implements DozeMachi
                 resetBrightnessToDefault();
                 break;
             case DOZE_AOD:
+                // we dont have a brightness sensor so remove any font scrim
+                // set from prepareForGentleWakeUp right away
+                if (!mRegistered) {
+                    mDozeHost.setAodDimmingScrim(0f);
+                }
             case DOZE_REQUEST_PULSE:
             case DOZE_AOD_DOCKED:
                 setLightSensorEnabled(true);
