@@ -4162,6 +4162,21 @@ public class TelephonyManager {
      * is a tri-state return value as for a period of time
      * the mode may be unknown.
      *
+     * @return {@link PhoneConstants#LTE_ON_CDMA_UNKNOWN}, {@link PhoneConstants#LTE_ON_CDMA_FALSE}
+     * or {@link PhoneConstants#LTE_ON_CDMA_TRUE} fot the subId returned by {@link getSubId()}
+     * @hide
+     */
+    @RequiresPermission(android.Manifest.permission.READ_PRIVILEGED_PHONE_STATE)
+    @UnsupportedAppUsage
+    public int getLteOnCdmaMode() {
+        return getLteOnCdmaMode(getSubId());
+    }
+
+    /**
+     * Return if the current radio is LTE on CDMA for Subscription. This
+     * is a tri-state return value as for a period of time
+     * the mode may be unknown.
+     *
      * @param subId for which radio is LTE on CDMA is returned
      * @return {@link PhoneConstants#LTE_ON_CDMA_UNKNOWN}, {@link PhoneConstants#LTE_ON_CDMA_FALSE}
      * or {@link PhoneConstants#LTE_ON_CDMA_TRUE}
