@@ -3105,6 +3105,7 @@
   <java-symbol type="string" name="config_emergency_dialer_package" />
   <java-symbol type="array" name="config_emergency_iso_country_codes" />
 
+  <java-symbol type="string" name="config_dozePickupSensorType" />
   <java-symbol type="string" name="config_dozeDoubleTapSensorType" />
   <java-symbol type="string" name="config_dozeTapSensorType" />
   <java-symbol type="bool" name="config_dozePulsePickup" />
