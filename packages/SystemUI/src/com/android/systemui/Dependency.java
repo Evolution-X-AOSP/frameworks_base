@@ -44,6 +44,7 @@ import com.android.systemui.dagger.qualifiers.Background;
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.dock.DockManager;
 import com.android.systemui.dump.DumpManager;
+import com.android.systemui.evolution.EvolutionSettingsService;
 import com.android.systemui.fragments.FragmentService;
 import com.android.systemui.keyguard.ScreenLifecycle;
 import com.android.systemui.keyguard.WakefulnessLifecycle;
@@ -332,6 +333,7 @@ public class Dependency {
     @Inject Lazy<MediaOutputDialogFactory> mMediaOutputDialogFactory;
     @Inject Lazy<TaskHelper> mTaskHelper;
     @Inject Lazy<ScreenDecorations> mScreenDecorations;
+    @Inject Lazy<EvolutionSettingsService> mEvolutionSettingsService;
 
     @Inject
     public Dependency() {
@@ -532,6 +534,7 @@ public class Dependency {
         mProviders.put(Divider.class, mDivider::get);
 
         mProviders.put(MediaOutputDialogFactory.class, mMediaOutputDialogFactory::get);
+        mProviders.put(EvolutionSettingsService.class, mEvolutionSettingsService::get);
 
         mProviders.put(ScreenDecorations.class, mScreenDecorations::get);
 
