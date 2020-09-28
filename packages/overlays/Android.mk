@@ -105,8 +105,10 @@ LOCAL_REQUIRED_MODULES := \
 	IconPackVictorPixelThemePickerOverlay \
 	IconPackVictorSettingsOverlay \
 	IconPackVictorSystemUIOverlay \
+	IconShapeHeartOverlay \
 	IconShapePebbleOverlay \
 	IconShapeRoundedRectOverlay \
+	IconShapeSquareOverlay \
 	IconShapeSquircleOverlay \
 	IconShapeTaperedRectOverlay \
 	IconShapeTeardropOverlay \
