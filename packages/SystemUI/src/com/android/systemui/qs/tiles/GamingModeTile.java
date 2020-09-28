@@ -73,8 +73,8 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
     // saved settings state keys
     private static final String KEY_HEADSUP_STATE = "gaming_mode_state_headsup";
     private static final String KEY_ZEN_STATE = "gaming_mode_state_zen";
-    private static final String KEY_NAVBAR_STATE = "gaming_mode_state_navbar";
-    private static final String KEY_HW_KEYS_STATE = "gaming_mode_state_hw_keys";
+    // private static final String KEY_NAVBAR_STATE = "gaming_mode_state_navbar";
+    // private static final String KEY_HW_KEYS_STATE = "gaming_mode_state_hw_keys";
     private static final String KEY_BRIGHTNESS_STATE = "gaming_mode_state_brightness";
     private static final String KEY_MEDIA_LEVEL = "gaming_mode_level_media";
 
@@ -198,15 +198,15 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
                         NotificationManager.INTERRUPTION_FILTER_PRIORITY);
             }
 
-            if (navBarEnabled) {
-                Settings.System.putInt(mResolver,
-                        Settings.System.FORCE_SHOW_NAVBAR, 0);
-            }
-
-            if (hwKeysEnabled && mHasHWKeys) {
-                Settings.Secure.putInt(mResolver,
-                        Settings.Secure.HARDWARE_KEYS_DISABLE, 1);
-            }
+            // if (navBarEnabled) {
+            //     Settings.System.putInt(mResolver,
+            //             Settings.System.FORCE_SHOW_NAVBAR, 0);
+            // }
+            //
+            // if (hwKeysEnabled && mHasHWKeys) {
+            //     Settings.Secure.putInt(mResolver,
+            //             Settings.Secure.HARDWARE_KEYS_DISABLE, 1);
+            // }
 
             if (brightnessEnabled) {
                 Settings.System.putInt(mResolver,
@@ -285,10 +285,10 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
                 Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED, 1));
         Prefs.putInt(mContext, KEY_ZEN_STATE, Settings.Global.getInt(mResolver,
                 Settings.Global.ZEN_MODE, 0) != 0 ? 1 : 0);
-        Prefs.putInt(mContext, KEY_NAVBAR_STATE, Settings.System.getInt(mResolver,
-                Settings.System.FORCE_SHOW_NAVBAR, 1));
-        Prefs.putInt(mContext, KEY_HW_KEYS_STATE, Settings.Secure.getInt(mResolver,
-                Settings.Secure.HARDWARE_KEYS_DISABLE, 0));
+        // Prefs.putInt(mContext, KEY_NAVBAR_STATE, Settings.System.getInt(mResolver,
+        //         Settings.System.FORCE_SHOW_NAVBAR, 1));
+        // Prefs.putInt(mContext, KEY_HW_KEYS_STATE, Settings.Secure.getInt(mResolver,
+        //         Settings.Secure.HARDWARE_KEYS_DISABLE, 0));
         Prefs.putInt(mContext, KEY_BRIGHTNESS_STATE, Settings.System.getInt(mResolver,
                 Settings.System.SCREEN_BRIGHTNESS_MODE,
                 Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC));
@@ -302,12 +302,12 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
         mNm.setInterruptionFilter(Prefs.getInt(mContext, KEY_ZEN_STATE, 0) == 1
                 ? NotificationManager.INTERRUPTION_FILTER_PRIORITY
                 : NotificationManager.INTERRUPTION_FILTER_ALL);
-        Settings.System.putInt(mResolver,
-                Settings.System.FORCE_SHOW_NAVBAR,
-                Prefs.getInt(mContext, KEY_NAVBAR_STATE, 1));
-        Settings.Secure.putInt(mResolver,
-                Settings.Secure.HARDWARE_KEYS_DISABLE,
-                Prefs.getInt(mContext, KEY_HW_KEYS_STATE, 0));
+        // Settings.System.putInt(mResolver,
+        //         Settings.System.FORCE_SHOW_NAVBAR,
+        //         Prefs.getInt(mContext, KEY_NAVBAR_STATE, 1));
+        // Settings.Secure.putInt(mResolver,
+        //         Settings.Secure.HARDWARE_KEYS_DISABLE,
+        //         Prefs.getInt(mContext, KEY_HW_KEYS_STATE, 0));
         Settings.System.putInt(mResolver,
                 Settings.System.SCREEN_BRIGHTNESS_MODE,
                 Prefs.getInt(mContext, KEY_BRIGHTNESS_STATE,
@@ -320,11 +320,11 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
     }
 
     private class GamingModeTileDetailAdapter implements DetailAdapter {
-        private LinearLayout mHWButtonsLayout;
+        // private LinearLayout mHWButtonsLayout;
         private SeekBar mMediaSeekBar;
         private Switch mHeadsUpSwitch;
         private Switch mZenSwitch;
-        private Switch mNavBarSwitch;
+        // private Switch mNavBarSwitch;
         private Switch mHWSwitch;
         private Switch mBrightnessSwitch;
         private Switch mMediaSwitch;
@@ -446,31 +446,31 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
                     }
                 });
 
-                mNavBarSwitch = (Switch) view.findViewById(R.id.navbar_switch);
-                enabled = Settings.System.getInt(mResolver,
-                        Settings.System.GAMING_MODE_NAVBAR, 0) == 1;
-                mNavBarSwitch.setChecked(enabled);
-                mNavBarSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        Settings.System.putInt(mResolver,
-                                Settings.System.GAMING_MODE_NAVBAR,
-                                isChecked ? 1 : 0);
-                    }
-                });
-
-                if (mHasHWKeys) {
-                    mHWButtonsLayout = (LinearLayout) view.findViewById(R.id.hw_buttons_layout);
-                    mHWButtonsLayout.setVisibility(View.VISIBLE);
-
-                    mHWSwitch = (Switch) view.findViewById(R.id.hw_buttons_switch);
-                    mHWSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                            Settings.System.putInt(mResolver,
-                                    Settings.System.GAMING_MODE_HW_BUTTONS,
-                                    isChecked ? 1 : 0);
-                        }
-                    });
-                }
+                // mNavBarSwitch = (Switch) view.findViewById(R.id.navbar_switch);
+                // enabled = Settings.System.getInt(mResolver,
+                //         Settings.System.GAMING_MODE_NAVBAR, 0) == 1;
+                // mNavBarSwitch.setChecked(enabled);
+                // mNavBarSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                //     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                //         Settings.System.putInt(mResolver,
+                //                 Settings.System.GAMING_MODE_NAVBAR,
+                //                 isChecked ? 1 : 0);
+                //     }
+                // });
+                //
+                // if (mHasHWKeys) {
+                //     mHWButtonsLayout = (LinearLayout) view.findViewById(R.id.hw_buttons_layout);
+                //     mHWButtonsLayout.setVisibility(View.VISIBLE);
+                //
+                //     mHWSwitch = (Switch) view.findViewById(R.id.hw_buttons_switch);
+                //     mHWSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                //         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                //             Settings.System.putInt(mResolver,
+                //                     Settings.System.GAMING_MODE_HW_BUTTONS,
+                //                     isChecked ? 1 : 0);
+                //         }
+                //     });
+                // }
             }
             return view;
         }
