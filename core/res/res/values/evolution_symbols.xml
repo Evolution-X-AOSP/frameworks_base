@@ -81,4 +81,8 @@
   <java-symbol type="string" name="config_regularFontFamily" />
 
   <java-symbol type="array" name="custom_config_globalActionsList" />
+
+  <!-- Button backlight -->
+  <java-symbol type="dimen" name="config_buttonBrightnessSettingDefaultFloat" />
+  <java-symbol type="bool" name="config_deviceHasVariableButtonBrightness" />
 </resources>
