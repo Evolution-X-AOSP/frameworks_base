@@ -104,4 +104,8 @@
         <item>restart</item>
         <item>logout</item>
     </string-array>
+
+    <!-- Button backlight -->
+    <dimen name="config_buttonBrightnessSettingDefaultFloat">1.0</dimen>
+    <bool name="config_deviceHasVariableButtonBrightness">false</bool>
 </resources>
