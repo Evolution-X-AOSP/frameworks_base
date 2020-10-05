@@ -5100,7 +5100,7 @@ public class UserManagerService extends IUserManager.Stub {
                     userInfo.creationTime = getCreationTime();
                     userInfo.partial = true;
                     userInfo.preCreated = preCreate;
-                    userInfo.lastLoggedInFingerprint = PackagePartitions.FINGERPRINT;
+                    userInfo.lastLoggedInFingerprint = String.valueOf(Build.TIME);
                     if (userTypeDetails.hasBadge() && parentId != UserHandle.USER_NULL) {
                         userInfo.profileBadge = getFreeProfileBadgeLU(parentId, userType);
                     }
@@ -6401,8 +6401,7 @@ public class UserManagerService extends IUserManager.Stub {
         TimingsTraceAndSlog t = new TimingsTraceAndSlog();
         t.traceBegin("onBeforeStartUser-" + userId);
         // Migrate only if build fingerprints mismatch
-        boolean migrateAppsData = !PackagePartitions.FINGERPRINT.equals(
-                userInfo.lastLoggedInFingerprint);
+        boolean migrateAppsData = !String.valueOf(Build.TIME).equals(userInfo.lastLoggedInFingerprint);
         t.traceBegin("prepareUserData");
         mUserDataPreparer.prepareUserData(userInfo, StorageManager.FLAG_STORAGE_DE);
         t.traceEnd();
@@ -6431,8 +6430,7 @@ public class UserManagerService extends IUserManager.Stub {
             return;
         }
         // Migrate only if build fingerprints mismatch
-        boolean migrateAppsData = !PackagePartitions.FINGERPRINT.equals(
-                userInfo.lastLoggedInFingerprint);
+        boolean migrateAppsData = !String.valueOf(Build.TIME).equals(userInfo.lastLoggedInFingerprint);
 
         final TimingsTraceAndSlog t = new TimingsTraceAndSlog();
         t.traceBegin("prepareUserData-" + userId);
@@ -6476,7 +6474,7 @@ public class UserManagerService extends IUserManager.Stub {
         if (now > EPOCH_PLUS_30_YEARS) {
             userData.info.lastLoggedInTime = now;
         }
-        userData.info.lastLoggedInFingerprint = PackagePartitions.FINGERPRINT;
+        userData.info.lastLoggedInFingerprint = String.valueOf(Build.TIME);
         scheduleWriteUser(userId);
     }
 
