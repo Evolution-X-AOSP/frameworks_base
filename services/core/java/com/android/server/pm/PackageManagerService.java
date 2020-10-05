@@ -1494,8 +1494,8 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
         }
 
         PackageManagerService m = new PackageManagerService(injector, onlyCore, factoryTest,
-                PackagePartitions.FINGERPRINT, Build.IS_ENG, Build.IS_USERDEBUG,
-                Build.VERSION.SDK_INT, Build.VERSION.INCREMENTAL);
+                String.valueOf(Build.TIME), Build.IS_ENG, Build.IS_USERDEBUG, Build.VERSION.SDK_INT,
+                Build.VERSION.INCREMENTAL);
         t.traceEnd(); // "create package manager"
 
         final CompatChange.ChangeListener selinuxChangeListener = packageName -> {
@@ -1955,8 +1955,8 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
             mIsUpgrade =
                     !buildFingerprint.equals(ver.fingerprint);
             if (mIsUpgrade) {
-                PackageManagerServiceUtils.logCriticalInfo(Log.INFO, "Upgrading from "
-                        + ver.fingerprint + " to " + PackagePartitions.FINGERPRINT);
+                PackageManagerServiceUtils.logCriticalInfo(Log.INFO,
+                        "Upgrading from " + ver.fingerprint + " to " + Build.TIME);
             }
 
             mInitAppsHelper = new InitAppsHelper(this, mApexManager, mInstallPackageHelper,
@@ -2071,8 +2071,7 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
             // this situation.
             if (mIsUpgrade) {
                 Slog.i(TAG, "Build fingerprint changed from " + ver.fingerprint + " to "
-                        + PackagePartitions.FINGERPRINT
-                        + "; regranting permissions for internal storage");
+                        + Build.TIME + "; regranting permissions for internal storage");
             }
             mPermissionManager.onStorageVolumeMounted(
                     StorageManager.UUID_PRIVATE_INTERNAL, mIsUpgrade);
@@ -2117,7 +2116,7 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
                                         | Installer.FLAG_CLEAR_APP_DATA_KEEP_ART_PROFILES);
                     }
                 }
-                ver.fingerprint = PackagePartitions.FINGERPRINT;
+                ver.fingerprint = String.valueOf(Build.TIME);
             }
 
             // Defer the app data fixup until we are done with app data clearing above.
