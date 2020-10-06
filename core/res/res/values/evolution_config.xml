@@ -198,9 +198,21 @@
     <string name="config_SmartChargingSuspendValue" translatable="false">0</string>
     <string name="config_SmartChargingResumeValue" translatable="false">1</string> 
 
-    <!-- Button backlight -->
+    <!-- Button backlight control. Possible values are:
+            0 - Not supported
+            1 - Supported, but only on/off mode
+            2 - Supported with variable brightness control
+    -->
+    <integer name="config_deviceSupportsButtonBrightnessControl">0</integer>
     <dimen name="config_buttonBrightnessSettingDefaultFloat">1.0</dimen>
-    <bool name="config_deviceHasVariableButtonBrightness">false</bool>
+
+    <!-- Keyboard backlight control. Possible values are:
+            0 - Not supported
+            1 - Supported, but only on/off mode
+            2 - Supported with variable brightness control
+    -->
+    <integer name="config_deviceSupportsKeyboardBrightnessControl">0</integer>
+    <dimen name="config_keyboardBrightnessSettingDefaultFloat">1.0</dimen>
 
     <!-- -1 means use same as config_screenBrightnessDoze -->
     <integer name="config_screenBrightnessPulse">-1</integer>

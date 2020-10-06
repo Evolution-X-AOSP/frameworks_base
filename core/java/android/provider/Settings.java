@@ -10557,6 +10557,13 @@ public final class Settings {
                 "reminder_exp_learning_event_count";
 
         /**
+         * The keyboard brightness to be used while the screen is on.
+         * Valid value range is between 0 and {@link PowerManager#getMaximumKeyboardBrightness()}
+         * @hide
+         */
+        public static final String KEYBOARD_BRIGHTNESS = "keyboard_brightness";
+
+        /**
          * These entries are considered common between the personal and the managed profile,
          * since the managed profile doesn't get to change them.
          */
