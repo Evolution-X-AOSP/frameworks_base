@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   - Copyright 2014, The Android Open Source Project
+  -           2020 The exTHmUI Open Source Project
   -
   - Licensed under the Apache License, Version 2.0 (the "License");
   - you may not use this file except in compliance with the License.
@@ -15,7 +16,7 @@
   - limitations under the License.
   -->
 <com.android.keyguard.AlphaOptimizedLinearLayout
-    android:id="@+id/ticker"
+    android:id="@+id/lyric"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -23,7 +24,7 @@
     android:animationCache="false"
     android:orientation="horizontal">
 
-    <ImageSwitcher android:id="@+id/tickerIcon"
+    <ImageSwitcher android:id="@+id/lyricIcon"
         android:layout_width="@dimen/status_bar_icon_size"
         android:layout_height="@dimen/status_bar_icon_size"
         android:layout_marginEnd="@dimen/ticker_icon_end_margin"
@@ -39,18 +40,18 @@
             android:scaleType="centerInside"
             />
     </ImageSwitcher>
-    <com.android.systemui.statusbar.phone.TickerView android:id="@+id/tickerText"
+    <com.android.systemui.statusbar.phone.TickerView android:id="@+id/lyricText"
         android:layout_width="0dip"
         android:layout_weight="1"
         android:layout_height="wrap_content"
         android:paddingEnd="@dimen/ticker_text_end_padding">
-        <TextView
+        <com.android.systemui.util.LyricTextView
             android:textAppearance="@style/TextAppearance.StatusBar.PhoneTicker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:singleLine="true"
             />
-        <TextView
+        <com.android.systemui.util.LyricTextView
             android:textAppearance="@style/TextAppearance.StatusBar.PhoneTicker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

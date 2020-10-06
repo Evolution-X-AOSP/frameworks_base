@@ -24,6 +24,7 @@ import com.android.systemui.statusbar.phone.Ticker;
 public class TickerView extends TextSwitcher
 {
     private Ticker mTicker;
+    private LyricTicker mLyricTicker;
 
     public TickerView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -33,9 +34,14 @@ public class TickerView extends TextSwitcher
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         if (mTicker != null) mTicker.reflowText();
+        if (mLyricTicker != null) mLyricTicker.reflowText();
     }
 
     public void setTicker(Ticker t) {
         mTicker = t;
+    }
+
+    public void setLyricTicker(LyricTicker t) {
+        mLyricTicker = t;
     }
 }
