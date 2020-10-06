@@ -183,9 +183,11 @@
   <java-symbol type="string" name="config_SmartChargingSuspendValue" />
   <java-symbol type="string" name="config_SmartChargingResumeValue" />
 
-  <!-- Button backlight -->
+  <!-- Button and keyboard backlight -->
+  <java-symbol type="integer" name="config_deviceSupportsButtonBrightnessControl" />
+  <java-symbol type="integer" name="config_deviceSupportsKeyboardBrightnessControl" />
   <java-symbol type="dimen" name="config_buttonBrightnessSettingDefaultFloat" />
-  <java-symbol type="bool" name="config_deviceHasVariableButtonBrightness" />
+  <java-symbol type="dimen" name="config_keyboardBrightnessSettingDefaultFloat" />
 
   <!-- Gaming mode -->
   <java-symbol type="drawable" name="ic_gaming_notif" />
