@@ -31,7 +31,6 @@ import android.text.Layout.Alignment;
 import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -54,10 +53,8 @@ import java.util.ArrayList;
 public abstract class LyricTicker implements DarkReceiver {
 
     private Context mContext;
-    private TextPaint mPaint;
     private ImageSwitcher mIconSwitcher;
     private TextSwitcher mTextSwitcher;
-    private float mIconScale;
     private int mIconTint =  0xffffffff;
     private int mTextColor = 0xffffffff;
 
@@ -73,10 +70,6 @@ public abstract class LyricTicker implements DarkReceiver {
 
     public LyricTicker(Context context, View tickerLayout) {
         mContext = context;
-        final Resources res = context.getResources();
-        final int outerBounds = res.getDimensionPixelSize(R.dimen.status_bar_icon_size);
-        final int imageBounds = res.getDimensionPixelSize(R.dimen.status_bar_icon_drawing_size);
-        mIconScale = (float)imageBounds / (float)outerBounds;
 
         updateAnimation();
 
@@ -110,59 +103,56 @@ public abstract class LyricTicker implements DarkReceiver {
         if (!isLyric) {
             if (isNotificationEquals(n, mCurrentNotification)) {
                 mCurrentNotification = null;
-                tickerDone();
+                stopTicker();
             }
             return;
         }
 
-        final CharSequence text = notification.tickerText;
-        if (text == null) {
-            tickerDone();
-            return;
-        }
-        mCurrentText = text;
-
-        mTextSwitcher.setText(mCurrentText);
-        mTextSwitcher.setTextColor(mTextColor);
+        mCurrentText = notification.tickerText;
 
         if (!isNotificationEquals(mCurrentNotification, n) || notification.extras.getBoolean("ticker_icon_switch", false)) {
             mCurrentNotification = n;
             int iconId = notification.extras.getInt("ticker_icon", notification.icon);
             icon = StatusBarIconView.getIcon(mContext, 
-            new StatusBarIcon(n.getPackageName(), n.getUser(), iconId, notification.iconLevel, 0,
-                notification.tickerText));
+                new StatusBarIcon(n.getPackageName(), n.getUser(), iconId, notification.iconLevel, 0,
+                    notification.tickerText));
 
             mIconSwitcher.setAnimateFirstView(false);
             mIconSwitcher.reset();
             setAppIconColor(icon);
+
+            mTextSwitcher.setAnimateFirstView(false);
+            mTextSwitcher.reset();
+            mTextSwitcher.setText(mCurrentText);
+            mTextSwitcher.setTextColor(mTextColor);
+
             tickerStarting();
+        } else {
+            mTextSwitcher.setText(mCurrentText);
+            mTextSwitcher.setTextColor(mTextColor);
         }
 
     }
 
     public void removeEntry(StatusBarNotification n) {
         if (isNotificationEquals(n, mCurrentNotification)) {
-            mCurrentNotification = null;
-            tickerDone();
+            stopTicker();
         }
     }
 
     public void halt() {
         tickerHalting();
-        mIconSwitcher.reset();
-        mTextSwitcher.reset();
+        mCurrentNotification = null;
+    }
+
+    private void stopTicker() {
+        tickerDone();
         mCurrentNotification = null;
     }
 
     public void setViews(TextSwitcher ts, ImageSwitcher is) {
         mTextSwitcher = ts;
-        // Copy the paint style of one of the TextSwitchers children to use later for measuring
-        TextView text = (TextView) mTextSwitcher.getChildAt(0);
-        mPaint = text.getPaint();
-
         mIconSwitcher = is;
-        mIconSwitcher.setScaleX(mIconScale);
-        mIconSwitcher.setScaleY(mIconScale);
 
         setViewAnimations();
     }
@@ -194,6 +184,7 @@ public abstract class LyricTicker implements DarkReceiver {
     public void applyDarkIntensity(Rect area, View v, int tint) {
         mTextColor = DarkIconDispatcher.getTint(area, v, tint);
         mIconTint = mTextColor;
+        if (mCurrentNotification == null) return;
         if (mTextSwitcher != null) mTextSwitcher.setTextColor(mTextColor);
         if (mIconSwitcher != null) {
             mIconSwitcher.reset();

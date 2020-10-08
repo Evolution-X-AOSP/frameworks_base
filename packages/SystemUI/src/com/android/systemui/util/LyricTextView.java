@@ -31,7 +31,6 @@ public class LyricTextView extends TextView {
     private float viewWidth = 0f;
     private int speed = 4;
     private float x = 0f;
-    private float y = 0f;
     private String text;
 
     private int startScrollDelay = 600;
@@ -66,7 +65,6 @@ public class LyricTextView extends TextView {
 
     private void init() {
         x = 0;
-        y = (getHeight() + getTextSize()) / 2;
         textLength = getTextLength();
         viewWidth = getWidth();
     }
@@ -81,8 +79,8 @@ public class LyricTextView extends TextView {
     protected void onTextChanged(CharSequence text, int start, int lengthBefore, int lengthAfter) {
         super.onTextChanged(text, start, lengthBefore, lengthAfter);
         stopScroll();
-        init();
         this.text = text.toString();
+        init();
         postInvalidate();
         if (mHandler != null) mHandler.postDelayed(mStartScrollRunnable, startScrollDelay);
     }
@@ -95,7 +93,8 @@ public class LyricTextView extends TextView {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (null != canvas && null != text) {
+        if (canvas != null && text != null) {
+            float y = getHeight() / 2 + Math.abs(mPaint.ascent() + mPaint.descent()) / 2;
             canvas.drawText(text, x, y, mPaint);
         } 
         if (!isStop) {
@@ -105,8 +104,8 @@ public class LyricTextView extends TextView {
             } else {
                 x -= speed;
             }
+            invalidate();
         }
-        invalidate();
     }
 
     public void startScroll() {
@@ -122,7 +121,7 @@ public class LyricTextView extends TextView {
     }
 
     private float getTextLength() {
-        return mPaint == null ? 0 : mPaint.measureText(getText().toString());
+        return mPaint == null ? 0 : mPaint.measureText(text);
     }
 
 }
