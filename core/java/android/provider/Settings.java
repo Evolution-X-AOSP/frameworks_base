@@ -6928,6 +6928,12 @@ public final class Settings {
         public static final String LS_MEDIA_ARTWORK_FADE_PERCENT = "ls_media_artwork_fade_percent";
 
         /**
+         * Whether to show material Dismiss All Button for notifications
+         * @hide
+         */
+        public static final String NOTIFICATION_MATERIAL_DISMISS = "notification_material_dismiss";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
