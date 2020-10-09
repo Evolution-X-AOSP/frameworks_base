@@ -34,6 +34,7 @@ import static com.android.systemui.Flags.lightRevealMigration;
 import static com.android.systemui.charging.WirelessChargingAnimation.UNKNOWN_BATTERY_LEVEL;
 import static com.android.systemui.statusbar.NotificationLockscreenUserManager.PERMISSION_SELF;
 import static com.android.systemui.statusbar.StatusBarState.SHADE;
+import static com.android.systemui.statusbar.notification.stack.NotificationStackScrollLayout.ROWS_ALL;
 
 import android.annotation.Nullable;
 import android.app.ActivityOptions;
@@ -95,6 +96,7 @@ import android.view.WindowManager;
 import android.view.WindowManagerGlobal;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.DateTimeView;
+import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Lifecycle;
@@ -516,6 +518,8 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
 
     private final MetricsLogger mMetricsLogger;
 
+    private ImageButton mDismissAllButton;
+
     // ensure quick settings is disabled until the current user makes it through the setup wizard
     @VisibleForTesting
     protected boolean mUserSetup = false;
@@ -797,6 +801,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         mNotificationShadeWindowViewControllerLazy = notificationShadeWindowViewControllerLazy;
         mStackScrollerController = notificationStackScrollLayoutController;
         mStackScroller = mStackScrollerController.getView();
+        mStackScroller.setCentralSurfaces(this);
         mNotifListContainer = mStackScrollerController.getNotificationListContainer();
         mPresenterLazy = notificationPresenterLazy;
         mNotificationActivityStarterLazy = notificationActivityStarterLazy;
@@ -1190,6 +1195,8 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         setUpShade();
         getNotificationShadeWindowView().setOnTouchListener(getStatusBarWindowTouchListener());
         mWallpaperController.setRootView(getNotificationShadeWindowView());
+        mDismissAllButton = getNotificationShadeWindowView().findViewById(R.id.clear_notifications);
+        updateDismissAllButton();
 
         mDemoModeController.addCallback(mDemoModeCallback);
         mJavaAdapter.alwaysCollectFlow(
@@ -1463,6 +1470,38 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         filter.addAction(Intent.ACTION_SCREEN_CAMERA_GESTURE);
         mBroadcastDispatcher.registerReceiver(mBroadcastReceiver, filter, null, UserHandle.ALL);
+    }
+
+    @Override
+    public void updateDismissAllVisibility(boolean visible) {
+        if (mDismissAllButton == null) return;
+        if (!visible || !mStackScrollerController.hasActiveClearableNotifications(ROWS_ALL)
+                || (mQSPanelController != null && mQSPanelController.isExpanded())) {
+            mDismissAllButton.setAlpha(0);
+            mDismissAllButton.getBackground().setAlpha(0);
+            mDismissAllButton.setVisibility(View.GONE);
+        } else {
+            updateDismissAllButton();
+            int alpha = Math.round(
+                getNotificationShadeWindowViewController().getExpandedFraction() * 255.0f);
+            mDismissAllButton.setAlpha(alpha);
+            mDismissAllButton.getBackground().setAlpha(alpha);
+            mDismissAllButton.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public void updateDismissAllButton() {
+        if (mDismissAllButton == null) return;
+        mDismissAllButton.setImageResource(R.drawable.dismiss_all_icon);
+        mDismissAllButton.setElevation(mContext.getResources().getDimension(R.dimen.dismiss_all_button_elevation));
+        mDismissAllButton.setColorFilter(mContext.getColor(R.color.notif_pill_text));
+        mDismissAllButton.setBackground(mContext.getTheme().getDrawable(R.drawable.dismiss_all_background));
+    }
+
+    @Override
+    public View getDismissAllButton() {
+        return mDismissAllButton;
     }
 
     protected QS createDefaultQSFragment() {
