@@ -114,6 +114,7 @@ import com.android.systemui.statusbar.notification.row.ExpandableNotificationRow
 import com.android.systemui.statusbar.notification.row.ExpandableView;
 import com.android.systemui.statusbar.notification.row.FooterView;
 import com.android.systemui.statusbar.notification.row.StackScrollerDecorView;
+import com.android.systemui.statusbar.phone.CentralSurfaces;
 import com.android.systemui.statusbar.phone.HeadsUpAppearanceController;
 import com.android.systemui.statusbar.phone.HeadsUpTouchHelper;
 import com.android.systemui.statusbar.phone.ScreenOffAnimationController;
@@ -325,6 +326,7 @@ public class NotificationStackScrollLayout extends ViewGroup implements Dumpable
         }
     };
     private NotificationStackScrollLogger mLogger;
+    private CentralSurfaces mCentralSurfaces;
     private NotificationsController mNotificationsController;
     private ActivityStarter mActivityStarter;
     private final int[] mTempInt2 = new int[2];
@@ -739,7 +741,9 @@ public class NotificationStackScrollLayout extends ViewGroup implements Dumpable
         inflateEmptyShadeView();
         updateFooter();
         mSectionsManager.reinflateViews();
-        mCentralSurfaces.updateDismissAllButton();
+        if (mCentralSurfaces != null) {
+            mCentralSurfaces.updateDismissAllButton();
+        }
     }
 
     public void setIsRemoteInputActive(boolean isActive) {
@@ -806,7 +810,9 @@ public class NotificationStackScrollLayout extends ViewGroup implements Dumpable
 
     @Override
     public void onUiModeChanged() {
-        mCentralSurfaces.updateDismissAllButton();
+        if (mCentralSurfaces != null) {
+            mCentralSurfaces.updateDismissAllButton();
+        }
     }
 
     protected void onDraw(Canvas canvas) {
@@ -4679,6 +4685,10 @@ public class NotificationStackScrollLayout extends ViewGroup implements Dumpable
 
     public void setNotificationsController(NotificationsController notificationsController) {
         this.mNotificationsController = notificationsController;
+    }
+
+    public void setCentralSurfaces(CentralSurfaces centralSurfaces) {
+        this.mCentralSurfaces = centralSurfaces;
     }
 
     public void setActivityStarter(ActivityStarter activityStarter) {

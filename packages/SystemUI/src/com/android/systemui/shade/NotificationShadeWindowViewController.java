@@ -578,4 +578,8 @@ public class NotificationShadeWindowViewController {
             mNotificationPanelViewController.fling(vel, expand, expandBecauseOfFalsing);
         }
     }
+
+    public float getExpandedFraction() {
+        return mNotificationPanelViewController.getExpandedFraction();
+    }
 }

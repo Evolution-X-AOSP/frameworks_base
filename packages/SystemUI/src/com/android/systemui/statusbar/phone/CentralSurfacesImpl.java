@@ -904,6 +904,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         mNotificationShelfController = notificationShelfController;
         mStackScrollerController = notificationStackScrollLayoutController;
         mStackScroller = mStackScrollerController.getView();
+        mStackScroller.setCentralSurfaces(this);
         mNotifListContainer = mStackScrollerController.getNotificationListContainer();
         mPresenterLazy = notificationPresenterLazy;
         mNotificationExpansionRepository = notificationExpansionRepository;
@@ -1329,7 +1330,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         inflateStatusBarWindow();
         getNotificationShadeWindowView().setOnTouchListener(getStatusBarWindowTouchListener());
         mWallpaperController.setRootView(getNotificationShadeWindowView());
-        mDismissAllButton = mNotificationShadeWindowView.findViewById(R.id.clear_notifications);
+        mDismissAllButton = getNotificationShadeWindowView().findViewById(R.id.clear_notifications);
         updateDismissAllButton();
 
         mMinimumBacklight = mPowerManager.getBrightnessConstraint(
@@ -1658,7 +1659,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         } else {
             updateDismissAllButton();
             int alpha = Math.round(
-                mCentralSurfacesComponent.getNotificationPanelViewController().getExpandedFraction() * 255.0f);
+                getNotificationShadeWindowViewController().getExpandedFraction() * 255.0f);
             mDismissAllButton.setAlpha(alpha);
             mDismissAllButton.getBackground().setAlpha(alpha);
             mDismissAllButton.setVisibility(View.VISIBLE);
