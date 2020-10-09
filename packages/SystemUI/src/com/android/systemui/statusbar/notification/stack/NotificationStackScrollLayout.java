@@ -32,6 +32,7 @@ import android.annotation.ColorInt;
 import android.annotation.IntDef;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -582,7 +583,11 @@ public class NotificationStackScrollLayout extends ViewGroup implements Dumpable
         mFeatureFlags = featureFlags;
         mUnlockedScreenOffAnimationController = unlockedScreenOffAnimationController;
         updateSplitNotificationShade();
-        mSectionsManager.initialize(this, LayoutInflater.from(context));
+
+        boolean showHeaders = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.NOTIFICATION_HEADERS, 1, UserHandle.USER_CURRENT) == 1;
+
+        mSectionsManager.initialize(this, LayoutInflater.from(context), showHeaders);
         mSections = mSectionsManager.createSectionsForBuckets();
 
         mAmbientState = ambientState;
