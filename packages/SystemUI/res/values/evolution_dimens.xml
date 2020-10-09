@@ -128,4 +128,11 @@
     <dimen name="ticker_top_padding">2dp</dimen>
     <dimen name="ticker_icon_end_margin">4dp</dimen>
     <dimen name="ticker_text_end_padding">10dp</dimen>
+
+    <!-- Clear all notifications button -->
+    <dimen name="dismiss_all_button_elevation">10dp</dimen>
+    <dimen name="dismiss_all_button_height">55dp</dimen>
+    <dimen name="dismiss_all_button_margin_bottom">35dp</dimen>
+    <dimen name="dismiss_all_button_width">55dp</dimen>
+    <dimen name="dismiss_all_fab_src_size">24dp</dimen>
 </resources>
