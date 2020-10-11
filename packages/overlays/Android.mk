@@ -138,6 +138,7 @@ LOCAL_REQUIRED_MODULES := \
 	IconPackVictorSettingsOverlay \
 	IconPackVictorSystemUIOverlay \
 	IconShapeHeartOverlay \
+	IconShapeLeafOverlay \
 	IconShapeMallowOverlay \
 	IconShapePebbleOverlay \
 	IconShapeRoundedRectOverlay \
