@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2019 The Android Open Source Project
+ *               2020 The exTHmUI Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +20,6 @@ package com.android.systemui.util;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.os.Handler;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.TextView;
@@ -29,12 +29,12 @@ public class LyricTextView extends TextView {
     private boolean isStop = true;
     private float textLength = 0f;
     private float viewWidth = 0f;
-    private int speed = 4;
+    private float speed = 4f;
     private float x = 0f;
     private String text;
 
-    private int startScrollDelay = 600;
-    private Handler mHandler = new Handler();
+    public static final int startScrollDelay = 500;
+    public static final int invalidateDelay = 10;
 
     private Paint mPaint;
 
@@ -71,7 +71,7 @@ public class LyricTextView extends TextView {
 
     @Override
     protected void onDetachedFromWindow() {
-        if (mHandler != null) mHandler.removeCallbacks(mStartScrollRunnable);
+        removeCallbacks(mStartScrollRunnable);
         super.onDetachedFromWindow();
     }
 
@@ -82,7 +82,7 @@ public class LyricTextView extends TextView {
         this.text = text.toString();
         init();
         postInvalidate();
-        if (mHandler != null) mHandler.postDelayed(mStartScrollRunnable, startScrollDelay);
+        postDelayed(mStartScrollRunnable, startScrollDelay);
     }
 
     @Override
@@ -104,9 +104,21 @@ public class LyricTextView extends TextView {
             } else {
                 x -= speed;
             }
-            invalidate();
+            invalidateAfter(invalidateDelay);
         }
     }
+
+    private void invalidateAfter(long delay) {
+        removeCallbacks(invalidateRunnable);
+        postDelayed(invalidateRunnable, delay);
+    }
+
+    private Runnable invalidateRunnable = new Runnable() {
+        @Override
+        public void run() {
+            invalidate();
+        }
+    };
 
     public void startScroll() {
         init();
@@ -116,7 +128,7 @@ public class LyricTextView extends TextView {
 
     public void stopScroll() {
         isStop = true;
-        if (mHandler != null) mHandler.removeCallbacks(mStartScrollRunnable);
+        removeCallbacks(mStartScrollRunnable);
         postInvalidate();
     }
 
@@ -124,4 +136,7 @@ public class LyricTextView extends TextView {
         return mPaint == null ? 0 : mPaint.measureText(text);
     }
 
+    public void setSpeed(float speed) {
+        this.speed = speed;
+    }
 }
