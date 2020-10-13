@@ -166,8 +166,12 @@
     <!-- Label for header of customize QS -->
     <string name="drag_or_tap_to_rearrange_tiles">Hold &amp; drag to rearrange or tap to remove</string>
 
+    <!-- Lockscreen tuner -->
     <string name="lockscreen_default">Default</string>
     <string name="lockscreen_hidden">None</string>
+
+    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">Swipe from icon to launch</string>
 
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Screenshot deleted</string>
@@ -286,6 +290,6 @@
     <string name="tristate_rotation_90">Landscape (90°)</string>
     <string name="tristate_rotation_270">Landscape (270°)</string>
 
-   <!-- Change clockface -->
+    <!-- Change clockface -->
     <string name="change_clock_face">Swipe to change the clock face</string>
 </resources>
