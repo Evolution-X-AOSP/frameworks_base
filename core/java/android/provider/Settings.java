@@ -6472,6 +6472,12 @@ public final class Settings {
         public static final String NETWORK_TRAFFIC_MODE = "network_traffic_mode";
 
         /**
+         * Whether to use partial screenshot when using volume keys
+         * @hide
+         */
+        public static final String SCREENSHOT_TYPE = "screenshot_type";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -6628,6 +6634,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(ALERTSLIDER_MODE_POSITION_TOP);
             PRIVATE_SETTINGS.add(COLOR_BUCKET_OVERLAY);
             PRIVATE_SETTINGS.add(HEADSET_CONNECT_PLAYER);
+            PRIVATE_SETTINGS.add(SCREENSHOT_TYPE);
         }
 
         /**
