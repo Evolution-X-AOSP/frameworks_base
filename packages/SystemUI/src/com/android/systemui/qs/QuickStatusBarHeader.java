@@ -23,17 +23,20 @@ import static com.android.systemui.util.InjectionInflationController.VIEW_CONTEX
 import android.annotation.ColorInt;
 import android.app.ActivityManager;
 import android.app.AlarmManager;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.database.ContentObserver;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.UserHandle;
+import android.os.Looper;
 import android.provider.AlarmClock;
 import android.provider.CalendarContract;
 import android.provider.Settings;
@@ -73,6 +76,7 @@ import com.android.systemui.qs.QSDetail.Callback;
 import com.android.systemui.qs.carrier.QSCarrierGroup;
 import com.android.systemui.settings.BrightnessController;
 import com.android.systemui.statusbar.CommandQueue;
+import com.android.systemui.statusbar.info.DataUsageView;
 import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.phone.StatusBarIconController.TintedIconManager;
 import com.android.systemui.statusbar.phone.StatusBarWindowView;
@@ -160,6 +164,30 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     // Used for RingerModeTracker
     private final LifecycleRegistry mLifecycle = new LifecycleRegistry(this);
 
+    private DataUsageView mDataUsageView;
+
+    protected ContentResolver mContentResolver;
+
+    private class SettingsObserver extends ContentObserver {
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            ContentResolver resolver = getContext().getContentResolver();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_DATAUSAGE), false, this,
+                    UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            updateSettings();
+        }
+    }
+
+    private SettingsObserver mSettingsObserver = new SettingsObserver(mHandler);
+
     private boolean mHasTopCutout = false;
     private int mStatusBarPaddingTop = 0;
     private int mRoundedCornerPadding = 0;
@@ -207,6 +235,8 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         iconContainer.addIgnoredSlots(getIgnoredIconSlots());
         iconContainer.setShouldRestrictIcons(false);
         mIconManager = new TintedIconManager(iconContainer, mCommandQueue);
+
+        mDataUsageView = findViewById(R.id.data_sim_usage);
 
         mQuickQsBrightness = findViewById(R.id.quick_qs_brightness_bar);
         mBrightnessController = new BrightnessController(getContext(),
@@ -412,6 +442,17 @@ public class QuickStatusBarHeader extends RelativeLayout implements
 
         updateStatusIconAlphaAnimator();
         updateHeaderTextContainerAlphaAnimator();
+    }
+
+    private void updateSettings() {
+        updateDataUsageView();
+    }
+
+    private void updateDataUsageView() {
+        if (mDataUsageView.isDataUsageEnabled())
+            mDataUsageView.setVisibility(View.VISIBLE);
+        else
+            mDataUsageView.setVisibility(View.GONE);
     }
 
     private void updateStatusIconAlphaAnimator() {

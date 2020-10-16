@@ -68,7 +68,7 @@ public class DataUsageView extends TextView {
         shouldUpdateDataTextView = true;
     }
 
-    private boolean isDataUsageEnabled() {
+    public boolean isDataUsageEnabled() {
         return Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.QS_DATAUSAGE, 0) != 0;
     }
