@@ -205,6 +205,7 @@ import com.android.systemui.statusbar.SuperStatusBarViewFactory;
 import com.android.systemui.statusbar.SysuiStatusBarStateController;
 import com.android.systemui.statusbar.VibratorHelper;
 import com.android.systemui.statusbar.VisualizerView;
+import com.android.systemui.statusbar.info.DataUsageView;
 import com.android.systemui.statusbar.notification.ActivityLaunchAnimator;
 import com.android.systemui.statusbar.notification.DynamicPrivacyController;
 import com.android.systemui.statusbar.notification.NotificationActivityStarter;
@@ -4239,6 +4240,10 @@ public class StatusBar extends SystemUI implements DemoMode,
             updateIsKeyguard();
         }
     };
+
+    public void updateQSDataUsageInfo() {
+        DataUsageView.updateUsage();
+    }
 
     public int getWakefulnessState() {
         return mWakefulnessLifecycle.getWakefulness();
