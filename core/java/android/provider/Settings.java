@@ -5526,6 +5526,12 @@ public final class Settings {
         public static final String AOD_NOTIFICATION_PULSE_TIMEOUT = "ambient_notification_light_timeout";
 
         /**
+         * Pulse Ambient lights color
+         * @hide
+         */
+        public static final String NOTIFICATION_PULSE_COLOR = "ambient_notification_light_color";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate

@@ -167,4 +167,5 @@
 
     <!-- Default value for Ambient Pulse light color -->
     <integer name="config_AmbientPulseLightColor">0x3980FF</integer>
+    <integer name="pulse_ambient_light_color">0x3980FF</integer>
 </resources>
