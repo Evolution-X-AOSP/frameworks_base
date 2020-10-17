@@ -5963,7 +5963,15 @@ public final class Settings {
          * if it has been triggered from a notification or a gesture
          * @hide
          */
+        @Readable
         public static final String PULSE_TRIGGER_REASON = "pulse_trigger_reason";
+
+        /**
+         * Timeout for ambient pulse in seconds - 0 is no timeout
+         * @hide
+         */
+        @Readable
+        public static final String AOD_NOTIFICATION_PULSE_TIMEOUT = "ambient_notification_light_timeout";
 
         /**
          * IMPORTANT: If you add a new public settings you also have to add it to
