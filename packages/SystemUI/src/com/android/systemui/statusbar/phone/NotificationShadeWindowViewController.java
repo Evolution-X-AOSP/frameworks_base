@@ -112,6 +112,9 @@ public class NotificationShadeWindowViewController {
     private boolean mDoubleTapEnabledNative;
     private boolean mIsMusicTickerTap;
 
+    // custom additions start
+    private boolean mDoubleTapEnabledNative;
+
     @Inject
     public NotificationShadeWindowViewController(
             InjectionInflationController injectionInflationController,
