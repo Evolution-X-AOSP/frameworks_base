@@ -12106,6 +12106,133 @@ public final class Settings {
         public static final String SHOW_CPU_OVERLAY = "show_cpu_overlay";
 
         /**
+         * Whether to enable Ambient edge light
+         * @hide
+         */
+        public static final String PULSE_AMBIENT_LIGHT = "pulse_ambient_light";
+
+        /**
+         * What color to use for Ambient edge light
+         * @hide
+         */
+        public static final String PULSE_AMBIENT_LIGHT_COLOR = "pulse_ambient_light_color";
+
+        /**
+         * Duration of Ambient edge light in seconds
+         * @hide
+         */
+        public static final String PULSE_AMBIENT_LIGHT_DURATION = "pulse_ambient_light_duration";
+
+        /**
+         * Ambient Edge Light Layout
+         * @hide
+         */
+        public static final String PULSE_AMBIENT_LIGHT_LAYOUT = "pulse_ambient_light_layout";
+
+        /**
+         * Helper setting to contain the current pulse reason so we can check
+         * if it has been triggered from a notification or a gesture
+         * @hide
+         */
+        public static final String PULSE_TRIGGER_REASON = "pulse_trigger_reason";
+
+        /**
+         * Whether to pulse ambient on new music tracks
+         * @hide
+         */
+        public static final String PULSE_ON_NEW_TRACKS = "pulse_on_new_tracks";
+
+        /**
+         * Pulse navbar music visualizer
+         * @hide
+         */
+        public static final String NAVBAR_PULSE_ENABLED = "navbar_pulse_enabled";
+
+        /**
+         * Pulse lockscreen music visualizer
+         * @hide
+         */
+        public static final String LOCKSCREEN_PULSE_ENABLED = "lockscreen_pulse_enabled";
+
+        /**
+         * Pulse navbar music visualizer color type
+         * @hide
+         */
+        public static final String PULSE_COLOR_MODE = "pulse_color_mode";
+
+        /**
+         * Pulse music visualizer user defined color
+         * @hide
+         */
+        public static final String PULSE_COLOR_USER = "pulse_color_user";
+
+        /**
+         * Pulse lavalamp animation speed
+         * @hide
+         */
+        public static final String PULSE_LAVALAMP_SPEED = "pulse_lavalamp_speed";
+
+        /**
+         * Pulse renderer implementation
+         * @hide
+         */
+        public static final String PULSE_RENDER_STYLE = "pulse_render_style";
+
+        /**
+         * Custom Pulse Widths
+         * @hide
+         */
+        public static final String PULSE_CUSTOM_DIMEN = "pulse_custom_dimen";
+
+        /**
+         * Custom Spacing Between Pulse Bars
+         * @hide
+         */
+        public static final String PULSE_CUSTOM_DIV = "pulse_custom_div";
+
+        /**
+         * Custom Pulse Block Size
+         * @hide
+         */
+        public static final String PULSE_FILLED_BLOCK_SIZE = "pulse_filled_block_size";
+
+        /**
+         * Custom Spacing Between Pulse Blocks
+         * @hide
+         */
+        public static final String PULSE_EMPTY_BLOCK_SIZE = "pulse_empty_block_size";
+
+        /**
+         * Custom Pulse Sanity Levels
+         * @hide
+         */
+        public static final String PULSE_CUSTOM_FUDGE_FACTOR = "pulse_custom_fudge_factor";
+
+        /**
+         * Pulse Fudge Factor
+         * @hide
+         */
+        public static final String PULSE_SOLID_FUDGE_FACTOR = "pulse_solid_fudge_factor";
+
+        /**
+         * Pulse Solid units count
+         * @hide
+         */
+        public static final String PULSE_SOLID_UNITS_COUNT = "pulse_solid_units_count";
+
+        /**
+         * Pulse Solid units opacity
+         * @hide
+         */
+        public static final String PULSE_SOLID_UNITS_OPACITY = "pulse_solid_units_opacity";
+
+        /**
+         * Pulse uses FFT averaging
+         * @hide
+         */
+        public static final String PULSE_SMOOTHING_ENABLED = "pulse_smoothing_enabled";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
