@@ -234,6 +234,7 @@ interface IStatusBarService
 
     /** Evolution X additions. */
     void toggleCameraFlash();
+    void screenPinningStateChanged(boolean enabled);
 
     /**
      * Starts the default assistant app.
