@@ -35,12 +35,14 @@ android_library {
         "src/**/*.kt",
         "src/**/*.java",
         "src/**/I*.aidl",
+        "pulse/**/*.java",
     ],
     resource_dirs: [
         "res-product",
         "res-keyguard",
         "res",
         "res-hwkeys",
+        "pulse/res",
     ],
     static_libs: [
         "WindowManager-Shell",
