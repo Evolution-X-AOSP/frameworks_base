@@ -43,4 +43,7 @@
     <!-- Kill button in notification guts -->
     <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES" />
 
+    <!-- Pulse -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
 </manifest>
