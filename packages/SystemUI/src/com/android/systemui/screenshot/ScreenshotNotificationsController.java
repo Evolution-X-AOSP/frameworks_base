@@ -148,43 +148,11 @@ public class ScreenshotNotificationsController {
     }
 
     /**
-     * Shows a notification to inform the user that a screenshot is currently being saved.
-     */
-    public void showSavingScreenshotNotification() {
-        final long now = System.currentTimeMillis();
-
-        mPublicNotificationBuilder
-                .setContentTitle(mResources.getString(R.string.screenshot_saving_title))
-                .setSmallIcon(R.drawable.stat_notify_image)
-                .setCategory(Notification.CATEGORY_PROGRESS)
-                .setWhen(now)
-                .setShowWhen(true)
-                .setColor(mResources.getColor(
-                        com.android.internal.R.color.system_notification_accent_color));
-        SystemUI.overrideNotificationAppName(mContext, mPublicNotificationBuilder, true);
-
-        mNotificationBuilder
-                .setContentTitle(mResources.getString(R.string.screenshot_saving_title))
-                .setSmallIcon(R.drawable.stat_notify_image)
-                .setWhen(now)
-                .setShowWhen(true)
-                .setColor(mResources.getColor(
-                        com.android.internal.R.color.system_notification_accent_color))
-                .setStyle(mNotificationStyle)
-                .setPublicVersion(mPublicNotificationBuilder.build());
-        mNotificationBuilder.setFlag(Notification.FLAG_NO_CLEAR, true);
-        SystemUI.overrideNotificationAppName(mContext, mNotificationBuilder, true);
-
-        mNotificationManager.notify(SystemMessageProto.SystemMessage.NOTE_GLOBAL_SCREENSHOT,
-                mNotificationBuilder.build());
-    }
-
-    /**
-     * Shows a notification with the saved screenshot and actions that can be taken with it.
+     * Shows a silent notification with the saved screenshot and actions that can be taken with it.
      *
      * @param actionData SavedImageData struct with image URI and actions
      */
-    public void showScreenshotActionsNotification(
+    public void showSilentScreenshotNotification(
             GlobalScreenshot.SavedImageData actionData) {
         mNotificationBuilder.addAction(actionData.shareAction);
         mNotificationBuilder.addAction(actionData.editAction);
@@ -207,21 +175,35 @@ public class ScreenshotNotificationsController {
                 .setContentText(mResources.getString(R.string.screenshot_saved_text))
                 .setContentIntent(PendingIntent
                         .getActivity(mContext, 0, launchIntent, PendingIntent.FLAG_IMMUTABLE))
+                .setSmallIcon(R.drawable.stat_notify_image)
+                .setCategory(Notification.CATEGORY_PROGRESS)
                 .setWhen(now)
+                .setShowWhen(true)
                 .setAutoCancel(true)
                 .setColor(mContext.getColor(
-                        com.android.internal.R.color.system_notification_accent_color));
+                        com.android.internal.R.color.system_notification_accent_color))
+                .setGroup("silent")
+                .setGroupAlertBehavior(Notification.GROUP_ALERT_SUMMARY);
         mNotificationBuilder
                 .setContentTitle(mResources.getString(R.string.screenshot_saved_title))
                 .setContentText(mResources.getString(R.string.screenshot_saved_text))
                 .setContentIntent(PendingIntent
                         .getActivity(mContext, 0, launchIntent, PendingIntent.FLAG_IMMUTABLE))
+                .setSmallIcon(R.drawable.stat_notify_image)
+                .setCategory(Notification.CATEGORY_PROGRESS)
                 .setWhen(now)
+                .setShowWhen(true)
                 .setAutoCancel(true)
                 .setColor(mContext.getColor(
                         com.android.internal.R.color.system_notification_accent_color))
                 .setPublicVersion(mPublicNotificationBuilder.build())
-                .setFlag(Notification.FLAG_NO_CLEAR, false);
+                .setStyle(mNotificationStyle)
+                .setFlag(Notification.FLAG_NO_CLEAR, false)
+                .setGroup("silent")
+                .setGroupAlertBehavior(Notification.GROUP_ALERT_SUMMARY);
+
+        SystemUI.overrideNotificationAppName(mContext, mPublicNotificationBuilder, true);
+        SystemUI.overrideNotificationAppName(mContext, mNotificationBuilder, true);
 
         mNotificationManager.notify(SystemMessageProto.SystemMessage.NOTE_GLOBAL_SCREENSHOT,
                 mNotificationBuilder.build());
