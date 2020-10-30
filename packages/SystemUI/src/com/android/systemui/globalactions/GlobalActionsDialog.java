@@ -579,7 +579,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
     @VisibleForTesting
     protected String[] getDefaultActions() {
-        return mResources.getStringArray(R.array.config_globalActionsList);
+        return mResources.getStringArray(R.array.custom_config_globalActionsList);
     }
 
     private void addIfShouldShowAction(List<Action> actions, Action action) {
