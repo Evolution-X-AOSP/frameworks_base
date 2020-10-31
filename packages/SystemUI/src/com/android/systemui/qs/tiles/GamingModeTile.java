@@ -215,12 +215,10 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
             }
 
             if (mediaEnabled) {
+                int max = mAudio.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
                 int level = Settings.System.getInt(mResolver,
                         Settings.System.GAMING_MODE_MEDIA, 80);
-                int steps = Settings.System.getInt(mResolver,
-                        "volume_steps_music", 25);
-                // percentage of user set volume steps
-                level = Math.round((float)steps * ((float)level / 100f));
+                level = Math.round((float)max * ((float)level / 100f));
                 mAudio.setStreamVolume(AudioManager.STREAM_MUSIC, level,
                         AudioManager.FLAG_SHOW_UI);
             }
@@ -292,7 +290,12 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
         Prefs.putInt(mContext, KEY_BRIGHTNESS_STATE, Settings.System.getInt(mResolver,
                 Settings.System.SCREEN_BRIGHTNESS_MODE,
                 Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC));
-        Prefs.putInt(mContext, KEY_MEDIA_LEVEL, mAudio.getStreamVolume(AudioManager.STREAM_MUSIC));
+        // save current volume as percentage
+        // we can restore it that way even if vol steps was changed in runtime
+        int max = mAudio.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        int curr = mAudio.getStreamVolume(AudioManager.STREAM_MUSIC);
+        Prefs.putInt(mContext, KEY_MEDIA_LEVEL,
+                Math.round((float)curr * 100f / (float)max));
     }
 
     private void restoreSettingsState() {
@@ -312,10 +315,10 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
                 Settings.System.SCREEN_BRIGHTNESS_MODE,
                 Prefs.getInt(mContext, KEY_BRIGHTNESS_STATE,
                 Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC));
-        // This code assumes media volume steps was not changed while gaming mode was enabled
-        // TODO: Consider accounting for above
+        int max = mAudio.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        int prevVol = Prefs.getInt(mContext, KEY_MEDIA_LEVEL, 0);
         mAudio.setStreamVolume(AudioManager.STREAM_MUSIC,
-                Prefs.getInt(mContext, KEY_MEDIA_LEVEL, 0),
+                Math.round((float)max * (float)prevVol / 100f),
                 AudioManager.FLAG_SHOW_UI);
     }
 
@@ -388,10 +391,6 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
                 mMediaSeekBar = (SeekBar) view.findViewById(R.id.media_seekbar);
                 int value = Settings.System.getInt(mResolver,
                         Settings.System.GAMING_MODE_MEDIA, 80);
-                int steps = Settings.System.getInt(mResolver,
-                        "volume_steps_music", 25);
-                // percentage of user set volume steps
-                value = Math.round((float)steps * ((float)value / 100f));
                 mMediaSeekBar.setProgress(value);
                 mMediaLabel.setText(String.valueOf(value) + "%");
                 mMediaSeekBar.setOnSeekBarChangeListener(mSeekBarListener);
