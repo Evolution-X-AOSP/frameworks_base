@@ -139,4 +139,27 @@
 
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Проведите от значка, чтобы запустить</string>
+     
+     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="global_action_restart_advanced">Расширенный</string>
+    <string name="global_action_restart_recovery">Рекавери</string>
+    <string name="global_action_restart_bootloader">Загрузчик</string>
+    <string name="global_action_restart_ui">Системный интерфейс</string>
+     
+     <!-- Tuner items -->
+    <string name="statusbar_items_title">Иконки статусбара/string>
+    <string name="status_bar_data_saver">Экономия трафика</string>
+    <string name="status_bar_roaming">Роуминг</string>
+         
+             <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Dash зарядка (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> до полного)</string>
+    <string name="keyguard_plugged_in_dash_charging">Dash зарядка</string>
+
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Warp зарядка (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> до полного)</string>
+    <string name="keyguard_plugged_in_warp_charging">Warp зарядка</string>
+
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • VOOC зарядка (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> до полного)</string>
+    <string name="keyguard_plugged_in_vooc_charging">VOOC зарядка</string>
 </resources>
