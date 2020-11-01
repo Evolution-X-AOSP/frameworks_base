@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2020 The Evolution X Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">نسخ رابط سجل الأعطال</string>
+    <string name="url_copy_success">تم نسخ الرابط بنجاح</string>
+    <string name="url_copy_failed">حدث خطأ أثناء رفع السجل إلى dogbin</string>
+    <string name="reboot_title">إعادة التشغيل</string>
+    <string name="reboot_message">يتم إعادة تشغيل النظام</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">سيهتز الهاتف عند تلقي المكالمات والإشعارات</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">اضغط زر الطاقة مطولاً للتفاعل</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">تلقائي</string>
+    <string name="live_display_auto_summary">ضبط درجة الحرارة اللونية للشاشة تلقائياً بعد غروب الشمس وشروق الشمس</string>
+    <string name="live_display_off">لا يعمل</string>
+    <string name="live_display_off_summary">تعطيل جميع التعديلات</string>
+    <string name="live_display_day">النهار</string>
+    <string name="live_display_day_summary">استخدام إعدادات النهار فقط</string>
+    <string name="live_display_night">ليل</string>
+    <string name="live_display_night_summary">استخدام إعدادات الليل فقط</string>
+    <string name="live_display_outdoor">خارج المنزل ( شمس ساطعة)</string>
+    <string name="live_display_outdoor_summary">استخدام إعدادات الهواء الطلق فقط</string>
+    <string name="live_display_hint">يمكن أن تساعد ميزة LiveDisplay في تقليل إجهاد العين ومساعدتك على النوم في الليل. انقر هنا لتجربتها!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay معطلة.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: الوضع التلقائي.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: الوضع النهاري.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: الوضع الليلي.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: وضع الأماكن المفتوحة.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">تم إيقاف تشغيل LiveDisplay.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">تم تغيير LiveDisplay إلى الوضع التلقائي.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">تم تغيير LiveDisplay إلى الوضع النهاري.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">تم تغيير LiveDisplay إلى الوضع الليلي.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">تم تغيير LiveDisplay إلى وضع الأماكن المفتوحة.</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">مطلوب إعادة تشغيل واجهة النظام</string>
+    <string name="systemui_restart_message">لتكون كافة التغييرات نافذة المفعول، مطلوب إعادة تشغيل واجهة النظام. هل تريد إعادة تشغيل واجهة النظام الآن؟</string>
+</resources>

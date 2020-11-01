@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2020 The Evolution X Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Kilitlenme günlüğü bağlantısını kopyala</string>
+    <string name="url_copy_success">Bağlantı başarıyla kopyalandı</string>
+    <string name="url_copy_failed">Günlüğü dogbin\'e yüklerken bir hata oluştu</string>
+    <string name="reboot_title">Yeniden başlat</string>
+    <string name="reboot_message">Sistem yeniden başlatılıyor</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Çağrılar ve bildirimler için zil sesi</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Etkileşim için güç tuşuna uzun basın</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Otomatik</string>
+    <string name="live_display_auto_summary">Güneşin doğuşu ve batışından sonra ekran renk sıcaklığını otomatik ayarla</string>
+    <string name="live_display_off">Kapalı</string>
+    <string name="live_display_off_summary">Tüm ayarlamaları devre dışı bırak</string>
+    <string name="live_display_day">Gündüz</string>
+    <string name="live_display_day_summary">Sadece gündüz ayarlarını kullan</string>
+    <string name="live_display_night">Gece</string>
+    <string name="live_display_night_summary">Sadece gece ayarlarını kullan</string>
+    <string name="live_display_outdoor">Açık alan (parlak güneş)</string>
+    <string name="live_display_outdoor_summary">Sadece açık alan ayarlarını kullan</string>
+    <string name="live_display_hint">LiveDisplay, göz yorgunluğunuzu azaltmanıza ve gece uyumanıza yardımcı olabilir. Denemek için buraya dokunun!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay kapalı.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: otomatik mod.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: gündüz modu.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: gece modu.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: açık alan modu.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay kapatıldı.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay otomatik moda geçti.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay gündüz moduna geçti.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay gece moduna geçti.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay açık alan moduna geçti.</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Sistem arayüzünün yeniden başlatılması gerekir</string>
+    <string name="systemui_restart_message">Tüm değişikliklerin etkili olması için Sistem arayüzünün yeniden başlatılması gerekiyor. Sistem arayüzünü şimdi yeniden başlatmak ister misiniz?</string>
+</resources>
