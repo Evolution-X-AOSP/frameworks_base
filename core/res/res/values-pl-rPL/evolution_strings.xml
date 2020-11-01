@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2020 The Evolution X Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Skopiuj logi awarii</string>
+    <string name="url_copy_success">Skopiowano pomyślnie</string>
+    <string name="url_copy_failed">Wystąpił błąd podczas przesyłania logów do serwisu dogbin</string>
+    <string name="reboot_title">Zrestartuj</string>
+    <string name="reboot_message">Restartowanie systemu</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Połączenia i powiadomienia użyją dzwonka</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Przytrzymaj przycisk zasilania w celu interakcji</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Automatycznie</string>
+    <string name="live_display_auto_summary">Automatycznie dopasuj temperaturę kolorów ekranu po zachodzie i wschodnie słońca</string>
+    <string name="live_display_off">Wyłącz</string>
+    <string name="live_display_off_summary">Wyłącz wszystkie zmiany</string>
+    <string name="live_display_day">Dzień</string>
+    <string name="live_display_day_summary">Użyj wyłącznie ustawień dziennych</string>
+    <string name="live_display_night">Noc</string>
+    <string name="live_display_night_summary">Użyj wyłącznie ustawień nocnych</string>
+    <string name="live_display_outdoor">Na zewnątrz (jasne słońce)</string>
+    <string name="live_display_outdoor_summary">Użyj wyłącznie ustawienia \"na zewnątrz\"</string>
+    <string name="live_display_hint">LiveDisplay może zredukować zmęczenie oczu oraz może pomóc zasnąć w nocy. Kliknij aby wypróbować!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay wyłączony.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: tryb automatyczny.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: tryb dzienny.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: tryb nocny.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: tryb \"na zewnątrz\".</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay wyłączony.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay zmieniony na tryb automatyczny.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay zmieniony na tryb dzienny.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay zmieniony na tryb nocny.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay zmieniony na tryb \"na zewnątrz\".</string>
+</resources>
