@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2020 The Evolution X Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Скопіювати посилання логу збою</string>
+    <string name="url_copy_success">Посилання успішно скопійовано</string>
+    <string name="url_copy_failed">Помилка під час завантаження файла звіту до dogbin</string>
+    <string name="reboot_title">Перезавантаження</string>
+    <string name="reboot_message">Перезавантаження системи</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Звуковий сигнал для викликів і сповіщень увімкнено</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Натисніть та утримуйте кнопку живлення для взаємодії</string>
+</resources>
