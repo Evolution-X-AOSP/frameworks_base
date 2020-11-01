@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2020 The Evolution X Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Custom QS tiles -->
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Амбијент приказ</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Амбијентални приказ искључен.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Амбијентални приказ укључен.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Амбијентални приказ искључен.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Амбијентални приказ укључен.</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD искључен\nУштеда батерије</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Кофеин</string>
+    <string name="accessibility_quick_settings_caffeine_off">Кофеин је искључен.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Кофеин је укључен.</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">Компас</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Иницијализација\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Компас искључено</string>
+    <string name="accessibility_quick_settings_compass_on">Компас је укључен</string>
+    <string name="accessibility_quick_settings_compass_changed_off">Компас је искључен</string>
+    <string name="accessibility_quick_settings_compass_changed_on">Компас је укључен</string>
+    <string name="quick_settings_compass_N">С</string>
+    <string name="quick_settings_compass_NE">СИ</string>
+    <string name="quick_settings_compass_E">И</string>
+    <string name="quick_settings_compass_SE">ЈИ</string>
+    <string name="quick_settings_compass_S">J</string>
+    <string name="quick_settings_compass_SW">ЈЗ</string>
+    <string name="quick_settings_compass_W">З</string>
+    <string name="quick_settings_compass_NW">СЗ</string>
+    <!-- CPUInfo tile -->
+    <string name="quick_settings_cpuinfo_label">Информације о процесору</string>
+    <string name="accessibility_quick_settings_cpuinfo_off">Информације о процесору искљ</string>
+    <string name="accessibility_quick_settings_cpuinfo_on">Информације о процесору укљ</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_off">Информације о процесору су искључене</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_on">Информације о процесору су укључене</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">Замените картицу са подацима на</string>
+    <string name="qs_data_switch_changed_1">Коришћење SIM 1 за мобилне податке</string>
+    <string name="qs_data_switch_changed_2">Коришћење SIM 2 за мобилне податке</string>
+    <!-- FPS Info tile -->
+    <string name="quick_settings_fpsinfo_label">Информације о FPS-у</string>
+    <string name="accessibility_quick_settings_fpsinfo_off">Информације о FPS-у искљ</string>
+    <string name="accessibility_quick_settings_fpsinfo_on">Информације о FPS-у укљ</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Искачуће поруке</string>
+    <string name="accessibility_quick_settings_heads_up_off">Искачуће поруке искључене.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Искачуће поруке укључене.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Искачућа обавештења искључена.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Искачућа обавештења укључена.</string>
+    <!-- Mono QS Tile -->
+    <string name="quick_settings_monotoggle_tile">Аудио режим</string>
+    <string name="quick_settings_monotoggle_tile_mono">Моно аудио</string>
+    <string name="quick_settings_monotoggle_tile_stereo">Стерео аудио</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">Музика</string>
+    <string name="quick_settings_music_play">Пусти</string>
+    <string name="quick_settings_music_pause">Паузирај</string>
+    <!-- Power off/Reboot/Recovery QS Tile -->
+    <string name="quick_settings_poweroff_label">Искључи</string>
+    <string name="quick_settings_reboot_label">Рестартуј</string>
+    <string name="quick_settings_reboot_recovery_label">Опоравак</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">Снимак екрана</string>
+    <string name="quick_settings_region_screenshot_label">Делимичан снимак екрана</string>
+    <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">Успавај екран</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Звук</string>
+    <string name="quick_settings_sound_mute">Утишај</string>
+    <string name="quick_settings_sound_ring">Звоно</string>
+    <string name="quick_settings_sound_vibrate">Вибрација</string>
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">Претраживање звука</string>
+    <string name="quick_settings_sound_search_no_app">Извините, али ово не функционише ако немате апликацију за претрагу звука.</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Синхронизуј</string>
+    <string name="accessibility_quick_settings_sync_off">Синхронизација искључена.</string>
+    <string name="accessibility_quick_settings_sync_on">Синхронизација укључена.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Синхронизација је искључена.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Синхронизација је укључена.</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">USB повезивање</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Панел јачине звука</string>
+    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">Превуците прстом преко иконе за покретање</string>
+    <!-- Status bar icons -->
+    <string name="statusbar_items_title">Иконе стаутусне траке</string>
+    <string name="status_bar_data_disabled">Подаци онемогућени</string>
+    <string name="status_bar_data_saver">Уштеда података</string>
+    <string name="status_bar_nfc">NFC</string>
+    <string name="status_bar_roaming">Роминг</string>
+    <string name="status_bar_vpn">VPN</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <string name="global_action_restart_advanced">Napredno</string>
+    <string name="global_action_restart_recovery">Опоравак</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">SystemUI</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="Percentage">%2$s</xliff:g> • Пуњење цртицом (напуниће се за <xliff:g id="Charging_TIME_LEFT">%s</xliff:g>)</string>
+    <string name="keyguard_plugged_in_dash_charging">Брзо пуњење</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="Percentage">%2$s</xliff:g> • Брзо се пуни (напуниће се за <xliff:g id="Charging_TIME_LEFT">%s</xliff:g>)</string>
+    <string name="keyguard_plugged_in_warp_charging">Warp пуњење</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="Percentage">%2$s</xliff:g> • VOOC пуњење (напуниће се за <xliff:g id="Charging_TIME_LEFT">%1$s</xliff:g>)</string>
+    <string name="keyguard_plugged_in_vooc_charging">VOOC пуњење</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Задржоте &amp; превуците или тапните да бисте додали плочице</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Холд &amp; превуците за преуређивање или додирните за уклањање</string>
+    <string name="lockscreen_default">Подразумевано</string>
+    <string name="lockscreen_hidden">Ниједан</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Снимак екрана је обрисан</string>
+    <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">Снимите делимични снимак екрана</string>
+    <string name="global_screenshot_selector_cancel_description">Откажи делимични снимак екрана</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Присилно заустави?</string>
+    <string name="force_stop_dlg_text">Ако принудно зауставите апликацију, можда ће се понашати неочекивано.</string>
+    <string name="guts_force_close_app">Затворити апликацију</string>
+    <!-- Screenrecorder -->
+    <string name="screenrecord_stopdot_label">Покажи тачку заустављања \nДуго притисните да бисте је померили</string>
+    <string name="screenrecord_lowquality_label">Нижи квалитет за мању величину датотеке</string>
+    <!-- Kill app -->
+    <string name="task_helper_app_killed">%1$s сила је заустављена</string>
+    <string name="empty_app_killed">Апликација</string>
+    <string name="quick_settings_killapp_label">Затвори апликацију</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">Отвори екран покренутих услуга.</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Језик</string>
+    <string name="quick_settings_locale_more_locales_toast">Молим Вас одаберите више језика како би омогућили функционалност промене</string>
+</resources>
