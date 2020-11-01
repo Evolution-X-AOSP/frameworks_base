@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2020 The Evolution X Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Custom QS tiles -->
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">앰비언트 디스플레이</string>
+    <string name="accessibility_quick_settings_ambient_display_off">앰비언트 디스플레이 꺼짐</string>
+    <string name="accessibility_quick_settings_ambient_display_on">앰비언트 디스플레이 켜짐</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">앰비언트 디스플레이가 꺼졌습니다.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">앰비언트 디스플레이가 켜졌습니다.</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD 사용 안함\n절전 모드</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">카페인 모드</string>
+    <string name="accessibility_quick_settings_caffeine_off">카페인 꺼짐.</string>
+    <string name="accessibility_quick_settings_caffeine_on">카페인 켜짐.</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">나침반</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">초기화 중\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">나침반 꺼짐</string>
+    <string name="accessibility_quick_settings_compass_on">나침반 켜기</string>
+    <string name="accessibility_quick_settings_compass_changed_off">나침반이 꺼졌습니다</string>
+    <string name="accessibility_quick_settings_compass_changed_on">나침반이 켜졌습니다</string>
+    <string name="quick_settings_compass_N">북</string>
+    <string name="quick_settings_compass_NE">북동</string>
+    <string name="quick_settings_compass_E">동</string>
+    <string name="quick_settings_compass_SE">남동</string>
+    <string name="quick_settings_compass_S">남</string>
+    <string name="quick_settings_compass_SW">남서</string>
+    <string name="quick_settings_compass_W">서</string>
+    <string name="quick_settings_compass_NW">북서</string>
+    <!-- CPUInfo tile -->
+    <string name="quick_settings_cpuinfo_label">CPU 정보</string>
+    <string name="accessibility_quick_settings_cpuinfo_off">CPU 정보 꺼짐</string>
+    <string name="accessibility_quick_settings_cpuinfo_on">CPU 정보 켜짐</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_off">CPU 정보가 꺼졌습니다</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_on">CPU 정보가 켜졌습니다</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">데이터 전용 SIM 카드 전환</string>
+    <string name="qs_data_switch_changed_1">모바일 데이터에 SIM 1 사용</string>
+    <string name="qs_data_switch_changed_2">모바일 데이터에 SIM 2 사용</string>
+    <!-- FPS Info tile -->
+    <string name="quick_settings_fpsinfo_label">FPS 정보</string>
+    <string name="accessibility_quick_settings_fpsinfo_off">FPS 정보 꺼짐</string>
+    <string name="accessibility_quick_settings_fpsinfo_on">FPS 정보 켜짐</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">헤드 업</string>
+    <string name="accessibility_quick_settings_heads_up_off">헤드 업 알림 꺼짐.</string>
+    <string name="accessibility_quick_settings_heads_up_on">헤드 업 알림 켜짐.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">헤드 업 알림이 꺼졌습니다.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">헤드 업 알림이 켜졌습니다.</string>
+    <!-- Mono QS Tile -->
+    <string name="quick_settings_monotoggle_tile">오디오 모드</string>
+    <string name="quick_settings_monotoggle_tile_mono">모노 오디오</string>
+    <string name="quick_settings_monotoggle_tile_stereo">스테레오 오디오</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">음악</string>
+    <string name="quick_settings_music_play">재생</string>
+    <string name="quick_settings_music_pause">일시 중지</string>
+    <!-- Power off/Reboot/Recovery QS Tile -->
+    <string name="quick_settings_poweroff_label">종료</string>
+    <string name="quick_settings_reboot_label">다시 시작</string>
+    <string name="quick_settings_reboot_recovery_label">복구 모드</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">스크린샷</string>
+    <string name="quick_settings_region_screenshot_label">부분 스크린샷</string>
+    <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">절전 화면</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">소리</string>
+    <string name="quick_settings_sound_mute">음소거</string>
+    <string name="quick_settings_sound_ring">벨소리</string>
+    <string name="quick_settings_sound_vibrate">진동</string>
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">사운드 검색</string>
+    <string name="quick_settings_sound_search_no_app">소리 검색 앱이 설치되지 않았습니다</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">동기화</string>
+    <string name="accessibility_quick_settings_sync_off">동기화 꺼짐.</string>
+    <string name="accessibility_quick_settings_sync_on">동기화 켜짐.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">동기화가 꺼졌습니다.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">동기화가 켜졌습니다.</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">USB 테더링</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">볼륨 조절 창</string>
+    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">실행하려면 아이콘에서 스와이프하세요.</string>
+    <!-- Status bar icons -->
+    <string name="statusbar_items_title">상태 표시줄 아이콘</string>
+    <string name="status_bar_data_disabled">모바일 네트워크가 해제됨</string>
+    <string name="status_bar_data_saver">데이터 절약 모드</string>
+    <string name="status_bar_nfc">NFC</string>
+    <string name="status_bar_roaming">데이터 로밍</string>
+    <string name="status_bar_vpn">VPN</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <string name="global_action_restart_advanced">다시 시작 (고급)</string>
+    <string name="global_action_restart_recovery">복구모드(Recovery)</string>
+    <string name="global_action_restart_bootloader">부트로더</string>
+    <string name="global_action_restart_ui">시스템 UI</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Dash 충전 중 (완전 충전까지 <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> 남음)</string>
+    <string name="keyguard_plugged_in_dash_charging">고속 충전 (Dash)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Wrap 충전 중 (완전 충전까지 <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> 남음)</string>
+    <string name="keyguard_plugged_in_warp_charging">고속 충전 (Warp)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • VOOC 충전 (완전 충전까지 <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> 남음)</string>
+    <string name="keyguard_plugged_in_vooc_charging">고속 충전 (VOOC)</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">&amp; 타일을 추가하려면 드래그하거나 탭하세요</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">&amp; 타일을 위치 변경 또는 제거하려면 드래그하세요</string>
+    <string name="lockscreen_default">기본설정</string>
+    <string name="lockscreen_hidden">없음</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">스크린샷이 삭제됨</string>
+    <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">부분 스크린샷 캡쳐</string>
+    <string name="global_screenshot_selector_cancel_description">부분 스크린샷 캡쳐 취소</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">강제로 종료하시겠습니까?</string>
+    <string name="force_stop_dlg_text">강제로 앱을 종료하면 예기치 않은 오류가 발생할 수 있습니다.</string>
+    <string name="guts_force_close_app">앱 닫기</string>
+    <!-- Screenrecorder -->
+    <string name="screenrecord_stopdot_label">정지 버튼 표시\n길게 눌러 이동하기</string>
+    <string name="screenrecord_lowquality_label">저화질, 저용량</string>
+    <!-- Kill app -->
+    <string name="task_helper_app_killed">%1$s가 중지됨</string>
+    <string name="empty_app_killed">앱</string>
+    <string name="quick_settings_killapp_label">앱 종료</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">실행 중인 서비스 보기</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">언어</string>
+    <string name="quick_settings_locale_more_locales_toast">토글 기능을 활성화 하려면 다중 언어를 설정하시기 바랍니다</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">하드웨어 버튼 켜짐</string>
+    <string name="accessibility_quick_settings_hwkeys_off">하드웨어 버튼 꺼짐</string>
+    <string name="quick_settings_hwkeys_label">하드웨어 버튼</string>
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">게이밍 모드가 설정에서 사용 중지되었습니다</string>
+    <string name="quick_settings_gaming_mode_label">게이밍 모드</string>
+    <!-- App picker manifest entry -->
+    <string name="app_picker_dialog_title">앱 선택</string>
+    <string name="app_picker_activity_select_title">액티비티 선택</string>
+</resources>
