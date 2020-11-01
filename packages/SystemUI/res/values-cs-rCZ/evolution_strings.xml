@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2020 The Evolution X Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Custom QS tiles -->
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Ambientní displej</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambientní displej vyp.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambientní displej zap.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambientní displej je vypnutý.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambientní displej je zapnutý.</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD vyp.\nSpořič baterie</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Vypnutí caffeine.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Zapnutí caffeine.</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">Kompas</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Spouštění\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Kompas vyp.</string>
+    <string name="accessibility_quick_settings_compass_on">Kompas zap.</string>
+    <string name="accessibility_quick_settings_compass_changed_off">Kompas je vypnutý</string>
+    <string name="accessibility_quick_settings_compass_changed_on">Kompas je zapnutý</string>
+    <string name="quick_settings_compass_N">S</string>
+    <string name="quick_settings_compass_NE">SV</string>
+    <string name="quick_settings_compass_E">V</string>
+    <string name="quick_settings_compass_SE">JV</string>
+    <string name="quick_settings_compass_S">J</string>
+    <string name="quick_settings_compass_SW">JZ</string>
+    <string name="quick_settings_compass_W">Z</string>
+    <string name="quick_settings_compass_NW">SZ</string>
+    <!-- CPUInfo tile -->
+    <string name="quick_settings_cpuinfo_label">Informace o CPU</string>
+    <string name="accessibility_quick_settings_cpuinfo_off">Informace o CPU vypnuty</string>
+    <string name="accessibility_quick_settings_cpuinfo_on">Informace o CPU zapnuty</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_off">Informace o CPU byly vypnuty</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_on">Informace o CPU byly zapnuty</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">Přepnout SIM pro data</string>
+    <string name="qs_data_switch_changed_1">Mobilní data jsou používána na SIM 1</string>
+    <string name="qs_data_switch_changed_2">Mobilní data jsou používána na SIM 2</string>
+    <!-- FPS Info tile -->
+    <string name="quick_settings_fpsinfo_label">Informace o FPS</string>
+    <string name="accessibility_quick_settings_fpsinfo_off">Informace o\u00aFPS vypnuty</string>
+    <string name="accessibility_quick_settings_fpsinfo_on">Informace o FPS zapnuty</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Plovoucí oznámení</string>
+    <string name="accessibility_quick_settings_heads_up_off">Plovoucí upozornění vypnuto.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Plovoucí upozornění zapnuto.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Plovoucí oznámení vypnuto.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Plovoucí oznámení zapnuto.</string>
+    <!-- Mono QS Tile -->
+    <string name="quick_settings_monotoggle_tile">Režim zvuku</string>
+    <string name="quick_settings_monotoggle_tile_mono">Zvuk mono</string>
+    <string name="quick_settings_monotoggle_tile_stereo">Zvuk stereo</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">Hudba</string>
+    <string name="quick_settings_music_play">Přehrát</string>
+    <string name="quick_settings_music_pause">Pozastavit</string>
+    <!-- Power off/Reboot/Recovery QS Tile -->
+    <string name="quick_settings_poweroff_label">Vypnout</string>
+    <string name="quick_settings_reboot_label">Restartovat</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">Snímek obrazovky</string>
+    <string name="quick_settings_region_screenshot_label">Částečný snímek obrazovky</string>
+    <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">Obrazovka režimu spánku</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Zvuk</string>
+    <string name="quick_settings_sound_mute">Ztlumit</string>
+    <string name="quick_settings_sound_ring">Vyzvánění</string>
+    <string name="quick_settings_sound_vibrate">Vibrace</string>
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">Zvukové vyhledávání</string>
+    <string name="quick_settings_sound_search_no_app">Je nám to líto, ale toto nefunguje, pokud nemáte aplikaci Zvukové vyhledávání.</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Synchr.</string>
+    <string name="accessibility_quick_settings_sync_off">Synch. vyp.</string>
+    <string name="accessibility_quick_settings_sync_on">Synch. zap.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Synchronizace byla vypnuta.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Synchronizace byla zapnuta.</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">USB tethering</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Panel hlasitosti</string>
+    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">Spustit přejetím prstu od ikony</string>
+    <!-- Status bar icons -->
+    <string name="statusbar_items_title">Ikona ve stavové liště</string>
+    <string name="status_bar_data_disabled">Data vypnuta</string>
+    <string name="status_bar_data_saver">Spořič dat</string>
+    <string name="status_bar_nfc">NFC</string>
+    <string name="status_bar_roaming">Roaming</string>
+    <string name="status_bar_vpn">VPN</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">NFC</string>
+    <string name="global_action_restart_advanced">Pokročilé</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Zavaděč</string>
+    <string name="global_action_restart_ui">SystemUI</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • DASH nabíjení (zbývá <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
+    <string name="keyguard_plugged_in_dash_charging">DASH nabíjení</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Warp nabíjení (zbývá <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> do plného nabití)</string>
+    <string name="keyguard_plugged_in_warp_charging">Warp nabíjení</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • VOOC nabíjení (zbývá <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> do plného nabití)</string>
+    <string name="keyguard_plugged_in_vooc_charging">VOOC nabíjení</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Přidržením a přetažením nebo klepnutím přidat dlaždice</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Podržte a přetáhněte pro přemístění nebo klepněte pro odstranění</string>
+    <string name="lockscreen_default">Výchozí</string>
+    <string name="lockscreen_hidden">Žádný</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Snímek obrazovky byl smazán</string>
+    <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">Pořídit částečný snímek obrazovky</string>
+    <string name="global_screenshot_selector_cancel_description">Zrušit částečný snímek obrazovky</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Vynutit ukončení?</string>
+    <string name="force_stop_dlg_text">Vynucené ukončení může způsobit nepředvídatelné chování aplikace.</string>
+    <string name="guts_force_close_app">Zavřít aplikaci</string>
+    <!-- Screenrecorder -->
+    <string name="screenrecord_stopdot_label">Zobrazit tečku pro zastavení nahrávání\nDlouhým stiskem ji přesunete</string>
+    <string name="screenrecord_lowquality_label">Nižší kvalita pro menší velikost souboru</string>
+    <!-- Kill app -->
+    <string name="task_helper_app_killed">Aplikace %1$s vynuceně ukončena</string>
+    <string name="empty_app_killed">Aplikace</string>
+    <string name="quick_settings_killapp_label">Vynutit ukončení aplikace</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">Otevřít obrazovku spuštěných služeb.</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Jazyk</string>
+    <string name="quick_settings_locale_more_locales_toast">Chcete-li povolit funkci přepínání, nastavte více jazyků</string>
+</resources>
