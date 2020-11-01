@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2020 The Evolution X Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Скопировать URL журнала ошибки</string>
+    <string name="url_copy_success">URL успешно скопирован</string>
+    <string name="url_copy_failed">Произошла ошибка при загрузке журнала в Dogbin</string>
+    <string name="reboot_title">Перезагрузка</string>
+    <string name="reboot_message">Перезагрузка системы</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Звуковой сигнал для звонков и уведомлений</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Удерживайте кнопку питания для взаимодействия</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Автоматически</string>
+    <string name="live_display_auto_summary">Автоматически регулировать температуру цвета экрана после заката и восхода солнца</string>
+    <string name="live_display_off">Выкл.</string>
+    <string name="live_display_off_summary">Отключить все настройки</string>
+    <string name="live_display_day">День</string>
+    <string name="live_display_day_summary">Использовать только дневные настройки</string>
+    <string name="live_display_night">Ночь</string>
+    <string name="live_display_night_summary">Использовать только ночные настройки</string>
+    <string name="live_display_outdoor">Улица (яркое солнце)</string>
+    <string name="live_display_outdoor_summary">Использовать только уличные настройки</string>
+    <string name="live_display_hint">LiveDisplay поможет снизить напряжение глаз и помочь вам спать в ночное время. Нажмите здесь, чтобы попробовать!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay выкл.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: автоматический режим.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: дневной режим.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: ночной режим.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: уличный режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay выключен.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay переключен на автоматический режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay переключен на дневной режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay переключен на ночной режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay переключен на уличный режим.</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Требуется перезагрузка SystemUI</string>
+    <string name="systemui_restart_message">Чтобы все изменения вступили в силу, требуется перезагрузка SystemUI. Перезапустить его прямо сейчас?</string>
+</resources>

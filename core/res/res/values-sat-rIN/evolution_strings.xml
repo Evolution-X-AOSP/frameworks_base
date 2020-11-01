@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2020 The Evolution X Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">ᱠᱨᱟᱥ ᱞᱚᱜᱽ URL ᱱᱚᱠᱚᱞ ᱢᱮᱸ</string>
+    <string name="url_copy_success">URL ᱨᱟᱥ ᱞᱮᱠᱟᱛᱮ ᱱᱚᱠᱚᱞᱮᱱᱟ</string>
+    <string name="url_copy_failed">ᱰᱚᱜᱵᱤᱱ ᱛᱮ ᱞᱚᱜᱽ ᱠᱚ ᱞᱟᱫᱮ ᱡᱷᱚᱜᱽ ᱵᱷᱩᱞ ᱦᱩᱭᱮᱱᱟ</string>
+    <string name="reboot_title">ᱨᱤᱵᱩᱻᱴ</string>
+    <string name="reboot_message">ᱥᱭᱥᱴᱮᱢ ᱨᱤᱵᱩᱻᱴᱚᱜᱽ ᱠᱟᱱᱟ</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">ᱠᱚᱞ ᱠᱚ ᱟᱨ ᱱᱚᱴᱤᱯᱷᱤᱠᱮᱥᱚᱱ ᱫᱚ ᱥᱟᱲᱮᱜᱽ ᱟ</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">ᱠᱟᱹᱢᱤ ᱥᱟᱞᱟᱜᱽ ᱡᱩᱲᱟᱹᱣ ᱞᱟᱹᱜᱤᱫᱽ ᱯᱟᱣᱟᱹᱨ ᱵᱩᱛᱟᱹᱢ ᱚᱛᱟᱭ ᱢᱮᱸ</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">ᱟᱡᱽᱛᱮ</string>
+    <string name="live_display_auto_summary">ᱵᱮᱲᱟ ᱦᱟᱹᱥᱩᱨ ᱟᱨ ᱩᱫᱟᱹᱭ ᱡᱷᱚᱜᱽ ᱥᱠᱨᱤᱻᱱ ᱛᱟᱯ ᱠᱚ ᱟᱡᱽ ᱛᱮ ᱴᱷᱤᱠ ᱟᱭ </string>
+    <string name="live_display_off">ᱵᱚᱸᱫᱽ</string>
+    <string name="live_display_off_summary">ᱡᱷᱚᱛᱚ ᱮᱰᱡᱟᱹᱥᱴᱢᱮᱸᱴ ᱠᱚ ᱵᱚᱸᱫᱚᱭ ᱢᱮᱸ</string>
+    <string name="live_display_day">ᱫᱤᱱ</string>
+    <string name="live_display_day_summary">ᱫᱤᱱ ᱥᱟᱡᱟᱣ ᱠᱚ ᱠᱷᱟᱹᱞᱤ ᱵᱮᱵᱷᱟᱨ ᱢᱮᱸ</string>
+    <string name="live_display_night">ᱟᱹᱭᱩᱵᱽ</string>
+    <string name="live_display_night_summary">ᱧᱩᱛ ᱥᱟᱡᱟᱣ ᱠᱚ ᱠᱷᱟᱹᱞᱤ ᱵᱷᱮᱡᱟᱭ ᱢᱮᱸ</string>
+    <string name="live_display_outdoor">ᱵᱟᱦᱨᱮ (ᱪᱚᱠᱢᱚᱠ ᱥᱤᱧ ᱪᱟᱸᱫᱚ)</string>
+    <string name="live_display_outdoor_summary">ᱵᱟᱦᱨᱮ ᱥᱟᱡᱟᱣ ᱠᱚ ᱠᱷᱟᱹᱞᱤ ᱵᱮᱵᱷᱟᱨ ᱢᱮᱸ</string>
+    <string name="live_display_hint">ᱞᱟᱭᱤᱵᱷ ᱰᱤᱥᱯᱞᱮ ᱫᱚ ᱢᱮᱫᱽ ᱦᱟᱨᱠᱮᱛ ᱠᱚ ᱴᱷᱤᱠ ᱞᱟᱹᱜᱤᱫᱽ ᱜᱚᱲᱚ ᱮᱢᱟᱭ ᱟᱨ ᱟᱭᱩᱵᱽ ᱨᱮ ᱜᱤᱛᱤᱡᱽ ᱞᱟᱹᱜᱤᱫᱽ ᱜᱚᱲᱚ ᱮᱢᱟᱭ ᱾ ᱪᱮᱥᱴᱟ ᱞᱟᱹᱜᱤᱫᱽ ᱱᱮᱰᱮ ᱚᱛᱟᱭ ᱢᱮᱸ!</string>
+    <string name="accessibility_quick_settings_live_display_off">ᱞᱟᱭᱤᱵᱷᱰᱤᱥᱯᱞᱮ ᱵᱚᱸᱫᱽ ᱾</string>
+    <string name="accessibility_quick_settings_live_display_auto">ᱞᱟᱭᱤᱵᱷᱰᱤᱥᱯᱞᱮ: ᱚᱴᱚ ᱢᱳᱰ ᱾</string>
+    <string name="accessibility_quick_settings_live_display_day">ᱞᱟᱭᱤᱵᱷᱰᱤᱥᱯᱞᱮ: ᱫᱤᱱ ᱢᱳᱰ ᱾</string>
+    <string name="accessibility_quick_settings_live_display_night">ᱞᱟᱭᱤᱵᱷᱰᱤᱥᱯᱞᱮ: ᱧᱩᱛ ᱢᱳᱰ ᱾</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">ᱞᱟᱭᱤᱵᱷᱰᱤᱥᱯᱞᱮ: ᱵᱟᱦᱨᱮ ᱢᱳᱰ ᱾</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">ᱞᱟᱭᱤᱵᱷᱰᱤᱥᱯᱞᱮ ᱵᱚᱸᱫᱚᱭ ᱮᱱᱟ ᱾</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto"> ᱞᱟᱭᱤᱵᱷᱰᱤᱥᱯᱞᱮ ᱚᱴᱚ ᱢᱳᱰ ᱛᱮ ᱵᱚᱫᱚᱞᱮᱱᱟ ᱾</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">ᱞᱟᱭᱤᱵᱷᱰᱤᱥᱯᱞᱮ ᱫᱤᱱ ᱢᱳᱰ ᱛᱮ ᱵᱚᱫᱚᱞᱮᱱᱟ ᱾</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">ᱞᱟᱭᱤᱵᱷᱰᱤᱥᱯᱞᱮ ᱧᱩᱛ ᱢᱳᱰ ᱛᱮ ᱵᱚᱫᱚᱞᱮᱱᱟ ᱾</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">ᱞᱟᱭᱤᱵᱷᱰᱤᱥᱯᱞᱮ ᱵᱟᱦᱨᱮ ᱢᱳᱰ ᱛᱮ ᱵᱚᱫᱚᱞᱮᱱᱟ ᱾</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">SystemUI ᱫᱩᱦᱲᱟᱹ ᱮᱦᱚᱵᱽ ᱫᱚᱨᱠᱟᱨ</string>
+    <string name="systemui_restart_message">ᱡᱷᱚᱛᱚ ᱵᱚᱫᱚᱞ ᱠᱚ ᱫᱚᱦᱚ ᱞᱟᱹᱜᱤᱫᱽ, SystemUI ᱫᱩᱦᱲᱟᱹ ᱮᱦᱚᱵᱽ ᱫᱚᱨᱠᱟᱨ ᱾ ᱱᱤᱛᱚᱜᱽ SystemUI ᱫᱩᱦᱲᱟᱹ ᱮᱦᱚᱵᱽ ᱟᱢ ᱥᱮ?</string>
+</resources>
