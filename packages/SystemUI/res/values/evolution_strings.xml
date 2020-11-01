@@ -161,8 +161,8 @@
     <string name="delete_screenshot_toast">Screenshot deleted</string>
 
     <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Peeking notification are snoozing for 1 minute.</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Peeking notifications are snoozing for <xliff:g id="number">%1$d</xliff:g> minutes.</string>
+    <string name="heads_up_snooze_message_one_minute" formatted="false"><xliff:g id="string">%s</xliff:g> - Peeking notification are snoozing for 1 minute.</string>
+    <string name="heads_up_snooze_message" formatted="false"><xliff:g id="string">%1$s</xliff:g> - Peeking notifications are snoozing for <xliff:g id="number">%1$d</xliff:g> minutes.</string>
 
     <!-- Partial screenshot -->
     <string name="global_screenshot_selector_capture_description">Capture partial screenshot</string>
