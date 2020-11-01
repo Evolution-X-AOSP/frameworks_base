@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2020 The Evolution X Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Скопіювати посилання логу збою</string>
+    <string name="url_copy_success">Посилання успішно скопійовано</string>
+    <string name="url_copy_failed">Помилка під час завантаження файла звіту до dogbin</string>
+    <string name="reboot_title">Перезавантаження</string>
+    <string name="reboot_message">Перезавантаження системи</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Звуковий сигнал для викликів і сповіщень увімкнено</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Натисніть та утримуйте кнопку живлення для взаємодії</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Автоматично</string>
+    <string name="live_display_auto_summary">Автоматичне підлаштування температури кольору екрана після сходу та заходу сонця</string>
+    <string name="live_display_off">Вимк</string>
+    <string name="live_display_off_summary">Вимкнути всі налаштування</string>
+    <string name="live_display_day">День</string>
+    <string name="live_display_day_summary">Використовувати лише налаштування режиму \"День\"</string>
+    <string name="live_display_night">Ніч</string>
+    <string name="live_display_night_summary">Використовувати лише налаштування режиму \"Ніч\"</string>
+    <string name="live_display_outdoor">На вулиці (яскраве сонце)</string>
+    <string name="live_display_outdoor_summary">Використовувати тільки параметри «На вулиці»</string>
+    <string name="live_display_hint">LiveDisplay допоможе зменшити навантаження на зір та покращить сон. Натисніть тут, щоб спробувати його!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay вимкнений.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: автоматичний режим.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: денний режим.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: нічний режим.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: режим на вулиці.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay вимкнено.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay змінився до автоматичного режиму.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay змінено до денного режиму.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay змінено до нічного режиму.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay змінено до режиму на вулиці.</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Необхідне перезавантаження інтерфейсу системи</string>
+    <string name="systemui_restart_message">Для застосування змін потрібно перезаватажити інтерфейс системи. Перезавантажити зараз?</string>
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">Ігровий режим</string>
+    <string name="gaming_mode_notification_title">Ігровий режим ввімкнено</string>
+    <string name="gaming_mode_notification_content">Натисніть, щоб відключити ігровий режим</string>
+    <string name="gaming_mode_enabled_toast">Ігровий режим увімкнено</string>
+    <string name="gaming_mode_disabled_toast">Ігровий режим вимкнено</string>
+    <string name="active_edge_app_select_title">Оберіть додаток</string>
+    <string name="active_edge_activity_select_title">Виберіть дію</string>
+</resources>
