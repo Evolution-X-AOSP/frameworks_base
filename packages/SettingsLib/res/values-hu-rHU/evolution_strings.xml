@@ -16,11 +16,9 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
-    <string name="screen_zoom_summary_smaller">Smaller</string>
-
+    <string name="screen_zoom_summary_smaller">Kisebb</string>
     <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
-    <string name="screen_zoom_summary_smallest">Smallest</string>
-
+    <string name="screen_zoom_summary_smallest">Legkisebb</string>
     <!-- Deep sleep info -->
-    <string name="status_deep_sleep" formatted="false">(Deep sleep: %1$d%2$s)</string>
+    <string name="status_deep_sleep" formatted="false">(Mélyalvás: %1$d%2$s)</string>
 </resources>

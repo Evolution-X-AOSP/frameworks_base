@@ -15,12 +15,10 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
-    <string name="screen_zoom_summary_smaller">Smaller</string>
-
-    <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
-    <string name="screen_zoom_summary_smallest">Smallest</string>
-
-    <!-- Deep sleep info -->
-    <string name="status_deep_sleep" formatted="false">(Deep sleep: %1$d%2$s)</string>
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Salin URL log masuk nahas</string>
+    <string name="url_copy_success">URL disalin berjaya</string>
+    <string name="url_copy_failed">Ralat berlaku semasa memuat naik log ke dogbin</string>
+    <string name="reboot_title">Reboot</string>
+    <string name="reboot_message">Memulakan semula sistem</string>
 </resources>
