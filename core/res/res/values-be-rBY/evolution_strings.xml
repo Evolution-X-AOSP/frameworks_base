@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2020 The Evolution X Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Капіяваць URL журнала памылкі</string>
+    <string name="url_copy_success">Спасылка паспяхова скапіявана</string>
+    <string name="url_copy_failed">Падчас загрузкі лога на сэрвіс dogbin адбылася памылка</string>
+    <string name="reboot_title">Перазагрузка</string>
+    <string name="reboot_message">Перазагрузка сістэмы</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Гукавы сігнал для званкоў і апавяшчэнняў уключаны</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Націсніце і ўтрымлівайце кнопку сілкавання для ўзаемадзеяння</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Аўтаматычна</string>
+    <string name="live_display_auto_summary">Аўтаматычна рэгуляваць тэмпературу колеру экрана пасля заходу і ўсходу сонца</string>
+    <string name="live_display_off">Адключана</string>
+    <string name="live_display_off_summary">Адключыць аўтападладку</string>
+    <string name="live_display_day">Дзень</string>
+    <string name="live_display_day_summary">Выкарыстоўваць толькі дзённыя параметры</string>
+    <string name="live_display_night">Ноч</string>
+    <string name="live_display_night_summary">Выкарыстоўваць толькі начныя налады</string>
+    <string name="live_display_outdoor">На вуліцы (яскравае сонца)</string>
+    <string name="live_display_outdoor_summary">Выкарыстоўваць толькі параметры вуліцы</string>
+    <string name="live_display_hint">LiveDisplay дапамагае знізіць напружанне вачэй і паляпшае начны сон. Націсніце тут, каб паспрабаваць!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay адкл.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: аўтаматычны рэжым.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: дзённы рэжым.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: начны рэжым.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: рэжым вуліцы.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay адключаны.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay зменены на аўтаматычны рэжым.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay пераключаны ў дзённы рэжым.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay пераключаны ў начны рэжым.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay пераключаны ў вулiчны рэжым.</string>
+</resources>

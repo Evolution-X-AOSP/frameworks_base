@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2020 The Evolution X Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Custom QS tiles -->
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">环境显示</string>
+    <string name="accessibility_quick_settings_ambient_display_off">关闭息屏显示</string>
+    <string name="accessibility_quick_settings_ambient_display_on">开启息屏显示</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">息屏显示已关闭</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">息屏显示已关闭</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">始终显示</string>
+    <string name="quick_settings_aod_off_powersave_label">息屏显示 关闭\n省电模式</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">保持亮屏</string>
+    <string name="accessibility_quick_settings_caffeine_off">保持亮屏关闭</string>
+    <string name="accessibility_quick_settings_caffeine_on">启动屏幕常亮</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">指南针</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">正在初始化…</string>
+    <string name="accessibility_quick_settings_compass_off">关闭指南针</string>
+    <string name="accessibility_quick_settings_compass_on">开启指南针</string>
+    <string name="accessibility_quick_settings_compass_changed_off">指南针已关闭</string>
+    <string name="accessibility_quick_settings_compass_changed_on">指南针已开启</string>
+    <string name="quick_settings_compass_N">北</string>
+    <string name="quick_settings_compass_NE">东北</string>
+    <string name="quick_settings_compass_E">东</string>
+    <string name="quick_settings_compass_SE">东南</string>
+    <string name="quick_settings_compass_S">南</string>
+    <string name="quick_settings_compass_SW">西南</string>
+    <string name="quick_settings_compass_W">西</string>
+    <string name="quick_settings_compass_NW">西北</string>
+    <!-- CPUInfo tile -->
+    <string name="quick_settings_cpuinfo_label">CPU 信息</string>
+    <string name="accessibility_quick_settings_cpuinfo_off">CPU 信息关闭</string>
+    <string name="accessibility_quick_settings_cpuinfo_on">CPU 信息开启</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_off">CPU 信息已关闭</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_on">CPU 信息已开启</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">更改数据卡</string>
+    <string name="qs_data_switch_changed_1">设置卡1为数据卡</string>
+    <string name="qs_data_switch_changed_2">设置卡2为数据卡</string>
+    <!-- FPS Info tile -->
+    <string name="quick_settings_fpsinfo_label">FPS 信息</string>
+    <string name="accessibility_quick_settings_fpsinfo_off">关闭 FPS 信息</string>
+    <string name="accessibility_quick_settings_fpsinfo_on">开启 FPS 信息</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">弹出通知</string>
+    <string name="accessibility_quick_settings_heads_up_off">关闭浮动通知</string>
+    <string name="accessibility_quick_settings_heads_up_on">开启浮动通知</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">浮动通知已关闭</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">浮动通知已开启</string>
+    <!-- Mono QS Tile -->
+    <string name="quick_settings_monotoggle_tile">音频模式</string>
+    <string name="quick_settings_monotoggle_tile_mono">单声道音频</string>
+    <string name="quick_settings_monotoggle_tile_stereo">立体声</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">音乐</string>
+    <string name="quick_settings_music_play">播放</string>
+    <string name="quick_settings_music_pause">暂停</string>
+    <!-- Power off/Reboot/Recovery QS Tile -->
+    <string name="quick_settings_poweroff_label">关机</string>
+    <string name="quick_settings_reboot_label">重启</string>
+    <string name="quick_settings_reboot_recovery_label">恢复模式</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">屏幕截图</string>
+    <string name="quick_settings_region_screenshot_label">部分</string>
+    <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">息屏</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">声音</string>
+    <string name="quick_settings_sound_mute">无声</string>
+    <string name="quick_settings_sound_ring">响铃</string>
+    <string name="quick_settings_sound_vibrate">振动</string>
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">声音搜索</string>
+    <string name="quick_settings_sound_search_no_app">抱歉，您没有语音搜索应用。</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">同步</string>
+    <string name="accessibility_quick_settings_sync_off">同步关闭</string>
+    <string name="accessibility_quick_settings_sync_on">同步开启</string>
+    <string name="accessibility_quick_settings_sync_changed_off">同步已关闭</string>
+    <string name="accessibility_quick_settings_sync_changed_on">同步已开启</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">USB网络共享</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">声音面板</string>
+    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">滑动图标以启动</string>
+    <!-- Status bar icons -->
+    <string name="statusbar_items_title">状态栏图标</string>
+    <string name="status_bar_data_disabled">数据已停用</string>
+    <string name="status_bar_data_saver">数据保护程序</string>
+    <string name="status_bar_nfc">NFC 近场通讯</string>
+    <string name="status_bar_roaming">漫游</string>
+    <string name="status_bar_vpn">VPN</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">近场通讯</string>
+    <string name="global_action_restart_advanced">高级重启</string>
+    <string name="global_action_restart_recovery">恢复模式</string>
+    <string name="global_action_restart_bootloader">引导模式</string>
+    <string name="global_action_restart_ui">软重启</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Dash闪充（还需 <xliff:g id="charging_time_left">%s</xliff:g>充满）</string>
+    <string name="keyguard_plugged_in_dash_charging">Dash 闪充</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Warp 闪充中 (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> 后充满)</string>
+    <string name="keyguard_plugged_in_warp_charging">Warp 闪充</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Vooc 闪充（还需 <xliff:g id="charging_time_left">%1$s</xliff:g>充满）</string>
+    <string name="keyguard_plugged_in_vooc_charging">Warp 闪充中</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">按住 &amp; 拖动或点击添加磁贴</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">按住 &amp; 拖动以重新排列或点击删除</string>
+    <string name="lockscreen_default">默认</string>
+    <string name="lockscreen_hidden">无</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">屏幕截图已删除</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> • 禁用浮动通知一分钟。</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - 浮动通知暂停<xliff:g id="number">%1$d</xliff:g>分钟。</string>
+    <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">捕获部分截图</string>
+    <string name="global_screenshot_selector_cancel_description">取消部分截图</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">强制停止？</string>
+    <string name="force_stop_dlg_text">强行停止某个应用可能会导致其出现异常</string>
+    <string name="guts_force_close_app">关闭应用</string>
+    <!-- Screenrecorder -->
+    <string name="screenrecord_stopdot_label">显示停止点\n长按移动它</string>
+    <string name="screenrecord_lowquality_label">较小文件大小的质量较低</string>
+    <!-- Kill app -->
+    <string name="task_helper_app_killed">%1$s 已停止运行</string>
+    <string name="empty_app_killed">应用</string>
+    <string name="quick_settings_killapp_label">终止程序</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">显示正在运行的服务</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">语言</string>
+    <string name="quick_settings_locale_more_locales_toast">请配置多种语言以启用切换功能</string>
+</resources>
