@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2020 The Evolution X Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Custom QS tiles -->
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">العرض على الشاشة</string>
+    <string name="accessibility_quick_settings_ambient_display_off">العرض على الشاشة معطل.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">تفعيل عرض المحيط.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">تم تعطيل العرض المحيط.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">تم تشغيل عرض المحيط.</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">إيقاف تشغيل الشاشة الدائمة عند تشغيل موفر البطارية</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">الإستراحة</string>
+    <string name="accessibility_quick_settings_caffeine_off">الاستراحه معطل.</string>
+    <string name="accessibility_quick_settings_caffeine_on">تشغيل وضع الإستراحة.</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">البوصلة</string>
+    <string name="quick_settings_compass_value"><xliff:g id="درجات">%1$.0f</xliff:g>\u00b0 <xliff:g id="الإتجاه">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">تهيئة\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">البوصلة مغلقه</string>
+    <string name="accessibility_quick_settings_compass_on">البوصلة تعمل</string>
+    <string name="accessibility_quick_settings_compass_changed_off">تم ايقاف البوصلة</string>
+    <string name="accessibility_quick_settings_compass_changed_on">تم تشغيل البوصلة</string>
+    <string name="quick_settings_compass_N">شمال</string>
+    <string name="quick_settings_compass_NE">شمال شرق</string>
+    <string name="quick_settings_compass_E">شرق</string>
+    <string name="quick_settings_compass_SE">جنوب شرق</string>
+    <string name="quick_settings_compass_S">جنوب</string>
+    <string name="quick_settings_compass_SW">جنوب غرب</string>
+    <string name="quick_settings_compass_W">غرب</string>
+    <string name="quick_settings_compass_NW">شمال غرب</string>
+    <!-- CPUInfo tile -->
+    <string name="quick_settings_cpuinfo_label">معلومات وحدة المعالجة المركزية</string>
+    <string name="accessibility_quick_settings_cpuinfo_off">إيقاف معلومات وحدة المعالجة المركزية</string>
+    <string name="accessibility_quick_settings_cpuinfo_on">إيقاف معلومات وحدة المعالجة المركزية</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_off">تم إيقاف تشغيل معلومات المعالج</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_on">تم تشغيل معلومات المعالج</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">تبديل بطاقة البيانات</string>
+    <string name="qs_data_switch_changed_1">استخدام شريحة ١ لبيانات الهاتف</string>
+    <string name="qs_data_switch_changed_2">استخدام شريحة ٢ لبيانات الهاتف</string>
+    <!-- FPS Info tile -->
+    <string name="quick_settings_fpsinfo_label">معلومات معدَّل العرضFPS</string>
+    <string name="accessibility_quick_settings_fpsinfo_off">معلومات معدَّل العرض موقفة</string>
+    <string name="accessibility_quick_settings_fpsinfo_on">معلومات FPS مفعّلة</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">التنبيهات العلوية</string>
+    <string name="accessibility_quick_settings_heads_up_off">إيقاف الإشعارات العلوية.</string>
+    <string name="accessibility_quick_settings_heads_up_on">تشغيل التنبيهات العلوية.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">تم إيقاف التنبيهات العلوية.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">تم تشغيل التنبيهات العلوية.</string>
+    <!-- Mono QS Tile -->
+    <string name="quick_settings_monotoggle_tile">وضع الصوت</string>
+    <string name="quick_settings_monotoggle_tile_mono">صوت أحادي</string>
+    <string name="quick_settings_monotoggle_tile_stereo">صوت ستيريو</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">موسيقى</string>
+    <string name="quick_settings_music_play">قراءة</string>
+    <string name="quick_settings_music_pause">إيقاف مؤقت</string>
+    <!-- Power off/Reboot/Recovery QS Tile -->
+    <string name="quick_settings_poweroff_label">إيقاف التشغيل</string>
+    <string name="quick_settings_reboot_label">إعادة التشغيل</string>
+    <string name="quick_settings_reboot_recovery_label">الاسترداد</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">لقطة الشاشة</string>
+    <string name="quick_settings_region_screenshot_label">صورة جزئية للشاشة</string>
+    <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">وضع سكون الشاشة</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">الصوت</string>
+    <string name="quick_settings_sound_mute">كتم الصوت</string>
+    <string name="quick_settings_sound_ring">الرنين</string>
+    <string name="quick_settings_sound_vibrate">إهتزاز</string>
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">البحث الصوتي</string>
+    <string name="quick_settings_sound_search_no_app">عذراً، لكن هذا لا يعمل إذا لم يكن لديك تطبيق بحث صوتي.</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">مزامنة</string>
+    <string name="accessibility_quick_settings_sync_off">المزامنة متوقفة.</string>
+    <string name="accessibility_quick_settings_sync_on">المزامنة تعمل.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">تم إيقاف المزامنة.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">أربعون.</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">‏تقييد USB</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">لوحة التحكم بالصوت</string>
+    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">تمرير من الأيقونة للتشغيل</string>
+    <!-- Status bar icons -->
+    <string name="statusbar_items_title">ايقونة شريط الحالة</string>
+    <string name="status_bar_data_disabled">إظهار رمز تعطيل بيانات الهاتف</string>
+    <string name="status_bar_data_saver">موفر البيانات</string>
+    <string name="status_bar_nfc">‏الاتصالات قصيرة المدى (NFC)</string>
+    <string name="status_bar_roaming">تجوال</string>
+    <string name="status_bar_vpn">شبكة افتراضية خاصة</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">‏الاتصالات قصيرة المدى</string>
+    <string name="global_action_restart_advanced">خيارات متقدمة</string>
+    <string name="global_action_restart_recovery">الاسترداد</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">واجهة النظام</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • الشحن السريع (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> حتى الامتلاء)</string>
+    <string name="keyguard_plugged_in_dash_charging">يجري الشحن بتقنية Dash</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • الشحن السريع (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> حتى الامتلاء)</string>
+    <string name="keyguard_plugged_in_warp_charging">يجري الشحن بتقنية Warp</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • الشحن السريع (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> حتى الامتلاء)</string>
+    <string name="keyguard_plugged_in_vooc_charging">شحن VOC</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">استمر بالضغط على &amp; وسحب أو انقر لإضافة البلاطات</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">اضغط على &amp; اسحب لإعادة الترتيب أو اضغط للإزالة</string>
+    <string name="lockscreen_default">الإفتراضي</string>
+    <string name="lockscreen_hidden">لا شَيْء</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">تم حذف لقطة الشاشة</string>
+    <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">التقاط لقطة جزئية للشاشة</string>
+    <string name="global_screenshot_selector_cancel_description">التقاط لقطة جزئية للشاشة</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">هل تريد فرض الإيقاف؟</string>
+    <string name="force_stop_dlg_text">في حالة فرض إيقاف التطبيق، ربما لا يعمل بشكل صحيح.</string>
+    <string name="guts_force_close_app">إغلاق التطبيق</string>
+    <!-- Screenrecorder -->
+    <string name="screenrecord_stopdot_label">إظهار نقطة التوقف\nالضغط المطول لتحريكها</string>
+    <string name="screenrecord_lowquality_label">جودة أقل لحجم الملف الأصغر</string>
+    <!-- Kill app -->
+    <string name="task_helper_app_killed">توقفت %1$s</string>
+    <string name="empty_app_killed">التطبيق</string>
+    <string name="quick_settings_killapp_label">قتل التطبيق</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">فتح شاشة الخدمات المشغلة.</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">اللغة</string>
+    <string name="quick_settings_locale_more_locales_toast">الرجاء إعداد لغات متعددة لتمكين وظيفة مفتاح التبديل</string>
+</resources>

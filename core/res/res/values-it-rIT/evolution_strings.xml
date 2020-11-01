@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2020 The Evolution X Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Copia l\'URL del log di crash</string>
+    <string name="url_copy_success">URL copiato con successo</string>
+    <string name="url_copy_failed">Si è verificato un errore durante il caricamento del log su dogbin</string>
+    <string name="reboot_title">Riavvia</string>
+    <string name="reboot_message">Riavvio del sistema</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">La vibrazione sarà attiva per chiamate e notifiche</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Premi a lungo il tasto di accensione per interagire</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Automatico</string>
+    <string name="live_display_auto_summary">Regola automaticamente la temperatura del colore dello schermo dopo il tramonto e l\'alba</string>
+    <string name="live_display_off">Disattivato</string>
+    <string name="live_display_off_summary">Disattiva tutte le regolazioni</string>
+    <string name="live_display_day">Giorno</string>
+    <string name="live_display_day_summary">Utilizza solo l\'impostazione giorno</string>
+    <string name="live_display_night">Notte</string>
+    <string name="live_display_night_summary">Utilizza solo l\'impostazione notte</string>
+    <string name="live_display_outdoor">All\'aperto (luce del sole)</string>
+    <string name="live_display_outdoor_summary">Utilizza solo l\'impostazione all\'aperto</string>
+    <string name="live_display_hint">LiveDisplay può aiutare a ridurre l\'affaticamento degli occhi e aiuta a dormire la notte. Clicca qui per provarlo!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay non attivo.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: modalità automatica.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: modalità giorno.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: modalità notte.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: modalità all\'aperto.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay disattivato.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay impostato in modalità automatica.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay impostato in modalità giorno.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay impostato in modalità notte.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay impostato in modalità all\'aperto.</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Riavvio dell\'interfaccia utente richiesto</string>
+    <string name="systemui_restart_message">Per rendere effettive tutte le modifiche, è necessario un riavvio dell\'interfaccia utente. Riavviarla ora?</string>
+</resources>
