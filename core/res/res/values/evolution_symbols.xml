@@ -218,4 +218,8 @@
 
   <!-- Enable face auth only when swiping security view -->
   <java-symbol type="bool" name="config_faceAuthOnlyOnSecurityView" />
+
+  <!-- Hide FOD while Going to sleep from lockscreen to avoid HBM flicker
+       or FOD Circle hiding after the screen is put to sleep  -->
+  <java-symbol type="bool" name="config_hideFodCircleGoingToSleep" />
 </resources>
