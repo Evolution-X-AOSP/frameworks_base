@@ -133,7 +133,12 @@
     <string name="custom_hint">Swipe from icon to launch</string>
 
     <!-- Status bar icons -->
+    <string name="statusbar_items_title">Statusbar icon</string>
+    <string name="status_bar_data_disabled">Data disabled</string>
+    <string name="status_bar_data_saver">Data saver</string>
     <string name="status_bar_nfc">NFC</string>
+    <string name="status_bar_roaming">Roaming</string>
+    <string name="status_bar_vpn">VPN</string>
 
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
     <string name="accessibility_status_bar_nfc">Nfc</string>
@@ -142,13 +147,6 @@
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">SystemUI</string>
-
-    <!-- Tuner items -->
-    <string name="statusbar_items_title">Statusbar icon</string>
-    <string name="status_bar_data_disabled">Data disabled</string>
-    <string name="status_bar_data_saver">Data saver</string>
-    <string name="status_bar_vpn">VPN</string>
-    <string name="status_bar_roaming">Roaming</string>
 
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
