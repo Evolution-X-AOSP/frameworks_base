@@ -227,4 +227,7 @@ interface IStatusBarService
 
     /** Unregisters a nearby media devices provider. */
     void unregisterNearbyMediaDevicesProvider(in INearbyMediaDevicesProvider provider);
+
+    /** Evolution X additions. */
+    void toggleCameraFlash();
 }
