@@ -121,6 +121,7 @@
     <string name="global_action_restart_ui">SystemUI</string>
     <!-- Tuner items -->
     <string name="statusbar_items_title">Ikona paska stanu</string>
+    <string name="status_bar_data_disabled">Ikona danych wyłączona</string>
     <string name="status_bar_data_saver">Oszczędzanie danych</string>
     <string name="status_bar_vpn">VPN</string>
     <string name="status_bar_roaming">Roaming</string>
