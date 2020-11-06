@@ -121,6 +121,7 @@
     <string name="global_action_restart_ui">Sistem Arayüzü</string>
     <!-- Tuner items -->
     <string name="statusbar_items_title">Durum çubuğu simgesi</string>
+    <string name="status_bar_data_disabled">Veri devre dışı simgesi</string>
     <string name="status_bar_data_saver">Veri tasarrufu</string>
     <string name="status_bar_vpn">VPN</string>
     <string name="status_bar_roaming">Dolaşımda</string>
