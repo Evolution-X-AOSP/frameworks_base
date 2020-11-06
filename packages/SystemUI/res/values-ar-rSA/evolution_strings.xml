@@ -121,6 +121,7 @@
     <string name="global_action_restart_ui">واجهة النظام</string>
     <!-- Tuner items -->
     <string name="statusbar_items_title">ايقونة شريط الحالة</string>
+    <string name="status_bar_data_disabled">إظهار رمز تعطيل بيانات الهاتف</string>
     <string name="status_bar_data_saver">موفر البيانات</string>
     <string name="status_bar_vpn">شبكة افتراضية خاصة</string>
     <string name="status_bar_roaming">تجوال</string>
