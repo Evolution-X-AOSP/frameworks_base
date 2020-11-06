@@ -980,6 +980,11 @@ final class DefaultPermissionGrantPolicy {
         // MIUI Gallery
         grantSystemFixedPermissionsToSystemPackage(pm, "com.miui.gallery", userId,
                 STORAGE_PERMISSIONS);
+
+        // Flipendo
+        grantSystemFixedPermissionsToSystemPackage(pm,
+                getDefaultProviderAuthorityPackage("com.google.android.flipendo", userId),
+                userId, SUSPEND_APP_PERMISSIONS);
     }
 
     private String getDefaultSystemHandlerActivityPackageForCategory(PackageManagerWrapper pm,
