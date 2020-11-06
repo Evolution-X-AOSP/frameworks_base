@@ -66,6 +66,7 @@ import com.android.systemui.statusbar.VibratorHelper;
 import com.android.systemui.statusbar.notification.stack.NotificationStackScrollLayoutController;
 import com.android.systemui.statusbar.phone.dagger.CentralSurfacesComponent;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
+import com.android.systemui.statusbar.policy.FlashlightController;
 import com.android.systemui.statusbar.policy.HeadsUpManager;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
 import com.android.systemui.statusbar.policy.RemoteInputQuickSettingsDisabler;
@@ -83,6 +84,7 @@ public class CentralSurfacesCommandQueueCallbacks implements CommandQueue.Callba
     private final Context mContext;
     private final com.android.systemui.shade.ShadeController mShadeController;
     private final CommandQueue mCommandQueue;
+    private final FlashlightController mFlashlightController;
     private final NotificationPanelViewController mNotificationPanelViewController;
     private final RemoteInputQuickSettingsDisabler mRemoteInputQuickSettingsDisabler;
     private final MetricsLogger mMetricsLogger;
@@ -120,6 +122,7 @@ public class CentralSurfacesCommandQueueCallbacks implements CommandQueue.Callba
             @Main Resources resources,
             ShadeController shadeController,
             CommandQueue commandQueue,
+            FlashlightController flashlightController,
             NotificationPanelViewController notificationPanelViewController,
             RemoteInputQuickSettingsDisabler remoteInputQuickSettingsDisabler,
             MetricsLogger metricsLogger,
@@ -147,6 +150,7 @@ public class CentralSurfacesCommandQueueCallbacks implements CommandQueue.Callba
         mContext = context;
         mShadeController = shadeController;
         mCommandQueue = commandQueue;
+        mFlashlightController = flashlightController;
         mNotificationPanelViewController = notificationPanelViewController;
         mRemoteInputQuickSettingsDisabler = remoteInputQuickSettingsDisabler;
         mMetricsLogger = metricsLogger;
@@ -604,5 +608,12 @@ public class CentralSurfacesCommandQueueCallbacks implements CommandQueue.Callba
             timings[i] = pattern[i];
         }
         return VibrationEffect.createWaveform(timings, /* repeat= */ -1);
+    }
+
+    @Override
+    public void toggleCameraFlash() {
+        if (mFlashlightController.isAvailable()) {
+            mFlashlightController.setFlashlight(!mFlashlightController.isEnabled());
+        }
     }
 }
