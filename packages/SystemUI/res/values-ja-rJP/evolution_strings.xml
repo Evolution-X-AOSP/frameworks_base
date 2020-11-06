@@ -121,6 +121,7 @@
     <string name="global_action_restart_ui">システム UI</string>
     <!-- Tuner items -->
     <string name="statusbar_items_title">ステータスバーのアイコン</string>
+    <string name="status_bar_data_disabled">データ通信無効</string>
     <string name="status_bar_data_saver">データセーバー</string>
     <string name="status_bar_vpn">VPN</string>
     <string name="status_bar_roaming">ローミング中</string>
