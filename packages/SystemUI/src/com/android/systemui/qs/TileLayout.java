@@ -37,7 +37,7 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
 
     // Prototyping with less rows
     private final boolean mLessRows;
-    private int mMinRows = 3;
+    private int mMinRows = 1;
     private int mMaxColumns = NO_MAX_COLUMNS;
     private int mResourceColumns;
 
@@ -48,7 +48,8 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
     public TileLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         setFocusableInTouchMode(true);
-        mLessRows = (Settings.System.getInt(context.getContentResolver(), "qs_less_rows", 0) != 0);
+        mLessRows = (Settings.System.getInt(context.getContentResolver(), "qs_less_rows", 0) != 0)
+                || useQsMediaPlayer(context);
         updateResources();
 
     }
