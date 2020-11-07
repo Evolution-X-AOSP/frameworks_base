@@ -82,6 +82,13 @@ public class TunerFragment extends PreferenceFragment {
                 if (preference != null) getPreferenceScreen().removePreference(preference);
             }
         }
+
+        if (Settings.Secure.getInt(getContext().getContentResolver(), SETTING_SEEN_TUNER_WARNING,
+                0) == 0) {
+            if (getFragmentManager().findFragmentByTag(WARNING_TAG) == null) {
+                new TunerWarningFragment().show(getFragmentManager(), WARNING_TAG);
+            }
+        }
     }
 
     private boolean alwaysOnAvailable() {
@@ -105,7 +112,7 @@ public class TunerFragment extends PreferenceFragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        //menu.add(Menu.NONE, MENU_REMOVE, Menu.NONE, R.string.remove_from_settings);
+        menu.add(Menu.NONE, MENU_REMOVE, Menu.NONE, R.string.remove_from_settings);
     }
 
     @Override
@@ -114,7 +121,7 @@ public class TunerFragment extends PreferenceFragment {
             case android.R.id.home:
                 getActivity().finish();
                 return true;
-            /*case MENU_REMOVE:
+            case MENU_REMOVE:
                 TunerService.showResetRequest(getContext(), new Runnable() {
                     @Override
                     public void run() {
@@ -123,7 +130,7 @@ public class TunerFragment extends PreferenceFragment {
                         }
                     }
                 });
-                return true;*/
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
