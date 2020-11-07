@@ -233,4 +233,7 @@ interface IStatusBarService
 
     /** Evolution X additions. */
     void toggleCameraFlash();
+
+    /** Starts the default assistant app. */
+    void startAssist(in Bundle args);
 }
