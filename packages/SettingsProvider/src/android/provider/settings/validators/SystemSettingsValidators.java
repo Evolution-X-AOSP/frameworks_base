@@ -309,5 +309,6 @@ public class SystemSettingsValidators {
                     }
                 });
         VALIDATORS.put(System.NAVIGATION_BAR_IME_SPACE, ANY_INTEGER_VALIDATOR);
+        VALIDATORS.put(System.AMBIENT_WAKE_GESTURES, BOOLEAN_VALIDATOR);
     }
 }
