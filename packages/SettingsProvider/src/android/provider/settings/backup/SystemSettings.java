@@ -121,5 +121,6 @@ public class SystemSettings {
         Settings.System.QS_LAYOUT,
         Settings.System.QQS_LAYOUT,
         Settings.System.NAVIGATION_BAR_IME_SPACE,
+        Settings.System.AMBIENT_WAKE_GESTURES,
     };
 }
