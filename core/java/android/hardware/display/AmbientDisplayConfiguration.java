@@ -242,6 +242,12 @@ public class AmbientDisplayConfiguration {
     }
 
     /** {@hide} */
+    public boolean isAmbientGestureEnabled(int user) {
+        return !mDeviceHasSoli && Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.AMBIENT_WAKE_GESTURES, 1, user) != 0;
+    }
+
+    /** {@hide} */
     public boolean alwaysOnEnabledSetting(int user) {
         boolean alwaysOnEnabled = boolSetting(Settings.Secure.DOZE_ALWAYS_ON, user, mAlwaysOnByDefault ? 1 : 0);
         return alwaysOnEnabled && alwaysOnAvailable() && !accessibilityInversionEnabled(user);
