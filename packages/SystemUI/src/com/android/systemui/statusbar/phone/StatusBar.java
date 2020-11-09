@@ -2127,12 +2127,6 @@ public class StatusBar extends SystemUI implements DemoMode,
     @Override
     public void handleSystemKey(int key) {
         if (SPEW) Log.d(TAG, "handleNavigationKey: " + key);
-
-        if (KeyEvent.KEYCODE_MEDIA_PREVIOUS == key || KeyEvent.KEYCODE_MEDIA_NEXT == key) {
-            mMediaManager.onSkipTrackEvent(key, mHandler);
-            return;
-        }
-
         if (!mCommandQueue.panelsEnabled() || !mKeyguardUpdateMonitor.isDeviceInteractive()
                 || mKeyguardStateController.isShowing() && !mKeyguardStateController.isOccluded()) {
             return;
