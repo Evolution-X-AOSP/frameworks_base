@@ -65,12 +65,6 @@
     <string name="accessibility_quick_settings_heads_up_on">Усплываючыя апавяшчэнні ўкл.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Усплываючыя апавяшчэнні адкл.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Усплываючыя апавяшчэнні ўкл.</string>
-    <!-- Immersive Mode QS Tile -->
-    <string name="quick_settings_immersive_tile">Поўнаэкранны рэжым</string>
-    <string name="quick_settings_immersive_tile_off">Поўнаэкранны рэжым адключаны</string>
-    <string name="quick_settings_immersive_tile_statusbar">Схаваць радок стану</string>
-    <string name="quick_settings_immersive_tile_navbar">Схаваць панэль навігацыі</string>
-    <string name="quick_settings_immersive_tile_full">Поўнаэкранны рэжым</string>
     <!-- Mono QS Tile -->
     <string name="quick_settings_monotoggle_tile">Рэжым аўдыя</string>
     <string name="quick_settings_monotoggle_tile_mono">Мона рэжым</string>
@@ -106,25 +100,21 @@
     <string name="quick_settings_usb_tether_label">USB-мадэм</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Панэль гучнасці</string>
-    <!-- Lockscreen tuner -->
-    <string name="lockscreen_default">Па змаўчанні</string>
-    <string name="lockscreen_hidden">Нічога</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Правядзіце ад значка для запуску</string>
     <!-- Status bar icons -->
+    <string name="statusbar_items_title">Значкі радку стану</string>
+    <string name="status_bar_data_disabled">Перадача дадзеных адключана</string>
+    <string name="status_bar_data_saver">Эканомія трафіку</string>
     <string name="status_bar_nfc">NFC</string>
+    <string name="status_bar_roaming">Роўмінг</string>
+    <string name="status_bar_vpn">VPN</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
     <string name="accessibility_status_bar_nfc">Nfc</string>
     <string name="global_action_restart_advanced">Пашыраныя налады</string>
     <string name="global_action_restart_recovery">Рэжым аднаўлення</string>
     <string name="global_action_restart_bootloader">Загрузчык</string>
     <string name="global_action_restart_ui">Сістэмны інтэрфейс</string>
-    <!-- Tuner items -->
-    <string name="statusbar_items_title">Значкі радку стану</string>
-    <string name="status_bar_data_disabled">Перадача дадзеных адключана</string>
-    <string name="status_bar_data_saver">Эканомія трафіку</string>
-    <string name="status_bar_vpn">VPN</string>
-    <string name="status_bar_roaming">Роўмінг</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Хуткая зарадка (<xliff:g id="charging_time_left" example="4 гадзіны і 2 хвіліны">%s</xliff:g> да поўнай зарадкі)</string>
     <string name="keyguard_plugged_in_dash_charging">Хуткая зарадка</string>
@@ -134,4 +124,31 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • VOOC зарадка • (<xliff:g id="charging_time_left" example="4 гадзінны і 2 хвіліны">%1$s</xliff:g> да поўнай зарадкі)</string>
     <string name="keyguard_plugged_in_vooc_charging">Зарадка VOOC</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Утрымлівайце і перацягвайце, каб дадаць пліткі</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Утрымлівайце і перацягніце, каб змяніць парадак або націсніце для выдалення</string>
+    <string name="lockscreen_default">Па змаўчанні</string>
+    <string name="lockscreen_hidden">Нічога</string>
+    <!-- Navbar editor -->
+    <string name="preview">Папярэдні прагляд</string>
+    <string name="keycode">Код клавішы</string>
+    <string name="no_home_title">Кнопка \"Дадому\" не знойдзена</string>
+    <string name="no_home_message">Для навігацыі гэтай прыладзе патрабуецца кнопка галоўнага экрана. Калі ласка, дадайце кнопку галоўнага экрана перад захаваннем.</string>
+    <string name="clipboard_description">З дапамогай кнопкі Буфер абмену можна перацягваць элементы непасрэдна ў буфер абмену. Элементы можна таксама перацягваць непасрэдна з буфера абмену, калі яны там ёсць.</string>
+    <string name="keycode_description">Кнопка Код клавішы дазваляе дадаваць клавішы ў Панэль навігацыі. Пры націску гэтай кнопкі эмулюецца выбраная клавіша. Спачатку трэба выбраць клавішу для кнопкі, а потым відарыс, які будзе паказвацца на кнопцы.</string>
+    <string name="start">Пачаць</string>
+    <string name="center">Па цэнтры</string>
+    <string name="end">Канец</string>
+    <string name="space">Падзяляльнік</string>
+    <string name="menu_ime">Пераключальнік Меню/Клавіятура</string>
+    <string name="select_button">Выберыце, якую кнопку дадаць</string>
+    <string name="add_button">Дадаць кнопку</string>
+    <string name="save">Захаваць</string>
+    <string name="reset">Скінуць налады</string>
+    <string name="select_keycode">Выберыце клавішу клавіятуры</string>
+    <string name="left">Злева</string>
+    <string name="right">Справа</string>
+    <string name="navbar_editor_title">Рэдактар</string>
+    <string name="navbar_editor_summary">Налады панэлі навігацыі</string>
 </resources>
