@@ -65,12 +65,6 @@
     <string name="accessibility_quick_settings_heads_up_on">Wyskakujące powiadomienia włączone.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Wyskakujące powiadomienia zostały wyłączone.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Wyskakujące powiadomienia zostały włączone.</string>
-    <!-- Immersive Mode QS Tile -->
-    <string name="quick_settings_immersive_tile">Tryb Imersywny</string>
-    <string name="quick_settings_immersive_tile_off">Tryb Imersywny wył</string>
-    <string name="quick_settings_immersive_tile_statusbar">Schowaj pasek statusu</string>
-    <string name="quick_settings_immersive_tile_navbar">Schowaj pasek nawigacyjny</string>
-    <string name="quick_settings_immersive_tile_full">Tryb pełnoekranowy</string>
     <!-- Mono QS Tile -->
     <string name="quick_settings_monotoggle_tile">Tryb audio</string>
     <string name="quick_settings_monotoggle_tile_mono">Dźwięk mono</string>
@@ -106,25 +100,21 @@
     <string name="quick_settings_usb_tether_label">Tethering USB</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Panel głośności</string>
-    <!-- Lockscreen tuner -->
-    <string name="lockscreen_default">Domyślnie</string>
-    <string name="lockscreen_hidden">Żaden</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Przesuń palcem od ikony, aby uruchomić</string>
     <!-- Status bar icons -->
+    <string name="statusbar_items_title">Ikona paska stanu</string>
+    <string name="status_bar_data_disabled">Ikona danych wyłączona</string>
+    <string name="status_bar_data_saver">Oszczędzanie danych</string>
     <string name="status_bar_nfc">NFC</string>
+    <string name="status_bar_roaming">Roaming</string>
+    <string name="status_bar_vpn">VPN</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
     <string name="accessibility_status_bar_nfc">Nfc</string>
     <string name="global_action_restart_advanced">Zaawansowane</string>
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">SystemUI</string>
-    <!-- Tuner items -->
-    <string name="statusbar_items_title">Ikona paska stanu</string>
-    <string name="status_bar_data_disabled">Ikona danych wyłączona</string>
-    <string name="status_bar_data_saver">Oszczędzanie danych</string>
-    <string name="status_bar_vpn">VPN</string>
-    <string name="status_bar_roaming">Roaming</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Ładowanie Dash (<xliff:g id="charging_time_left" example="4 godziny i 2 minuty">%s</xliff:g> do pełnego naładowania)</string>
     <string name="keyguard_plugged_in_dash_charging">Ładowanie dash</string>
@@ -134,4 +124,31 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Ładowanie VOOC (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> do pełnego naładowania)</string>
     <string name="keyguard_plugged_in_vooc_charging">Ładowanie VOOC</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Przytrzymaj &amp; przeciągnij lub dotknij, aby dodać kafelki</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Przytrzymaj &amp; przeciągnij, aby zmienić kolejność lub dotknij aby usunąć</string>
+    <string name="lockscreen_default">Domyślnie</string>
+    <string name="lockscreen_hidden">Żaden</string>
+    <!-- Navbar editor -->
+    <string name="preview">Podgląd</string>
+    <string name="keycode">Klawisz</string>
+    <string name="no_home_title">Nie znaleziono przycisku ekranu głównego</string>
+    <string name="no_home_message">Do prawidłowej obsługi urządzenia potrzebny jest przycisk ekranu głównego. Dodaj go, zanim zapiszesz zmiany.</string>
+    <string name="clipboard_description">Schowek umożliwia przeciągnięcie elementów bezpośrednio do niego. Elementy tam umieszczone mogą być też przeciągnięte poza schowek, gdy jest on widoczny.</string>
+    <string name="keycode_description">Na pasku nawigacji możesz umieszczać przyciski, które po naciśnięciu emulują funkcje klawiszy klawiatury. Najpierw musisz wybrać, jaki klawisz ma być przypisany do danego przycisku, a następnie wybrać dla niego grafikę.</string>
+    <string name="start">Początek</string>
+    <string name="center">Środek</string>
+    <string name="end">Koniec</string>
+    <string name="space">Separator</string>
+    <string name="menu_ime">Przełącznik menu/klawiatury</string>
+    <string name="select_button">Wybierz przycisk do dodania</string>
+    <string name="add_button">Dodaj przycisk</string>
+    <string name="save">Zapisz</string>
+    <string name="reset">Resetuj</string>
+    <string name="select_keycode">Wybierz przycisk klawiatury</string>
+    <string name="left">Lewy</string>
+    <string name="right">Prawy</string>
+    <string name="navbar_editor_title">Edytor</string>
+    <string name="navbar_editor_summary">Skonfiguruj pasek nawigacji</string>
 </resources>
