@@ -94,7 +94,4 @@
     <java-symbol type="string" name="systemui_restart_title" />
     <java-symbol type="string" name="systemui_restart_message" />
 
-    <!-- Ambient notification light color -->
-    <java-symbol type="integer" name="config_ambientNotificationDefaultColor" />
-
 </resources>
