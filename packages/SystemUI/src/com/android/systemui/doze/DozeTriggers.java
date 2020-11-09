@@ -289,7 +289,8 @@ public class DozeTriggers implements DozeMachine.Part {
     }
 
     private void gentleWakeUp(int reason) {
-        if (!mConfig.alwaysOnEnabled(UserHandle.USER_CURRENT) && mConfig.isAmbientGestureEnabled(UserHandle.USER_CURRENT)) {
+        if (!mConfig.deviceHasSoli() && !mConfig.alwaysOnEnabled(UserHandle.USER_CURRENT)
+                && mConfig.isAmbientGestureEnabled(UserHandle.USER_CURRENT)) {
             requestPulse(reason, true /* alreadyPerformedProxCheck */, null /* onPulseSupressedListener */);
             return;
         }
