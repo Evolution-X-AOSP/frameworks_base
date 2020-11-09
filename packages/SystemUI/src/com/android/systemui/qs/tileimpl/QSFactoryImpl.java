@@ -45,7 +45,6 @@ import com.android.systemui.qs.tiles.FlashlightTile;
 import com.android.systemui.qs.tiles.FPSInfoTile;
 import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
-import com.android.systemui.qs.tiles.ImmersiveTile;
 import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.MonoToggleTile;
 import com.android.systemui.qs.tiles.MusicTile;
@@ -106,7 +105,6 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<DataSwitchTile> mDataSwitchTileProvider;
     private final Provider<FPSInfoTile> mFPSInfoTileProvider;
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
-    private final Provider<ImmersiveTile> mImmersiveTileProvider;
     private final Provider<MonoToggleTile> mMonoToggleTileProvider;
     private final Provider<MusicTile> mMusicTileProvider;
     private final Provider<RebootTile> mRebootTileProvider;
@@ -150,7 +148,6 @@ public class QSFactoryImpl implements QSFactory {
             Provider<DataSwitchTile> dataSwitchTileProvider,
             Provider<FPSInfoTile> fpsInfoTileProvider,
             Provider<HeadsUpTile> headsUpTileProvider,
-            Provider<ImmersiveTile> immersiveTileProvider,
             Provider<MonoToggleTile> monoToggleTileProvider,
             Provider<MusicTile> musicTileProvider,
             Provider<RebootTile> rebootTileProvider,
@@ -190,7 +187,6 @@ public class QSFactoryImpl implements QSFactory {
         mDataSwitchTileProvider = dataSwitchTileProvider;
         mFPSInfoTileProvider = fpsInfoTileProvider;
         mHeadsUpTileProvider = headsUpTileProvider;
-        mImmersiveTileProvider = immersiveTileProvider;
         mMonoToggleTileProvider = monoToggleTileProvider;
         mMusicTileProvider = musicTileProvider;
         mRebootTileProvider = rebootTileProvider;
@@ -269,8 +265,6 @@ public class QSFactoryImpl implements QSFactory {
                 return mFPSInfoTileProvider.get();
             case "heads_up":
                 return mHeadsUpTileProvider.get();
-            case "immersive":
-                return mImmersiveTileProvider.get();
             case "mono":
                 return mMonoToggleTileProvider.get();
             case "music":
