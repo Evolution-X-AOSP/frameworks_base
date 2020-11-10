@@ -130,25 +130,4 @@
     <string name="drag_or_tap_to_rearrange_tiles">Segure &amp; arraste para reorganizar ou toque para remover</string>
     <string name="lockscreen_default">Padrão</string>
     <string name="lockscreen_hidden">Nenhum</string>
-    <!-- Navbar editor -->
-    <string name="preview">Pré-visualizar</string>
-    <string name="keycode">Código chave</string>
-    <string name="no_home_title">Botão de início não encontrado</string>
-    <string name="no_home_message">É necessário um botão de início para navegar neste dispositivo. Adicione um botão de início antes de salvar.</string>
-    <string name="clipboard_description">A área de transferência permite que itens sejam arrastados diretamente para a área de transferência. Também é possível arrasta-los para fora quando estiverem presente.</string>
-    <string name="keycode_description">Os botões de código de tecla permitem que as teclas do teclado sejam adicionadas à barra de navegação. Quando pressionados, eles emulam a tecla selecionada. Primeiro, a tecla deve ser selecionada para o botão, seguida de uma imagem a ser exibida no botão.</string>
-    <string name="start">Iniciar</string>
-    <string name="center">Centro</string>
-    <string name="end">Fim</string>
-    <string name="space">Espaçador</string>
-    <string name="menu_ime">Menu / Troca de teclado</string>
-    <string name="select_button">Selecione o botão para adicionar</string>
-    <string name="add_button">Adicionar botão</string>
-    <string name="save">Salvar</string>
-    <string name="reset">Resetar</string>
-    <string name="select_keycode">Selecionar botão do teclado</string>
-    <string name="left">Esquerda</string>
-    <string name="right">Direita</string>
-    <string name="navbar_editor_title">Editor</string>
-    <string name="navbar_editor_summary">Configurar barra de navegação</string>
 </resources>
