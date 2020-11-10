@@ -130,25 +130,4 @@
     <string name="drag_or_tap_to_rearrange_tiles">Przytrzymaj &amp; przeciągnij, aby zmienić kolejność lub dotknij aby usunąć</string>
     <string name="lockscreen_default">Domyślnie</string>
     <string name="lockscreen_hidden">Żaden</string>
-    <!-- Navbar editor -->
-    <string name="preview">Podgląd</string>
-    <string name="keycode">Klawisz</string>
-    <string name="no_home_title">Nie znaleziono przycisku ekranu głównego</string>
-    <string name="no_home_message">Do prawidłowej obsługi urządzenia potrzebny jest przycisk ekranu głównego. Dodaj go, zanim zapiszesz zmiany.</string>
-    <string name="clipboard_description">Schowek umożliwia przeciągnięcie elementów bezpośrednio do niego. Elementy tam umieszczone mogą być też przeciągnięte poza schowek, gdy jest on widoczny.</string>
-    <string name="keycode_description">Na pasku nawigacji możesz umieszczać przyciski, które po naciśnięciu emulują funkcje klawiszy klawiatury. Najpierw musisz wybrać, jaki klawisz ma być przypisany do danego przycisku, a następnie wybrać dla niego grafikę.</string>
-    <string name="start">Początek</string>
-    <string name="center">Środek</string>
-    <string name="end">Koniec</string>
-    <string name="space">Separator</string>
-    <string name="menu_ime">Przełącznik menu/klawiatury</string>
-    <string name="select_button">Wybierz przycisk do dodania</string>
-    <string name="add_button">Dodaj przycisk</string>
-    <string name="save">Zapisz</string>
-    <string name="reset">Resetuj</string>
-    <string name="select_keycode">Wybierz przycisk klawiatury</string>
-    <string name="left">Lewy</string>
-    <string name="right">Prawy</string>
-    <string name="navbar_editor_title">Edytor</string>
-    <string name="navbar_editor_summary">Skonfiguruj pasek nawigacji</string>
 </resources>
