@@ -130,25 +130,4 @@
     <string name="drag_or_tap_to_rearrange_tiles">Удерживайте &amp; перетащите, чтобы изменить порядок или нажмите для удаления</string>
     <string name="lockscreen_default">По умолчанию</string>
     <string name="lockscreen_hidden">Не показывать</string>
-    <!-- Navbar editor -->
-    <string name="preview">Предпросмотр</string>
-    <string name="keycode">Код клавиши</string>
-    <string name="no_home_title">Кнопка \"Домой\" не найдена</string>
-    <string name="no_home_message">Прежде чем сохранить настройки, добавьте кнопку перехода на главный экран.</string>
-    <string name="clipboard_description">С помощью этой кнопки можно копировать файлы в буфер обмена и извлекать их из него.</string>
-    <string name="keycode_description">Код клавиши позволяет добавлять клавиши клавиатуры на панель навигации. При нажатии они эмулируют выбранную клавишу. Сначала нужно назначить клавишу на кнопку, затем выбрать изображение для неё.</string>
-    <string name="start">Начало</string>
-    <string name="center">Центр</string>
-    <string name="end">Конец</string>
-    <string name="space">Разделитель</string>
-    <string name="menu_ime">Меню / Переключение раскладки</string>
-    <string name="select_button">Выберите кнопку для добавления</string>
-    <string name="add_button">Добавить кнопку</string>
-    <string name="save">Сохранить</string>
-    <string name="reset">Сброс</string>
-    <string name="select_keycode">Выберите кнопку клавиатуры</string>
-    <string name="left">Слева</string>
-    <string name="right">Справа</string>
-    <string name="navbar_editor_title">Редактор</string>
-    <string name="navbar_editor_summary">Настроить панель навигации</string>
 </resources>
