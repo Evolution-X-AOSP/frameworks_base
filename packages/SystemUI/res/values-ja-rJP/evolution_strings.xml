@@ -130,25 +130,4 @@
     <string name="drag_or_tap_to_rearrange_tiles">長押しして移動することで並び替えてタップして削除する</string>
     <string name="lockscreen_default">既定</string>
     <string name="lockscreen_hidden">なし</string>
-    <!-- Navbar editor -->
-    <string name="preview">プレビュー</string>
-    <string name="keycode">キーコード</string>
-    <string name="no_home_title">ホームボタンが見つかりません</string>
-    <string name="no_home_message">この端末を操作できるようにするにはホームボタンが必要です。保存する前にホームボタンを追加して下さい。</string>
-    <string name="clipboard_description">クリップボード機能ではクリップボードにアイテムを直接ドラッグできます。クリップボードにアイテムがある場合、直接そのアイテムをドラッグして取り出すこともできます。</string>
-    <string name="keycode_description">キーコードボタンを利用すると、ナビゲーションバーにキーボードのキー機能を追加できるようになります。ボタンを押すと選択済みのキーボードのキーがエミュレートされます。まずボタン用にキーを選択し、次にボタン上の画像を選択する必要があります。</string>
-    <string name="start">開始</string>
-    <string name="center">中央</string>
-    <string name="end">終了</string>
-    <string name="space">間隔</string>
-    <string name="menu_ime">メニューとキーボードの切り替え</string>
-    <string name="select_button">追加するボタンの選択</string>
-    <string name="add_button">ボタンを追加</string>
-    <string name="save">保存</string>
-    <string name="reset">リセット</string>
-    <string name="select_keycode">キーボードのボタンの選択</string>
-    <string name="left">左</string>
-    <string name="right">右</string>
-    <string name="navbar_editor_title">エディタ</string>
-    <string name="navbar_editor_summary">ナビゲーションバーを編集する</string>
 </resources>
