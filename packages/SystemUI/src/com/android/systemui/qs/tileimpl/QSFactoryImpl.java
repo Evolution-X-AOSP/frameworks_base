@@ -32,6 +32,7 @@ import com.android.systemui.qs.tiles.AlarmTile;
 import com.android.systemui.qs.tiles.BatterySaverTile;
 import com.android.systemui.qs.tiles.BluetoothTile;
 import com.android.systemui.qs.tiles.CameraToggleTile;
+import com.android.systemui.qs.tiles.CaffeineTile;
 import com.android.systemui.qs.tiles.CastTile;
 import com.android.systemui.qs.tiles.CellularTile;
 import com.android.systemui.qs.tiles.ColorCorrectionTile;
@@ -98,6 +99,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<QRCodeScannerTile> mQRCodeScannerTileProvider;
     private final Provider<OneHandedModeTile> mOneHandedModeTileProvider;
     private final Provider<PowerShareTile> mPowerShareTileProvider;
+    private final Provider<CaffeineTile> mCaffeineTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
     private final Provider<CustomTile.Builder> mCustomTileBuilderProvider;
@@ -135,7 +137,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<QRCodeScannerTile> qrCodeScannerTileProvider,
             Provider<OneHandedModeTile> oneHandedModeTileProvider,
             Provider<ColorCorrectionTile> colorCorrectionTileProvider,
-            Provider<PowerShareTile> powerShareTileProvider) {
+            Provider<PowerShareTile> powerShareTileProvider,
+            Provider<CaffeineTile> caffeineTileProvider) {
         mQsHostLazy = qsHostLazy;
         mCustomTileBuilderProvider = customTileBuilderProvider;
 
@@ -169,6 +172,7 @@ public class QSFactoryImpl implements QSFactory {
         mOneHandedModeTileProvider = oneHandedModeTileProvider;
         mColorCorrectionTileProvider = colorCorrectionTileProvider;
         mPowerShareTileProvider = powerShareTileProvider;
+        mCaffeineTileProvider = caffeineTileProvider;
     }
 
     /** Creates a tile with a type based on {@code tileSpec} */
@@ -245,6 +249,8 @@ public class QSFactoryImpl implements QSFactory {
             // Additional tiles.
             case "powershare":
                 return mPowerShareTileProvider.get();
+            case "caffeine":
+                return mCaffeineTileProvider.get();
         }
         // Custom tiles
         if (tileSpec.startsWith(CustomTile.PREFIX)) {
