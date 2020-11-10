@@ -130,25 +130,4 @@
     <string name="drag_or_tap_to_rearrange_tiles">Tieni premuto e trascina per riorganizzare o tocca per rimuovere</string>
     <string name="lockscreen_default">Predefinito</string>
     <string name="lockscreen_hidden">Nessuno</string>
-    <!-- Navbar editor -->
-    <string name="preview">Anteprima</string>
-    <string name="keycode">Keycode</string>
-    <string name="no_home_title">Nessun pulsante home trovato</string>
-    <string name="no_home_message">Un pulsante home è necessario per poter navigare in questo dispositivo. Sei pregato di aggiungerne uno prima di salvare.</string>
-    <string name="clipboard_description">Gli Appunti consentono agli elementi di essere direttamente trascinati agli appunti. Gli elementi possono anche essere direttamente trascinati ai promemoria quando presenti.</string>
-    <string name="keycode_description">I pulsanti keycode consentono ai tasti della tastiera di essere aggiunti alla Barra di Navigazione. Quando premuti emulano il tasto selezionato della tastiera. Prima il tasto deve essere selezionato per il pulsante, seguito da un\'immagine da mostrare sul pulsante.</string>
-    <string name="start">Inizio</string>
-    <string name="center">Centro</string>
-    <string name="end">Fine</string>
-    <string name="space">Spaziatore</string>
-    <string name="menu_ime">Menu / Interruttore Tastiera</string>
-    <string name="select_button">Seleziona pulsante da aggiungere</string>
-    <string name="add_button">Aggiungi pulsante</string>
-    <string name="save">Salva</string>
-    <string name="reset">Ripristina</string>
-    <string name="select_keycode">Seleziona Pulsante Tastiera</string>
-    <string name="left">Sinistra</string>
-    <string name="right">Destra</string>
-    <string name="navbar_editor_title">Editor</string>
-    <string name="navbar_editor_summary">Configura barra di navigazione</string>
 </resources>
