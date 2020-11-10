@@ -130,25 +130,4 @@
     <string name="drag_or_tap_to_rearrange_tiles">Утрымлівайце і перацягніце, каб змяніць парадак або націсніце для выдалення</string>
     <string name="lockscreen_default">Па змаўчанні</string>
     <string name="lockscreen_hidden">Нічога</string>
-    <!-- Navbar editor -->
-    <string name="preview">Папярэдні прагляд</string>
-    <string name="keycode">Код клавішы</string>
-    <string name="no_home_title">Кнопка \"Дадому\" не знойдзена</string>
-    <string name="no_home_message">Для навігацыі гэтай прыладзе патрабуецца кнопка галоўнага экрана. Калі ласка, дадайце кнопку галоўнага экрана перад захаваннем.</string>
-    <string name="clipboard_description">З дапамогай кнопкі Буфер абмену можна перацягваць элементы непасрэдна ў буфер абмену. Элементы можна таксама перацягваць непасрэдна з буфера абмену, калі яны там ёсць.</string>
-    <string name="keycode_description">Кнопка Код клавішы дазваляе дадаваць клавішы ў Панэль навігацыі. Пры націску гэтай кнопкі эмулюецца выбраная клавіша. Спачатку трэба выбраць клавішу для кнопкі, а потым відарыс, які будзе паказвацца на кнопцы.</string>
-    <string name="start">Пачаць</string>
-    <string name="center">Па цэнтры</string>
-    <string name="end">Канец</string>
-    <string name="space">Падзяляльнік</string>
-    <string name="menu_ime">Пераключальнік Меню/Клавіятура</string>
-    <string name="select_button">Выберыце, якую кнопку дадаць</string>
-    <string name="add_button">Дадаць кнопку</string>
-    <string name="save">Захаваць</string>
-    <string name="reset">Скінуць налады</string>
-    <string name="select_keycode">Выберыце клавішу клавіятуры</string>
-    <string name="left">Злева</string>
-    <string name="right">Справа</string>
-    <string name="navbar_editor_title">Рэдактар</string>
-    <string name="navbar_editor_summary">Налады панэлі навігацыі</string>
 </resources>
