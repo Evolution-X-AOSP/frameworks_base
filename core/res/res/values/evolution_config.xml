@@ -131,4 +131,7 @@
 
     <!-- Pocket Lock -->
     <bool name="config_pocketModeSupported">true</bool>
+
+    <!-- Hide FOD while Going to sleep from lockscreen to avoid HBM flicker -->
+    <bool name="config_inDisplayFingerprintFlickersGoingToSleep">false</bool>
 </resources>
