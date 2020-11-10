@@ -130,25 +130,4 @@
     <string name="drag_or_tap_to_rearrange_tiles">Yeniden düzenlemek için basılı tutun ve kaydırın veya kaldırmak için dokunun</string>
     <string name="lockscreen_default">Varsayılan</string>
     <string name="lockscreen_hidden">Yok</string>
-    <!-- Navbar editor -->
-    <string name="preview">Ön izleme</string>
-    <string name="keycode">Tuş kodu</string>
-    <string name="no_home_title">Ana ekran tuşu bulunamadı</string>
-    <string name="no_home_message">Ana ekran tuşu bu cihazda gezinebilmek için gereklidir. Kaydetmeden önce lütfen bir ana ekran tuşu ekleyin.</string>
-    <string name="clipboard_description">Pano, öğelerin doğrudan panoya sürüklenmesine izin verir. Aynı zamanda, öğeler halihazırda mevcut olduğunda doğrudan panodan dışarı da sürüklenebilir.</string>
-    <string name="keycode_description">Tuş kodları, klavye tuşlarının gezinme çubuğuna eklenmesini sağlar. Basıldığında, seçilen klavye tuşunu taklit eder. Önce tuş için tuşun seçilmesi ve ardından tuşda gösterilecek bir fotoğrafın seçilmesi gerekir.</string>
-    <string name="start">Başlangıç</string>
-    <string name="center">Orta</string>
-    <string name="end">Son</string>
-    <string name="space">Ayırıcı</string>
-    <string name="menu_ime">Menü / Klavye değiştirici</string>
-    <string name="select_button">Eklenecek tuşu seçin</string>
-    <string name="add_button">Tuş ekle</string>
-    <string name="save">Kaydet</string>
-    <string name="reset">Sıfırla</string>
-    <string name="select_keycode">Klavye tuşu seçin</string>
-    <string name="left">Sol</string>
-    <string name="right">Sağ</string>
-    <string name="navbar_editor_title">Düzenleyici</string>
-    <string name="navbar_editor_summary">Gezinme çubuğunu düzenle</string>
 </resources>
