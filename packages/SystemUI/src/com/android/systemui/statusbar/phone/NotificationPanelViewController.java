@@ -64,7 +64,6 @@ import android.widget.TextView;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.internal.util.evolution.EvolutionUtils;
 import com.android.internal.util.LatencyTracker;
 import com.android.keyguard.KeyguardClockSwitch;
 import com.android.keyguard.KeyguardStatusView;
@@ -196,6 +195,8 @@ public class NotificationPanelViewController extends PanelViewController {
 
     private static final String STATUS_BAR_QUICK_QS_PULLDOWN =
             Settings.Secure.STATUS_BAR_QUICK_QS_PULLDOWN;
+    private static final String DOUBLE_TAP_SLEEP_LOCKSCREEN =
+            Settings.Secure.DOUBLE_TAP_SLEEP_LOCKSCREEN;
 
     private static final Rect M_DUMMY_DIRTY_RECT = new Rect(0, 0, 1, 1);
     private static final Rect EMPTY_RECT = new Rect();
@@ -422,6 +423,7 @@ public class NotificationPanelViewController extends PanelViewController {
     private final NotificationLockscreenUserManager mLockscreenUserManager;
     private final ShadeController mShadeController;
     private int mDisplayId;
+    private boolean mDoubleTapToSleepEnabled;
 
     /**
      * Cache the resource id of the theme to avoid unnecessary work in onThemeChanged.
@@ -483,8 +485,6 @@ public class NotificationPanelViewController extends PanelViewController {
 
     private int mStatusBarHeaderHeight;
     private GestureDetector mDoubleTapGesture;
-    private GestureDetector mLockscreenDoubleTapToSleep;
-    private boolean mIsLockscreenDoubleTapEnabled;
 
     private int mOneFingerQuickSettingsIntercept;
 
@@ -570,6 +570,16 @@ public class NotificationPanelViewController extends PanelViewController {
         });
         mBottomAreaShadeAlphaAnimator.setDuration(160);
         mBottomAreaShadeAlphaAnimator.setInterpolator(Interpolators.ALPHA_OUT);
+        mDoubleTapGesture = new GestureDetector(mView.getContext(),
+                new GestureDetector.SimpleOnGestureListener() {
+            @Override
+            public boolean onDoubleTap(MotionEvent e) {
+                if (mPowerManager != null) {
+                    mPowerManager.goToSleep(e.getEventTime());
+                }
+                return true;
+            }
+        });
         mShadeController = shadeController;
         mLockscreenUserManager = notificationLockscreenUserManager;
         mEntryManager = notificationEntryManager;
@@ -578,19 +588,10 @@ public class NotificationPanelViewController extends PanelViewController {
         mDoubleTapGesture = new GestureDetector(mView.getContext(), new GestureDetector.SimpleOnGestureListener() {
             @Override
             public boolean onDoubleTap(MotionEvent e) {
-                EvolutionUtils.switchScreenOff(mView.getContext());
-                // quick pulldown can trigger those values
-                // on double tap - so reset them
-                mQsExpandImmediate = false;
-                requestPanelHeightUpdate();
-                setListening(false);
-                return true;
-            }
-        });
-        mLockscreenDoubleTapToSleep = new GestureDetector(mView.getContext(), new GestureDetector.SimpleOnGestureListener() {
-            @Override
-            public boolean onDoubleTap(MotionEvent e) {
-                EvolutionUtils.switchScreenOff(mView.getContext());
+                PowerManager pm = (PowerManager) mView.getContext().getSystemService(Context.POWER_SERVICE);
+                if(pm != null) {
+                    pm.goToSleep(e.getEventTime());
+                }
                 return true;
             }
         });
@@ -3209,12 +3210,11 @@ public class NotificationPanelViewController extends PanelViewController {
                 if (!mQsExpanded
                         && mDoubleTapToSleepEnabled
                         && event.getY() < mStatusBarHeaderHeight) {
-                   mDoubleTapGesture.onTouchEvent(event);
+                    mDoubleTapGesture.onTouchEvent(event);
                 }
 
-                if (mIsLockscreenDoubleTapEnabled
-                        && mBarState == StatusBarState.KEYGUARD) {
-                   mLockscreenDoubleTapToSleep.onTouchEvent(event);
+                if (mDoubleTapToSleepEnabled && !mPulsing && !mDozing && mBarState == StatusBarState.KEYGUARD) {
+                    mDoubleTapGesture.onTouchEvent(event);
                 }
 
                 // Make sure the next touch won't the blocked after the current ends.
@@ -3260,10 +3260,6 @@ public class NotificationPanelViewController extends PanelViewController {
                 return !mDozing || mPulsing || handled;
             }
         };
-    }
-
-    public void setLockscreenDoubleTapToSleep(boolean isDoubleTapEnabled) {
-        mIsLockscreenDoubleTapEnabled = isDoubleTapEnabled;
     }
 
     @Override
@@ -3682,6 +3678,7 @@ public class NotificationPanelViewController extends PanelViewController {
             mZenModeController.addCallback(mZenModeControllerCallback);
             mConfigurationController.addCallback(mConfigurationListener);
             mTunerService.addTunable(this, STATUS_BAR_QUICK_QS_PULLDOWN);
+            mTunerService.addTunable(this, DOUBLE_TAP_SLEEP_LOCKSCREEN);
             mUpdateMonitor.registerCallback(mKeyguardUpdateCallback);
             // Theme might have changed between inflating this view and attaching it to the
             // window, so
@@ -3703,6 +3700,8 @@ public class NotificationPanelViewController extends PanelViewController {
         public void onTuningChanged(String key, String newValue) {
             if (STATUS_BAR_QUICK_QS_PULLDOWN.equals(key)) {
                 mOneFingerQuickSettingsIntercept = TunerService.parseInteger(newValue, 1);
+            } else if (DOUBLE_TAP_SLEEP_LOCKSCREEN.equals(key)) {
+                mDoubleTapToSleepEnabled = TunerService.parseIntegerSwitch(newValue, true);
             }
         }
     }
