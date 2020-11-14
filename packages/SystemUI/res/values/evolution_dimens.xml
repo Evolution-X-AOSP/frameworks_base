@@ -12,4 +12,7 @@
 
     <!-- Maximum vertical offset of statusbar for burn-in protection -->
     <dimen name="status_bar_offset_max_y">4dp</dimen>
+
+    <!-- Screen Record -->
+    <dimen name="screenrecord_dot_size">48dp</dimen>
 </resources>
