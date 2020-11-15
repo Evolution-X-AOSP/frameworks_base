@@ -21,4 +21,9 @@
     <string name="url_copy_failed">Помилка під час завантаження файла звіту до dogbin</string>
     <string name="reboot_title">Перезавантаження</string>
     <string name="reboot_message">Перезавантаження системи</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Звуковий сигнал для викликів і сповіщень увімкнено</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Натисніть та утримуйте кнопку живлення для взаємодії</string>
 </resources>
