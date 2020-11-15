@@ -21,4 +21,9 @@
     <string name="url_copy_failed">dogbin へのログのアップロード中にエラーが発生しました</string>
     <string name="reboot_title">再起動</string>
     <string name="reboot_message">再起動しています…</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">通話と通知を着信します</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">電源ボタン長押しの操作</string>
 </resources>
