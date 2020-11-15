@@ -21,4 +21,9 @@
     <string name="url_copy_failed">Произошла ошибка при загрузке журнала в dogbin</string>
     <string name="reboot_title">Перезагрузить</string>
     <string name="reboot_message">Перезагрузка системы</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Звуковой сигнал для звонков и уведомлений</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Нажмите и удерживайте кнопку питания для взаимодействия</string>
 </resources>
