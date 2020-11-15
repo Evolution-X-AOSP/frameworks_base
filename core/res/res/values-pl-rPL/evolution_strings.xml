@@ -21,4 +21,9 @@
     <string name="url_copy_failed">Wystąpił błąd podczas przesyłania logów do serwisu dogbin</string>
     <string name="reboot_title">Zrestartuj</string>
     <string name="reboot_message">Restartowanie systemu</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Połączenia i powiadomienia użyją dzwonka</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Przytrzymaj przycisk zasilania w celu interakcji</string>
 </resources>
