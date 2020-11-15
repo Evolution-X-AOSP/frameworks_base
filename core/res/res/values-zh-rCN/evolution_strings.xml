@@ -21,4 +21,9 @@
     <string name="url_copy_failed">上传日志时发生了一个错误。</string>
     <string name="reboot_title">重启</string>
     <string name="reboot_message">正在重新启动</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">来电和有通知时会响铃</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">长按电源键以进行交互</string>
 </resources>
