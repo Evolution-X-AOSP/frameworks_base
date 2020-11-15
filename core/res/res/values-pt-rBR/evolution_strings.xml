@@ -21,4 +21,9 @@
     <string name="url_copy_failed">Ocorreu um erro durante o envio do log para o dogbin</string>
     <string name="reboot_title">Reiniciar</string>
     <string name="reboot_message">Reiniciando o sistema...</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Chamadas e notificações tocarão</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Pressione e segure o botão power para interagir</string>
 </resources>
