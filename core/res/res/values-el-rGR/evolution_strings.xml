@@ -21,4 +21,9 @@
     <string name="url_copy_failed">Παρουσιάστηκε σφάλμα κατά την αποστολή του αρχείου καταγραφής στο dogbin</string>
     <string name="reboot_title">Επανεκκίνηση</string>
     <string name="reboot_message">Επανεκκίνηση συστήματος</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Οι κλήσεις και οι ειδοποιήσεις θα χτυπήσουν</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Πατήστε παρατεταμένα το κουμπί λειτουργίας για αλληλεπίδραση</string>
 </resources>
