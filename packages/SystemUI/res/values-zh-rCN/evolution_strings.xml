@@ -141,8 +141,6 @@
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">强制停止？</string>
     <string name="force_stop_dlg_text">强行停止某个应用可能会导致其出现异常</string>
-    <string name="dlg_ok">@android:string/ok</string>
-    <string name="dlg_cancel">@android:string/cancel</string>
     <string name="guts_force_close_app">关闭应用</string>
     <!-- Screenrecorder -->
     <string name="screenrecord_stopdot_label">显示停止点\n长按移动它</string>
