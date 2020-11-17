@@ -130,4 +130,27 @@
     <string name="drag_or_tap_to_rearrange_tiles">長押しして移動することで並び替えてタップして削除する</string>
     <string name="lockscreen_default">既定</string>
     <string name="lockscreen_hidden">なし</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">スクリーンショットを削除しました</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - 通知の表示は1分間一時停止します</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - 通知の表示は<xliff:g id="number">%1$d</xliff:g>分間停止します</string>
+    <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">部分スクリーンショットを取得</string>
+    <string name="global_screenshot_selector_cancel_description">部分スクリーンショットを破棄</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">強制停止しますか?</string>
+    <string name="force_stop_dlg_text">アプリを強制停止するとアプリが正常に機能しないことがあります</string>
+    <string name="dlg_ok">@android:string/ok</string>
+    <string name="dlg_cancel">@android:string/cancel</string>
+    <string name="guts_force_close_app">アプリを終了</string>
+    <!-- Screenrecorder -->
+    <string name="screenrecord_stopdot_label">停止ドット\n長押しして移動</string>
+    <string name="screenrecord_lowquality_label">低品質にしてファイルサイズ縮小</string>
+    <!-- Kill app -->
+    <string name="task_helper_app_killed">%1$s を強制停止しました</string>
+    <string name="empty_app_killed">アプリ</string>
+    <string name="quick_settings_killapp_label">アプリの終了</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">実行中のサービスを開く</string>
 </resources>
