@@ -141,8 +141,6 @@
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Спынiць прымусова?</string>
     <string name="force_stop_dlg_text">Прымусовае закрыццё праграмы можа адбіцца на яе функцыянальнасці.</string>
-    <string name="dlg_ok">@android:string/ok</string>
-    <string name="dlg_cancel">@android:string/cancel</string>
     <string name="guts_force_close_app">Закрыць праграму</string>
     <!-- Screenrecorder -->
     <string name="screenrecord_stopdot_label">Паказаць кропку спынення\nНацісніце, каб перамясціць</string>
