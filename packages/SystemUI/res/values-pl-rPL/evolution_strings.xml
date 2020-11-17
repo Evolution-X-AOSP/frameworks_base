@@ -141,8 +141,6 @@
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Wymusić zatrzymanie?</string>
     <string name="force_stop_dlg_text">Jeśli wymusisz zatrzymanie aplikacji, może ona działać nieprawidłowo.</string>
-    <string name="dlg_ok">@android:string/ok</string>
-    <string name="dlg_cancel">@android:string/cancel</string>
     <string name="guts_force_close_app">Zamknij aplikację</string>
     <!-- Screenrecorder -->
     <string name="screenrecord_stopdot_label">Pokaż kropkę do zatrzymania\nPrzytrzymaj, aby ją przenieść</string>
