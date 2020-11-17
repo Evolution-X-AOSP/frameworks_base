@@ -164,7 +164,6 @@ public class StatusBarGoogle extends StatusBar {
             PluginManager pluginManager,
             Optional<Divider> dividerOptional,
             LightsOutNotifController lightsOutNotifController,
-            FlashlightController flashlightController,
             StatusBarNotificationActivityStarter.Builder
                     statusBarNotificationActivityStarterBuilder,
             ShadeController shadeController,
@@ -182,15 +181,16 @@ public class StatusBarGoogle extends StatusBar {
             KeyguardIndicationController keyguardIndicationController,
             DismissCallbackRegistry dismissCallbackRegistry,
             Lazy<NotificationShadeDepthController> notificationShadeDepthControllerLazy,
-            StatusBarTouchableRegionManager statusBarTouchableRegionManager) {
+            StatusBarTouchableRegionManager statusBarTouchableRegionManager,
+            FlashlightController flashlightController) {
 
-        super(context, 
+        super(context,
             notificationsController,
             lightBarController,
             autoHideController,
             keyguardUpdateMonitor,
             statusBarIconController,
-            pulseExpansionHandler, 
+            pulseExpansionHandler,
             notificationWakeUpCoordinator,
             keyguardBypassController,
             keyguardStateController,
@@ -244,7 +244,6 @@ public class StatusBarGoogle extends StatusBar {
             pluginManager,
             dividerOptional,
             lightsOutNotifController,
-            flashlightController,
             statusBarNotificationActivityStarterBuilder,
             shadeController,
             superStatusBarViewFactory,
@@ -261,7 +260,8 @@ public class StatusBarGoogle extends StatusBar {
             keyguardIndicationController,
             dismissCallbackRegistry,
             notificationShadeDepthControllerLazy,
-            statusBarTouchableRegionManager);
+            statusBarTouchableRegionManager,
+            flashlightController);
         }
 
     @Override

@@ -182,7 +182,6 @@ public interface StatusBarPhoneModule {
             PluginManager pluginManager,
             Optional<Divider> dividerOptional,
             LightsOutNotifController lightsOutNotifController,
-            FlashlightController flashlightController,
             StatusBarNotificationActivityStarter.Builder
                     statusBarNotificationActivityStarterBuilder,
             ShadeController shadeController,
@@ -200,7 +199,8 @@ public interface StatusBarPhoneModule {
             KeyguardIndicationController keyguardIndicationController,
             Lazy<NotificationShadeDepthController> notificationShadeDepthController,
             DismissCallbackRegistry dismissCallbackRegistry,
-            StatusBarTouchableRegionManager statusBarTouchableRegionManager) {
+            StatusBarTouchableRegionManager statusBarTouchableRegionManager,
+            FlashlightController flashlightController) {
         return new StatusBar(
                 context,
                 notificationsController,
@@ -262,7 +262,6 @@ public interface StatusBarPhoneModule {
                 pluginManager,
                 dividerOptional,
                 lightsOutNotifController,
-                flashlightController,
                 statusBarNotificationActivityStarterBuilder,
                 shadeController,
                 superStatusBarViewFactory,
@@ -279,6 +278,7 @@ public interface StatusBarPhoneModule {
                 keyguardIndicationController,
                 dismissCallbackRegistry,
                 notificationShadeDepthController,
-                statusBarTouchableRegionManager);
+                statusBarTouchableRegionManager,
+                flashlightController);
     }
 }
