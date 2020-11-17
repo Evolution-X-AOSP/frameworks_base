@@ -35,7 +35,6 @@ import com.android.systemui.R;
 import com.android.systemui.broadcast.BroadcastDispatcher;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.qs.QSTile.BooleanState;
-import com.android.systemui.statusbar.policy.KeyguardStateController;
 import com.android.systemui.qs.GlobalSetting;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
@@ -50,15 +49,13 @@ public class AirplaneModeTile extends QSTileImpl<BooleanState> {
     private final BroadcastDispatcher mBroadcastDispatcher;
 
     private boolean mListening;
-    private KeyguardStateController mKeyguard;
 
     @Inject
     public AirplaneModeTile(QSHost host, ActivityStarter activityStarter,
-            BroadcastDispatcher broadcastDispatcher, KeyguardStateController keyguardStateController) {
+            BroadcastDispatcher broadcastDispatcher) {
         super(host);
         mActivityStarter = activityStarter;
         mBroadcastDispatcher = broadcastDispatcher;
-        mKeyguard = keyguardStateController;
 
         mSetting = new GlobalSetting(mContext, mHandler, Global.AIRPLANE_MODE_ON) {
             @Override
@@ -82,14 +79,6 @@ public class AirplaneModeTile extends QSTileImpl<BooleanState> {
                     new Intent(TelephonyManager.ACTION_SHOW_NOTICE_ECM_BLOCK_OTHERS), 0);
             return;
         }
-        if (mKeyguard.isMethodSecure() && mKeyguard.isShowing()) {
-            mActivityStarter.postQSRunnableDismissingKeyguard(() -> {
-                mHost.openPanels();
-                setEnabled(!mState.value);
-            });
-            return;
-        }
-        // no secure keyguard
         setEnabled(!airplaneModeEnabled);
     }
 
@@ -160,13 +149,6 @@ public class AirplaneModeTile extends QSTileImpl<BooleanState> {
             if (Intent.ACTION_AIRPLANE_MODE_CHANGED.equals(intent.getAction())) {
                 refreshState();
             }
-        }
-    };
-
-    private final class Callback implements KeyguardStateController.Callback {
-        @Override
-        public void onKeyguardShowingChanged() {
-            refreshState();
         }
     };
 }
