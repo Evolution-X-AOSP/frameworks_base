@@ -14171,12 +14171,6 @@ public final class Settings {
         public static final String SHOW_FPS_OVERLAY = "show_fps_overlay";
 
         /**
-         * Google Hybrid Battery Warnings
-         * @hide
-         */
-        public static final String HYBRID_SYSUI_BATTERY_WARNING_FLAGS = "hybrid_sysui_battery_warning_flags";
-
-        /**
          * Disabled Transition animations of the android system
          * @hide
          */
