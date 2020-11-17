@@ -141,8 +141,6 @@
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Forçar fechamento?</string>
     <string name="force_stop_dlg_text">Se você forçar o fechamento de um aplicativo, este poderá apresentar um comportamento anormal.</string>
-    <string name="dlg_ok">@android:string/ok</string>
-    <string name="dlg_cancel">@android:string/cancelar</string>
     <string name="guts_force_close_app">Fechar aplicativo</string>
     <!-- Screenrecorder -->
     <string name="screenrecord_stopdot_label">Mostrar ponto de parada\nPressionamento longo para movê-lo</string>
