@@ -130,4 +130,27 @@
     <string name="drag_or_tap_to_rearrange_tiles">Segure &amp; arraste para reorganizar ou toque para remover</string>
     <string name="lockscreen_default">Padrão</string>
     <string name="lockscreen_hidden">Nenhum</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">A captura de tela foi excluída</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s </xliff:g> - As notificações estão desativadas por 1 minuto.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - As notificações estão desativadas por <xliff:g id="number">%1$d</xliff:g> minutos.</string>
+    <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">Captura parcial de tela</string>
+    <string name="global_screenshot_selector_cancel_description">Cancelar captura de tela parcial</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Forçar fechamento?</string>
+    <string name="force_stop_dlg_text">Se você forçar o fechamento de um aplicativo, este poderá apresentar um comportamento anormal.</string>
+    <string name="dlg_ok">@android:string/ok</string>
+    <string name="dlg_cancel">@android:string/cancelar</string>
+    <string name="guts_force_close_app">Fechar aplicativo</string>
+    <!-- Screenrecorder -->
+    <string name="screenrecord_stopdot_label">Mostrar ponto de parada\nPressionamento longo para movê-lo</string>
+    <string name="screenrecord_lowquality_label">Qualidade inferior para arquivo menor</string>
+    <!-- Kill app -->
+    <string name="task_helper_app_killed">%1$s força parada</string>
+    <string name="empty_app_killed">Aplicativo</string>
+    <string name="quick_settings_killapp_label">Encerrar aplicativo</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">Abrir tela de serviços em execução.</string>
 </resources>
