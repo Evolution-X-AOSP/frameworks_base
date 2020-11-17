@@ -130,4 +130,27 @@
     <string name="drag_or_tap_to_rearrange_tiles">Przytrzymaj &amp; przeciągnij, aby zmienić kolejność lub dotknij aby usunąć</string>
     <string name="lockscreen_default">Domyślnie</string>
     <string name="lockscreen_hidden">Żaden</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Zrzut ekranu został usunięty</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Wyskakujące powiadomienie jest wstrzymane na 1 minutę.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> Wyskakujące powiadomienia zostały wstrzymane na <xliff:g id="number">%1$d</xliff:g> minut.</string>
+    <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">Zrób częściowy zrzut ekranu</string>
+    <string name="global_screenshot_selector_cancel_description">Anuluj częściowy zrzut ekranu</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Wymusić zatrzymanie?</string>
+    <string name="force_stop_dlg_text">Jeśli wymusisz zatrzymanie aplikacji, może ona działać nieprawidłowo.</string>
+    <string name="dlg_ok">@android:string/ok</string>
+    <string name="dlg_cancel">@android:string/cancel</string>
+    <string name="guts_force_close_app">Zamknij aplikację</string>
+    <!-- Screenrecorder -->
+    <string name="screenrecord_stopdot_label">Pokaż kropkę do zatrzymania\nPrzytrzymaj, aby ją przenieść</string>
+    <string name="screenrecord_lowquality_label">Niższa jakość dla mniejszego rozmiaru pliku</string>
+    <!-- Kill app -->
+    <string name="task_helper_app_killed">%1$s została zatrzymana</string>
+    <string name="empty_app_killed">Aplikacja</string>
+    <string name="quick_settings_killapp_label">Zabij aplikację</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">Otwórz ekran działających usług.</string>
 </resources>
