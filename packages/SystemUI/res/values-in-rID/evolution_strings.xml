@@ -141,8 +141,6 @@
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Paksa berhenti?</string>
     <string name="force_stop_dlg_text">Jika Anda menghentikan paksa aplikasi, akan menyebabkan gagal fungsi.</string>
-    <string name="dlg_ok">@android:string/ok</string>
-    <string name="dlg_cancel">@android:string/batalkan</string>
     <string name="guts_force_close_app">Tutup aplikasi</string>
     <!-- Screenrecorder -->
     <string name="screenrecord_stopdot_label">Tampilkan titik berhenti\nTekan lama untuk memindahkannya</string>
