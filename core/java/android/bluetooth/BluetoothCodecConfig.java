@@ -71,9 +71,8 @@ public final class BluetoothCodecConfig implements Parcelable {
     */
     public static final int SOURCE_CODEC_TYPE_CELT = 8;
 
-   public static final int SOURCE_CODEC_TYPE_LC3 = 9;
+    public static final int SOURCE_CODEC_TYPE_LC3 = 9;
 
-    @UnsupportedAppUsage
     public static final int SOURCE_CODEC_TYPE_INVALID = 1000 * 1000;
 
     /** @hide */
