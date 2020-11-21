@@ -145,4 +145,10 @@
   <!-- SystemUI Restart -->
   <java-symbol type="string" name="systemui_restart_title" />
   <java-symbol type="string" name="systemui_restart_message" />
+
+  <!-- Whether device has a physical display cutout -->
+  <java-symbol type="bool" name="config_physicalDisplayCutout" />
+
+  <!-- Whether device has a big physical display cutout -->
+  <java-symbol type="bool" name="config_physicalDisplayCutoutCentered" />
 </resources>
