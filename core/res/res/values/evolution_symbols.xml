@@ -187,4 +187,10 @@
   <java-symbol type="string" name="gaming_mode_notification_content" />
   <java-symbol type="string" name="gaming_mode_enabled_toast" />
   <java-symbol type="string" name="gaming_mode_disabled_toast" />
+
+  <java-symbol type="id" name="app_name" />
+  <java-symbol type="id" name="app_icon" />
+  <java-symbol type="layout" name="app_list_item" />
+  <java-symbol type="string" name="active_edge_app_select_title" />
+  <java-symbol type="string" name="active_edge_activity_select_title" />
 </resources>
