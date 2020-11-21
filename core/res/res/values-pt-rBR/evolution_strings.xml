@@ -48,4 +48,25 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay alterado para modo diurno.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay alterado para modo noturno.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay alterado para o modo exterior.</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">É necessário reiniciar a Interface do Sistema</string>
+    <string name="systemui_restart_message">Para que todas as alterações tenham efeito, é necessário reiniciar a interface do sistema. Deseja reiniciar a interface do sistema agora?</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">Desvanecer</string>
+    <string name="animation_slide_right">Deslize para a direita</string>
+    <string name="animation_slide_left">Deslize para a esquerda</string>
+    <string name="animation_slide_right_no_fade">Deslizar para a direita (sem desvanecer)</string>
+    <string name="animation_slide_left_no_fade">Deslize para a Esquerda (Sem Desvanecer)</string>
+    <string name="animation_slide_up">Deslizar embaixo</string>
+    <string name="animation_slide_down">Deslizar no topo</string>
+    <string name="animation_default">Padrão</string>
+    <string name="animation_translucent">Translúcido</string>
+    <string name="animation_grow_shrink">Crescer (Topo)</string>
+    <string name="animation_grow_shrink_center">Crescer (Centro)</string>
+    <string name="animation_grow_shrink_bottom">Crescer (Em Baixo)</string>
+    <string name="animation_grow_shrink_left">Crescer (Esquerda)</string>
+    <string name="animation_grow_shrink_right">Crescer (Direita)</string>
+    <string name="animation_random">Aleatório</string>
+    <string name="action_null">Vazio</string>
+    <string name="animation_ethans">Ethans</string>
 </resources>
