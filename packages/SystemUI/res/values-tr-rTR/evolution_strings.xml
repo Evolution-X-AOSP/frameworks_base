@@ -130,4 +130,28 @@
     <string name="drag_or_tap_to_rearrange_tiles">Yeniden düzenlemek için basılı tutun ve kaydırın veya kaldırmak için dokunun</string>
     <string name="lockscreen_default">Varsayılan</string>
     <string name="lockscreen_hidden">Yok</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Ekran görüntüsü silindi</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Bildirim pencereleri 1 dakika ertelendi.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Bildirim pencereleri <xliff:g id="number">%1$d</xliff:g> dakika ertelendi.</string>
+    <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">Kısmi ekran görüntüsü al</string>
+    <string name="global_screenshot_selector_cancel_description">Kısmi ekran görüntüsünü iptal et</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Durmaya zorlansın mı?</string>
+    <string name="force_stop_dlg_text">Uygulamayı zorla durdurursanız, hatalı davranabilir.</string>
+    <string name="guts_force_close_app">Uygulamayı Kapat</string>
+    <!-- Screenrecorder -->
+    <string name="screenrecord_stopdot_label">Durma noktasını göster\nTaşımak için uzun basın</string>
+    <string name="screenrecord_lowquality_label">Daha küçük dosya boyutu için daha düşük kalite</string>
+    <!-- Kill app -->
+    <string name="task_helper_app_killed">%1$s zorla durduruldu</string>
+    <string name="empty_app_killed">Uygulama</string>
+    <string name="quick_settings_killapp_label">Uygulamayı sonlandır</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">Çalışan hizmetler ekranını aç.</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Dil</string>
+    <string name="quick_settings_locale_more_locales_toast">Geçiş işlevselliğinin etkin olması için lütfen birden fazla dil ekleyin</string>
 </resources>
