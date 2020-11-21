@@ -151,4 +151,7 @@
     <string name="quick_settings_killapp_label">Matikan aplikasi</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
     <string name="accessibility_quick_settings_running_services">Buka layar Layanan Berjalan.</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Bahasa</string>
+    <string name="quick_settings_locale_more_locales_toast">Silakan konfigurasikan beberapa bahasa untuk mengaktifkan fungsionalitas tombol</string>
 </resources>
