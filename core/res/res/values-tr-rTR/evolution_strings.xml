@@ -21,4 +21,52 @@
     <string name="url_copy_failed">Günlüğü dogbin\'e yüklerken bir hata oluştu</string>
     <string name="reboot_title">Yeniden başlat</string>
     <string name="reboot_message">Sistem yeniden başlatılıyor</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Çağrılar ve bildirimler için zil sesi</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Etkileşim için güç tuşuna uzun basın</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Otomatik</string>
+    <string name="live_display_auto_summary">Güneşin doğuşu ve batışından sonra ekran renk sıcaklığını otomatik ayarla</string>
+    <string name="live_display_off">Kapalı</string>
+    <string name="live_display_off_summary">Tüm ayarlamaları devre dışı bırak</string>
+    <string name="live_display_day">Gündüz</string>
+    <string name="live_display_day_summary">Sadece gündüz ayarlarını kullan</string>
+    <string name="live_display_night">Gece</string>
+    <string name="live_display_night_summary">Sadece gece ayarlarını kullan</string>
+    <string name="live_display_outdoor">Açık alan (parlak güneş)</string>
+    <string name="live_display_outdoor_summary">Sadece açık alan ayarlarını kullan</string>
+    <string name="live_display_hint">LiveDisplay, göz yorgunluğunuzu azaltmanıza ve gece uyumanıza yardımcı olabilir. Denemek için buraya dokunun!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay kapalı.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: otomatik mod.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: gündüz modu.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: gece modu.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: açık alan modu.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay kapatıldı.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay otomatik moda geçti.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay gündüz moduna geçti.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay gece moduna geçti.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay açık alan moduna geçti.</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Sistem arayüzünün yeniden başlatılması gerekir</string>
+    <string name="systemui_restart_message">Tüm değişikliklerin etkili olması için Sistem arayüzünün yeniden başlatılması gerekiyor. Sistem arayüzünü şimdi yeniden başlatmak ister misiniz?</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">Soldur</string>
+    <string name="animation_slide_right">Sağa kaydır</string>
+    <string name="animation_slide_left">Sola kaydır</string>
+    <string name="animation_slide_right_no_fade">Sağa kaydır (Solma yok)</string>
+    <string name="animation_slide_left_no_fade">Sola kaydır (Solma yok)</string>
+    <string name="animation_slide_up">Aşağı kaydır</string>
+    <string name="animation_slide_down">Yukarı kaydır</string>
+    <string name="animation_default">Varsayılan</string>
+    <string name="animation_translucent">Yarı saydam</string>
+    <string name="animation_grow_shrink">Büyüt (Yukarıdan)</string>
+    <string name="animation_grow_shrink_center">Büyüt (Ortadan)</string>
+    <string name="animation_grow_shrink_bottom">Büyüt (Aşağıdan)</string>
+    <string name="animation_grow_shrink_left">Büyüt (Soldan)</string>
+    <string name="animation_grow_shrink_right">Büyüt (Sağdan)</string>
+    <string name="animation_random">Rastgele</string>
+    <string name="action_null">Boş</string>
+    <string name="animation_ethans">Sabit</string>
 </resources>
