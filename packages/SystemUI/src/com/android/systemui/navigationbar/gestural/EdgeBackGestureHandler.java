@@ -255,6 +255,7 @@ public class EdgeBackGestureHandler implements PluginListener<NavigationEdgeBack
     private int mRightVerticalSwipeAction;
     private boolean mBlockNextEvent;
     private Handler mHandler;
+    private boolean mImeVisible;
 
     private boolean mIsAttached;
     private boolean mIsGesturalModeEnabled;
@@ -874,7 +875,19 @@ public class EdgeBackGestureHandler implements PluginListener<NavigationEdgeBack
             return withinRange;
         }
 
-        if (mExcludeRegion.contains(x, y)) {
+        /* If Launcher is showing and wants to block back gesture, let's still trigger our custom
+        swipe actions at the very bottom of the screen, because we are cool.*/
+        boolean isInExcludedRegion = false;
+        // still block extended swipe if keyboard is showing, to avoid conflicts with IME gestures
+        if (!mImeVisible && (
+                mIsExtendedSwipe
+                || (mLeftLongSwipeAction != 0 && mIsOnLeftEdge)  || (mRightLongSwipeAction != 0 && !mIsOnLeftEdge))) {
+            isInExcludedRegion= mExcludeRegion.contains(x, y)
+                && y < ((mDisplaySize.y / 4) * 3);
+        } else {
+            isInExcludedRegion= mExcludeRegion.contains(x, y);
+        }
+        if (isInExcludedRegion) {
             if (withinRange) {
                 // We don't have the end point for logging purposes.
                 mEndPoint.x = -1;
@@ -888,6 +901,10 @@ public class EdgeBackGestureHandler implements PluginListener<NavigationEdgeBack
         mInRejectedExclusion = mUnrestrictedExcludeRegion.contains(x, y);
         mLogGesture = true;
         return withinRange;
+    }
+
+    public void setImeVisible(boolean visible) {
+        mImeVisible = visible;
     }
 
     private void cancelGesture(MotionEvent ev) {
