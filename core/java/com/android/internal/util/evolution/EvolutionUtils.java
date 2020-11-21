@@ -73,8 +73,6 @@ import static android.content.Context.VIBRATOR_SERVICE;
 
 public class EvolutionUtils {
 
-    public static final String INTENT_SCREENSHOT = "action_handler_screenshot";
-    public static final String INTENT_REGION_SCREENSHOT = "action_handler_region_screenshot";
     public static final String DOZE_PACKAGE_NAME = "Doze";
     public static final String LINEAGE_DOZE_PACKAGE_NAME = "org.lineageos.settings.doze";
     public static final String CUSTOM_DOZE_PACKAGE_NAME = "com.custom.ambient.display";
@@ -330,60 +328,14 @@ public class EvolutionUtils {
         return Color.HSVToColor(newAlpha, newColor);
     }
 
-    // Method to turn off the screen
-    public static void switchScreenOff(Context ctx) {
-        PowerManager pm = (PowerManager) ctx.getSystemService(Context.POWER_SERVICE);
-        if (pm!= null) {
-            pm.goToSleep(SystemClock.uptimeMillis());
-        }
-    }
-
-    // Method to turn on the screen
-    public static void switchScreenOn(Context context) {
-        PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-        if (pm == null) return;
-        pm.wakeUp(SystemClock.uptimeMillis(), "com.android.systemui:CAMERA_GESTURE_PREVENT_LOCK");
-    }
-
     public static boolean deviceHasFlashlight(Context ctx) {
         return ctx.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
-    }
-
-    public static void killForegroundApp() {
-        IStatusBarService service = getStatusBarService();
-        if (service != null) {
-            try {
-                service.killForegroundApp();
-            } catch (RemoteException e) {
-                // do nothing.
-            }
-        }
-    }
-
-    public static void toggleCameraFlash() {
-        IStatusBarService service = getStatusBarService();
-        if (service != null) {
-            try {
-                service.toggleCameraFlash();
-            } catch (RemoteException e) {
-                // do nothing.
-            }
-        }
     }
 
     public static boolean deviceHasCompass(Context ctx) {
         SensorManager sm = (SensorManager) ctx.getSystemService(Context.SENSOR_SERVICE);
         return sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) != null
                 && sm.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD) != null;
-    }
-
-    public static void takeScreenshot(boolean full) {
-        IWindowManager wm = WindowManagerGlobal.getWindowManagerService();
-        try {
-            wm.sendCustomAction(new Intent(full? INTENT_SCREENSHOT : INTENT_REGION_SCREENSHOT));
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
     }
 
     public static void moveKbCursor(int action, boolean right) {
@@ -429,72 +381,6 @@ public class EvolutionUtils {
         boolean maskDisplayCutout = context.getResources().getBoolean(R.bool.config_maskMainBuiltInDisplayCutout);
         boolean displayCutoutExists = (!TextUtils.isEmpty(displayCutout) && !maskDisplayCutout);
         return displayCutoutExists;
-    }
-
-    // Volume panel
-    public static void toggleVolumePanel(Context context) {
-        AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
-        am.adjustVolume(AudioManager.ADJUST_SAME, AudioManager.FLAG_SHOW_UI);
-    }
-
-    // Clear notifications
-    public static void clearAllNotifications() {
-        IStatusBarService service = getStatusBarService();
-        if (service != null) {
-            try {
-                service.onClearAllNotifications(ActivityManager.getCurrentUser());
-            } catch (RemoteException e) {
-                // do nothing.
-            }
-        }
-    }
-
-    // Toggle notifications panel
-    public static void toggleNotifications() {
-        IStatusBarService service = getStatusBarService();
-        if (service != null) {
-            try {
-                service.expandNotificationsPanel();
-            } catch (RemoteException e) {
-                // do nothing.
-            }
-        }
-    }
-
-    // Toggle qs panel
-    public static void toggleQsPanel() {
-        IStatusBarService service = getStatusBarService();
-        if (service != null) {
-            try {
-                service.expandSettingsPanel(null);
-            } catch (RemoteException e) {
-                // do nothing.
-            }
-        }
-    }
-
-    // Cycle ringer modes
-    public static void toggleRingerModes (Context context) {
-        AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
-        Vibrator vibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
-
-        switch (am.getRingerMode()) {
-            case AudioManager.RINGER_MODE_NORMAL:
-                if (vibrator.hasVibrator()) {
-                    am.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
-                }
-                break;
-            case AudioManager.RINGER_MODE_VIBRATE:
-                am.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
-                NotificationManager notificationManager =
-                        (NotificationManager) context.getSystemService(NOTIFICATION_SERVICE);
-                notificationManager.setInterruptionFilter(
-                        NotificationManager.INTERRUPTION_FILTER_PRIORITY);
-                break;
-            case AudioManager.RINGER_MODE_SILENT:
-                am.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
-                break;
-        }
     }
 
     /* e.g.

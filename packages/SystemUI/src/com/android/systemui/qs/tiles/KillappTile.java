@@ -20,7 +20,7 @@ import android.content.Intent;
 import android.service.quicksettings.Tile;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.internal.util.evolution.EvolutionUtils;
+import com.android.internal.util.evolution.ActionUtils;
 import com.android.systemui.R;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.qs.QSTile;
@@ -85,7 +85,7 @@ public class KillappTile extends QSTileImpl<QSTile.BooleanState> {
         // Close QS
         getHost().collapsePanels();
         ActivityStarter.OnDismissAction dismissAction = () -> {
-            EvolutionUtils.killForegroundApp();
+            ActionUtils.killForegroundApp();
             return false;
         };
         mKeyguardDismissUtil.executeWhenUnlocked(dismissAction, false);

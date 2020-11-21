@@ -21,7 +21,7 @@ import android.os.UserHandle;
 import android.provider.Settings;
 import android.service.quicksettings.Tile;
 
-import com.android.internal.util.evolution.EvolutionUtils;
+import com.android.internal.util.evolution.ActionUtils;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.plugins.qs.QSTile.BooleanState;
@@ -70,7 +70,7 @@ public class ScreenshotTile extends QSTileImpl<BooleanState> {
 
         //finish collapsing the panel
         mUiHandler.postDelayed(() -> {
-            EvolutionUtils.takeScreenshot(mRegion ? false : true);
+            ActionUtils.takeScreenshot(mRegion ? false : true);
         }, 1000/*timeout*/);
     }
 
