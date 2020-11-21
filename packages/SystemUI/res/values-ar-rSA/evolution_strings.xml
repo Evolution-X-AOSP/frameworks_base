@@ -65,12 +65,6 @@
     <string name="accessibility_quick_settings_heads_up_on">تشغيل التنبيهات العلوية.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">تم إيقاف التنبيهات العلوية.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">تم تشغيل التنبيهات العلوية.</string>
-    <!-- Immersive Mode QS Tile -->
-    <string name="quick_settings_immersive_tile">وضع الغمار</string>
-    <string name="quick_settings_immersive_tile_off">وضع الغمار معطل</string>
-    <string name="quick_settings_immersive_tile_statusbar">شريط الحالة الغامر</string>
-    <string name="quick_settings_immersive_tile_navbar">شريط التنقل الغامر</string>
-    <string name="quick_settings_immersive_tile_full">الغمر الكامل</string>
     <!-- Mono QS Tile -->
     <string name="quick_settings_monotoggle_tile">وضع الصوت</string>
     <string name="quick_settings_monotoggle_tile_mono">صوت أحادي</string>
@@ -106,25 +100,21 @@
     <string name="quick_settings_usb_tether_label">‏تقييد USB</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">لوحة التحكم بالصوت</string>
-    <!-- Lockscreen tuner -->
-    <string name="lockscreen_default">الإفتراضي</string>
-    <string name="lockscreen_hidden">لا شَيْء</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">تمرير من الأيقونة للتشغيل</string>
     <!-- Status bar icons -->
+    <string name="statusbar_items_title">ايقونة شريط الحالة</string>
+    <string name="status_bar_data_disabled">إظهار رمز تعطيل بيانات الهاتف</string>
+    <string name="status_bar_data_saver">موفر البيانات</string>
     <string name="status_bar_nfc">‏الاتصالات قصيرة المدى (NFC)</string>
+    <string name="status_bar_roaming">تجوال</string>
+    <string name="status_bar_vpn">شبكة افتراضية خاصة</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
     <string name="accessibility_status_bar_nfc">‏الاتصالات قصيرة المدى</string>
     <string name="global_action_restart_advanced">خيارات متقدمة</string>
     <string name="global_action_restart_recovery">الاسترداد</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">واجهة النظام</string>
-    <!-- Tuner items -->
-    <string name="statusbar_items_title">ايقونة شريط الحالة</string>
-    <string name="status_bar_data_disabled">إظهار رمز تعطيل بيانات الهاتف</string>
-    <string name="status_bar_data_saver">موفر البيانات</string>
-    <string name="status_bar_vpn">شبكة افتراضية خاصة</string>
-    <string name="status_bar_roaming">تجوال</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • الشحن السريع (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> حتى الامتلاء)</string>
     <string name="keyguard_plugged_in_dash_charging">يجري الشحن بتقنية Dash</string>
@@ -134,4 +124,34 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • الشحن السريع (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> حتى الامتلاء)</string>
     <string name="keyguard_plugged_in_vooc_charging">شحن VOC</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">استمر بالضغط على &amp; وسحب أو انقر لإضافة البلاطات</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">اضغط على &amp; اسحب لإعادة الترتيب أو اضغط للإزالة</string>
+    <string name="lockscreen_default">الإفتراضي</string>
+    <string name="lockscreen_hidden">لا شَيْء</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">تم حذف لقطة الشاشة</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - التنبيهات الخاطفة معطلة لدقيقة واحدة.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> • التنبيهات الخاطفة معطلة ل <xliff:g id="number">%1$d</xliff:g> دقائق.</string>
+    <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">التقاط لقطة جزئية للشاشة</string>
+    <string name="global_screenshot_selector_cancel_description">التقاط لقطة جزئية للشاشة</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">هل تريد فرض الإيقاف؟</string>
+    <string name="force_stop_dlg_text">في حالة فرض إيقاف التطبيق، ربما لا يعمل بشكل صحيح.</string>
+    <string name="guts_force_close_app">إغلاق التطبيق</string>
+    <!-- Screenrecorder -->
+    <string name="screenrecord_stopdot_label">إظهار نقطة التوقف\nالضغط المطول لتحريكها</string>
+    <string name="screenrecord_lowquality_label">جودة أقل لحجم الملف الأصغر</string>
+    <!-- Kill app -->
+    <string name="task_helper_app_killed">توقفت %1$s</string>
+    <string name="empty_app_killed">التطبيق</string>
+    <string name="quick_settings_killapp_label">قتل التطبيق</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">فتح شاشة الخدمات المشغلة.</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">اللغة</string>
+    <string name="quick_settings_locale_more_locales_toast">الرجاء إعداد لغات متعددة لتمكين وظيفة مفتاح التبديل</string>
 </resources>
