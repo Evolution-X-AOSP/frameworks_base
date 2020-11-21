@@ -48,4 +48,25 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay を昼モードに変更しました</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay を夜モードに変更しました</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay を屋外モードに変更しました</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">システム UI の再起動が必要です</string>
+    <string name="systemui_restart_message">全ての変更を反映するにはシステム UI の再起動が必要です。再起動しますか?</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">フェード</string>
+    <string name="animation_slide_right">右にスライド</string>
+    <string name="animation_slide_left">左にスライド</string>
+    <string name="animation_slide_right_no_fade">右にスライド (フェードなし)</string>
+    <string name="animation_slide_left_no_fade">左にスライド (フェードなし)</string>
+    <string name="animation_slide_up">下にスライド</string>
+    <string name="animation_slide_down">上にスライド</string>
+    <string name="animation_default">既定</string>
+    <string name="animation_translucent">半透明</string>
+    <string name="animation_grow_shrink">拡大 (上)</string>
+    <string name="animation_grow_shrink_center">拡大 (中央)</string>
+    <string name="animation_grow_shrink_bottom">拡大 (下)</string>
+    <string name="animation_grow_shrink_left">拡大 (左)</string>
+    <string name="animation_grow_shrink_right">拡大 (右)</string>
+    <string name="animation_random">ランダム</string>
+    <string name="action_null">空白</string>
+    <string name="animation_ethans">Ethans</string>
 </resources>
