@@ -59,6 +59,7 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Display;
+import android.provider.MediaStore;
 import android.view.IWindowManager;
 import android.view.View;
 import android.view.ViewGroup;
