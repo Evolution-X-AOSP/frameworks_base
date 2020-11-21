@@ -618,6 +618,7 @@ public class NavigationBarView extends FrameLayout implements TunerService.Tunab
         }
         mImeVisible = visible;
         mRotationButtonController.getRotationButton().setCanShowRotationButton(!visible && mIsUserEnabled);
+        mEdgeBackGestureHandler.setImeVisible(visible);
     }
 
     void setDisabledFlags(int disabledFlags, SysUiState sysUiState) {
