@@ -105,6 +105,10 @@
         <item>logout</item>
     </string-array>
 
+    <!-- Button backlight -->
+    <dimen name="config_buttonBrightnessSettingDefaultFloat">1.0</dimen>
+    <bool name="config_deviceHasVariableButtonBrightness">false</bool>
+
     <bool name="config_has_Soli">false</bool>
 
     <!-- Whether device has an alert slider. -->
