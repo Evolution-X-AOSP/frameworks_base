@@ -48,4 +48,7 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay пераключаны ў дзённы рэжым.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay пераключаны ў начны рэжым.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay пераключаны ў вулiчны рэжым.</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Неабходна перазагрузка карыстацкага інтэрфейсу</string>
+    <string name="systemui_restart_message">Каб усе змены набылі сілу, патрабуецца перазагрузка карыстацкага інтэрфейсу. Перазагрузіць інтэрфейс?</string>
 </resources>
