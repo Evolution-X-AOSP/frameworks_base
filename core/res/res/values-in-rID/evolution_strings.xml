@@ -51,22 +51,4 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Diperlukan memulai ulang SistemUI</string>
     <string name="systemui_restart_message">Untuk melihat semua perubahan, diperlukan memulai ulang SistemUI. Mulai ulang sekarang?</string>
-    <!-- AOKP custom system animations -->
-    <string name="animation_fade">Memudar</string>
-    <string name="animation_slide_right">Geser di kanan</string>
-    <string name="animation_slide_left">Geser di kiri</string>
-    <string name="animation_slide_right_no_fade">Geser di kanan (Tanpa memudar)</string>
-    <string name="animation_slide_left_no_fade">Geser di kiri (Tanpa memudar)</string>
-    <string name="animation_slide_up">Geser dari bawah</string>
-    <string name="animation_slide_down">Geser di atas</string>
-    <string name="animation_default">Bawaan</string>
-    <string name="animation_translucent">Transparan</string>
-    <string name="animation_grow_shrink">Timbul di (Atas)</string>
-    <string name="animation_grow_shrink_center">Timbul di (Tengah)</string>
-    <string name="animation_grow_shrink_bottom">Timbul di (Bawah)</string>
-    <string name="animation_grow_shrink_left">Timbul di (Kiri)</string>
-    <string name="animation_grow_shrink_right">Timbul di (Kanan)</string>
-    <string name="animation_random">Acak</string>
-    <string name="action_null">Kosong</string>
-    <string name="animation_ethans">Ethans</string>
 </resources>
