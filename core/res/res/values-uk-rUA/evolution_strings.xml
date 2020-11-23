@@ -51,22 +51,4 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Необхідне перезавантаження інтерфейсу системи</string>
     <string name="systemui_restart_message">Для застосування змін потрібно перезаватажити інтерфейс системи. Перезавантажити зараз?</string>
-    <!-- AOKP custom system animations -->
-    <string name="animation_fade">Затухання</string>
-    <string name="animation_slide_right">Зсув праворуч</string>
-    <string name="animation_slide_left">Зсунути ліворуч</string>
-    <string name="animation_slide_right_no_fade">Зсув праворуч (без загасання)</string>
-    <string name="animation_slide_left_no_fade">Зсунути вліво (немає згасання)</string>
-    <string name="animation_slide_up">Зсув вниз</string>
-    <string name="animation_slide_down">Зсув вверх</string>
-    <string name="animation_default">За замовчуванням</string>
-    <string name="animation_translucent">Напівпрозорий</string>
-    <string name="animation_grow_shrink">Збільшення (вгору)</string>
-    <string name="animation_grow_shrink_center">Збільшення (по центрі)</string>
-    <string name="animation_grow_shrink_bottom">Збільшення (вниз)</string>
-    <string name="animation_grow_shrink_left">Збільшення (ліворуч)</string>
-    <string name="animation_grow_shrink_right">Збільшення (праворуч)</string>
-    <string name="animation_random">Випадково</string>
-    <string name="action_null">Порожньо</string>
-    <string name="animation_ethans">Етани</string>
 </resources>
