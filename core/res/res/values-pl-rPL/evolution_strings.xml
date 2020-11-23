@@ -51,22 +51,4 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Wymagane ponowne uruchomienie SystemUI</string>
     <string name="systemui_restart_message">Zapisanie wszystkich zmian wymaga ponownego uruchomienia SystemUI. Zrobić to teraz?</string>
-    <!-- AOKP custom system animations -->
-    <string name="animation_fade">Zanikanie</string>
-    <string name="animation_slide_right">Przesunięcie w prawo</string>
-    <string name="animation_slide_left">Przesunięcie w lewo</string>
-    <string name="animation_slide_right_no_fade">Przesunięcie w prawo (bez zanikania)</string>
-    <string name="animation_slide_left_no_fade">Przesunięcie w lewo (bez zanikania)</string>
-    <string name="animation_slide_up">Przesunięcie w dół</string>
-    <string name="animation_slide_down">Przesunięcie w górę</string>
-    <string name="animation_default">Domyślnie</string>
-    <string name="animation_translucent">Przeźroczysty</string>
-    <string name="animation_grow_shrink">Powiększenie (ku górze)</string>
-    <string name="animation_grow_shrink_center">Powiększenie (ze środka)</string>
-    <string name="animation_grow_shrink_bottom">Powiększenie (z dołu)</string>
-    <string name="animation_grow_shrink_left">Powiększenie (z lewej)</string>
-    <string name="animation_grow_shrink_right">Powiększenie (z prawej)</string>
-    <string name="animation_random">Losowe</string>
-    <string name="action_null">Puste</string>
-    <string name="animation_ethans">Ethans</string>
 </resources>
