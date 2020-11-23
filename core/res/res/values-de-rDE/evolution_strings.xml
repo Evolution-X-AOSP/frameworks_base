@@ -21,4 +21,34 @@
     <string name="url_copy_failed">Beim Upload des Protokolls zu dogbin ist ein Fehler aufgetreten</string>
     <string name="reboot_title">Neustart</string>
     <string name="reboot_message">Starte Sytem neu</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Ausgenommen sind Anrufe und Benachrichtigungen</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Für weitere Aktivitäten Power-Knopf gedrückt halten</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Automatisch</string>
+    <string name="live_display_auto_summary">Farbtemperatur des Bildschirms automatisch nach Sonnenuntergang und Sonnenaufgang anpassen</string>
+    <string name="live_display_off">Aus</string>
+    <string name="live_display_off_summary">Alle Anpassungen deaktivieren</string>
+    <string name="live_display_day">Tag</string>
+    <string name="live_display_day_summary">Nur Tag-Einstellungen verwenden</string>
+    <string name="live_display_night">Nacht</string>
+    <string name="live_display_night_summary">Nur Nacht-Einstellungen verwenden</string>
+    <string name="live_display_outdoor">Draußen (helle Sonne)</string>
+    <string name="live_display_outdoor_summary">Nur Outdoor-Einstellungen verwenden</string>
+    <string name="live_display_hint">LiveDisplay kann gegen Überanstrengung der Augen und beim Einschlafen helfen. Klicken Sie hier, um es auszuprobieren!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay aus.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: Automatischer Modus.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: Tag-Modus.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: Nacht-Modus.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: Outdoor-Modus.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay ausgeschaltet.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay auf Auto-Modus geändert.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay auf Tag-Modus geändert.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay auf Nacht-Modus geändert.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay auf Outdoor-Modus geändert.</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Neustart der SystemUI erforderlich</string>
+    <string name="systemui_restart_message">Um alle Änderungen anzuwenden, ist ein Neustart des SystemUI notwendig. SystemUI jetzt neu starten?</string>
 </resources>
