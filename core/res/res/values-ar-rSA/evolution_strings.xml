@@ -51,22 +51,4 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">مطلوب إعادة تشغيل واجهة النظام</string>
     <string name="systemui_restart_message">لتكون كافة التغييرات نافذة المفعول، مطلوب إعادة تشغيل واجهة النظام. هل تريد إعادة تشغيل واجهة النظام الآن؟</string>
-    <!-- AOKP custom system animations -->
-    <string name="animation_fade">التلاشي</string>
-    <string name="animation_slide_right">انزلاق نحو اليمين</string>
-    <string name="animation_slide_left">انزلاق نحو اليسار</string>
-    <string name="animation_slide_right_no_fade">انزلاق إلى اليمين (بدون تلاشي)</string>
-    <string name="animation_slide_left_no_fade">انزلاق نحو اليسار (بدون تلاشى)</string>
-    <string name="animation_slide_up">انزلاق نحو الأسفل</string>
-    <string name="animation_slide_down">انزلاق نحو الأعلى</string>
-    <string name="animation_default">الافتراضي</string>
-    <string name="animation_translucent">شبه شفاف</string>
-    <string name="animation_grow_shrink">نمو (الاعلى)</string>
-    <string name="animation_grow_shrink_center">نمو (الوسط)</string>
-    <string name="animation_grow_shrink_bottom">نمو (أسفل)</string>
-    <string name="animation_grow_shrink_left">نمو (اليسار)</string>
-    <string name="animation_grow_shrink_right">النمو (اليمين)</string>
-    <string name="animation_random">عشوائي</string>
-    <string name="action_null">فارغة</string>
-    <string name="animation_ethans">إيثان</string>
 </resources>
