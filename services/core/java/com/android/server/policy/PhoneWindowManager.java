@@ -1593,7 +1593,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
         @Override
         public void run() {
-            if (!mPocketLockShowing){
+            if (!mPocketLockShowing) {
                 mDefaultDisplayPolicy.takeScreenshot(mScreenshotType, mScreenshotSource);
             }
         }
@@ -1967,7 +1967,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         mSwipeToScreenshot = new SwipeToScreenshotListener(context, new SwipeToScreenshotListener.Callbacks() {
             @Override
             public void onSwipeThreeFinger() {
-                mHandler.post(mScreenshotRunnable);
+                if (!mPocketLockShowing) {
+                    EvolutionUtils.takeScreenshot(true);
+                }
             }
         });
         mCameraManager = (CameraManager) mContext.getSystemService(Context.CAMERA_SERVICE);
