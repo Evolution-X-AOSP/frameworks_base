@@ -292,12 +292,6 @@
 
     <protected-broadcast android:name="com.android.systemui.doze.pulse" />
 
-    <!-- Smart space -->
-    <uses-permission android:name="com.google.android.apps.nexuslauncher.permission.QSB"/>
-    <protected-broadcast android:name="com.google.android.systemui.smartspace.ENABLE_UPDATE"/>
-    <protected-broadcast android:name="com.google.android.systemui.smartspace.EXPIRE_EVENT"/>
-    <protected-broadcast android:name="com.google.android.systemui.smartspace.CLICK_EVENT"/>
-
     <!-- Visualizer -->
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -813,12 +807,7 @@
                 android:resource="@xml/fileprovider" />
         </provider>
 
-        <provider android:name="com.google.android.systemui.keyguard.KeyguardSliceProvider"
-                  android:authorities="com.android.systemui.keyguard.disabled"
-                  android:enabled="false">
-        </provider>
-
-        <provider android:name="com.google.android.systemui.keyguard.KeyguardSliceProviderGoogle"
+        <provider android:name=".keyguard.KeyguardSliceProvider"
                   android:authorities="com.android.systemui.keyguard"
                   android:grantUriPermissions="true"
                   android:exported="true">
