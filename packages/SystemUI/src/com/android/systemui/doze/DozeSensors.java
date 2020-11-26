@@ -82,8 +82,8 @@ public class DozeSensors {
     private long mDebounceFrom;
     private boolean mSettingRegistered;
     private boolean mListening;
-    private boolean mDisableProx;
     private boolean mListeningTouchScreenSensors;
+    private boolean mProximitySupported;
 
     @VisibleForTesting
     public enum DozeSensorsUiEvent implements UiEventLogger.UiEventEnum {
@@ -116,7 +116,7 @@ public class DozeSensors {
         mResolver = mContext.getContentResolver();
         mCallback = callback;
         mProximitySensor = proximitySensor;
-        mDisableProx = context.getResources().getBoolean(R.bool.doze_proximity_sensor_supported);
+        mProximitySupported = context.getResources().getBoolean(R.bool.doze_proximity_sensor_supported);
 
         boolean alwaysOn = mConfig.alwaysOnEnabled(UserHandle.USER_CURRENT);
         mSensors = new TriggerSensor[] {
@@ -178,8 +178,7 @@ public class DozeSensors {
                         mConfig.getWakeLockScreenDebounce(),
                         dozeLog),
         };
-
-        if (!mDisableProx) {
+        if (mProximitySupported) {
             setProxListening(false);  // Don't immediately start listening when we register.
             mProximitySensor.register(
                     proximityEvent -> {
@@ -326,7 +325,7 @@ public class DozeSensors {
         for (TriggerSensor s : mSensors) {
             idpw.println("Sensor: " + s.toString());
         }
-        if (!mDisableProx) // Useless
+        if (mProximitySupported) // Useless
             idpw.println("ProxSensor: " + mProximitySensor.toString());
     }
 
@@ -334,7 +333,7 @@ public class DozeSensors {
      * @return true if prox is currently near, false if far or null if unknown.
      */
     public Boolean isProximityCurrentlyNear() {
-        return mDisableProx ? null : mProximitySensor.isNear();
+        return !mProximitySupported ? null : mProximitySensor.isNear();
     }
 
     @VisibleForTesting
