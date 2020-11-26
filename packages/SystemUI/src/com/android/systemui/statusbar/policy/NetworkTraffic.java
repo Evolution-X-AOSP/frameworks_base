@@ -69,6 +69,7 @@ public class NetworkTraffic extends TextView {
     protected boolean mVisible = true;
     private ConnectivityManager mConnectivityManager;
     protected boolean mTrafficInHeaderView;
+    protected String txtFont;
 
     private Handler mTrafficHandler = new Handler() {
         @Override
@@ -284,6 +285,7 @@ public class NetworkTraffic extends TextView {
         super(context, attrs, defStyle);
         final Resources resources = getResources();
         txtImgPadding = resources.getDimensionPixelSize(R.dimen.net_traffic_txt_img_padding);
+        txtFont = getResources().getString(com.android.internal.R.string.config_headlineFontFamilyMedium);
         mTintColor = resources.getColor(android.R.color.white);
         Handler mHandler = new Handler();
         mConnectivityManager =
@@ -494,7 +496,7 @@ public class NetworkTraffic extends TextView {
         setTextSize(TypedValue.COMPLEX_UNIT_PX, mTrafficType == BOTH
                 ? (float)resources.getDimensionPixelSize(R.dimen.net_traffic_multi_text_size)
                 : (float)resources.getDimensionPixelSize(R.dimen.net_traffic_single_text_size));
-        setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
+        setTypeface(Typeface.create(txtFont, Typeface.BOLD));
         setLineSpacing(0.80f, 0.80f);
     }
 
