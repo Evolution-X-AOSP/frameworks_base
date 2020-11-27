@@ -133,8 +133,8 @@
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">屏幕截图已删除</string>
     <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> • 禁用浮动通知一分钟。</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - 浮动通知暂停<xliff:g id="number">%1$d</xliff:g>分钟。</string>
+    <string name="heads_up_snooze_message_one_minute" formatted="false"><xliff:g id="string">%s</xliff:g> • 禁用浮动通知一分钟。</string>
+    <string name="heads_up_snooze_message" formatted="false"><xliff:g id="string">%1$s</xliff:g> - 浮动通知暂停<xliff:g id="number">%1$d</xliff:g>分钟。</string>
     <!-- Partial screenshot -->
     <string name="global_screenshot_selector_capture_description">捕获部分截图</string>
     <string name="global_screenshot_selector_cancel_description">取消部分截图</string>
