@@ -133,8 +133,8 @@
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Tangkapan Layar dihapus</string>
     <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Notifikasi mengambang tertunda selama 1 menit.</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Notifikasi mengambang ditunda selama <xliff:g id="number">%1$d</xliff:g> menit.</string>
+    <string name="heads_up_snooze_message_one_minute" formatted="false"><xliff:g id="string">%s</xliff:g> - Notifikasi mengambang tertunda selama 1 menit.</string>
+    <string name="heads_up_snooze_message" formatted="false"><xliff:g id="string">%1$s</xliff:g> - Notifikasi mengambang ditunda selama <xliff:g id="number">%1$d</xliff:g> menit.</string>
     <!-- Partial screenshot -->
     <string name="global_screenshot_selector_capture_description">Menangkap layar sebagian</string>
     <string name="global_screenshot_selector_cancel_description">Batal menangkap layar sebagian</string>
