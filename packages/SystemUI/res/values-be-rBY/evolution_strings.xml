@@ -133,8 +133,8 @@
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Скрыншот выдалены</string>
     <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> Усплывальныя апавяшчэнні адключаны на адну хвіліну.</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Усплывальныя апавяшчэнні адключаны на <xliff:g id="number">%1$d</xliff:g> хвілін(ы).</string>
+    <string name="heads_up_snooze_message_one_minute" formatted="false"><xliff:g id="string">%s</xliff:g> Усплывальныя апавяшчэнні адключаны на адну хвіліну.</string>
+    <string name="heads_up_snooze_message" formatted="false"><xliff:g id="string">%1$s</xliff:g> - Усплывальныя апавяшчэнні адключаны на <xliff:g id="number">%1$d</xliff:g> хвілін(ы).</string>
     <!-- Partial screenshot -->
     <string name="global_screenshot_selector_capture_description">Частковы здымак экрана</string>
     <string name="global_screenshot_selector_cancel_description">Скасаваць частковы здымак экрана</string>
