@@ -18,64 +18,64 @@
     <!-- Custom QS tiles -->
     <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Ambient Display</string>
-    <string name="accessibility_quick_settings_ambient_display_off">Выключить Ambient display</string>
-    <string name="accessibility_quick_settings_ambient_display_on">Включить Ambient display</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display turned выключен</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display включен</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambient Display выкл.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambient Display вкл.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display выключен.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient Display включен.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
-    <string name="quick_settings_aod_off_powersave_label">AOD выключен\nЭкономия энергии</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD выкл.\nЭкономия заряда батареи</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Запрет сна</string>
-    <string name="accessibility_quick_settings_caffeine_off">Кофеин выключен</string>
-    <string name="accessibility_quick_settings_caffeine_on">Кофеин включен</string>
+    <string name="accessibility_quick_settings_caffeine_off">Запрет сна выкл.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Запрет сна вкл.</string>
     <!-- Compass QS Tile -->
     <string name="quick_settings_compass_label">Компас</string>
     <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
     <string name="quick_settings_compass_init">Инициализация\u2026</string>
-    <string name="accessibility_quick_settings_compass_off">Компас выключен</string>
-    <string name="accessibility_quick_settings_compass_on">Компас включен</string>
+    <string name="accessibility_quick_settings_compass_off">Компас выкл.</string>
+    <string name="accessibility_quick_settings_compass_on">Компас вкл.</string>
     <string name="accessibility_quick_settings_compass_changed_off">Компас выключен</string>
-    <string name="accessibility_quick_settings_compass_changed_on">Компас включён</string>
+    <string name="accessibility_quick_settings_compass_changed_on">Компас включен</string>
     <string name="quick_settings_compass_N">С</string>
     <string name="quick_settings_compass_NE">СВ</string>
     <string name="quick_settings_compass_E">В</string>
     <string name="quick_settings_compass_SE">ЮВ</string>
     <string name="quick_settings_compass_S">Ю</string>
-    <string name="quick_settings_compass_SW">ЮЗ</string>
+    <string name="quick_settings_compass_SW">ЮВ</string>
     <string name="quick_settings_compass_W">З</string>
     <string name="quick_settings_compass_NW">СЗ</string>
     <!-- CPUInfo tile -->
-    <string name="quick_settings_cpuinfo_label">Информация о CPU</string>
-    <string name="accessibility_quick_settings_cpuinfo_off">Выключить информацию о CPU</string>
-    <string name="accessibility_quick_settings_cpuinfo_on">Включить информацию о CPU</string>
-    <string name="accessibility_quick_settings_cpuinfo_changed_off">Информация о CPU выключена</string>
-    <string name="accessibility_quick_settings_cpuinfo_changed_on">Информация о CPU включена</string>
+    <string name="quick_settings_cpuinfo_label">Данные ЦП</string>
+    <string name="accessibility_quick_settings_cpuinfo_off">Информация о ЦП выкл.</string>
+    <string name="accessibility_quick_settings_cpuinfo_on">Информация о ЦП вкл.</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_off">Информация о ЦП выключена</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_on">Информация о ЦП включена</string>
     <!-- DataSwitch Tile -->
-    <string name="qs_data_switch_label">Переключить карту данных</string>
-    <string name="qs_data_switch_changed_1">Использовать SIM 1 для мобильных данных</string>
-    <string name="qs_data_switch_changed_2">Использовать SIM 2 для мобильных данных</string>
+    <string name="qs_data_switch_label">Переключить карту данных на</string>
+    <string name="qs_data_switch_changed_1">Используется SIM-карта 1 для передачи данных</string>
+    <string name="qs_data_switch_changed_2">Используется SIM-карта 2 для передачи данных</string>
     <!-- FPS Info tile -->
     <string name="quick_settings_fpsinfo_label">Информация о FPS</string>
-    <string name="accessibility_quick_settings_fpsinfo_off">Информация о FPS выключена</string>
-    <string name="accessibility_quick_settings_fpsinfo_on">Информация о FPS включена</string>
+    <string name="accessibility_quick_settings_fpsinfo_off">Информация о FPS выкл.</string>
+    <string name="accessibility_quick_settings_fpsinfo_on">Информация о FPS вкл.</string>
     <!-- Heads up QS tile -->
     <string name="quick_settings_heads_up_label">Всплывающие уведомления</string>
-    <string name="accessibility_quick_settings_heads_up_off">Отключить всплывающие уведомления</string>
-    <string name="accessibility_quick_settings_heads_up_on">Включить всплывающие уведомления</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Всплывающие уведомления выключены</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Всплывающие уведомления включены</string>
+    <string name="accessibility_quick_settings_heads_up_off">Всплывающие уведомления выкл.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Всплывающие уведомления вкл.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Всплывающие уведомления выключены.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Всплывающие уведомления включены.</string>
     <!-- Mono QS Tile -->
-    <string name="quick_settings_monotoggle_tile">Режим аудио</string>
-    <string name="quick_settings_monotoggle_tile_mono">Моно режим</string>
-    <string name="quick_settings_monotoggle_tile_stereo">Стерео режим</string>
+    <string name="quick_settings_monotoggle_tile">Аудио режим</string>
+    <string name="quick_settings_monotoggle_tile_mono">Моно аудио</string>
+    <string name="quick_settings_monotoggle_tile_stereo">Стерео аудио</string>
     <!-- Music tile -->
     <string name="quick_settings_music_label">Музыка</string>
-    <string name="quick_settings_music_play">Играть</string>
-    <string name="quick_settings_music_pause">Пауза</string>
+    <string name="quick_settings_music_play">Воспроизвести</string>
+    <string name="quick_settings_music_pause">Приостановить</string>
     <!-- Power off/Reboot/Recovery QS Tile -->
-    <string name="quick_settings_poweroff_label">Выключение</string>
-    <string name="quick_settings_reboot_label">Перезагрузка</string>
+    <string name="quick_settings_poweroff_label">Выключить</string>
+    <string name="quick_settings_reboot_label">Перезагрузить</string>
     <string name="quick_settings_reboot_recovery_label">Рекавери</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">Скриншот</string>
@@ -84,24 +84,24 @@
     <string name="quick_settings_sleepscreen_label">Режим сна</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Звук</string>
-    <string name="quick_settings_sound_mute">Беззвучный</string>
-    <string name="quick_settings_sound_ring">Со звуком</string>
+    <string name="quick_settings_sound_mute">Заглушить</string>
+    <string name="quick_settings_sound_ring">Рингтон</string>
     <string name="quick_settings_sound_vibrate">Вибрация</string>
     <!-- Sound Search tile -->
     <string name="quick_settings_sound_search">Поиск музыки</string>
     <string name="quick_settings_sound_search_no_app">Извините, но это не работает без приложения для поиска музыки.</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">Синхронизация</string>
-    <string name="accessibility_quick_settings_sync_off">Выключить синхронизацию</string>
-    <string name="accessibility_quick_settings_sync_on">Включить синхронизацию</string>
-    <string name="accessibility_quick_settings_sync_changed_off">Синхронизация выключена</string>
-    <string name="accessibility_quick_settings_sync_changed_on">Синхронизация включена</string>
+    <string name="accessibility_quick_settings_sync_off">Синхронизация выкл.</string>
+    <string name="accessibility_quick_settings_sync_on">Синхронизация вкл.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Синхронизация выключена.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Синхронизация включена.</string>
     <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">USB-модем</string>
     <!-- Volume panel QS tile -->
-    <string name="quick_settings_volume_panel_label">Панель регулировки громкости</string>
+    <string name="quick_settings_volume_panel_label">Панель громкости</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Потяните значок для запуска</string>
+    <string name="custom_hint">Смахните от значка для запуска</string>
     <!-- Status bar icons -->
     <string name="statusbar_items_title">Значки строки состояния</string>
     <string name="status_bar_data_disabled">Передача данных отключена</string>
@@ -111,23 +111,47 @@
     <string name="status_bar_vpn">VPN</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
     <string name="accessibility_status_bar_nfc">Nfc</string>
-    <string name="global_action_restart_advanced">Дополнительно</string>
+    <string name="global_action_restart_advanced">Расширенные</string>
     <string name="global_action_restart_recovery">Рекавери</string>
-    <string name="global_action_restart_bootloader">Загрузчик</string>
+    <string name="global_action_restart_bootloader">Бутлоадер</string>
     <string name="global_action_restart_ui">Системный интерфейс</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Быстрая зарядка (<xliff:g id="charging_time_left" example="4 часа и 2 минуты">%s</xliff:g> до полной зарядки)</string>
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Быстрая зарядка (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> до полной зарядки)</string>
     <string name="keyguard_plugged_in_dash_charging">Быстрая зарядка</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Медленная зарядка (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> до полной зарядки)</string>
+    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Warp зарядка (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> до полной зарядки)</string>
     <string name="keyguard_plugged_in_warp_charging">Warp зарядка</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Быстрая зарядка (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> до полной зарядки)</string>
-    <string name="keyguard_plugged_in_vooc_charging">VOOC Зарядка</string>
+    <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • VOOC зарядка(<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> до полной зарядки)</string>
+    <string name="keyguard_plugged_in_vooc_charging">Быстрая зарядка</string>
     <!-- Label for area where tiles can be added to the qs panel -->
-    <string name="drag_or_tap_to_add_tiles">Удерживайте &amp; перетащите или нажмите для добавления плиток</string>
+    <string name="drag_or_tap_to_add_tiles">Удерживайте и перетащите или нажмите для добавления плиток</string>
     <!-- Label for header of customize QS -->
-    <string name="drag_or_tap_to_rearrange_tiles">Удерживайте &amp; перетащите, чтобы изменить порядок или нажмите для удаления</string>
+    <string name="drag_or_tap_to_rearrange_tiles">Удерживайте и перетащите, чтобы изменить порядок или нажмите для удаления</string>
     <string name="lockscreen_default">По умолчанию</string>
-    <string name="lockscreen_hidden">Не показывать</string>
+    <string name="lockscreen_hidden">Нет</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Скриншот удален</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Всплывающие уведомления выключены на 1 минуту.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Всплывающие уведомления выключены на <xliff:g id="number">%1$d</xliff:g> минут(ы).</string>
+    <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">Частичный скриншот</string>
+    <string name="global_screenshot_selector_cancel_description">Отменить частичный скриншот</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Остановить принудительно?</string>
+    <string name="force_stop_dlg_text">Если вы принудительно остановите приложение, он может неправильно работать.</string>
+    <string name="guts_force_close_app">Закрыть приложение</string>
+    <!-- Screenrecorder -->
+    <string name="screenrecord_stopdot_label">Показывать кнопку остановки\nУдерживайте для перемещения</string>
+    <string name="screenrecord_lowquality_label">Меньшее качество для меньшего размера файла</string>
+    <!-- Kill app -->
+    <string name="task_helper_app_killed">%1$s принудительно остановлен</string>
+    <string name="empty_app_killed">Приложение</string>
+    <string name="quick_settings_killapp_label">Закрыть приложение</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">Открыть меню запущенных приложений.</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Язык</string>
+    <string name="quick_settings_locale_more_locales_toast">Пожалуйста, настройте несколько языков для включения функционала</string>
 </resources>
