@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2020 The Evolution X Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Custom QS tiles -->
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">ᱮᱢᱵᱤᱮᱸᱴ ᱫᱮᱠᱷᱟᱣ</string>
+    <string name="accessibility_quick_settings_ambient_display_off">ᱮᱢᱵᱤᱭᱮᱸᱴ ᱰᱤᱥᱯᱞᱮ ᱵᱚᱸᱫᱽ ᱾</string>
+    <string name="accessibility_quick_settings_ambient_display_on">ᱮᱢᱵᱤᱭᱮᱸᱴ ᱰᱤᱥᱯᱞᱮ ᱮᱢ ᱪᱷᱚ ᱾</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">ᱮᱢᱵᱤᱭᱮᱸᱴ ᱰᱤᱥᱯᱞᱮ ᱵᱚᱸᱫᱽ ᱾</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">ᱮᱢᱵᱤᱭᱮᱸᱴ ᱰᱤᱥᱯᱞᱮ ᱮᱢ ᱪᱷᱚ ᱾</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD ᱵᱚᱸᱫᱽ\nᱵᱮᱴᱨᱭ ᱥᱺᱪᱟᱣ</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">ᱠᱟᱹᱯᱷᱮᱭᱱ</string>
+    <string name="accessibility_quick_settings_caffeine_off">ᱠᱟᱹᱯᱷᱮᱭᱱ ᱵᱚᱸᱫᱽ ᱾</string>
+    <string name="accessibility_quick_settings_caffeine_on">ᱠᱟᱹᱯᱷᱮᱭᱱ ᱮᱢ ᱪᱷᱚ ᱾</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">ᱠᱚᱢᱯᱟᱥ</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">ᱮᱦᱚᱵᱽᱚᱜ ᱠᱟᱱᱟ\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">ᱠᱚᱢᱯᱟᱥᱥ ᱵᱟᱸᱫᱽ</string>
+    <string name="accessibility_quick_settings_compass_on">ᱠᱚᱢᱯᱟᱥᱥ ᱮᱢ ᱪᱷᱚ</string>
+    <string name="accessibility_quick_settings_compass_changed_off">ᱠᱚᱢᱯᱟᱥᱥ ᱵᱚᱸᱫᱚ ᱮᱱᱟ</string>
+    <string name="accessibility_quick_settings_compass_changed_on">ᱠᱚᱢᱯᱟᱥᱥ ᱮᱢ ᱪᱷᱚ</string>
+    <string name="quick_settings_compass_N">N</string>
+    <string name="quick_settings_compass_NE">NE</string>
+    <string name="quick_settings_compass_E">E</string>
+    <string name="quick_settings_compass_SE">SE</string>
+    <string name="quick_settings_compass_S">S</string>
+    <string name="quick_settings_compass_SW">SW</string>
+    <string name="quick_settings_compass_W">W</string>
+    <string name="quick_settings_compass_NW">NW</string>
+    <!-- CPUInfo tile -->
+    <string name="quick_settings_cpuinfo_label">CPU ᱵᱤᱵᱨᱚᱬ</string>
+    <string name="accessibility_quick_settings_cpuinfo_off">CPU ᱵᱤᱵᱨᱚᱬ ᱵᱚᱸᱫ</string>
+    <string name="accessibility_quick_settings_cpuinfo_on">CPU ᱵᱤᱵᱨᱚᱬ ᱮᱢ ᱪᱷᱚ</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_off">CPU ᱵᱤᱵᱨᱚᱬ ᱵᱚᱸᱫᱽ ᱮᱱᱟ</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_on">CPU ᱵᱤᱵᱨᱚᱬ ᱮᱢ ᱪᱷᱚ</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">ᱰᱟᱴ ᱟᱠᱟᱰ ᱥᱣᱤᱪ ᱛᱮ</string>
+    <string name="qs_data_switch_changed_1">ᱢᱚᱵᱟᱭᱤᱞ ᱰᱟᱴᱟ ᱞᱲᱹᱜᱤᱫᱽ SIM ᱑ ᱵᱮᱵᱷᱟᱨᱚᱜ ᱠᱟᱱᱟ</string>
+    <string name="qs_data_switch_changed_2">ᱢᱚᱵᱟᱭᱤᱞ ᱰᱟᱴᱟ ᱞᱲᱹᱜᱤᱫᱽ SIM ᱒ ᱵᱮᱵᱷᱟᱨᱚᱜ ᱠᱟᱱᱟ</string>
+    <!-- FPS Info tile -->
+    <string name="quick_settings_fpsinfo_label">FPS ᱵᱤᱵᱨᱚᱬ</string>
+    <string name="accessibility_quick_settings_fpsinfo_off">FPS ᱵᱤᱵᱨᱚᱬ ᱵᱚᱸᱫ</string>
+    <string name="accessibility_quick_settings_fpsinfo_on">FPS ᱵᱤᱵᱨᱚᱬ ᱮᱢ ᱪᱷᱚ</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">ᱵᱚᱦᱚᱜᱽ ᱪᱮᱛᱟᱱ</string>
+    <string name="accessibility_quick_settings_heads_up_off">ᱵᱚᱦᱚᱜᱽ ᱪᱮᱛᱟᱱ ᱵᱚᱸᱫᱽ ᱾</string>
+    <string name="accessibility_quick_settings_heads_up_on">ᱵᱚᱦᱚᱜᱽ ᱪᱮᱛᱟᱱ ᱮᱢ ᱪᱷᱚ ᱾</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">ᱵᱚᱦᱚᱜᱽ ᱪᱮᱛᱟᱱ ᱵᱚᱸᱫᱽ ᱮᱱᱟ ᱾</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">ᱵᱚᱦᱚᱜᱽ ᱪᱮᱛᱟᱱ ᱮᱢ ᱮᱱᱟ ᱾</string>
+    <!-- Mono QS Tile -->
+    <string name="quick_settings_monotoggle_tile">ᱥᱟᱲᱮ ᱢᱳᱰ</string>
+    <string name="quick_settings_monotoggle_tile_mono">ᱢᱚᱱᱚ ᱥᱟᱲᱮ</string>
+    <string name="quick_settings_monotoggle_tile_stereo">ᱥᱴᱮᱨᱚ ᱥᱮᱲᱮ</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">ᱥᱮᱨᱮᱧ</string>
+    <string name="quick_settings_music_play">ᱯᱞᱮ</string>
+    <string name="quick_settings_music_pause">ᱛᱷᱩᱠᱩᱢ</string>
+    <!-- Power off/Reboot/Recovery QS Tile -->
+    <string name="quick_settings_poweroff_label">ᱯᱟᱣᱟᱹᱨ ᱵᱚᱸᱫᱽ</string>
+    <string name="quick_settings_reboot_label">ᱨᱤᱵᱩᱻᱴ</string>
+    <string name="quick_settings_reboot_recovery_label">ᱨᱤᱠᱟᱹᱣᱨᱤ</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">ᱥᱠᱨᱤᱻᱱᱥᱚᱨᱴ</string>
+    <string name="quick_settings_region_screenshot_label">ᱚᱫᱷᱟ ᱥᱠᱨᱤᱻᱱᱥᱚᱨᱴ</string>
+    <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">ᱜᱤᱛᱤᱡᱽ ᱥᱠᱨᱤᱻᱱ</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">ᱥᱟᱲᱮ</string>
+    <string name="quick_settings_sound_mute">ᱢᱭᱩᱴ</string>
+    <string name="quick_settings_sound_ring">ᱨᱤᱝ</string>
+    <string name="quick_settings_sound_vibrate">ᱛᱷᱟᱨᱼᱛᱷᱟᱨᱟᱣ</string>
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">ᱥᱟᱲᱮ ᱥᱮᱸᱫᱽᱨᱟ</string>
+    <string name="quick_settings_sound_search_no_app">ᱤᱠᱟ, ᱟᱢ ᱴᱷᱮᱱ ᱥᱟᱲᱮ ᱥᱮᱸᱫᱽᱨᱟ ᱮᱯᱯ ᱵᱟᱹᱱᱩᱜᱽ ᱠᱷᱟᱱ ᱱᱟᱶᱟ ᱵᱟᱭ ᱠᱟᱹᱢᱤᱟᱭ ᱾</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">ᱥᱭᱸᱠ</string>
+    <string name="accessibility_quick_settings_sync_off">ᱥᱭᱸᱠ ᱵᱚᱸᱫᱽ ᱾</string>
+    <string name="accessibility_quick_settings_sync_on">ᱥᱭᱸᱠ ᱮᱢ ᱪᱷᱚ ᱾</string>
+    <string name="accessibility_quick_settings_sync_changed_off">ᱥᱭᱸᱠ ᱵᱚᱸᱫᱽ ᱾</string>
+    <string name="accessibility_quick_settings_sync_changed_on">ᱥᱭᱸᱠ ᱮᱢ ᱪᱷᱚ ᱾</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">USB ᱴᱤᱛᱷᱟᱹᱨᱤᱝ</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">ᱣᱚᱞᱭᱩᱢ ᱯᱮᱞᱟᱱ</string>
+    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">ᱞᱚᱸᱪ ᱞᱟᱹᱜᱤᱫᱽ ᱟᱭᱠᱟᱱ ᱠᱷᱟᱱ ᱠᱷᱚᱥᱨᱚᱫ ᱢᱮᱸ</string>
+    <!-- Status bar icons -->
+    <string name="statusbar_items_title">ᱥᱴᱟᱴᱟᱹᱥᱵᱟᱨ ᱟᱭᱠᱚᱱ</string>
+    <string name="status_bar_data_disabled">ᱰᱟᱴᱟ ᱵᱚᱸᱫᱽ ᱠᱟᱱᱟ</string>
+    <string name="status_bar_data_saver">ᱰᱟᱴᱟ ᱥᱟᱺᱪᱟᱣᱤᱭᱟᱹ</string>
+    <string name="status_bar_nfc">NFC</string>
+    <string name="status_bar_roaming">ᱨᱚᱢᱤᱝ</string>
+    <string name="status_bar_vpn">VPN</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <string name="global_action_restart_advanced">ᱞᱟᱦᱟ ᱦᱚᱪᱚ</string>
+    <string name="global_action_restart_recovery">ᱨᱤᱠᱟᱹᱣᱨᱤ</string>
+    <string name="global_action_restart_bootloader">ᱵᱩᱻᱴᱞᱚᱰᱟᱹᱨ</string>
+    <string name="global_action_restart_ui">ᱥᱤᱥᱴᱮᱢ UI</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • ᱰᱮᱥ ᱪᱟᱨᱡᱤᱝ (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> ᱯᱩᱨᱟᱹᱣ ᱦᱟᱹᱵᱤᱡᱽ)</string>
+    <string name="keyguard_plugged_in_dash_charging">ᱰᱮᱥ ᱪᱟᱨᱡᱤᱝ</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • ᱣᱨᱟᱯ ᱪᱟᱨᱡᱤᱝ (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> ᱯᱩᱨᱟᱹᱣ ᱦᱟᱹᱵᱤᱡᱽ)</string>
+    <string name="keyguard_plugged_in_warp_charging">ᱣᱨᱟᱯ ᱪᱟᱨᱡᱤᱝ</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • VOOC ᱪᱨᱡᱤᱝ (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> ᱯᱩᱨᱟᱹᱣ ᱦᱟᱹᱵᱤᱡᱽ)</string>
+    <string name="keyguard_plugged_in_vooc_charging">VOOC ᱪᱟᱨᱡᱤᱝ</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">ᱥᱟᱵ&amp; ᱴᱟᱭᱤᱞ ᱥᱮᱞᱮᱫᱽ ᱞᱟᱹᱜᱤᱫᱽ ᱜᱚᱦᱚᱲ ᱟᱨ ᱵᱟᱝ ᱚᱛᱟᱭ ᱢᱮᱸ</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">ᱥᱟᱵᱽ&amp; ᱨᱤᱟᱹᱨᱮᱧᱡᱽ ᱞᱟᱹᱜᱤᱫᱽ ᱜᱚᱦᱚᱲ ᱟᱨ ᱵᱟᱝ ᱚᱪᱚᱜᱽ ᱞᱟᱹᱜᱤᱫᱽ ᱚᱛᱟᱭ ᱢᱮᱸ</string>
+    <string name="lockscreen_default">ᱢᱩᱞ</string>
+    <string name="lockscreen_hidden">ᱡᱟᱦᱟᱸᱱᱟᱠ ᱵᱟᱝ</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">ᱥᱠᱨᱤᱻᱱᱥᱚᱨᱴ ᱢᱮᱴᱟᱣ ᱮᱱᱟ</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - ᱩᱭᱩᱸᱜ ᱱᱚᱴᱤᱯᱷᱤᱠᱮᱥᱚᱱ ᱫᱚ ᱑ ᱴᱤᱯᱤᱡᱽ ᱞᱟᱹᱜᱤᱫᱽ ᱥᱱᱩᱻᱡᱽᱚᱜᱽ ᱠᱟᱱᱟ ᱾</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - ᱩᱭᱩᱸᱜ ᱱᱚᱴᱤᱯᱷᱤᱠᱮᱥᱚᱱ ᱫᱚ <xliff:g id="number">%1$d</xliff:g> ᱴᱤᱯᱤᱡᱽ ᱠᱚ ᱞᱟᱹᱜᱤᱫᱽ ᱥᱱᱩᱻᱡᱽᱚᱜᱽ ᱠᱟᱱᱟ ᱾</string>
+    <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">ᱚᱫᱷᱟ ᱥᱠᱨᱤᱻᱱᱥᱚᱨᱴ ᱤᱫᱤ ᱢᱮᱸ</string>
+    <string name="global_screenshot_selector_cancel_description">ᱚᱫᱷᱟ ᱥᱠᱨᱤᱻᱥᱚᱨᱴ ᱵᱚᱹᱰ ᱢᱮᱸ</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">ᱡᱩᱨ ᱛᱮ ᱵᱚᱸᱫᱽ ᱟᱢ?</string>
+    <string name="force_stop_dlg_text">ᱡᱤᱫᱤ ᱟᱢ ᱮᱯᱯ ᱡᱩᱨ ᱛᱮ ᱵᱚᱸᱫᱽ ᱠᱷᱟᱱᱮᱢ, ᱚᱱᱟ ᱴᱷᱤᱠ ᱥᱮ ᱵᱟᱭ ᱵᱚᱸᱫᱽᱚᱜᱼᱟ ᱾</string>
+    <string name="guts_force_close_app">ᱮᱯᱯ ᱵᱚᱸᱫᱚᱭ ᱢᱮ</string>
+    <!-- Screenrecorder -->
+    <string name="screenrecord_stopdot_label">ᱵᱚᱸᱫᱽ ᱰᱚᱴ ᱫᱮᱠᱷᱟᱣ\nᱩᱪᱟᱹᱲ ᱞᱟᱹᱜᱤᱫᱹᱽ ᱡᱩᱨ ᱚᱛᱟᱭ ᱢᱮᱸ</string>
+    <string name="screenrecord_lowquality_label">ᱠᱟᱹᱴᱤᱡᱽ ᱨᱚᱫᱽ ᱢᱟᱯ ᱞᱟᱫᱜᱤᱫᱽ ᱠᱚᱢ ᱠᱣᱟᱞᱤᱴᱭ</string>
+    <!-- Kill app -->
+    <string name="task_helper_app_killed">%1$s ᱡᱩᱛ ᱛᱮ ᱵᱚᱸᱫᱽ ᱮᱱᱟ</string>
+    <string name="empty_app_killed">ᱮᱯᱯ</string>
+    <string name="quick_settings_killapp_label">ᱮᱯᱯ ᱜᱮᱡᱽ ᱮᱢ</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">ᱫᱟᱹᱲ ᱠᱟᱱ ᱥᱟᱹᱨᱣᱤᱥ ᱥᱠᱨᱤᱻᱱ ᱾</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">ᱯᱟᱹᱨᱥᱤ</string>
+    <string name="quick_settings_locale_more_locales_toast">ᱴᱚᱜᱟᱹ ᱯᱷᱟᱸᱥᱚᱱᱟᱞᱤᱴᱭ ᱮᱢ ᱪᱷᱚ ᱞᱟᱹᱜᱤᱫᱽ ᱫᱚᱭᱟᱠᱟᱛᱮ ᱟᱢᱟ ᱯᱟᱹᱨᱥᱤ ᱠᱚ ᱴᱷᱤᱠ ᱢᱮᱸ</string>
+</resources>
