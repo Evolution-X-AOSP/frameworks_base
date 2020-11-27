@@ -133,8 +133,8 @@
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Zrzut ekranu został usunięty</string>
     <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Wyskakujące powiadomienie jest wstrzymane na 1 minutę.</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> Wyskakujące powiadomienia zostały wstrzymane na <xliff:g id="number">%1$d</xliff:g> minut.</string>
+    <string name="heads_up_snooze_message_one_minute" formatted="false"><xliff:g id="string">%s</xliff:g> - Wyskakujące powiadomienie jest wstrzymane na 1 minutę.</string>
+    <string name="heads_up_snooze_message" formatted="false"><xliff:g id="string">%1$s</xliff:g> Wyskakujące powiadomienia zostały wstrzymane na <xliff:g id="number">%1$d</xliff:g> minut.</string>
     <!-- Partial screenshot -->
     <string name="global_screenshot_selector_capture_description">Zrób częściowy zrzut ekranu</string>
     <string name="global_screenshot_selector_cancel_description">Anuluj częściowy zrzut ekranu</string>
