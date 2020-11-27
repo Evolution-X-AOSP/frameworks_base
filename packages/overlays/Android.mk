@@ -64,6 +64,11 @@ LOCAL_REQUIRED_MODULES := \
 	AccentColorUbuntuOverlay \
 	AccentColorXboxOverlay \
 	AccentColorXiaomiOverlay \
+	DisplayCutoutEmulationCornerOverlay \
+	DisplayCutoutEmulationDoubleOverlay \
+	DisplayCutoutEmulationHoleOverlay \
+	DisplayCutoutEmulationTallOverlay \
+	DisplayCutoutEmulationWaterfallOverlay \
 	FontArbutusSourceOverlay \
 	FontArvoLatoOverlay \
 	FontKaiOverlay \
