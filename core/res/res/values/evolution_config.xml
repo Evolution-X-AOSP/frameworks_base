@@ -102,6 +102,7 @@
         <item>emergency</item>
         <item>power</item>
         <item>restart</item>
+        <item>screenshot</item>
         <item>logout</item>
     </string-array>
 
