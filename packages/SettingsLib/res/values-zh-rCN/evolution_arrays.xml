@@ -23,21 +23,21 @@
         <item>使用系统选择 (默认)</item>
         <item>SBC</item>
         <item>AAC</item>
-        <item><xliff:g id="qualcomm">质量通用：注册：</xliff:g> <xliff:g id="aptx">aptXTM</xliff:g> 音频</item>
-        <item><xliff:g id="qualcomm">质量通用：注册：</xliff:g> <xliff:g id="aptx_hd">aptXTM</xliff:g> 音频</item>
+        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx">aptXTM</xliff:g> 音频</item>
+        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_hd">aptXTM</xliff:g> 音频</item>
         <item>LDAC</item>
-        <item><xliff:g id="qualcomm">质量通用：注册：</xliff:g> <xliff:g id="aptx_adaptive">aptXTM 适应性</xliff:g> 音频</item>
-        <item><xliff:g id="qualcomm">质量通用：注册：</xliff:g> <xliff:g id="aptx_twsp">aptXTM TWS+</xliff:g> 音频</item>
+        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_adaptive">aptXTM 适应性</xliff:g> 音频</item>
+        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_twsp">aptXTM TWS+</xliff:g> 音频</item>
     </string-array>
     <!-- Summaries for Bluetooth Audio Codec selection preference. [CHAR LIMIT=50]-->
     <string-array name="bluetooth_a2dp_codec_summaries_cm">
         <item>使用系统选择 (默认)</item>
         <item>SBC</item>
         <item>AAC</item>
-        <item><xliff:g id="qualcomm">质量通用：注册：</xliff:g> <xliff:g id="aptx">aptXTM</xliff:g> 音频</item>
-        <item><xliff:g id="qualcomm">质量通用：注册：</xliff:g> <xliff:g id="aptx_hd">aptXTM 高清</xliff:g> 音频</item>
+        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx">aptXTM</xliff:g> 音频</item>
+        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_hd">aptXTM 高清</xliff:g> 音频</item>
         <item>LDAC</item>
-        <item><xliff:g id="qualcomm">质量通用：注册：</xliff:g> <xliff:g id="aptx_adaptive">aptXTM 适应性</xliff:g> 音频</item>
-        <item><xliff:g id="qualcomm">质量通用：注册：</xliff:g> <xliff:g id="aptx_twsp">aptXTM TWS+</xliff:g> 音频</item>
+        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_adaptive">aptXTM 适应性</xliff:g> 音频</item>
+        <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_twsp">aptXTM TWS+</xliff:g> 音频</item>
     </string-array>
 </resources>
