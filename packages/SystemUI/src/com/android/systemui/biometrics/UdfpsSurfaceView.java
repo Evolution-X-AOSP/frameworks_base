@@ -19,23 +19,27 @@ package com.android.systemui.biometrics;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.RectF;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import com.android.systemui.Dependency;
 import com.android.systemui.R;
+import com.android.systemui.tuner.TunerService;
 
 /**
  * Surface View for providing the Global High-Brightness Mode (GHBM) illumination for UDFPS.
  */
-public class UdfpsSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
+public class UdfpsSurfaceView extends SurfaceView implements SurfaceHolder.Callback, TunerService.Tunable {
     private static final String TAG = "UdfpsSurfaceView";
 
     /**
@@ -59,8 +63,24 @@ public class UdfpsSurfaceView extends SurfaceView implements SurfaceHolder.Callb
 
     private Drawable mUdfpsIconPressed;
 
+    private static final String FOD_COLOR =
+            "system:" + Settings.System.FOD_COLOR;
+
+    private int mDefaultPressedColor;
+    private int mPressedColor;
+    private final int[] PRESSED_COLOR = {
+        R.drawable.udfps_icon_pressed,
+        R.drawable.udfps_icon_pressed_white,
+        R.drawable.udfps_icon_pressed_white_new,
+        R.drawable.udfps_icon_pressed_green,
+        R.drawable.udfps_icon_pressed_yellow,
+        R.drawable.udfps_icon_pressed_light_yellow
+    };
+
     public UdfpsSurfaceView(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+        Resources res = context.getResources();
 
         // Make this SurfaceView draw on top of everything else in this window. This allows us to
         // 1) Always show the HBM circle on top of everything else, and
@@ -77,7 +97,26 @@ public class UdfpsSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         mSensorPaint.setColor(context.getColor(R.color.config_udfpsColor));
         mSensorPaint.setStyle(Paint.Style.FILL);
 
-        mUdfpsIconPressed = context.getDrawable(R.drawable.udfps_icon_pressed);
+        mUdfpsIconPressed = mContext.getDrawable(PRESSED_COLOR[mPressedColor]);
+        mDefaultPressedColor = res.getInteger(com.android.internal.R.
+             integer.config_fod_pressed_color);
+
+        Dependency.get(TunerService.class).addTunable(this,
+                FOD_COLOR);
+    }
+
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        switch (key) {
+            case FOD_COLOR:
+                mPressedColor =
+                        TunerService.parseInteger(newValue, mDefaultPressedColor);
+                mUdfpsIconPressed =
+                        mContext.getDrawable(PRESSED_COLOR[mPressedColor]);
+                break;
+            default:
+                break;
+        }
     }
 
     @Override public void surfaceCreated(SurfaceHolder holder) {
