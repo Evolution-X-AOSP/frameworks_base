@@ -20,8 +20,6 @@ import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.os.Handler;
 import android.os.Looper;
-import android.os.UserHandle;
-import android.provider.Settings;
 import android.os.SystemClock;
 import android.util.ArrayMap;
 import android.util.ArraySet;
@@ -274,7 +272,7 @@ public abstract class AlertingNotificationManager implements NotificationLifetim
         @Nullable public NotificationEntry mEntry;
         public long mPostTime;
         public long mEarliestRemovaltime;
-        
+
         @Nullable protected Runnable mRemoveAlertRunnable;
 
         public void setEntry(@NonNull final NotificationEntry entry) {
