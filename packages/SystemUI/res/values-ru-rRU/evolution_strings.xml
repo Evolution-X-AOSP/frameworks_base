@@ -132,9 +132,6 @@
     <string name="lockscreen_hidden">Нет</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Скриншот удален</string>
-    <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute" formatted="false"><xliff:g id="string">%s</xliff:g> - Всплывающие уведомления выключены на 1 минуту.</string>
-    <string name="heads_up_snooze_message" formatted="false"><xliff:g id="string">%1$s</xliff:g> - Всплывающие уведомления выключены на <xliff:g id="number">%1$d</xliff:g> минут(ы).</string>
     <!-- Partial screenshot -->
     <string name="global_screenshot_selector_capture_description">Частичный скриншот</string>
     <string name="global_screenshot_selector_cancel_description">Отменить частичный скриншот</string>
