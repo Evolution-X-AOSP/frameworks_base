@@ -132,9 +132,6 @@
     <string name="lockscreen_hidden">なし</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">スクリーンショットを削除しました</string>
-    <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute" formatted="false"><xliff:g id="string">%s</xliff:g> - 通知の表示は1分間一時停止します</string>
-    <string name="heads_up_snooze_message" formatted="false"><xliff:g id="string">%1$s</xliff:g> - 通知の表示は<xliff:g id="number">%1$d</xliff:g>分間停止します</string>
     <!-- Partial screenshot -->
     <string name="global_screenshot_selector_capture_description">部分スクリーンショットを取得</string>
     <string name="global_screenshot_selector_cancel_description">部分スクリーンショットを破棄</string>
