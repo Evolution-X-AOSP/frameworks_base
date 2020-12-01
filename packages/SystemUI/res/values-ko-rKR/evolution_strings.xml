@@ -132,9 +132,6 @@
     <string name="lockscreen_hidden">없음</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">스크린샷이 삭제됨</string>
-    <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute" formatted="false"><xliff:g id="string">%s</xliff:g> - 헤드 업 알림이 1분 동안 표시되지 않습니다.</string>
-    <string name="heads_up_snooze_message" formatted="false"><xliff:g id="string">%1$s</xliff:g> - 헤드 업 알림이 <xliff:g id="number">%1$d</xliff:g>분 동안 표시되지 않습니다.</string>
     <!-- Partial screenshot -->
     <string name="global_screenshot_selector_capture_description">부분 스크린샷 캡쳐</string>
     <string name="global_screenshot_selector_cancel_description">부분 스크린샷 캡쳐 취소</string>
