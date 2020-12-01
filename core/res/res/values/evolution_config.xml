@@ -174,4 +174,7 @@
 
     <!-- NightLight FOD -->
     <bool name="disable_fod_night_light">false</bool>
+
+    <!-- Default value for FOD animation package resources -->
+    <string name="config_fodAnimationPackage" translatable="false">com.evolution.fod.animations</string>
 </resources>
