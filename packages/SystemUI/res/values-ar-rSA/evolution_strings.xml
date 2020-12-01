@@ -132,9 +132,6 @@
     <string name="lockscreen_hidden">لا شَيْء</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">تم حذف لقطة الشاشة</string>
-    <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute" formatted="false"><xliff:g id="string">%s</xliff:g> - التنبيهات الخاطفة معطلة لدقيقة واحدة.</string>
-    <string name="heads_up_snooze_message" formatted="false"><xliff:g id="string">%1$s</xliff:g> • التنبيهات الخاطفة معطلة ل <xliff:g id="number">%1$d</xliff:g> دقائق.</string>
     <!-- Partial screenshot -->
     <string name="global_screenshot_selector_capture_description">التقاط لقطة جزئية للشاشة</string>
     <string name="global_screenshot_selector_cancel_description">التقاط لقطة جزئية للشاشة</string>
