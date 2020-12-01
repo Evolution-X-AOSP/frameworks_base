@@ -132,9 +132,6 @@
     <string name="lockscreen_hidden">ᱡᱟᱦᱟᱸᱱᱟᱠ ᱵᱟᱝ</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">ᱥᱠᱨᱤᱻᱱᱥᱚᱨᱴ ᱢᱮᱴᱟᱣ ᱮᱱᱟ</string>
-    <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute" formatted="false"><xliff:g id="string">%s</xliff:g> - ᱩᱭᱩᱸᱜ ᱱᱚᱴᱤᱯᱷᱤᱠᱮᱥᱚᱱ ᱫᱚ ᱑ ᱴᱤᱯᱤᱡᱽ ᱞᱟᱹᱜᱤᱫᱽ ᱥᱱᱩᱻᱡᱽᱚᱜᱽ ᱠᱟᱱᱟ ᱾</string>
-    <string name="heads_up_snooze_message" formatted="false"><xliff:g id="string">%s</xliff:g> - ᱩᱭᱩᱸᱜ ᱱᱚᱴᱤᱯᱷᱤᱠᱮᱥᱚᱱ ᱫᱚ <xliff:g id="number">%1$d</xliff:g> ᱴᱤᱯᱤᱡᱽ ᱠᱚ ᱞᱟᱹᱜᱤᱫᱽ ᱥᱱᱩᱻᱡᱽᱚᱜᱽ ᱠᱟᱱᱟ ᱾</string>
     <!-- Partial screenshot -->
     <string name="global_screenshot_selector_capture_description">ᱚᱫᱷᱟ ᱥᱠᱨᱤᱻᱱᱥᱚᱨᱴ ᱤᱫᱤ ᱢᱮᱸ</string>
     <string name="global_screenshot_selector_cancel_description">ᱚᱫᱷᱟ ᱥᱠᱨᱤᱻᱥᱚᱨᱴ ᱵᱚᱹᱰ ᱢᱮᱸ</string>
