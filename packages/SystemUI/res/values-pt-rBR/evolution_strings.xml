@@ -132,9 +132,6 @@
     <string name="lockscreen_hidden">Nenhum</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">A captura de tela foi excluída</string>
-    <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute" formatted="false"><xliff:g id="string">%s </xliff:g> - As notificações estão desativadas por 1 minuto.</string>
-    <string name="heads_up_snooze_message" formatted="false"><xliff:g id="string">%1$s</xliff:g> - As notificações estão desativadas por <xliff:g id="number">%1$d</xliff:g> minutos.</string>
     <!-- Partial screenshot -->
     <string name="global_screenshot_selector_capture_description">Captura parcial de tela</string>
     <string name="global_screenshot_selector_cancel_description">Cancelar captura de tela parcial</string>
