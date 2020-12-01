@@ -18,10 +18,10 @@
     <!-- Custom QS tiles -->
     <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Ambient display</string>
-    <string name="accessibility_quick_settings_ambient_display_off">Schermo ambient spento.</string>
-    <string name="accessibility_quick_settings_ambient_display_on">Schermo ambient acceso.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_off">Schermo ambient disattivato.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_on">Schermo ambient attivato.</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambient Display spento.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambient Display acceso.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display disattivato.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display attivato.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_off_powersave_label">AOD disattivato\nRisparmio energetico</string>
@@ -130,4 +130,25 @@
     <string name="drag_or_tap_to_rearrange_tiles">Tieni premuto e trascina per riorganizzare o tocca per rimuovere</string>
     <string name="lockscreen_default">Predefinito</string>
     <string name="lockscreen_hidden">Nessuno</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Screenshot eliminato</string>
+    <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">Cattura screenshot parziale</string>
+    <string name="global_screenshot_selector_cancel_description">Annulla screenshot parziale</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Forzare l\'interruzione?</string>
+    <string name="force_stop_dlg_text">Se forzi l\'interruzione di un\'app, questa potrebbe funzionare in modo anomalo.</string>
+    <string name="guts_force_close_app">Chiudi l\'app</string>
+    <!-- Screenrecorder -->
+    <string name="screenrecord_stopdot_label">Mostra punto per terminare\nPremi a lungo per spostarlo</string>
+    <string name="screenrecord_lowquality_label">Qualità inferiore per un file più piccolo</string>
+    <!-- Kill app -->
+    <string name="task_helper_app_killed">%1$s arrestata forzatamente</string>
+    <string name="empty_app_killed">Applicazione</string>
+    <string name="quick_settings_killapp_label">Termina applicazione</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">Apri la schermata dei servizi in esecuzione.</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Lingua</string>
+    <string name="quick_settings_locale_more_locales_toast">Configura più lingue per abilitare la funzionalità del toggle</string>
 </resources>
