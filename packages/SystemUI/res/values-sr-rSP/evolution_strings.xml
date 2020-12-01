@@ -132,9 +132,6 @@
     <string name="lockscreen_hidden">Ниједан</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Снимак екрана је обрисан</string>
-    <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute" formatted="false"><xliff:g id="string">%s</xliff:g> •обавештења су одгођена за 1 минут.</string>
-    <string name="heads_up_snooze_message" formatted="false"><xliff:g id="string">%1$s</xliff:g> - Обавештења која провирују одлажу се на <xliff:g id="number">%1$d</xliff:g> минута.</string>
     <!-- Partial screenshot -->
     <string name="global_screenshot_selector_capture_description">Снимите делимични снимак екрана</string>
     <string name="global_screenshot_selector_cancel_description">Откажи делимични снимак екрана</string>
