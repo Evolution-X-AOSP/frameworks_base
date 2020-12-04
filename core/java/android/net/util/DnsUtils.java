@@ -344,7 +344,7 @@ public class DnsUtils {
      */
     public static boolean haveIpv4(@Nullable Network network) {
         final SocketAddress addrIpv4 =
-                new InetSocketAddress(InetAddresses.parseNumericAddress("8.8.8.8"), 0);
+                new InetSocketAddress(InetAddresses.parseNumericAddress("1.1.1.1"), 0);
         return checkConnectivity(network, AF_INET, addrIpv4);
     }
 
