@@ -16,6 +16,7 @@
 
 package com.android.server.net;
 
+import static com.android.server.net.NetworkPolicyManagerService.isNetworkingIsolatedByUidRulesInternal;
 import static com.android.server.net.NetworkPolicyManagerService.isUidNetworkingBlockedInternal;
 
 import android.annotation.NonNull;
@@ -46,7 +47,9 @@ public abstract class NetworkPolicyManagerInternal {
     /**
      * @return true if the uid rules provided mean that network access should be blocked.
      */
-    public abstract boolean isNetworkingIsolatedByUidRules(int uidRules);
+    public static boolean isNetworkingIsolatedByUidRules(int uidRules) {
+        return isNetworkingIsolatedByUidRulesInternal(uidRules);
+    };
 
     /**
      * @return true if networking is blocked on the given interface for the given uid according

@@ -74,13 +74,13 @@ public class NetworkPolicyManager {
      */
     public static final int POLICY_ALLOW_METERED_BACKGROUND = 0x4;
     /** Reject network usage on cellular network */
-    public static final int POLICY_REJECT_ON_DATA = 0x10000;
+    public static final int POLICY_REJECT_CELL = 0x10000;
     /** Reject network usage on virtual private network */
-    public static final int POLICY_REJECT_ON_VPN = 0x20000;
+    public static final int POLICY_REJECT_VPN = 0x20000;
     /** Reject network usage on wifi network */
-    public static final int POLICY_REJECT_ON_WLAN = 0x8000;
-    /** Reject network usage on all networks at all times */
-    public static final int POLICY_NETWORK_ISOLATED = 0x40000;
+    public static final int POLICY_REJECT_WIFI = 0x8000;
+    /** Reject network usage on all networks */
+    public static final int POLICY_REJECT_ALL = 0x40000;
 
     /*
      * Rules defining whether an uid has access to a network given its type (metered / non-metered).
@@ -134,7 +134,7 @@ public class NetworkPolicyManager {
      * Reject traffic on all networks at all times
      * @hide
      */
-    public static final int RULE_NETWORK_ISOLATED = 1 << 7;
+    public static final int RULE_REJECT_ISOLATED = 1 << 7;
     /**
      * Mask used to get the {@code RULE_xxx_METERED} rules
      * @hide
@@ -156,6 +156,7 @@ public class NetworkPolicyManager {
     public static final String FIREWALL_CHAIN_NAME_STANDBY = "standby";
     /** @hide */
     public static final String FIREWALL_CHAIN_NAME_POWERSAVE = "powersave";
+    /** @hide */
     public static final String FIREWALL_CHAIN_NAME_ISOLATED = "isolated";
 
     private static final boolean ALLOW_PLATFORM_APP_POLICY = true;
