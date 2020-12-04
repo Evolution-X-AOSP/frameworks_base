@@ -73,7 +73,6 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
     private final int mDreamingMaxOffset;
     private final int mNavigationBarSize;
     private final boolean mShouldBoostBrightness;
-    private final Paint mPaintFingerprint = new Paint();
     private final Paint mPaintFingerprintBackground = new Paint();
     private final WindowManager.LayoutParams mParams = new WindowManager.LayoutParams();
     private final WindowManager.LayoutParams mPressedParams = new WindowManager.LayoutParams();
@@ -295,8 +294,6 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
         mColorBackground = res.getColor(R.color.config_fodColorBackground);
         mDefaultPressedColor = res.getInteger(com.android.internal.R.
              integer.config_fod_pressed_color);
-        mPaintFingerprint.setColor(res.getColor(R.color.config_fodColor));
-        mPaintFingerprint.setAntiAlias(true);
         mPaintFingerprintBackground.setColor(mColorBackground);
         mPaintFingerprintBackground.setAntiAlias(true);
 
@@ -333,12 +330,11 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
             @Override
             protected void onDraw(Canvas canvas) {
                 if (mIsCircleShowing) {
-                    canvas.drawCircle(mSize / 2, mSize / 2, mSize / 2.0f, mPaintFingerprint);
+                    setImageResource(PRESSED_COLOR[mPressedColor]);
                 }
                 super.onDraw(canvas);
             }
         };
-        mPressedView.setImageResource(PRESSED_COLOR[mPressedColor]);
 
         mWindowManager.addView(this, mParams);
 
