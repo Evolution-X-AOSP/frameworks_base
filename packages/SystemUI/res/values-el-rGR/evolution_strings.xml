@@ -52,7 +52,7 @@
     <string name="accessibility_quick_settings_cpuinfo_changed_off">Οι πληροφορίες επεξεργαστή είναι απενεργοποιημένες</string>
     <string name="accessibility_quick_settings_cpuinfo_changed_on">Οι πληροφορίες επεξεργαστή είναι ενεργοποιημένες</string>
     <!-- DataSwitch Tile -->
-    <string name="qs_data_switch_label">Αλλαγή κάρτας για τα δεδομένα</string>
+    <string name="qs_data_switch_label">Εναλλαγή κάρτας δεδομένων σε</string>
     <string name="qs_data_switch_changed_1">Χρήση της SIM 1 για τα δεδομένα κινητής τηλεφωνίας</string>
     <string name="qs_data_switch_changed_2">Χρήση της SIM 2 για τα δεδομένα κινητής τηλεφωνίας</string>
     <!-- FPS Info tile -->
@@ -131,4 +131,25 @@
     <string name="drag_or_tap_to_rearrange_tiles">Κρατήστε &amp; σύρετε για αναδιάταξη ή πατήστε για αφαίρεση</string>
     <string name="lockscreen_default">Προεπιλογή</string>
     <string name="lockscreen_hidden">Κανένα</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Το στιγμιότυπο οθόνης διαγράφηκε</string>
+    <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">Λήψη μερικού στιγμιότυπου οθόνης</string>
+    <string name="global_screenshot_selector_cancel_description">Ακύρωση μερικού στιγμιότυπου οθόνης</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Αναγκαστική διακοπή;</string>
+    <string name="force_stop_dlg_text">Εάν υποχρεώσετε να σταματήσετε μια εφαρμογή, ενδέχεται να συμπεριφέρεται εσφαλμένα.</string>
+    <string name="guts_force_close_app">Κλείσιμο εφαρμογής</string>
+    <!-- Screenrecorder -->
+    <string name="screenrecord_stopdot_label">Εμφάνιση κουκίδας παύσης και παρατεταμέο πάτημα για να την μετακινήσεις</string>
+    <string name="screenrecord_lowquality_label">Μείωση της ποιότητας για μικρότερο μέγεθος αρχείου</string>
+    <!-- Kill app -->
+    <string name="task_helper_app_killed">%1$s αναγκαστικό κλείσιμο</string>
+    <string name="empty_app_killed">Εφαρμογή</string>
+    <string name="quick_settings_killapp_label">Τερματισμός εφαρμογής</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">Άνοιγμα της οθόνης Εκτελούμενων Υπηρεσιών.</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Γλώσσα</string>
+    <string name="quick_settings_locale_more_locales_toast">Διαμορφώστε πολλές γλώσσες για να ενεργοποιήσετε τη λειτουργία εναλλαγής</string>
 </resources>
