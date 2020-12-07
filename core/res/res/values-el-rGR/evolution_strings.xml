@@ -26,4 +26,29 @@
     <string name="volume_dialog_ringer_guidance_normal">Οι κλήσεις και οι ειδοποιήσεις θα χτυπήσουν</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Πατήστε παρατεταμένα το κουμπί λειτουργίας για αλληλεπίδραση</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Αυτόματο</string>
+    <string name="live_display_auto_summary">Ρυθμίζει αυτόματα τη θερμοκρασία χρώματος της οθόνης μετά από το ηλιοβασίλεμα και την ανατολή του ηλίου</string>
+    <string name="live_display_off">Κλειστό</string>
+    <string name="live_display_off_summary">Απενεργοποίηση όλων των ρυθμίσεων</string>
+    <string name="live_display_day">Ημέρα</string>
+    <string name="live_display_day_summary">Χρήση μόνο των ρυθμίσεων ημέρας</string>
+    <string name="live_display_night">Νύχτα</string>
+    <string name="live_display_night_summary">Χρήση μόνο των ρυθμίσεων νύχτας</string>
+    <string name="live_display_outdoor">Εξωτερικός χώρος (λαμπερός ήλιος)</string>
+    <string name="live_display_outdoor_summary">Χρησιμοποιήστε μόνο εξωτερικές ρυθμίσεις</string>
+    <string name="live_display_hint">Η Ζωντανή Εμφάνιση μπορεί να βοηθήσει στη μείωση της κόπωσης των ματιών και να σας βοηθήσει να κοιμηθείτε το βράδυ. Κάντε κλικ εδώ για να το δοκιμάσετε!</string>
+    <string name="accessibility_quick_settings_live_display_off">Απενεργοποίηση Ζωντανής Εμφάνισης.</string>
+    <string name="accessibility_quick_settings_live_display_auto">Ζωντανή Εμφάνιση: αυτόματη λειτουργία.</string>
+    <string name="accessibility_quick_settings_live_display_day">Ζωντανή Εμφάνιση: λειτουργία ημέρας.</string>
+    <string name="accessibility_quick_settings_live_display_night">Ζωντανή Εμφάνιση: λειτουργία νύχτας.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">Ζωντανή Εμφάνιση: λειτουργία εξωτερικού χώρου.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">Ζωντανή Εμφάνιση απενεργοποιημένο.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">Η Ζωντανή Εμφάνιση άλλαξε σε αυτόματη λειτουργία.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">Η Ζωντανή Εμφάνιση άλλαξε σε λειτουργία ημέρας.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">Η Ζωντανή Εμφάνιση άλλαξε σε λειτουγία νύχτας.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">Η Ζωντανή Εμφάνιση άλλαξε σε λειτουργία εξωτερικού χώρου.</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Απαιτείται επανεκκίνηση του Συστήματος Ui</string>
+    <string name="systemui_restart_message">Για να εφαρμοστούν όλες οι αλλαγές, απαιτείται επανεκκίνηση του Συστήματος Ui. Επανεκκίνηση Συστήματος Ui τώρα;</string>
 </resources>
