@@ -2681,7 +2681,6 @@ public class LockSettingsService extends ILockSettings.Stub {
 
         final AuthenticationToken auth = mSpManager.newSyntheticPasswordAndSid(
                 getGateKeeperService(), credentialHash, credential, userId);
-        onAuthTokenKnownForUser(userId, auth);
         if (auth == null) {
             Slog.wtf(TAG, "initializeSyntheticPasswordLocked returns null auth token");
             return null;
@@ -2704,6 +2703,7 @@ public class LockSettingsService extends ILockSettings.Stub {
         }
         fixateNewestUserKeyAuth(userId);
         setSyntheticPasswordHandleLocked(handle, userId);
+        onAuthTokenKnownForUser(userId, auth);
         return auth;
     }
 

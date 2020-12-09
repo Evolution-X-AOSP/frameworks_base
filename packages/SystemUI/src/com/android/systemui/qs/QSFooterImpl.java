@@ -80,6 +80,8 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
     protected View mSettingsContainer;
     private PageIndicator mPageIndicator;
     private View mRunningServicesButton;
+    private TextView mBuildText;
+    private boolean mShouldShowBuildText;
 
     private boolean mQsDisabled;
     private QSPanel mQsPanel;
@@ -153,6 +155,7 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
 
         mActionsContainer = findViewById(R.id.qs_footer_actions_container);
         mEditContainer = findViewById(R.id.qs_footer_actions_edit_container);
+        mBuildText = findViewById(R.id.build);
 
         // RenderThread is doing more harm than good when touching the header (to expand quick
         // settings), so disable it for this view
@@ -169,9 +172,7 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
     }
 
     private void setBuildText() {
-        TextView v = findViewById(R.id.build);
-        String baseVersion = SystemProperties.get("org.evolution.build_version");
-        if (v == null) return;
+        if (mBuildText == null) return;
         boolean isShow = Settings.System.getIntForUser(mContext.getContentResolver(),
                         Settings.System.FOOTER_TEXT_SHOW, 0,
                         UserHandle.USER_CURRENT) == 1;
@@ -179,15 +180,16 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
                         Settings.System.FOOTER_TEXT_STRING,
                         UserHandle.USER_CURRENT);
         if (isShow) {
-            if (text == null || text == "") {
-                v.setText("Evolution X " + baseVersion);
-                v.setVisibility(View.VISIBLE);
-            } else {
-                v.setText(text);
-                v.setVisibility(View.VISIBLE);
-            }
+            mBuildText.setText(text == null || text == "" ? "Evolution X" : text);
+            // Set as selected for marquee before its made visible, then it won't be announced when
+            // it's made visible.
+            mBuildText.setSelected(true);
+            mShouldShowBuildText = true;
+            mBuildText.setVisibility(View.VISIBLE);
         } else {
-            v.setVisibility(View.GONE);
+            mShouldShowBuildText = false;
+            mBuildText.setSelected(false);
+            mBuildText.setVisibility(View.GONE);
         }
     }
 
@@ -339,6 +341,8 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         mEditContainer.setVisibility(isDemo || !mExpanded ? View.INVISIBLE : View.VISIBLE);
         mSettingsButton.setVisibility(isDemo || !mExpanded ? View.INVISIBLE : View.VISIBLE);
         mRunningServicesButton.setVisibility(!isDemo && mExpanded ? View.VISIBLE : View.INVISIBLE);
+
+        mBuildText.setVisibility(mExpanded && mShouldShowBuildText ? View.VISIBLE : View.GONE);
     }
 
     private boolean showUserSwitcher() {

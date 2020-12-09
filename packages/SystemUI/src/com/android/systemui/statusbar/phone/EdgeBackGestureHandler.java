@@ -251,7 +251,6 @@ public class EdgeBackGestureHandler extends CurrentUserTracker implements Displa
             }
         }
 
-        Dependency.get(ProtoTracer.class).add(this);
         mLongPressTimeout = Math.min(MAX_LONG_PRESS_TIMEOUT,
                 ViewConfiguration.getLongPressTimeout());
 
@@ -330,6 +329,7 @@ public class EdgeBackGestureHandler extends CurrentUserTracker implements Displa
      */
     public void onNavBarAttached() {
         mIsAttached = true;
+        Dependency.get(ProtoTracer.class).add(this);
         mOverviewProxyService.addCallback(mQuickSwitchListener);
         updateIsEnabled();
         startTracking();
@@ -340,6 +340,7 @@ public class EdgeBackGestureHandler extends CurrentUserTracker implements Displa
      */
     public void onNavBarDetached() {
         mIsAttached = false;
+        Dependency.get(ProtoTracer.class).remove(this);
         mOverviewProxyService.removeCallback(mQuickSwitchListener);
         updateIsEnabled();
         stopTracking();

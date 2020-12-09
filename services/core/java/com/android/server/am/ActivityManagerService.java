@@ -2219,17 +2219,13 @@ public class ActivityManagerService extends IActivityManager.Stub
         @Override
         protected void dump(FileDescriptor fd, PrintWriter pw, String[] args) {
             try {
-                if (mActivityManagerService.mOomAdjuster.mCachedAppOptimizer.useFreezer()) {
-                    Process.enableFreezer(false);
-                }
+                mActivityManagerService.mOomAdjuster.mCachedAppOptimizer.enableFreezer(false);
 
                 if (!DumpUtils.checkDumpAndUsageStatsPermission(mActivityManagerService.mContext,
                         "meminfo", pw)) return;
                 PriorityDump.dump(mPriorityDumper, fd, pw, args);
             } finally {
-                if (mActivityManagerService.mOomAdjuster.mCachedAppOptimizer.useFreezer()) {
-                    Process.enableFreezer(true);
-                }
+                mActivityManagerService.mOomAdjuster.mCachedAppOptimizer.enableFreezer(true);
             }
         }
     }
@@ -2243,17 +2239,13 @@ public class ActivityManagerService extends IActivityManager.Stub
         @Override
         protected void dump(FileDescriptor fd, PrintWriter pw, String[] args) {
             try {
-                if (mActivityManagerService.mOomAdjuster.mCachedAppOptimizer.useFreezer()) {
-                    Process.enableFreezer(false);
-                }
+                mActivityManagerService.mOomAdjuster.mCachedAppOptimizer.enableFreezer(false);
 
                 if (!DumpUtils.checkDumpAndUsageStatsPermission(mActivityManagerService.mContext,
                         "gfxinfo", pw)) return;
                 mActivityManagerService.dumpGraphicsHardwareUsage(fd, pw, args);
             } finally {
-                if (mActivityManagerService.mOomAdjuster.mCachedAppOptimizer.useFreezer()) {
-                    Process.enableFreezer(true);
-                }
+                mActivityManagerService.mOomAdjuster.mCachedAppOptimizer.enableFreezer(true);
             }
         }
     }
@@ -2267,17 +2259,13 @@ public class ActivityManagerService extends IActivityManager.Stub
         @Override
         protected void dump(FileDescriptor fd, PrintWriter pw, String[] args) {
             try {
-                if (mActivityManagerService.mOomAdjuster.mCachedAppOptimizer.useFreezer()) {
-                    Process.enableFreezer(false);
-                }
+                mActivityManagerService.mOomAdjuster.mCachedAppOptimizer.enableFreezer(false);
 
                 if (!DumpUtils.checkDumpAndUsageStatsPermission(mActivityManagerService.mContext,
                         "dbinfo", pw)) return;
                 mActivityManagerService.dumpDbInfo(fd, pw, args);
             } finally {
-                if (mActivityManagerService.mOomAdjuster.mCachedAppOptimizer.useFreezer()) {
-                    Process.enableFreezer(true);
-                }
+                mActivityManagerService.mOomAdjuster.mCachedAppOptimizer.enableFreezer(true);
             }
         }
     }
@@ -2323,9 +2311,7 @@ public class ActivityManagerService extends IActivityManager.Stub
         @Override
         protected void dump(FileDescriptor fd, PrintWriter pw, String[] args) {
             try {
-                if (mActivityManagerService.mOomAdjuster.mCachedAppOptimizer.useFreezer()) {
-                    Process.enableFreezer(false);
-                }
+                mActivityManagerService.mOomAdjuster.mCachedAppOptimizer.enableFreezer(false);
 
                 if (!DumpUtils.checkDumpAndUsageStatsPermission(mActivityManagerService.mContext,
                         "cacheinfo", pw)) {
@@ -2334,9 +2320,7 @@ public class ActivityManagerService extends IActivityManager.Stub
 
                 mActivityManagerService.dumpBinderCacheContents(fd, pw, args);
             } finally {
-                if (mActivityManagerService.mOomAdjuster.mCachedAppOptimizer.useFreezer()) {
-                    Process.enableFreezer(true);
-                }
+                mActivityManagerService.mOomAdjuster.mCachedAppOptimizer.enableFreezer(true);
             }
         }
     }
@@ -10540,7 +10524,7 @@ public class ActivityManagerService extends IActivityManager.Stub
 
     private void dumpEverything(FileDescriptor fd, PrintWriter pw, String[] args, int opti,
             boolean dumpAll, String dumpPackage, boolean dumpClient, boolean dumpNormalPriority,
-            int dumpAppId) {
+            int dumpAppId, boolean dumpProxies) {
 
         ActiveServices.ServiceDumper sdumper;
 
@@ -10599,7 +10583,7 @@ public class ActivityManagerService extends IActivityManager.Stub
             }
             sdumper.dumpWithClient();
         }
-        if (dumpPackage == null) {
+        if (dumpPackage == null && dumpProxies) {
             // Intentionally dropping the lock for this, because dumpBinderProxies() will make many
             // outgoing binder calls to retrieve interface descriptors; while that is system code,
             // there is nothing preventing an app from overriding this implementation by talking to
@@ -11008,13 +10992,14 @@ public class ActivityManagerService extends IActivityManager.Stub
                 // dumpEverything() will take the lock when needed, and momentarily drop
                 // it for dumping client state.
                 dumpEverything(fd, pw, args, opti, dumpAll, dumpPackage, dumpClient,
-                        dumpNormalPriority, dumpAppId);
+                        dumpNormalPriority, dumpAppId, true /* dumpProxies */);
             } else {
                 // Take the lock here, so we get a consistent state for the entire dump;
-                // dumpEverything() will take the lock as well, but that is fine.
+                // dumpEverything() will take the lock as well, which is fine for everything
+                // except dumping proxies, which can take a long time; exclude them.
                 synchronized(this) {
                     dumpEverything(fd, pw, args, opti, dumpAll, dumpPackage, dumpClient,
-                            dumpNormalPriority, dumpAppId);
+                            dumpNormalPriority, dumpAppId, false /* dumpProxies */);
                 }
             }
         }
@@ -18616,14 +18601,14 @@ public class ActivityManagerService extends IActivityManager.Stub
                     }
                 }
 
-                Process.enableFreezer(false);
+                mOomAdjuster.mCachedAppOptimizer.enableFreezer(false);
 
                 final RemoteCallback intermediateCallback = new RemoteCallback(
                         new RemoteCallback.OnResultListener() {
                         @Override
                         public void onResult(Bundle result) {
                             finishCallback.sendResult(result);
-                            Process.enableFreezer(true);
+                            mOomAdjuster.mCachedAppOptimizer.enableFreezer(true);
                         }
                     }, null);
 
@@ -20416,6 +20401,18 @@ public class ActivityManagerService extends IActivityManager.Stub
     public boolean isSwipeToScreenshotGestureActive() {
         synchronized (this) {
             return mIsSwipeToScreenshotEnabled && SystemProperties.getBoolean("sys.android.screenshot", false);
+        }
+    }
+
+    @Override
+    public boolean enableAppFreezer(boolean enable) {
+        int callerUid = Binder.getCallingUid();
+
+        // Only system can toggle the freezer state
+        if (callerUid == SYSTEM_UID) {
+            return mOomAdjuster.mCachedAppOptimizer.enableFreezer(enable);
+        } else {
+            throw new SecurityException("Caller uid " + callerUid + " cannot set freezer state ");
         }
     }
 }

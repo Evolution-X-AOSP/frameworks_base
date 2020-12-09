@@ -186,6 +186,7 @@ public class NavigationBarFragment extends LifecycleFragment implements Callback
     private int mLayoutDirection;
 
     private boolean mForceNavBarHandleOpaque;
+    private boolean mIsCurrentUserSetup;
 
     /** @see android.view.WindowInsetsController#setSystemBarsAppearance(int) */
     private @Appearance int mAppearance;
@@ -280,6 +281,10 @@ public class NavigationBarFragment extends LifecycleFragment implements Callback
 
         @Override
         public void onNavBarButtonAlphaChanged(float alpha, boolean animate) {
+            if (!mIsCurrentUserSetup) {
+                // If the current user is not yet setup, then don't update any button alphas
+                return;
+            }
             ButtonDispatcher buttonDispatcher = null;
             boolean forceVisible = false;
             if (QuickStepContract.isSwipeUpMode(mNavBarMode)) {
@@ -341,6 +346,14 @@ public class NavigationBarFragment extends LifecycleFragment implements Callback
                 mForceNavBarHandleOpaque = properties.getBoolean(
                         NAV_BAR_HANDLE_FORCE_OPAQUE, /* defaultValue = */ true);
             }
+        }
+    };
+
+    private final DeviceProvisionedController.DeviceProvisionedListener mUserSetupListener =
+            new DeviceProvisionedController.DeviceProvisionedListener() {
+        @Override
+        public void onUserSetupChanged() {
+            mIsCurrentUserSetup = mDeviceProvisionedController.isCurrentUserSetup();
         }
     };
 
@@ -411,6 +424,9 @@ public class NavigationBarFragment extends LifecycleFragment implements Callback
                 /* defaultValue = */ true);
         DeviceConfig.addOnPropertiesChangedListener(
                 DeviceConfig.NAMESPACE_SYSTEMUI, mHandler::post, mOnPropertiesChangedListener);
+
+        mIsCurrentUserSetup = mDeviceProvisionedController.isCurrentUserSetup();
+        mDeviceProvisionedController.addCallback(mUserSetupListener);
     }
 
     @Override
@@ -419,6 +435,7 @@ public class NavigationBarFragment extends LifecycleFragment implements Callback
         mNavigationModeController.removeListener(this);
         mAccessibilityManagerWrapper.removeCallback(mAccessibilityListener);
         mContentResolver.unregisterContentObserver(mAssistContentObserver);
+        mDeviceProvisionedController.removeCallback(mUserSetupListener);
 
         DeviceConfig.removeOnPropertiesChangedListener(mOnPropertiesChangedListener);
     }
@@ -465,8 +482,6 @@ public class NavigationBarFragment extends LifecycleFragment implements Callback
 
         // Currently there is no accelerometer sensor on non-default display.
         if (mIsOnDefaultDisplay) {
-            mNavigationBarView.getRotateSuggestionButton().setListener(mRotationButtonListener);
-
             final RotationButtonController rotationButtonController =
                     mNavigationBarView.getRotationButtonController();
             rotationButtonController.addRotationCallback(mRotationWatcher);
@@ -1133,6 +1148,7 @@ public class NavigationBarFragment extends LifecycleFragment implements Callback
         if (mAutoHideController != null) {
             mAutoHideController.setNavigationBar(mAutoHideUiElement);
         }
+        mNavigationBarView.setAutoHideController(autoHideController);
     }
 
     private boolean isTransientShown() {

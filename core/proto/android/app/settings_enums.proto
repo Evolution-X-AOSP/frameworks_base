@@ -2684,6 +2684,11 @@ enum PageId {
     // OS: R
     MEDIA_CONTROLS_SETTINGS = 1845;
 
+    // OPEN: Settings > Network & internet > Adaptive connectivity
+    // CATEGORY: SETTINGS
+    // OS: R QPR  
+    ADAPTIVE_CONNECTIVITY_CATEGORY = 1850;
+
     // Evolution X Additions
     // Panel for Mobile Data
     PANEL_MOBILE_DATA = 2000;
