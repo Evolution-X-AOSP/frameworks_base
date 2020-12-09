@@ -5282,11 +5282,6 @@ public final class Settings {
         public static final String SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
 
         /**
-         * Whether to take partial screenshot with volume down + power click.
-         */
-        public static final String CLICK_PARTIAL_SCREENSHOT = "click_partial_screenshot";
-
-        /**
          * @hide
          */
         public static final String ROAMING_INDICATOR_ICON = "roaming_indicator_icon";
