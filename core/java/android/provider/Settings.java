@@ -5644,6 +5644,12 @@ public final class Settings {
         public static final String SMART_CHARGING_RESUME_LEVEL = "smart_charging_resume_level";
 
         /**
+         * Delay in milliseconds before activating screenshot gesture
+         * @hide
+         */
+        public static final String SCREENSHOT_GESTURE_DELAY = "screenshot_gesture_delay";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
