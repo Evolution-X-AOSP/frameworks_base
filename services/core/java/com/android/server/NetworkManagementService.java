@@ -263,9 +263,9 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
     /* map keys used by netd to keep per app interface restrictions
      * separate for each use case.
      */
-    private static final String RESTRICT_USECASE_CELL = "cell";
+    private static final String RESTRICT_USECASE_DATA = "data";
     private static final String RESTRICT_USECASE_VPN  = "vpn";
-    private static final String RESTRICT_USECASE_WIFI = "wifi";
+    private static final String RESTRICT_USECASE_WLAN = "wlan";
 
     // Helper class for managing per uid interface blacklists.
     private static class RestrictIf {
@@ -294,8 +294,8 @@ public class NetworkManagementService extends INetworkManagementService.Stub {
             // Ordered by match preference (in the event we get a callback with
             // multiple transports).
             new RestrictIf(RESTRICT_USECASE_VPN, NetworkCapabilities.TRANSPORT_VPN),
-            new RestrictIf(RESTRICT_USECASE_CELL, NetworkCapabilities.TRANSPORT_CELLULAR),
-            new RestrictIf(RESTRICT_USECASE_WIFI, NetworkCapabilities.TRANSPORT_WIFI),
+            new RestrictIf(RESTRICT_USECASE_DATA, NetworkCapabilities.TRANSPORT_CELLULAR),
+            new RestrictIf(RESTRICT_USECASE_WLAN, NetworkCapabilities.TRANSPORT_WIFI),
     };
 
     private RestrictIf getUseCaseRestrictIf(String useCase) {

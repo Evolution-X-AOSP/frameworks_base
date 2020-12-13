@@ -97,6 +97,5 @@ public class SystemSettings {
         Settings.System.CUSTOM_RINGTONE_VIBRATION_PATTERN,
         Settings.System.COLOR_BUCKET_OVERLAY,
         Settings.System.NOTIFICATION_HEADERS,
-        Settings.System.SCREENSHOT_GESTURE_DELAY,
     };
 }

@@ -59,15 +59,15 @@ import static android.net.NetworkPolicyManager.FIREWALL_RULE_DEFAULT;
 import static android.net.NetworkPolicyManager.MASK_ALL_NETWORKS;
 import static android.net.NetworkPolicyManager.MASK_METERED_NETWORKS;
 import static android.net.NetworkPolicyManager.POLICY_ALLOW_METERED_BACKGROUND;
-import static android.net.NetworkPolicyManager.POLICY_REJECT_ALL;
+import static android.net.NetworkPolicyManager.POLICY_NETWORK_ISOLATED;
 import static android.net.NetworkPolicyManager.POLICY_NONE;
 import static android.net.NetworkPolicyManager.POLICY_REJECT_METERED_BACKGROUND;
-import static android.net.NetworkPolicyManager.POLICY_REJECT_CELL;
-import static android.net.NetworkPolicyManager.POLICY_REJECT_VPN;
-import static android.net.NetworkPolicyManager.POLICY_REJECT_WIFI;
+import static android.net.NetworkPolicyManager.POLICY_REJECT_ON_DATA;
+import static android.net.NetworkPolicyManager.POLICY_REJECT_ON_VPN;
+import static android.net.NetworkPolicyManager.POLICY_REJECT_ON_WLAN;
 import static android.net.NetworkPolicyManager.RULE_ALLOW_ALL;
 import static android.net.NetworkPolicyManager.RULE_ALLOW_METERED;
-import static android.net.NetworkPolicyManager.RULE_REJECT_ISOLATED;
+import static android.net.NetworkPolicyManager.RULE_NETWORK_ISOLATED;
 import static android.net.NetworkPolicyManager.RULE_NONE;
 import static android.net.NetworkPolicyManager.RULE_REJECT_ALL;
 import static android.net.NetworkPolicyManager.RULE_REJECT_METERED;
@@ -4308,7 +4308,6 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
 
         // Update firewall and internal rules for Data Saver Mode.
         updateRulesForDataUsageRestrictionsUL(uid);
-        updateRulesForIsolatedUL(uid);
     }
 
     /**
@@ -4379,12 +4378,12 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         int newRule = RULE_NONE;
 
         try {
-            mNetworkManager.restrictAppOnInterface("cell", uid,
-                    (uidPolicy & POLICY_REJECT_CELL) != 0);
+            mNetworkManager.restrictAppOnInterface("data", uid,
+                    (uidPolicy & POLICY_REJECT_ON_DATA) != 0);
             mNetworkManager.restrictAppOnInterface("vpn", uid,
-                    (uidPolicy & POLICY_REJECT_VPN) != 0);
-            mNetworkManager.restrictAppOnInterface("wifi", uid,
-                    (uidPolicy & POLICY_REJECT_WIFI) != 0);
+                    (uidPolicy & POLICY_REJECT_ON_VPN) != 0);
+            mNetworkManager.restrictAppOnInterface("wlan", uid,
+                    (uidPolicy & POLICY_REJECT_ON_WLAN) != 0);
         } catch (RemoteException e) {
             // ignored; service lives in system_server
         }
@@ -4484,27 +4483,19 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
     private void updateRulesForIsolatedUL(int uid) {
         final int uidPolicy = mUidPolicy.get(uid, POLICY_NONE);
         final int oldUidRules = mUidRules.get(uid, RULE_NONE);
-        final boolean wasIsolated = (oldUidRules & RULE_REJECT_ISOLATED) != 0;
-        final boolean isIsolated = (uidPolicy & POLICY_REJECT_ALL) != 0;
+        final boolean wasIsolated = (oldUidRules & RULE_NETWORK_ISOLATED) != 0;
+        final boolean isIsolated = (uidPolicy & POLICY_NETWORK_ISOLATED) != 0;
 
         if (isIsolated == wasIsolated) {
             // No change
             return;
         }
 
-        final long token = Binder.clearCallingIdentity();
-        try {
-            setUidFirewallRule(FIREWALL_CHAIN_ISOLATED, uid,
-                    isIsolated ? FIREWALL_RULE_DENY : FIREWALL_RULE_DEFAULT);
-        } finally {
-            Binder.restoreCallingIdentity(token);
-        }
-
         int uidRules = oldUidRules;
         if (isIsolated) {
-            uidRules |= RULE_REJECT_ISOLATED;
+            uidRules |= RULE_NETWORK_ISOLATED;
         } else {
-            uidRules &= ~RULE_REJECT_ISOLATED;
+            uidRules &= ~RULE_NETWORK_ISOLATED;
         }
 
         if (uidRules == RULE_NONE) {
@@ -4602,7 +4593,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         // Generate new uid rules, ensuring we persist any existing
         // metered networks and network isolated rules.
         final int newUidRules = (oldUidRules
-                & (MASK_METERED_NETWORKS | RULE_REJECT_ISOLATED)) | newRule;
+                & (MASK_METERED_NETWORKS | RULE_NETWORK_ISOLATED)) | newRule;
 
         if (LOGV) {
             Log.v(TAG, "updateRulesForPowerRestrictionsUL(" + uid + ")"
@@ -5306,10 +5297,6 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         return uid < Process.FIRST_APPLICATION_UID;
     }
 
-    static boolean isNetworkingIsolatedByUidRulesInternal(int uidRules) {
-        return hasRule(uidRules, RULE_REJECT_ISOLATED);
-    }
-
     static boolean isUidNetworkingBlockedInternal(int uid, int uidRules, boolean isNetworkMetered,
             boolean isBackgroundRestricted, @Nullable NetworkPolicyLogger logger) {
         final int reason;
@@ -5317,7 +5304,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         if (isSystem(uid)) {
             reason = NTWK_ALLOWED_SYSTEM;
         }
-        else if (hasRule(uidRules, RULE_REJECT_ISOLATED)) {
+        else if (hasRule(uidRules, RULE_NETWORK_ISOLATED)) {
             reason = NTWK_BLOCKED_ISOLATED;
         }
         else if (hasRule(uidRules, RULE_REJECT_ALL)) {
@@ -5422,6 +5409,11 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             mStatLogger.logDurationStat(Stats.IS_UID_NETWORKING_BLOCKED, startTime);
 
             return ret;
+        }
+
+        @Override
+        public boolean isNetworkingIsolatedByUidRules(int uidRules) {
+            return hasRule(uidRules, RULE_NETWORK_ISOLATED);
         }
 
         @Override
