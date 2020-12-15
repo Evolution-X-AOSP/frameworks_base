@@ -32,7 +32,10 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.RectF;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.hardware.fingerprint.FingerprintManager;
@@ -117,6 +120,32 @@ public class EvolutionUtils {
         NetworkInfo wifi = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
         NetworkInfo mobile = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
         return wifi.isConnected() || mobile.isConnected();
+    }
+
+    public static Bitmap scaleCenterInside(final Bitmap source, final int newWidth, final int newHeight) {
+        int sourceWidth = source.getWidth();
+        int sourceHeight = source.getHeight();
+
+        float widthRatio = (float) newWidth / sourceWidth;
+        float heightRatio = (float) newHeight / sourceHeight;
+        float ratio = Math.max(widthRatio, heightRatio);
+        float scaledWidth = sourceWidth * ratio;
+        float scaledHeight = sourceHeight * ratio;
+
+        //Bitmap scaled = Bitmap.createScaledBitmap(source, (int)scaledWidth, (int)scaledHeight, true);
+
+        RectF targetRect = null;
+        if (newWidth > newHeight) {
+            float inset = (scaledHeight - newHeight) / 2;
+            targetRect = new RectF(0, -inset, newWidth, newHeight + inset);
+        } else {
+            float inset = (scaledWidth - newWidth) / 2;
+            targetRect = new RectF(-inset, 0, newWidth + inset, newHeight);
+        }
+        Bitmap dest = Bitmap.createBitmap(newWidth, newHeight, source.getConfig());
+        Canvas canvas = new Canvas(dest);
+        canvas.drawBitmap(source, null, targetRect, null);
+        return dest;
     }
 
     // Returns today's passed time in Millisecond
