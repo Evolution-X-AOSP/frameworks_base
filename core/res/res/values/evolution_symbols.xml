@@ -193,4 +193,7 @@
   <java-symbol type="layout" name="app_list_item" />
   <java-symbol type="string" name="active_edge_app_select_title" />
   <java-symbol type="string" name="active_edge_activity_select_title" />
+
+  <!-- Pulse brightness -->
+  <java-symbol type="integer" name="config_screenBrightnessPulse" />
 </resources>
