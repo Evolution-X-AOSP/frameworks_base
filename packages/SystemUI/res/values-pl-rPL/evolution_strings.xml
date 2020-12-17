@@ -151,4 +151,14 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Język</string>
     <string name="quick_settings_locale_more_locales_toast">Proszę skonfigurować wiele języków, aby włączyć funkcję przełączenia</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">Klawisze sprzętowe włączone</string>
+    <string name="accessibility_quick_settings_hwkeys_off">Klawisze sprzętowe wyłączone</string>
+    <string name="quick_settings_hwkeys_label">Klawisze sprzętowe</string>
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">Tryb gry jest wyłączony w ustawieniach</string>
+    <string name="quick_settings_gaming_mode_label">Tryb gry</string>
+    <!-- App picker manifest entry -->
+    <string name="app_picker_dialog_title">Wybierz aplikację</string>
+    <string name="app_picker_activity_select_title">Wybierz czynność</string>
 </resources>
