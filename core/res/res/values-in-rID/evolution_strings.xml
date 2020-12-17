@@ -51,4 +51,12 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Diperlukan memulai ulang SistemUI</string>
     <string name="systemui_restart_message">Untuk melihat semua perubahan, diperlukan memulai ulang SistemUI. Mulai ulang sekarang?</string>
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">Mode Permainan</string>
+    <string name="gaming_mode_notification_title">Mode Permainan dihidupkan</string>
+    <string name="gaming_mode_notification_content">Ketuk untuk mematikan Mode Permainan</string>
+    <string name="gaming_mode_enabled_toast">Mode Permainan dihidupkan</string>
+    <string name="gaming_mode_disabled_toast">Mode Permainan dinonaktifkan</string>
+    <string name="active_edge_app_select_title">Pilih aplikasi</string>
+    <string name="active_edge_activity_select_title">Pilih aktivitas</string>
 </resources>
