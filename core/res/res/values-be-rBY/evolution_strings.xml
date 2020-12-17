@@ -51,4 +51,12 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Неабходна перазагрузка карыстацкага інтэрфейсу</string>
     <string name="systemui_restart_message">Каб усе змены набылі сілу, патрабуецца перазагрузка карыстацкага інтэрфейсу. Перазагрузіць інтэрфейс?</string>
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">Гульнявы рэжым</string>
+    <string name="gaming_mode_notification_title">Гульнявы рэжым уключаны</string>
+    <string name="gaming_mode_notification_content">Націсніце, каб пераключыць гульнявы рэжым</string>
+    <string name="gaming_mode_enabled_toast">Гульнявы рэжым уключаны</string>
+    <string name="gaming_mode_disabled_toast">Гульнявы рэжым адключаны</string>
+    <string name="active_edge_app_select_title">Выбраць праграму</string>
+    <string name="active_edge_activity_select_title">Выберыце дзеянне</string>
 </resources>
