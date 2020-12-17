@@ -51,4 +51,12 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">システム UI の再起動が必要です</string>
     <string name="systemui_restart_message">全ての変更を反映するにはシステム UI の再起動が必要です。再起動しますか?</string>
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">ゲームモード</string>
+    <string name="gaming_mode_notification_title">ゲームモードが有効です</string>
+    <string name="gaming_mode_notification_content">タップでゲームモードを無効化</string>
+    <string name="gaming_mode_enabled_toast">ゲームモードを有効化しました</string>
+    <string name="gaming_mode_disabled_toast">ゲームモードを無効化しました</string>
+    <string name="active_edge_app_select_title">アプリを選択</string>
+    <string name="active_edge_activity_select_title">アクティビティを選択</string>
 </resources>
