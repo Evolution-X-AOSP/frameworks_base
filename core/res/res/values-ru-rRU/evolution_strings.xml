@@ -51,4 +51,12 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Требуется перезагрузка SystemUI</string>
     <string name="systemui_restart_message">Чтобы все изменения вступили в силу, требуется перезагрузка SystemUI. Перезапустить его прямо сейчас?</string>
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">Игровой режим</string>
+    <string name="gaming_mode_notification_title">Игровой режим включён</string>
+    <string name="gaming_mode_notification_content">Нажмите, чтобы выключить Игровой режим</string>
+    <string name="gaming_mode_enabled_toast">Игровой режим включён</string>
+    <string name="gaming_mode_disabled_toast">Игровой режим выключен</string>
+    <string name="active_edge_app_select_title">Выбрать приложение</string>
+    <string name="active_edge_activity_select_title">Выберите действие</string>
 </resources>
