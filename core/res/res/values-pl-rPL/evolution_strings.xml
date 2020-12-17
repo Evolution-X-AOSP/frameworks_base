@@ -51,4 +51,12 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Wymagane ponowne uruchomienie SystemUI</string>
     <string name="systemui_restart_message">Zapisanie wszystkich zmian wymaga ponownego uruchomienia SystemUI. Zrobić to teraz?</string>
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">Tryb gry</string>
+    <string name="gaming_mode_notification_title">Tryb gry włączony</string>
+    <string name="gaming_mode_notification_content">Naciśnij, aby wyłączyć tryb gry</string>
+    <string name="gaming_mode_enabled_toast">Tryb gry włączony</string>
+    <string name="gaming_mode_disabled_toast">Tryb gry wyłączony</string>
+    <string name="active_edge_app_select_title">Wybierz aplikację</string>
+    <string name="active_edge_activity_select_title">Wybierz czynność</string>
 </resources>
