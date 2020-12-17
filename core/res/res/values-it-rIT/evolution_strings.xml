@@ -51,4 +51,12 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Riavvio dell\'interfaccia utente richiesto</string>
     <string name="systemui_restart_message">Per rendere effettive tutte le modifiche, è necessario un riavvio dell\'interfaccia utente. Riavviarla ora?</string>
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">Modalità gioco</string>
+    <string name="gaming_mode_notification_title">Modalità gioco attivata</string>
+    <string name="gaming_mode_notification_content">Tocca per disattivare la modalità gioco</string>
+    <string name="gaming_mode_enabled_toast">Modalità gioco attivata</string>
+    <string name="gaming_mode_disabled_toast">Modalità gioco disattivata</string>
+    <string name="active_edge_app_select_title">Seleziona l\'app</string>
+    <string name="active_edge_activity_select_title">Seleziona l\'attività</string>
 </resources>
