@@ -51,4 +51,12 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">시스템 UI 재시작이 필요합니다</string>
     <string name="systemui_restart_message">모든 변경 사항을 적용하려면 시스템 UI를 다시 시작해야 합니다. 지금 시스템 UI를 다시 시작하시겠습니까?</string>
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">게이밍 모드</string>
+    <string name="gaming_mode_notification_title">게이밍 모드 활성화됨</string>
+    <string name="gaming_mode_notification_content">여기를 눌러 게이밍 모드 끄기</string>
+    <string name="gaming_mode_enabled_toast">게이밍 모드가 켜졌습니다</string>
+    <string name="gaming_mode_disabled_toast">게이밍 모드가 꺼졌습니다</string>
+    <string name="active_edge_app_select_title">앱 선택</string>
+    <string name="active_edge_activity_select_title">액티비티 선택</string>
 </resources>
