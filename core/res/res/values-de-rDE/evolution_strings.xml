@@ -51,4 +51,12 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Neustart der SystemUI erforderlich</string>
     <string name="systemui_restart_message">Um alle Änderungen anzuwenden, ist ein Neustart des SystemUI notwendig. SystemUI jetzt neu starten?</string>
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">Gaming-Modus</string>
+    <string name="gaming_mode_notification_title">Gaming-Modus eingeschaltet</string>
+    <string name="gaming_mode_notification_content">Tippen, um den Gaming-Modus auszuschalten</string>
+    <string name="gaming_mode_enabled_toast">Gaming-Modus eingeschaltet</string>
+    <string name="gaming_mode_disabled_toast">Gaming-Modus ausgeschaltet</string>
+    <string name="active_edge_app_select_title">App auswählen</string>
+    <string name="active_edge_activity_select_title">Aktion auswählen</string>
 </resources>
