@@ -151,4 +151,14 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Sprache</string>
     <string name="quick_settings_locale_more_locales_toast">Bitte fügen Sie mehr als eine Sprache hinzu, um die Umschaltfunktion zu aktivieren</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">HW-Tasten an</string>
+    <string name="accessibility_quick_settings_hwkeys_off">HW-Tasten aus</string>
+    <string name="quick_settings_hwkeys_label">HW-Tasten</string>
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">Gaming-Modus ist in den Einstellungen deaktiviert</string>
+    <string name="quick_settings_gaming_mode_label">Gaming-Modus</string>
+    <!-- App picker manifest entry -->
+    <string name="app_picker_dialog_title">App auswählen</string>
+    <string name="app_picker_activity_select_title">Aktion auswählen</string>
 </resources>
