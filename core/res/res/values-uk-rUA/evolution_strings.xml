@@ -51,4 +51,12 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Необхідне перезавантаження інтерфейсу системи</string>
     <string name="systemui_restart_message">Для застосування змін потрібно перезаватажити інтерфейс системи. Перезавантажити зараз?</string>
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">Ігровий режим</string>
+    <string name="gaming_mode_notification_title">Ігровий режим ввімкнено</string>
+    <string name="gaming_mode_notification_content">Натисніть, щоб відключити ігровий режим</string>
+    <string name="gaming_mode_enabled_toast">Ігровий режим увімкнено</string>
+    <string name="gaming_mode_disabled_toast">Ігровий режим вимкнено</string>
+    <string name="active_edge_app_select_title">Оберіть додаток</string>
+    <string name="active_edge_activity_select_title">Виберіть дію</string>
 </resources>
