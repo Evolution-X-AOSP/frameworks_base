@@ -17,7 +17,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Custom QS tiles -->
     <!-- Ambient display QS tile -->
-    <string name="quick_settings_ambient_display_label">절전 모드 자동 해제</string>
+    <string name="quick_settings_ambient_display_label">앰비언트 디스플레이</string>
     <string name="accessibility_quick_settings_ambient_display_off">앰비언트 디스플레이 꺼짐</string>
     <string name="accessibility_quick_settings_ambient_display_on">앰비언트 디스플레이 켜짐</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">앰비언트 디스플레이가 꺼졌습니다.</string>
@@ -151,4 +151,14 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">언어</string>
     <string name="quick_settings_locale_more_locales_toast">토글 기능을 활성화 하려면 다중 언어를 설정하시기 바랍니다</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">하드웨어 버튼 켜짐</string>
+    <string name="accessibility_quick_settings_hwkeys_off">하드웨어 버튼 꺼짐</string>
+    <string name="quick_settings_hwkeys_label">하드웨어 버튼</string>
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">게이밍 모드가 설정에서 사용 중지되었습니다</string>
+    <string name="quick_settings_gaming_mode_label">게이밍 모드</string>
+    <!-- App picker manifest entry -->
+    <string name="app_picker_dialog_title">앱 선택</string>
+    <string name="app_picker_activity_select_title">액티비티 선택</string>
 </resources>
