@@ -15,6 +15,6 @@
     limitations under the License.
 -->
 <resources>
-    <color name="accent_device_default_light">#0075e2</color>
-    <color name="accent_device_default_dark">#82b4f4</color>
+    <color name="accent_device_default_light">#5ac8fa</color>
+    <color name="accent_device_default_dark">#64d2ff</color>
 </resources>

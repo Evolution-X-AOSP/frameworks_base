@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2020 The Proton AOSP Project
+#  Copyright 2018, The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,13 +17,13 @@
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
-LOCAL_RRO_THEME := AccentColorPixelBlue
+LOCAL_RRO_THEME := AccentColorPixelBlueOG
 
 LOCAL_PRODUCT_MODULE := true
 
 LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
 
-LOCAL_PACKAGE_NAME := AccentColorPixelBlueOverlay
+LOCAL_PACKAGE_NAME := AccentColorPixelBlueOGOverlay
 LOCAL_SDK_VERSION := current
 
 include $(BUILD_RRO_PACKAGE)
