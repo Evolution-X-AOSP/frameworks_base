@@ -51,4 +51,12 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Απαιτείται επανεκκίνηση του Συστήματος Ui</string>
     <string name="systemui_restart_message">Για να εφαρμοστούν όλες οι αλλαγές, απαιτείται επανεκκίνηση του Συστήματος Ui. Επανεκκίνηση Συστήματος Ui τώρα;</string>
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">Λειτουργία παιχνιδιού</string>
+    <string name="gaming_mode_notification_title">Λειτουργία παιχνιδιού ενεργή</string>
+    <string name="gaming_mode_notification_content">Πατήστε για απενεργοποίηση της λειτ. παιχνιδιού</string>
+    <string name="gaming_mode_enabled_toast">Η λειτουργία παιχνιδιού ενεργοποιήθηκε</string>
+    <string name="gaming_mode_disabled_toast">Η λειτουργία παιχνιδιού απενεργοποιήθηκε</string>
+    <string name="active_edge_app_select_title">Επιλογή εφαρμογής</string>
+    <string name="active_edge_activity_select_title">Επιλέξτε δραστηριότητα</string>
 </resources>
