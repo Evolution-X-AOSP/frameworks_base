@@ -151,4 +151,14 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Мова</string>
     <string name="quick_settings_locale_more_locales_toast">Будь ласка, налаштуйте декілька мов для конфігурації</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">Апаратні клавіші увімкнено</string>
+    <string name="accessibility_quick_settings_hwkeys_off">Апаратні клавіші вимкнено</string>
+    <string name="quick_settings_hwkeys_label">Апаратні клавіші</string>
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">Ігровий режим відключено в налаштуваннях</string>
+    <string name="quick_settings_gaming_mode_label">Ігровий режим</string>
+    <!-- App picker manifest entry -->
+    <string name="app_picker_dialog_title">Виберіть додаток</string>
+    <string name="app_picker_activity_select_title">Виберіть дію</string>
 </resources>
