@@ -151,4 +151,14 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">言語</string>
     <string name="quick_settings_locale_more_locales_toast">言語の切り替えを有効にするために複数の言語を設定してください</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">ハードウェアキー ON</string>
+    <string name="accessibility_quick_settings_hwkeys_off">ハードウェアキー OFF</string>
+    <string name="quick_settings_hwkeys_label">ハードウェアキー</string>
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">ゲームモードが設定で無効になっています</string>
+    <string name="quick_settings_gaming_mode_label">ゲームモード</string>
+    <!-- App picker manifest entry -->
+    <string name="app_picker_dialog_title">アプリを選択</string>
+    <string name="app_picker_activity_select_title">アクティビティを選択</string>
 </resources>
