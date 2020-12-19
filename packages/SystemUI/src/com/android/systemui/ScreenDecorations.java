@@ -799,7 +799,7 @@ public class ScreenDecorations extends SystemUI implements Tunable,
                 Point size = mRoundedDefault;
                 Point sizeTop = mRoundedDefaultTop;
                 Point sizeBottom = mRoundedDefaultBottom;
-                boolean sizeSet = false;
+                boolean sizeSet = true;
                 if (newValue != null) {
                     try {
                         int s = (int) (Integer.parseInt(newValue) * mDensity);
@@ -807,6 +807,11 @@ public class ScreenDecorations extends SystemUI implements Tunable,
                         sizeSet = true;
                     } catch (Exception e) {
                     }
+                }
+
+                // Special case, default behavaiour (framework values)
+                if ((size.x == (int) (-1 * mDensity)) || (size.y == (int) (-1 * mDensity))) {
+                    sizeSet = false; // Assume no sizes were set
                 }
                 // Choose a sane safe size in immerse, often
                 // defaults are too large
