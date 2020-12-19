@@ -417,6 +417,11 @@ public class BatteryMeterView extends LinearLayout implements
                     ? (bolt + " ") : "";
                 batteryPercentViewSetText(mChargeIndicator +
                     NumberFormat.getPercentInstance().format(mLevel / 100f));
+                if (mLevel == 100) {
+                    mBatteryPercentView.setPaddingRelative(-5, 0, 10, 0);
+                } else {
+                    mBatteryPercentView.setPaddingRelative(0, 0, 10, 0);
+                }
                 setContentDescription(
                         getContext().getString(mCharging ? R.string.accessibility_battery_level_charging
                                 : R.string.accessibility_battery_level, mLevel));
