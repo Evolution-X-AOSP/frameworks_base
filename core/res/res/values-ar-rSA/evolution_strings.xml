@@ -51,4 +51,12 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">مطلوب إعادة تشغيل واجهة النظام</string>
     <string name="systemui_restart_message">لتكون كافة التغييرات نافذة المفعول، مطلوب إعادة تشغيل واجهة النظام. هل تريد إعادة تشغيل واجهة النظام الآن؟</string>
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">وضع الألعاب</string>
+    <string name="gaming_mode_notification_title">وضع الألعاب مفعل</string>
+    <string name="gaming_mode_notification_content">انقر لإيقاف تشغيل وضع الألعاب</string>
+    <string name="gaming_mode_enabled_toast">تم تفعيل وضع الألعاب</string>
+    <string name="gaming_mode_disabled_toast">تم تعطيل وضع الألعاب</string>
+    <string name="active_edge_app_select_title">تحديد تطبيق</string>
+    <string name="active_edge_activity_select_title">إختر نشاطاً:</string>
 </resources>
