@@ -313,6 +313,11 @@
     <!-- Custom permissions -->
     <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
 
+    <!-- Live wallpapers -->
+    <protected-broadcast android:name="com.breel.wallpapers.NOTIFICATION_RECEIVED"/>
+    <permission android:name="com.breel.wallpapers.notifications"/>
+    <uses-permission android:name="com.breel.wallpapers.notifications"/>
+
     <application
         android:name=".SystemUIApplication"
         android:persistent="true"
