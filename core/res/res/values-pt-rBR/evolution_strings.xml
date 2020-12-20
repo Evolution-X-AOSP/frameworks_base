@@ -51,4 +51,12 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">É necessário reiniciar a Interface do Sistema</string>
     <string name="systemui_restart_message">Para que todas as alterações tenham efeito, é necessário reiniciar a interface do sistema. Deseja reiniciar a interface do sistema agora?</string>
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">Modo de jogo</string>
+    <string name="gaming_mode_notification_title">Modo jogo ativado</string>
+    <string name="gaming_mode_notification_content">Toque para desativar o modo de jogo</string>
+    <string name="gaming_mode_enabled_toast">O modo de jogo foi ativado</string>
+    <string name="gaming_mode_disabled_toast">O modo de jogo foi desativado</string>
+    <string name="active_edge_app_select_title">Selecionar app</string>
+    <string name="active_edge_activity_select_title">Selecionar atividade</string>
 </resources>
