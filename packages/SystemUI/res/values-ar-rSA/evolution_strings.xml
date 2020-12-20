@@ -151,4 +151,14 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">اللغة</string>
     <string name="quick_settings_locale_more_locales_toast">الرجاء إعداد لغات متعددة لتمكين وظيفة مفتاح التبديل</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">أزرار الجهاز مفعلة</string>
+    <string name="accessibility_quick_settings_hwkeys_off">أزرار الجهاز معّطلة</string>
+    <string name="quick_settings_hwkeys_label">أزرار الجهاز</string>
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">وضع الألعاب معطل في الإعدادات</string>
+    <string name="quick_settings_gaming_mode_label">وضع الألعاب</string>
+    <!-- App picker manifest entry -->
+    <string name="app_picker_dialog_title">اختر التطبيق</string>
+    <string name="app_picker_activity_select_title">إختر نشاطاً:</string>
 </resources>
