@@ -51,4 +51,12 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">需要重启系统界面</string>
     <string name="systemui_restart_message">要使所有更改生效，需要重新启动SystemUI。现在重新启动SystemUI？</string>
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">游戏模式</string>
+    <string name="gaming_mode_notification_title">游戏模式已启用</string>
+    <string name="gaming_mode_notification_content">点击关闭游戏模式</string>
+    <string name="gaming_mode_enabled_toast">游戏模式已开启</string>
+    <string name="gaming_mode_disabled_toast">游戏模式已关闭</string>
+    <string name="active_edge_app_select_title">选择应用</string>
+    <string name="active_edge_activity_select_title">选择活动</string>
 </resources>
