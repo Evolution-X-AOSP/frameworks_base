@@ -151,4 +151,14 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">语言</string>
     <string name="quick_settings_locale_more_locales_toast">请配置多种语言以启用切换功能</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">实体按键开启</string>
+    <string name="accessibility_quick_settings_hwkeys_off">实体按键关闭</string>
+    <string name="quick_settings_hwkeys_label">实体按键</string>
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">游戏模式在设置中被禁用</string>
+    <string name="quick_settings_gaming_mode_label">游戏模式</string>
+    <!-- App picker manifest entry -->
+    <string name="app_picker_dialog_title">选择应用</string>
+    <string name="app_picker_activity_select_title">选择活动</string>
 </resources>
