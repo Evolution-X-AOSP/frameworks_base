@@ -1023,7 +1023,6 @@ public class VolumeDialogImpl implements VolumeDialog,
                 }, 50));
         if (!isLandscape() || !mShowActiveStreamOnly) animator.translationX(getAnimatorX());
         animator.start();
-        mDialog.getViewTreeObserver().removeOnComputeInternalInsetsListener(mInsetsListener);
         checkODICaptionsTooltip(true);
         synchronized (mSafetyWarningLock) {
             if (mSafetyWarning != null) {
