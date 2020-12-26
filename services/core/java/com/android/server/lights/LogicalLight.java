@@ -50,6 +50,11 @@ public abstract class LogicalLight {
     public static final int BRIGHTNESS_MODE_SENSOR = Brightness.SENSOR;
 
     /**
+     * Light brightness for button backlight.
+     */
+    public static final int BRIGHTNESS_MODE_BUTTON = 3;
+
+    /**
      * Low-persistence light mode.
      */
     public static final int BRIGHTNESS_MODE_LOW_PERSISTENCE = Brightness.LOW_PERSISTENCE;

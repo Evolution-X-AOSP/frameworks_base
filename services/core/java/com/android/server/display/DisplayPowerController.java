@@ -937,7 +937,7 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
             mBrightnessReasonTemp.setReason(BrightnessReason.REASON_SCREEN_OFF);
             LogicalLight buttonsLight = mLights.getLight(LightsManager.LIGHT_ID_BUTTONS);
             if (buttonsLight != null) {
-                buttonsLight.setBrightness(brightnessState);
+                buttonsLight.setBrightness(brightnessState, LogicalLight.BRIGHTNESS_MODE_BUTTON);
             }
         }
 
@@ -945,7 +945,7 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
         if (state == Display.STATE_DOZE || state == Display.STATE_DOZE_SUSPEND) {
             LogicalLight buttonsLight = mLights.getLight(LightsManager.LIGHT_ID_BUTTONS);
             if (buttonsLight != null) {
-                buttonsLight.setBrightness(PowerManager.BRIGHTNESS_OFF_FLOAT);
+                buttonsLight.setBrightness(PowerManager.BRIGHTNESS_OFF_FLOAT, LogicalLight.BRIGHTNESS_MODE_BUTTON);
             }
         }
 

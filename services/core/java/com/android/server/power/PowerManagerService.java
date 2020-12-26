@@ -2512,12 +2512,12 @@ public final class PowerManagerService extends SystemService
                                         mLastButtonActivityTime : mLastUserActivityTime;
                                 if (mButtonTimeout != 0 &&
                                         now > mLastButtonActivityTime + mButtonTimeout) {
-                                    mButtonsLight.setBrightness(PowerManager.BRIGHTNESS_OFF_FLOAT);
+                                    mButtonsLight.setBrightness(PowerManager.BRIGHTNESS_OFF_FLOAT, LogicalLight.BRIGHTNESS_MODE_BUTTON);
                                     mButtonOn = false;
                                 } else {
                                     if ((!mButtonLightOnKeypressOnly || mButtonPressed) &&
                                             !mProximityPositive) {
-                                        mButtonsLight.setBrightness(buttonBrightness);
+                                        mButtonsLight.setBrightness(buttonBrightness, LogicalLight.BRIGHTNESS_MODE_BUTTON);
                                         mButtonPressed = false;
                                         if (buttonBrightness != PowerManager.BRIGHTNESS_OFF_FLOAT &&
                                                 mButtonTimeout != 0) {
@@ -2540,7 +2540,7 @@ public final class PowerManagerService extends SystemService
                             mUserActivitySummary = USER_ACTIVITY_SCREEN_DIM;
                             if (getWakefulnessLocked() == WAKEFULNESS_AWAKE) {
                                 if (mButtonsLight != null) {
-                                    mButtonsLight.setBrightness(PowerManager.BRIGHTNESS_OFF_FLOAT);
+                                    mButtonsLight.setBrightness(PowerManager.BRIGHTNESS_OFF_FLOAT, LogicalLight.BRIGHTNESS_MODE_BUTTON);
                                     mButtonOn = false;
                                 }
                             }
