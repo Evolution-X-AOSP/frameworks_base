@@ -708,6 +708,7 @@ public class StatusBar extends SystemUI implements
     private final NotificationRemoteInputManager mRemoteInputManager;
     private boolean mWallpaperSupported;
 
+    private PulseController mPulseController;
     private VisualizerView mVisualizerView;
 
     private Runnable mLaunchTransitionEndRunnable;
@@ -1755,7 +1756,8 @@ public class StatusBar extends SystemUI implements
         mCommandQueue.addCallback(mCommandQueueCallbacks);
 
         // this will initialize Pulse and begin listening for media events
-        mMediaManager.addCallback(Dependency.get(PulseController.class));
+        mPulseController = Dependency.get(PulseController.class);
+        mMediaManager.addCallback(mPulseController);
     }
 
     protected void startKeyguard() {
@@ -3474,7 +3476,7 @@ public class StatusBar extends SystemUI implements
         // bar.
         mKeyguardStateController.notifyKeyguardGoingAway(true);
         mCommandQueue.appTransitionPending(mDisplayId, true /* forced */);
-        Dependency.get(PulseController.class).notifyKeyguardGoingAway();
+        mPulseController.notifyKeyguardGoingAway();
     }
 
     /**
@@ -3538,7 +3540,7 @@ public class StatusBar extends SystemUI implements
                 && visibleNotOccludedOrWillBe);
 
         mNotificationPanelViewController.setDozing(mDozing, animate, mWakeUpTouchLocation);
-        Dependency.get(PulseController.class).setDozing(mDozing);
+        mPulseController.setDozing(mDozing);
         updateQsExpansionEnabled();
         Trace.endSection();
     }
@@ -3885,6 +3887,7 @@ public class StatusBar extends SystemUI implements
             updateNotificationPanelTouchState();
             maybeEscalateHeadsUp();
             dismissVolumeDialog();
+            mPulseController.onStartedGoingToSleep();
             mWakeUpCoordinator.setFullyAwake(false);
             mBypassHeadsUpNotifier.setFullyAwake(false);
             mKeyguardBypassController.onStartedGoingToSleep();
@@ -4866,7 +4869,7 @@ public class StatusBar extends SystemUI implements
                     checkBarModes();
                     updateScrimController();
                     mPresenter.updateMediaMetaData(false, mState != StatusBarState.KEYGUARD);
-                    Dependency.get(PulseController.class).setKeyguardShowing(mState == StatusBarState.KEYGUARD);
+                    mPulseController.setKeyguardShowing(mState == StatusBarState.KEYGUARD);
                     updateKeyguardState();
                     ((StatusBarIconControllerImpl) mStatusBarIconController).setKeyguardShowing(mState == StatusBarState.KEYGUARD);
                     Trace.endSection();
