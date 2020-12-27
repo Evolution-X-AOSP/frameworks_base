@@ -119,10 +119,10 @@ public class PulseControllerImpl
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
-            if (Intent.ACTION_SCREEN_OFF.equals(action)) {
+            /*if (Intent.ACTION_SCREEN_OFF.equals(action)) {
                 mScreenOn = false;
                 doLinkage();
-            } else if (Intent.ACTION_SCREEN_ON.equals(action)) {
+            } else */if (Intent.ACTION_SCREEN_ON.equals(action)) {
                 mScreenOn = true;
                 doLinkage();
             } else if (PowerManager.ACTION_POWER_SAVE_MODE_CHANGED.equals(intent.getAction())) {
@@ -201,7 +201,7 @@ public class PulseControllerImpl
                     || uri.equals(Settings.Secure.getUriFor(Settings.Secure.AMBIENT_PULSE_ENABLED))
                     || uri.equals(Settings.System.getUriFor(Settings.Secure.QS_PULSE_ENABLED))) {
                 updateEnabled();
-                updatePulseVisibility();
+                updatePulseVisibility(false);
             } else if (uri.equals(Settings.Secure.getUriFor(Settings.Secure.PULSE_RENDER_STYLE))) {
                 updateRenderMode();
                 loadRenderer();
@@ -233,26 +233,33 @@ public class PulseControllerImpl
     public void notifyKeyguardGoingAway() {
         if (mLsPulseEnabled) {
             mKeyguardGoingAway = true;
-            updatePulseVisibility();
+            updatePulseVisibility(false);
             mKeyguardGoingAway = false;
         }
     }
 
-    private void updatePulseVisibility() {
+    public void onStartedGoingToSleep() {
+        mScreenOn = false;
+        updatePulseVisibility(true);
+    }
+
+    private void updatePulseVisibility(boolean forceStop) {
         if (mStatusbar == null) return;
 
         NavigationBarFrame nv = mStatusbar.getNavigationBarView() != null ?
                 mStatusbar.getNavigationBarView().getNavbarFrame() : null;
         VisualizerView vv = mStatusbar.getLsVisualizer();
         boolean allowAmbPulse = vv != null && vv.isAttached()
+                && !forceStop
                 && mAmbPulseEnabled && mKeyguardShowing && mDozing;
         boolean allowLsPulse = vv != null && vv.isAttached()
+                && !forceStop
                 && mLsPulseEnabled && mKeyguardShowing && !mDozing;
         boolean allowQsPulse = vv != null && vv.isAttached()
                 && !forceStop
                 && mQsPulseEnabled && mQSShowing && !mDozing;
         boolean allowNavPulse = nv!= null && nv.isAttached()
-            && mNavPulseEnabled && !mKeyguardShowing;
+                && !forceStop && mNavPulseEnabled && !mKeyguardShowing;
 
         if (mKeyguardGoingAway) {
             detachPulseFrom(vv, allowNavPulse/*keep linked*/);
@@ -265,6 +272,8 @@ public class PulseControllerImpl
             detachPulseFrom(vv, allowNavPulse/*keep linked*/);
         }
 
+        if (forceStop) return;
+
         if (allowLsPulse || allowAmbPulse || allowQsPulse) {
             attachPulseTo(vv);
         } else if (allowNavPulse) {
@@ -275,7 +284,7 @@ public class PulseControllerImpl
     public void setDozing(boolean dozing) {
         if (mDozing != dozing) {
             mDozing = dozing;
-            updatePulseVisibility();
+            updatePulseVisibility(false);
         }
     }
 
@@ -285,7 +294,7 @@ public class PulseControllerImpl
             if (mRenderer != null) {
                 mRenderer.setKeyguardShowing(showing);
             }
-            updatePulseVisibility();
+            updatePulseVisibility(false);
         }
     }
 
