@@ -101,6 +101,7 @@ LOCAL_REQUIRED_MODULES := \
 	FontGoogleSansSourceOverlay \
 	FontLGSmartGothicSourceOverlay \
 	FontLinotteOverlay \
+	FontManropeOverlay \
 	FontRosemarySourceOverlay \
 	FontSlateForOnePlusOverlay \
 	FontSonySketchSourceOverlay \
