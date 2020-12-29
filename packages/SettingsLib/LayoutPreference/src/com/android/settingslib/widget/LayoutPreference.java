@@ -103,10 +103,8 @@ public class LayoutPreference extends Preference {
 
     private void init(Context context, AttributeSet attrs, int defStyleAttr) {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.Preference);
-        mAllowDividerAbove = TypedArrayUtils.getBoolean(a, R.styleable.Preference_allowDividerAbove,
-                R.styleable.Preference_allowDividerAbove, false);
-        mAllowDividerBelow = TypedArrayUtils.getBoolean(a, R.styleable.Preference_allowDividerBelow,
-                R.styleable.Preference_allowDividerBelow, false);
+        mAllowDividerAbove = false;
+        mAllowDividerBelow = false;
         a.recycle();
 
         a = context.obtainStyledAttributes(
@@ -162,7 +160,7 @@ public class LayoutPreference extends Preference {
      * LayoutPreference whether or not allows to set a below divider.
      */
     public void setAllowDividerBelow(boolean allowed) {
-        mAllowDividerBelow = allowed;
+        mAllowDividerBelow = false;
     }
 
     /**
