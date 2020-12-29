@@ -194,6 +194,9 @@ public final class BatteryService extends SystemService {
     private boolean mVoocCharger;
     private boolean mLastVoocCharger;
 
+    private boolean mTurboPower;
+    private boolean mLastTurboPower;
+
     private long mDischargeStartTime;
     private int mDischargeStartLevel;
 
@@ -700,6 +703,7 @@ public final class BatteryService extends SystemService {
         mDashCharger = isDashCharger();
         mWarpCharger = isWarpCharger();
         mVoocCharger = isVoocCharger();
+        mTurboPower = isTurboPower();
 
         if (force || (mHealthInfo.batteryStatus != mLastBatteryStatus ||
                 mHealthInfo.batteryHealth != mLastBatteryHealth ||
@@ -715,6 +719,7 @@ public final class BatteryService extends SystemService {
                 mDashCharger != mLastDashCharger ||
                 mWarpCharger != mLastWarpCharger ||
                 mVoocCharger != mLastVoocCharger ||
+                mTurboPower != mLastTurboPower ||
                 mBatteryModProps.modLevel != mLastModLevel ||
                 mBatteryModProps.modStatus != mLastModStatus ||
                 mBatteryModProps.modFlag != mLastModFlag ||
@@ -893,6 +898,7 @@ public final class BatteryService extends SystemService {
             mLastDashCharger = mDashCharger;
             mLastWarpCharger = mWarpCharger;
             mLastVoocCharger = mVoocCharger;
+            mLastTurboPower = mTurboPower;
             mLastModLevel = mBatteryModProps.modLevel;
             mLastModStatus = mBatteryModProps.modStatus;
             mLastModFlag = mBatteryModProps.modFlag;
@@ -928,6 +934,7 @@ public final class BatteryService extends SystemService {
         intent.putExtra(BatteryManager.EXTRA_DASH_CHARGER, mDashCharger);
         intent.putExtra(BatteryManager.EXTRA_WARP_CHARGER, mWarpCharger);
         intent.putExtra(BatteryManager.EXTRA_VOOC_CHARGER, mVoocCharger);
+        intent.putExtra(BatteryManager.EXTRA_TURBO_POWER, mTurboPower);
         intent.putExtra(BatteryManager.EXTRA_MOD_LEVEL, mBatteryModProps.modLevel);
         intent.putExtra(BatteryManager.EXTRA_MOD_STATUS, mBatteryModProps.modStatus);
         intent.putExtra(BatteryManager.EXTRA_MOD_FLAG, mBatteryModProps.modFlag);
@@ -1024,6 +1031,20 @@ public final class BatteryService extends SystemService {
             br.close();
             file.close();
             return "1".equals(state);
+        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
+        }
+        return false;
+    }
+
+    private boolean isTurboPower() {
+        try {
+            FileReader file = new FileReader("/sys/class/power_supply/battery/charge_rate");
+            BufferedReader br = new BufferedReader(file);
+            String state = br.readLine();
+            br.close();
+            file.close();
+            return "Turbo".equals(state);
         } catch (FileNotFoundException e) {
         } catch (IOException e) {
         }
