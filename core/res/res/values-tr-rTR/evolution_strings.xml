@@ -51,4 +51,12 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Sistem arayüzünün yeniden başlatılması gerekir</string>
     <string name="systemui_restart_message">Tüm değişikliklerin etkili olması için Sistem arayüzünün yeniden başlatılması gerekiyor. Sistem arayüzünü şimdi yeniden başlatmak ister misiniz?</string>
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">Oyun modu</string>
+    <string name="gaming_mode_notification_title">Oyun modu etkin</string>
+    <string name="gaming_mode_notification_content">Oyun modunu kapatmak için dokunun</string>
+    <string name="gaming_mode_enabled_toast">Oyun modu açıldı</string>
+    <string name="gaming_mode_disabled_toast">Oyun modu kapatıldı</string>
+    <string name="active_edge_app_select_title">Uygulama seç</string>
+    <string name="active_edge_activity_select_title">Etkinlik seç</string>
 </resources>
