@@ -109,7 +109,6 @@ public interface StatusBarDependenciesModule {
                 notificationShadeWindowController,
                 notificationEntryManager,
                 mediaArtworkProcessor,
-                keyguardBypassController,
                 mainExecutor,
                 deviceConfigProxy,
                 mediaDataManager);
