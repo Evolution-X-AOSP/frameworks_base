@@ -18,7 +18,6 @@ package com.android.settingslib.bluetooth;
 
 import android.bluetooth.BluetoothA2dp;
 import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothCodecStatus;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothHeadset;
 import android.bluetooth.BluetoothHearingAid;
@@ -109,8 +108,6 @@ public class BluetoothEventManager {
         addHandler(BluetoothDevice.ACTION_CLASS_CHANGED, new ClassChangedHandler());
         addHandler(BluetoothDevice.ACTION_UUID, new UuidChangedHandler());
         addHandler(BluetoothDevice.ACTION_BATTERY_LEVEL_CHANGED, new BatteryLevelChangedHandler());
-        addHandler(BluetoothHeadset.ACTION_HF_TWSP_BATTERY_STATE_CHANGED ,
-                  new TwspBatteryLevelChangedHandler());
 
         // Active device broadcasts
         addHandler(BluetoothA2dp.ACTION_ACTIVE_DEVICE_CHANGED, new ActiveDeviceChangedHandler());
@@ -127,7 +124,6 @@ public class BluetoothEventManager {
         // ACL connection changed broadcasts
         addHandler(BluetoothDevice.ACTION_ACL_CONNECTED, new AclStateChangedHandler());
         addHandler(BluetoothDevice.ACTION_ACL_DISCONNECTED, new AclStateChangedHandler());
-        addHandler(BluetoothA2dp.ACTION_CODEC_CONFIG_CHANGED, new A2dpCodecConfigChangedHandler());
 
         registerAdapterIntentReceiver();
     }
@@ -239,13 +235,6 @@ public class BluetoothEventManager {
     private void dispatchAclStateChanged(CachedBluetoothDevice activeDevice, int state) {
         for (BluetoothCallback callback : mCallbacks) {
             callback.onAclConnectionStateChanged(activeDevice, state);
-        }
-    }
-
-    private void dispatchA2dpCodecConfigChanged(CachedBluetoothDevice cachedDevice,
-            BluetoothCodecStatus codecStatus) {
-        for (BluetoothCallback callback : mCallbacks) {
-            callback.onA2dpCodecConfigChanged(cachedDevice, codecStatus);
         }
     }
 
@@ -437,24 +426,6 @@ public class BluetoothEventManager {
         }
     }
 
-    private class TwspBatteryLevelChangedHandler implements Handler {
-        public void onReceive(Context context, Intent intent,
-                BluetoothDevice device) {
-            CachedBluetoothDevice cachedDevice = mDeviceManager.findDevice(device);
-            if (cachedDevice != null) {
-                cachedDevice.mTwspBatteryState =
-                          intent.getIntExtra(
-                              BluetoothHeadset.EXTRA_HF_TWSP_BATTERY_STATE, -1);
-                cachedDevice.mTwspBatteryLevel =
-                          intent.getIntExtra(
-                              BluetoothHeadset.EXTRA_HF_TWSP_BATTERY_LEVEL, -1);
-                Log.i(TAG, cachedDevice + ": mTwspBatteryState: " + cachedDevice.mTwspBatteryState
-                    + "mTwspBatteryLevel: " + cachedDevice.mTwspBatteryLevel);
-                cachedDevice.refresh();
-            }
-        }
-    }
-
     private class ActiveDeviceChangedHandler implements Handler {
         @Override
         public void onReceive(Context context, Intent intent, BluetoothDevice device) {
@@ -529,30 +500,6 @@ public class BluetoothEventManager {
                 return;
             }
             dispatchAudioModeChanged();
-        }
-    }
-
-    private class A2dpCodecConfigChangedHandler implements Handler {
-
-        @Override
-        public void onReceive(Context context, Intent intent, BluetoothDevice device) {
-            final String action = intent.getAction();
-            if (action == null) {
-                Log.w(TAG, "A2dpCodecConfigChangedHandler: action is null");
-                return;
-            }
-
-            CachedBluetoothDevice cachedDevice = mDeviceManager.findDevice(device);
-            if (cachedDevice == null) {
-                Log.w(TAG, "A2dpCodecConfigChangedHandler: device is null");
-                return;
-            }
-
-            BluetoothCodecStatus codecStatus = intent.getParcelableExtra(
-                    BluetoothCodecStatus.EXTRA_CODEC_STATUS);
-            Log.d(TAG, "A2dpCodecConfigChangedHandler: device=" + device +
-                    ", codecStatus=" + codecStatus);
-            dispatchA2dpCodecConfigChanged(cachedDevice, codecStatus);
         }
     }
 }

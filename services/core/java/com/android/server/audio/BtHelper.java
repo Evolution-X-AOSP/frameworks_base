@@ -71,8 +71,7 @@ public class BtHelper {
     private @Nullable BluetoothHearingAid mHearingAid;
 
     // Reference to BluetoothA2dp to query for AbsoluteVolume.
-    static private @Nullable BluetoothA2dp mA2dp;
-    static private @Nullable BluetoothDevice mBluetoothA2dpActiveDevice;
+    private @Nullable BluetoothA2dp mA2dp;
 
     // If absolute volume is supported in AVRCP device
     private boolean mAvrcpAbsVolSupported = false;
@@ -220,31 +219,6 @@ public class BtHelper {
         return deviceName;
     }
 
-    /*packages*/ static void SetA2dpActiveDevice(BluetoothDevice device) {
-        Log.w(TAG,"SetA2dpActiveDevice for TWS+ pair as " + device);
-        mBluetoothA2dpActiveDevice = device;
-    }
-
-    /*packages*/ @NonNull static boolean isTwsPlusSwitch(@NonNull BluetoothDevice device,
-                                                                 String address) {
-        BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
-        BluetoothDevice connDevice = adapter.getRemoteDevice(address);
-        if (device == null || connDevice == null ||
-            device.getTwsPlusPeerAddress() == null) {
-            return false;
-        }
-        if (device.isTwsPlusDevice() &&
-            connDevice.isTwsPlusDevice() &&
-            device.getTwsPlusPeerAddress().equals(address)) {
-            if (mBluetoothA2dpActiveDevice == null) {
-                Log.w(TAG,"Not a TwsPlusSwitch as previous active device was null");
-                return false;
-            }
-            Log.i(TAG,"isTwsPlusSwitch true");
-            return true;
-         }
-         return false;
-    }
     //----------------------------------------------------------------------
     // Interface for AudioDeviceBroker
 

@@ -47,12 +47,6 @@ import java.util.UUID;
  */
 public final class ScanFilter implements Parcelable {
 
-    /**
-    * Provide TDS data scan results for WiFi Alliance Org id
-    * @hide
-    */
-    public static final int WIFI_ALLIANCE_ORG_ID = 2;
-
     @Nullable
     private final String mDeviceName;
 
@@ -82,11 +76,6 @@ public final class ScanFilter implements Parcelable {
     @Nullable
     private final byte[] mManufacturerDataMask;
 
-    private final int mOrgId;
-    private final int mTDSFlags;
-    private final int mTDSFlagsMask;
-    private final byte[] mWifiNANHash;
-
     /** @hide */
     public static final ScanFilter EMPTY = new ScanFilter.Builder().build();
 
@@ -95,8 +84,7 @@ public final class ScanFilter implements Parcelable {
             ParcelUuid uuidMask, ParcelUuid solicitationUuid,
             ParcelUuid solicitationUuidMask, ParcelUuid serviceDataUuid,
             byte[] serviceData, byte[] serviceDataMask,
-            int manufacturerId, byte[] manufacturerData, byte[] manufacturerDataMask,
-            int orgId, int TDSFlags, int TDSFlagsMask, byte[] wifiNANHash) {
+            int manufacturerId, byte[] manufacturerData, byte[] manufacturerDataMask) {
         mDeviceName = name;
         mServiceUuid = uuid;
         mServiceUuidMask = uuidMask;
@@ -109,10 +97,6 @@ public final class ScanFilter implements Parcelable {
         mManufacturerId = manufacturerId;
         mManufacturerData = manufacturerData;
         mManufacturerDataMask = manufacturerDataMask;
-        mOrgId = orgId;
-        mTDSFlags = TDSFlags;
-        mTDSFlagsMask = TDSFlagsMask;
-        mWifiNANHash = wifiNANHash;
     }
 
     @Override
@@ -171,17 +155,6 @@ public final class ScanFilter implements Parcelable {
             if (mManufacturerDataMask != null) {
                 dest.writeInt(mManufacturerDataMask.length);
                 dest.writeByteArray(mManufacturerDataMask);
-            }
-        }
-        dest.writeInt(mOrgId);
-        dest.writeInt(mOrgId < 0 ? 0 : 1);
-        if(mOrgId >= 0) {
-            dest.writeInt(mTDSFlags);
-            dest.writeInt(mTDSFlagsMask);
-            dest.writeInt(mWifiNANHash == null ? 0 : 1);
-            if (mWifiNANHash != null) {
-                dest.writeInt(mWifiNANHash.length);
-                dest.writeByteArray(mWifiNANHash);
             }
         }
     }
@@ -258,22 +231,6 @@ public final class ScanFilter implements Parcelable {
                     in.readByteArray(manufacturerDataMask);
                     builder.setManufacturerData(manufacturerId, manufacturerData,
                             manufacturerDataMask);
-                }
-            }
-
-            int orgId = in.readInt();
-            if(in.readInt() == 1) {
-                int tdsFlags = in.readInt();
-                int tdsFlagsMask = in.readInt();
-                if (in.readInt() == 1) {
-                    int wifiNANHashLength = in.readInt();
-                    byte[] wifiNanHash = new byte[wifiNANHashLength];
-                    in.readByteArray(wifiNanHash);
-                    builder.setTransportDiscoveryData(orgId, tdsFlags, tdsFlagsMask,
-                            wifiNanHash);
-                }
-                else {
-                    builder.setTransportDiscoveryData(orgId, tdsFlags, tdsFlagsMask, null);
                 }
             }
 
@@ -356,37 +313,6 @@ public final class ScanFilter implements Parcelable {
     }
 
     /**
-     * @hide
-     * Returns the organization id. -1 if the organization id is not set.
-     */
-    public int getOrgId() {
-        return mOrgId;
-    }
-
-    /**
-     * @hide
-     * Returns the TDS flags. -1 if TDS flags is not set.
-     */
-    public int getTDSFlags() {
-        return mTDSFlags;
-    }
-
-    /**
-     * @hide
-     * Returns the TDS flags mask. -1 if TDS flags mask is not set.
-     */
-    public int getTDSFlagsMask() {
-        return mTDSFlagsMask;
-    }
-
-    /**
-     * @hide
-     */
-    public byte[] getWifiNANHash() {
-        return mWifiNANHash;
-    }
-
-    /**
      * Check if the scan filter matches a {@code scanResult}. A scan result is considered as a match
      * if it matches all the field filters.
      */
@@ -443,18 +369,6 @@ public final class ScanFilter implements Parcelable {
                 return false;
             }
         }
-
-        //Transport Discovery data match
-        if(mOrgId >= 0) {
-            byte[] tdsData = scanRecord.getTDSData();
-            if ((tdsData != null) && (tdsData.length > 0)) {
-                if ((mOrgId != tdsData[0]) ||
-                    ((mTDSFlags & mTDSFlagsMask) != (tdsData[1] & mTDSFlagsMask))) {
-                    return false;
-                }
-            }
-        }
-
         // All filters match.
         return true;
     }
@@ -549,10 +463,7 @@ public final class ScanFilter implements Parcelable {
                 + Arrays.toString(mServiceData) + ", mServiceDataMask="
                 + Arrays.toString(mServiceDataMask) + ", mManufacturerId=" + mManufacturerId
                 + ", mManufacturerData=" + Arrays.toString(mManufacturerData)
-                + ", mManufacturerDataMask=" + Arrays.toString(mManufacturerDataMask)
-                + ", mOrganizationId=" + mOrgId + ", mTDSFlags=" + mTDSFlags
-                + ", mTDSFlagsMask=" + mTDSFlagsMask
-                + ", mWifiNANHash=" + Arrays.toString(mWifiNANHash) +"]";
+                + ", mManufacturerDataMask=" + Arrays.toString(mManufacturerDataMask) + "]";
     }
 
     @Override
@@ -564,8 +475,7 @@ public final class ScanFilter implements Parcelable {
                 Arrays.hashCode(mServiceData),
                 Arrays.hashCode(mServiceDataMask),
                 mServiceUuid, mServiceUuidMask,
-                mServiceSolicitationUuid, mServiceSolicitationUuidMask,
-                mOrgId, mTDSFlags, mTDSFlagsMask, Arrays.hashCode(mWifiNANHash));
+                mServiceSolicitationUuid, mServiceSolicitationUuidMask);
     }
 
     @Override
@@ -589,11 +499,7 @@ public final class ScanFilter implements Parcelable {
                 && Objects.equals(mServiceUuidMask, other.mServiceUuidMask)
                 && Objects.equals(mServiceSolicitationUuid, other.mServiceSolicitationUuid)
                 && Objects.equals(mServiceSolicitationUuidMask,
-                        other.mServiceSolicitationUuidMask)
-                && mOrgId == other.mOrgId
-                && mTDSFlags == other.mTDSFlags
-                && mTDSFlagsMask == other.mTDSFlagsMask
-                && Objects.deepEquals(mWifiNANHash, other.mWifiNANHash);
+                        other.mServiceSolicitationUuidMask);
     }
 
     /**
@@ -626,11 +532,6 @@ public final class ScanFilter implements Parcelable {
         private int mManufacturerId = -1;
         private byte[] mManufacturerData;
         private byte[] mManufacturerDataMask;
-
-        private int mOrgId = -1;
-        private int mTDSFlags = -1;
-        private int mTDSFlagsMask = -1;
-        private byte[] mWifiNANHash;
 
         /**
          * Set filter on device name.
@@ -816,27 +717,6 @@ public final class ScanFilter implements Parcelable {
             return this;
         }
 
-
-        /**
-         * @hide
-         * Set filter on transport discovery data.
-         * @throws IllegalArgumentException If the {@code orgId} is invalid or {@code
-         * wifiNANhash} is not null while {@code orgId} is non-Wifi.
-         */
-        public Builder setTransportDiscoveryData(int orgId, int TDSFlags, int TDSFlagsMask,
-                byte[] wifiNANHash) {
-            if (orgId < 0) {
-                throw new IllegalArgumentException("invalid organization id");
-            }
-            if ((orgId != WIFI_ALLIANCE_ORG_ID) && (wifiNANHash != null)) {
-                throw new IllegalArgumentException("Wifi NAN Hash is not null for non-Wifi Org Id");
-            }
-            mOrgId = orgId;
-            mTDSFlags = TDSFlags;
-            mTDSFlagsMask = TDSFlagsMask;
-            mWifiNANHash = wifiNANHash;
-            return this;
-        }
         /**
          * Build {@link ScanFilter}.
          *
@@ -847,8 +727,7 @@ public final class ScanFilter implements Parcelable {
                     mServiceUuid, mUuidMask, mServiceSolicitationUuid,
                     mServiceSolicitationUuidMask,
                     mServiceDataUuid, mServiceData, mServiceDataMask,
-                    mManufacturerId, mManufacturerData, mManufacturerDataMask,
-                    mOrgId, mTDSFlags, mTDSFlagsMask, mWifiNANHash);
+                    mManufacturerId, mManufacturerData, mManufacturerDataMask);
         }
     }
 }
