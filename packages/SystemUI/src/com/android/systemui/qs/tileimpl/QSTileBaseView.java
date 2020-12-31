@@ -19,6 +19,8 @@ import android.annotation.ColorInt;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.ColorUtils;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
@@ -78,6 +80,7 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
     private int mCircleColor;
     private int mBgSize;
 
+    private boolean mShouldDisco;
 
     public QSTileBaseView(Context context, QSIconView icon) {
         this(context, icon, false);
@@ -132,8 +135,14 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
         mColorActiveAlpha = adjustAlpha(mColorActive, 0.2f);
         boolean setQsUseNewTint = Settings.System.getIntForUser(context.getContentResolver(),
                 Settings.System.QS_PANEL_BG_USE_NEW_TINT, 1, UserHandle.USER_CURRENT) == 1;
+        mShouldDisco = Settings.System.getIntForUser(context.getContentResolver(),
+                Settings.System.QS_TILES_BG_DISCO, 0, UserHandle.USER_CURRENT) == 1;
         if (setQsUseNewTint) {
-            mColorActive = mColorActiveAlpha;
+            if (mShouldDisco) {
+                setActiveColor(context);
+            } else {
+                mColorActive = mColorActiveAlpha;
+            }
             mColorDisabled = context.getResources().getColor(R.color.qs_tile_background_color_disabled);
         } else {
             mColorDisabled = Utils.getDisabled(context,
@@ -146,6 +155,25 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
         setClipToPadding(false);
         mCollapsedView = collapsedView;
         setFocusable(true);
+    }
+
+    private void setActiveColor(Context context) {
+        if (mShouldDisco) {
+            mColorActive = ColorUtils.genRandomAccentColor(isThemeDark(context), (long) mIcon.toString().hashCode());
+        } else {
+            mColorActive = Utils.getColorAttrDefaultColor(context, android.R.attr.colorAccent);
+        }
+    }
+
+    private static Boolean isThemeDark(Context context) {
+        switch (context.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) {
+            case Configuration.UI_MODE_NIGHT_YES:
+              return true;
+            case Configuration.UI_MODE_NIGHT_NO:
+              return false;
+            default:
+              return false;
+        }
     }
 
     public View getBgCircle() {
@@ -215,6 +243,9 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
     }
 
     public void onStateChanged(QSTile.State state) {
+        if (mShouldDisco) {
+            setActiveColor(mContext);
+        }
         mHandler.obtainMessage(H.STATE_CHANGED, state).sendToTarget();
     }
 
