@@ -680,7 +680,9 @@ public class NotificationMediaManager implements Dumpable, MediaDataManager.List
     private void finishUpdateMediaMetaData(boolean metaDataChanged, boolean allowEnterAnimation,
             @Nullable Bitmap bmp) {
         Drawable artworkDrawable = null;
-        if (bmp != null && (mShowMediaMetadata || !ENABLE_LOCKSCREEN_WALLPAPER)) {
+        // set media artwork as lockscreen wallpaper if player is playing
+        if (bmp != null && (mShowMediaMetadata || !ENABLE_LOCKSCREEN_WALLPAPER) &&
+                PlaybackState.STATE_PLAYING == getMediaControllerPlaybackState(mMediaController)) {
             switch (mAlbumArtFilter) {
                 case 0:
                 default:
@@ -707,6 +709,7 @@ public class NotificationMediaManager implements Dumpable, MediaDataManager.List
         }
         boolean hasMediaArtwork = artworkDrawable != null;
         boolean allowWhenShade = false;
+        // if no media artwork, show normal lockscreen wallpaper
         if (ENABLE_LOCKSCREEN_WALLPAPER && artworkDrawable == null) {
             Bitmap lockWallpaper =
                     mLockscreenWallpaper != null ? mLockscreenWallpaper.getBitmap() : null;
@@ -729,9 +732,7 @@ public class NotificationMediaManager implements Dumpable, MediaDataManager.List
             mScrimController.setHasBackdrop(hasArtwork);
         }
 
-        // show artwork only if the media is playing
-        if (PlaybackState.STATE_PLAYING == getMediaControllerPlaybackState(mMediaController)
-                && (hasArtwork || DEBUG_MEDIA_FAKE_ARTWORK)
+        if ((hasArtwork || DEBUG_MEDIA_FAKE_ARTWORK)
                 && (mStatusBarStateController.getState() != StatusBarState.SHADE || allowWhenShade)
                 &&  mBiometricUnlockController != null && mBiometricUnlockController.getMode()
                         != BiometricUnlockController.MODE_WAKE_AND_UNLOCK_PULSING
