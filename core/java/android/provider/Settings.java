@@ -10311,11 +10311,6 @@ public final class Settings {
         public static final String DOUBLE_TAP_SLEEP_LOCKSCREEN = "double_tap_sleep_lockscreen";
 
         /**
-         * Whether tethering is allowed to use VPN upstreams
-         */
-        public static final String TETHERING_ALLOW_VPN_UPSTREAMS = "tethering_allow_vpn_upstreams";
-
-        /**
          * Whether to enable DOZE only when charging
          * @hide
          */
