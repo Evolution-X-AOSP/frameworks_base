@@ -12653,6 +12653,12 @@ public final class Settings {
         public static final String ENABLE_PROJECTION_PRIVACY_INDICATOR = "enable_projection_privacy_indicator";
 
         /**
+         * Whether to show or hide the arrow for back gesture
+         * @hide
+         */
+        public static final String BACK_GESTURE_ARROW = "back_gesture_arrow";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
