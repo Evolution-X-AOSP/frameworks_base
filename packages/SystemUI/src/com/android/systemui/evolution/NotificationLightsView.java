@@ -61,6 +61,7 @@ public class NotificationLightsView extends RelativeLayout {
 
     public NotificationLightsView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        if (DEBUG) Log.d(TAG, "new");
     }
 
     public void stopAnimateNotification() {
