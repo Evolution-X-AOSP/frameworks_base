@@ -195,6 +195,7 @@ import com.android.internal.accessibility.AccessibilityShortcutController;
 import com.android.internal.accessibility.util.AccessibilityUtils;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.app.AssistUtils;
+import com.android.internal.custom.hardware.LineageHardwareManager;
 import com.android.internal.inputmethod.SoftInputShowHideReason;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto;
@@ -695,6 +696,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private static final int MSG_SWITCH_KEYBOARD_LAYOUT = 25;
     private static final int MSG_LOG_KEYBOARD_SYSTEM_EVENT = 26;
 
+    private LineageHardwareManager mLineageHardware;
+
     private class PolicyHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
@@ -834,6 +837,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                     Settings.Secure.STYLUS_BUTTONS_ENABLED), false, this,
                     UserHandle.USER_ALL);
+            if (mLineageHardware.isSupported(LineageHardwareManager.FEATURE_KEY_SWAP)) {
+                resolver.registerContentObserver(Settings.Secure.getUriFor(
+                        Settings.Secure.SWAP_CAPACITIVE_KEYS), false, this,
+                        UserHandle.USER_ALL);
+            }
             updateSettings();
         }
 
@@ -2117,7 +2125,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         mHandler = new PolicyHandler();
         mWakeGestureListener = new MyWakeGestureListener(mContext, mHandler);
         mSettingsObserver = new SettingsObserver(mHandler);
-        mSettingsObserver.observe();
         mModifierShortcutManager = new ModifierShortcutManager(mContext, mHandler);
         mUiMode = mContext.getResources().getInteger(
                 com.android.internal.R.integer.config_defaultUiModeType);
@@ -2718,6 +2725,16 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         if (updateRotation) {
             updateRotation(true);
         }
+        updateKeySwapper();
+    }
+
+    private void updateKeySwapper(){
+        if (!mLineageHardware.isSupported(LineageHardwareManager.FEATURE_KEY_SWAP)) {
+            return;
+        }
+        final boolean enabled = Settings.Secure.getInt(mContext.getContentResolver(),
+                Settings.Secure.SWAP_CAPACITIVE_KEYS, 0) == 1;
+        mLineageHardware.set(LineageHardwareManager.FEATURE_KEY_SWAP, enabled);
     }
 
     private DreamManagerInternal getDreamManagerInternal() {
@@ -5576,6 +5593,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         if (mVrManagerInternal != null) {
             mVrManagerInternal.addPersistentVrModeStateListener(mPersistentVrModeListener);
         }
+
+        mLineageHardware = LineageHardwareManager.getInstance(mContext);
+        // Ensure observe happens in systemReady() since we need
+        // LineageHardwareService to be up and running
+        mSettingsObserver.observe();
 
         readCameraLensCoverState();
         updateUiMode();
