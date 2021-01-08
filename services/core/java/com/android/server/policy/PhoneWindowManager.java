@@ -36,7 +36,7 @@ import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 import static android.os.Build.VERSION_CODES.M;
 import static android.os.Build.VERSION_CODES.O;
 import static android.os.IInputConstants.INVALID_INPUT_DEVICE_ID;
-import static android.provider.Settings.Secure.VOLUME_HUSH_OFF;
+import static android.provider.Settings.Secure.EVO_VOLUME_HUSH_OFF;
 import static android.view.Display.DEFAULT_DISPLAY;
 import static android.view.Display.INVALID_DISPLAY;
 import static android.view.Display.STATE_OFF;
@@ -674,7 +674,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private static final float KEYGUARD_SCREENSHOT_CHORD_DELAY_MULTIPLIER = 2.5f;
 
     // Ringer toggle should reuse timing and triggering from screenshot power and a11y vol up
-    int mRingerToggleChord = VOLUME_HUSH_OFF;
+    private String mRingerToggleChord = EVO_VOLUME_HUSH_OFF;
 
     private static final long BUGREPORT_TV_GESTURE_TIMEOUT_MILLIS = 1000;
 
@@ -981,13 +981,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private boolean haveEnableGesture = false;
 
     private void handleRingerChordGesture() {
-        if (mRingerToggleChord == VOLUME_HUSH_OFF) {
-            return;
-        }
+        if (mRingerToggleChord == null ||
+                mRingerToggleChord.equals(EVO_VOLUME_HUSH_OFF)) return;
         getAudioManagerInternal();
         mAudioManagerInternal.silenceRingerModeInternal("volume_hush");
         Settings.Secure.putInt(mContext.getContentResolver(), Settings.Secure.HUSH_GESTURE_USED, 1);
-        mLogger.action(MetricsProto.MetricsEvent.ACTION_HUSH_GESTURE, mRingerToggleChord);
     }
 
     IStatusBarService getStatusBarService() {
@@ -2602,7 +2600,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     boolean preCondition() {
                         switch (mPowerVolUpBehavior) {
                             case POWER_VOLUME_UP_BEHAVIOR_MUTE:
-                                return mRingerToggleChord != VOLUME_HUSH_OFF;
+                                return mRingerToggleChord != EVO_VOLUME_HUSH_OFF;
                             default:
                                 return true;
                         }
@@ -2949,15 +2947,15 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mSystemNavigationKeysEnabled = Settings.Secure.getIntForUser(resolver,
                     Settings.Secure.SYSTEM_NAVIGATION_KEYS_ENABLED,
                     0, UserHandle.USER_CURRENT) == 1;
-            mRingerToggleChord = Settings.Secure.getIntForUser(resolver,
-                    Settings.Secure.VOLUME_HUSH_GESTURE, VOLUME_HUSH_OFF,
+            mRingerToggleChord = Settings.Secure.getStringForUser(resolver,
+                    Settings.Secure.VOLUME_HUSH_GESTURE,
                     UserHandle.USER_CURRENT);
             mPowerButtonSuppressionDelayMillis = Settings.Global.getInt(resolver,
                     Settings.Global.POWER_BUTTON_SUPPRESSION_DELAY_AFTER_GESTURE_WAKE,
                     POWER_BUTTON_SUPPRESSION_DELAY_DEFAULT_MILLIS);
             if (!mContext.getResources()
                     .getBoolean(com.android.internal.R.bool.config_volumeHushGestureEnabled)) {
-                mRingerToggleChord = VOLUME_HUSH_OFF;
+                mRingerToggleChord = EVO_VOLUME_HUSH_OFF;
             }
 
             // Configure wake gesture.
