@@ -59,6 +59,7 @@ public class BatterySaverTile extends QSTileImpl<BooleanState> implements
     private boolean mCharging;
     private boolean mDetailShown;
     private boolean mPluggedIn;
+    private boolean mExtreme;
 
     private Icon mIcon = ResourceIcon.get(com.android.internal.R.drawable.ic_qs_battery_saver);
 
@@ -156,6 +157,9 @@ public class BatterySaverTile extends QSTileImpl<BooleanState> implements
             state.icon = ResourceIcon.get(R.drawable.ic_qs_battery_saver);
         }
         state.label = mLevel + "%";
+        state.secondaryLabel = state.state == Tile.STATE_ACTIVE &&
+                mExtreme ? mContext.getString(R.string.extreme_battery_saver_text) : "";
+        state.stateDescription = state.secondaryLabel;
         state.contentDescription = state.label;
         state.value = mPowerSave;
         state.expandedAccessibilityClassName = Switch.class.getName();
@@ -298,5 +302,13 @@ public class BatterySaverTile extends QSTileImpl<BooleanState> implements
                 postBindView();
             }
         };
+    }
+
+    @Override
+    public void onExtremeBatterySaverChanged(boolean isExtreme) {
+        if (mExtreme != isExtreme) {
+            mExtreme = isExtreme;
+            refreshState();
+        }
     }
 }
