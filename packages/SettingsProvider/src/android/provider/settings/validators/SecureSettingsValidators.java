@@ -240,7 +240,22 @@ public class SecureSettingsValidators {
         VALIDATORS.put(Secure.SCREENSAVER_HOME_CONTROLS_ENABLED, BOOLEAN_VALIDATOR);
         VALIDATORS.put(Secure.SHOW_FIRST_CRASH_DIALOG_DEV_OPTION, BOOLEAN_VALIDATOR);
         VALIDATORS.put(Secure.VOLUME_DIALOG_DISMISS_TIMEOUT, NON_NEGATIVE_INTEGER_VALIDATOR);
-        VALIDATORS.put(Secure.VOLUME_HUSH_GESTURE, NON_NEGATIVE_INTEGER_VALIDATOR);
+        VALIDATORS.put(Secure.VOLUME_HUSH_GESTURE,
+                new Validator() {
+                    @Override
+                    public boolean validate(String value) {
+                        if (value.equals(Secure.EVO_VOLUME_HUSH_OFF))
+                            return true;
+                        String[] args = value.split(",", 0);
+                        for (String str : args) {
+                            if (!str.equals(Secure.EVO_VOLUME_HUSH_NORMAL) &&
+                                !str.equals(Secure.EVO_VOLUME_HUSH_MUTE) &&
+                                !str.equals(Secure.EVO_VOLUME_HUSH_VIBRATE))
+                                return false;
+                        }
+                        return true;
+                    }
+                });
         VALIDATORS.put(
                 Secure.ENABLED_NOTIFICATION_LISTENERS,
                 COLON_SEPARATED_COMPONENT_LIST_VALIDATOR); // legacy restore setting
