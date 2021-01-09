@@ -24,6 +24,8 @@
     <string name="accessibility_quick_settings_ambient_display_changed_on">Актыўны дысплей уключаны.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Актыўны дысплей</string>
+    <string name="quick_settings_aod_on_charge_label">Актыўны экран пры зарадцы</string>
+    <string name="quick_settings_aod_off_label">Актыўны экран адключаны</string>
     <string name="quick_settings_aod_off_powersave_label">Актыўны экран адкл.\nЭканомія батарэі</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Забарона сну</string>
@@ -161,4 +163,10 @@
     <!-- App picker manifest entry -->
     <string name="app_picker_dialog_title">Выбраць праграму</string>
     <string name="app_picker_activity_select_title">Выберыце дзеянне</string>
+    <!-- Headphones Buddy -->
+    <string name="hp_buddy">Баланс гуку ў слухаўках</string>
+    <string name="hp_buddy_left">Левы канал</string>
+    <string name="hp_buddy_right">Правы канал</string>
+    <string name="hp_buddy_center">Выходны і ўваходны</string>
+    <string name="hp_buddy_not_connected">Падключыце навушнікі</string>
 </resources>
