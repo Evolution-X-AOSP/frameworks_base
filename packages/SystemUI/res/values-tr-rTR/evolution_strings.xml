@@ -24,6 +24,8 @@
     <string name="accessibility_quick_settings_ambient_display_changed_on">Ortam ekranı açıldı.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">Şarj olurken her zaman açık ekran</string>
+    <string name="quick_settings_aod_off_label">Her zaman açık ekran kapalı</string>
     <string name="quick_settings_aod_off_powersave_label">Her zaman açık ekran kapalı\nPil tasarrufu</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Kafein</string>
@@ -151,4 +153,20 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Dil</string>
     <string name="quick_settings_locale_more_locales_toast">Geçiş işlevselliğinin etkin olması için lütfen birden fazla dil ekleyin</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">Donanım tuşları açık</string>
+    <string name="accessibility_quick_settings_hwkeys_off">Donanım tuşları kapalı</string>
+    <string name="quick_settings_hwkeys_label">Donanım tuşları</string>
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">Oyun modu ayarlarda devre dışı bırakıldı</string>
+    <string name="quick_settings_gaming_mode_label">Oyun modu</string>
+    <!-- App picker manifest entry -->
+    <string name="app_picker_dialog_title">Bir uygulama seç</string>
+    <string name="app_picker_activity_select_title">Etkinlik seç</string>
+    <!-- Headphones Buddy -->
+    <string name="hp_buddy">Çift kulaklık</string>
+    <string name="hp_buddy_left">Sadece sol</string>
+    <string name="hp_buddy_right">Sadece sağ</string>
+    <string name="hp_buddy_center">Her ikisi de</string>
+    <string name="hp_buddy_not_connected">Kulaklıklarınızı bağlayın</string>
 </resources>
