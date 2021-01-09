@@ -24,6 +24,8 @@
     <string name="accessibility_quick_settings_ambient_display_changed_on">ᱮᱢᱵᱤᱭᱮᱸᱴ ᱰᱤᱥᱯᱞᱮ ᱮᱢ ᱪᱷᱚ ᱾</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">AOD ᱪᱟᱨᱡ ᱨᱮ ᱢᱮᱱᱟᱜᱼᱟ</string>
+    <string name="quick_settings_aod_off_label">AOD ᱵᱚᱸᱫ</string>
     <string name="quick_settings_aod_off_powersave_label">AOD ᱵᱚᱸᱫᱽ\nᱵᱮᱴᱨᱭ ᱥᱺᱪᱟᱣ</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">ᱠᱟᱹᱯᱷᱮᱭᱱ</string>
@@ -151,4 +153,20 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">ᱯᱟᱹᱨᱥᱤ</string>
     <string name="quick_settings_locale_more_locales_toast">ᱴᱚᱜᱟᱹ ᱯᱷᱟᱸᱥᱚᱱᱟᱞᱤᱴᱭ ᱮᱢ ᱪᱷᱚ ᱞᱟᱹᱜᱤᱫᱽ ᱫᱚᱭᱟᱠᱟᱛᱮ ᱟᱢᱟ ᱯᱟᱹᱨᱥᱤ ᱠᱚ ᱴᱷᱤᱠ ᱢᱮᱸ</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">HW ᱪᱟᱹᱵᱤᱠᱚ ᱮᱢ ᱠᱟᱱᱟ</string>
+    <string name="accessibility_quick_settings_hwkeys_off">HW ᱪᱟᱹᱵᱤᱠᱚ ᱵᱚᱸᱫ</string>
+    <string name="quick_settings_hwkeys_label">HW ᱪᱟᱹᱵᱤᱠᱚ</string>
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">ᱥᱟᱡᱟᱣ ᱨᱮ ᱠᱷᱮᱞ ᱢᱳᱰ ᱵᱚᱸᱫᱽ ᱟᱠᱟᱱᱟ</string>
+    <string name="quick_settings_gaming_mode_label">ᱜᱮᱢᱤᱝ ᱚᱵᱚᱥᱛᱟ</string>
+    <!-- App picker manifest entry -->
+    <string name="app_picker_dialog_title">ᱢᱤᱫᱴᱟᱹᱝ ᱮᱯ ᱵᱟᱪᱷᱟᱣ ᱢᱮ</string>
+    <string name="app_picker_activity_select_title">ᱠᱟᱹᱢᱤ ᱵᱟᱪᱷᱟᱣ ᱢᱮ</string>
+    <!-- Headphones Buddy -->
+    <string name="hp_buddy">ᱦᱮᱰᱯᱷᱚᱱᱥ ᱵᱟᱹᱰᱤ</string>
+    <string name="hp_buddy_left">ᱠᱷᱟᱹᱞᱤ ᱞᱮᱜᱟ ᱥᱮᱫ</string>
+    <string name="hp_buddy_right">ᱠᱷᱟᱹᱞᱤ ᱡᱚᱡᱚᱢ ᱥᱮᱫ</string>
+    <string name="hp_buddy_center">ᱵᱟᱱᱟᱨᱜᱮ</string>
+    <string name="hp_buddy_not_connected">ᱟᱢᱟᱜ ᱦᱮᱥᱯᱷᱚᱱᱥ ᱡᱩᱲᱟᱹᱣ ᱛᱟᱢ</string>
 </resources>
