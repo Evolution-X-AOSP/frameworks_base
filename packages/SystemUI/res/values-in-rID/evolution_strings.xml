@@ -24,6 +24,8 @@
     <string name="accessibility_quick_settings_ambient_display_changed_on">Tampilan Ambient diaktifkan.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">AOD saat cas</string>
+    <string name="quick_settings_aod_off_label">AOD mati</string>
     <string name="quick_settings_aod_off_powersave_label">AOD nonaktif\nPenghemat baterai</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Caffein</string>
@@ -161,4 +163,10 @@
     <!-- App picker manifest entry -->
     <string name="app_picker_dialog_title">Pilih satu aplikasi</string>
     <string name="app_picker_activity_select_title">Pilih aktivitas</string>
+    <!-- Headphones Buddy -->
+    <string name="hp_buddy">Sobat Headphone</string>
+    <string name="hp_buddy_left">Hanya kiri</string>
+    <string name="hp_buddy_right">Hanya kanan</string>
+    <string name="hp_buddy_center">Keduanya</string>
+    <string name="hp_buddy_not_connected">Hubungkan headphone Anda</string>
 </resources>
