@@ -2330,7 +2330,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         mChargingAnimation = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.LOCKSCREEN_CHARGING_ANIMATION_STYLE, 1, UserHandle.USER_CURRENT);
         if (mKeyguardIndicationController != null) {
-            mKeyguardIndicationController.updateChargingIndication(mChargingAnimation);
+            mKeyguardIndicationController.updateChargingIndication();
         }
     }
 
