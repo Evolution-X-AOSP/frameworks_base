@@ -24,6 +24,8 @@
     <string name="accessibility_quick_settings_ambient_display_changed_on">アンビエント表示を ON にしました</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">充電時の AOD</string>
+    <string name="quick_settings_aod_off_label">AOD OFF</string>
     <string name="quick_settings_aod_off_powersave_label">AOD OFF\nバッテリー節約</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">カフェイン</string>
@@ -161,4 +163,10 @@
     <!-- App picker manifest entry -->
     <string name="app_picker_dialog_title">アプリを選択</string>
     <string name="app_picker_activity_select_title">アクティビティを選択</string>
+    <!-- Headphones Buddy -->
+    <string name="hp_buddy">ヘッドホンのペア</string>
+    <string name="hp_buddy_left">左のみ</string>
+    <string name="hp_buddy_right">右のみ</string>
+    <string name="hp_buddy_center">両方</string>
+    <string name="hp_buddy_not_connected">ヘッドフォンを接続してください</string>
 </resources>
