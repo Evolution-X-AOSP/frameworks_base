@@ -24,6 +24,8 @@
     <string name="accessibility_quick_settings_ambient_display_changed_on">앰비언트 디스플레이가 켜졌습니다.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">충전 시 AOD 사용</string>
+    <string name="quick_settings_aod_off_label">AOD 사용 안함</string>
     <string name="quick_settings_aod_off_powersave_label">AOD 사용 안함\n절전 모드</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">카페인 모드</string>
@@ -161,4 +163,10 @@
     <!-- App picker manifest entry -->
     <string name="app_picker_dialog_title">앱 선택</string>
     <string name="app_picker_activity_select_title">액티비티 선택</string>
+    <!-- Headphones Buddy -->
+    <string name="hp_buddy">헤드폰 도우미</string>
+    <string name="hp_buddy_left">왼쪽만</string>
+    <string name="hp_buddy_right">오른쪽만</string>
+    <string name="hp_buddy_center">양쪽</string>
+    <string name="hp_buddy_not_connected">헤드폰을 연결하세요</string>
 </resources>
