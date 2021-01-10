@@ -3947,7 +3947,7 @@ public class NotificationPanelViewController extends PanelViewController {
                             TunerService.parseInteger(newValue, 1);
                     break;
                 case DOUBLE_TAP_SLEEP_LOCKSCREEN:
-                    mIsLockscreenDoubleTapEnabled =
+                    mDoubleTapToSleepEnabled =
                             TunerService.parseIntegerSwitch(newValue, true);
                     break;
                 case LOCKSCREEN_STATUS_BAR:
@@ -3989,11 +3989,12 @@ public class NotificationPanelViewController extends PanelViewController {
             positionClockAndNotifications();
             if (mQsExpanded && mQsFullyExpanded) {
                 mQsExpansionHeight = mQsMaxExpansionHeight;
+                if (mQsMaxExpansionHeight != oldMaxHeight) {pa
                 requestScrollerTopPaddingUpdate(false /* animate */);
                 requestPanelHeightUpdate();
 
                 // Size has changed, start an animation.
-                if (mQsMaxExpansionHeight != oldMaxHeight) {
+                if (mQsMaxExpansionHeight != oldMaxHeight) {packages/SystemUI/src/com/android/systemui/statusbar/phone/NotificationPanelViewController.java
                     startQsSizeChangeAnimation(oldMaxHeight, mQsMaxExpansionHeight);
                 }
             } else if (!mQsExpanded) {
