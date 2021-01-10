@@ -33,11 +33,8 @@ public class PixelPropsUtils {
     private static final String[] packagesToChange = {
             "com.breel.wallpapers20",
             "com.google.android.apps.customization.pixel",
-            "com.google.android.apps.maps",
             "com.google.android.apps.photos",
-            "com.google.android.apps.safetyhub",
             "com.google.android.apps.subscriptions.red",
-            "com.google.android.apps.turbo",
             "com.google.android.apps.wallpaper",
             "com.google.android.apps.wallpaper.pixel",
             "com.google.android.as",
