@@ -3947,7 +3947,7 @@ public class NotificationPanelViewController extends PanelViewController {
                             TunerService.parseInteger(newValue, 1);
                     break;
                 case DOUBLE_TAP_SLEEP_LOCKSCREEN:
-                    mIsLockscreenDoubleTapEnabled =
+                    mDoubleTapToSleepEnabled =
                             TunerService.parseIntegerSwitch(newValue, true);
                     break;
                 case LOCKSCREEN_STATUS_BAR:
