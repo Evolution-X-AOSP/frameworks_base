@@ -24,6 +24,8 @@
     <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display attivato.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">AOD durante la ricarica</string>
+    <string name="quick_settings_aod_off_label">AOD disattivato</string>
     <string name="quick_settings_aod_off_powersave_label">AOD disattivato\nRisparmio energetico</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Caffeina</string>
@@ -161,4 +163,10 @@
     <!-- App picker manifest entry -->
     <string name="app_picker_dialog_title">Seleziona un\'app</string>
     <string name="app_picker_activity_select_title">Seleziona attività</string>
+    <!-- Headphones Buddy -->
+    <string name="hp_buddy">Cuffie Buddy</string>
+    <string name="hp_buddy_left">Solo a sinistra</string>
+    <string name="hp_buddy_right">Solo a destra</string>
+    <string name="hp_buddy_center">Entrambi</string>
+    <string name="hp_buddy_not_connected">Collega le cuffie</string>
 </resources>
