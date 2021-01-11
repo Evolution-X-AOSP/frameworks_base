@@ -35,9 +35,9 @@
     <string name="live_display_day_summary">Gunakan pengaturan pada siang hari saja</string>
     <string name="live_display_night">Malam</string>
     <string name="live_display_night_summary">Gunakan pengaturan pada malam hari saja</string>
-    <string name="live_display_outdoor">Luar ruangan (matahari terang)</string>
+    <string name="live_display_outdoor">Luar ruangan (matahari cerah)</string>
     <string name="live_display_outdoor_summary">Gunakan pengaturan pada luar ruangan saja</string>
-    <string name="live_display_hint">LiveDisplay dapat membantu mengurangi kelelahan mata dan membantu Anda disaat akan tidur di malam hari. Klik di sini untuk mencobanya!</string>
+    <string name="live_display_hint">LiveDisplay dapat membantu mengurangi kelelahan mata dan membantu Anda di saat akan tidur di malam hari. Klik di sini untuk mencobanya!</string>
     <string name="accessibility_quick_settings_live_display_off">LiveDisplay nonaktif.</string>
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: mode otomatis.</string>
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay: mode siang hari.</string>
