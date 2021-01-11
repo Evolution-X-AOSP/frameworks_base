@@ -46,7 +46,7 @@
     <string name="label_action_volume_panel">Panel Volume</string>
     <string name="label_action_clear_notifications">Bersihkan notifikasi</string>
     <string name="label_action_split_screen">Layar terpisah</string>
-    <string name="label_action_one_handed_mode_left">Modus satu tangan (sisi kiri)</string>
+    <string name="label_action_one_handed_mode_left">Mode satu tangan (sisi kiri)</string>
     <string name="label_action_one_handed_mode_right">Mode satu tangan (sisi kanan)</string>
     <string name="label_action_media_left">Trek sebelumnya</string>
     <string name="label_action_media_right">Trek berikutnya</string>
