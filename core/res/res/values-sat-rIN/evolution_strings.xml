@@ -51,4 +51,12 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">SystemUI ᱫᱩᱦᱲᱟᱹ ᱮᱦᱚᱵᱽ ᱫᱚᱨᱠᱟᱨ</string>
     <string name="systemui_restart_message">ᱡᱷᱚᱛᱚ ᱵᱚᱫᱚᱞ ᱠᱚ ᱫᱚᱦᱚ ᱞᱟᱹᱜᱤᱫᱽ, SystemUI ᱫᱩᱦᱲᱟᱹ ᱮᱦᱚᱵᱽ ᱫᱚᱨᱠᱟᱨ ᱾ ᱱᱤᱛᱚᱜᱽ SystemUI ᱫᱩᱦᱲᱟᱹ ᱮᱦᱚᱵᱽ ᱟᱢ ᱥᱮ?</string>
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">ᱠᱷᱮᱞ ᱢᱳᱰ</string>
+    <string name="gaming_mode_notification_title">ᱠᱷᱮᱞ ᱢᱳᱰ ᱮᱢ ᱪᱷᱚᱮᱱᱟ</string>
+    <string name="gaming_mode_notification_content">ᱠᱷᱮᱞ ᱢᱳᱰ ᱵᱚᱸᱫ ᱞᱟᱹᱜᱤᱫ ᱚᱛᱟᱭ ᱢᱮ</string>
+    <string name="gaming_mode_enabled_toast">ᱠᱷᱮᱞ ᱢᱳᱰ ᱮᱢ ᱪᱚ</string>
+    <string name="gaming_mode_disabled_toast">ᱠᱷᱮᱞ ᱢᱳᱰ ᱵᱚᱸᱫ</string>
+    <string name="active_edge_app_select_title">ᱮᱯ ᱵᱟᱪᱷᱟᱣ ᱢᱮ</string>
+    <string name="active_edge_activity_select_title">ᱠᱟᱹᱢᱤ ᱵᱟᱪᱷᱟᱣ ᱢᱮ</string>
 </resources>
