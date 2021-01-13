@@ -41,6 +41,9 @@ public class PixelPropsUtils {
             "com.google.android.apps.wallpaper",
             "com.google.android.apps.wallpaper.pixel",
             "com.google.android.as",
+            "com.google.android.gms",
+            "com.google.android.googlequicksearchbox",
+            "com.google.android.inputmethod.latin",
             "com.google.pixel.dynamicwallpapers",
             "com.google.pixel.livewallpaper"
     };
@@ -70,9 +73,6 @@ public class PixelPropsUtils {
             for (Map.Entry<String, Object> prop : propsToChange.entrySet()) {
                 String key = prop.getKey();
                 Object value = prop.getValue();
-                if (packageName.equals("com.google.android.gms") && key.equals("MODEL")){
-                    value = value + "\u200b";
-                }
                 setPropValue(key, value);
             }
         }
