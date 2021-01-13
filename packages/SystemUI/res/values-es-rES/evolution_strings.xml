@@ -20,8 +20,8 @@
     <string name="quick_settings_ambient_display_label">Pantalla ambiente</string>
     <string name="accessibility_quick_settings_ambient_display_off">Pantalla ambiente desactivada.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Pantalla ambiente activada.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_off">Pantalla ambiente se ha desactivado.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_on">Se ha activado la pantalla ambiente.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">La pantalla ambiente se ha desactivado.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">La pantalla ambiente se ha activado.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD (Pantalla siempre encendida)</string>
     <string name="quick_settings_aod_on_charge_label">AOD en carga</string>
@@ -65,8 +65,8 @@
     <string name="quick_settings_heads_up_label">Notificaciones flotantes</string>
     <string name="accessibility_quick_settings_heads_up_off">Notificaciones emergentes desactivadas.</string>
     <string name="accessibility_quick_settings_heads_up_on">Notificaciones emergentes activadas.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Notificaciones emergentes deshabilitadas.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Notificaciones emergentes habilitadas.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Las notificaciones emergentes se han desactivado.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Las notificaciones emergentes se han activado.</string>
     <!-- Mono QS Tile -->
     <string name="quick_settings_monotoggle_tile">Modo de audio</string>
     <string name="quick_settings_monotoggle_tile_mono">Audio en mono</string>
@@ -97,7 +97,7 @@
     <string name="accessibility_quick_settings_sync_off">Sincronización desactivada.</string>
     <string name="accessibility_quick_settings_sync_on">Sincronización activada.</string>
     <string name="accessibility_quick_settings_sync_changed_off">La sincronización ha sido desactivada.</string>
-    <string name="accessibility_quick_settings_sync_changed_on">La sincronización ha sido habilitada.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">La sincronización ha sido activada.</string>
     <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">Anclaje USB</string>
     <!-- Volume panel QS tile -->
@@ -106,7 +106,7 @@
     <string name="custom_hint">Deslizar desde el icono para abrir</string>
     <!-- Status bar icons -->
     <string name="statusbar_items_title">Icono de barra de estado</string>
-    <string name="status_bar_data_disabled">Datos desactivados</string>
+    <string name="status_bar_data_disabled">Datos deshabilitados</string>
     <string name="status_bar_data_saver">Ahorro de datos</string>
     <string name="status_bar_nfc">NFC</string>
     <string name="status_bar_roaming">Itinerancia de datos</string>
@@ -161,7 +161,7 @@
     <string name="gaming_mode_not_enabled">El modo Juego está deshabilitado en los ajustes</string>
     <string name="quick_settings_gaming_mode_label">Modo Juego</string>
     <!-- App picker manifest entry -->
-    <string name="app_picker_dialog_title">Seleccione una aplicación</string>
+    <string name="app_picker_dialog_title">Selecciona una aplicación</string>
     <string name="app_picker_activity_select_title">Selecciona una actividad</string>
     <!-- Headphones Buddy -->
     <string name="hp_buddy">Amigo de los auriculares</string>
