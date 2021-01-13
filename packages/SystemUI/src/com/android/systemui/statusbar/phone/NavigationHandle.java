@@ -23,6 +23,9 @@ import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
+import android.media.AudioManager;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.ContextThemeWrapper;
 import android.view.View;
@@ -44,6 +47,7 @@ public class NavigationHandle extends View implements ButtonInterface {
     private boolean mIsKeyguard = false;
     private boolean mRequiresInvalidate;
 
+    private AudioManager mAudioManager;
     private KeyguardUpdateMonitor mUpdateMonitor;
 
     private KeyguardUpdateMonitorCallback mMonitorCallback = new KeyguardUpdateMonitorCallback() {
@@ -53,8 +57,7 @@ public class NavigationHandle extends View implements ButtonInterface {
             if (dreaming) {
                 setVisibility(View.GONE);
             } else if (!mIsKeyguard) {
-                setVisibility(View.VISIBLE);
-                if (mRequiresInvalidate) invalidate();
+                maybeMakeVisible();
             }
         }
 
@@ -64,8 +67,7 @@ public class NavigationHandle extends View implements ButtonInterface {
             if (showing) {
                 setVisibility(View.GONE);
             } else if (!mIsDreaming) {
-                setVisibility(View.VISIBLE);
-                if (mRequiresInvalidate) invalidate();
+                maybeMakeVisible();
             }
         }
     };
@@ -89,8 +91,18 @@ public class NavigationHandle extends View implements ButtonInterface {
         mPaint.setAntiAlias(true);
         setFocusable(false);
 
+        mAudioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
         mUpdateMonitor = Dependency.get(KeyguardUpdateMonitor.class);
         mUpdateMonitor.registerCallback(mMonitorCallback);
+    }
+
+    private void maybeMakeVisible() {
+        boolean pulseEnabled = Settings.Secure.getIntForUser(mContext.getContentResolver(),
+                Settings.Secure.NAVBAR_PULSE_ENABLED, 0,
+                UserHandle.USER_CURRENT) == 1;
+        if (pulseEnabled && mAudioManager.isMusicActive()) return;
+        setVisibility(View.VISIBLE);
+        if (mRequiresInvalidate) invalidate();
     }
 
     @Override
