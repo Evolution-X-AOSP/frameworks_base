@@ -175,5 +175,6 @@ public class SecureSettings {
         Settings.Secure.ASSIST_HANDLES_LEARNING_EVENT_COUNT,
         // Evolution X Customization
         Settings.Secure.VOLUME_LINK_NOTIFICATION,
+        Settings.Secure.FOD_ON_DOZE,
     };
 }
