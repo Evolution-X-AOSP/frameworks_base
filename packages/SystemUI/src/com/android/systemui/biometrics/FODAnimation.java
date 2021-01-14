@@ -42,6 +42,7 @@ public class FODAnimation extends ImageView {
     private WindowManager mWindowManager;
     private boolean mIsKeyguard;
     private boolean mIsRecognizingAnimEnabled;
+    private boolean mIsAdded;
 
     private int mSelectedAnim;
     private String[] ANIMATION_STYLES_NAMES = {
@@ -141,11 +142,14 @@ public class FODAnimation extends ImageView {
     public void showFODanimation() {
         if (mAnimParams != null && !mShowing && mIsKeyguard) {
             mShowing = true;
-            if (this.getWindowToken() == null){
-                mWindowManager.addView(this, mAnimParams);
-                mWindowManager.updateViewLayout(this, mAnimParams);
+            if (!mIsAdded) {
+                mIsAdded = true;
+                if (this.getWindowToken() == null) {
+                    mWindowManager.addView(this, mAnimParams);
+                    mWindowManager.updateViewLayout(this, mAnimParams);
+                }
+                recognizingAnim.start();
             }
-            recognizingAnim.start();
         }
     }
 
@@ -159,6 +163,7 @@ public class FODAnimation extends ImageView {
             }
             if (this.getWindowToken() != null) {
                 mWindowManager.removeView(this);
+                mIsAdded = false;
             }
         }
     }
