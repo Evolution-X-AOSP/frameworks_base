@@ -212,6 +212,8 @@ public class KeyguardIndicationController implements StateListener,
         mTextView = indicationArea.findViewById(R.id.keyguard_indication_text);
         mInitialTextColorState = mTextView != null ?
                 mTextView.getTextColors() : ColorStateList.valueOf(Color.WHITE);
+        mDisclosure = indicationArea.findViewById(R.id.keyguard_indication_enterprise_disclosure);
+        mDisclosureMaxAlpha = mDisclosure.getAlpha();
         mChargingIndicationView = (LottieAnimationView) indicationArea.findViewById(
                 R.id.charging_indication);
         updateChargingIndicationStyle();
@@ -226,8 +228,6 @@ public class KeyguardIndicationController implements StateListener,
                 mFODPositionY = 0;
             }
         }
-        mDisclosure = indicationArea.findViewById(R.id.keyguard_indication_enterprise_disclosure);
-        mDisclosureMaxAlpha = mDisclosure.getAlpha();
         updateIndication(false /* animate */);
         updateDisclosure();
 
@@ -594,6 +594,7 @@ public class KeyguardIndicationController implements StateListener,
     private void updateChargingIndication() {
         if (mChargingIndicationView == null) return;
         if (mChargingIndication > 0 && mPowerPluggedIn) {
+            mChargingIndicationView.setVisibility(View.VISIBLE);
             if (hasActiveInDisplayFp()) {
                 if (mFODPositionY != 0) {
                     // Get screen height
@@ -625,7 +626,6 @@ public class KeyguardIndicationController implements StateListener,
                     mChargingIndicationView.setLayoutParams(params);
                 }
             }
-            mChargingIndicationView.setVisibility(View.VISIBLE);
             mChargingIndicationView.playAnimation();
         } else {
             mChargingIndicationView.setVisibility(View.GONE);
