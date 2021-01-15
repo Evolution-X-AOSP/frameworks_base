@@ -153,6 +153,12 @@ public class BluetoothEventManager {
                     (Handler)sourceInfoHandler);
         }
 
+        // Broadcast broadcasts
+        addHandler("android.bluetooth.broadcast.profile.action.BROADCAST_STATE_CHANGED",
+                new BroadcastStateChangedHandler());
+        addHandler("android.bluetooth.broadcast.profile.action.BROADCAST_ENCRYPTION_KEY_GENERATED",
+                new BroadcastKeyGeneratedHandler());
+
         registerAdapterIntentReceiver();
 
         mContext.getContentResolver().registerContentObserver(
@@ -258,6 +264,18 @@ public class BluetoothEventManager {
         }
         for (BluetoothCallback callback : mCallbacks) {
             callback.onAudioModeChanged();
+        }
+    }
+
+    private void dispatchBroadcastStateChanged(int state) {
+        for (BluetoothCallback callback : mCallbacks) {
+            callback.onBroadcastStateChanged(state);
+        }
+    }
+
+    private void dispatchBroadcastKeyGenerated() {
+        for (BluetoothCallback callback : mCallbacks) {
+            callback.onBroadcastKeyGenerated();
         }
     }
 
@@ -397,6 +415,22 @@ public class BluetoothEventManager {
                         Settings.Global.getLong(context.getContentResolver(),
                                 Settings.Global.BLUETOOTH_OFF_TIMEOUT, 0));
             }
+        }
+    }
+
+    private class BroadcastStateChangedHandler implements Handler {
+        //@Override
+        public void onReceive(Context context, Intent intent, BluetoothDevice device) {
+            int state = intent.getIntExtra(BluetoothProfile.EXTRA_STATE,
+                    BluetoothAdapter.ERROR);
+            dispatchBroadcastStateChanged(state);
+        }
+    }
+
+    private class BroadcastKeyGeneratedHandler implements Handler {
+        //@Override
+        public void onReceive(Context context, Intent intent, BluetoothDevice device) {
+            dispatchBroadcastKeyGenerated();
         }
     }
 
