@@ -34,7 +34,7 @@
         android:id="@+id/quick_settings_status_bar_background"
         android:layout_width="match_parent"
         android:layout_height="@*android:dimen/quick_qs_offset_height"
-        android:background="@android:color/transparent" >
+        android:background="#ff000000" >
 
         <ImageView android:id="@+id/qs_header_image_view"
             android:layout_width="match_parent"
@@ -45,6 +45,16 @@
             android:visibility="gone"
             android:background="@drawable/qs_header_image_view_outline" />
     </LinearLayout>
+
+    <!-- Gradient view behind QS -->
+    <View
+        android:id="@+id/quick_settings_gradient_view"
+        android:layout_width="match_parent"
+        android:layout_height="126dp"
+        android:layout_marginTop="@*android:dimen/quick_qs_offset_height"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:background="@drawable/qs_bg_gradient" />
 
     <com.android.systemui.qs.NonInterceptingScrollView
         android:id="@+id/expanded_qs_scroll_view"
