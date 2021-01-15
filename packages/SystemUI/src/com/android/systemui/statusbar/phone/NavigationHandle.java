@@ -48,8 +48,8 @@ public class NavigationHandle extends View implements ButtonInterface {
     private boolean mRequiresInvalidate;
 
     private AudioManager mAudioManager;
-    private KeyguardUpdateMonitor mUpdateMonitor;
 
+    private KeyguardUpdateMonitor mUpdateMonitor;
     private KeyguardUpdateMonitorCallback mMonitorCallback = new KeyguardUpdateMonitorCallback() {
         @Override
         public void onDreamingStateChanged(boolean dreaming) {
@@ -57,7 +57,7 @@ public class NavigationHandle extends View implements ButtonInterface {
             if (dreaming) {
                 setVisibility(View.GONE);
             } else if (!mIsKeyguard) {
-                maybeMakeVisible();
+                getHandler().post(() -> maybeMakeVisible());
             }
         }
 
@@ -67,7 +67,7 @@ public class NavigationHandle extends View implements ButtonInterface {
             if (showing) {
                 setVisibility(View.GONE);
             } else if (!mIsDreaming) {
-                maybeMakeVisible();
+                getHandler().post(() -> maybeMakeVisible());
             }
         }
     };
@@ -93,7 +93,6 @@ public class NavigationHandle extends View implements ButtonInterface {
 
         mAudioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
         mUpdateMonitor = Dependency.get(KeyguardUpdateMonitor.class);
-        mUpdateMonitor.registerCallback(mMonitorCallback);
     }
 
     private void maybeMakeVisible() {
@@ -154,5 +153,17 @@ public class NavigationHandle extends View implements ButtonInterface {
 
     @Override
     public void setDelayTouchFeedback(boolean shouldDelay) {
+    }
+
+    @Override
+    public void onAttachedToWindow() {
+        mUpdateMonitor.registerCallback(mMonitorCallback);
+        super.onAttachedToWindow();
+    }
+
+    @Override
+    public void onDetachedFromWindow() {
+        mUpdateMonitor.removeCallback(mMonitorCallback);
+        super.onDetachedFromWindow();
     }
 }
