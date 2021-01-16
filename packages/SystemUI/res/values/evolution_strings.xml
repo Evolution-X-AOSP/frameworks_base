@@ -215,4 +215,7 @@
     <string name="hp_buddy_right">Right only</string>
     <string name="hp_buddy_center">Both</string>
     <string name="hp_buddy_not_connected">Connect your headphones</string>
+
+    <!-- Ambient Music Ticker -->
+    <string name="ambientmusic_songinfo" formatted="false">%s by %s</string>
 </resources>
