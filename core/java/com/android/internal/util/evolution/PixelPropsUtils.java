@@ -41,9 +41,6 @@ public class PixelPropsUtils {
             "com.google.android.apps.wallpaper",
             "com.google.android.apps.wallpaper.pixel",
             "com.google.android.as",
-            "com.google.android.gms",
-            "com.google.android.googlequicksearchbox",
-            "com.google.android.inputmethod.latin",
             "com.google.pixel.dynamicwallpapers",
             "com.google.pixel.livewallpaper"
     };
@@ -55,6 +52,7 @@ public class PixelPropsUtils {
         propsToChange.put("DEVICE", "redfin");
         propsToChange.put("PRODUCT", "redfin");
         propsToChange.put("MODEL", "Pixel 5");
+        propsToChange.put("FINGERPRINT", "google/redfin/redfin:11/RQ1A.210105.003/7005429:user/release-keys");
         propsToChange.put("IS_DEBUGGABLE", false);
         propsToChange.put("IS_ENG", false);
         propsToChange.put("IS_USERDEBUG", false);
