@@ -79,15 +79,9 @@ class PrivacyItemController @Inject constructor(
         @Synchronized get() = field.toList() // Returns a shallow copy of the list
         @Synchronized set
 
-    fun isAllIndicatorsEnabled(): Boolean {
-        return deviceConfigProxy.getBoolean(DeviceConfig.NAMESPACE_PRIVACY,
-                ALL_INDICATORS, true)
-    }
+    fun isAllIndicatorsEnabled() = true
 
-    private fun isMicCameraEnabled(): Boolean {
-        return deviceConfigProxy.getBoolean(DeviceConfig.NAMESPACE_PRIVACY,
-                MIC_CAMERA, true)
-    }
+    private fun isMicCameraEnabled() = true
 
     private var currentUserIds = emptyList<Int>()
     private var listening = false
