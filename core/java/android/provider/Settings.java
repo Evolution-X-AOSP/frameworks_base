@@ -6000,11 +6000,6 @@ public final class Settings {
         public static final String SCREENSHOT_TYPE = "screenshot_type";
 
         /**
-         * @hide
-         */
-        public static final String USE_OLD_MOBILETYPE = "use_old_mobiletype";
-
-        /**
          * Whether to vibrate on notifications
          * @hide
          */
@@ -6201,7 +6196,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(SYSTEMUI_PLUGIN_VOLUME);
             PRIVATE_SETTINGS.add(QS_TILES_BG_DISCO);
             PRIVATE_SETTINGS.add(SCREENSHOT_TYPE);
-            PRIVATE_SETTINGS.add(USE_OLD_MOBILETYPE);
         }
 
         /**

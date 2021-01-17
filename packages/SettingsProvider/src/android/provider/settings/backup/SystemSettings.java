@@ -98,6 +98,5 @@ public class SystemSettings {
         Settings.System.COLOR_BUCKET_OVERLAY,
         Settings.System.NOTIFICATION_HEADERS,
         Settings.System.ACCENT_COLOR,
-        Settings.System.USE_OLD_MOBILETYPE,
     };
 }
