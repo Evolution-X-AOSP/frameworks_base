@@ -263,7 +263,7 @@ public class NavigationBarView extends FrameLayout implements
     private final OnComputeInternalInsetsListener mOnComputeInternalInsetsListener = info -> {
         // When the nav bar is in 2-button or 3-button mode, or when IME is visible in fully
         // gestural mode, the entire nav bar should be touchable.
-        if (!mEdgeBackGestureHandler.isHandlingGestures()) {
+        if (!mEdgeBackGestureHandler.isHandlingGestures() || mImeVisible) {
             info.setTouchableInsets(InternalInsetsInfo.TOUCHABLE_INSETS_FRAME);
             return;
         }
