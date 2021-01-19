@@ -30,7 +30,7 @@
     <string name="live_display_auto">Automático</string>
     <string name="live_display_auto_summary">Ajustar automáticamente la temperatura del color de la pantalla entre anochecer y amanecer</string>
     <string name="live_display_off">Apagado</string>
-    <string name="live_display_off_summary">Desactivar todos los ajustes</string>
+    <string name="live_display_off_summary">Desactiva todos los ajustes</string>
     <string name="live_display_day">Día</string>
     <string name="live_display_day_summary">Usar sólo ajustes de día</string>
     <string name="live_display_night">Noche</string>
