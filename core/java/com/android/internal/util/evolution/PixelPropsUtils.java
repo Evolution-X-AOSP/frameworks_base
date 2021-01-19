@@ -38,6 +38,7 @@ public class PixelPropsUtils {
             "com.google.android.apps.safetyhub",
             "com.google.android.apps.subscriptions.red",
             "com.google.android.apps.turbo",
+            "com.google.android.apps.turboadapter",
             "com.google.android.apps.wallpaper",
             "com.google.android.apps.wallpaper.pixel",
             "com.google.android.as",
