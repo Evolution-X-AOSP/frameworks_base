@@ -65,7 +65,6 @@ public class NetworkTraffic extends TextView {
     private boolean iBytes;
     private boolean oBytes;
 
-    private boolean mScreenOn = true;
     protected boolean mVisible = true;
     private ConnectivityManager mConnectivityManager;
     protected boolean mTrafficInHeaderView;
@@ -373,13 +372,7 @@ public class NetworkTraffic extends TextView {
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
             if (action == null) return;
-            if (action.equals(ConnectivityManager.CONNECTIVITY_ACTION) && mScreenOn) {
-                update();
-            } else if (action.equals(Intent.ACTION_SCREEN_ON)) {
-                mScreenOn = true;
-                update();
-            } else if (action.equals(Intent.ACTION_SCREEN_OFF)) {
-                mScreenOn = false;
+            if (action.equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
                 clearHandlerCallbacks();
             }
         }
