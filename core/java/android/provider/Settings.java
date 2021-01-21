@@ -10344,14 +10344,6 @@ public final class Settings {
         public static final String STATUS_BAR_QUICK_QS_PULLDOWN = "status_bar_quick_qs_pulldown";
 
         /**
-         * Whether to have transparent background on lockscreen notifications
-         *
-         * @hide
-         */
-        public static final String LOCK_SCREEN_TRANSPARENT_NOTIFICATIONS_ENABLED =
-                "lock_screen_transparent_notifications_enabled";
-
-        /**
          * Select from different navigation bar layouts
          * @hide
          */
