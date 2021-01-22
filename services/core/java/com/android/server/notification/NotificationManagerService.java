@@ -6922,7 +6922,7 @@ public class NotificationManagerService extends SystemService {
         if (aboveThreshold && isNotificationForCurrentUser(record)) {
             boolean skipSound = mScreenOn && !mSoundVibScreenOn;
             boolean noNoiseOnGamingMode = (mScreenOn && mGamingMode && mSoundVibGamingMode);
-            if (mSystemReady && mAudioManager != null && (!skipSound || !noNoiseOnGamingMode)) {
+            if (mSystemReady && mAudioManager != null && !skipSound || !noNoiseOnGamingMode) {
                 Uri soundUri = record.getSound();
                 hasValidSound = soundUri != null && !Uri.EMPTY.equals(soundUri);
                 long[] vibration = record.getVibration();
