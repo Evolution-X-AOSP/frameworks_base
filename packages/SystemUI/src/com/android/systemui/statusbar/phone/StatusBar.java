@@ -1213,7 +1213,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         mAmbientIndicationContainer = mNotificationShadeWindowView.findViewById(
                 R.id.ambient_indication_container);
         if (mAmbientIndicationContainer != null) {
-            ((AmbientIndicationContainer) mAmbientIndicationContainer).initializeView(this, mHandler);
+            ((AmbientIndicationContainer) mAmbientIndicationContainer).initializeView(this, mHandler, mKeyguardIndicationController);
         }
 
         mAutoHideController.setStatusBar(new AutoHideUiElement() {

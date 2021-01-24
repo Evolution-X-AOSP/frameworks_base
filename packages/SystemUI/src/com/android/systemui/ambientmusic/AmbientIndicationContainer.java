@@ -35,9 +35,10 @@ import com.android.systemui.AutoReinflateContainer;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.ambientmusic.AmbientIndicationInflateListener;
-import com.android.systemui.statusbar.phone.DozeParameters;
+import com.android.systemui.statusbar.KeyguardIndicationController;
 import com.android.systemui.statusbar.NotificationLockscreenUserManager;
 import com.android.systemui.statusbar.NotificationMediaManager;
+import com.android.systemui.statusbar.phone.DozeParameters;
 import com.android.systemui.statusbar.phone.StatusBar;
 import com.android.systemui.util.wakelock.SettableWakeLock;
 import com.android.systemui.util.wakelock.WakeLock;
@@ -48,6 +49,7 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
     public static final boolean DEBUG_AMBIENTMUSIC = false;
 
     private final int mFODmargin;
+    private final int mKGmargin;
     private View mAmbientIndication;
     private boolean mDozing;
     private boolean mKeyguard;
@@ -75,6 +77,8 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
     private boolean mMediaIsVisible;
     private SettableWakeLock mMediaWakeLock;
 
+    private KeyguardIndicationController mKeyguardIndicationController;
+
     public AmbientIndicationContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         mContext = context;
@@ -84,6 +88,8 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         mAmbientMusicTicker = getAmbientMusicTickerStyle();
         mFODmargin = mContext.getResources().getDimensionPixelSize(
                 R.dimen.keyguard_security_fod_view_margin);
+        mKGmargin = mContext.getResources().getDimensionPixelSize(
+                R.dimen.keyguard_charging_animation_margin);
     }
 
     private class CustomSettingsObserver extends ContentObserver {
@@ -127,8 +133,9 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         }
     }
 
-    public void initializeView(StatusBar statusBar, Handler handler) {
+    public void initializeView(StatusBar statusBar, Handler handler, KeyguardIndicationController keyguardIndicationController) {
         mStatusBar = statusBar;
+        mKeyguardIndicationController = keyguardIndicationController;
         addInflateListener(new AmbientIndicationInflateListener(this));
         mHandler = handler;
         mCustomSettingsObserver = new CustomSettingsObserver(mHandler);
@@ -168,6 +175,10 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.getLayoutParams();
         if (hasInDisplayFingerprint()) {
             lp.setMargins(0, 0, 0, mFODmargin);
+        } else if (mKeyguardIndicationController.isChargingIndicationVisible()) {
+            lp.setMargins(0, 0, 0, mKGmargin);
+        } else {
+            lp.setMargins(0, 0, 0, 0);
         }
         this.setLayoutParams(lp);
     }
@@ -175,6 +186,11 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
     private boolean hasInDisplayFingerprint() {
         return mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_needCustomFODView);
+    }
+
+    private boolean showsChargingAnimation() {
+        return Settings.System.getIntForUser(mContext.getContentResolver(),
+                    Settings.System.LOCKSCREEN_CHARGING_ANIMATION_STYLE, 1, UserHandle.USER_CURRENT) > 0;
     }
 
     public View getTitleView() {
@@ -197,7 +213,7 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
             mDozing = dozing;
         }
         mAmbientIndication.setVisibility(shouldShow() ? View.VISIBLE : View.INVISIBLE);
-        if (hasInDisplayFingerprint() && shouldShow()) {
+        if (hasInDisplayFingerprint() && shouldShow() || (showsChargingAnimation() && isAod() && shouldShow())) {
             updatePosition();
         }
 
@@ -267,7 +283,7 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         if (mInfoToSet != null) {
             mText.setText(mInfoToSet);
             mAmbientIndication.setVisibility(shouldShow() ? View.VISIBLE : View.INVISIBLE);
-            if (hasInDisplayFingerprint() && shouldShow()) {
+        if (hasInDisplayFingerprint() && shouldShow() || (showsChargingAnimation() && isAod() && shouldShow())) {
                 updatePosition();
             }
         } else {
