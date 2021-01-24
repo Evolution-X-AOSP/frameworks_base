@@ -178,6 +178,10 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         return hasInDisplayFingerprint;
     }
 
+    public View getTitleView() {
+        return mText;
+    }
+
     public void updateKeyguardState(boolean keyguard) {
         if (keyguard && (mInfoAvailable || mNpInfoAvailable)) {
             mText.setText(mInfoToSet);
@@ -207,7 +211,7 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         return DozeParameters.getInstance(mContext).getAlwaysOn() && mDozing;
     }
 
-    private boolean shouldShow() {
+    public boolean shouldShow() {
         // if not dozing, show ambient music info only for Google Now Playing,
         // not for local media players if they are showing a lockscreen media notification
         final NotificationLockscreenUserManager lockscreenManager =
