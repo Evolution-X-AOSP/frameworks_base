@@ -24,12 +24,15 @@ import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.SystemClock;
 import android.os.SystemProperties;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.keyguard.KeyguardUpdateMonitor;
+import com.android.systemui.ambientmusic.AmbientIndicationContainer;
 import com.android.systemui.assist.AssistManager;
 import com.android.systemui.doze.DozeHost;
 import com.android.systemui.doze.DozeLog;
@@ -378,11 +381,23 @@ public final class DozeServiceHost implements DozeHost {
     public boolean isDoubleTapOnMusicTicker(float screenX, float screenY) {
         final KeyguardSliceProvider sliceProvider = KeyguardSliceProvider.getAttachedInstance();
         View trackTitleView = null;
+        final int mMusicTicker = Settings.System.getIntForUser(
+                mAmbientIndicationContainer.getContext().getContentResolver(),
+                Settings.System.AMBIENT_MUSIC_TICKER, 1, UserHandle.USER_CURRENT);
         if (mNotificationPanel != null) {
-            trackTitleView = mNotificationPanel.getKeyguardStatusView().getKeyguardSliceView().getTitleView();
+            if (mMusicTicker == 1) { // ambient indication music ticker
+                trackTitleView = ((AmbientIndicationContainer)mAmbientIndicationContainer).getTitleView();
+            } else if (mMusicTicker == 2) { // keyguard slice music ticker
+                trackTitleView = mNotificationPanel.getKeyguardStatusView().getKeyguardSliceView().getTitleView();
+            }
         }
-        if (screenX <= 0 || screenY <= 0 || sliceProvider == null || trackTitleView == null
-                || !sliceProvider.needsMediaLocked()) {
+        boolean exitCriteria = true;
+        if (mMusicTicker == 1) { // ambient indication music ticker
+            exitCriteria = !((AmbientIndicationContainer)mAmbientIndicationContainer).shouldShow();
+        } else if (mMusicTicker == 2) { // keyguard slice music ticker
+            exitCriteria = sliceProvider == null || !sliceProvider.needsMediaLocked();
+        }
+        if (screenX <= 0 || screenY <= 0 || trackTitleView == null || exitCriteria) {
             return false;
         }
         int[] locationOnScreen = new int[2];
