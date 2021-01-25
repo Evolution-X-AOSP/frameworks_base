@@ -51,4 +51,12 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Потребно је поновно покретање интерфејса</string>
     <string name="systemui_restart_message">Да би све промене ступиле на снагу, потребно је поновно покретање интерфејса. Поново покренути инферфејс сада?</string>
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">Мод за игре</string>
+    <string name="gaming_mode_notification_title">Омогући Мод за игре</string>
+    <string name="gaming_mode_notification_content">Кликни да искључиш Мод за игре</string>
+    <string name="gaming_mode_enabled_toast">Мод за игре је укључен</string>
+    <string name="gaming_mode_disabled_toast">Мод за игре је искључен</string>
+    <string name="active_edge_app_select_title">Изабери апликацију</string>
+    <string name="active_edge_activity_select_title">Изабери активност</string>
 </resources>
