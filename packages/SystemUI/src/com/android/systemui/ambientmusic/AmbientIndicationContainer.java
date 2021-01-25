@@ -240,23 +240,24 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         }
 
         mInfoToSet = null;
-
+        String mTitle = null;
         if (!TextUtils.isEmpty(mMediaArtist)) {
-            String shortenedTitle = "\"" + mMediaTitle.toString() + "\"";
-            if (shortenedTitle.length() > 20) {
-                shortenedTitle = shortenedTitle.substring(0, 19) + "...\"";
-            }
-            mInfoToSet = String.format(mTrackInfoSeparator, shortenedTitle, mMediaArtist.toString());
+            mTitle = String.format(mTrackInfoSeparator, "\"" + mMediaTitle.toString() + "\"", mMediaArtist.toString());
         } else if (!TextUtils.isEmpty(mMediaTitle)) {
-            mInfoToSet = mMediaTitle.toString();
+            mTitle = mMediaTitle.toString();
         }
-
+        if (mTitle != null) {
+            if (mTitle.length() < 40) {
+                mInfoToSet = mTitle;
+            } else {
+                mInfoToSet = shortenMediaTitle(mTitle);
+            }
+        }
         if (nowPlaying) {
             mNpInfoAvailable = mInfoToSet != null;
         } else {
             mInfoAvailable = mInfoToSet != null;
         }
-
         if (mInfoAvailable || mNpInfoAvailable) {
             boolean isAnotherTrack = (mInfoAvailable || mNpInfoAvailable)
                     && (TextUtils.isEmpty(mLastInfo) || (!TextUtils.isEmpty(mLastInfo)
@@ -277,6 +278,19 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
 
         if (DEBUG_AMBIENTMUSIC) {
             Log.d("AmbientIndicationContainer", "setIndication: nowPlaying=" + nowPlaying);
+        }
+    }
+
+    private String shortenMediaTitle(String input) {
+        int cutPos = input.lastIndexOf("\"");
+        if (cutPos > 25) { // only shorten the song title if it is too long
+            String artist = input.substring(cutPos + 1, input.length());
+            int artistLenght = 10;
+            artistLenght = (artist.length() < artistLenght) ? artist.length() : artistLenght;
+            cutPos = cutPos > 34 ? 30 - artistLenght : cutPos - artistLenght - 4;
+            return input.substring(0, cutPos) + "...\"" + artist;
+        } else { // otherwise the original string is returned
+            return input;
         }
     }
 
