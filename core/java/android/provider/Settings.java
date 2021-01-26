@@ -5728,12 +5728,6 @@ public final class Settings {
         public static final String GAMING_MODE_NOTIFICATIONS = "gaming_mode_notifications";
 
         /**
-         * Whether to disable notifications feedback gaming mode
-         * @hide
-         */
-        public static final String GAMING_MODE_NOTIFICATIONS_FEEDBACK = "gaming_mode_notifications_feedback";
-
-        /**
          * Whether to lock brightness in gaming mode
          * @hide
          */
