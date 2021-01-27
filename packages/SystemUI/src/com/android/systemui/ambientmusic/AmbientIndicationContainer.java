@@ -25,7 +25,6 @@ import android.os.UserHandle;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -45,8 +44,6 @@ import com.android.systemui.util.wakelock.WakeLock;
 
 public class AmbientIndicationContainer extends AutoReinflateContainer implements
         NotificationMediaManager.MediaListener {
-
-    public static final boolean DEBUG_AMBIENTMUSIC = false;
 
     private final int mFODmargin;
     private final int mKGmargin;
@@ -128,9 +125,6 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         mNpInfoAvailable = false;
         mText.setText(null);
         mAmbientIndication.setVisibility(View.INVISIBLE);
-        if (DEBUG_AMBIENTMUSIC) {
-            Log.d("AmbientIndicationContainer", "hideIndication");
-        }
     }
 
     public void initializeView(StatusBar statusBar, Handler handler, KeyguardIndicationController keyguardIndicationController) {
@@ -152,18 +146,12 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         } else {
             hideIndication();
         }
-        if (DEBUG_AMBIENTMUSIC) {
-            Log.d("AmbientIndicationContainer", "updateAmbientIndicationView");
-        }
     }
 
     private void initializeMedia() {
         mMediaHandler = new Handler();
         mMediaWakeLock = new SettableWakeLock(WakeLock.createPartial(mContext, "media"),
                 "media");
-        if (DEBUG_AMBIENTMUSIC) {
-            Log.d("AmbientIndicationContainer", "initializeMedia");
-        }
     }
 
     public void initDependencies() {
@@ -216,10 +204,6 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         if (hasInDisplayFingerprint() && shouldShow() || (showsChargingAnimation() && isAod() && shouldShow())) {
             updatePosition();
         }
-
-        if (DEBUG_AMBIENTMUSIC) {
-            Log.d("AmbientIndicationContainer", "updateDozingState: dozing=" + dozing + " shouldShow=" + shouldShow());
-        }
     }
 
     private boolean isAod() {
@@ -234,10 +218,6 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         boolean filtered = lockscreenManager.shouldHideNotifications(
                 lockscreenManager.getCurrentUserId()) || lockscreenManager.shouldHideNotifications(
                         mMediaManager.getMediaNotificationKey());
-
-        if (DEBUG_AMBIENTMUSIC) {
-            Log.d("AmbientIndicationContainer", "shouldShow: mKeyguard=" + mKeyguard + " isAod=" + isAod());
-        }
         return (mKeyguard || isAod() || mDozing)
                 && ((mDozing && (mInfoAvailable || mNpInfoAvailable))
                 || (!mDozing && mNpInfoAvailable && !mInfoAvailable)
@@ -289,10 +269,6 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
             }
         } else {
             hideIndication();
-        }
-
-        if (DEBUG_AMBIENTMUSIC) {
-            Log.d("AmbientIndicationContainer", "setIndication: nowPlaying=" + nowPlaying);
         }
     }
 
@@ -375,20 +351,11 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         boolean mShowMusicTicker = getAmbientMusicTickerStyle() == 1;
         if (mShowMusicTicker && nowPlayingAvailable) {
             setIndication(true);
-            if (DEBUG_AMBIENTMUSIC) {
-                Log.d("AmbientIndicationContainer", "onMetadataOrStateChanged: Now Playing: track=" + mMediaTitle);
-            }
         } else if (mShowMusicTicker && !TextUtils.isEmpty(mMediaTitle) && mMediaState == 3) {
             setIndication(false);
-            if (DEBUG_AMBIENTMUSIC) {
-                Log.d("AmbientIndicationContainer", "onMetadataOrStateChanged: Music Ticker: artist=" + mMediaArtist + "; title=" + mMediaTitle);
-            }
         } else {
             // Make sure that track info is hidden when playback is paused or stopped
             hideIndication();
-            if (DEBUG_AMBIENTMUSIC) {
-                Log.d("AmbientIndicationContainer", "onMetadataOrStateChanged: hideIndication(); mShowMusicTicker = " + mShowMusicTicker);
-            }           
         }
     }
 }
