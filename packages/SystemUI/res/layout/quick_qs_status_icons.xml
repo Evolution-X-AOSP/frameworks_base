@@ -18,10 +18,13 @@
     xmlns:systemui="http://schemas.android.com/apk/res-auto"
     android:id="@+id/quick_qs_status_icons"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/qs_header_tooltip_height"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/qs_header_top_padding"
+    android:paddingBottom="@dimen/qs_header_bottom_padding"
     android:layout_below="@id/quick_status_bar_system_icons"
     android:clipChildren="false"
     android:clipToPadding="false"
+    android:minHeight="20dp"
     android:clickable="false"
     android:focusable="true"
     android:theme="@style/QSHeaderTheme">
@@ -29,12 +32,39 @@
     <com.android.systemui.statusbar.policy.DateView
         android:id="@+id/date"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="start|center_vertical"
         android:gravity="center_vertical"
         android:singleLine="true"
         android:textAppearance="@style/TextAppearance.QS.Status"
         systemui:datePattern="@string/abbrev_wday_month_day_no_year_alarm" />
+
+    <LinearLayout
+        android:id="@+id/daily_data_usage_layout"
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="4dp"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/data_usage_padding_start"
+        android:gravity="center_vertical|end"
+        android:clipChildren="false" >
+
+        <ImageView
+            android:id="@+id/daily_data_usage_icon"
+            android:layout_height="@dimen/status_bar_icon_drawing_size"
+            android:layout_width="wrap_content"
+            android:src="@drawable/ic_data_saver_off"
+            android:visibility="gone" />
+
+        <com.android.systemui.statusbar.info.DataUsageView
+            android:id="@+id/data_sim_usage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|end"
+            android:textAppearance="@style/TextAppearance.QS.Status"
+            android:singleLine="true"
+            android:visibility="gone" />
+    </LinearLayout>
 
     <com.android.systemui.statusbar.phone.StatusIconContainer
         android:id="@+id/statusIcons"

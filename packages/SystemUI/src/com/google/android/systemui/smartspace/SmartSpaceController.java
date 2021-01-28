@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.UserHandle;
+import android.provider.Settings;
 import android.provider.Settings.Global;
 import android.util.KeyValueListParser;
 import android.util.Log;
@@ -92,7 +93,7 @@ public class SmartSpaceController implements Dumpable {
         mAppContext = context;
         mAlarmManager = alarmManager;
         mData = new SmartSpaceData();
-        if (!isSmartSpaceDisabledByExperiments()) {
+        if (!isSmartSpaceDisabledByExperiments() && !isSmartSpaceDisabledByUser()) {
             keyguardUpdateMonitor.registerCallback(mKeyguardMonitorCallback);
             reloadData();
             onGsaChanged();
@@ -277,6 +278,11 @@ public class SmartSpaceController implements Dumpable {
         return false;
     }
 
+    private boolean isSmartSpaceDisabledByUser() {
+        return Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.SMART_SPACE, 1, mCurrentUserId) == 0;
+    }
+
     @Override
     public void dump(FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         printWriter.println();
@@ -308,6 +314,10 @@ public class SmartSpaceController implements Dumpable {
         sb6.append("disabled by experiment: ");
         sb6.append(isSmartSpaceDisabledByExperiments());
         printWriter.println(sb6.toString());
+        StringBuilder sb7 = new StringBuilder();
+        sb7.append("disabled by user: ");
+        sb7.append(isSmartSpaceDisabledByUser());
+        printWriter.println(sb7.toString());
     }
 
     public void addListener(SmartSpaceUpdateListener smartSpaceUpdateListener) {

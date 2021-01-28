@@ -1392,7 +1392,7 @@ class StorageManagerService extends IStorageManager.Stub
                     final int oldState = vol.state;
                     final int newState = state;
                     vol.state = newState;
-                    final VolumeInfo vInfo = new VolumeInfo(vol);
+                    final VolumeInfo vInfo = vol.clone();
                     final SomeArgs args = SomeArgs.obtain();
                     args.arg1 = vInfo;
                     args.arg2 = oldState;

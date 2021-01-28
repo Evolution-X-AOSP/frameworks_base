@@ -5728,12 +5728,6 @@ public final class Settings {
         public static final String GAMING_MODE_NOTIFICATIONS = "gaming_mode_notifications";
 
         /**
-         * Whether to disable notifications feedback gaming mode
-         * @hide
-         */
-        public static final String GAMING_MODE_NOTIFICATIONS_FEEDBACK = "gaming_mode_notifications_feedback";
-
-        /**
          * Whether to lock brightness in gaming mode
          * @hide
          */
@@ -6018,6 +6012,18 @@ public final class Settings {
          * @hide
          */
         public static final String USE_OLD_MOBILETYPE = "use_old_mobiletype";
+
+        /**
+         * Show data usage in QS header
+         * @hide
+         */
+        public static final String QS_DATAUSAGE = "qs_datausage";
+
+        /**
+         * Whether to enable SmartSpace
+         * @hide
+         */
+        public static final String SMART_SPACE = "smart_space";
 
         /**
          * IMPORTANT: If you add a new public settings you also have to add it to
