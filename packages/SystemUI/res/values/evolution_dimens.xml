@@ -47,4 +47,10 @@
     <dimen name="status_bar_mobile_type_padding">2dp</dimen>
     <dimen name="status_bar_mobile_type_padding_limit">10dp</dimen>
 
+    <!-- Margin on the left side of the center clock -->
+    <dimen name="status_bar_center_clock_padding_start">0dp</dimen>
+
+    <!-- Margin on the right side of the center clock -->
+    <dimen name="status_bar_center_clock_padding_end">0dp</dimen>
+
 </resources>
