@@ -250,6 +250,15 @@ public class GamingModeController {
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.SCREEN_BRIGHTNESS_MODE, SCREEN_BRIGHTNESS_MODE_MANUAL);
         }
+        // HW Buttons
+        boolean disableHwKeys = Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.GAMING_MODE_HW_KEYS_TOGGLE, 0) == 1;
+        if (disableHwKeys) {
+            mHwKeysState = Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.HARDWARE_KEYS_ENABLE, 1);
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.HARDWARE_KEYS_ENABLE, 0);
+        }
 
         // Ringer mode (0: Off, 1: Vibrate, 2:DND: 3:Silent)
         int ringerMode = Settings.System.getInt(mContext.getContentResolver(),
@@ -286,6 +295,12 @@ public class GamingModeController {
         if (lockBrightness) {
             Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.SCREEN_BRIGHTNESS_MODE, mAdaptiveBrightness);
+        }
+        boolean disableHwKeys = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.GAMING_MODE_HW_KEYS_TOGGLE, 0) == 1;
+        if (disableHwKeys) {
+            Settings.System.putInt(mContext.getContentResolver(),
+                    Settings.System.HARDWARE_KEYS_ENABLE, mHwKeysState);
         }
         int ringerMode = Settings.System.getInt(mContext.getContentResolver(),
                  Settings.System.GAMING_MODE_RINGER_MODE, 0);
