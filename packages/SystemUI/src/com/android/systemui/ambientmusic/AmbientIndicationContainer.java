@@ -210,7 +210,7 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         if (mVisible != shouldShow) {
             mVisible = shouldShow;
             mAmbientIndication.setVisibility(shouldShow ? View.VISIBLE : View.INVISIBLE);
-            if (hasInDisplayFingerprint() && shouldShow || (showsChargingAnimation() && isAod() && shouldShow)) {
+            if (hasInDisplayFingerprint() && shouldShow || (showsChargingAnimation() && shouldShow)) {
                 updatePosition();
             }
         }
