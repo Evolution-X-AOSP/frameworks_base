@@ -129,10 +129,16 @@ public class VolumePluginManager extends BroadcastReceiver {
                 ComponentName componentName = new ComponentName(plugin.packageName,
                         plugin.services[0].name);
 
-                if (currentPackageName.equals(plugin.packageName))
-                    mPluginEnabler.setEnabled(componentName);
-                else
+                if (currentPackageName.equals(plugin.packageName)) {
+                    if(mPluginEnabler != null) {
+                        mPluginEnabler.setEnabled(componentName);
+                    } else {
+                        mPluginEnabler = new PluginEnablerImpl(mContext);
+                        mPluginEnabler.setEnabled(componentName);
+                    }
+                } else {
                     mPluginEnabler.setDisabled(componentName, PluginEnabler.DISABLED_MANUALLY);
+                }
 
                 final String pkg = plugin.packageName;
                 final Intent intent = new Intent(PluginManager.PLUGIN_CHANGED,
