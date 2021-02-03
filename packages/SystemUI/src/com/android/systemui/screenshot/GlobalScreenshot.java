@@ -144,6 +144,7 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
         public Notification.Action shareAction;
         public Notification.Action editAction;
         public Notification.Action deleteAction;
+        public Notification.Action scrollAction;
         public List<Notification.Action> smartActions;
 
         /**
@@ -154,6 +155,7 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
             shareAction = null;
             editAction = null;
             deleteAction = null;
+            scrollAction = null;
             smartActions = null;
         }
     }
@@ -169,6 +171,7 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
     static final String ACTION_TYPE_DELETE = "Delete";
     static final String ACTION_TYPE_SHARE = "Share";
     static final String ACTION_TYPE_EDIT = "Edit";
+    static final String ACTION_TYPE_SCROLL = "Scroll";
     static final String EXTRA_SMART_ACTIONS_ENABLED = "android:smart_actions_enabled";
     static final String EXTRA_ACTION_INTENT = "android:screenshot_action_intent";
 
@@ -1133,6 +1136,19 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
         });
         mActionsView.addView(deleteChip);
         chips.add(deleteChip);
+
+        // Scrolling Screenshot
+        ScreenshotActionChip scrollChip = (ScreenshotActionChip) inflater.inflate(
+                R.layout.global_screenshot_action_chip, mActionsView, false);
+        scrollChip.setText(imageData.scrollAction.title);
+        scrollChip.setIcon(imageData.scrollAction.getIcon(), true);
+        scrollChip.setPendingIntent(imageData.scrollAction.actionIntent, () -> {
+            mUiEventLogger.log(ScreenshotEvent.SCREENSHOT_SCROLL_TAPPED);
+            dismissScreenshot("chip tapped", false);
+            mOnCompleteRunnable.run();
+        });
+        mActionsView.addView(scrollChip);
+        chips.add(scrollChip);
 
         mScreenshotPreview.setOnClickListener(v -> {
             try {
