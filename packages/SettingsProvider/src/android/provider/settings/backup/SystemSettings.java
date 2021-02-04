@@ -101,5 +101,9 @@ public class SystemSettings {
         Settings.System.STATUS_BAR_LOGO_STYLE,
         Settings.System.STATUS_BAR_LOGO_COLOR_ACCENT,
         Settings.System.NOTIFICATION_HEADERS,
+        Settings.System.ARTWORK_MEDIA_BACKGROUND,
+        Settings.System.ARTWORK_MEDIA_BACKGROUND_ENABLE_BLUR,
+        Settings.System.ARTWORK_MEDIA_BACKGROUND_BLUR_RADIUS,
+        Settings.System.ARTWORK_MEDIA_BACKGROUND_ALPHA,
     };
 }
