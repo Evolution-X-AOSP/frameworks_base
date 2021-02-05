@@ -3102,7 +3102,7 @@ public class NotificationPanelViewController extends PanelViewController {
         boolean pulseColorAutomatic = Settings.System.getIntForUser(resolver,
                 Settings.System.NOTIFICATION_PULSE_COLOR_AUTOMATIC, 0, UserHandle.USER_CURRENT) != 0;
         int repeats = Settings.System.getIntForUser(resolver,
-                Settings.System.AMBIENT_LIGHT_REPEAT_COUNT, 0, UserHandle.USER_CURRENT);
+                Settings.System.NOTIFICATION_PULSE_REPEATS, 0, UserHandle.USER_CURRENT);
         if (animatePulse) {
             mAnimateNextPositionUpdate = true;
         }

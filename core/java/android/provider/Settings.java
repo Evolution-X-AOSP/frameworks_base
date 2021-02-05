@@ -5553,29 +5553,10 @@ public final class Settings {
         public static final String AOD_NOTIFICATION_PULSE_TRIGGER = "ambient_notification_light";
 
         /**
-         * Whether Ambient Edge lights are activated
-         * @hide
-         */
-        public static final String AOD_NOTIFICATION_PULSE_ACTIVATED = "ambient_notification_light_activated";
-
-        /**
          * Whether to use accent color for pulse
          * @hide
          */
         public static final String NOTIFICATION_PULSE_ACCENT = "ambient_notification_light_accent";
-
-        /**
-         * helper setting to contain the current pulse reason so we can check
-         * if it has been triggered from a notification or a gesture
-         * @hide
-         */
-        public static final String PULSE_TRIGGER_REASON = "pulse_trigger_reason";
-
-        /**
-         * Timeout for ambient pulse in seconds - 0 is no timeout
-         * @hide
-         */
-        public static final String AOD_NOTIFICATION_PULSE_TIMEOUT = "ambient_notification_light_timeout";
 
         /**
          * Pulse Ambient lights color
@@ -5589,14 +5570,35 @@ public final class Settings {
         public static final String NOTIFICATION_PULSE_COLOR_AUTOMATIC = "ambient_notification_light_color_automatic";
 
         /**
+         * Whether Ambient Edge lights are activated
          * @hide
          */
-        public static final String AMBIENT_LIGHT_DURATION = "ambient_light_duration";
+        public static final String AOD_NOTIFICATION_PULSE_ACTIVATED = "ambient_notification_light_activated";
 
         /**
+         * helper setting to contain the current pulse reason so we can check
+         * if it has been triggered from a notification or a gesture
          * @hide
          */
-        public static final String AMBIENT_LIGHT_REPEAT_COUNT = "ambient_light_repeat_count";
+        public static final String PULSE_TRIGGER_REASON = "pulse_trigger_reason";
+
+        /**
+         * Notification pulse repeats count - 0 means go by timeout
+         * @hide
+         */
+        public static final String NOTIFICATION_PULSE_REPEATS = "ambient_notification_light_repeats";
+
+        /**
+         * Timeout for ambient pulse in seconds - 0 is no timeout
+         * @hide
+         */
+        public static final String AOD_NOTIFICATION_PULSE_TIMEOUT = "ambient_notification_light_timeout";
+
+        /**
+         * Notification pulse animation duration in seconds
+         * @hide
+         */
+        public static final String NOTIFICATION_PULSE_DURATION = "ambient_notification_light_duration";
 
         /**
          * Whether footer text shows
