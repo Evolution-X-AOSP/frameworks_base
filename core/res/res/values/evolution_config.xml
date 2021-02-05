@@ -139,6 +139,7 @@
 
     <!-- Pocket Lock -->
     <bool name="config_pocketModeSupported">true</bool>
+    <bool name="config_pocketUseLightSensor">true</bool>
 
     <!-- Default values for LiveDisplay -->
     <integer name="config_dayColorTemperature">6500</integer>
