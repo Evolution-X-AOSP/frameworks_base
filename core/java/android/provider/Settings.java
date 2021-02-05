@@ -10363,10 +10363,18 @@ public final class Settings {
                 "qs_show_auto_brightness";
 
         /**
+         * Whether to show qs brightness slider in quickbar
          * @hide
          */
         public static final String QS_SHOW_BRIGHTNESS_SLIDER =
                 "qs_show_brightness_slider";
+
+        /**
+         * Whether to show qs brightness slider when qs is expanded
+         * @hide
+         */
+        public static final String QS_SHOW_BRIGHTNESS_SLIDER_EXPANDED =
+                "qs_show_brightness_slider_show_expanded";
 
         /**
          * Whether to show QS brightness slider on bottom

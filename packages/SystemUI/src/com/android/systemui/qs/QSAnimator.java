@@ -173,7 +173,7 @@ public class QSAnimator implements Callback, PageListener, Listener, OnLayoutCha
             mNumQuickTiles = QuickQSPanel.parseNumTiles(newValue);
             clearAnimationState();
         } else if (QS_SHOW_BRIGHTNESS_SLIDER.equals(key)) {
-            mIsQuickQsBrightnessEnabled = TunerService.parseInteger(newValue, 0) > 1;
+            mIsQuickQsBrightnessEnabled = TunerService.parseIntegerSwitch(newValue, false);
         }
         updateAnimators();
     }

@@ -94,8 +94,8 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
 
     private static final String QS_SHOW_AUTO_BRIGHTNESS =
             Settings.Secure.QS_SHOW_AUTO_BRIGHTNESS;
-    public static final String QS_SHOW_BRIGHTNESS_SLIDER =
-            Settings.Secure.QS_SHOW_BRIGHTNESS_SLIDER;
+    public static final String QS_SHOW_BRIGHTNESS_SLIDER_EXPANDED =
+            Settings.Secure.QS_SHOW_BRIGHTNESS_SLIDER_EXPANDED;
     public static final String QS_SHOW_HEADER = "qs_show_header";
     public static final String QS_BRIGHTNESS_POSITION_BOTTOM =
             Settings.Secure.QS_BRIGHTNESS_POSITION_BOTTOM;
@@ -362,8 +362,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         final TunerService tunerService = Dependency.get(TunerService.class);
-        tunerService.addTunable(this, QS_SHOW_AUTO_BRIGHTNESS);
-        tunerService.addTunable(this, QS_SHOW_BRIGHTNESS_SLIDER);
+        tunerService.addTunable(this, QS_SHOW_AUTO_BRIGHTNESS, QS_SHOW_BRIGHTNESS_SLIDER_EXPANDED);
         tunerService.addTunable(this, QS_BRIGHTNESS_POSITION_BOTTOM);
 
         if (mHost != null) {
@@ -408,7 +407,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
     public void onTuningChanged(String key, String newValue) {
         if (QS_SHOW_AUTO_BRIGHTNESS.equals(key) && mIsAutomaticBrightnessAvailable) {
             updateViewVisibilityForTuningValue(mAutoBrightnessView, newValue);
-        } else if (QS_SHOW_BRIGHTNESS_SLIDER.equals(key) && mBrightnessView != null) {
+        } else if (QS_SHOW_BRIGHTNESS_SLIDER_EXPANDED.equals(key) && mBrightnessView != null) {
             updateViewVisibilityForTuningValue(mBrightnessView, newValue);
         } else if (QS_BRIGHTNESS_POSITION_BOTTOM.equals(key)) {
             if (newValue == null || Integer.parseInt(newValue) == 0) {

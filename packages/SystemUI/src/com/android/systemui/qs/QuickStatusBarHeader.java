@@ -933,7 +933,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     public void onTuningChanged(String key, String newValue) {
         switch (key) {
             case QS_SHOW_BRIGHTNESS_SLIDER:
-                mIsQuickQsBrightnessEnabled = TunerService.parseInteger(newValue, 0) > 1;
+                mIsQuickQsBrightnessEnabled = TunerService.parseIntegerSwitch(newValue, false);
                 updateResources();
                 break;
             case QS_SHOW_AUTO_BRIGHTNESS:
