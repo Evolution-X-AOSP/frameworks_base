@@ -109,6 +109,7 @@
 
     <string-array translatable="false" name="custom_config_globalActionsList">
         <item>emergency</item>
+        <item>lockdown</item>
         <item>power</item>
         <item>restart</item>
         <item>screenrecord</item>
@@ -217,4 +218,7 @@
     <integer name="config_screenBrightnessPulse">-1</integer>
 
     <bool name="config_has_weird_dt_sensor">false</bool>
+
+    <!-- Whether the device supports Smart Pixels -->
+    <bool name="config_enableSmartPixels">false</bool>
 </resources>

@@ -495,7 +495,7 @@
     <dimen name="qs_tile_layout_margin_side">18dp</dimen>
     <dimen name="qs_tile_margin_horizontal">18dp</dimen>
     <dimen name="qs_tile_margin_horizontal_two_line">2dp</dimen>
-    <dimen name="qs_tile_margin_vertical">16dp</dimen>
+    <dimen name="qs_tile_margin_vertical">2dp</dimen>
     <dimen name="qs_tile_margin_top_bottom">12dp</dimen>
     <dimen name="qs_tile_margin_top_bottom_negative">-12dp</dimen>
     <!-- The height of the qs customize header. Should be
@@ -548,7 +548,7 @@
     <dimen name="qs_detail_item_icon_width">32dp</dimen>
     <dimen name="qs_detail_item_icon_marginStart">0dp</dimen>
     <dimen name="qs_detail_item_icon_marginEnd">20dp</dimen>
-    <dimen name="qs_header_tooltip_height">40dp</dimen>
+    <dimen name="qs_header_tooltip_height">48dp</dimen>
     <dimen name="qs_header_alarm_icon_size">@dimen/status_bar_icon_drawing_size</dimen>
     <dimen name="qs_header_mobile_icon_size">@dimen/status_bar_icon_drawing_size</dimen>
     <dimen name="qs_header_alarm_text_margin_start">6dp</dimen>

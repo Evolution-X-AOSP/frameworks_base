@@ -29,7 +29,6 @@ import android.app.ActivityManager;
 import android.app.ActivityOptions;
 import android.app.ActivityTaskManager;
 import android.app.admin.DevicePolicyManager;
-import android.app.StatusBarManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -118,7 +117,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
                     .addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
     public static final Intent INSECURE_CAMERA_INTENT =
             new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA);
-    protected static final Intent PHONE_INTENT = new Intent(Intent.ACTION_DIAL);
+    private static final Intent PHONE_INTENT = new Intent(Intent.ACTION_DIAL);
     private static final int DOZE_ANIMATION_STAGGER_DELAY = 48;
     private static final int DOZE_ANIMATION_ELEMENT_DURATION = 250;
 
@@ -375,10 +374,6 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
         return mRightButton.getIntent();
     }
 
-    protected Intent getLeftIntent() {
-        return mLeftButton.getIntent();
-    }
-
     /**
      * Resolves the intent to launch the camera application.
      */
@@ -591,10 +586,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
     }
 
     public void launchLeftAffordance() {
-        Intent leftButtonIntent = mLeftButton.getIntent();
-        if (leftButtonIntent != null && leftButtonIntent != PHONE_INTENT) {
-            mActivityStarter.startActivity(mLeftButton.getIntent(), false /* dismissShade */);
-        } else if (mLeftIsVoiceAssist) {
+        if (mLeftIsVoiceAssist) {
             launchVoiceAssist();
         } else {
             launchPhone();

@@ -207,4 +207,7 @@
   <java-symbol type="integer" name="config_screenBrightnessPulse" />
 
   <java-symbol type="bool" name="config_has_weird_dt_sensor" />
+
+  <!-- Whether the device supports Smart Pixels -->
+  <java-symbol type="bool" name="config_enableSmartPixels" />
 </resources>

@@ -120,9 +120,6 @@
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Volume panel</string>
 
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Swipe from icon to launch</string>
-
     <!-- Status bar icons -->
     <string name="statusbar_items_title">Statusbar icon</string>
     <string name="status_bar_data_disabled">Data disabled</string>
@@ -218,4 +215,14 @@
 
     <!-- Ambient Music Ticker -->
     <string name="ambientmusic_songinfo" formatted="false">%s by %s</string>
+
+    <!-- Daily data usage -->
+    <string name="daily_data_usage_title">Today\'s usage</string>
+
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Smart Pixels</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled Smart Pixels</string>
+
+    <!-- Scrolling Screenshot string -->
+    <string name="scrollss">Scroll</string>
 </resources>

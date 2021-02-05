@@ -440,6 +440,7 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     // settings
     private QSPanel mQSPanel;
+    private QuickStatusBarHeader mQuickStatusBarHeader;
 
     KeyguardIndicationController mKeyguardIndicationController;
 
@@ -1212,7 +1213,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         mAmbientIndicationContainer = mNotificationShadeWindowView.findViewById(
                 R.id.ambient_indication_container);
         if (mAmbientIndicationContainer != null) {
-            ((AmbientIndicationContainer) mAmbientIndicationContainer).initializeView(this, mHandler);
+            ((AmbientIndicationContainer) mAmbientIndicationContainer).initializeView(this, mHandler, mKeyguardIndicationController);
         }
 
         mAutoHideController.setStatusBar(new AutoHideUiElement() {
@@ -2223,6 +2224,9 @@ public class StatusBar extends SystemUI implements DemoMode,
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_TILES_BG_DISCO),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_DATAUSAGE),
                     false, this, UserHandle.USER_ALL);
         }
 
@@ -3728,7 +3732,7 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     private void updatePanelExpansionForKeyguard() {
         if (mState == StatusBarState.KEYGUARD && mBiometricUnlockController.getMode()
-                != BiometricUnlockController.MODE_WAKE_AND_UNLOCK && !mBouncerShowing) {
+                != BiometricUnlockController.MODE_WAKE_AND_UNLOCK) {
             mShadeController.instantExpandNotificationsPanel();
         } else if (mState == StatusBarState.FULLSCREEN_USER_SWITCHER) {
             instantCollapseNotificationPanel();
@@ -4182,10 +4186,6 @@ public class StatusBar extends SystemUI implements DemoMode,
     public void onPhoneHintStarted() {
         mFalsingManager.onLeftAffordanceHintStarted();
         mKeyguardIndicationController.showTransientIndication(R.string.phone_hint);
-    }
-
-    public void onCustomHintStarted() {
-        mKeyguardIndicationController.showTransientIndication(R.string.custom_hint);
     }
 
     public void onTrackingStopped(boolean expand) {
@@ -4967,5 +4967,11 @@ public class StatusBar extends SystemUI implements DemoMode,
             }
         }
         mShowNavBar = showNavBar;
+    }
+
+    public void updateDataUsageImage() {
+        if (mQuickStatusBarHeader != null) {
+            mQuickStatusBarHeader.updateDataUsageImage();
+        }
     }
 }

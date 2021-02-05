@@ -288,6 +288,7 @@ public class NotificationPanelViewController extends PanelViewController {
     private QS mQs;
     private FrameLayout mQsFrame;
     private KeyguardStatusView mKeyguardStatusView;
+    private View mQsNavbarScrim;
     private NotificationsQuickSettingsContainer mNotificationContainerParent;
     private NotificationStackScrollLayout mNotificationStackScroller;
     private boolean mAnimateNextPositionUpdate;
@@ -666,6 +667,7 @@ public class NotificationPanelViewController extends PanelViewController {
         mNotificationStackScroller.setOnEmptySpaceClickListener(mOnEmptySpaceClickListener);
         addTrackingHeadsUpListener(mNotificationStackScroller::setTrackingHeadsUp);
         mKeyguardBottomArea = mView.findViewById(R.id.keyguard_bottom_area);
+        mQsNavbarScrim = mView.findViewById(R.id.qs_navbar_scrim);
         mLastOrientation = mResources.getConfiguration().orientation;
         mPulseLightsView = mView.findViewById(R.id.lights_container);
 
@@ -1793,6 +1795,9 @@ public class NotificationPanelViewController extends PanelViewController {
                         || mQsExpansionFromOverscroll));
         updateEmptyShadeView();
 
+        mQsNavbarScrim.setVisibility(
+                mBarState == StatusBarState.SHADE && mQsExpanded && !mStackScrollerOverscrolling
+                        && mQsScrimEnabled ? View.VISIBLE : View.INVISIBLE);
         if (mKeyguardUserSwitcher != null && mQsExpanded && !mStackScrollerOverscrolling) {
             mKeyguardUserSwitcher.hideIfNotSimple(true /* animate */);
         }
@@ -1816,6 +1821,10 @@ public class NotificationPanelViewController extends PanelViewController {
         if (mBarState == StatusBarState.SHADE_LOCKED || mBarState == StatusBarState.KEYGUARD) {
             updateKeyguardBottomAreaAlpha();
             updateBigClockAlpha();
+        }
+        if (mBarState == StatusBarState.SHADE && mQsExpanded && !mStackScrollerOverscrolling
+                && mQsScrimEnabled) {
+            mQsNavbarScrim.setAlpha(getQsExpansionFraction());
         }
 
         if (mAccessibilityManager.isEnabled()) {
@@ -3688,16 +3697,14 @@ public class NotificationPanelViewController extends PanelViewController {
                     mView.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL ? !rightIcon
                             : rightIcon;
             if (rightIcon) {
-                mStatusBar.onCustomHintStarted();
+                mStatusBar.onCameraHintStarted();
             } else {
                 if (mKeyguardBottomArea.isLeftVoiceAssist()) {
                     mStatusBar.onVoiceAssistHintStarted();
-                } else if (mKeyguardBottomArea.getLeftIntent() == KeyguardBottomAreaView.PHONE_INTENT) {
-                    mStatusBar.onPhoneHintStarted();
                 } else {
-                mStatusBar.onCustomHintStarted();
+                    mStatusBar.onPhoneHintStarted();
+                }
             }
-          }
         }
 
         @Override

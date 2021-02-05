@@ -51,6 +51,7 @@
     <!-- The width/height of the charging indicator view on keyguard. -->
     <dimen name="keyguard_charging_indication_height">60dp</dimen>
     <dimen name="keyguard_charging_indication_width">35dp</dimen>
+    <dimen name="keyguard_charging_animation_margin">30dp</dimen>
 
     <!-- Bottom margin size when fingerprint in display is active -->
     <dimen name="keyguard_indication_margin_bottom_fingerprint_in_display">@dimen/keyguard_indication_margin_bottom</dimen>
@@ -89,6 +90,7 @@
     <dimen name="net_traffic_txt_img_padding">4dp</dimen>
 
     <!-- Custom header -->
+    <dimen name="qs_header_image_offset">25dp</dimen>
     <dimen name="qs_header_image_side_margin">4dp</dimen>
     <dimen name="qs_header_image_top_margin">4dp</dimen>
     <dimen name="qs_header_image_bottom_margin">4dp</dimen>
@@ -102,4 +104,13 @@
 
     <!-- Margin on the left side of the heads up notification -->
     <dimen name="heads_up_status_bar_padding_start">0dp</dimen>
+
+    <!-- Daily data usage -->
+    <dimen name="data_usage_padding_start">4dp</dimen>
+
+    <!-- Margin on the left side of the center clock -->
+    <dimen name="status_bar_center_clock_padding_start">0dp</dimen>
+
+    <!-- Margin on the right side of the center clock -->
+    <dimen name="status_bar_center_clock_padding_end">0dp</dimen>
 </resources>

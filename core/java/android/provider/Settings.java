@@ -4597,6 +4597,30 @@ public final class Settings {
         public static final String SHOW_WEB_SUGGESTIONS = "show_web_suggestions";
 
         /**
+         * Whether to enable Smart Pixels
+         * @hide
+         */
+        public static final String SMART_PIXELS_ENABLE = "smart_pixels_enable";
+
+        /**
+         * Smart Pixels pattern
+         * @hide
+         */
+        public static final String SMART_PIXELS_PATTERN = "smart_pixels_pattern";
+
+        /**
+         * Smart Pixels Shift Timeout
+         * @hide
+         */
+        public static final String SMART_PIXELS_SHIFT_TIMEOUT = "smart_pixels_shift_timeout";
+
+        /**
+         * Whether Smart Pixels should enable on power saver mode
+         * @hide
+         */
+        public static final String SMART_PIXELS_ON_POWER_SAVE = "smart_pixels_on_power_save";
+
+        /**
          * Whether the notification LED should repeatedly flash when a notification is
          * pending. The value is boolean (1 or 0).
          * @hide
@@ -5728,12 +5752,6 @@ public final class Settings {
         public static final String GAMING_MODE_NOTIFICATIONS = "gaming_mode_notifications";
 
         /**
-         * Whether to disable notifications feedback gaming mode
-         * @hide
-         */
-        public static final String GAMING_MODE_NOTIFICATIONS_FEEDBACK = "gaming_mode_notifications_feedback";
-
-        /**
          * Whether to lock brightness in gaming mode
          * @hide
          */
@@ -6018,6 +6036,24 @@ public final class Settings {
          * @hide
          */
         public static final String USE_OLD_MOBILETYPE = "use_old_mobiletype";
+
+        /**
+         * Show data usage in QS header
+         * @hide
+         */
+        public static final String QS_DATAUSAGE = "qs_datausage";
+
+        /**
+         * media artwork wallpaper blur level on lockscreen
+         * @hide
+         */
+        public static final String LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
+
+        /**
+         * Toggle for clipboard access toast.
+         * @hide
+         */
+        public static final String SHOW_CLIPBOARD_TOAST = "show_clipboard_toast";
 
         /**
          * IMPORTANT: If you add a new public settings you also have to add it to
@@ -10400,6 +10436,13 @@ public final class Settings {
          * @hide
          */
         public static final String ADAPTIVE_CONNECTIVITY_ENABLED = "adaptive_connectivity_enabled";
+
+        /**
+         * Whether the Touch Sensitivity option is enabled.
+         *
+         * @hide
+         */
+        public static final String TOUCH_SENSITIVITY_ENABLED = "touch_sensitivity_enabled";
 
         /**
          * Pulse navbar music visualizer

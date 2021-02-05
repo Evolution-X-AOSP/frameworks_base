@@ -304,7 +304,7 @@ bool StreamManager::moveToRestartQueue_l(
 
 ssize_t StreamManager::removeFromQueues_l(
         Stream* stream, int32_t activeStreamIDToMatch) {
-    size_t found = 0;
+    ssize_t found = 0;
     for (auto it = mActiveStreams.begin(); it != mActiveStreams.end(); ++it) {
         if (*it == stream) {
             mActiveStreams.erase(it); // we erase the iterator and break (otherwise it not safe).

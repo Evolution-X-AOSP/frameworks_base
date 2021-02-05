@@ -25,20 +25,19 @@ import android.os.UserHandle;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.internal.util.evolution.fod.FodUtils;
 import com.android.systemui.AutoReinflateContainer;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.ambientmusic.AmbientIndicationInflateListener;
-import com.android.systemui.statusbar.phone.DozeParameters;
+import com.android.systemui.statusbar.KeyguardIndicationController;
 import com.android.systemui.statusbar.NotificationLockscreenUserManager;
 import com.android.systemui.statusbar.NotificationMediaManager;
+import com.android.systemui.statusbar.phone.DozeParameters;
 import com.android.systemui.statusbar.phone.StatusBar;
 import com.android.systemui.util.wakelock.SettableWakeLock;
 import com.android.systemui.util.wakelock.WakeLock;
@@ -46,12 +45,13 @@ import com.android.systemui.util.wakelock.WakeLock;
 public class AmbientIndicationContainer extends AutoReinflateContainer implements
         NotificationMediaManager.MediaListener {
 
-    public static final boolean DEBUG_AMBIENTMUSIC = false;
-
     private final int mFODmargin;
+    private final int mKGmargin;
     private View mAmbientIndication;
     private boolean mDozing;
     private boolean mKeyguard;
+    private boolean mVisible;
+    private boolean mChargingIndicationChecked;
     private StatusBar mStatusBar;
     private TextView mText;
     private Context mContext;
@@ -76,6 +76,8 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
     private boolean mMediaIsVisible;
     private SettableWakeLock mMediaWakeLock;
 
+    private KeyguardIndicationController mKeyguardIndicationController;
+
     public AmbientIndicationContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         mContext = context;
@@ -85,6 +87,8 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         mAmbientMusicTicker = getAmbientMusicTickerStyle();
         mFODmargin = mContext.getResources().getDimensionPixelSize(
                 R.dimen.keyguard_security_fod_view_margin);
+        mKGmargin = mContext.getResources().getDimensionPixelSize(
+                R.dimen.keyguard_charging_animation_margin);
     }
 
     private class CustomSettingsObserver extends ContentObserver {
@@ -122,14 +126,12 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         mInfoAvailable = false;
         mNpInfoAvailable = false;
         mText.setText(null);
-        mAmbientIndication.setVisibility(View.INVISIBLE);
-        if (DEBUG_AMBIENTMUSIC) {
-            Log.d("AmbientIndicationContainer", "hideIndication");
-        }
+        setVisibility(false, true);
     }
 
-    public void initializeView(StatusBar statusBar, Handler handler) {
+    public void initializeView(StatusBar statusBar, Handler handler, KeyguardIndicationController keyguardIndicationController) {
         mStatusBar = statusBar;
+        mKeyguardIndicationController = keyguardIndicationController;
         addInflateListener(new AmbientIndicationInflateListener(this));
         mHandler = handler;
         mCustomSettingsObserver = new CustomSettingsObserver(mHandler);
@@ -146,18 +148,12 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         } else {
             hideIndication();
         }
-        if (DEBUG_AMBIENTMUSIC) {
-            Log.d("AmbientIndicationContainer", "updateAmbientIndicationView");
-        }
     }
 
     private void initializeMedia() {
         mMediaHandler = new Handler();
         mMediaWakeLock = new SettableWakeLock(WakeLock.createPartial(mContext, "media"),
                 "media");
-        if (DEBUG_AMBIENTMUSIC) {
-            Log.d("AmbientIndicationContainer", "initializeMedia");
-        }
     }
 
     public void initDependencies() {
@@ -167,39 +163,68 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
 
     private void updatePosition() {
         FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.getLayoutParams();
-        if (hasActiveInDisplayFp()) {
+        if (hasInDisplayFingerprint()) {
             lp.setMargins(0, 0, 0, mFODmargin);
+        } else if (isChargingIndicationVisible()) {
+            if (!mChargingIndicationChecked) {
+                mChargingIndicationChecked = true;
+                lp.setMargins(0, 0, 0, mKGmargin);
+            }
+        } else {
+            if (mChargingIndicationChecked) {
+                mChargingIndicationChecked = false;
+                lp.setMargins(0, 0, 0, 0);
+            }
         }
         this.setLayoutParams(lp);
     }
 
-    private boolean hasActiveInDisplayFp() {
-        boolean hasInDisplayFingerprint = FodUtils.hasFodSupport(mContext);
-        return hasInDisplayFingerprint;
+    private boolean hasInDisplayFingerprint() {
+        return mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_needCustomFODView);
+    }
+
+    private boolean isChargingIndicationVisible() {
+        return mKeyguardIndicationController.isChargingIndicationVisible();
+    }
+
+    public View getTitleView() {
+        return mText;
     }
 
     public void updateKeyguardState(boolean keyguard) {
-        if (keyguard && (mInfoAvailable || mNpInfoAvailable)) {
-            mText.setText(mInfoToSet);
-            mLastInfo = mInfoToSet;
-        } else {
-            mText.setText(null);
-            mAmbientIndication.setVisibility(View.INVISIBLE);
+        if (keyguard != mKeyguard) {
+            mKeyguard = keyguard;
+            if (keyguard && (mInfoAvailable || mNpInfoAvailable)) {
+                mText.setText(mInfoToSet);
+                mLastInfo = mInfoToSet;
+            } else {
+                mText.setText(null);
+            }
+            setVisibility(shouldShow(), true);
         }
-        mKeyguard = keyguard;
+        if (shouldShow()) {
+            updatePosition();
+        }
     }
 
     public void updateDozingState(boolean dozing) {
         if (mDozing != dozing) {
             mDozing = dozing;
+            setVisibility(shouldShow(), true);
         }
-        mAmbientIndication.setVisibility(shouldShow() ? View.VISIBLE : View.INVISIBLE);
-        if (hasActiveInDisplayFp() && shouldShow()) {
+        if (shouldShow()) {
             updatePosition();
         }
+    }
 
-        if (DEBUG_AMBIENTMUSIC) {
-            Log.d("AmbientIndicationContainer", "updateDozingState: dozing=" + dozing + " shouldShow=" + shouldShow());
+    private void setVisibility(boolean shouldShow, boolean skipPosition) {
+        if (mVisible != shouldShow) {
+            mVisible = shouldShow;
+            mAmbientIndication.setVisibility(shouldShow ? View.VISIBLE : View.INVISIBLE);
+        }
+        if (!skipPosition && shouldShow) {
+            updatePosition();
         }
     }
 
@@ -207,7 +232,7 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         return DozeParameters.getInstance(mContext).getAlwaysOn() && mDozing;
     }
 
-    private boolean shouldShow() {
+    public boolean shouldShow() {
         // if not dozing, show ambient music info only for Google Now Playing,
         // not for local media players if they are showing a lockscreen media notification
         final NotificationLockscreenUserManager lockscreenManager =
@@ -215,10 +240,6 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         boolean filtered = lockscreenManager.shouldHideNotifications(
                 lockscreenManager.getCurrentUserId()) || lockscreenManager.shouldHideNotifications(
                         mMediaManager.getMediaNotificationKey());
-
-        if (DEBUG_AMBIENTMUSIC) {
-            Log.d("AmbientIndicationContainer", "shouldShow: mKeyguard=" + mKeyguard + " isAod=" + isAod());
-        }
         return (mKeyguard || isAod() || mDozing)
                 && ((mDozing && (mInfoAvailable || mNpInfoAvailable))
                 || (!mDozing && mNpInfoAvailable && !mInfoAvailable)
@@ -236,23 +257,24 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         }
 
         mInfoToSet = null;
-
+        String mTitle = null;
         if (!TextUtils.isEmpty(mMediaArtist)) {
-            String shortenedTitle = "\"" + mMediaTitle.toString() + "\"";
-            if (shortenedTitle.length() > 20) {
-                shortenedTitle = shortenedTitle.substring(0, 19) + "...\"";
-            }
-            mInfoToSet = String.format(mTrackInfoSeparator, shortenedTitle, mMediaArtist.toString());
+            mTitle = String.format(mTrackInfoSeparator, "\"" + mMediaTitle.toString() + "\"", mMediaArtist.toString());
         } else if (!TextUtils.isEmpty(mMediaTitle)) {
-            mInfoToSet = mMediaTitle.toString();
+            mTitle = mMediaTitle.toString();
         }
-
+        if (mTitle != null) {
+            if (mTitle.length() < 40) {
+                mInfoToSet = mTitle;
+            } else {
+                mInfoToSet = shortenMediaTitle(mTitle);
+            }
+        }
         if (nowPlaying) {
             mNpInfoAvailable = mInfoToSet != null;
         } else {
             mInfoAvailable = mInfoToSet != null;
         }
-
         if (mInfoAvailable || mNpInfoAvailable) {
             boolean isAnotherTrack = (mInfoAvailable || mNpInfoAvailable)
                     && (TextUtils.isEmpty(mLastInfo) || (!TextUtils.isEmpty(mLastInfo)
@@ -263,16 +285,22 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         }
         if (mInfoToSet != null) {
             mText.setText(mInfoToSet);
-            mAmbientIndication.setVisibility(shouldShow() ? View.VISIBLE : View.INVISIBLE);
-            if (hasActiveInDisplayFp() && shouldShow()) {
-                updatePosition();
-            }
+            setVisibility(shouldShow(), false);
         } else {
             hideIndication();
         }
+    }
 
-        if (DEBUG_AMBIENTMUSIC) {
-            Log.d("AmbientIndicationContainer", "setIndication: nowPlaying=" + nowPlaying);
+    private String shortenMediaTitle(String input) {
+        int cutPos = input.lastIndexOf("\"");
+        if (cutPos > 25) { // only shorten the song title if it is too long
+            String artist = input.substring(cutPos + 1, input.length());
+            int artistLenght = 10;
+            artistLenght = (artist.length() < artistLenght) ? artist.length() : artistLenght;
+            cutPos = cutPos > 34 ? 30 - artistLenght : cutPos - artistLenght - 4;
+            return input.substring(0, cutPos) + "...\"" + artist;
+        } else { // otherwise the original string is returned
+            return input;
         }
     }
 
@@ -342,20 +370,11 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         boolean mShowMusicTicker = getAmbientMusicTickerStyle() == 1;
         if (mShowMusicTicker && nowPlayingAvailable) {
             setIndication(true);
-            if (DEBUG_AMBIENTMUSIC) {
-                Log.d("AmbientIndicationContainer", "onMetadataOrStateChanged: Now Playing: track=" + mMediaTitle);
-            }
         } else if (mShowMusicTicker && !TextUtils.isEmpty(mMediaTitle) && mMediaState == 3) {
             setIndication(false);
-            if (DEBUG_AMBIENTMUSIC) {
-                Log.d("AmbientIndicationContainer", "onMetadataOrStateChanged: Music Ticker: artist=" + mMediaArtist + "; title=" + mMediaTitle);
-            }
         } else {
             // Make sure that track info is hidden when playback is paused or stopped
             hideIndication();
-            if (DEBUG_AMBIENTMUSIC) {
-                Log.d("AmbientIndicationContainer", "onMetadataOrStateChanged: hideIndication(); mShowMusicTicker = " + mShowMusicTicker);
-            }           
         }
     }
 }

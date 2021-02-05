@@ -159,6 +159,10 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         LayoutParams lp = (LayoutParams) mTransparentView.getLayoutParams();
         lp.height = mContext.getResources().getDimensionPixelSize(
                 com.android.internal.R.dimen.quick_qs_offset_height);
+        if (mHeaderImageEnabled) {
+            lp.height += mContext.getResources().getDimensionPixelSize(
+                    R.dimen.qs_header_image_offset);
+        }
         mTransparentView.setLayoutParams(lp);
         int columns;
         if (mContext.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {

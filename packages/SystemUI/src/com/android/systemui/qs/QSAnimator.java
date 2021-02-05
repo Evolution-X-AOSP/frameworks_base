@@ -46,7 +46,7 @@ public class QSAnimator implements Callback, PageListener, Listener, OnLayoutCha
     public static final float EXPANDED_TILE_DELAY = .86f;
 
     private static final String QS_SHOW_BRIGHTNESS_SLIDER =
-                                Settings.Secure.QS_SHOW_BRIGHTNESS_SLIDER;
+            Settings.Secure.QS_SHOW_BRIGHTNESS_SLIDER;
 
     private final ArrayList<View> mAllViews = new ArrayList<>();
     /**
