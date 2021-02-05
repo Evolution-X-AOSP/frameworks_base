@@ -97,20 +97,22 @@ public class NotificationLightsView extends RelativeLayout {
     public void animateNotificationWithColor(int color) {
         ContentResolver resolver = mContext.getContentResolver();
         int duration = Settings.System.getIntForUser(resolver,
-                Settings.System.AMBIENT_LIGHT_DURATION, 2,
-                UserHandle.USER_CURRENT) * 1000;
-        int rCount = Settings.System.getIntForUser(resolver,
-                Settings.System.AMBIENT_LIGHT_REPEAT_COUNT, 0,
+                Settings.System.NOTIFICATION_PULSE_DURATION, 2,
+                UserHandle.USER_CURRENT) * 1000; // seconds to ms
+        int repeats = Settings.System.getIntForUser(resolver,
+                Settings.System.NOTIFICATION_PULSE_REPEATS, 0,
                 UserHandle.USER_CURRENT);
+
         ImageView leftView = (ImageView) findViewById(R.id.notification_animation_left);
         ImageView rightView = (ImageView) findViewById(R.id.notification_animation_right);
         leftView.setColorFilter(color);
         rightView.setColorFilter(color);
         mLightAnimator = ValueAnimator.ofFloat(new float[]{0.0f, 2.0f});
         mLightAnimator.setDuration(duration);
-        mLightAnimator.setRepeatCount(rCount == 0 ? ValueAnimator.INFINITE : rCount);
+        mLightAnimator.setRepeatCount(repeats == 0 ?
+                ValueAnimator.INFINITE : repeats);
         mLightAnimator.setRepeatMode(ValueAnimator.RESTART);
-        if (rCount != 0) {
+        if (repeats != 0) {
             mLightAnimator.addListener(new AnimatorListener() {
                 @Override
                 public void onAnimationCancel(Animator animation) { /* do nothing */ }
