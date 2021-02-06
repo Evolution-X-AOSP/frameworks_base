@@ -136,6 +136,9 @@ public class ScreenMediaRecorder {
         int screenWidth = metrics.widthPixels;
         int screenHeight = metrics.heightPixels;
         int refereshRate = mLowQuality? LOW_VIDEO_FRAME_RATE : (int) wm.getDefaultDisplay().getRefreshRate();
+        int maxRefreshRate = mContext.getResources().getInteger(
+                com.android.internal.R.integer.config_screenRecorderMaxFramerate);
+        if (maxRefreshRate != 0 && refereshRate > maxRefreshRate) refereshRate = maxRefreshRate;
         // TODO: make low quality bitrate scalable per device, like the default one
         int vidBitRate = mLowQuality ? LOW_VIDEO_BIT_RATE :
                 screenHeight * screenWidth * refereshRate / VIDEO_FRAME_RATE
