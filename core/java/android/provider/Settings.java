@@ -6081,7 +6081,15 @@ public final class Settings {
          * Default 0.
          * @hide
          */
+        @Readable
         public static final String VOLUME_BUTTON_MUSIC_CONTROL = "volume_button_music_control";
+
+        /**
+         * Time required for volume button music control to be pressed
+         * @hide
+         */
+        @Readable
+        public static final String VOLUME_BUTTON_MUSIC_CONTROL_DELAY = "volume_button_music_control_delay";
 
         /**
          * Whether to show the battery info on the lockscreen while charging

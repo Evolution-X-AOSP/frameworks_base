@@ -4251,11 +4251,13 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     boolean notHandledMusicControl = false;
                     if (!interactive && mVolumeMusicControl && isMusicActive()) {
                         if (down) {
+                            int timeout = Settings.System.getIntForUser(mContext.getContentResolver(),
+                                    Settings.System.VOLUME_BUTTON_MUSIC_CONTROL_DELAY, 500, mCurrentUserId);
                             if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
-                                scheduleLongPressKeyEvent(event, KeyEvent.KEYCODE_MEDIA_PREVIOUS);
+                                scheduleLongPressKeyEvent(event, KeyEvent.KEYCODE_MEDIA_PREVIOUS, timeout);
                                 break;
                             } else if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
-                                scheduleLongPressKeyEvent(event, KeyEvent.KEYCODE_MEDIA_NEXT);
+                                scheduleLongPressKeyEvent(event, KeyEvent.KEYCODE_MEDIA_NEXT, timeout);
                                 break;
                             }
                         } else {
@@ -6584,11 +6586,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         return am.isMusicActive();
     }
 
-    private void scheduleLongPressKeyEvent(KeyEvent origEvent, int keyCode) {
+    private void scheduleLongPressKeyEvent(KeyEvent origEvent, int keyCode, int timeout) {
         KeyEvent event = new KeyEvent(origEvent.getDownTime(), origEvent.getEventTime(),
                 origEvent.getAction(), keyCode, 0);
         Message msg = mHandler.obtainMessage(MSG_DISPATCH_VOLKEY_WITH_WAKE_LOCK, event);
         msg.setAsynchronous(true);
-        mHandler.sendMessageDelayed(msg, ViewConfiguration.getLongPressTimeout());
+        mHandler.sendMessageDelayed(msg, timeout);
     }
 }
