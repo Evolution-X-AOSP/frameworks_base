@@ -313,7 +313,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
 
         mClockView = findViewById(R.id.clock);
         mClockView.setOnClickListener(this);
-        mClockView.setQsHeader();
         mClockView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
@@ -321,8 +320,16 @@ public class QuickStatusBarHeader extends RelativeLayout implements
                     return false;
                 }
             });
+        mClockView.setQsHeader();
         mDateView = findViewById(R.id.date);
         mDateView.setOnClickListener(this);
+        mDateView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    startCalendarActivity();
+                    return false;
+                }
+            });
         mDataUsageLayout = findViewById(R.id.daily_data_usage_layout);
         mDataUsageImage = findViewById(R.id.daily_data_usage_icon);
         mDataUsageView = findViewById(R.id.data_sim_usage);
@@ -840,6 +847,15 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         nIntent.setClassName("com.android.settings",
             "com.android.settings.Settings$DateTimeSettingsActivity");
         mActivityStarter.startActivity(nIntent, true /* dismissShade */);
+        mVibrator.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));
+    }
+
+    private void startCalendarActivity() {
+        Uri calendarUri = CalendarContract.CONTENT_URI
+                .buildUpon()
+                .appendPath("time")
+                .build();
+        mActivityStarter.startActivity(new Intent(Intent.ACTION_VIEW, calendarUri), true);
         mVibrator.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));
     }
 
