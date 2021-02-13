@@ -21,4 +21,20 @@
     <string name="screen_zoom_summary_smallest">ᱯᱤᱫᱽᱤ</string>
     <!-- Deep sleep info -->
     <string name="status_deep_sleep" formatted="false">(ᱜᱟᱷᱤᱸᱨ ᱜᱤᱛᱤᱡᱽ: %1$d%2$s)</string>
+    <!-- Label for estimated remaining duration of dash battery charging -->
+    <string name="power_remaining_dash_charging_duration_only">ᱰᱮᱥ ᱪᱟᱨᱡᱤᱝ (<xliff:g id="time">%1$s</xliff:g> ᱯᱩᱨᱟᱹ ᱦᱟᱹᱵᱤᱡ ᱥᱟᱨᱮᱡ ᱟᱠᱟᱱᱟ)</string>
+    <!-- Battery use screen.  Battery status shown in chart label when charging from a dash source.  -->
+    <string name="battery_info_status_dash_charging">ᱰᱮᱥ ᱪᱟᱨᱡᱤᱝ</string>
+    <!-- Label for estimated remaining duration of warp battery charging -->
+    <string name="power_remaining_warp_charging_duration_only">ᱨᱟᱯ ᱪᱟᱨᱡᱤᱝ (<xliff:g id="time">%1$s</xliff:g> ᱯᱩᱨᱟᱹ ᱦᱟᱹᱵᱤᱡ ᱥᱟᱨᱮᱡ ᱟᱠᱟᱱᱟ)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
+    <string name="battery_info_status_warp_charging">ᱨᱟᱯ ᱪᱟᱨᱡᱤᱝ</string>
+    <!-- Label for estimated remaining duration of vooc battery charging -->
+    <string name="power_remaining_vooc_charging_duration_only">VOOC ᱪᱟᱨᱡᱤᱝ (<xliff:g id="time">%1$s</xliff:g> ᱯᱩᱨᱟᱹ ᱦᱟᱹᱵᱤᱡ ᱥᱟᱨᱮᱡ ᱟᱠᱟᱱᱟ)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a VOOC source.  -->
+    <string name="battery_info_status_vooc_charging">VOOC ᱪᱟᱨᱡᱤᱝ</string>
+    <!-- Label for estimated remaining duration of TurboPower battery charging -->
+    <string name="power_remaining_turbo_charging_duration_only">ᱴᱟᱹᱨᱵᱚ ᱪᱟᱨᱡᱤᱝ (<xliff:g id="time">%1$s</xliff:g> ᱯᱩᱨᱟᱹ ᱦᱟᱹᱵᱤᱡ ᱥᱟᱨᱮᱡ ᱟᱠᱟᱱᱟ)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
+    <string name="battery_info_status_turbo_charging">ᱴᱟᱹᱨᱵᱚ ᱪᱟᱨᱡᱤᱝ</string>
 </resources>
