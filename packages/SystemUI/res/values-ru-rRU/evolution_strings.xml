@@ -24,8 +24,8 @@
     <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient Display включен.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
-    <string name="quick_settings_aod_on_charge_label">Всегда включенный дисплей при зарядке</string>
-    <string name="quick_settings_aod_off_label">Всегда включенный дисплей выключен</string>
+    <string name="quick_settings_aod_on_charge_label">AOD при зарядке</string>
+    <string name="quick_settings_aod_off_label">AOD выключен</string>
     <string name="quick_settings_aod_off_powersave_label">AOD выкл.\nЭкономия заряда батареи</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Запрет сна</string>
@@ -102,8 +102,6 @@
     <string name="quick_settings_usb_tether_label">USB-модем</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Панель громкости</string>
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Смахните от значка для запуска</string>
     <!-- Status bar icons -->
     <string name="statusbar_items_title">Значки строки состояния</string>
     <string name="status_bar_data_disabled">Передача данных отключена</string>
@@ -126,6 +124,9 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • VOOC зарядка(<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> до полной зарядки)</string>
     <string name="keyguard_plugged_in_vooc_charging">Быстрая зарядка</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Turbo зарядка (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> до полной зарядки)</string>
+    <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="percentage">%s</xliff:g> • Turbo зарядка</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">Удерживайте и перетащите или нажмите для добавления плиток</string>
     <!-- Label for header of customize QS -->
@@ -141,7 +142,9 @@
     <string name="force_stop_dlg_title">Остановить принудительно?</string>
     <string name="force_stop_dlg_text">Если вы принудительно остановите приложение, он может неправильно работать.</string>
     <string name="guts_force_close_app">Закрыть приложение</string>
-    <!-- Screenrecorder -->
+    <!-- Power menu item for taking a Screen record [CHAR LIMIT=20]-->
+    <string name="global_action_screenrecord">Запись экрана</string>
+    <!-- Screen recorder -->
     <string name="screenrecord_stopdot_label">Показывать кнопку остановки\nУдерживайте для перемещения</string>
     <string name="screenrecord_lowquality_label">Меньшее качество для меньшего размера файла</string>
     <!-- Kill app -->
@@ -169,4 +172,13 @@
     <string name="hp_buddy_right">Правый канал</string>
     <string name="hp_buddy_center">Оба канала</string>
     <string name="hp_buddy_not_connected">Подключите наушники</string>
+    <!-- Ambient Music Ticker -->
+    <string name="ambientmusic_songinfo" formatted="false">%s от %s</string>
+    <!-- Daily data usage -->
+    <string name="daily_data_usage_title">Использовано за сегодня</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Умные пиксели</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Автоматическое включение Умных пикселей</string>
+    <!-- Scrolling Screenshot string -->
+    <string name="scrollss">Прокрутка</string>
 </resources>

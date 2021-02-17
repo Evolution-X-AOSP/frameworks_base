@@ -46,8 +46,8 @@
     <string name="label_action_volume_panel">音量面板</string>
     <string name="label_action_clear_notifications">清除通知</string>
     <string name="label_action_split_screen">分屏</string>
-    <string name="label_action_one_handed_mode_left">单手模式（左手）</string>
-    <string name="label_action_one_handed_mode_right">单手模式（右手）</string>
+    <string name="label_action_one_handed_mode_left">单手模式 (左手)</string>
+    <string name="label_action_one_handed_mode_right">单手模式 (右手)</string>
     <string name="label_action_media_left">上一首</string>
     <string name="label_action_media_right">下一首</string>
     <string name="label_action_assistant_sound_search">Google 语音搜索</string>

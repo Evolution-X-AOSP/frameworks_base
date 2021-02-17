@@ -38,8 +38,8 @@
     <string name="live_display_outdoor">户外模式 (强光)</string>
     <string name="live_display_outdoor_summary">仅使用户外模式</string>
     <string name="live_display_hint">LiveDisplay 能帮助你减轻眼疲劳并在晚上帮助你入睡。点这里来试试吧！</string>
-    <string name="accessibility_quick_settings_live_display_off">LiveDisplay 关闭。</string>
-    <string name="accessibility_quick_settings_live_display_auto">增强显示: 自动模式</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay 关闭</string>
+    <string name="accessibility_quick_settings_live_display_auto">增强显示：自动模式</string>
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay：日间模式</string>
     <string name="accessibility_quick_settings_live_display_night">LiveDisplay：夜间模式</string>
     <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay：户外模式</string>

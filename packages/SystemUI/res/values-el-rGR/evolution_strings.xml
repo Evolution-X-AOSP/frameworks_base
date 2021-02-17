@@ -102,8 +102,6 @@
     <string name="quick_settings_usb_tether_label">USB tethering</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Πίνακας έντασης</string>
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Σύρετε το εικονίδιο για εκκίνηση</string>
     <!-- Status bar icons -->
     <string name="statusbar_items_title">Εικονίδιο γραμμής κατάστασης</string>
     <string name="status_bar_data_disabled">Τα δεδομένα απενεργοποιήθηκαν</string>
@@ -119,14 +117,17 @@
     <string name="global_action_restart_ui">ΣύστημαUI</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Γρήγορη φόρτιση (<xliff:g id="charging_time_left" example="4 ώρες και 2 λεπτά">%s</xliff:g> μέχρι πλήρης φόρτιση)</string>
-    <string name="keyguard_plugged_in_dash_charging">Ταχεία Φόρτιση</string>
+    <string name="keyguard_plugged_in_dash_charging">Γρήγορη Φόρτιση</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Ταχεία φόρτιση (<xliff:g id="charging_time_left" example="4 ώρες και 2 λεπτά">%s</xliff:g> μέχρι την πλήρη φόρτιση)</string>
-    <string name="keyguard_plugged_in_warp_charging">Εξαιρετικά γρήγορη φόρτιση</string>
+    <string name="keyguard_plugged_in_warp_charging">Εξαιρετικά Γρήγορη Φόρτιση</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g>• Φόρτιση VOOC (<xliff:g id="charging_time_left" example="4 ώρες και 2 λεπτά">%1$s</xliff:g>
 μέχρι την πλήρη φόρτιση)</string>
-    <string name="keyguard_plugged_in_vooc_charging">Εξαιρετικά γρήγορη φόρτιση</string>
+    <string name="keyguard_plugged_in_vooc_charging">VOOC Φόρτιση</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Turbo Φόρτιση (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> until full)</string>
+    <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="percentage">%s</xliff:g> • Turbo Φόρτιση</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">Κρατήστε &amp; σύρετε ή πατήστε για να προσθέσετε πλακίδια</string>
     <!-- Label for header of customize QS -->
@@ -142,7 +143,9 @@
     <string name="force_stop_dlg_title">Αναγκαστική διακοπή;</string>
     <string name="force_stop_dlg_text">Εάν υποχρεώσετε να σταματήσετε μια εφαρμογή, ενδέχεται να συμπεριφέρεται εσφαλμένα.</string>
     <string name="guts_force_close_app">Κλείσιμο εφαρμογής</string>
-    <!-- Screenrecorder -->
+    <!-- Power menu item for taking a Screen record [CHAR LIMIT=20]-->
+    <string name="global_action_screenrecord">Καταγραφή Οθόνης</string>
+    <!-- Screen recorder -->
     <string name="screenrecord_stopdot_label">Εμφάνιση κουκίδας παύσης και παρατεταμέο πάτημα για να την μετακινήσεις</string>
     <string name="screenrecord_lowquality_label">Μείωση της ποιότητας για μικρότερο μέγεθος αρχείου</string>
     <!-- Kill app -->
@@ -170,4 +173,13 @@
     <string name="hp_buddy_right">Μόνο δεξιά</string>
     <string name="hp_buddy_center">Και τα δύο</string>
     <string name="hp_buddy_not_connected">Συνδέστε τα ακουστικά σας</string>
+    <!-- Ambient Music Ticker -->
+    <string name="ambientmusic_songinfo" formatted="false">%s από %s</string>
+    <!-- Daily data usage -->
+    <string name="daily_data_usage_title">Σημερινή χρήση</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Έξυπνα εικονοστοιχεία</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Έξυπνα εικονοστοιχεία με αυτόματη ενεργοποίηση</string>
+    <!-- Scrolling Screenshot string -->
+    <string name="scrollss">Κύλιση</string>
 </resources>

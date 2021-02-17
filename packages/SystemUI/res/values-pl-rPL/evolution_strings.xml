@@ -102,8 +102,6 @@
     <string name="quick_settings_usb_tether_label">Tethering USB</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Panel głośności</string>
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Przesuń palcem od ikony, aby uruchomić</string>
     <!-- Status bar icons -->
     <string name="statusbar_items_title">Ikona paska stanu</string>
     <string name="status_bar_data_disabled">Ikona danych wyłączona</string>
@@ -126,6 +124,9 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Ładowanie VOOC (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> do pełnego naładowania)</string>
     <string name="keyguard_plugged_in_vooc_charging">Ładowanie VOOC</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Szybkie ładowanie (<xliff:g id="charging_time_left" example="4 godziny i 2 minuty">%1$s</xliff:g> do pełnego naładowania)</string>
+    <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="Percentage">%s</xliff:g> • Szybkie ładowanie</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">Przytrzymaj &amp; przeciągnij lub dotknij, aby dodać kafelki</string>
     <!-- Label for header of customize QS -->
@@ -141,7 +142,9 @@
     <string name="force_stop_dlg_title">Wymusić zatrzymanie?</string>
     <string name="force_stop_dlg_text">Jeśli wymusisz zatrzymanie aplikacji, może ona działać nieprawidłowo.</string>
     <string name="guts_force_close_app">Zamknij aplikację</string>
-    <!-- Screenrecorder -->
+    <!-- Power menu item for taking a Screen record [CHAR LIMIT=20]-->
+    <string name="global_action_screenrecord">Nagrywanie Ekranu</string>
+    <!-- Screen recorder -->
     <string name="screenrecord_stopdot_label">Pokaż kropkę do zatrzymania\nPrzytrzymaj, aby ją przenieść</string>
     <string name="screenrecord_lowquality_label">Niższa jakość dla mniejszego rozmiaru pliku</string>
     <!-- Kill app -->
@@ -169,4 +172,13 @@
     <string name="hp_buddy_right">Tylko po prawej</string>
     <string name="hp_buddy_center">Obydwa</string>
     <string name="hp_buddy_not_connected">Podłącz słuchawki</string>
+    <!-- Ambient Music Ticker -->
+    <string name="ambientmusic_songinfo" formatted="false">%s przez %s</string>
+    <!-- Daily data usage -->
+    <string name="daily_data_usage_title">Dzisiejsze użycie</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Inteligentne piksele</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Automatyczne włączanie inteligentnych pikseli</string>
+    <!-- Scrolling Screenshot string -->
+    <string name="scrollss">Przewijanie</string>
 </resources>

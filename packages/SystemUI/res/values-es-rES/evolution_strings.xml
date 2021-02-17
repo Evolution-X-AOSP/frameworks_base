@@ -20,8 +20,8 @@
     <string name="quick_settings_ambient_display_label">Pantalla ambiente</string>
     <string name="accessibility_quick_settings_ambient_display_off">Pantalla ambiente desactivada.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Pantalla ambiente activada.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_off">Pantalla ambiente se ha desactivado.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_on">Se ha activado la pantalla ambiente.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">La pantalla ambiente se ha desactivado.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">La pantalla ambiente se ha activado.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD (Pantalla siempre encendida)</string>
     <string name="quick_settings_aod_on_charge_label">AOD en carga</string>
@@ -65,8 +65,8 @@
     <string name="quick_settings_heads_up_label">Notificaciones flotantes</string>
     <string name="accessibility_quick_settings_heads_up_off">Notificaciones emergentes desactivadas.</string>
     <string name="accessibility_quick_settings_heads_up_on">Notificaciones emergentes activadas.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Notificaciones emergentes deshabilitadas.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Notificaciones emergentes habilitadas.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Las notificaciones emergentes se han desactivado.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Las notificaciones emergentes se han activado.</string>
     <!-- Mono QS Tile -->
     <string name="quick_settings_monotoggle_tile">Modo de audio</string>
     <string name="quick_settings_monotoggle_tile_mono">Audio en mono</string>
@@ -97,16 +97,14 @@
     <string name="accessibility_quick_settings_sync_off">Sincronización desactivada.</string>
     <string name="accessibility_quick_settings_sync_on">Sincronización activada.</string>
     <string name="accessibility_quick_settings_sync_changed_off">La sincronización ha sido desactivada.</string>
-    <string name="accessibility_quick_settings_sync_changed_on">La sincronización ha sido habilitada.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">La sincronización ha sido activada.</string>
     <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">Anclaje USB</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Panel de volumen</string>
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Deslizar desde el icono para abrir</string>
     <!-- Status bar icons -->
     <string name="statusbar_items_title">Icono de barra de estado</string>
-    <string name="status_bar_data_disabled">Datos desactivados</string>
+    <string name="status_bar_data_disabled">Datos deshabilitados</string>
     <string name="status_bar_data_saver">Ahorro de datos</string>
     <string name="status_bar_nfc">NFC</string>
     <string name="status_bar_roaming">Itinerancia de datos</string>
@@ -126,6 +124,9 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="porcentaje">%2$s</xliff:g> • Carga rápida (<xliff:g id="tiempo_restante_de carga" ejemplo="4 horas y 2 minutos">%1$s</xliff:g> hasta completar)</string>
     <string name="keyguard_plugged_in_vooc_charging">Carga rápida VOOC</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carga rápida (<xliff:g id="charging_time_left" example="4 horas y 2 minutos">%1$s</xliff:g> para completar)</string>
+    <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="percentage">%s</xliff:g> • Carga rápida</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">Mantén pulsado y arrastra para añadir botones</string>
     <!-- Label for header of customize QS -->
@@ -141,7 +142,9 @@
     <string name="force_stop_dlg_title">¿Forzar detención?</string>
     <string name="force_stop_dlg_text">Si se detiene una aplicación, es posible que no funcione correctamente.</string>
     <string name="guts_force_close_app">Cerrar aplicación</string>
-    <!-- Screenrecorder -->
+    <!-- Power menu item for taking a Screen record [CHAR LIMIT=20]-->
+    <string name="global_action_screenrecord">Grabación de pantalla</string>
+    <!-- Screen recorder -->
     <string name="screenrecord_stopdot_label">Mostrar punto para detener grabación.\nPulsación larga para moverlo</string>
     <string name="screenrecord_lowquality_label">Menor calidad para un tamaño de archivo más pequeño</string>
     <!-- Kill app -->
@@ -161,7 +164,7 @@
     <string name="gaming_mode_not_enabled">El modo Juego está deshabilitado en los ajustes</string>
     <string name="quick_settings_gaming_mode_label">Modo Juego</string>
     <!-- App picker manifest entry -->
-    <string name="app_picker_dialog_title">Seleccione una aplicación</string>
+    <string name="app_picker_dialog_title">Selecciona una aplicación</string>
     <string name="app_picker_activity_select_title">Selecciona una actividad</string>
     <!-- Headphones Buddy -->
     <string name="hp_buddy">Amigo de los auriculares</string>
@@ -169,4 +172,13 @@
     <string name="hp_buddy_right">Solo Derecha</string>
     <string name="hp_buddy_center">Ambos</string>
     <string name="hp_buddy_not_connected">Revisa tus auriculares</string>
+    <!-- Ambient Music Ticker -->
+    <string name="ambientmusic_songinfo" formatted="false">%s de %s</string>
+    <!-- Daily data usage -->
+    <string name="daily_data_usage_title">Uso de hoy</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Píxeles Inteligentes</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Activar píxeles inteligentes automáticamente</string>
+    <!-- Scrolling Screenshot string -->
+    <string name="scrollss">Desplazar</string>
 </resources>
