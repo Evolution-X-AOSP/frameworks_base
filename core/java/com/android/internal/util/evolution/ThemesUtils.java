@@ -65,6 +65,12 @@ public class ThemesUtils {
             "com.gnonymous.gvisualmod.urm_l", // 3
     };
 
+    public static final String NAVBAR_COLOR_PURP = "com.gnonymous.gvisualmod.pgm_purp";
+
+    public static final String NAVBAR_COLOR_ORCD = "com.gnonymous.gvisualmod.pgm_orcd";
+
+    public static final String NAVBAR_COLOR_OPRD = "com.gnonymous.gvisualmod.pgm_oprd";
+
     // Switches qs tile style to user selected.
     public static void updateNewTileStyle(IOverlayManager om, int userId, int qsTileStyle) {
         if (qsTileStyle == 0) {
