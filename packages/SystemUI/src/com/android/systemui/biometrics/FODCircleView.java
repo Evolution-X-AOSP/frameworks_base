@@ -553,8 +553,8 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
     }
 
     public void show() {
-        if (mUpdateMonitor.userNeedsStrongAuth()) {
-            // Keyguard requires strong authentication (not biometrics)
+        if (!mUpdateMonitor.isUnlockingWithBiometricAllowed(true /* isStrongBiometric */)) {
+            // Keyguard now allows keystore unlocking after reboot for decrypted users
             return;
         }
 
