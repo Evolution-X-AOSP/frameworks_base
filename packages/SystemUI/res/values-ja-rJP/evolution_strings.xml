@@ -102,8 +102,6 @@
     <string name="quick_settings_usb_tether_label">USB\nテザリング</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">音量パネル</string>
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">アイコンをスワイプして起動</string>
     <!-- Status bar icons -->
     <string name="statusbar_items_title">ステータスバーのアイコン</string>
     <string name="status_bar_data_disabled">データ通信無効</string>
@@ -126,6 +124,9 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • VOOC Charging (充電完了まで残り<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g>)</string>
     <string name="keyguard_plugged_in_vooc_charging">VOOC Charging</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Turbo Charging (充電完了まで残り<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g>)</string>
+    <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="percentage">%s</xliff:g> • Turbo Charging</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">長押しして移動するかタップしてタイルを追加する</string>
     <!-- Label for header of customize QS -->
@@ -141,7 +142,9 @@
     <string name="force_stop_dlg_title">強制停止しますか?</string>
     <string name="force_stop_dlg_text">アプリを強制停止するとアプリが正常に機能しないことがあります</string>
     <string name="guts_force_close_app">アプリを終了</string>
-    <!-- Screenrecorder -->
+    <!-- Power menu item for taking a Screen record [CHAR LIMIT=20]-->
+    <string name="global_action_screenrecord">画面録画</string>
+    <!-- Screen recorder -->
     <string name="screenrecord_stopdot_label">停止ドット\n長押しして移動</string>
     <string name="screenrecord_lowquality_label">低品質にしてファイルサイズ縮小</string>
     <!-- Kill app -->
@@ -169,4 +172,13 @@
     <string name="hp_buddy_right">右のみ</string>
     <string name="hp_buddy_center">両方</string>
     <string name="hp_buddy_not_connected">ヘッドフォンを接続してください</string>
+    <!-- Ambient Music Ticker -->
+    <string name="ambientmusic_songinfo" formatted="false">%s - %s</string>
+    <!-- Daily data usage -->
+    <string name="daily_data_usage_title">今日の使用量</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">スマート\nピクセル</string>
+    <string name="quick_settings_smart_pixels_on_power_save">自動有効</string>
+    <!-- Scrolling Screenshot string -->
+    <string name="scrollss">スクロール</string>
 </resources>
