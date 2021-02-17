@@ -24,6 +24,8 @@
     <string name="accessibility_quick_settings_ambient_display_changed_on">息屏显示已关闭</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">始终显示</string>
+    <string name="quick_settings_aod_on_charge_label">充电时息屏显示</string>
+    <string name="quick_settings_aod_off_label">关闭息屏显示</string>
     <string name="quick_settings_aod_off_powersave_label">息屏显示 关闭\n省电模式</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">保持亮屏</string>
@@ -100,8 +102,6 @@
     <string name="quick_settings_usb_tether_label">USB网络共享</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">声音面板</string>
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">滑动图标以启动</string>
     <!-- Status bar icons -->
     <string name="statusbar_items_title">状态栏图标</string>
     <string name="status_bar_data_disabled">数据已停用</string>
@@ -124,6 +124,9 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Vooc 闪充（还需 <xliff:g id="charging_time_left">%1$s</xliff:g>充满）</string>
     <string name="keyguard_plugged_in_vooc_charging">Warp 闪充中</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • 涡轮闪充中 (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> 后充满)</string>
+    <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="percentage">%s</xliff:g> • 涡轮闪充</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">按住 &amp; 拖动或点击添加磁贴</string>
     <!-- Label for header of customize QS -->
@@ -139,7 +142,9 @@
     <string name="force_stop_dlg_title">强制停止？</string>
     <string name="force_stop_dlg_text">强行停止某个应用可能会导致其出现异常</string>
     <string name="guts_force_close_app">关闭应用</string>
-    <!-- Screenrecorder -->
+    <!-- Power menu item for taking a Screen record [CHAR LIMIT=20]-->
+    <string name="global_action_screenrecord">屏幕录制</string>
+    <!-- Screen recorder -->
     <string name="screenrecord_stopdot_label">显示停止点\n长按移动它</string>
     <string name="screenrecord_lowquality_label">较小文件大小的质量较低</string>
     <!-- Kill app -->
@@ -161,4 +166,19 @@
     <!-- App picker manifest entry -->
     <string name="app_picker_dialog_title">选择应用</string>
     <string name="app_picker_activity_select_title">选择活动</string>
+    <!-- Headphones Buddy -->
+    <string name="hp_buddy">耳机伙伴</string>
+    <string name="hp_buddy_left">仅左侧</string>
+    <string name="hp_buddy_right">仅右侧</string>
+    <string name="hp_buddy_center">同时启用</string>
+    <string name="hp_buddy_not_connected">连接您的耳机</string>
+    <!-- Ambient Music Ticker -->
+    <string name="ambientmusic_songinfo" formatted="false">%s 来自 %s</string>
+    <!-- Daily data usage -->
+    <string name="daily_data_usage_title">今日使用量</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">智能像素</string>
+    <string name="quick_settings_smart_pixels_on_power_save">自动启用智能像素</string>
+    <!-- Scrolling Screenshot string -->
+    <string name="scrollss">滚动</string>
 </resources>
