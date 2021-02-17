@@ -102,8 +102,6 @@
     <string name="quick_settings_usb_tether_label">Penambatan USB</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Panel Volume</string>
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Usap dari ikon untuk diluncurkan</string>
     <!-- Status bar icons -->
     <string name="statusbar_items_title">Ikon bilah status</string>
     <string name="status_bar_data_disabled">Data dinonaktifkan</string>
@@ -116,7 +114,7 @@
     <string name="global_action_restart_advanced">Lanjutan</string>
     <string name="global_action_restart_recovery">Pemulihan</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
-    <string name="global_action_restart_ui">SystemUI</string>
+    <string name="global_action_restart_ui">Sistem UI</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="pesentase">%2$s</xliff:g> • Pengisian Cepat (<xliff:g id="charging_time_left" example="4 jam 2 menit">%s</xliff:g> hingga penuh)</string>
     <string name="keyguard_plugged_in_dash_charging">Pengisian Cepat</string>
@@ -126,6 +124,9 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Pengisian VOOC (<xliff:g id="charging_time_left" example="4 jam 2 menit">%1$s</xliff:g> hingga penuh)</string>
     <string name="keyguard_plugged_in_vooc_charging">Pengisian VOOC</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Pengisian Turbo (<xliff:g id="charging_time_left" example="4 jam 2 menit">%1$s</xliff:g> hingga penuh)</string>
+    <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="percentage">%s</xliff:g> • Pengisian Turbo</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">Tahan &amp; tarik atau ketuk untuk menambahkan kartu</string>
     <!-- Label for header of customize QS -->
@@ -141,7 +142,9 @@
     <string name="force_stop_dlg_title">Paksa berhenti?</string>
     <string name="force_stop_dlg_text">Jika Anda menghentikan paksa aplikasi, akan menyebabkan gagal fungsi.</string>
     <string name="guts_force_close_app">Tutup aplikasi</string>
-    <!-- Screenrecorder -->
+    <!-- Power menu item for taking a Screen record [CHAR LIMIT=20]-->
+    <string name="global_action_screenrecord">Rekam Layar</string>
+    <!-- Screen recorder -->
     <string name="screenrecord_stopdot_label">Tampilkan titik berhenti\nTekan lama untuk memindahkannya</string>
     <string name="screenrecord_lowquality_label">Kualitas lebih rendah untuk ukuran file yang lebih kecil</string>
     <!-- Kill app -->
@@ -169,4 +172,13 @@
     <string name="hp_buddy_right">Hanya kanan</string>
     <string name="hp_buddy_center">Keduanya</string>
     <string name="hp_buddy_not_connected">Hubungkan headphone Anda</string>
+    <!-- Ambient Music Ticker -->
+    <string name="ambientmusic_songinfo" formatted="false">%s oleh %s</string>
+    <!-- Daily data usage -->
+    <string name="daily_data_usage_title">Penggunaan hari ini</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Piksel Cerdas</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Aktifkan otomatis Piksel Cerdas</string>
+    <!-- Scrolling Screenshot string -->
+    <string name="scrollss">Gulir</string>
 </resources>
