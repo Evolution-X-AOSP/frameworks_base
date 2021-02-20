@@ -2690,8 +2690,6 @@ enum PageId {
     ADAPTIVE_CONNECTIVITY_CATEGORY = 1850;
 
     // Evolution X Additions
-    // Panel for Mobile Data
-    PANEL_MOBILE_DATA = 2000;
     // Panel for Bluetooth
     PANEL_BLUETOOTH = 2001;
 }

@@ -137,7 +137,7 @@ public class DataSwitchTile extends QSTileImpl<BooleanState> {
 
     @Override
     public Intent getLongClickIntent() {
-        return new Intent(Settings.Panel.ACTION_MOBILE_DATA);
+        return new Intent(Settings.ACTION_NETWORK_OPERATOR_SETTINGS);
     }
 
     @Override
