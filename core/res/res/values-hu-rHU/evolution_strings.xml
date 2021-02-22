@@ -21,4 +21,42 @@
     <string name="url_copy_failed">Hiba történt a napló dogbin-re való feltöltése során</string>
     <string name="reboot_title">Újraindítás</string>
     <string name="reboot_message">Rendszer újraindítása</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">A hívások és az értesítések rezegnek</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Feloldáshoz nyomja hosszan a bekapcsoló gombot</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Automatikus</string>
+    <string name="live_display_auto_summary">Automatikusan beállítja a képernyő színhőmérsékletét naplemente és napkelte után</string>
+    <string name="live_display_off">Kikapcsolás</string>
+    <string name="live_display_off_summary">Összes módosítás letiltása</string>
+    <string name="live_display_day">Nappali</string>
+    <string name="live_display_day_summary">Csak a nappali beállítások használata</string>
+    <string name="live_display_night">Éjszakai</string>
+    <string name="live_display_night_summary">Csak az éjszakai béállítások használata</string>
+    <string name="live_display_outdoor">Kültéri (erős napfény)</string>
+    <string name="live_display_outdoor_summary">Csak a kültéri beállításokat használja</string>
+    <string name="live_display_hint">LiveDisplay segíthet csökkenteni a szem terhelését, és segít éjszaka aludni. Kattintson ide, hogy kipróbálja!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay kikapcsolás.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: automatikus mód.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: nappali mód.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: éjszakai mód.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: kültéri mód.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay kikapcsolva.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay auto módra változtatva.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay nappali módra változtatva.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay éjszakai módra változtatva.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">A LiveDisplay kültéri módra változtatva.</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Rendszerfelület-újraindítás szükséges</string>
+    <string name="systemui_restart_message">Az összes módosítások érvénybe léptetéséhez szükséges a rendszerfelület újraindítása. Újraindítja most?</string>
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">Játékmód</string>
+    <string name="gaming_mode_notification_title">Játékmód engedélyezve</string>
+    <string name="gaming_mode_notification_content">Érintse meg a Játékmódból való kilépéshez</string>
+    <string name="gaming_mode_enabled_toast">A Játékmód bekapcsolva</string>
+    <string name="gaming_mode_disabled_toast">A Játékmód kikapcsolva</string>
+    <string name="active_edge_app_select_title">Válasszon alkalmazást</string>
+    <string name="active_edge_activity_select_title">Válasszon tevékenységet</string>
 </resources>

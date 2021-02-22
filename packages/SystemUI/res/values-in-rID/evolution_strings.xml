@@ -17,20 +17,20 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Custom QS tiles -->
     <!-- Ambient display QS tile -->
-    <string name="quick_settings_ambient_display_label">Tampilan Ambient</string>
-    <string name="accessibility_quick_settings_ambient_display_off">Tampilan Ambient mati.</string>
-    <string name="accessibility_quick_settings_ambient_display_on">Tampilan Ambient aktif.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_off">Tampilan Ambient dimatikan.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_on">Tampilan Ambient diaktifkan.</string>
+    <string name="quick_settings_ambient_display_label">Tampilan Ambien</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Tampilan Ambien mati.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Tampilan Ambien aktif.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Tampilan Ambien dimatikan.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Tampilan Ambien diaktifkan.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_on_charge_label">AOD saat cas</string>
     <string name="quick_settings_aod_off_label">AOD mati</string>
     <string name="quick_settings_aod_off_powersave_label">AOD nonaktif\nPenghemat baterai</string>
     <!-- Caffeine QS tile -->
-    <string name="quick_settings_caffeine_label">Kafein</string>
-    <string name="accessibility_quick_settings_caffeine_off">Kafein mati.</string>
-    <string name="accessibility_quick_settings_caffeine_on">Kafein aktif.</string>
+    <string name="quick_settings_caffeine_label">Batas Waktu Layar</string>
+    <string name="accessibility_quick_settings_caffeine_off">Batas Waktu Layar dimatikan.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Batas Waktu Layar diaktifkan.</string>
     <!-- Compass QS Tile -->
     <string name="quick_settings_compass_label">Kompas</string>
     <string name="quick_settings_compass_value"><xliff:g id="derajat">%1$.0f</xliff:g>\u00b0<xliff:g id="arah">%2$s</xliff:g></string>
