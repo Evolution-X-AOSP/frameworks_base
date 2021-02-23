@@ -36,6 +36,7 @@ public class DescendantSeamlessClockSwitch {
         "com.android.keyguard.clock.ClockertinoClockController",
         "com.android.keyguard.clock.DividedLinesClockController",
         "com.android.keyguard.clock.FluidClockController",
+        "com.android.keyguard.clock.Fluidv2ClockController",
         "com.android.keyguard.clock.GradientFireClockController",
         "com.android.keyguard.clock.IDEClockController",
         "com.android.keyguard.clock.IDEJavaClockController",
