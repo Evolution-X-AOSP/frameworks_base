@@ -333,6 +333,7 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         post(() -> {
             updateVisibilities();
             updateClickabilities();
+            mQsPanel.setFooterPageIndicator(mPageIndicator);
             setClickable(false);
         });
     }
