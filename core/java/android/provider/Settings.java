@@ -5660,12 +5660,6 @@ public final class Settings {
         public static final String FOD_COLOR = "fod_color";
 
         /**
-         * FOD night light
-         * @hide
-         */
-        public static final String FOD_NIGHT_LIGHT = "fod_night_light";
-
-        /**
          * Whether to display status area (date & weather information) on the cLock
          * @hide
          */
