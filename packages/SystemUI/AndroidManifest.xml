@@ -1019,6 +1019,13 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name="com.android.settingslib.wifi.WifiTimeoutReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.net.wifi.intent.TIMEOUT" />
+            </intent-filter>
+        </receiver>
+
         <provider
             android:authorities="com.android.systemui.customization"
             android:name="com.android.systemui.keyguard.CustomizationProvider"
