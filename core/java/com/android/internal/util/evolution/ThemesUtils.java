@@ -75,6 +75,10 @@ public class ThemesUtils {
 
     public static final String NAVBAR_COLOR_ROSE = "com.gnonymous.gvisualmod.pgm_rose";
 
+    public static final String HEADER_LARGE = "com.android.theme.header.large";
+
+    public static final String HEADER_XLARGE = "com.android.theme.header.xlarge";
+
     // Switches qs tile style to user selected.
     public static void updateNewTileStyle(IOverlayManager om, int userId, int qsTileStyle) {
         if (qsTileStyle == 0) {
