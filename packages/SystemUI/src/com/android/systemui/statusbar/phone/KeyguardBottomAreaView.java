@@ -121,8 +121,8 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
     private static final int DOZE_ANIMATION_STAGGER_DELAY = 48;
     private static final int DOZE_ANIMATION_ELEMENT_DURATION = 250;
 
-    private final boolean mShowLeftAffordance;
-    private final boolean mShowCameraAffordance;
+    private final boolean mShowLeftAffordance = true;
+    private final boolean mShowCameraAffordance = true;
 
     private KeyguardAffordanceView mRightAffordanceView;
     private KeyguardAffordanceView mLeftAffordanceView;
@@ -192,9 +192,10 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
     public KeyguardBottomAreaView(Context context, AttributeSet attrs, int defStyleAttr,
             int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        mShowLeftAffordance = getResources().getBoolean(R.bool.config_keyguardShowLeftAffordance);
-        mShowCameraAffordance = getResources()
-                .getBoolean(R.bool.config_keyguardShowCameraAffordance);
+        // we ignore both of those cause we allow config of shortcuts
+        //mShowLeftAffordance = getResources().getBoolean(R.bool.config_keyguardShowLeftAffordance);
+        //mShowCameraAffordance = getResources()
+        //        .getBoolean(R.bool.config_keyguardShowCameraAffordance);
     }
 
     private AccessibilityDelegate mAccessibilityDelegate = new AccessibilityDelegate() {
@@ -346,7 +347,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
         if (state.isVisible) {
             if (state.drawable != mRightAffordanceView.getDrawable()
                     || state.tint != mRightAffordanceView.shouldTint()
-		    || !state.isDefaultButton) {
+                    || !state.isDefaultButton) {
                 mRightAffordanceView.setImageDrawable(state.drawable, state.tint,
                     state.isDefaultButton ? false : true);
             }
@@ -378,12 +379,13 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
      * Resolves the intent to launch the camera application.
      */
     public ResolveInfo resolveCameraIntent() {
-        if (getCameraIntent() != null) {
-            return mContext.getPackageManager().resolveActivityAsUser(getCameraIntent(),
-                    PackageManager.MATCH_DEFAULT_ONLY,
-                    KeyguardUpdateMonitor.getCurrentUser());
+        final Intent intent = getCameraIntent();
+        if (intent == null) {
+            return null;
         }
-        return null;
+        return mContext.getPackageManager().resolveActivityAsUser(intent,
+                PackageManager.MATCH_DEFAULT_ONLY,
+                KeyguardUpdateMonitor.getCurrentUser());
     }
 
     private void updateCameraVisibility() {
