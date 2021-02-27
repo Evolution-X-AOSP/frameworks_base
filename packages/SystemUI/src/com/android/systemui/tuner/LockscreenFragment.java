@@ -374,12 +374,8 @@ public class LockscreenFragment extends PreferenceFragment {
             mContext = context;
             mShortcutString = shortcutString;
             mIconState = new IconState();
-            mIconState.isVisible = true;
-            mIconState.drawable = mContext.getResources().getDrawable(android.R.drawable.sym_def_app_icon);
             mSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 32,
                     mContext.getResources().getDisplayMetrics());
-            mIconState.drawable = new ScalingDrawableWrapper(mIconState.drawable,
-                    mSize / (float) mIconState.drawable.getIntrinsicWidth());
             mIconState.tint = false;
             mIconState.isDefaultButton = false;
             init();
@@ -388,12 +384,11 @@ public class LockscreenFragment extends PreferenceFragment {
         private void init() {
             mShortcut = getShortcutInfo(mContext, mShortcutString);
             if (mShortcut != null) {
-                // we need to flatten AdaptiveIconDrawable layers to a single drawable
-                mIconState.drawable = getBitmapDrawable(
-                        mContext.getResources(), mShortcut.icon.loadDrawable(mContext));
+                mIconState.drawable = mShortcut.icon.loadDrawable(mContext).mutate();
                 mIconState.contentDescription = mShortcut.label;
                 mIconState.drawable = new ScalingDrawableWrapper(mIconState.drawable,
                         mSize / (float) mIconState.drawable.getIntrinsicWidth());
+                mIconState.isVisible = true;
                 mInitDone = true;
             }
         }
@@ -430,12 +425,8 @@ public class LockscreenFragment extends PreferenceFragment {
             mContext = context;
             mComponentName = ComponentName.unflattenFromString(componentName);
             mIconState = new IconState();
-            mIconState.isVisible = true;
-            mIconState.drawable = mContext.getResources().getDrawable(android.R.drawable.sym_def_app_icon);
             mSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 32,
                     mContext.getResources().getDisplayMetrics());
-            mIconState.drawable = new ScalingDrawableWrapper(mIconState.drawable,
-                    mSize / (float) mIconState.drawable.getIntrinsicWidth());
             mIconState.tint = false;
             mIconState.isDefaultButton = false;
             init();
@@ -444,13 +435,12 @@ public class LockscreenFragment extends PreferenceFragment {
         private void init() {
             try {
                 ActivityInfo info = mContext.getPackageManager().getActivityInfo(mComponentName, 0);
-                // we need to flatten AdaptiveIconDrawable layers to a single drawable
-                mIconState.drawable = getBitmapDrawable(
-                        mContext.getResources(), info.loadIcon(mContext.getPackageManager()));
+                mIconState.drawable = info.loadIcon(mContext.getPackageManager()).mutate();
                 mIconState.contentDescription = info.loadLabel(mContext.getPackageManager());
                 mIconState.drawable = new ScalingDrawableWrapper(mIconState.drawable,
                         mSize / (float) mIconState.drawable.getIntrinsicWidth());
                 mIntent = new Intent().setComponent(mComponentName);
+                mIconState.isVisible = true;
                 mInitDone = true;
             } catch (NameNotFoundException e) {
             }
