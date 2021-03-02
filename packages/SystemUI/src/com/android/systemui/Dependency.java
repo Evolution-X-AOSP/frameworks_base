@@ -46,6 +46,7 @@ import com.android.systemui.dump.DumpManager;
 import com.android.systemui.fragments.FragmentService;
 import com.android.systemui.keyguard.ScreenLifecycle;
 import com.android.systemui.keyguard.WakefulnessLifecycle;
+import com.android.systemui.media.dialog.MediaOutputDialogFactory;
 import com.android.systemui.model.SysUiState;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.DarkIconDispatcher;
@@ -328,6 +329,7 @@ public class Dependency {
     @Inject Lazy<RecordingController> mRecordingController;
     @Inject Lazy<ProtoTracer> mProtoTracer;
     @Inject Lazy<Divider> mDivider;
+    @Inject Lazy<MediaOutputDialogFactory> mMediaOutputDialogFactory;
     @Inject Lazy<TaskHelper> mTaskHelper;
     @Inject Lazy<PulseController> mPulseController;
 
@@ -529,6 +531,8 @@ public class Dependency {
         mProviders.put(RecordingController.class, mRecordingController::get);
         mProviders.put(Divider.class, mDivider::get);
         mProviders.put(PulseController.class, mPulseController::get);
+
+        mProviders.put(MediaOutputDialogFactory.class, mMediaOutputDialogFactory::get);
 
         sDependency = this;
     }
