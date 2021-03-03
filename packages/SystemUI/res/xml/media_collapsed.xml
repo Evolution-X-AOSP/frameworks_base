@@ -56,7 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="8dp"
         android:layout_marginStart="@dimen/qs_center_guideline_padding"
         android:layout_marginEnd="@dimen/qs_center_guideline_padding"
         app:layout_constrainedWidth="true"

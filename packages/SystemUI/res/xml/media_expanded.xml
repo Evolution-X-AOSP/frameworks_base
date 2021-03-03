@@ -42,7 +42,7 @@
         android:id="@+id/media_seamless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toEndOf="@id/icon"
         app:layout_constraintHorizontal_bias="1"
         android:layout_marginStart="@dimen/qs_center_guideline_padding"
