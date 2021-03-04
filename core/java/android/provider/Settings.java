@@ -17991,6 +17991,15 @@ public final class Settings {
         public static final String ONE_HANDED_KEYGUARD_SIDE = "one_handed_keyguard_side";
 
         /**
+         * Global settings that shouldn't be persisted.
+         *
+         * @hide
+         */
+        public static final String[] TRANSIENT_SETTINGS = {
+                CLOCKWORK_HOME_READY,
+        };
+
+        /**
          * The amount of time in milliseconds before wifi is turned off
          * @hide
          */
@@ -18034,13 +18043,18 @@ public final class Settings {
         public static final String GLOBAL_VPN_APP = "global_vpn_app";
 
         /**
-         * Global settings that shouldn't be persisted.
+         * Global cleartext (aka non-TLS) traffic blocking
          *
+         * Values are:
+         * -1: StrictMode.NETWORK_POLICY_INVALID - Remove global cleartext traffic rule
+         *  0: StrictMode.NETWORK_POLICY_ACCEPT - Allow all cleartext traffic.
+         *  1: StrictMode.NETWORK_POLICY_LOG - Log all cleartext traffic.
+         *     Does not appear in logcat by default. Uses existing StrictMode logging
+         *     for cleartext network penalties.
+         *  2: StrictMode.NETWORK_POLICY_REJECT - Reject all cleartext traffic.
          * @hide
          */
-        public static final String[] TRANSIENT_SETTINGS = {
-                CLOCKWORK_HOME_READY,
-        };
+        public static final String CLEARTEXT_NETWORK_POLICY = "cleartext_network_policy";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to
