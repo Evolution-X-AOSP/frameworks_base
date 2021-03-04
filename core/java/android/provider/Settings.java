@@ -16569,6 +16569,19 @@ public final class Settings {
          * @hide
          */
         public static final String BLUETOOTH_OFF_TIMEOUT = "bluetooth_off_timeout";
+
+        /**
+         * Global cleartext (aka non-TLS) traffic blocking
+         *
+         * Values are:
+         * 0: StrictMode.NETWORK_POLICY_ACCEPT - Allow all cleartext traffic.
+         * 1: StrictMode.NETWORK_POLICY_LOG - Log all cleartext traffic.
+         *    This is not in logcat by default but it piggy backs on the existing
+         *    StrictMode code for cleartext network penalties.
+         * 2: StrictMode.NETWORK_POLICY_REJECT - Reject all cleartext traffic.
+         * @hide
+         */
+        public static final String CLEARTEXT_NETWORK_POLICY = "cleartext_network_policy";
     }
 
     /**
