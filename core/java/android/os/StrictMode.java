@@ -177,6 +177,13 @@ public final class StrictMode {
     private static final String CLEARTEXT_PROPERTY = "persist.sys.strictmode.clear";
 
     /**
+     * The boolean system property containing the state of global cleartext restriction.
+     *
+     * @hide
+     */
+    public static final String GLOBAL_CLEARTEXT_PROPERTY = "persist.sys.global.cleartext";
+
+    /**
      * Quick feature-flag that can be used to disable the defaults provided by {@link
      * #initThreadDefaults(ApplicationInfo)} and {@link #initVmDefaults(ApplicationInfo)}.
      */
@@ -338,6 +345,8 @@ public final class StrictMode {
     /** @hide */
     public static final int PENALTY_ALL = 0xffff0000;
 
+    /** {@hide} */
+    public static final int NETWORK_POLICY_INVALID = -1;
     /** {@hide} */
     public static final int NETWORK_POLICY_ACCEPT = 0;
     /** {@hide} */
@@ -2056,7 +2065,7 @@ public final class StrictMode {
                 }
             }
 
-            int networkPolicy = NETWORK_POLICY_ACCEPT;
+            int networkPolicy = NETWORK_POLICY_INVALID;
             if ((sVmPolicy.mask & DETECT_VM_CLEARTEXT_NETWORK) != 0) {
                 if ((sVmPolicy.mask & PENALTY_DEATH) != 0
                         || (sVmPolicy.mask & PENALTY_DEATH_ON_CLEARTEXT_NETWORK) != 0) {
@@ -2070,11 +2079,18 @@ public final class StrictMode {
                     INetworkManagementService.Stub.asInterface(
                             ServiceManager.getService(Context.NETWORKMANAGEMENT_SERVICE));
             if (netd != null) {
-                try {
-                    netd.setUidCleartextNetworkPolicy(android.os.Process.myUid(), networkPolicy);
-                } catch (RemoteException ignored) {
+                // If global cleartext penalty is set, do not allow apps to modify their state
+                if (SystemProperties.getInt(GLOBAL_CLEARTEXT_PROPERTY, NETWORK_POLICY_INVALID)
+                        <= NETWORK_POLICY_ACCEPT) {
+                    try {
+                        netd.setUidCleartextNetworkPolicy(Process.myUid(), networkPolicy);
+                    } catch (RemoteException ignored) {
+                    }
+                } else {
+                    Log.w(TAG, "Dropping requested network policy due to global cleartext" +
+                            " network policy");
                 }
-            } else if (networkPolicy != NETWORK_POLICY_ACCEPT) {
+            } else if (networkPolicy != NETWORK_POLICY_INVALID) {
                 Log.w(TAG, "Dropping requested network policy due to missing service!");
             }
 
