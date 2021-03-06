@@ -103,6 +103,7 @@ public abstract class AuthBiometricView extends LinearLayout {
         int ACTION_BUTTON_TRY_AGAIN = 4;
         int ACTION_ERROR = 5;
         int ACTION_USE_DEVICE_CREDENTIAL = 6;
+        int ACTION_USE_FACE = 7;
 
         /**
          * When an action has occurred. The caller will only invoke this when the callback should
@@ -126,6 +127,10 @@ public abstract class AuthBiometricView extends LinearLayout {
 
         public Button getTryAgainButton() {
             return mBiometricView.findViewById(R.id.button_try_again);
+        }
+
+        public Button getUseFaceButton() {
+            return mBiometricView.findViewById(R.id.button_use_face);
         }
 
         public TextView getTitleView() {
@@ -178,6 +183,7 @@ public abstract class AuthBiometricView extends LinearLayout {
     @VisibleForTesting Button mNegativeButton;
     @VisibleForTesting Button mPositiveButton;
     @VisibleForTesting Button mTryAgainButton;
+    Button mUseFaceButton;
 
     // Measurements when biometric view is showing text, buttons, etc.
     private int mMediumHeight;
@@ -604,6 +610,7 @@ public abstract class AuthBiometricView extends LinearLayout {
         mNegativeButton = mInjector.getNegativeButton();
         mPositiveButton = mInjector.getPositiveButton();
         mTryAgainButton = mInjector.getTryAgainButton();
+        mUseFaceButton = mInjector.getUseFaceButton();
 
         mNegativeButton.setOnClickListener((view) -> {
             if (mState == STATE_PENDING_CONFIRMATION) {
@@ -628,7 +635,14 @@ public abstract class AuthBiometricView extends LinearLayout {
             Utils.notifyAccessibilityContentChanged(mAccessibilityManager, this);
         });
 
+        mUseFaceButton.setOnClickListener((view) -> {
+            mCallback.onAction(Callback.ACTION_USE_FACE);
+        });
+
         if (this instanceof AuthBiometricFingerprintView) {
+            if (!Utils.canAuthenticateWithFace(mContext, mUserId)){
+                mUseFaceButton.setVisibility(View.GONE);
+            }
             if (mHasFod) {
                 boolean isGesturalNav = Integer.parseInt(Settings.Secure.getStringForUser(
                         mContext.getContentResolver(), Settings.Secure.NAVIGATION_MODE,
@@ -653,6 +667,7 @@ public abstract class AuthBiometricView extends LinearLayout {
             }
         } else if (this instanceof AuthBiometricFaceView) {
             mIconView.setVisibility(View.VISIBLE);
+            mUseFaceButton.setVisibility(View.GONE);
         }
     }
 
