@@ -47,4 +47,10 @@
 
     <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
     <string name="battery_info_status_turbo_charging">Turbo charging</string>
+
+    <!-- Bluetooth codecs -->
+    <string name="bluetooth_a2dp_codec_system">Use System Selection (Default)</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_mono">Mono</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_stereo">Stereo</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_dual">Dual Channel</string>
 </resources>
