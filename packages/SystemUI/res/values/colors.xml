@@ -274,4 +274,10 @@
     <color name="screenrecord_status_color">#E94235</color>
 
     <color name="qs_tile_background_color_disabled">#f2f2f2</color>
+
+    <color name="op_qs_tile_background_color_disabled">#f1f1f1</color>
+
+    <color name="qs_tile_icon_oos">#909090</color>
+    <color name="qs_tile_oos_background">#272727</color>
+    <color name="qs_tile_oos">#FFFFFF</color>
 </resources>

@@ -133,20 +133,23 @@ public class QSTileBaseView extends com.android.systemui.plugins.qs.QSTileView {
 
         mColorActive = Utils.getColorAttrDefaultColor(context, android.R.attr.colorAccent);
         mColorActiveAlpha = adjustAlpha(mColorActive, 0.2f);
-        boolean setQsUseNewTint = Settings.System.getIntForUser(context.getContentResolver(),
-                Settings.System.QS_PANEL_BG_USE_NEW_TINT, 0, UserHandle.USER_CURRENT) == 1;
+        int setQsUseNewTint = Settings.System.getIntForUser(context.getContentResolver(),
+                Settings.System.QS_PANEL_BG_USE_NEW_TINT, 0, UserHandle.USER_CURRENT);
         mShouldDisco = Settings.System.getIntForUser(context.getContentResolver(),
                 Settings.System.QS_TILES_BG_DISCO, 0, UserHandle.USER_CURRENT) == 1;
-        if (setQsUseNewTint) {
+        if (setQsUseNewTint == 1) {
             if (mShouldDisco) {
                 setActiveColor(context);
             } else {
                 mColorActive = mColorActiveAlpha;
             }
             mColorDisabled = context.getResources().getColor(R.color.qs_tile_background_color_disabled);
+        } else if (setQsUseNewTint == 2) {
+            mColorActive = context.getResources().getColor(R.color.qs_tile_oos_background);
+            mColorDisabled = context.getResources().getColor(R.color.op_qs_tile_background_color_disabled);
         } else {
             mColorDisabled = Utils.getDisabled(context,
-                    Utils.getColorAttrDefaultColor(context, android.R.attr.colorControlActivated));
+                    Utils.getColorAttrDefaultColor(context, android.R.attr.textColorTertiary));
         }
         mColorInactive = Utils.getColorAttrDefaultColor(context, android.R.attr.textColorSecondary);
 

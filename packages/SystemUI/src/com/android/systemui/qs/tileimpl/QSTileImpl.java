@@ -27,6 +27,8 @@ import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.FIELD_
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.TYPE_ACTION;
 import static com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
 
+import com.android.systemui.R;
+
 import android.annotation.CallSuper;
 import android.annotation.NonNull;
 import android.app.ActivityManager;
@@ -522,8 +524,8 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
     public abstract CharSequence getTileLabel();
 
     public static int getColorForState(Context context, int state) {
-        boolean setQsUseNewTint = Settings.System.getIntForUser(context.getContentResolver(),
-                Settings.System.QS_PANEL_BG_USE_NEW_TINT, 0, UserHandle.USER_CURRENT) == 1;
+        int setQsUseNewTint = Settings.System.getIntForUser(context.getContentResolver(),
+                Settings.System.QS_PANEL_BG_USE_NEW_TINT, 0, UserHandle.USER_CURRENT);
         int qsTileStyle = Settings.System.getIntForUser(context.getContentResolver(),
                 Settings.System.QS_TILE_STYLE, 0, UserHandle.USER_CURRENT);
         boolean shouldDisco = Settings.System.getIntForUser(context.getContentResolver(),
@@ -533,8 +535,10 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
                 return Utils.getDisabled(context,
                         Utils.getColorAttrDefaultColor(context, android.R.attr.textColorSecondary));
             case Tile.STATE_INACTIVE:
-                if (setQsUseNewTint) {
+                if (setQsUseNewTint == 1) {
                     return Utils.getColorAttrDefaultColor(context, android.R.attr.textColorPrimary);
+                } else if (setQsUseNewTint == 2) {
+                    return context.getResources().getColor(R.color.qs_tile_icon_oos);
                 } else {
                     return Utils.getColorAttrDefaultColor(context, android.R.attr.textColorSecondary);
                 }
@@ -543,10 +547,12 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
                         qsTileStyle == 13 || qsTileStyle == 14) {
                     return Utils.getColorAttrDefaultColor(context, android.R.attr.colorAccent);
                 } else {
-                    if (setQsUseNewTint && shouldDisco) {
+                    if (shouldDisco) {
                         return Utils.getColorAttrDefaultColor(context, android.R.attr.colorPrimary);
-                    } else if (setQsUseNewTint && !shouldDisco) {
+                    } else if (setQsUseNewTint == 1 && !shouldDisco) {
                         return Utils.getColorAttrDefaultColor(context, android.R.attr.colorAccent);
+                    } else if (setQsUseNewTint == 2 && !shouldDisco) {
+                        return context.getResources().getColor(R.color.qs_tile_oos);
                     } else {
                         return Utils.getColorAttrDefaultColor(context, android.R.attr.colorPrimary);
                     }
