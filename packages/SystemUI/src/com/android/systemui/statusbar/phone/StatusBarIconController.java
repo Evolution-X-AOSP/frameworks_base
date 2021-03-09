@@ -278,11 +278,11 @@ public interface StatusBarIconController {
                 case TYPE_MOBILE:
                     return addMobileIcon(index, slot, holder.getMobileState());
 
-                case TYPE_NETWORK_TRAFFIC:
-                    return addNetworkTraffic(index, slot);
-
                 case TYPE_IMS:
                     return addImsIcon(index, slot, holder.getImsState());
+
+                case TYPE_NETWORK_TRAFFIC:
+                    return addNetworkTraffic(index, slot);
             }
 
             return null;
@@ -349,14 +349,14 @@ public interface StatusBarIconController {
             return view;
         }
 
-        private NetworkTrafficSB onCreateNetworkTraffic(String slot) {
-            NetworkTrafficSB view = new NetworkTrafficSB(mContext);
-            view.setPadding(1, 1, 1, 1);
+        private StatusBarImsView onCreateStatusBarImsView(String slot) {
+            StatusBarImsView view = StatusBarImsView.fromContext(mContext, slot);
             return view;
         }
 
-        private StatusBarImsView onCreateStatusBarImsView(String slot) {
-            StatusBarImsView view = StatusBarImsView.fromContext(mContext, slot);
+        private NetworkTrafficSB onCreateNetworkTraffic(String slot) {
+            NetworkTrafficSB view = new NetworkTrafficSB(mContext);
+            view.setPadding(1, 1, 1, 1);
             return view;
         }
 
