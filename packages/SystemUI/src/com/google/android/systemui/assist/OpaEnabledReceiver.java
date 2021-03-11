@@ -29,21 +29,16 @@ public class OpaEnabledReceiver {
     private boolean mIsOpaEnabled;
     private final List<OpaEnabledListener> mListeners = new ArrayList();
     private final ILockSettings mLockSettings;
-    private SettingsObserver mSettingsObserver;
-    private Handler mHandler;
 
     public OpaEnabledReceiver(Context context, BroadcastDispatcher broadcastDispatcher) {
         mContext = context;
         mContentResolver = context.getContentResolver();
         mContentObserver = new AssistantContentObserver(mContext);
-        mSettingsObserver = new SettingsObserver(mHandler);
-        mHandler = new Handler();
         mLockSettings = ILockSettings.Stub.asInterface(ServiceManager.getService("lock_settings"));
         mBroadcastDispatcher = broadcastDispatcher;
         updateOpaEnabledState(mContext);
         registerContentObserver();
         registerEnabledReceiver(-2);
-        registerSettingsObserver();
     }
 
     public void addOpaEnabledListener(OpaEnabledListener opaEnabledListener) {
@@ -58,26 +53,20 @@ public class OpaEnabledReceiver {
         registerContentObserver();
         mBroadcastDispatcher.unregisterReceiver(mBroadcastReceiver);
         registerEnabledReceiver(i);
-        registerSettingsObserver();
     }
 
     private boolean isOpaEligible(Context context) {
-        if (pixelNavbarAnimationEnabled(context) && Settings.Secure.getIntForUser(
-                    context.getContentResolver(), "systemui.google.opa_enabled", 0, -2) != 0) {
+        if (Settings.Secure.getIntForUser(context.getContentResolver(), "systemui.google.opa_enabled", 0, -2) != 0) {
             return true;
         }
         return false;
     }
 
     private boolean isOpaEnabled(Context context) {
-        if (pixelNavbarAnimationEnabled(context)) {
-            try {
-                return mLockSettings.getBoolean("systemui.google.opa_user_enabled", false, -2);
-            } catch (RemoteException e) {
-                Log.e("OpaEnabledReceiver", "isOpaEnabled RemoteException", e);
-                return false;
-            }
-        } else {
+        try {
+            return mLockSettings.getBoolean("systemui.google.opa_user_enabled", false, -2);
+        } catch (RemoteException e) {
+            Log.e("OpaEnabledReceiver", "isOpaEnabled RemoteException", e);
             return false;
         }
     }
@@ -108,17 +97,6 @@ public class OpaEnabledReceiver {
         mBroadcastDispatcher.registerReceiver(mBroadcastReceiver, new IntentFilter("com.google.android.systemui.OPA_USER_ENABLED"), null, new UserHandle(i));
     }
 
-    private void registerSettingsObserver() {
-        mSettingsObserver.observe();
-        mSettingsObserver.update();
-    }
-
-    public boolean pixelNavbarAnimationEnabled(Context context) {
-        boolean pixelNavbarAnimationEnabled = Settings.System.getIntForUser(context.getContentResolver(),
-                Settings.System.PIXEL_NAV_ANIMATION, 0, UserHandle.USER_CURRENT) == 1;
-        return pixelNavbarAnimationEnabled;
-    }
-
     private class AssistantContentObserver extends ContentObserver {
         public AssistantContentObserver(Context context) {
             super(new Handler(context.getMainLooper()));
@@ -137,8 +115,7 @@ public class OpaEnabledReceiver {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (pixelNavbarAnimationEnabled(context) && intent.getAction().equals(
-                        "com.google.android.systemui.OPA_ENABLED")) {
+            if (intent.getAction().equals("com.google.android.systemui.OPA_ENABLED")) {
                 Settings.Secure.putIntForUser(context.getContentResolver(), "systemui.google.opa_enabled", intent.getBooleanExtra("OPA_ENABLED", false) ? 1 : 0, -2);
             } else if (intent.getAction().equals("com.google.android.systemui.OPA_USER_ENABLED")) {
                 try {
@@ -149,32 +126,6 @@ public class OpaEnabledReceiver {
             }
             updateOpaEnabledState(context);
             dispatchOpaEnabledState(context);
-        }
-    }
-
-    private class SettingsObserver extends ContentObserver {
-        SettingsObserver(Handler handler) {
-            super(handler);
-        }
-        void observe() {
-            mContentResolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.PIXEL_NAV_ANIMATION),
-                    false, this, UserHandle.USER_ALL);
-            update();
-        }
-
-        @Override
-        public void onChange(boolean selfChange, Uri uri) {
-            if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.PIXEL_NAV_ANIMATION))) {
-            updateOpaEnabledState(mContext);
-            dispatchOpaEnabledState(mContext);
-            }
-        }
-
-        public void update() {
-            updateOpaEnabledState(mContext);
-            dispatchOpaEnabledState(mContext);
         }
     }
 }
