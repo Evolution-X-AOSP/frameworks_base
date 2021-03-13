@@ -5499,7 +5499,7 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     public void updateDataUsageImage() {
         if (mQuickStatusBarHeader != null) {
-            mQuickStatusBarHeader.updateDataUsageImage();
+            mQuickStatusBarHeader.updateDataUsageView();
         }
     }
 
