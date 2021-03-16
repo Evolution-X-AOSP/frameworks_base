@@ -150,7 +150,7 @@ public class SecureSettingsValidators {
         VALIDATORS.put(Secure.LOCKSCREEN_SHOW_WALLET, BOOLEAN_VALIDATOR);
         VALIDATORS.put(Secure.DOZE_ENABLED, BOOLEAN_VALIDATOR);
         VALIDATORS.put(Secure.DOZE_ALWAYS_ON, BOOLEAN_VALIDATOR);
-        VALIDATORS.put(Secure.DOZE_ALWAYS_ON_AUTO_MODE, new DiscreteValueValidator(new String[] {"0", "1", "2"}));
+        VALIDATORS.put(Secure.DOZE_ALWAYS_ON_AUTO_MODE, new DiscreteValueValidator(new String[] {"0", "1", "2", "3", "4"}));
         VALIDATORS.put(Secure.DOZE_ALWAYS_ON_AUTO_TIME, new Validator() {
                 @Override
                 public boolean validate(String value) {
