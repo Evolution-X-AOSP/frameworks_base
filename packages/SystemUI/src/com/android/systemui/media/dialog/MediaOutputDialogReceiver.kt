@@ -32,10 +32,7 @@ class MediaOutputDialogReceiver @Inject constructor(
     override fun onReceive(context: Context, intent: Intent) {
         if (TextUtils.equals(MediaOutputSliceConstants.ACTION_LAUNCH_MEDIA_OUTPUT_DIALOG,
                         intent.action)) {
-            var intentExtra  = intent.getStringExtra(MediaOutputSliceConstants.EXTRA_PACKAGE_NAME)
-            if (intentExtra == null)
-                mediaOutputDialogFactory.create(MediaOutputSliceConstants.SYSTEMUI_PACKAGE_NAME, false)
-            else mediaOutputDialogFactory.create(
+            mediaOutputDialogFactory.create(
                     intent.getStringExtra(MediaOutputSliceConstants.EXTRA_PACKAGE_NAME), false)
         }
     }
