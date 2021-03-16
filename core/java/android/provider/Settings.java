@@ -6075,6 +6075,17 @@ public final class Settings {
         public static final String SMART_CUTOFF_RESUME_TEMPERATURE = "smart_cutoff_resume_temperature";
 
         /**
+         * Which action to display in the fourth (user) button in power menu
+         * 0: None
+         * 1: Screenshot
+         * 2: Screenrecord
+         * 3: Flashlight
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_USERS_CHOICE = "global_actions_users_choice";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate

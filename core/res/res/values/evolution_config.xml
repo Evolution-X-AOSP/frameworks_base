@@ -112,7 +112,7 @@
         <item>lockdown</item>
         <item>power</item>
         <item>restart</item>
-        <item>screenshot</item>
+        <item>users_choice</item> <!--2 buttons nav-->
         <item>logout</item>
     </string-array>
 
