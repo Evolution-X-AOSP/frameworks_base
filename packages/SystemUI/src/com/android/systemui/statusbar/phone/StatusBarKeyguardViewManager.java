@@ -316,7 +316,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
         boolean keyguardWithoutQs = mStatusBarStateController.getState() == StatusBarState.KEYGUARD
                 && !mNotificationPanelViewController.isQsExpanded();
         isHideLockIcon = Settings.Secure.getInt(mContext.getContentResolver(),
-                Settings.Secure.HIDE_LOCKICON, 1) == 1;
+                Settings.Secure.HIDE_LOCKICON, 0) == 1;
         boolean lockVisible = (mBouncer.isShowing() || keyguardWithoutQs) && !isHideLockIcon
                 && !mBouncer.isAnimatingAway() && !mKeyguardStateController.isKeyguardFadingAway();
 
@@ -823,7 +823,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
         boolean bouncerDismissible = !mBouncer.isFullscreenBouncer();
         boolean remoteInputActive = mRemoteInputActive;
         isHideLockIcon = Settings.Secure.getInt(mContext.getContentResolver(),
-                Settings.Secure.HIDE_LOCKICON, 1) == 1;
+                Settings.Secure.HIDE_LOCKICON, 0) == 1;
 
         if ((bouncerDismissible || !showing || remoteInputActive) !=
                 (mLastBouncerDismissible || !mLastShowing || mLastRemoteInputActive)
