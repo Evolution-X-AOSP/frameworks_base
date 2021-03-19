@@ -66,7 +66,6 @@ import com.android.systemui.qs.tiles.SleepScreenTile;
 import com.android.systemui.qs.tiles.SoundTile;
 import com.android.systemui.qs.tiles.SoundSearchTile;
 import com.android.systemui.qs.tiles.SyncTile;
-import com.android.systemui.qs.tiles.SmartPixelsTile;
 import com.android.systemui.qs.tiles.UiModeNightTile;
 import com.android.systemui.qs.tiles.UsbTetherTile;
 import com.android.systemui.qs.tiles.UserTile;
@@ -127,7 +126,6 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<RebootTile> mRebootTileProvider;
     private final Provider<ScreenshotTile> mScreenshotTileProvider;
     private final Provider<SleepScreenTile> mSleepScreenTileProvider;
-    private final Provider<SmartPixelsTile> mSmartPixelsTileProvider;
     private final Provider<SoundTile> mSoundTileProvider;
     private final Provider<SoundSearchTile> mSoundSearchTileProvider;
     private final Provider<SyncTile> mSyncTileProvider;
@@ -179,7 +177,6 @@ public class QSFactoryImpl implements QSFactory {
             Provider<RebootTile> rebootTileProvider,
             Provider<ScreenshotTile> screenshotTileProvider,
             Provider<SleepScreenTile> sleepScreenTileProvider,
-            Provider<SmartPixelsTile> smartPixelsTileProvider,
             Provider<SoundTile> soundTileProvider,
             Provider<SoundSearchTile> soundSearchTileProvider,
             Provider<SyncTile> syncTileProvider,
@@ -227,7 +224,6 @@ public class QSFactoryImpl implements QSFactory {
         mRebootTileProvider = rebootTileProvider;
         mScreenshotTileProvider = screenshotTileProvider;
         mSleepScreenTileProvider = sleepScreenTileProvider;
-        mSmartPixelsTileProvider = smartPixelsTileProvider;
         mSoundTileProvider = soundTileProvider;
         mSoundSearchTileProvider = soundSearchTileProvider;
         mSyncTileProvider = syncTileProvider;
@@ -327,8 +323,6 @@ public class QSFactoryImpl implements QSFactory {
                 return mScreenshotTileProvider.get();
             case "sleepscreen":
                 return mSleepScreenTileProvider.get();
-            case "smartpixels":
-                return mSmartPixelsTileProvider.get();
             case "sound":
                 return mSoundTileProvider.get();
             case "soundsearch":

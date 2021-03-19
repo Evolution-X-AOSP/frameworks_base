@@ -68,14 +68,12 @@ import java.util.TimerTask;
 public class FODCircleView extends ImageView implements TunerService.Tunable {
     private static final String DOZE_INTENT = "com.android.systemui.doze.pulse";
     private static final String FOD_GESTURE = "system:" + Settings.System.FOD_GESTURE;
-    private static final int FADE_ANIM_DURATION = 125;
 
     private final int mPositionX;
     private final int mPositionY;
     private final int mSize;
     private final int mDreamingMaxOffset;
     private final int mNavigationBarSize;
-    private final boolean mHideFodCircleGoingToSleep;
     private final boolean mShouldBoostBrightness;
     private final Paint mPaintFingerprintBackground = new Paint();
     private final WindowManager.LayoutParams mParams = new WindowManager.LayoutParams();
@@ -226,17 +224,9 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
         }
 
         @Override
-        public void onStartedGoingToSleep(int why) {
-            if (mHideFodCircleGoingToSleep) {
-                hide();
-            }
-        }
-
-        @Override
         public void onScreenTurnedOff() {
             mScreenTurnedOn = false;
-            if (!mFodGestureEnable &&
-                    !mHideFodCircleGoingToSleep) {
+            if (!mFodGestureEnable) {
                 hide();
             } else {
                 hideCircle();
@@ -330,9 +320,6 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
         mPowerManager = context.getSystemService(PowerManager.class);
         mWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
                  FODCircleView.class.getSimpleName());
-
-        mHideFodCircleGoingToSleep = mContext.getResources().getBoolean(
-                com.android.internal.R.bool.config_hideFodCircleGoingToSleep);
 
         mWindowManager = context.getSystemService(WindowManager.class);
 
@@ -572,11 +559,6 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
     }
 
     public void show() {
-        if (mUpdateMonitor.userNeedsStrongAuth()) {
-            // Keyguard requires strong authentication (not biometrics)
-            return;
-        }
-
         if (!mUpdateMonitor.isScreenOn() && !mFodGestureEnable) {
             // Keyguard is shown just after screen turning off
             return;
@@ -584,6 +566,11 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
 
         if (mIsBouncer && !isPinOrPattern(mUpdateMonitor.getCurrentUser())) {
             // Ignore show calls when Keyguard password screen is being shown
+            return;
+        }
+
+        if (mUpdateMonitor.userNeedsStrongAuth()) {
+            // Keyguard requires strong authentication (not biometrics)
             return;
         }
 

@@ -4642,30 +4642,6 @@ public final class Settings {
         public static final String SHOW_WEB_SUGGESTIONS = "show_web_suggestions";
 
         /**
-         * Whether to enable Smart Pixels
-         * @hide
-         */
-        public static final String SMART_PIXELS_ENABLE = "smart_pixels_enable";
-
-        /**
-         * Smart Pixels pattern
-         * @hide
-         */
-        public static final String SMART_PIXELS_PATTERN = "smart_pixels_pattern";
-
-        /**
-         * Smart Pixels Shift Timeout
-         * @hide
-         */
-        public static final String SMART_PIXELS_SHIFT_TIMEOUT = "smart_pixels_shift_timeout";
-
-        /**
-         * Whether Smart Pixels should enable on power saver mode
-         * @hide
-         */
-        public static final String SMART_PIXELS_ON_POWER_SAVE = "smart_pixels_on_power_save";
-
-        /**
          * Whether the notification LED should repeatedly flash when a notification is
          * pending. The value is boolean (1 or 0).
          * @hide
@@ -5697,6 +5673,12 @@ public final class Settings {
          * @hide
          */
         public static final String FOD_COLOR = "fod_color";
+
+        /**
+         * FOD night light
+         * @hide
+         */
+        public static final String FOD_NIGHT_LIGHT = "fod_night_light";
 
         /**
          * Whether to display status area (date & weather information) on the cLock

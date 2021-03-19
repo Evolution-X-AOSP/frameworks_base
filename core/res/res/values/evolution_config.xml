@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2020 The Evolution X Project
+     Copyright (C) 2019-2021 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -186,6 +186,9 @@
     <!-- Default fod pressed color -->
     <integer name="config_fod_pressed_color">1</integer>
 
+    <!-- Night Light FOD -->
+    <bool name="disable_fod_night_light">false</bool>
+
     <!-- Default value for FOD animation package resources -->
     <string name="config_fodAnimationPackage" translatable="false">com.evolution.fod.animations</string>
 
@@ -218,9 +221,6 @@
     <integer name="config_screenBrightnessPulse">-1</integer>
 
     <bool name="config_has_weird_dt_sensor">false</bool>
-
-    <!-- Whether the device supports Smart Pixels -->
-    <bool name="config_enableSmartPixels">false</bool>
 
     <!-- If not zero, limits the internal screen recorder's framerate to the set value. -->
     <integer name="config_screenRecorderMaxFramerate">0</integer>
@@ -268,10 +268,6 @@
 
     <!-- Enable face auth only when swiping security view -->
     <bool name="config_faceAuthOnlyOnSecurityView">false</bool>
-
-    <!-- Hide FOD while Going to sleep from lockscreen to avoid HBM flicker
-         or FOD Circle hiding after the screen is put to sleep -->
-    <bool name="config_hideFodCircleGoingToSleep">false</bool>
 
     <!-- Defines the sysfs attribute path used by the device
          to enable/disable DC dimming. -->

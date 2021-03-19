@@ -166,7 +166,6 @@ import com.android.server.security.FileIntegrityService;
 import com.android.server.security.KeyAttestationApplicationIdProviderService;
 import com.android.server.security.KeyChainSystemService;
 import com.android.server.signedconfig.SignedConfigService;
-import com.android.server.smartpixels.SmartPixelsReceiver;
 import com.android.server.soundtrigger.SoundTriggerService;
 import com.android.server.soundtrigger_middleware.SoundTriggerMiddlewareService;
 import com.android.server.statusbar.StatusBarManagerService;
@@ -366,8 +365,6 @@ public final class SystemServer {
     private EntropyMixer mEntropyMixer;
     private DataLoaderManagerService mDataLoaderManagerService;
     private long mIncrementalServiceHandle = 0;
-
-    private SmartPixelsReceiver mSmartPixelsReceiver;
 
     private boolean mOnlyCore;
     private boolean mFirstBoot;
@@ -2578,9 +2575,6 @@ public final class SystemServer {
                 setIncrementalServiceSystemReady(mIncrementalServiceHandle);
                 t.traceEnd();
             }
-
-            mSmartPixelsReceiver = new SmartPixelsReceiver(context);
-
         }, t);
 
         t.traceEnd(); // startOtherServices
