@@ -102,21 +102,21 @@
         <item name="android:textColor">?android:attr/textColorTertiary</item>
     </style>
 
-    <style name="TextAppearance.StatusBar.Expanded.Clock">
+    <style name="TextAppearance.StatusBar.Expanded.Clock" parent="@style/TextAppearance.StatusBar.Expanded">
         <item name="android:textSize">@dimen/qs_time_expanded_size</item>
         <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="android:textStyle">normal</item>
     </style>
 
-    <style name="TextAppearance.StatusBar.Expanded.Date">
+    <style name="TextAppearance.StatusBar.Expanded.Date" parent="@style/TextAppearance.StatusBar.Expanded">
         <item name="android:textSize">@dimen/qs_time_expanded_size</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="android:fontFamily">@*android:string/config_bodyFontFamily</item>
     </style>
 
-    <style name="TextAppearance.StatusBar.Expanded.AboveDateTime">
+    <style name="TextAppearance.StatusBar.Expanded.AboveDateTime" parent="@style/TextAppearance.StatusBar.Expanded">
         <item name="android:textSize">@dimen/qs_emergency_calls_only_text_size</item>
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">?android:attr/textColorTertiary</item>
@@ -128,109 +128,105 @@
     <style name="TextAppearance.StatusBar.Expanded.ChargingInfo"
             parent="TextAppearance.StatusBar.Expanded.AboveDateTime" />
 
-    <style name="TextAppearance.StatusBar.Expanded.UserSwitcher">
+    <style name="TextAppearance.StatusBar.Expanded.UserSwitcher" parent="@style/TextAppearance.StatusBar.Expanded">
         <item name="android:textSize">@dimen/kg_user_switcher_text_size</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:textColor">?attr/wallpaperTextColor</item>
+        <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
     </style>
 
-    <style name="TextAppearance.StatusBar.Expanded.UserSwitcher.Activated">
+    <style name="TextAppearance.StatusBar.Expanded.UserSwitcher.Activated" parent="@style/TextAppearance.StatusBar.Expanded.UserSwitcher">
         <item name="android:fontWeight">700</item>
-        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="TextAppearance" />
 
-    <style name="TextAppearance.QS">
+    <style name="TextAppearance.QS" parent="@style/TextAppearance">
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="android:fontFamily">@*android:string/config_bodyFontFamily</item>
     </style>
 
-    <style name="TextAppearance.QS.DetailHeader">
+    <style name="TextAppearance.QS.DetailHeader" parent="@style/TextAppearance.QS">
         <item name="android:textSize">@dimen/qs_detail_header_text_size</item>
-        <item name="android:textColor">?android:attr/colorAccent</item>
         <item name="android:fontFamily">@*android:string/config_bodyFontFamilyMedium</item>
     </style>
 
-    <style name="TextAppearance.QS.DetailItemPrimary">
+    <style name="TextAppearance.QS.DetailItemPrimary" parent="@style/TextAppearance.QS">
         <item name="android:textSize">@dimen/qs_detail_item_primary_text_size</item>
     </style>
 
-    <style name="TextAppearance.QS.DetailItemSecondary">
+    <style name="TextAppearance.QS.DetailItemSecondary" parent="@style/TextAppearance.QS">
         <item name="android:textSize">@dimen/qs_detail_item_secondary_text_size</item>
-        <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:textColor">?android:attr/colorAccent</item>
     </style>
 
-    <style name="TextAppearance.QS.Introduction">
+    <style name="TextAppearance.QS.Introduction" parent="@style/TextAppearance.QS">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/zen_introduction</item>
     </style>
 
-    <style name="TextAppearance.QS.Warning">
+    <style name="TextAppearance.QS.Warning" parent="@style/TextAppearance.QS">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">?android:attr/colorError</item>
     </style>
 
-    <style name="TextAppearance.QS.DetailButton">
+    <style name="TextAppearance.QS.DetailButton" parent="@style/TextAppearance.QS">
         <item name="android:textSize">@dimen/qs_detail_button_text_size</item>
-        <item name="android:textColor">?android:attr/colorAccent</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:textAllCaps">true</item>
         <item name="android:fontFamily">@*android:string/config_bodyFontFamilyMedium</item>
         <item name="android:gravity">center</item>
-        <item name="android:paddingTop">@dimen/notification_guts_button_vertical_padding</item>
-        <item name="android:paddingBottom">@dimen/notification_guts_button_vertical_padding</item>
-        <item name="android:paddingLeft">@dimen/notification_guts_button_horizontal_padding</item>
-        <item name="android:paddingRight">@dimen/notification_guts_button_horizontal_padding</item>
     </style>
 
-    <style name="TextAppearance.QS.DetailButton.White">
+    <style name="TextAppearance.QS.DetailButton.White" parent="@style/TextAppearance.QS.DetailButton">
         <item name="android:textColor">@color/zen_introduction</item>
     </style>
 
-    <style name="TextAppearance.QS.DetailEmpty">
+    <style name="TextAppearance.QS.DetailEmpty" parent="@style/TextAppearance.QS">
         <item name="android:textSize">@dimen/qs_detail_empty_text_size</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
-    <style name="TextAppearance.QS.Subhead">
+    <style name="TextAppearance.QS.Subhead" parent="@style/TextAppearance.QS">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/qs_subhead</item>
     </style>
 
-    <style name="TextAppearance.QS.SegmentedButton">
+    <style name="TextAppearance.QS.SegmentedButton" parent="@style/TextAppearance.QS">
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">@*android:string/config_bodyFontFamilyMedium</item>
     </style>
 
-    <style name="TextAppearance.QS.DataUsage">
+    <style name="TextAppearance.QS.DataUsage" parent="@style/TextAppearance.QS">
         <item name="android:textSize">@dimen/qs_data_usage_text_size</item>
     </style>
 
-    <style name="TextAppearance.QS.DataUsage.Usage">
+    <style name="TextAppearance.QS.DataUsage.Usage" parent="@style/TextAppearance.QS.DataUsage">
         <item name="android:textSize">@dimen/qs_data_usage_usage_text_size</item>
         <item name="android:textColor">?android:attr/colorAccent</item>
     </style>
 
-    <style name="TextAppearance.QS.DataUsage.Secondary">
+    <style name="TextAppearance.QS.DataUsage.Secondary" parent="@style/TextAppearance.QS.DataUsage">
         <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
 
-    <style name="TextAppearance.QS.TileLabel">
+    <style name="TextAppearance.QS.TileLabel" parent="@style/TextAppearance.QS">
         <item name="android:textSize">@dimen/qs_tile_text_size</item>
         <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
     </style>
 
-    <style name="TextAppearance.QS.TileLabel.Secondary">
+    <style name="TextAppearance.QS.TileLabel.Secondary" parent="@style/TextAppearance.QS.TileLabel">
         <item name="android:textSize">@dimen/qs_tile_text_size</item>
         <item name="android:fontFamily">@*android:string/config_bodyFontFamily</item>
     </style>
 
-    <style name="TextAppearance.QS.UserSwitcher">
+    <style name="TextAppearance.QS.UserSwitcher" parent="@style/TextAppearance.QS">
         <item name="android:textSize">@dimen/qs_detail_item_secondary_text_size</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
 
-    <style name="TextAppearance.QS.UserSwitcher.Activated">
+    <style name="TextAppearance.QS.UserSwitcher.Activated" parent="@style/TextAppearance.QS.UserSwitcher">
         <item name="android:fontWeight">700</item>
         <item name="android:textStyle">bold</item>
     </style>
@@ -246,13 +242,13 @@
         <item name="android:textColor">@color/dark_mode_qs_icon_color_single_tone</item>
     </style>
 
-    <style name="TextAppearance.DeviceManagementDialog">
+    <style name="TextAppearance.DeviceManagementDialog" parent="@style/TextAppearance">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
     <style name="TextAppearance.DeviceManagementDialog.Title" parent="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle"/>
 
-    <style name="TextAppearance.AuthCredential">
+    <style name="TextAppearance.AuthCredential" parent="@style/TextAppearance">
         <item name="android:accessibilityLiveRegion">polite</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textAlignment">gravity</item>
@@ -260,28 +256,28 @@
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
-    <style name="TextAppearance.AuthCredential.Title">
+    <style name="TextAppearance.AuthCredential.Title" parent="@style/TextAppearance.AuthCredential">
         <item name="android:fontFamily">google-sans</item>
         <item name="android:paddingTop">12dp</item>
         <item name="android:paddingHorizontal">24dp</item>
         <item name="android:textSize">24sp</item>
     </style>
 
-    <style name="TextAppearance.AuthCredential.Subtitle">
+    <style name="TextAppearance.AuthCredential.Subtitle" parent="@style/TextAppearance.AuthCredential">
         <item name="android:fontFamily">google-sans</item>
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingHorizontal">24dp</item>
         <item name="android:textSize">16sp</item>
     </style>
 
-    <style name="TextAppearance.AuthCredential.Description">
+    <style name="TextAppearance.AuthCredential.Description" parent="@style/TextAppearance.AuthCredential">
         <item name="android:fontFamily">google-sans</item>
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingHorizontal">24dp</item>
         <item name="android:textSize">14sp</item>
     </style>
 
-    <style name="TextAppearance.AuthCredential.Error">
+    <style name="TextAppearance.AuthCredential.Error" parent="@style/TextAppearance.AuthCredential">
         <item name="android:paddingTop">6dp</item>
         <item name="android:paddingHorizontal">24dp</item>
         <item name="android:textSize">14sp</item>
@@ -311,12 +307,12 @@
 
     <style name="Animation" />
 
-    <style name="Animation.ShirtPocketPanel">
+    <style name="Animation.ShirtPocketPanel" parent="@style/Animation">
         <item name="android:windowEnterAnimation">@*android:anim/grow_fade_in_from_bottom</item>
         <item name="android:windowExitAnimation">@*android:anim/shrink_fade_out_from_bottom</item>
     </style>
 
-    <style name="Animation.NavigationBarFadeIn">
+    <style name="Animation.NavigationBarFadeIn" parent="@style/Animation">
         <item name="android:windowEnterAnimation">@anim/navbar_fade_in</item>
         <item name="android:windowExitAnimation">@null</item>
     </style>
@@ -348,7 +344,7 @@
         <item name="*android:isLightTheme">false</item>
     </style>
 
-    <style name="Theme.SystemUI.Light">
+    <style name="Theme.SystemUI.Light" parent="@style/Theme.SystemUI">
         <item name="wallpaperTextColor">@*android:color/primary_text_material_light</item>
         <item name="wallpaperTextColorSecondary">@*android:color/secondary_text_material_light</item>
         <item name="android:colorError">@*android:color/error_color_material_light</item>
@@ -375,8 +371,8 @@
     </style>
 
     <style name="LockPatternStyle">
-        <item name="*android:regularColor">?attr/wallpaperTextColor</item>
-        <item name="*android:successColor">?attr/wallpaperTextColor</item>
+        <item name="*android:regularColor">?android:attr/colorAccent</item>
+        <item name="*android:successColor">?android:attr/textColorPrimary</item>
         <item name="*android:errorColor">?android:attr/colorError</item>
     </style>
 
@@ -407,7 +403,7 @@
         <item name="android:windowIsFloating">true</item>
     </style>
 
-    <style name="Theme.SystemUI.Dialog.MediaOutput">
+    <style name="Theme.SystemUI.Dialog.MediaOutput" parent="@style/Theme.SystemUI.Dialog">
         <item name="android:windowBackground">@drawable/media_output_dialog_background</item>
     </style>
 
@@ -429,7 +425,7 @@
     <style name="AutoSizingList">
         <item name="enableAutoSizing">true</item>
     </style>
-    <style name="Theme.SystemUI.MediaProjectionAlertDialog">
+    <style name="Theme.SystemUI.MediaProjectionAlertDialog" parent="@style/Theme.SystemUI">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowContentOverlay">@null</item>
@@ -471,18 +467,18 @@
         <item name="singleToneColor">@color/light_mode_icon_color_single_tone</item>
     </style>
 
-    <style name="TextAppearance.Volume">
+    <style name="TextAppearance.Volume" parent="@style/TextAppearance">
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
         <item name="android:fontFamily">@*android:string/config_bodyFontFamily</item>
     </style>
 
-    <style name="TextAppearance.Volume.Header">
+    <style name="TextAppearance.Volume.Header" parent="@style/TextAppearance.Volume">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
     </style>
 
-    <style name="TextAppearance.Volume.Header.Secondary">
+    <style name="TextAppearance.Volume.Header.Secondary" parent="@style/TextAppearance.Volume.Header">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">?android:attr/textColorTertiary</item>
     </style>
@@ -516,27 +512,27 @@
     <style name="TunerPreferenceTheme" parent="@style/PreferenceThemeOverlay.SettingsBase">
     </style>
 
-    <style name="TextAppearance.NotificationInfo.Confirmation">
+    <style name="TextAppearance.NotificationInfo.Confirmation" parent="@style/TextAppearance.NotificationInfo">
         <item name="android:textSize">14sp</item>
         <item name="android:alpha">0.87</item>
     </style>
 
-    <style name="TextAppearance.NotificationInfo">
+    <style name="TextAppearance.NotificationInfo" parent="@style/TextAppearance">
         <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
         <item name="android:textColor">@color/notification_primary_text_color</item>
     </style>
 
-    <style name="TextAppearance.NotificationInfo.Secondary">
+    <style name="TextAppearance.NotificationInfo.Secondary" parent="@style/TextAppearance.NotificationInfo">
         <item name="android:textSize">14sp</item>
         <item name="android:alpha">0.62</item>
     </style>
 
-    <style name="TextAppearance.NotificationInfo.Title">
+    <style name="TextAppearance.NotificationInfo.Title" parent="@style/TextAppearance.NotificationInfo">
         <item name="android:textColor">@color/notification_primary_text_color</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="TextAppearance.NotificationInfo.Button">
+    <style name="TextAppearance.NotificationInfo.Button" parent="@style/TextAppearance.NotificationInfo">
         <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">?android:attr/colorAccent</item>
@@ -545,41 +541,41 @@
         <item name="android:focusable">true</item>
     </style>
 
-    <style name="TextAppearance.NotificationImportanceChannel">
+    <style name="TextAppearance.NotificationImportanceChannel" parent="@style/TextAppearance">
         <item name="android:textSize">@dimen/notification_importance_channel_text</item>
         <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
         <item name="android:textColor">@color/notification_guts_header_text_color</item>
         <item name="android:textSize">@dimen/notification_importance_channel_text</item>
     </style>
 
-    <style name="TextAppearance.NotificationImportanceChannelGroup">
+    <style name="TextAppearance.NotificationImportanceChannelGroup" parent="@style/TextAppearance">
         <item name="android:textSize">@dimen/notification_importance_channel_group_text</item>
         <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
         <item name="android:textColor">@color/notification_guts_header_text_color</item>
         <item name="android:textSize">@dimen/notification_importance_channel_group_text</item>
     </style>
 
-    <style name="TextAppearance.NotificationImportanceApp">
+    <style name="TextAppearance.NotificationImportanceApp" parent="@style/TextAppearance">
         <item name="android:textSize">@dimen/notification_importance_channel_group_text</item>
         <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
         <item name="android:textColor">@color/notification_guts_sub_text_color</item>
         <item name="android:textSize">@dimen/notification_importance_channel_group_text</item>
     </style>
 
-    <style name="TextAppearance.NotificationImportanceHeader">
+    <style name="TextAppearance.NotificationImportanceHeader" parent="@style/TextAppearance">
         <item name="android:textSize">@dimen/notification_importance_header_text</item>
         <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
         <item name="android:textColor">@color/notification_guts_header_text_color</item>
     </style>
 
-    <style name="TextAppearance.NotificationImportanceDetail">
+    <style name="TextAppearance.NotificationImportanceDetail" parent="@style/TextAppearance">
         <item name="android:textSize">@dimen/notification_importance_description_text</item>
         <item name="android:fontFamily">@*android:string/config_bodyFontFamily</item>
         <item name="android:textColor">@color/notification_guts_sub_text_color</item>
         <item name="android:gravity">center</item>
     </style>
 
-    <style name="TextAppearance.NotificationImportanceButton">
+    <style name="TextAppearance.NotificationImportanceButton" parent="@style/TextAppearance">
         <item name="android:textSize">@dimen/notification_importance_button_text</item>
         <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
         <item name="android:textColor">@color/notification_guts_priority_contents</item>
@@ -642,19 +638,19 @@
 
     <style name="MediaPlayer.Button" parent="@android:style/Widget.Material.Button.Borderless.Small">
         <item name="android:background">@drawable/qs_media_light_source</item>
-        <item name="android:tint">@android:color/white</item>
+        <item name="android:tint">?android:attr/textColorPrimary</item>
         <item name="android:stateListAnimator">@anim/media_button_state_list_animator</item>
     </style>
 
     <!-- Used to style charging animation AVD animation -->
     <style name="ChargingAnim" />
 
-    <style name="ChargingAnim.WallpaperBackground">
+    <style name="ChargingAnim.WallpaperBackground" parent="@style/ChargingAnim">
         <item name="chargingAnimColor">?attr/wallpaperTextColor</item>
         <item name="android:textColor">?attr/wallpaperTextColor</item>
     </style>
 
-    <style name="ChargingAnim.DarkBackground">
+    <style name="ChargingAnim.DarkBackground" parent="@style/ChargingAnim">
         <item name="chargingAnimColor">@android:color/white</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
@@ -671,7 +667,7 @@
     <!-- USB Contaminant dialog -->
     <style name ="USBContaminant" />
 
-    <style name ="USBContaminant.UserAction">
+    <style name="USBContaminant.UserAction" parent="@style/USBContaminant">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">roboto-regular</item>
@@ -698,7 +694,7 @@
         <item name="wallpaperTextColor">@*android:color/primary_text_material_dark</item>
     </style>
 
-    <style name="TextAppearance.Control">
+    <style name="TextAppearance.Control" parent="@style/TextAppearance">
         <item name="android:fontFamily">@*android:string/config_bodyFontFamily</item>
     </style>
 
@@ -710,14 +706,14 @@
       <item name="android:backgroundDimEnabled">true</item>
     </style>
 
-    <style name="Animation.Bottomsheet">
+    <style name="Animation.Bottomsheet" parent="@style/Animation">
       <item name="android:windowEnterAnimation">@anim/bottomsheet_in</item>
       <item name="android:windowExitAnimation">@anim/bottomsheet_out</item>
     </style>
 
     <style name="Control" />
 
-    <style name="Control.MenuItem">
+    <style name="Control.MenuItem" parent="@style/Control">
         <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
         <item name="android:textSize">@dimen/control_menu_item_text_size</item>
         <item name="android:textColor">@color/control_primary_text</item>
@@ -726,48 +722,48 @@
         <item name="android:minHeight">@dimen/control_menu_item_min_height</item>
     </style>
 
-    <style name="Control.Spinner">
+    <style name="Control.Spinner" parent="@style/Control">
         <item name="android:textColor">@color/control_primary_text</item>
         <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">end</item>
     </style>
 
-    <style name="Control.Spinner.Header">
+    <style name="Control.Spinner.Header" parent="@style/Control.Spinner">
         <item name="android:background">@drawable/control_spinner_background</item>
         <item name="android:textSize">@dimen/control_header_text_size</item>
     </style>
 
-    <style name="Control.Spinner.Item">
+    <style name="Control.Spinner.Item" parent="@style/Control.Spinner">
         <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
         <item name="android:textSize">@dimen/control_item_text_size</item>
     </style>
 
-    <style name="TextAppearance.Control.Status">
+    <style name="TextAppearance.Control.Status" parent="@style/TextAppearance.Control">
         <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
         <item name="android:textSize">@dimen/control_status_normal</item>
         <item name="android:textColor">@color/control_primary_text</item>
     </style>
 
-    <style name="TextAppearance.Control.Title">
+    <style name="TextAppearance.Control.Title" parent="@style/TextAppearance.Control">
         <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
         <item name="android:textSize">@dimen/control_text_size</item>
         <item name="android:lineSpacingExtra">6sp</item>
         <item name="android:textColor">@color/control_primary_text</item>
     </style>
-    <style name="TextAppearance.Control.Subtitle">
+    <style name="TextAppearance.Control.Subtitle" parent="@style/TextAppearance.Control">
         <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
         <item name="android:textSize">@dimen/control_text_size</item>
         <item name="android:textColor">@color/control_secondary_text</item>
     </style>
-    <style name="TextAppearance.Control.Management" >
+    <style name="TextAppearance.Control.Management" parent="@style/TextAppearance.Control">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
-    <style name="TextAppearance.Control.Management.Title">
+    <style name="TextAppearance.Control.Management.Title" parent="@style/TextAppearance.Control.Management">
         <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
         <item name="android:textSize">@dimen/controls_title_size</item>
     </style>
-    <style name="TextAppearance.Control.Management.Subtitle">
+    <style name="TextAppearance.Control.Management.Subtitle" parent="@style/TextAppearance.Control.Management">
         <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
         <item name="android:textSize">@dimen/controls_subtitle_size</item>
     </style>
@@ -781,17 +777,17 @@
         <item name="*android:dialogCornerRadius">8dp</item>
     </style>
 
-    <style name="TextAppearance.ControlSetup">
+    <style name="TextAppearance.ControlSetup" parent="@style/TextAppearance">
         <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
         <item name="android:textColor">@color/control_primary_text</item>
         <item name="android:singleLine">true</item>
     </style>
 
-    <style name="TextAppearance.ControlSetup.Title">
+    <style name="TextAppearance.ControlSetup.Title" parent="@style/TextAppearance.ControlSetup">
         <item name="android:textSize">@dimen/controls_setup_title</item>
     </style>
 
-    <style name="TextAppearance.ControlSetup.Subtitle">
+    <style name="TextAppearance.ControlSetup.Subtitle" parent="@style/TextAppearance.ControlSetup">
         <item name="android:textSize">@dimen/controls_setup_subtitle</item>
     </style>
 

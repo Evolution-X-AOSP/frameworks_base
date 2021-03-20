@@ -52,10 +52,6 @@ public class QSContainerImpl extends FrameLayout implements
             "system:" + Settings.System.STATUS_BAR_CUSTOM_HEADER_SHADOW;
     private static final String QS_PANEL_BG_ALPHA =
             "system:" + Settings.System.QS_PANEL_BG_ALPHA;
-    private static final String QS_SB_BG_GRADIENT =
-            "system:" + Settings.System.QS_SB_BG_GRADIENT;
-    private static final String QS_SB_BG_ALPHA =
-            "system:" + Settings.System.QS_SB_BG_ALPHA;
 
     private final Point mSizePoint = new Point();
     private static final FloatPropertyCompat<QSContainerImpl> BACKGROUND_BOTTOM =
@@ -80,10 +76,10 @@ public class QSContainerImpl extends FrameLayout implements
     private QuickStatusBarHeader mHeader;
     private float mQsExpansion;
     private QSCustomizer mQSCustomizer;
+    private View mDragHandle;
     private View mQSPanelContainer;
 
     private View mBackground;
-    private View mBackgroundGradient;
     private View mStatusBarBackground;
 
     private int mSideMargins;
@@ -100,8 +96,6 @@ public class QSContainerImpl extends FrameLayout implements
     private int mHeaderShadow = 0;
 
     private int mQsBackgroundAlpha = 255;
-    private boolean mQsSBBackgroundGradient = true;
-    private int mQsSBBackgroundAlpha = 255;
 
     public QSContainerImpl(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -116,9 +110,9 @@ public class QSContainerImpl extends FrameLayout implements
         mQSDetail = findViewById(R.id.qs_detail);
         mHeader = findViewById(R.id.header);
         mQSCustomizer = findViewById(R.id.qs_customize);
+        mDragHandle = findViewById(R.id.qs_drag_handle_view);
         mBackground = findViewById(R.id.quick_settings_background);
         mStatusBarBackground = findViewById(R.id.quick_settings_status_bar_background);
-        mBackgroundGradient = findViewById(R.id.quick_settings_gradient_view);
         mBackgroundImage = findViewById(R.id.qs_header_image_view);
         mBackgroundImage.setClipToOutline(true);
         updateResources();
@@ -157,8 +151,6 @@ public class QSContainerImpl extends FrameLayout implements
         final TunerService tunerService = Dependency.get(TunerService.class);
         tunerService.addTunable(this, STATUS_BAR_CUSTOM_HEADER_SHADOW);
         tunerService.addTunable(this, QS_PANEL_BG_ALPHA);
-        tunerService.addTunable(this, QS_SB_BG_GRADIENT);
-        tunerService.addTunable(this, QS_SB_BG_ALPHA);
 
         mStatusBarHeaderMachine.addObserver(this);
         mStatusBarHeaderMachine.updateEnablement();
@@ -193,16 +185,6 @@ public class QSContainerImpl extends FrameLayout implements
                         TunerService.parseInteger(newValue, 255);
                 updateAlpha();
                 break;
-            case QS_SB_BG_GRADIENT:
-                mQsSBBackgroundGradient =
-                        TunerService.parseIntegerSwitch(newValue, true);
-                updateStatusbarVisibility();
-                break;
-            case QS_SB_BG_ALPHA:
-                mQsSBBackgroundAlpha =
-                        TunerService.parseInteger(newValue, 255);
-                updateAlpha();
-                break;
             default:
                 break;
         }
@@ -210,8 +192,7 @@ public class QSContainerImpl extends FrameLayout implements
 
     private void updateAlpha() {
         mBackground.getBackground().setAlpha(mQsBackgroundAlpha);
-        mStatusBarBackground.getBackground().setAlpha(mQsSBBackgroundAlpha);
-        mBackgroundGradient.getBackground().setAlpha(mQsSBBackgroundAlpha);
+        mStatusBarBackground.getBackground().setAlpha(mQsBackgroundAlpha);
     }
 
     @Override
@@ -280,7 +261,6 @@ public class QSContainerImpl extends FrameLayout implements
         if (disabled == mQsDisabled) return;
         mQsDisabled = disabled;
         mBackground.setVisibility(mQsDisabled ? View.GONE : View.VISIBLE);
-        updateStatusbarVisibility();
     }
 
     private void updateResources() {
@@ -333,6 +313,8 @@ public class QSContainerImpl extends FrameLayout implements
         int height = calculateContainerHeight();
         setBottom(getTop() + height);
         mQSDetail.setBottom(getTop() + height);
+        // Pin the drag handle to the bottom of the panel.
+        mDragHandle.setTranslationY(height - mDragHandle.getHeight());
         mBackground.setTop(mQSPanelContainer.getTop());
         updateBackgroundBottom(height, animate);
     }
@@ -360,14 +342,14 @@ public class QSContainerImpl extends FrameLayout implements
 
     public void setExpansion(float expansion) {
         mQsExpansion = expansion;
+        mDragHandle.setAlpha(1.0f - expansion);
         updateExpansion();
     }
 
     private void updatePaddingsAndMargins() {
         for (int i = 0; i < getChildCount(); i++) {
             View view = getChildAt(i);
-            if (view == mStatusBarBackground || view == mBackgroundGradient
-                    || view == mQSCustomizer) {
+            if (view == mStatusBarBackground || view == mQSCustomizer) {
                 // Some views are always full width
                 continue;
             }
@@ -465,11 +447,9 @@ public class QSContainerImpl extends FrameLayout implements
     }
 
     private void updateStatusbarVisibility() {
-        boolean hideGradient = mLandscape || mHeaderImageEnabled;
         boolean hideStatusbar = mLandscape && !mHeaderImageEnabled;
 
-        mBackgroundGradient.setVisibility(hideGradient || !mQsSBBackgroundGradient ? View.INVISIBLE : View.VISIBLE);
-        mStatusBarBackground.setBackgroundColor(hideGradient ? Color.TRANSPARENT : Color.BLACK);
+        mStatusBarBackground.setBackgroundColor(Color.TRANSPARENT);
         mStatusBarBackground.setVisibility(hideStatusbar ? View.INVISIBLE : View.VISIBLE);
 
         updateAlpha();

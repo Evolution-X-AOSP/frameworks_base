@@ -1520,8 +1520,11 @@ easier.
         <!-- Toolbar attributes -->
         <item name="toolbarStyle">@style/Widget.DeviceDefault.Toolbar</item>
 
+        <!-- QS panel background -->
+        <item name="colorBackgroundFloating">@color/notification_material_background_color</item>
+
         <!-- volume background -->
-        <item name="panelColorBackground">@color/primary_material_light</item>
+        <item name="panelColorBackground">@color/notification_material_background_color</item>
     </style>
 
     <style name="Theme.DeviceDefault.QuickSettings.Dialog" parent="Theme.DeviceDefault.Light.Dialog">

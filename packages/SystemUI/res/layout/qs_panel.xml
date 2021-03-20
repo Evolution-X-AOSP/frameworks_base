@@ -34,7 +34,7 @@
         android:id="@+id/quick_settings_status_bar_background"
         android:layout_width="match_parent"
         android:layout_height="@*android:dimen/quick_qs_offset_height"
-        android:background="#ff000000" >
+        android:background="@android:color/transparent" >
 
         <ImageView android:id="@+id/qs_header_image_view"
             android:layout_width="match_parent"
@@ -45,16 +45,6 @@
             android:visibility="gone"
             android:background="@drawable/qs_header_image_view_outline" />
     </LinearLayout>
-
-    <!-- Gradient view behind QS -->
-    <View
-        android:id="@+id/quick_settings_gradient_view"
-        android:layout_width="match_parent"
-        android:layout_height="126dp"
-        android:layout_marginTop="@*android:dimen/quick_qs_offset_height"
-        android:clipToPadding="false"
-        android:clipChildren="false"
-        android:background="@drawable/qs_bg_gradient" />
 
     <com.android.systemui.qs.NonInterceptingScrollView
         android:id="@+id/expanded_qs_scroll_view"
@@ -71,6 +61,8 @@
             android:focusable="true"
             android:accessibilityTraversalBefore="@android:id/edit">
             <include layout="@layout/qs_footer_impl" />
+            <include layout="@layout/qs_media_divider"
+                android:id="@+id/divider"/>
         </com.android.systemui.qs.QSPanel>
     </com.android.systemui.qs.NonInterceptingScrollView>
 
@@ -80,5 +72,18 @@
 
     <include android:id="@+id/qs_customize" layout="@layout/qs_customize_panel"
         android:visibility="gone" />
+
+    <FrameLayout
+        android:id="@+id/qs_drag_handle_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:elevation="4dp"
+        android:paddingBottom="5dp">
+        <View
+            android:layout_width="46dp"
+            android:layout_height="3dp"
+            android:background="@drawable/qs_footer_drag_handle" />
+    </FrameLayout>
 
 </com.android.systemui.qs.QSContainerImpl>

@@ -49,7 +49,6 @@ public class QSTileView extends QSTileBaseView {
     private View mExpandIndicator;
     private View mExpandSpace;
     private ColorStateList mColorLabelDefault;
-    private ColorStateList mColorLabelActive;
     private ColorStateList mColorLabelUnavailable;
 
     public QSTileView(Context context, QSIconView icon) {
@@ -68,7 +67,6 @@ public class QSTileView extends QSTileBaseView {
         setOrientation(VERTICAL);
         setGravity(Gravity.CENTER_HORIZONTAL | Gravity.TOP);
         mColorLabelDefault = Utils.getColorAttr(getContext(), android.R.attr.textColorPrimary);
-        mColorLabelActive = Utils.getColorAttr(getContext(), android.R.attr.colorAccent);
         // The text color for unavailable tiles is textColorSecondary, same as secondaryLabel for
         // contrast purposes
         mColorLabelUnavailable = Utils.getColorAttr(getContext(),
@@ -131,23 +129,6 @@ public class QSTileView extends QSTileBaseView {
             mSecondLine.setText(state.secondaryLabel);
             mSecondLine.setVisibility(TextUtils.isEmpty(state.secondaryLabel) ? View.GONE
                     : View.VISIBLE);
-        }
-        boolean setQsUseNewTint = Settings.System.getIntForUser(getContext().getContentResolver(),
-                Settings.System.QS_PANEL_BG_USE_NEW_TINT, 0, UserHandle.USER_CURRENT) == 1;
-        boolean shouldDisco = Settings.System.getIntForUser(getContext().getContentResolver(),
-                Settings.System.QS_TILES_BG_DISCO, 0, UserHandle.USER_CURRENT) == 1;
-        if (setQsUseNewTint && shouldDisco) {
-            if (state.state == Tile.STATE_ACTIVE) {
-                mLabel.setTextColor(mColorLabelDefault);
-            } else if (state.state == Tile.STATE_INACTIVE) {
-                mLabel.setTextColor(mColorLabelDefault);
-            }
-        } else if (setQsUseNewTint && !shouldDisco) {
-            if (state.state == Tile.STATE_ACTIVE) {
-                mLabel.setTextColor(mColorLabelActive);
-            } else if (state.state == Tile.STATE_INACTIVE) {
-                mLabel.setTextColor(mColorLabelDefault);
-            }
         }
         boolean dualTarget = DUAL_TARGET_ALLOWED && state.dualTarget;
         mExpandIndicator.setVisibility(dualTarget ? View.VISIBLE : View.GONE);
