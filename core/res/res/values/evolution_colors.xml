@@ -19,4 +19,42 @@
 <resources>
     <!-- Bootleg unneccesary gradient declaration | Just for our shishu bars -->
     <color name="bootleg_accent_gradient_end_color">#00000000</color>
+
+    <!-- Android 12 DP2 additions -->
+    <color name="system_primary_0">#ffffffff</color>
+    <color name="system_primary_50">#fff2f2f2</color>
+    <color name="system_primary_100">#ffe3e3e3</color>
+    <color name="system_primary_200">#ffc7c7c7</color>
+    <color name="system_primary_300">#ffababab</color>
+    <color name="system_primary_400">#ff8f8f8f</color>
+    <color name="system_primary_500">#ff757575</color>
+    <color name="system_primary_600">#ff5e5e5e</color>
+    <color name="system_primary_700">#ff474747</color>
+    <color name="system_primary_800">#ff303030</color>
+    <color name="system_primary_900">#ff1f1f1f</color>
+    <color name="system_primary_1000">#ff000000</color>
+    <color name="system_secondary_0">#ffffffff</color>
+    <color name="system_secondary_50">#ff91fff4</color>
+    <color name="system_secondary_100">#ff83f6e5</color>
+    <color name="system_secondary_200">#ff65d9c9</color>
+    <color name="system_secondary_300">#ff45bdae</color>
+    <color name="system_secondary_400">#ff1fa293</color>
+    <color name="system_secondary_500">#ff008377</color>
+    <color name="system_secondary_600">#ff006d61</color>
+    <color name="system_secondary_700">#ff005449</color>
+    <color name="system_secondary_800">#ff003c33</color>
+    <color name="system_secondary_900">#ff00271e</color>
+    <color name="system_secondary_1000">#ff000000</color>
+    <color name="system_neutral_0">#ffffffff</color>
+    <color name="system_neutral_50">#fff0f0f0</color>
+    <color name="system_neutral_100">#ffe2e2e2</color>
+    <color name="system_neutral_200">#ffc6c6c6</color>
+    <color name="system_neutral_300">#ffababab</color>
+    <color name="system_neutral_400">#ff909090</color>
+    <color name="system_neutral_500">#ff757575</color>
+    <color name="system_neutral_600">#ff5e5e5e</color>
+    <color name="system_neutral_700">#ff464646</color>
+    <color name="system_neutral_800">#ff303030</color>
+    <color name="system_neutral_900">#ff1b1b1b</color>
+    <color name="system_neutral_1000">#ff000000</color>
 </resources>
