@@ -38,8 +38,11 @@ public class FadingBlockRenderer extends Renderer {
     //private static final int DEF_PAINT_ALPHA = (byte) 188;
     private static final int DBFUZZ = 2;
     private byte[] mFFTBytes;
-    private Paint mPaint;
-    private Paint mFadePaint;
+    private static final int GRAVITY_BOTTOM = 0;
+    private static final int GRAVITY_TOP = 1;
+    private static final int GRAVITY_CENTER = 2;
+    private final Paint mPaint;
+    private final Paint mFadePaint;
     private boolean mVertical;
     private boolean mLeftInLandscape;
     private FFTAverage[] mFFTAverage;
@@ -56,9 +59,11 @@ public class FadingBlockRenderer extends Renderer {
     private Matrix mMatrix;
     private int mWidth;
     private int mHeight;
+    private int mGravity;
 
     private LegacySettingsObserver mObserver;
     private boolean mSmoothingEnabled;
+    private boolean mCenterMirrored;
 
     public FadingBlockRenderer(Context context, Handler handler, PulseView view,
             PulseControllerImpl controller, ColorController colorController) {
@@ -99,7 +104,8 @@ public class FadingBlockRenderer extends Renderer {
             } else {
                 mFFTAverage = null;
             }
-            for (int i = 0; i < divisionLength; i++) {
+            int i = 0;
+            for (; i < (mCenterMirrored ? (divisionLength / 2) : divisionLength); i++) {
                 if (mVertical) {
                     mFFTPoints[i * 4 + 1] = i * 4 * mDivisions;
                     mFFTPoints[i * 4 + 3] = i * 4 * mDivisions;
@@ -115,12 +121,71 @@ public class FadingBlockRenderer extends Renderer {
                     dbValue = mFFTAverage[i].average(dbValue);
                 }
                 if (mVertical) {
-                    mFFTPoints[i * 4] = mLeftInLandscape ? 0 : mWidth;
+                    float startPoint = mWidth;
+                    if (mGravity == GRAVITY_BOTTOM) {
+                        startPoint = (float) mWidth;
+                    } else if (mGravity == GRAVITY_TOP) {
+                        startPoint = 0f;
+                    } else if (mGravity == GRAVITY_CENTER) {
+                        startPoint = (float) mWidth / 2f;
+                    }
+                    mFFTPoints[i * 4] = mLeftInLandscape ? 0 : startPoint;
                     mFFTPoints[i * 4 + 2] = mLeftInLandscape ? (dbValue * fudgeFactor + DBFUZZ)
-                            : (mWidth - (dbValue * fudgeFactor + DBFUZZ));
+                            : (startPoint - (dbValue * fudgeFactor + DBFUZZ));
                 } else {
-                    mFFTPoints[i * 4 + 1] = mHeight;
-                    mFFTPoints[i * 4 + 3] = mHeight - (dbValue * fudgeFactor + DBFUZZ);
+                    float startPoint = mHeight;
+                    if (mGravity == GRAVITY_BOTTOM) {
+                        startPoint = (float) mHeight;
+                    } else if (mGravity == GRAVITY_TOP) {
+                        startPoint = 0f;
+                    } else if (mGravity == GRAVITY_CENTER) {
+                        startPoint = (float) mHeight / 2f;
+                    }
+                    mFFTPoints[i * 4 + 1] = startPoint;
+                    mFFTPoints[i * 4 + 3] = startPoint - (dbValue * fudgeFactor + DBFUZZ);
+                }
+            }
+            if (mCenterMirrored) {
+                for (; i < divisionLength; i++) {
+                    int j = divisionLength - (i + 1);
+                    if (mVertical) {
+                        mFFTPoints[i * 4 + 1] = i * 4 * mDivisions;
+                        mFFTPoints[i * 4 + 3] = i * 4 * mDivisions;
+                    } else {
+                        mFFTPoints[i * 4] = i * 4 * mDivisions;
+                        mFFTPoints[i * 4 + 2] = i * 4 * mDivisions;
+                    }
+                    byte rfk = bytes[mDivisions * i];
+                    byte ifk = bytes[mDivisions * i + 1];
+                    float magnitude = (rfk * rfk + ifk * ifk);
+                    int dbValue = magnitude > 0 ? (int) (10 * Math.log10(magnitude)) : 0;
+                    if (mSmoothingEnabled) {
+                        dbValue = mFFTAverage[i].average(dbValue);
+                    }
+                    if (mVertical) {
+                        float startPoint = mWidth;
+                        if (mGravity == GRAVITY_BOTTOM) {
+                            startPoint = (float) mWidth;
+                        } else if (mGravity == GRAVITY_TOP) {
+                            startPoint = 0f;
+                        } else if (mGravity == GRAVITY_CENTER) {
+                            startPoint = (float) mWidth / 2f;
+                        }
+                        mFFTPoints[i * 4] = mLeftInLandscape ? 0 : startPoint;
+                        mFFTPoints[i * 4 + 2] = mLeftInLandscape ? (dbValue * fudgeFactor + DBFUZZ)
+                                : (startPoint - (dbValue * fudgeFactor + DBFUZZ));
+                    } else {
+                        float startPoint = mHeight;
+                        if (mGravity == GRAVITY_BOTTOM) {
+                            startPoint = (float) mHeight;
+                        } else if (mGravity == GRAVITY_TOP) {
+                            startPoint = 0f;
+                        } else if (mGravity == GRAVITY_CENTER) {
+                            startPoint = (float) mHeight / 2f;
+                        }
+                        mFFTPoints[i * 4 + 1] = startPoint;
+                        mFFTPoints[i * 4 + 3] = startPoint - (dbValue * fudgeFactor + DBFUZZ);
+                    }
                 }
             }
         }
@@ -216,6 +281,14 @@ public class FadingBlockRenderer extends Renderer {
                     Settings.Secure.getUriFor(Settings.Secure.PULSE_SMOOTHING_ENABLED), false,
                     this,
                     UserHandle.USER_ALL);
+            resolver.registerContentObserver(
+                    Settings.Secure.getUriFor(Settings.Secure.VISUALIZER_CENTER_MIRRORED), false,
+                    this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(
+                    Settings.Secure.getUriFor(Settings.Secure.PULSE_CUSTOM_GRAVITY), false,
+                    this,
+                    UserHandle.USER_ALL);
         }
 
         @Override
@@ -256,6 +329,10 @@ public class FadingBlockRenderer extends Renderer {
 
             mSmoothingEnabled = Settings.Secure.getIntForUser(resolver,
                     Settings.Secure.PULSE_SMOOTHING_ENABLED, 0, UserHandle.USER_CURRENT) == 1;
+            mCenterMirrored = Settings.Secure.getIntForUser(resolver,
+                    Settings.Secure.VISUALIZER_CENTER_MIRRORED, 0, UserHandle.USER_CURRENT) == 1;
+            mGravity = Settings.Secure.getIntForUser(
+                    resolver, Settings.Secure.PULSE_CUSTOM_GRAVITY, 0, UserHandle.USER_CURRENT);
         }
     }
 
