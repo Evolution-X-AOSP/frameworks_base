@@ -11628,6 +11628,12 @@ public final class Settings {
         public static final String LOCKSCREEN_PULSE_ENABLED = "lockscreen_pulse_enabled";
 
         /**
+         * Pulse quick settings music visualizer
+         * @hide
+         */
+        public static final String QS_PULSE_ENABLED = "qs_pulse_enabled";
+
+        /**
          * Pulse navbar music visualizer color type
          * @hide
          */
