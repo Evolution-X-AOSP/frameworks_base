@@ -46,8 +46,7 @@ public class QSAnimator implements Callback, PageListener, Listener, OnLayoutCha
 
     public static final float EXPANDED_TILE_DELAY = .86f;
 
-    private static final String QS_SHOW_BRIGHTNESS_SLIDER =
-            Settings.Secure.QS_SHOW_BRIGHTNESS_SLIDER;
+    public static final String QQS_SHOW_BRIGHTNESS_SLIDER = "qqs_show_brightness_slider";
 
     private final ArrayList<View> mAllViews = new ArrayList<>();
     /**
@@ -150,7 +149,7 @@ public class QSAnimator implements Callback, PageListener, Listener, OnLayoutCha
     public void onViewAttachedToWindow(View v) {
         Dependency.get(TunerService.class).addTunable(this, ALLOW_FANCY_ANIMATION,
                 MOVE_FULL_ROWS, QuickQSPanel.NUM_QUICK_TILES);
-        Dependency.get(TunerService.class).addTunable(this, QS_SHOW_BRIGHTNESS_SLIDER);
+        Dependency.get(TunerService.class).addTunable(this, QQS_SHOW_BRIGHTNESS_SLIDER);
     }
 
     @Override
@@ -173,8 +172,8 @@ public class QSAnimator implements Callback, PageListener, Listener, OnLayoutCha
         } else if (QuickQSPanel.NUM_QUICK_TILES.equals(key)) {
             mNumQuickTiles = QuickQSPanel.parseNumTiles(newValue);
             clearAnimationState();
-        } else if (QS_SHOW_BRIGHTNESS_SLIDER.equals(key)) {
-            mIsQuickQsBrightnessEnabled = TunerService.parseIntegerSwitch(newValue, false);
+        } else if (QQS_SHOW_BRIGHTNESS_SLIDER.equals(key)) {
+            mIsQuickQsBrightnessEnabled = TunerService.parseInteger(newValue, 0) > 1;
         }
         updateAnimators();
     }
