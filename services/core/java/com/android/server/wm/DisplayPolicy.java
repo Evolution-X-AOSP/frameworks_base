@@ -192,7 +192,6 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.policy.GestureNavigationSettingsObserver;
 import com.android.internal.policy.ScreenDecorationsUtils;
 import com.android.internal.util.ScreenshotHelper;
-import com.android.internal.util.evolution.EvolutionUtils;
 import com.android.internal.util.function.TriConsumer;
 import com.android.internal.view.AppearanceRegion;
 import com.android.internal.widget.PointerLocationView;
@@ -645,7 +644,16 @@ public class DisplayPolicy {
 
         if (mDisplayContent.isDefaultDisplay) {
             mHasStatusBar = true;
-            mHasNavigationBar = EvolutionUtils.deviceSupportNavigationBar(mContext);
+            mHasNavigationBar = mContext.getResources().getBoolean(R.bool.config_showNavigationBar);
+
+            // Allow a system property to override this. Used by the emulator.
+            // See also hasNavigationBar().
+            String navBarOverride = SystemProperties.get("qemu.hw.mainkeys");
+            if ("1".equals(navBarOverride)) {
+                mHasNavigationBar = false;
+            } else if ("0".equals(navBarOverride)) {
+                mHasNavigationBar = true;
+            }
         } else {
             mHasStatusBar = false;
             mHasNavigationBar = mDisplayContent.supportsSystemDecorations();
@@ -737,15 +745,6 @@ public class DisplayPolicy {
 
     public boolean hasNavigationBar() {
         return mHasNavigationBar;
-    }
-
-    /**
-     * @hide
-     */
-    public void updatehasNavigationBar() {
-        if (mDisplayContent.isDefaultDisplay) {
-            mHasNavigationBar = EvolutionUtils.deviceSupportNavigationBar(mContext);
-        }
     }
 
     public boolean hasStatusBar() {
@@ -1975,15 +1974,6 @@ public class DisplayPolicy {
         return mStatusBarController.checkHiddenLw();
     }
 
-    private void notifyLeftInLandscapeChanged(boolean isOnLeft) {
-        mHandler.post(() -> {
-            StatusBarManagerInternal statusBar = getStatusBarManagerInternal();
-            if (statusBar != null) {
-                statusBar.leftInLandscapeChanged(isOnLeft);
-            }
-        });
-    }
-
     private boolean layoutNavigationBar(DisplayFrames displayFrames, int uiMode, boolean navVisible,
             boolean navTranslucent, boolean navAllowedHidden,
             boolean statusBarForcesShowingNavigation, Rect simulatedContentFrame) {
@@ -2000,13 +1990,8 @@ public class DisplayPolicy {
         final int displayHeight = displayFrames.mDisplayHeight;
         final int displayWidth = displayFrames.mDisplayWidth;
         final Rect dockFrame = displayFrames.mDock;
-        final int lastNavbarPosition = mNavigationBarPosition;
         final int navBarPosition = navigationBarPosition(displayWidth, displayHeight, rotation);
-        if (lastNavbarPosition == NAV_BAR_LEFT && mNavigationBarPosition != NAV_BAR_LEFT) {
-            notifyLeftInLandscapeChanged(false);
-        } else if (lastNavbarPosition != NAV_BAR_LEFT && mNavigationBarPosition == NAV_BAR_LEFT) {
-            notifyLeftInLandscapeChanged(true);
-        }
+
         final Rect cutoutSafeUnrestricted = sTmpRect;
         cutoutSafeUnrestricted.set(displayFrames.mUnrestricted);
         cutoutSafeUnrestricted.intersectUnchecked(displayFrames.mDisplayCutoutSafe);

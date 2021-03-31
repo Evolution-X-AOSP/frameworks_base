@@ -1244,9 +1244,6 @@ public final class PowerManagerService extends SystemService
         resolver.registerContentObserver(Settings.System.getUriFor(
                 Settings.System.BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED),
                 false, mSettingsObserver, UserHandle.USER_ALL);
-        resolver.registerContentObserver(Settings.Secure.getUriFor(
-                Settings.Secure.HARDWARE_KEYS_DISABLE),
-                false, mSettingsObserver, UserHandle.USER_ALL);
 
         IVrManager vrManager = IVrManager.Stub.asInterface(getBinderService(Context.VR_SERVICE));
         if (vrManager != null) {
@@ -1446,9 +1443,6 @@ public final class PowerManagerService extends SystemService
         mButtonLightOnKeypressOnly = Settings.System.getIntForUser(resolver,
                 Settings.System.BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED,
                 0, UserHandle.USER_CURRENT) == 1;
-        mHardwareKeysDisable = Settings.Secure.getIntForUser(resolver,
-                Settings.Secure.HARDWARE_KEYS_DISABLE, 0,
-                UserHandle.USER_CURRENT) != 0;
 
         mDirty |= DIRTY_SETTINGS;
     }

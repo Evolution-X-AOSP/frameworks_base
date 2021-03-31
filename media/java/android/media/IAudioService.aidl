@@ -312,11 +312,4 @@ interface IAudioService {
     // code via IAudioManager.h need to be added to the top section.
 
     oneway void setMultiAudioFocusEnabled(in boolean enabled);
-
-    /**
-     * Internal api to protect Pulse
-     * @hide
-     */
-    void setVisualizerLocked(boolean doLock);
-    boolean isVisualizerLocked(String callingPackage);
 }

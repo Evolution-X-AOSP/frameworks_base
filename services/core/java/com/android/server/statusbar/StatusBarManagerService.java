@@ -522,16 +522,6 @@ public class StatusBarManagerService extends IStatusBarService.Stub implements D
                 } catch (RemoteException ex) { }
             }
         }
-
-        @Override
-        public void leftInLandscapeChanged(boolean isLeft) {
-            if (mBar != null) {
-                try {
-                    mBar.leftInLandscapeChanged(isLeft);
-                } catch (RemoteException ex) {
-                }
-            }
-        }
     };
 
     private final GlobalActionsProvider mGlobalActionsProvider = new GlobalActionsProvider() {
@@ -616,54 +606,6 @@ public class StatusBarManagerService extends IStatusBarService.Stub implements D
         if (mBar != null) {
             try {
                 mBar.animateExpandSettingsPanel(subPanel);
-            } catch (RemoteException ex) {
-            }
-        }
-    }
-
-    @Override
-    public void toggleRecentApps() {
-        enforceStatusBarService();
-
-        if (mBar != null) {
-            try {
-                mBar.toggleRecentApps();
-            } catch (RemoteException ex) {
-            }
-        }
-    }
-
-    @Override
-    public void toggleSplitScreen() {
-        enforceStatusBarService();
-
-        if (mBar != null) {
-            try {
-                mBar.toggleSplitScreen();
-            } catch (RemoteException ex) {
-            }
-        }
-    }
-
-    @Override
-    public void preloadRecentApps() {
-        enforceStatusBarService();
-
-        if (mBar != null) {
-            try {
-                mBar.preloadRecentApps();
-            } catch (RemoteException ex) {
-            }
-        }
-    }
-
-    @Override
-    public void cancelPreloadRecentApps() {
-        enforceStatusBarService();
-
-        if (mBar != null) {
-            try {
-                mBar.cancelPreloadRecentApps();
             } catch (RemoteException ex) {
             }
         }
@@ -1075,23 +1017,6 @@ public class StatusBarManagerService extends IStatusBarService.Stub implements D
                             isMultiClientImeEnabled);
                 } catch (RemoteException ex) { }
             });
-        }
-    }
-
-    /**
-     * Let systemui know screen pinning state change. This is independent of the
-     * showScreenPinningRequest() call as it does not reflect state
-     *
-     * @hide
-     */
-    @Override
-    public void screenPinningStateChanged(boolean enabled) {
-        enforceStatusBar();
-        if (mBar != null) {
-            try {
-                mBar.screenPinningStateChanged(enabled);
-            } catch (RemoteException ex) {
-            }
         }
     }
 

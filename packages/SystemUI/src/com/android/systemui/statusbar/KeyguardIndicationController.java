@@ -755,36 +755,6 @@ public class KeyguardIndicationController implements StateListener,
                     : R.string.keyguard_plugged_in_wireless;
         }
 
-        String batteryInfo = "";
-        int current = 0;
-        double voltage = 0;
-        boolean showbatteryInfo = Settings.System.getIntForUser(mContext.getContentResolver(),
-            Settings.System.LOCKSCREEN_BATTERY_INFO, 1, UserHandle.USER_CURRENT) == 1;
-        if (showbatteryInfo) {
-            if (mChargingCurrent > 0) {
-                current = (mChargingCurrent < 5 ? (mChargingCurrent * 1000)
-                        : (mChargingCurrent < 4000 ? mChargingCurrent : (mChargingCurrent / 1000)));
-                batteryInfo = batteryInfo + current + "mA";
-            }
-            if (mChargingVoltage > 0 && mChargingCurrent > 0) {
-                voltage = mChargingVoltage / 1000 / 1000;
-                batteryInfo = (batteryInfo == "" ? "" : batteryInfo + " · ") +
-                        String.format("%.1f" , ((double) current / 1000) * voltage) + "W";
-            }
-            if (mChargingVoltage > 0) {
-                batteryInfo = (batteryInfo == "" ? "" : batteryInfo + " · ") +
-                        String.format("%.1f" , voltage) + "V";
-            }
-            if (mTemperature > 0) {
-                String batteryTemp = EvolutionUtils.mccCheck(mContext) ?
-                          mTemperature * 9 / 50 + 32 + "°F" : mTemperature / 10 + "°C";
-                batteryInfo = (batteryInfo == "" ? "" : batteryInfo + " · ") + batteryTemp;
-            }
-            if (batteryInfo != "") {
-                batteryInfo = "\n" + batteryInfo;
-            }
-        }
-
         if (hasChargingTime) {
             // We now have battery percentage in these strings and it's expected that all
             // locales will also have it in the future. For now, we still have to support the old
@@ -792,21 +762,18 @@ public class KeyguardIndicationController implements StateListener,
             String chargingTimeFormatted = Formatter.formatShortElapsedTimeRoundingUpToMinutes(
                     mContext, mChargingTimeRemaining);
             try {
-                String chargingText = mContext.getResources().getString(chargingId, chargingTimeFormatted,
+                return mContext.getResources().getString(chargingId, chargingTimeFormatted,
                         percentage);
-                return chargingText + batteryInfo;
             } catch (IllegalFormatConversionException e) {
-                String chargingText =  mContext.getResources().getString(chargingId, chargingTimeFormatted);
-                return chargingText + batteryInfo;
+                return mContext.getResources().getString(chargingId, chargingTimeFormatted);
             }
         } else {
             // Same as above
             try {
-                String chargingText =  mContext.getResources().getString(chargingId, percentage);
-                return chargingText + batteryInfo;
+                return mContext.getResources().getString(chargingId, percentage);
             } catch (IllegalFormatConversionException e) {
                 String chargingText =  mContext.getResources().getString(chargingId);
-                return chargingText + batteryInfo;
+                return mContext.getResources().getString(chargingId);
             }
         }
     }

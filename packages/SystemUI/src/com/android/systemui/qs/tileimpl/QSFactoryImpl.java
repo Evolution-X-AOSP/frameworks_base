@@ -46,7 +46,6 @@ import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
 import com.android.systemui.qs.tiles.FPSInfoTile;
 import com.android.systemui.qs.tiles.GamingModeTile;
-import com.android.systemui.qs.tiles.HWKeysTile;
 import com.android.systemui.qs.tiles.HeadphonesBuddyTile;
 import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
@@ -116,7 +115,6 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<DcDimmingTile> mDcDimmingTileProvider;
     private final Provider<FPSInfoTile> mFPSInfoTileProvider;
     private final Provider<GamingModeTile> mGamingModeTileProvider;
-    private final Provider<HWKeysTile> mHWKeysTileProvider;
     private final Provider<HeadphonesBuddyTile> mHeadphonesBuddyTile;
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
     private final Provider<KillappTile> mKillappTileProvider;
@@ -168,7 +166,6 @@ public class QSFactoryImpl implements QSFactory {
             Provider<DcDimmingTile> dcDimTileProvider,
             Provider<FPSInfoTile> fpsInfoTileProvider,
             Provider<GamingModeTile> gamingModeTileProvider,
-            Provider<HWKeysTile> hWKeysTileProvider,
             Provider<HeadphonesBuddyTile> headphonesBuddyTile,
             Provider<HeadsUpTile> headsUpTileProvider,
             Provider<KillappTile> killappTileProvider,
@@ -216,7 +213,6 @@ public class QSFactoryImpl implements QSFactory {
         mDcDimmingTileProvider = dcDimTileProvider;
         mFPSInfoTileProvider = fpsInfoTileProvider;
         mGamingModeTileProvider = gamingModeTileProvider;
-        mHWKeysTileProvider = hWKeysTileProvider;
         mHeadphonesBuddyTile = headphonesBuddyTile;
         mHeadsUpTileProvider = headsUpTileProvider;
         mKillappTileProvider = killappTileProvider;
@@ -309,8 +305,6 @@ public class QSFactoryImpl implements QSFactory {
                 return mHeadphonesBuddyTile.get();
             case "heads_up":
                 return mHeadsUpTileProvider.get();
-            case "hwkeys":
-                return mHWKeysTileProvider.get();
             case "killapp":
                 return mKillappTileProvider.get();
             case "livedisplay":

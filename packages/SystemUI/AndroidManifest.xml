@@ -273,9 +273,6 @@
     <!-- Permission to make accessibility service access Bubbles -->
     <uses-permission android:name="android.permission.ADD_TRUSTED_DISPLAY" />
 
-    <!-- Pulse -->
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <!-- Asus Long screenshot -->
     <uses-permission android:name="com.asus.stitchimage.permission.EXPORTED_FOR_ASUS_APPS"/>
@@ -312,9 +309,6 @@
     <protected-broadcast android:name="com.google.android.systemui.smartspace.ENABLE_UPDATE"/>
     <protected-broadcast android:name="com.google.android.systemui.smartspace.EXPIRE_EVENT"/>
     <protected-broadcast android:name="com.google.android.systemui.smartspace.CLICK_EVENT"/>
-
-    <!-- Custom permissions -->
-    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
 
     <application
         android:name=".SystemUIApplication"

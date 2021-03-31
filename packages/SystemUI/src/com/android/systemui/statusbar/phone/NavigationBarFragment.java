@@ -287,22 +287,17 @@ public class NavigationBarFragment extends LifecycleFragment implements Callback
             }
             ButtonDispatcher buttonDispatcher = null;
             boolean forceVisible = false;
-            boolean isGesturalMode = QuickStepContract.isGesturalMode(mNavBarMode);
-            boolean forceHideHomeHandle = isGesturalMode && mNavigationBarView.isHomeHandleForceHidden();
             if (QuickStepContract.isSwipeUpMode(mNavBarMode)) {
                 buttonDispatcher = mNavigationBarView.getBackButton();
-            } else if (isGesturalMode) {
+            } else if (QuickStepContract.isGesturalMode(mNavBarMode)) {
                 forceVisible = mForceNavBarHandleOpaque;
                 buttonDispatcher = mNavigationBarView.isHintEnabled() ? 
                         mNavigationBarView.getHomeHandle() : null;
             }
             if (buttonDispatcher != null) {
                 buttonDispatcher.setVisibility(
-                        (!forceHideHomeHandle && (forceVisible || alpha > 0))
-                        ? View.VISIBLE
-                        : View.INVISIBLE);
-                buttonDispatcher.setAlpha(forceVisible ? 1f : alpha,
-                        forceHideHomeHandle ? false : animate);
+                        (forceVisible || alpha > 0) ? View.VISIBLE : View.INVISIBLE);
+                buttonDispatcher.setAlpha(forceVisible ? 1f : alpha, animate);
             }
         }
 

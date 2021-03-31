@@ -112,7 +112,6 @@
         <item>lockdown</item>
         <item>power</item>
         <item>restart</item>
-        <item>screenrecord</item>
         <item>screenshot</item>
         <item>logout</item>
     </string-array>
@@ -186,9 +185,6 @@
     <!-- Default fod pressed color -->
     <integer name="config_fod_pressed_color">1</integer>
 
-    <!-- Night Light FOD -->
-    <bool name="disable_fod_night_light">false</bool>
-
     <!-- Default value for FOD animation package resources -->
     <string name="config_fodAnimationPackage" translatable="false">com.evolution.fod.animations</string>
 
@@ -202,20 +198,6 @@
     <!-- Button backlight -->
     <dimen name="config_buttonBrightnessSettingDefaultFloat">1.0</dimen>
     <bool name="config_deviceHasVariableButtonBrightness">false</bool>
-
-    <!-- Hardware keys present on the device, stored as a bit field.
-         This integer should equal the sum of the corresponding value for each
-         of the following keys present:
-             1 - Home
-             2 - Back
-             4 - Menu
-             8 - Assistant (search)
-            16 - App switch
-            32 - Camera
-            64 - Volume rocker
-         For example, a device with Home, Back and Menu keys would set this
-         config to 7. -->
-    <integer name="config_deviceHardwareKeys">64</integer>
 
     <!-- -1 means use same as config_screenBrightnessDoze -->
     <integer name="config_screenBrightnessPulse">-1</integer>

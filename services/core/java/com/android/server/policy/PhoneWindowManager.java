@@ -412,9 +412,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private boolean mDoubleTapToDoze;
     private boolean mNativeDoubleTapToDozeAvailable;
 
-    ANBIHandler mANBIHandler;
-    private boolean mANBIEnabled;
-
     // Assigned on main thread, accessed on UI thread
     volatile VrManagerInternal mVrManagerInternal;
 
@@ -527,8 +524,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     // Click volume down + power for partial screenshot
     boolean mClickPartialScreenshot;
-
-    private HardkeyActionHandler mKeyHandler;
 
     private boolean mPendingKeyguardOccluded;
     private boolean mKeyguardOccludedChanged;
@@ -721,7 +716,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private SwipeToScreenshotListener mSwipeToScreenshot;
 
     private boolean mHasAlertSlider = false;
-    private boolean mHasPermanentMenuKey;
 
     private class PolicyHandler extends Handler {
         @Override
@@ -808,17 +802,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, false, "Torch Long-Press");
                     toggleTorch();
                     break;
-                case HardkeyActionHandler.MSG_FIRE_HOME:
-                    launchHomeFromHotKey(DEFAULT_DISPLAY);
-                    break;
-                case HardkeyActionHandler.MSG_UPDATE_MENU_KEY:
-                    synchronized (mLock) {
-                        mHasPermanentMenuKey = msg.arg1 == 1;
-                    }
-                    break;
-                case HardkeyActionHandler.MSG_DO_HAPTIC_FB:
-                    performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, false, "Hardkey Long-Press");
-                    break;
             }
         }
     }
@@ -893,16 +876,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     Settings.System.ALERT_SLIDER_ORDER), false, this,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.FORCE_SHOW_NAVBAR), false, this,
-                    UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.DOZE_TRIGGER_DOUBLETAP), false, this,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.CLICK_PARTIAL_SCREENSHOT), false, this,
-                    UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.ANBI_ENABLED_OPTION), false, this,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.SCREENSHOT_TYPE), false, this,
@@ -2042,11 +2019,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         mCameraManager = (CameraManager) mContext.getSystemService(Context.CAMERA_SERVICE);
         mCameraManager.registerTorchCallback(new TorchModeCallback(), mHandler);
         mWakeGestureListener = new MyWakeGestureListener(mContext, mHandler);
-        // only for hwkey devices
-        if (!mContext.getResources().getBoolean(
-                com.android.internal.R.bool.config_showNavigationBar)) {
-            mKeyHandler = new HardkeyActionHandler(mContext, mHandler);
-        }
         mSettingsObserver = new SettingsObserver(mHandler);
         mSettingsObserver.observe();
         mShortcutManager = new ShortcutManager(context);
@@ -2370,19 +2342,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 updateWakeGestureListenerLp();
             }
 
-            final boolean ANBIEnabled = Settings.System.getIntForUser(resolver,
-                    Settings.System.ANBI_ENABLED_OPTION, 0, UserHandle.USER_CURRENT) == 1;
-            if (mANBIHandler != null) {
-                if (mANBIEnabled != ANBIEnabled) {
-                    mANBIEnabled = ANBIEnabled;
-                    if (mANBIEnabled) {
-                        mWindowManagerFuncs.registerPointerEventListener(mANBIHandler, DEFAULT_DISPLAY);
-                    } else {
-                        mWindowManagerFuncs.unregisterPointerEventListener(mANBIHandler, DEFAULT_DISPLAY);
-                    }
-                }
-            }
-
             // use screen off timeout setting as the timeout for the lockscreen
             mLockScreenTimeout = Settings.System.getIntForUser(resolver,
                     Settings.System.SCREEN_OFF_TIMEOUT, 0, UserHandle.USER_CURRENT);
@@ -2405,8 +2364,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mHideGlobalActionsOnSecure = Settings.Secure.getIntForUser(resolver,
                     Settings.Secure.POWER_MENU_HIDE_ON_SECURE,
                             0, UserHandle.USER_CURRENT) != 0;
-
-            mDefaultDisplayPolicy.updatehasNavigationBar();
         }
         if (updateRotation) {
             updateRotation(true);
@@ -2916,27 +2873,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         final boolean down = event.getAction() == KeyEvent.ACTION_DOWN;
         final boolean canceled = event.isCanceled();
         final int displayId = event.getDisplayId();
-        final boolean longPress = (flags & KeyEvent.FLAG_LONG_PRESS) != 0;
-        final boolean virtualKey = event.getDeviceId() == KeyCharacterMap.VIRTUAL_KEYBOARD;
 
         if (DEBUG_INPUT) {
             Log.d(TAG, "interceptKeyTi keyCode=" + keyCode + " down=" + down + " repeatCount="
                     + repeatCount + " keyguardOn=" + keyguardOn + " canceled=" + canceled);
-        }
-
-        // we only handle events from hardware key devices that originate from
-        // real button
-        // pushes. We ignore virtual key events as well since it didn't come
-        // from a hard key or
-        // it's the key handler synthesizing a back or menu key event for
-        // dispatch
-        // if keyguard is showing and secure, don't intercept and let aosp keycode
-        // implementation handle event
-        if (mKeyHandler != null && !keyguardOn && !virtualKey) {
-            boolean handled = mKeyHandler.handleKeyEvent(focusedToken, keyCode, repeatCount, down, canceled,
-                    longPress, keyguardOn);
-            if (handled)
-                return -1;
         }
 
         // If we think we might have a volume down & power key chord on the way
@@ -3975,10 +3915,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         mDefaultDisplayPolicy.setHdmiPlugged(plugged, true /* force */);
     }
 
-    private boolean isHwKeysDisabled() {
-        return mKeyHandler != null ? mKeyHandler.isHwKeysDisabled() : false;
-    }
-
     // TODO(b/117479243): handle it in InputPolicy
     /** {@inheritDoc} */
     @Override
@@ -3995,14 +3931,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         final int displayId = event.getDisplayId();
         final boolean isInjected = (policyFlags & WindowManagerPolicy.FLAG_INJECTED) != 0;
 
-        final int source = event.getSource();
-        final boolean navBarKey = source == InputDevice.SOURCE_NAVIGATION_BAR;
-        final boolean appSwitchKey = keyCode == KeyEvent.KEYCODE_APP_SWITCH;
-        final boolean homeKey = keyCode == KeyEvent.KEYCODE_HOME;
-        final boolean menuKey = keyCode == KeyEvent.KEYCODE_MENU;
-        final boolean backKey = keyCode == KeyEvent.KEYCODE_BACK;
-        final boolean virtualKey = event.getDeviceId() == KeyCharacterMap.VIRTUAL_KEYBOARD;
-
         // If screen is off then we treat the case where the keyguard is open but hidden
         // the same as if it were open and in front.
         // This will prevent any keys other than the power button from waking the screen
@@ -4016,11 +3944,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             Log.d(TAG, "interceptKeyTq keycode=" + keyCode
                     + " interactive=" + interactive + " keyguardActive=" + keyguardActive
                     + " policyFlags=" + Integer.toHexString(policyFlags));
-        }
-
-        // Specific device key handling
-        if (dispatchKeyToKeyHandlers(event)) {
-            return 0;
         }
 
         // Pre-basic policy based on interactive and pocket lock state.
@@ -4038,16 +3961,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 keyCode != KeyEvent.KEYCODE_VOLUME_MUTE) {
                 return 0;
             }
-        }
-
-        if (mANBIHandler != null && mANBIEnabled && mANBIHandler.isScreenTouched()
-                && !navBarKey && (appSwitchKey || homeKey || menuKey || backKey)) {
-            return 0;
-        }
-
-        // Disable hw keys in Ambient and when screen off
-        if ((isDozeMode() || !isScreenOn()) && (appSwitchKey || homeKey || menuKey || backKey)) {
-            return 0;
         }
 
         // Basic policy based on interactive state.
@@ -4112,10 +4025,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 && (!isNavBarVirtKey || mNavBarVirtualKeyHapticFeedbackEnabled)
                 && event.getRepeatCount() == 0;
 
-        if (!virtualKey) {
-            if (isHwKeysDisabled() || keyguardOn()) {
-                useHapticFeedback = false;
-            }
+        // Specific device key handling
+        if (dispatchKeyToKeyHandlers(event)) {
+            return 0;
         }
 
         // Handle special keys.
@@ -5345,8 +5257,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mAlertSliderObserver.startObserving(com.android.internal.R.string.alert_slider_uevent_match_path);
         }
 
-        mANBIHandler = new ANBIHandler(mContext);
-
         readCameraLensCoverState();
         updateUiMode();
         mDefaultDisplayRotation.updateOrientationListener();
@@ -5894,11 +5804,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 mHandler.post(mScreenshotRunnable);
             }
         }
-    }
-
-    @Override
-    public boolean hasPermanentMenuKey() {
-        return !hasNavigationBar() && mHasPermanentMenuKey;
     }
 
     @Override
