@@ -119,9 +119,6 @@ public class StatusBarHeaderMachine {
                     Settings.System.STATUS_BAR_CUSTOM_HEADER_PROVIDER),
                     false, this, UserHandle.USER_ALL);
             mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.STATUS_BAR_CUSTOM_HEADER_SHADOW),
-                    false, this, UserHandle.USER_ALL);
-            mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_FILE_HEADER_IMAGE),
                     false, this, UserHandle.USER_ALL);
         }
@@ -131,21 +128,16 @@ public class StatusBarHeaderMachine {
             final boolean customHeader = Settings.System.getIntForUser(mContext.getContentResolver(),
                     Settings.System.STATUS_BAR_CUSTOM_HEADER, 0,
                     UserHandle.USER_CURRENT) == 1;
-            if (customHeader && uri.equals(Settings.System.getUriFor(
-                    Settings.System.STATUS_BAR_CUSTOM_HEADER_SHADOW))) {
-                doRefreshStatusHeaderObservers();
-            } else {
-                IStatusBarHeaderProvider provider = getCurrentProvider();
-                // forward to current active provider
-                if (provider != null) {
-                    try {
-                        provider.settingsChanged(uri);
-                    } catch (Exception e) {
-                        // just in case
-                    }
+            IStatusBarHeaderProvider provider = getCurrentProvider();
+            // forward to current active provider
+            if (provider != null) {
+                try {
+                    provider.settingsChanged(uri);
+                } catch (Exception e) {
+                    // just in case
                 }
-                updateEnablement();
             }
+            updateEnablement();
         }
     }
 

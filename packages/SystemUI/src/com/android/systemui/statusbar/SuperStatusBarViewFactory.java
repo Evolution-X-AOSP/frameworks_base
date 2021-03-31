@@ -21,7 +21,6 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.android.systemui.R;
-//import com.android.systemui.navigation.pulse.VisualizerView;
 import com.android.systemui.statusbar.notification.row.dagger.NotificationRowComponent;
 import com.android.systemui.statusbar.phone.LockIcon;
 import com.android.systemui.statusbar.phone.LockscreenLockIconController;
@@ -64,7 +63,6 @@ public class SuperStatusBarViewFactory {
      * Gets the inflated {@link NotificationShadeWindowView} from
      * {@link R.layout#super_notification_shade}.
      * Returns a cached instance, if it has already been inflated.
-     * This will inflate also Pulse VisualizerView
      */
     public NotificationShadeWindowView getNotificationShadeWindowView() {
         if (mNotificationShadeWindowView != null) {

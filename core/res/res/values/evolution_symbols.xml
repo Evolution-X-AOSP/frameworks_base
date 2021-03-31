@@ -173,7 +173,7 @@
   <!-- Default fod pressed icon -->
   <java-symbol type="integer" name="config_fod_pressed_color" />
 
-  <!-- Night Light FOD -->
+  <!-- NightLight FOD -->
   <java-symbol type="bool" name="disable_fod_night_light"/>
 
   <!-- Default value for FOD animation package resources -->
@@ -189,11 +189,6 @@
   <!-- Button backlight -->
   <java-symbol type="dimen" name="config_buttonBrightnessSettingDefaultFloat" />
   <java-symbol type="bool" name="config_deviceHasVariableButtonBrightness" />
-
-  <!-- HW keys binding -->
-  <java-symbol type="anim" name="custom_app_in" />
-  <java-symbol type="anim" name="custom_app_out" />
-  <java-symbol type="integer" name="config_deviceHardwareKeys" />
 
   <!-- Gaming mode -->
   <java-symbol type="drawable" name="ic_gaming_notif" />

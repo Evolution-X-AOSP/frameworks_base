@@ -4906,12 +4906,6 @@ public final class Settings {
         public static final String SCREENSHOT_SOUND = "screenshot_sound";
 
         /**
-         * Whether to show the battery info on the lockscreen while charging
-         * @hide
-         */
-        public static final String LOCKSCREEN_BATTERY_INFO = "lockscreen_battery_info";
-
-        /**
          * Whether the battery light should be enabled (if hardware supports it)
          * The value is boolean (1 or 0).
          * @hide
@@ -5639,11 +5633,6 @@ public final class Settings {
         public static final String FOOTER_TEXT_STRING = "footer_text_string";
 
         /**
-         * @hide
-         */
-        public static final String FORCE_SHOW_NAVBAR = "navbar_visibility";
-
-        /**
          * What to show in network traffic indicator in statusbar
          * @hide
          */
@@ -5679,12 +5668,6 @@ public final class Settings {
          * @hide
          */
         public static final String FOD_NIGHT_LIGHT = "fod_night_light";
-
-        /**
-         * Whether to display status area (date & weather information) on the cLock
-         * @hide
-         */
-        public static final String CLOCK_SHOW_STATUS_AREA = "clock_show_status_area";
 
         /**
          * Use doubletap as doze pulse triggers
@@ -5725,18 +5708,6 @@ public final class Settings {
         public static final String CLICK_PARTIAL_SCREENSHOT = "click_partial_screenshot";
 
         /**
-         * Indicates whether ANBI (Accidental navigation button interaction) is enabled.
-         * @hide
-         */
-        public static final String ANBI_ENABLED_OPTION = "anbi_enabled_option";
-
-        /**
-         * Whether the Home button works during call
-         * @hide
-         */
-        public static final String ALLOW_INCALL_HOME = "allow_incall_home";
-
-        /**
          * Gaming mode master switch
          * @hide
          */
@@ -5754,12 +5725,6 @@ public final class Settings {
          */
         public static final String GAMING_MODE_VALUES = "gaming_mode_values";
         public static final String GAMING_MODE_DUMMY = "gaming_mode_dummy";
-
-        /**
-         * Whether to disable hardware keys in gaming mode
-         * @hide
-         */
-        public static final String GAMING_MODE_HW_KEYS_TOGGLE = "gaming_mode_hw_keys_toggle";
 
         /**
          * Whether to disable heads up gaming mode
@@ -5952,14 +5917,6 @@ public final class Settings {
          * @hide
          */
         public static final String STATUS_BAR_CUSTOM_HEADER = "status_bar_custom_header";
-
-        /**
-         * Whether to apply a shadow on top of the header image
-         * value is the alpha value of the shadow image is 0 -> no shadow -> 255 black
-         * @hide
-         */
-        public static final String STATUS_BAR_CUSTOM_HEADER_SHADOW =
-                "status_bar_custom_header_shadow";
 
         /**
          * Header image package to use for daylight header - package name - null if default
@@ -6244,7 +6201,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_MODE);
             // Evolution X Customization
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_GESTURE);
-            PRIVATE_SETTINGS.add(LOCKSCREEN_BATTERY_INFO);
             PRIVATE_SETTINGS.add(BATTERY_LIGHT_ENABLED);
             PRIVATE_SETTINGS.add(BATTERY_LIGHT_ALLOW_ON_DND);
             PRIVATE_SETTINGS.add(BATTERY_LIGHT_LOW_BLINKING);
@@ -6296,8 +6252,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_TIMEOUT);
             PRIVATE_SETTINGS.add(BUTTON_BRIGHTNESS);
             PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED);
-            PRIVATE_SETTINGS.add(ANBI_ENABLED_OPTION);
-            PRIVATE_SETTINGS.add(ALLOW_INCALL_HOME);
             PRIVATE_SETTINGS.add(PULSE_BRIGHTNESS);
             PRIVATE_SETTINGS.add(DOZE_BRIGHTNESS);
             PRIVATE_SETTINGS.add(DOZE_BRIGHTNESS_FORCE);
@@ -8909,12 +8863,6 @@ public final class Settings {
                 "search_global_search_activity";
 
         /**
-         * Disable hw buttons - actions, brightness, haptic feedback, overflow menu
-         * @hide
-         */
-        public static final String HARDWARE_KEYS_DISABLE = "hardware_keys_disable";
-
-        /**
          * The number of promoted sources in GlobalSearch.
          * @hide
          */
@@ -10547,121 +10495,10 @@ public final class Settings {
         public static final String TOUCH_SENSITIVITY_ENABLED = "touch_sensitivity_enabled";
 
         /**
-         * Pulse navbar music visualizer
-         *
-         * @hide
-         */
-        public static final String NAVBAR_PULSE_ENABLED = "navbar_pulse_enabled";
-
-        /**
-         * Pulse ambient music visualizer
-         * @hide
-         */
-        public static final String AMBIENT_PULSE_ENABLED = "ambient_pulse_enabled";
-
-        /**
-         * Pulse lockscreen music visualizer
-         * @hide
-         */
-        public static final String LOCKSCREEN_PULSE_ENABLED = "lockscreen_pulse_enabled";
-
-        /**
-         * Pulse navbar music visualizer color type
-         *
-         * @hide
-         */
-        public static final String PULSE_COLOR_MODE = "pulse_color_mode";
-
-        /**
-         * Pulse music visualizer user defined color
-         *
-         * @hide
-         */
-        public static final String PULSE_COLOR_USER = "pulse_color_user";
-
-        /**
-         * Pulse lavalamp animation speed
-         *
-         * @hide
-         */
-        public static final String PULSE_LAVALAMP_SPEED = "pulse_lavalamp_speed";
-
-        /**
-         * Pulse renderer implementation
-         *
-         * @hide
-         */
-        public static final String PULSE_RENDER_STYLE = "pulse_render_style";
-
-        /**
-         * Custom Pulse Widths
-         * @hide
-         */
-        public static final String PULSE_CUSTOM_DIMEN = "pulse_custom_dimen";
-
-        /**
-         * Custom Spacing Between Pulse Bars
-         * @hide
-         */
-        public static final String PULSE_CUSTOM_DIV = "pulse_custom_div";
-
-        /**
-         * Custom Pulse Block Size
-         * @hide
-         */
-        public static final String PULSE_FILLED_BLOCK_SIZE = "pulse_filled_block_size";
-
-        /**
-         * Custom Spacing Between Pulse Blocks
-         * @hide
-         */
-        public static final String PULSE_EMPTY_BLOCK_SIZE = "pulse_empty_block_size";
-
-        /**
-         * Custom Pulse Sanity Levels
-         * @hide
-         */
-        public static final String PULSE_CUSTOM_FUDGE_FACTOR = "pulse_custom_fudge_factor";
-
-        /**
-         * Pulse Fudge Factor
-         * @hide
-         */
-        public static final String PULSE_SOLID_FUDGE_FACTOR = "pulse_solid_fudge_factor";
-
-        /**
-         * Pulse Solid units count
-         * @hide
-         */
-        public static final String PULSE_SOLID_UNITS_COUNT = "pulse_solid_units_count";
-
-        /**
-         * Pulse Solid units opacity
-         * @hide
-         */
-        public static final String PULSE_SOLID_UNITS_OPACITY = "pulse_solid_units_opacity";
-
-        /**
-         * Pulse uses FFT averaging
-         * @hide
-         */
-        public static final String PULSE_SMOOTHING_ENABLED = "pulse_smoothing_enabled";
-
-        /**
          * boolean value. toggles swipe up hint in gestural nav mode
          * @hide
          */
         public static final String NAVIGATION_BAR_HINT = "navigation_bar_hint";
-
-        /**
-         * @hide
-         */
-        public static final String SCREENSHOT_IN_POWER_MENU = "screenshot_in_power_menu";
-
-        /**
-         * @hide
-         */
-        public static final String SCREENRECORD_IN_POWER_MENU = "screenrecord_in_power_menu";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to
@@ -15090,14 +14927,6 @@ public final class Settings {
         public static final String[] TRANSIENT_SETTINGS = {
                 LOCATION_GLOBAL_KILL_SWITCH,
         };
-
-        /**
-         * Whether applications can fake a signature.
-         * 1 = permit apps to fake signature
-         * 0 = disable this feature
-         * @hide
-         */
-        public static final String ALLOW_SIGNATURE_FAKE = "allow_signature_fake";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to

@@ -77,7 +77,7 @@ import android.transition.AutoTransition;
 import android.transition.TransitionManager;
 import android.transition.TransitionSet;
 import android.util.ArraySet;
-//import android.util.FeatureFlagUtils;
+import android.util.FeatureFlagUtils;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.IWindowManager;
@@ -188,7 +188,6 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     private static final String GLOBAL_ACTION_KEY_LOGOUT = "logout";
     static final String GLOBAL_ACTION_KEY_EMERGENCY = "emergency";
     static final String GLOBAL_ACTION_KEY_SCREENSHOT = "screenshot";
-    static final String GLOBAL_ACTION_KEY_SCREENRECORD = "screenrecord";
 
     private static final int RESTART_RECOVERY_BUTTON = 1;
     private static final int RESTART_BOOTLOADER_BUTTON = 2;
@@ -711,13 +710,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                     addIfShouldShowAction(tempActions, restartSystemUiAction);
                 }
             } else if (GLOBAL_ACTION_KEY_SCREENSHOT.equals(actionKey)) {
-                if (screenshotEnabled(mContext)) {
-                    addIfShouldShowAction(tempActions, new ScreenshotAction());
-                }
-            } else if (GLOBAL_ACTION_KEY_SCREENRECORD.equals(actionKey)) {
-                if (screenrecordEnabled(mContext)) {
-                    addIfShouldShowAction(tempActions, new ScreenrecordAction());
-                }
+                addIfShouldShowAction(tempActions, new ScreenshotAction());
             } else if (GLOBAL_ACTION_KEY_LOGOUT.equals(actionKey)) {
                 if (mDevicePolicyManager.isLogoutEnabled()
                         && currentUser.get() != null
@@ -847,16 +840,6 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         boolean advancedRebootEnabled = Settings.System.getIntForUser(context.getContentResolver(),
                 Settings.System.ADVANCED_REBOOT, 1, UserHandle.USER_CURRENT) == 1;
         return advancedRebootEnabled;
-    }
-
-    private boolean screenshotEnabled(Context context) {
-        return Settings.Secure.getIntForUser(context.getContentResolver(),
-                Settings.Secure.SCREENSHOT_IN_POWER_MENU, 0, UserHandle.USER_CURRENT) == 1;
-    }
-
-    private boolean screenrecordEnabled(Context context) {
-        return Settings.Secure.getIntForUser(context.getContentResolver(),
-                Settings.Secure.SCREENRECORD_IN_POWER_MENU, 0, UserHandle.USER_CURRENT) == 1;
     }
 
     @VisibleForTesting
@@ -1126,40 +1109,13 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
         @Override
         public boolean onLongPress() {
-            //if (FeatureFlagUtils.isEnabled(mContext, FeatureFlagUtils.SCREENRECORD_LONG_PRESS)) {
+            if (FeatureFlagUtils.isEnabled(mContext, FeatureFlagUtils.SCREENRECORD_LONG_PRESS)) {
                 mUiEventLogger.log(GlobalActionsEvent.GA_SCREENSHOT_LONG_PRESS);
                 mScreenRecordHelper.launchRecordPrompt();
-            /*} else {
+            } else {
                 onPress();
-            }*/
+            }
             return true;
-        }
-    }
-
-    private class ScreenrecordAction extends SinglePressAction implements LongPressAction {
-        public ScreenrecordAction() {
-            super(com.android.systemui.R.drawable.ic_screenrecord,
-            com.android.systemui.R.string.global_action_screenrecord);
-        }
-
-        @Override
-        public void onPress() {
-            mScreenRecordHelper.launchRecordPrompt();
-        }
-
-        @Override
-        public boolean showDuringKeyguard() {
-            return true;
-        }
-
-        @Override
-        public boolean showBeforeProvisioning() {
-            return false;
-        }
-
-        @Override
-        public boolean onLongPress() {
-            return false;
         }
     }
 
