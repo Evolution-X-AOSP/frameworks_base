@@ -58,7 +58,6 @@ LOCAL_REQUIRED_MODULES := \
 	AccentColorOrangeOverlay \
 	AccentColorParanoidOverlay \
 	AccentColorPepsiOverlay \
-	AccentColorPixelBlueOGOverlay \
 	AccentColorRazerOverlay \
 	AccentColorSalmonOverlay \
 	AccentColorStarbucksOverlay \

@@ -15092,14 +15092,6 @@ public final class Settings {
         };
 
         /**
-         * Whether applications can fake a signature.
-         * 1 = permit apps to fake signature
-         * 0 = disable this feature
-         * @hide
-         */
-        public static final String ALLOW_SIGNATURE_FAKE = "allow_signature_fake";
-
-        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
