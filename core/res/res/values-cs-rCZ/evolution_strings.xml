@@ -51,4 +51,12 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Je vyžadován restart SystemUI</string>
     <string name="systemui_restart_message">Aby se projevily všechny změny, je třeba restartovat SystemUI. Restartovat nyní?</string>
+    <!-- Gaming mode -->
+    <string name="notification_channel_gaming">Herní režim</string>
+    <string name="gaming_mode_notification_title">Herní režim povolen</string>
+    <string name="gaming_mode_notification_content">Klepněte sem pro vypnutí Herního režimu</string>
+    <string name="gaming_mode_enabled_toast">Herní režim je zapnutý</string>
+    <string name="gaming_mode_disabled_toast">Herní režim je vypnutý</string>
+    <string name="active_edge_app_select_title">Vybrat aplikaci</string>
+    <string name="active_edge_activity_select_title">Vybrat činnost</string>
 </resources>
