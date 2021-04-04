@@ -114,14 +114,15 @@ public class QSContainerImpl extends FrameLayout implements ColorExtractor.OnCol
 
     private SysuiColorExtractor mColorExtractor;
     private IOverlayManager mOverlayManager;
+    private Handler mHandler;
 
     public QSContainerImpl(Context context, AttributeSet attrs) {
         super(context, attrs);
         mStatusBarHeaderMachine = new StatusBarHeaderMachine(context);
         mOverlayManager = IOverlayManager.Stub.asInterface(
                 ServiceManager.getService(Context.OVERLAY_SERVICE));
-        Handler handler = new Handler();
-        SettingsObserver settingsObserver = new SettingsObserver(handler);
+        mHandler = new Handler();
+        SettingsObserver settingsObserver = new SettingsObserver(mHandler);
         settingsObserver.observe();
         mColorExtractor = Dependency.get(SysuiColorExtractor.class);
         mColorExtractor.addOnColorsChangedListener(this);
@@ -160,7 +161,9 @@ public class QSContainerImpl extends FrameLayout implements ColorExtractor.OnCol
 
     @Override
     public void onColorsChanged(ColorExtractor colorExtractor, int which) {
-        setQsBackground();
+        mHandler.postDelayed(() -> {
+            setQsBackground();
+        }, 1000);
     }
 
     private class SettingsObserver extends ContentObserver {
