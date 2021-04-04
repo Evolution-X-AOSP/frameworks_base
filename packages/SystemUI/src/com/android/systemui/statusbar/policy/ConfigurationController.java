@@ -30,6 +30,9 @@ public interface ConfigurationController extends CallbackController<Configuratio
     /** Alert controller of a change in between light and dark themes. */
     void notifyThemeChanged();
 
+    /** @hide Force reload all uiMode listeners */
+    void reloadUiModeListeners();
+
     interface ConfigurationListener {
         default void onConfigChanged(Configuration newConfig) {}
         default void onDensityOrFontScaleChanged() {}

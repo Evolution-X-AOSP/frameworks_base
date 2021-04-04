@@ -6215,6 +6215,12 @@ public final class Settings {
         public static final String CLOCK_SHOW_STATUS_AREA = "clock_show_status_area";
 
         /**
+         * Control how to handle the display cutout
+         * @hide
+         */
+        public static final String SYSUI_COLORS_ACTIVE = "sysui_colors_active";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
