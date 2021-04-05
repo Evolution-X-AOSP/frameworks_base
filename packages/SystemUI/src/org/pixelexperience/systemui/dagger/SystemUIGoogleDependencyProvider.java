@@ -1252,7 +1252,8 @@ public class SystemUIGoogleDependencyProvider {
             Lazy<Optional<NotificationVoiceReplyClient>> notificationVoiceReplyClient,
             BurnInProtectionController burnInProtectionController,
             TaskHelper taskHelper,
-            SecureLockscreenQSDisabler secureLockscreenQSDisabler) {
+            SecureLockscreenQSDisabler secureLockscreenQSDisabler,
+            TunerService tunerService) {
         return new StatusBarGoogle(
                 context, notificationsController, lightBarController, autoHideController, keyguardUpdateMonitor,
                 signalPolicy, pulseExpansionHandler, notificationWakeUpCoordinator, keyguardBypassController,
@@ -1277,7 +1278,7 @@ public class SystemUIGoogleDependencyProvider {
                 locationPublisher, statusBarIconController, lockscreenShadeTransitionController, featureFlags,
                 keyguardUnlockAnimationController, unlockedScreenOffAnimationController, startingSurfaceOptional,
                 smartSpaceController, wallpaperNotifier, reverseChargingController, notificationVoiceReplyClient,
-                burnInProtectionController, taskHelper, secureLockscreenQSDisabler);
+                burnInProtectionController, taskHelper, secureLockscreenQSDisabler, tunerService);
     }
 
     @SysUISingleton
