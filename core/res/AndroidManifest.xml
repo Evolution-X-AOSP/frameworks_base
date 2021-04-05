@@ -686,6 +686,10 @@
     <!-- Font service -->
     <protected-broadcast android:name="com.android.server.ACTION_FONT_CHANGED" />
 
+    <!-- Gaming Mode -->
+    <protected-broadcast android:name="exthmui.intent.action.GAMING_MODE_ON" />
+    <protected-broadcast android:name="exthmui.intent.action.GAMING_MODE_OFF" />
+
     <!-- ====================================================================== -->
     <!--                          RUNTIME PERMISSIONS                           -->
     <!-- ====================================================================== -->
