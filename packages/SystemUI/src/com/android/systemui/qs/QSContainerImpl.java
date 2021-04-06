@@ -39,17 +39,13 @@ import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.evolution.header.StatusBarHeaderMachine;
 import com.android.systemui.qs.customize.QSCustomizer;
-import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.animation.PhysicsAnimator;
 
 /**
  * Wrapper view with background which contains {@link QSPanel} and {@link BaseStatusBarHeader}
  */
 public class QSContainerImpl extends FrameLayout implements
-        StatusBarHeaderMachine.IStatusBarHeaderMachineObserver, TunerService.Tunable {
-
-    private static final String QS_PANEL_BG_ALPHA =
-            "system:" + Settings.System.QS_PANEL_BG_ALPHA;
+        StatusBarHeaderMachine.IStatusBarHeaderMachineObserver {
 
     private final Point mSizePoint = new Point();
     private static final FloatPropertyCompat<QSContainerImpl> BACKGROUND_BOTTOM =
@@ -91,8 +87,6 @@ public class QSContainerImpl extends FrameLayout implements
     private StatusBarHeaderMachine mStatusBarHeaderMachine;
     private Drawable mCurrentBackground;
     private boolean mLandscape;
-
-    private int mQsBackgroundAlpha = 255;
 
     public QSContainerImpl(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -145,8 +139,6 @@ public class QSContainerImpl extends FrameLayout implements
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        final TunerService tunerService = Dependency.get(TunerService.class);
-        tunerService.addTunable(this, QS_PANEL_BG_ALPHA);
 
         mStatusBarHeaderMachine.addObserver(this);
         mStatusBarHeaderMachine.updateEnablement();
@@ -156,7 +148,6 @@ public class QSContainerImpl extends FrameLayout implements
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         mStatusBarHeaderMachine.removeObserver(this);
-        Dependency.get(TunerService.class).removeTunable(this);
     }
 
     @Override
@@ -166,24 +157,6 @@ public class QSContainerImpl extends FrameLayout implements
 
         updateResources();
         mSizePoint.set(0, 0); // Will be retrieved on next measure pass.
-    }
-
-    @Override
-    public void onTuningChanged(String key, String newValue) {
-        switch (key) {
-            case QS_PANEL_BG_ALPHA:
-                mQsBackgroundAlpha =
-                        TunerService.parseInteger(newValue, 255);
-                updateAlpha();
-                break;
-            default:
-                break;
-        }
-    }
-
-    private void updateAlpha() {
-        mBackground.getBackground().setAlpha(mQsBackgroundAlpha);
-        mStatusBarBackground.getBackground().setAlpha(mQsBackgroundAlpha);
     }
 
     @Override
@@ -252,6 +225,7 @@ public class QSContainerImpl extends FrameLayout implements
         if (disabled == mQsDisabled) return;
         mQsDisabled = disabled;
         mBackground.setVisibility(mQsDisabled ? View.GONE : View.VISIBLE);
+        updateStatusbarVisibility();
     }
 
     private void updateResources() {
@@ -435,7 +409,5 @@ public class QSContainerImpl extends FrameLayout implements
 
         mStatusBarBackground.setBackgroundColor(Color.TRANSPARENT);
         mStatusBarBackground.setVisibility(hideStatusbar ? View.INVISIBLE : View.VISIBLE);
-
-        updateAlpha();
     }
 }

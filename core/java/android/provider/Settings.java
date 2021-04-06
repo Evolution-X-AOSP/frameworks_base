@@ -5988,12 +5988,6 @@ public final class Settings {
         public static final String LOCKSCREEN_STATUS_BAR = "lockscreen_status_bar";
 
         /**
-         * Whether to change the transparency of the qs panel
-         * @hide
-         */
-        public static final String QS_PANEL_BG_ALPHA = "qs_panel_bg_alpha";
-
-        /**
          * Whether to show battery percent on ambient bottom
          * @hide
          */
