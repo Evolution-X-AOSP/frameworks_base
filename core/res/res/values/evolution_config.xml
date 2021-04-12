@@ -245,4 +245,7 @@
         <item>com.gaana</item>
         <item>com.facebook.katana.LoginActivity</item>
     </string-array>
+
+    <!-- Switch USB controller on Asus ROG devices-->
+    <bool name="config_switchUsbController">false</bool>
 </resources>

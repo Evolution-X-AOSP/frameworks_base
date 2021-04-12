@@ -167,4 +167,7 @@
 
     <!-- Sensor block -->
     <java-symbol type="array" name="config_blockPackagesSensorDrain" />
+
+    <!-- Switch USB controller on Asus ROG devices-->
+    <java-symbol type="bool" name="config_switchUsbController" />
 </resources>
