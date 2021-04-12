@@ -249,4 +249,7 @@
 
   <!-- Camera key type -->
   <java-symbol type="bool" name="config_singleStageCameraKey" />
+
+  <!-- Switch USB controller on Asus ROG devices-->
+  <java-symbol type="bool" name="config_switchUsbController" />
 </resources>
