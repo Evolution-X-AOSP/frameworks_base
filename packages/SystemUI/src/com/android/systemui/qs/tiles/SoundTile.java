@@ -55,6 +55,12 @@ public class SoundTile extends QSTileImpl<BooleanState> {
     }
 
     @Override
+    public boolean isAvailable() {
+        return !mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_hasAlertSlider);
+    }
+
+    @Override
     public BooleanState newTileState() {
         return new BooleanState();
     }
