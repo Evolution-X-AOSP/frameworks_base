@@ -21,4 +21,25 @@
     <string name="screen_zoom_summary_smallest">Самы маленькі</string>
     <!-- Deep sleep info -->
     <string name="status_deep_sleep" formatted="false">(Глыбокі сон: %1$d%2$s)</string>
+    <!-- Label for estimated remaining duration of dash battery charging -->
+    <string name="power_remaining_dash_charging_duration_only">Хуткая зарадка (<xliff:g id="time">%1$s</xliff:g> засталося да канца)</string>
+    <!-- Battery use screen.  Battery status shown in chart label when charging from a dash source.  -->
+    <string name="battery_info_status_dash_charging">Хуткая зарадка</string>
+    <!-- Label for estimated remaining duration of warp battery charging -->
+    <string name="power_remaining_warp_charging_duration_only">Warp зарадка (<xliff:g id="time">%1$s</xliff:g> засталося да канца)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
+    <string name="battery_info_status_warp_charging">Warp зарадка</string>
+    <!-- Label for estimated remaining duration of vooc battery charging -->
+    <string name="power_remaining_vooc_charging_duration_only">VOOC зарадка (<xliff:g id="time">%1$s</xliff:g> засталося да поўнага зарада)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a VOOC source.  -->
+    <string name="battery_info_status_vooc_charging">Зарадка VOOC</string>
+    <!-- Label for estimated remaining duration of TurboPower battery charging -->
+    <string name="power_remaining_turbo_charging_duration_only">Turbo зарадка (<xliff:g id="time">%1$s</xliff:g> засталося да канца)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
+    <string name="battery_info_status_turbo_charging">Turbo зарадка</string>
+    <!-- Bluetooth codecs -->
+    <string name="bluetooth_a2dp_codec_system">Выкарыстоўваць сicтэмны выбар (Па змаўчаннi)</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_mono">Мона</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_stereo">Стэрэа</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_dual">Двухканальны гук</string>
 </resources>
