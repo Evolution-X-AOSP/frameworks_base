@@ -37,4 +37,9 @@
     <string name="power_remaining_turbo_charging_duration_only">涡轮闪充 (还需 <xliff:g id="time">%1$s</xliff:g> 充满)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
     <string name="battery_info_status_turbo_charging">正在涡轮闪充</string>
+    <!-- Bluetooth codecs -->
+    <string name="bluetooth_a2dp_codec_system">使用系统选择 (默认)</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_mono">单声道</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_stereo">立体声</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_dual">双声道</string>
 </resources>
