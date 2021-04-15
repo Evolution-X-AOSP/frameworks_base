@@ -37,4 +37,9 @@
     <string name="power_remaining_turbo_charging_duration_only">Ricarica Turbo (<xliff:g id="time">%1$s</xliff:g> rimanenti fino alla carica completa)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
     <string name="battery_info_status_turbo_charging">Ricarica Turbo</string>
+    <!-- Bluetooth codecs -->
+    <string name="bluetooth_a2dp_codec_system">Usa Selezione di Sistema (Predefinito)</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_mono">Mono</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_stereo">Stereo</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_dual">Canale Doppio</string>
 </resources>
