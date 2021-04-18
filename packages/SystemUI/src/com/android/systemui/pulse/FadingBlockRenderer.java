@@ -64,6 +64,7 @@ public class FadingBlockRenderer extends Renderer {
     private LegacySettingsObserver mObserver;
     private boolean mSmoothingEnabled;
     private boolean mCenterMirrored;
+    private boolean mVerticalMirror;
 
     public FadingBlockRenderer(Context context, Handler handler, PulseView view,
             PulseControllerImpl controller, ColorController colorController) {
@@ -243,7 +244,16 @@ public class FadingBlockRenderer extends Renderer {
 
     @Override
     public void draw(Canvas canvas) {
+        canvas.scale(1, 1, mWidth / 2f, mHeight / 2f);
         canvas.drawBitmap(mCanvasBitmap, mMatrix, null);
+        if (mVerticalMirror) {
+            if (mVertical) {
+                canvas.scale(-1, 1, mWidth / 2f, mHeight / 2f);
+            } else {
+                canvas.scale(1, -1, mWidth / 2f, mHeight / 2f);
+            }
+            canvas.drawBitmap(mCanvasBitmap, mMatrix, null);
+        }
     }
 
     /*private int applyPaintAlphaToColor(int color) {
@@ -289,6 +299,10 @@ public class FadingBlockRenderer extends Renderer {
                     Settings.Secure.getUriFor(Settings.Secure.PULSE_CUSTOM_GRAVITY), false,
                     this,
                     UserHandle.USER_ALL);
+            resolver.registerContentObserver(
+                    Settings.Secure.getUriFor(Settings.Secure.PULSE_VERTICAL_MIRROR), false,
+                    this,
+                    UserHandle.USER_ALL);
         }
 
         @Override
@@ -331,6 +345,8 @@ public class FadingBlockRenderer extends Renderer {
                     Settings.Secure.PULSE_SMOOTHING_ENABLED, 0, UserHandle.USER_CURRENT) == 1;
             mCenterMirrored = Settings.Secure.getIntForUser(resolver,
                     Settings.Secure.VISUALIZER_CENTER_MIRRORED, 0, UserHandle.USER_CURRENT) == 1;
+            mVerticalMirror = Settings.Secure.getIntForUser(resolver,
+                    Settings.Secure.PULSE_VERTICAL_MIRROR, 0, UserHandle.USER_CURRENT) == 1;
             mGravity = Settings.Secure.getIntForUser(
                     resolver, Settings.Secure.PULSE_CUSTOM_GRAVITY, 0, UserHandle.USER_CURRENT);
         }
