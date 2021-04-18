@@ -21,6 +21,7 @@ import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
 
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
+import android.app.WallpaperColors;
 import android.app.WallpaperManager;
 import android.content.Context;
 import android.content.om.IOverlayManager;
@@ -259,7 +260,7 @@ public class QSContainerImpl extends FrameLayout implements ColorExtractor.OnCol
     }
 
     private void setQsBackground() {
-        int currentColor = mSetQsFromWall ? getWallpaperColor() : mQsBackGroundColor;
+        int currentColor = mSetQsFromWall ? getWallpaperColor(ColorUtils.genRandomQsColor()) : mQsBackGroundColor;
         if (mSetQsFromResources) {
             mQsBackGround = getContext().getDrawable(R.drawable.qs_background_primary);
             try {
@@ -287,10 +288,12 @@ public class QSContainerImpl extends FrameLayout implements ColorExtractor.OnCol
         }
     }
 
-    private int getWallpaperColor() {
+    private int getWallpaperColor(int defaultColor) {
         // TODO: Find a way to trigger setBackground on lock event, and use FLAG_LOCK there
-        return ColorUtils.getValidQsColor(mColorExtractor.getWallpaperColors(WallpaperManager.FLAG_SYSTEM)
-                        .getPrimaryColor().toArgb());
+        if (mColorExtractor == null) return defaultColor;
+        WallpaperColors wallpaperColors = mColorExtractor.getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
+        if (wallpaperColors == null) return defaultColor;
+        return ColorUtils.getValidQsColor(wallpaperColors.getPrimaryColor().toArgb());
     }
 
     @Override
