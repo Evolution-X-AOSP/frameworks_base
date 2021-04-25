@@ -824,7 +824,8 @@ public final class LoadedApk {
         final String librarySearchPath = TextUtils.join(File.pathSeparator, libPaths);
 
         if (mActivityThread != null) {
-            final String gpuDebugApp = mActivityThread.getStringCoreSetting(
+            final Bundle coreSettings = mActivityThread.getCoreSettings();
+            final String gpuDebugApp = coreSettings == null ? "" : coreSettings.getString(
                     Settings.Global.GPU_DEBUG_APP, "");
             if (!gpuDebugApp.isEmpty() && mPackageName.equals(gpuDebugApp)) {
 
