@@ -196,14 +196,16 @@ public class TypeAltClockController implements ClockPlugin {
         // Let's see what string we need according to the time
         int saluteResId = R.string.salute_fallback;
 
-        if (mTime.get(Calendar.HOUR_OF_DAY) >= 5 && mTime.get(Calendar.HOUR_OF_DAY) < 12) {
+        if (mTime.get(Calendar.HOUR_OF_DAY) > 4 && mTime.get(Calendar.HOUR_OF_DAY) <= 11) {
             saluteResId = R.string.salute_morning;
-        } else if (mTime.get(Calendar.HOUR_OF_DAY) >= 12 && mTime.get(Calendar.HOUR_OF_DAY) < 18) {
+        } else if (mTime.get(Calendar.HOUR_OF_DAY) > 11 && mTime.get(Calendar.HOUR_OF_DAY) <= 16) {
             saluteResId = R.string.salute_afternoon;
-        } else if (mTime.get(Calendar.HOUR_OF_DAY) >= 18 && mTime.get(Calendar.HOUR_OF_DAY) <= 22) {
+        } else if (mTime.get(Calendar.HOUR_OF_DAY) > 16 && mTime.get(Calendar.HOUR_OF_DAY) <= 19) {
             saluteResId = R.string.salute_evening;
-        } else {
+        } else if (mTime.get(Calendar.HOUR_OF_DAY) > 19 &&  mTime.get(Calendar.HOUR_OF_DAY) <= 23) {
             saluteResId = R.string.salute_night;
+        } else if (mTime.get(Calendar.HOUR_OF_DAY) > 0 &&  mTime.get(Calendar.HOUR_OF_DAY) <= 3) {
+            saluteResId = R.string.salute_sleep;
         }
 
         int hour = mTime.get(Calendar.HOUR) % 12;
