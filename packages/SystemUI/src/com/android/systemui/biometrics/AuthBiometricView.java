@@ -92,7 +92,7 @@ public abstract class AuthBiometricView extends LinearLayout {
      * Authenticated, dialog animating away soon.
      */
     protected static final int STATE_AUTHENTICATED = 6;
-    
+
     @Retention(RetentionPolicy.SOURCE)
     @IntDef({STATE_IDLE, STATE_AUTHENTICATING_ANIMATING_IN, STATE_AUTHENTICATING, STATE_HELP,
             STATE_ERROR, STATE_PENDING_CONFIRMATION, STATE_AUTHENTICATED})
@@ -636,38 +636,46 @@ public abstract class AuthBiometricView extends LinearLayout {
         mAppIcon.setVisibility(View.GONE);
         addView(mAppIcon, 0);
 
-        mNegativeButton.setOnClickListener((view) -> {
-            if (mState == STATE_PENDING_CONFIRMATION) {
-                mCallback.onAction(Callback.ACTION_USER_CANCELED);
-            } else {
-                if (isDeviceCredentialAllowed()) {
-                    startTransitionToCredentialUI();
+        if (mNegativeButton != null) {
+            mNegativeButton.setOnClickListener((view) -> {
+                if (mState == STATE_PENDING_CONFIRMATION) {
+                    mCallback.onAction(Callback.ACTION_USER_CANCELED);
                 } else {
-                    mCallback.onAction(Callback.ACTION_BUTTON_NEGATIVE);
+                    if (isDeviceCredentialAllowed()) {
+                        startTransitionToCredentialUI();
+                    } else {
+                        mCallback.onAction(Callback.ACTION_BUTTON_NEGATIVE);
+                    }
                 }
-            }
-        });
+            });
+        }
 
-        mPositiveButton.setOnClickListener((view) -> {
-            updateState(STATE_AUTHENTICATED);
-        });
+        if (mPositiveButton	 != null) {
+            mPositiveButton.setOnClickListener((view) -> {
+                updateState(STATE_AUTHENTICATED);
+            });
+        }
 
-        mTryAgainButton.setOnClickListener((view) -> {
-            updateState(STATE_AUTHENTICATING);
-            mCallback.onAction(Callback.ACTION_BUTTON_TRY_AGAIN);
-            mTryAgainButton.setVisibility(View.GONE);
-            Utils.notifyAccessibilityContentChanged(mAccessibilityManager, this);
-        });
+        if (mTryAgainButton != null) {
+            mTryAgainButton.setOnClickListener((view) -> {
+                updateState(STATE_AUTHENTICATING);
+                mCallback.onAction(Callback.ACTION_BUTTON_TRY_AGAIN);
+                mTryAgainButton.setVisibility(View.GONE);
+                Utils.notifyAccessibilityContentChanged(mAccessibilityManager, this);
+            });
+        }
 
-        mUseFaceButton.setOnClickListener((view) -> {
-            mCallback.onAction(Callback.ACTION_USE_FACE);
-        });
+        if (mUseFaceButton != null) {
+            mUseFaceButton.setOnClickListener((view) -> {
+                mCallback.onAction(Callback.ACTION_USE_FACE);
+            });
+        }
 
         if (this instanceof AuthBiometricFingerprintView) {
-            if (!Utils.canAuthenticateWithFace(mContext, mUserId)){
+            if (!Utils.canAuthenticateWithFace(mContext, mUserId) && mUseFaceButton != null){
                 mUseFaceButton.setVisibility(View.GONE);
             }
-            if (mHasFod) {
+            if (mHasFod && (mIconView != null)) {
                 boolean isGesturalNav = Integer.parseInt(Settings.Secure.getStringForUser(
                         mContext.getContentResolver(), Settings.Secure.NAVIGATION_MODE,
                         UserHandle.USER_CURRENT)) == NAV_BAR_MODE_GESTURAL;
@@ -687,11 +695,17 @@ public abstract class AuthBiometricView extends LinearLayout {
                 this.removeView(mIndicatorView);
                 this.addView(mIndicatorView, this.indexOfChild(mIconView));
             } else {
-                mIconView.setVisibility(View.VISIBLE);
+                if (mIconView != null) {
+                    mIconView.setVisibility(View.VISIBLE);
+                }
             }
         } else if (this instanceof AuthBiometricFaceView) {
-            mIconView.setVisibility(View.VISIBLE);
-            mUseFaceButton.setVisibility(View.GONE);
+            if (mIconView != null) {
+                mIconView.setVisibility(View.VISIBLE);
+            }
+            if (mUseFaceButton != null) {
+                mUseFaceButton.setVisibility(View.GONE);
+            }
         }
     }
 
