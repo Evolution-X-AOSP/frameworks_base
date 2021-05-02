@@ -18,6 +18,8 @@ import android.graphics.Paint.Style;
 import android.graphics.Typeface;
 import android.view.View;
 
+import androidx.slice.Slice;
+
 import com.android.systemui.plugins.annotations.ProvidesInterface;
 
 import java.util.TimeZone;
@@ -66,6 +68,8 @@ public interface ClockPlugin extends Plugin {
     View getView();
 
     default void setHasVisibleNotifications(boolean hasVisibleNotifications){};
+
+    default void setSlice(Slice slice){};
 
     /**
      * Get clock view for a large clock that appears behind NSSL.
