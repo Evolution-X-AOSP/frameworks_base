@@ -47,8 +47,6 @@ import java.io.DataOutputStream;
 import java.io.FileDescriptor;
 import java.io.IOException;
 
-import com.android.internal.util.custom.PixelPropsUtils;
-
 /** @hide */
 public final class Zygote {
     /*
@@ -885,9 +883,6 @@ public final class Zygote {
         } else {
             Log.w(loggingTag, "Unable to set package name.");
         }
-
-        // Set pixel props
-        PixelPropsUtils.setProps(args.mPackageName);
     }
 
     private static final String USAP_ERROR_PREFIX = "Invalid command to USAP: ";
