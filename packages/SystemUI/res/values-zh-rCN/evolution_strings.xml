@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2020 The Evolution X Project
+     Copyright (C) 2019-2021 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -57,6 +57,8 @@
     <string name="qs_data_switch_label">更改数据卡</string>
     <string name="qs_data_switch_changed_1">设置卡1为数据卡</string>
     <string name="qs_data_switch_changed_2">设置卡2为数据卡</string>
+    <string name="qs_data_switch_toast_0">当前没有插入 SIM 卡</string>
+    <string name="qs_data_switch_toast_1">当前仅插入一张 SIM 卡</string>
     <!-- FPS Info tile -->
     <string name="quick_settings_fpsinfo_label">FPS 信息</string>
     <string name="accessibility_quick_settings_fpsinfo_off">关闭 FPS 信息</string>
@@ -109,12 +111,19 @@
     <string name="status_bar_nfc">NFC 近场通讯</string>
     <string name="status_bar_roaming">漫游</string>
     <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
+    <string name="status_bar_camera">相机</string>
+    <string name="status_bar_location">位置信息</string>
+    <string name="status_bar_microphone">麦克风</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
     <string name="accessibility_status_bar_nfc">近场通讯</string>
     <string name="global_action_restart_advanced">高级重启</string>
     <string name="global_action_restart_recovery">恢复模式</string>
     <string name="global_action_restart_bootloader">引导模式</string>
     <string name="global_action_restart_ui">软重启</string>
+    <string name="global_action_screenshot">屏幕截图</string>
+    <string name="global_action_screenrecord">屏幕录制</string>
+    <string name="global_action_flashlight">手电筒</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Dash闪充（还需 <xliff:g id="charging_time_left">%s</xliff:g>充满）</string>
     <string name="keyguard_plugged_in_dash_charging">Dash 闪充</string>
@@ -142,9 +151,7 @@
     <string name="force_stop_dlg_title">强制停止？</string>
     <string name="force_stop_dlg_text">强行停止某个应用可能会导致其出现异常</string>
     <string name="guts_force_close_app">关闭应用</string>
-    <!-- Power menu item for taking a Screen record [CHAR LIMIT=20]-->
-    <string name="global_action_screenrecord">屏幕录制</string>
-    <!-- Screen recorder -->
+    <!-- Screenrecorder -->
     <string name="screenrecord_stopdot_label">显示停止点\n长按移动它</string>
     <string name="screenrecord_lowquality_label">较小文件大小的质量较低</string>
     <!-- Kill app -->
@@ -156,10 +163,6 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">语言</string>
     <string name="quick_settings_locale_more_locales_toast">请配置多种语言以启用切换功能</string>
-    <!-- HW Keys Tile -->
-    <string name="accessibility_quick_settings_hwkeys_on">实体按键开启</string>
-    <string name="accessibility_quick_settings_hwkeys_off">实体按键关闭</string>
-    <string name="quick_settings_hwkeys_label">实体按键</string>
     <!-- Gaming mode -->
     <string name="gaming_mode_not_enabled">游戏模式在设置中被禁用</string>
     <string name="quick_settings_gaming_mode_label">游戏模式</string>
@@ -176,9 +179,36 @@
     <string name="ambientmusic_songinfo" formatted="false">%s 来自 %s</string>
     <!-- Daily data usage -->
     <string name="daily_data_usage_title">今日使用量</string>
-    <!-- Smart Pixels QS Tile -->
-    <string name="quick_settings_smart_pixels">智能像素</string>
-    <string name="quick_settings_smart_pixels_on_power_save">自动启用智能像素</string>
     <!-- Scrolling Screenshot string -->
     <string name="scrollss">滚动</string>
+    <!-- Biometric Dialog - Use Face -->
+    <string name="biometric_dialog_button_use_face">使用面容</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">防闪烁</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">DC 调光</string>
+    <string name="quick_settings_dc_brightness_mode">亮度模式</string>
+    <string name="quick_settings_dc_full_auto">自动模式</string>
+    <!-- App Lock -->
+    <string name="applock_locked">&#160;已被锁定</string>
+    <string name="applock_fingerprint_face">，指纹或您的脸部以解锁</string>
+    <string name="applock_face">&#160;或您的脸以解锁</string>
+    <string name="applock_fingerprint">&#160;或您的指纹以解锁</string>
+    <string name="applock_credential">&#160;来解锁</string>
+    <string name="applock_unlock">解锁</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">无线电力共享</string>
+    <string name="quick_settings_powershare_off_powersave_label">无线电力分享关闭\n省电模式</string>
+    <string name="quick_settings_powershare_off_low_battery_label">无线电分享关闭\n电池电量过低</string>
+    <string name="quick_settings_powershare_enabled_label">无线电力共享已启用</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">这将会固定显示此屏幕，直到您取消固定为止。触摸并按住“返回”即可取消固定屏幕。</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">要取消固定此屏内容，请点触并长按返回按钮。</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">这将会固定显示此屏幕，直到您取消固定为止。长按指纹传感器即可取消固定</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">要取消固定此屏幕，请触摸并按住指纹传感器。</string>
+    <!-- Power menu QS tile -->
+    <string name="quick_settings_power_menu_label">电源菜单</string>
 </resources>
