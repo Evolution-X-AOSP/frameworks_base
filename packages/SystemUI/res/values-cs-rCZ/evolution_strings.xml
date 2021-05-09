@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2020 The Evolution X Project
+     Copyright (C) 2019-2021 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -24,6 +24,8 @@
     <string name="accessibility_quick_settings_ambient_display_changed_on">Ambientní displej je zapnutý.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">AOD při nabíjení</string>
+    <string name="quick_settings_aod_off_label">AOD vypnuto</string>
     <string name="quick_settings_aod_off_powersave_label">AOD vyp.\nSpořič baterie</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Caffeine</string>
@@ -55,6 +57,8 @@
     <string name="qs_data_switch_label">Přepnout SIM pro data</string>
     <string name="qs_data_switch_changed_1">Mobilní data jsou používána na SIM 1</string>
     <string name="qs_data_switch_changed_2">Mobilní data jsou používána na SIM 2</string>
+    <string name="qs_data_switch_toast_0">Momentálně není vložena žádná SIM karta</string>
+    <string name="qs_data_switch_toast_1">Momentálně je vložena pouze jedna SIM karta</string>
     <!-- FPS Info tile -->
     <string name="quick_settings_fpsinfo_label">Informace o FPS</string>
     <string name="accessibility_quick_settings_fpsinfo_off">Informace o\u00aFPS vypnuty</string>
@@ -100,8 +104,6 @@
     <string name="quick_settings_usb_tether_label">USB tethering</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Panel hlasitosti</string>
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Spustit přejetím prstu od ikony</string>
     <!-- Status bar icons -->
     <string name="statusbar_items_title">Ikona ve stavové liště</string>
     <string name="status_bar_data_disabled">Data vypnuta</string>
@@ -109,12 +111,19 @@
     <string name="status_bar_nfc">NFC</string>
     <string name="status_bar_roaming">Roaming</string>
     <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
+    <string name="status_bar_camera">Fotoaparát</string>
+    <string name="status_bar_location">Poloha</string>
+    <string name="status_bar_microphone">Mikrofon</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
     <string name="accessibility_status_bar_nfc">NFC</string>
     <string name="global_action_restart_advanced">Pokročilé</string>
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Zavaděč</string>
     <string name="global_action_restart_ui">SystemUI</string>
+    <string name="global_action_screenshot">Snímek obrazovky</string>
+    <string name="global_action_screenrecord">Záznam obrazovky</string>
+    <string name="global_action_flashlight">Svítilna</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • DASH nabíjení (zbývá <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
     <string name="keyguard_plugged_in_dash_charging">DASH nabíjení</string>
@@ -124,6 +133,9 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • VOOC nabíjení (zbývá <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> do plného nabití)</string>
     <string name="keyguard_plugged_in_vooc_charging">VOOC nabíjení</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Turbo nabíjení (zbývá <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> do plného nabití)</string>
+    <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="percentage">%s</xliff:g> • Turbo nabíjení</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">Přidržením a přetažením nebo klepnutím přidat dlaždice</string>
     <!-- Label for header of customize QS -->
@@ -151,4 +163,52 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Jazyk</string>
     <string name="quick_settings_locale_more_locales_toast">Chcete-li povolit funkci přepínání, nastavte více jazyků</string>
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">Herní režim je zakázán v Nastavení</string>
+    <string name="quick_settings_gaming_mode_label">Herní režim</string>
+    <!-- App picker manifest entry -->
+    <string name="app_picker_dialog_title">Vybrat aplikaci</string>
+    <string name="app_picker_activity_select_title">Vybrat činnost</string>
+    <!-- Headphones Buddy -->
+    <string name="hp_buddy">Sluchátka (špunty)</string>
+    <string name="hp_buddy_left">Pouze vlevo</string>
+    <string name="hp_buddy_right">Pouze vpravo</string>
+    <string name="hp_buddy_center">Obojí</string>
+    <string name="hp_buddy_not_connected">Připojte svá sluchátka</string>
+    <!-- Ambient Music Ticker -->
+    <string name="ambientmusic_songinfo" formatted="false">%s od %s</string>
+    <!-- Daily data usage -->
+    <string name="daily_data_usage_title">Dnešní využití</string>
+    <!-- Scrolling Screenshot string -->
+    <string name="scrollss">Rolování</string>
+    <!-- Biometric Dialog - Use Face -->
+    <string name="biometric_dialog_button_use_face">Použít obličej</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">Eliminace blikání</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">DC tlumení</string>
+    <string name="quick_settings_dc_brightness_mode">Režim jasu</string>
+    <string name="quick_settings_dc_full_auto">Automaticky</string>
+    <!-- App Lock -->
+    <string name="applock_locked">&#160;je uzamknuta</string>
+    <string name="applock_fingerprint_face">, odemkněte otiskem prstu nebo obličejem</string>
+    <string name="applock_face">&#160;nebo odemkněte obličejem</string>
+    <string name="applock_fingerprint">&#160;nebo odemkněte otiskem prstu</string>
+    <string name="applock_credential">&#160;odemknout</string>
+    <string name="applock_unlock">Odemknout</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Bezdrátové sdílení energie</string>
+    <string name="quick_settings_powershare_off_powersave_label">Bezdrátové sdílení energie je vypnuto\nSpořič baterie</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Bezdrátové sdílení energie je vypnuto\nNízký stav baterie</string>
+    <string name="quick_settings_powershare_enabled_label">Bezdrátové sdílení energie je zapnuto</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Obsah bude připnut v zobrazení, dokud jej neuvolníte. Uvolníte jej stisknutím &amp; podržením tlačítka Zpět.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Chcete-li tuto obrazovku uvolnit, dotkněte se &amp; podržte tlačítko Zpět</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Obsah bude připnut v zobrazení, dokud jej neuvolníte. Uvolníte jej stisknutím &amp; podržením snímače otisků prstů.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Chcete-li tuto obrazovku uvolnit, dotkněte se &amp; podržte snímač otisků prstů</string>
+    <!-- Power menu QS tile -->
+    <string name="quick_settings_power_menu_label">Menu napájení</string>
 </resources>
