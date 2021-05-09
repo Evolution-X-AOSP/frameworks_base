@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2020 The Evolution X Project
+     Copyright (C) 2019-2021 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -57,6 +57,8 @@
     <string name="qs_data_switch_label">Przełącz kartę danych</string>
     <string name="qs_data_switch_changed_1">Używaj karty SIM 1 dla danych mobilnych</string>
     <string name="qs_data_switch_changed_2">Używaj karty SIM 2 dla danych mobilnych</string>
+    <string name="qs_data_switch_toast_0">Obecnie brak włożonej karty SIM</string>
+    <string name="qs_data_switch_toast_1">Obecnie tylko jedna karta SIM została włożona</string>
     <!-- FPS Info tile -->
     <string name="quick_settings_fpsinfo_label">Informacje o FPS</string>
     <string name="accessibility_quick_settings_fpsinfo_off">Informacje o FPS wyłączone</string>
@@ -109,12 +111,19 @@
     <string name="status_bar_nfc">NFC</string>
     <string name="status_bar_roaming">Roaming</string>
     <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
+    <string name="status_bar_camera">Aparat</string>
+    <string name="status_bar_location">Lokalizacja</string>
+    <string name="status_bar_microphone">Mikrofon</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
     <string name="accessibility_status_bar_nfc">Nfc</string>
     <string name="global_action_restart_advanced">Zaawansowane</string>
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">SystemUI</string>
+    <string name="global_action_screenshot">Zrzut ekranu</string>
+    <string name="global_action_screenrecord">Nagrywanie Ekranu</string>
+    <string name="global_action_flashlight">Latarka</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Ładowanie Dash (<xliff:g id="charging_time_left" example="4 godziny i 2 minuty">%s</xliff:g> do pełnego naładowania)</string>
     <string name="keyguard_plugged_in_dash_charging">Ładowanie dash</string>
@@ -142,9 +151,7 @@
     <string name="force_stop_dlg_title">Wymusić zatrzymanie?</string>
     <string name="force_stop_dlg_text">Jeśli wymusisz zatrzymanie aplikacji, może ona działać nieprawidłowo.</string>
     <string name="guts_force_close_app">Zamknij aplikację</string>
-    <!-- Power menu item for taking a Screen record [CHAR LIMIT=20]-->
-    <string name="global_action_screenrecord">Nagrywanie Ekranu</string>
-    <!-- Screen recorder -->
+    <!-- Screenrecorder -->
     <string name="screenrecord_stopdot_label">Pokaż kropkę do zatrzymania\nPrzytrzymaj, aby ją przenieść</string>
     <string name="screenrecord_lowquality_label">Niższa jakość dla mniejszego rozmiaru pliku</string>
     <!-- Kill app -->
@@ -156,10 +163,6 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Język</string>
     <string name="quick_settings_locale_more_locales_toast">Proszę skonfigurować wiele języków, aby włączyć funkcję przełączenia</string>
-    <!-- HW Keys Tile -->
-    <string name="accessibility_quick_settings_hwkeys_on">Klawisze sprzętowe włączone</string>
-    <string name="accessibility_quick_settings_hwkeys_off">Klawisze sprzętowe wyłączone</string>
-    <string name="quick_settings_hwkeys_label">Klawisze sprzętowe</string>
     <!-- Gaming mode -->
     <string name="gaming_mode_not_enabled">Tryb gry jest wyłączony w ustawieniach</string>
     <string name="quick_settings_gaming_mode_label">Tryb gry</string>
@@ -176,9 +179,36 @@
     <string name="ambientmusic_songinfo" formatted="false">%s przez %s</string>
     <!-- Daily data usage -->
     <string name="daily_data_usage_title">Dzisiejsze użycie</string>
-    <!-- Smart Pixels QS Tile -->
-    <string name="quick_settings_smart_pixels">Inteligentne piksele</string>
-    <string name="quick_settings_smart_pixels_on_power_save">Automatyczne włączanie inteligentnych pikseli</string>
     <!-- Scrolling Screenshot string -->
     <string name="scrollss">Przewijanie</string>
+    <!-- Biometric Dialog - Use Face -->
+    <string name="biometric_dialog_button_use_face">Użyj twarzy</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">Anty-migotanie</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">Redukcja migotania</string>
+    <string name="quick_settings_dc_brightness_mode">Tryb jasności</string>
+    <string name="quick_settings_dc_full_auto">Tryb automatyczny</string>
+    <!-- App Lock -->
+    <string name="applock_locked">&#160;jest zablokowany</string>
+    <string name="applock_fingerprint_face">, odcisk palca lub Twoją twarz, by odblokować</string>
+    <string name="applock_face">&#160;lub Twoją twarz, by odblokować</string>
+    <string name="applock_fingerprint">&#160;lub Twój odcisk palca, by odblokować</string>
+    <string name="applock_credential">&#160;do odblokowania</string>
+    <string name="applock_unlock">Odblokuj</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Ładowanie zwrotne PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Ładowanie zwrotne PowerShare wyłączone\nOszczędzanie energii</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Ładowanie zwrotne PowerShare wyłączone\nZbyt niski poziom baterii</string>
+    <string name="quick_settings_powershare_enabled_label">Ładowanie zwrotne PowerShare jest włączone</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Ekran będzie widoczny, dopóki go nie odepniesz. Dotknij &amp; i przytrzymaj Wstecz aby odpiąć.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Aby odpiąć ten ekran, naciśnij &amp; przytrzymaj przycisk Wstecz</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Dzięki temu będzie on widoczny aż do odpięcia. Dotknij &amp; i przytrzymaj czytnik linii papilarnych, aby odpiąć.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Aby odpiąć ten ekran, naciśnij &amp; i przytrzymaj czytnik linii papilarnych</string>
+    <!-- Power menu QS tile -->
+    <string name="quick_settings_power_menu_label">Menu zasilania</string>
 </resources>

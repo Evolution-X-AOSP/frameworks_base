@@ -21,4 +21,25 @@
     <string name="screen_zoom_summary_smallest">Најмањи</string>
     <!-- Deep sleep info -->
     <string name="status_deep_sleep" formatted="false">(Дубоки сан: %1$d%2$s)</string>
+    <!-- Label for estimated remaining duration of dash battery charging -->
+    <string name="power_remaining_dash_charging_duration_only">Цртица пуњења (<xliff:g id="time">%1$s</xliff:g> остало до пуног)</string>
+    <!-- Battery use screen.  Battery status shown in chart label when charging from a dash source.  -->
+    <string name="battery_info_status_dash_charging">Брзо пуњење</string>
+    <!-- Label for estimated remaining duration of warp battery charging -->
+    <string name="power_remaining_warp_charging_duration_only">Искривљено пуњење (<xliff:g id="time">%1$s</xliff:g> остало до краја)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
+    <string name="battery_info_status_warp_charging">Warp пуњење</string>
+    <!-- Label for estimated remaining duration of vooc battery charging -->
+    <string name="power_remaining_vooc_charging_duration_only">VOOC пуњење (<xliff:g id="time">%1$s</xliff:g> остало до краја)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a VOOC source.  -->
+    <string name="battery_info_status_vooc_charging">VOOC пуњење</string>
+    <!-- Label for estimated remaining duration of TurboPower battery charging -->
+    <string name="power_remaining_turbo_charging_duration_only">Турбо пуњење (<xliff:g id="time">%1$s</xliff:g> остало до краја)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
+    <string name="battery_info_status_turbo_charging">Турбо пуњење</string>
+    <!-- Bluetooth codecs -->
+    <string name="bluetooth_a2dp_codec_system">Користи избор система (подразумевано)</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_mono">Моно</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_stereo">Стерео</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_dual">Двојни канал</string>
 </resources>

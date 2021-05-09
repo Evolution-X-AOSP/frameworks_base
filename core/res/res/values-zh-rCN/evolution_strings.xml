@@ -59,4 +59,7 @@
     <string name="gaming_mode_disabled_toast">游戏模式已关闭</string>
     <string name="active_edge_app_select_title">选择应用</string>
     <string name="active_edge_activity_select_title">选择活动</string>
+    <!-- Clipboard access toast -->
+    <string name="app_clipboard_access_denied">已拒绝 %1$s 访问剪贴板</string>
+    <string name="app_clipboard_access_granted">已允许 %1$s 访问剪贴板</string>
 </resources>

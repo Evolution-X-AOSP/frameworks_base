@@ -59,4 +59,7 @@
     <string name="gaming_mode_disabled_toast">Modo Juego desactivado</string>
     <string name="active_edge_app_select_title">Selecciona una aplicación</string>
     <string name="active_edge_activity_select_title">Selecciona una actividad</string>
+    <!-- Clipboard access toast -->
+    <string name="app_clipboard_access_denied">%1$s se le denegó acceso al portapapeles</string>
+    <string name="app_clipboard_access_granted">%1$s se le concedió acceso al portapapeles</string>
 </resources>

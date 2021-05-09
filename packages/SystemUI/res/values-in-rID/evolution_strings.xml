@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2020 The Evolution X Project
+     Copyright (C) 2019-2021 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -57,6 +57,8 @@
     <string name="qs_data_switch_label">Ganti kartu data</string>
     <string name="qs_data_switch_changed_1">Data seluler digunakan pada SIM 1</string>
     <string name="qs_data_switch_changed_2">Data seluler digunakan pada SIM 2</string>
+    <string name="qs_data_switch_toast_0">Tidak ada kartu SIM yang terpasang saat ini</string>
+    <string name="qs_data_switch_toast_1">Hanya satu kartu SIM yang terpasang saat ini</string>
     <!-- FPS Info tile -->
     <string name="quick_settings_fpsinfo_label">Info FPS</string>
     <string name="accessibility_quick_settings_fpsinfo_off">Info FPS dimatikan</string>
@@ -109,12 +111,19 @@
     <string name="status_bar_nfc">NFC</string>
     <string name="status_bar_roaming">Roaming</string>
     <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
+    <string name="status_bar_camera">Kamera</string>
+    <string name="status_bar_location">Lokasi</string>
+    <string name="status_bar_microphone">Mikrofon</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
     <string name="accessibility_status_bar_nfc">Nfc</string>
     <string name="global_action_restart_advanced">Lanjutan</string>
     <string name="global_action_restart_recovery">Pemulihan</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">Sistem UI</string>
+    <string name="global_action_screenshot">Tangkapan Layar</string>
+    <string name="global_action_screenrecord">Rekam Layar</string>
+    <string name="global_action_flashlight">Senter</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="pesentase">%2$s</xliff:g> • Pengisian Cepat (<xliff:g id="charging_time_left" example="4 jam 2 menit">%s</xliff:g> hingga penuh)</string>
     <string name="keyguard_plugged_in_dash_charging">Pengisian Cepat</string>
@@ -142,9 +151,7 @@
     <string name="force_stop_dlg_title">Paksa berhenti?</string>
     <string name="force_stop_dlg_text">Jika Anda menghentikan paksa aplikasi, akan menyebabkan gagal fungsi.</string>
     <string name="guts_force_close_app">Tutup aplikasi</string>
-    <!-- Power menu item for taking a Screen record [CHAR LIMIT=20]-->
-    <string name="global_action_screenrecord">Rekam Layar</string>
-    <!-- Screen recorder -->
+    <!-- Screenrecorder -->
     <string name="screenrecord_stopdot_label">Tampilkan titik berhenti\nTekan lama untuk memindahkannya</string>
     <string name="screenrecord_lowquality_label">Kualitas lebih rendah untuk ukuran file yang lebih kecil</string>
     <!-- Kill app -->
@@ -156,10 +163,6 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Bahasa</string>
     <string name="quick_settings_locale_more_locales_toast">Silakan konfigurasikan beberapa bahasa untuk mengaktifkan fungsionalitas tombol</string>
-    <!-- HW Keys Tile -->
-    <string name="accessibility_quick_settings_hwkeys_on">Tombol HW aktif</string>
-    <string name="accessibility_quick_settings_hwkeys_off">Tombol HW mati</string>
-    <string name="quick_settings_hwkeys_label">Tombol HW</string>
     <!-- Gaming mode -->
     <string name="gaming_mode_not_enabled">Mode Permainan dimatikan di pengaturan</string>
     <string name="quick_settings_gaming_mode_label">Mode Permainan</string>
@@ -176,9 +179,36 @@
     <string name="ambientmusic_songinfo" formatted="false">%s oleh %s</string>
     <!-- Daily data usage -->
     <string name="daily_data_usage_title">Penggunaan hari ini</string>
-    <!-- Smart Pixels QS Tile -->
-    <string name="quick_settings_smart_pixels">Piksel Cerdas</string>
-    <string name="quick_settings_smart_pixels_on_power_save">Aktifkan otomatis Piksel Cerdas</string>
     <!-- Scrolling Screenshot string -->
     <string name="scrollss">Gulir</string>
+    <!-- Biometric Dialog - Use Face -->
+    <string name="biometric_dialog_button_use_face">Gunakan Wajah</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">Anti kerlip</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">Peredupan DC</string>
+    <string name="quick_settings_dc_brightness_mode">Mode kecerahan</string>
+    <string name="quick_settings_dc_full_auto">Mode Otomatis</string>
+    <!-- App Lock -->
+    <string name="applock_locked">&#160;terkunci</string>
+    <string name="applock_fingerprint_face">, sidik jari atau wajah Anda untuk membuka kunci</string>
+    <string name="applock_face">&#160;atau wajah Anda untuk membuka kunci</string>
+    <string name="applock_fingerprint">&#160;atau sidik jari Anda untuk membuka kunci</string>
+    <string name="applock_credential">&#160;untuk membuka</string>
+    <string name="applock_unlock">Buka</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">PowerShare Nirkabel</string>
+    <string name="quick_settings_powershare_off_powersave_label">PowerShare Nirkabel mati\nPenghemat baterai</string>
+    <string name="quick_settings_powershare_off_low_battery_label">PowerShare Nirkabel mati\nBaterai terlalu rendah</string>
+    <string name="quick_settings_powershare_enabled_label">PowerShare Nirkabel diaktifkan</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Hal ini membuatnya tetap dalam pandangan sampai Anda melepas sematan. Sentuh &amp; tahan tombol Kembali untuk melepas sematan.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Untuk melepaskan sematan layar ini, sentuh &amp; tahan tombol Kembali</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Hal ini membuatnya tetap ditampilkan sampai Anda melepas sematan. Sentuh &amp; tahan pemindai sidik jari untuk melepas sematan.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Untuk melepas sematan pada layar ini, sentuh &amp; tahan pemindai sidik jari</string>
+    <!-- Power menu QS tile -->
+    <string name="quick_settings_power_menu_label">Menu daya</string>
 </resources>
