@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2020 The Evolution X Project
+     Copyright (C) 2019-2021 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -57,6 +57,8 @@
     <string name="qs_data_switch_label">Chuyển Sim dữ liệu</string>
     <string name="qs_data_switch_changed_1">Sử dụng SIM 1 cho Dữ liệu di động</string>
     <string name="qs_data_switch_changed_2">Sử dụng SIM 2 cho Dữ liệu di động</string>
+    <string name="qs_data_switch_toast_0">Hiện tại không có thẻ SIM nào được gắn</string>
+    <string name="qs_data_switch_toast_1">Hiện tại chỉ có 1 thẻ SIM được gắn</string>
     <!-- FPS Info tile -->
     <string name="quick_settings_fpsinfo_label">Thông tin FPS</string>
     <string name="accessibility_quick_settings_fpsinfo_off">Tắt thông tin FPS</string>
@@ -102,8 +104,6 @@
     <string name="quick_settings_usb_tether_label">Chia sẻ kết nối qua USB</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Bảng điều chỉnh âm lượng</string>
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Vuốt từ biểu tượng để mở</string>
     <!-- Status bar icons -->
     <string name="statusbar_items_title">Biểu tượng thanh trạng thái</string>
     <string name="status_bar_data_disabled">Hiển thị biểu tượng vô hiệu hóa dữ liệu</string>
@@ -111,12 +111,19 @@
     <string name="status_bar_nfc">NFC</string>
     <string name="status_bar_roaming">Chuyển vùng</string>
     <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
+    <string name="status_bar_camera">Máy ảnh</string>
+    <string name="status_bar_location">Vị trí</string>
+    <string name="status_bar_microphone">Microphone</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
     <string name="accessibility_status_bar_nfc">Nfc</string>
     <string name="global_action_restart_advanced">Nâng cao</string>
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">Giao diện người dùng</string>
+    <string name="global_action_screenshot">Chụp màn hình</string>
+    <string name="global_action_screenrecord">Quay màn hình</string>
+    <string name="global_action_flashlight">Đèn pin</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Sạc nhanh Dash (<xliff:g id="charging_time_left" example="4 giờ và 2 phút">%s</xliff:g> đến khi đầy)</string>
     <string name="keyguard_plugged_in_dash_charging">Sạc nhanh Dash</string>
@@ -126,6 +133,9 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Sạc nhanh VOOC (<xliff:g id="charging_time_left" example="4 giờ và 2 phút">%1$s</xliff:g> nữa sẽ đầy)</string>
     <string name="keyguard_plugged_in_vooc_charging">Sạc nhanh VOOC</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Sạc nhanh (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> cho đến khi đầy)</string>
+    <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="percentage">%s</xliff:g> • Sạc nhanh</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">Giữ &amp; kéo hoặc chạm để thêm</string>
     <!-- Label for header of customize QS -->
@@ -153,10 +163,6 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Ngôn ngữ</string>
     <string name="quick_settings_locale_more_locales_toast">Vui lòng thiết lập nhiều ngôn ngữ để kích hoạt chức năng chuyển đổi</string>
-    <!-- HW Keys Tile -->
-    <string name="accessibility_quick_settings_hwkeys_on">Phím cứng bật</string>
-    <string name="accessibility_quick_settings_hwkeys_off">Phím cứng tắt</string>
-    <string name="quick_settings_hwkeys_label">Phím cứng</string>
     <!-- Gaming mode -->
     <string name="gaming_mode_not_enabled">Chế độ trò chơi đang tắt trong cài đặt</string>
     <string name="quick_settings_gaming_mode_label">Chế độ trò chơi</string>
@@ -169,4 +175,40 @@
     <string name="hp_buddy_right">Chỉ bên phải</string>
     <string name="hp_buddy_center">Cả hai</string>
     <string name="hp_buddy_not_connected">Kết nối tai nghe của bạn</string>
+    <!-- Ambient Music Ticker -->
+    <string name="ambientmusic_songinfo" formatted="false">%s của %s</string>
+    <!-- Daily data usage -->
+    <string name="daily_data_usage_title">Sử dụng hôm nay</string>
+    <!-- Scrolling Screenshot string -->
+    <string name="scrollss">Cuộn</string>
+    <!-- Biometric Dialog - Use Face -->
+    <string name="biometric_dialog_button_use_face">Sử dụng khuôn mặt</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">Chống nhấp nháy</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">DC - Làm mờ</string>
+    <string name="quick_settings_dc_brightness_mode">Chế độ sáng</string>
+    <string name="quick_settings_dc_full_auto">Chế độ tự động</string>
+    <!-- App Lock -->
+    <string name="applock_locked">&#160;đã khóa</string>
+    <string name="applock_fingerprint_face">, vân tay hoặc khuôn mặt để mở khóa</string>
+    <string name="applock_face">&#160;hoặc sử dụng khuôn mặt để mở khóa</string>
+    <string name="applock_fingerprint">&#160;hoặc sử dụng vân tay để mở khóa</string>
+    <string name="applock_credential">&#160;để mở khóa</string>
+    <string name="applock_unlock">Mở khóa</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Sạc không dây</string>
+    <string name="quick_settings_powershare_off_powersave_label">Sạc không dây tắt\nTiết kiệm pin</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Sạc không dây tắt\nPin quá yếu</string>
+    <string name="quick_settings_powershare_enabled_label">Sạc không dây đã bật</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Thao tác này sẽ duy trì hiển thị màn hình cho đến khi bạn bỏ ghim. Chạm &amp; giữ Quay lại để bỏ ghim.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Để bỏ ghim màn hình này, chạm và giữ nút Quay lại</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Thao tác này sẽ duy trì hiển thị màn hình cho đến khi bạn bỏ ghim. Hãy chạm và giữ Tổng quan để bỏ ghim.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Để bỏ ghim màn hình này, hãy chạm và giữ cảm biến vân tay</string>
+    <!-- Power menu QS tile -->
+    <string name="quick_settings_power_menu_label">Menu nguồn</string>
 </resources>
