@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2020 The Evolution X Project
+     Copyright (C) 2019-2021 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -57,6 +57,8 @@
     <string name="qs_data_switch_label">データ SIM の変更</string>
     <string name="qs_data_switch_changed_1">SIM 1をデータ通信に使用</string>
     <string name="qs_data_switch_changed_2">SIM 2をデータ通信に使用</string>
+    <string name="qs_data_switch_toast_0">現在 SIM カードは挿入されていません</string>
+    <string name="qs_data_switch_toast_1">現在1枚のみ SIM カードが挿入されています</string>
     <!-- FPS Info tile -->
     <string name="quick_settings_fpsinfo_label">FPS 情報</string>
     <string name="accessibility_quick_settings_fpsinfo_off">FPS 情報 OFF</string>
@@ -109,12 +111,19 @@
     <string name="status_bar_nfc">NFC</string>
     <string name="status_bar_roaming">ローミング中</string>
     <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
+    <string name="status_bar_camera">カメラ</string>
+    <string name="status_bar_location">位置情報</string>
+    <string name="status_bar_microphone">マイク</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
     <string name="accessibility_status_bar_nfc">NFC</string>
     <string name="global_action_restart_advanced">高度な設定</string>
     <string name="global_action_restart_recovery">リカバリー</string>
     <string name="global_action_restart_bootloader">ブートローダー</string>
     <string name="global_action_restart_ui">システム UI</string>
+    <string name="global_action_screenshot">スクリーンショット</string>
+    <string name="global_action_screenrecord">画面録画</string>
+    <string name="global_action_flashlight">フラッシュライト</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Dash Charging (充電完了まで残り<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
     <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
@@ -142,9 +151,7 @@
     <string name="force_stop_dlg_title">強制停止しますか?</string>
     <string name="force_stop_dlg_text">アプリを強制停止するとアプリが正常に機能しないことがあります</string>
     <string name="guts_force_close_app">アプリを終了</string>
-    <!-- Power menu item for taking a Screen record [CHAR LIMIT=20]-->
-    <string name="global_action_screenrecord">画面録画</string>
-    <!-- Screen recorder -->
+    <!-- Screenrecorder -->
     <string name="screenrecord_stopdot_label">停止ドット\n長押しして移動</string>
     <string name="screenrecord_lowquality_label">低品質にしてファイルサイズ縮小</string>
     <!-- Kill app -->
@@ -156,10 +163,6 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">言語</string>
     <string name="quick_settings_locale_more_locales_toast">言語の切り替えを有効にするために複数の言語を設定してください</string>
-    <!-- HW Keys Tile -->
-    <string name="accessibility_quick_settings_hwkeys_on">ハードウェアキー ON</string>
-    <string name="accessibility_quick_settings_hwkeys_off">ハードウェアキー OFF</string>
-    <string name="quick_settings_hwkeys_label">ハードウェアキー</string>
     <!-- Gaming mode -->
     <string name="gaming_mode_not_enabled">ゲームモードが設定で無効になっています</string>
     <string name="quick_settings_gaming_mode_label">ゲームモード</string>
@@ -176,9 +179,36 @@
     <string name="ambientmusic_songinfo" formatted="false">%s - %s</string>
     <!-- Daily data usage -->
     <string name="daily_data_usage_title">今日の使用量</string>
-    <!-- Smart Pixels QS Tile -->
-    <string name="quick_settings_smart_pixels">スマート\nピクセル</string>
-    <string name="quick_settings_smart_pixels_on_power_save">自動有効</string>
     <!-- Scrolling Screenshot string -->
     <string name="scrollss">スクロール</string>
+    <!-- Biometric Dialog - Use Face -->
+    <string name="biometric_dialog_button_use_face">顔を使用</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">アンチフリッカー</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">DC 調光</string>
+    <string name="quick_settings_dc_brightness_mode">明るさモード</string>
+    <string name="quick_settings_dc_full_auto">自動モード</string>
+    <!-- App Lock -->
+    <string name="applock_locked">&#160;はロック中です</string>
+    <string name="applock_fingerprint_face">、指紋または顔でロック解除</string>
+    <string name="applock_face">&#160;または顔でロック解除</string>
+    <string name="applock_fingerprint">&#160;または指紋でロック解除</string>
+    <string name="applock_credential">&#160;でロック解除</string>
+    <string name="applock_unlock">ロック解除</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">ワイヤレス PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">ワイヤレス PowerShare OFF\nバッテリー節約</string>
+    <string name="quick_settings_powershare_off_low_battery_label">ワイヤレス PowerShare OFF\nバッテリー残量低下</string>
+    <string name="quick_settings_powershare_enabled_label">ワイヤレス PowerShare は有効です</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">固定を解除するまで表示されます。戻るを押し続けると解除されます。</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">画面の固定を解除するには戻るボタンを長押しします</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">解除するまで画面を固定します。解除するには指紋センサーを押します。</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">画面の固定を解除するには指紋センサーを長押しします</string>
+    <!-- Power menu QS tile -->
+    <string name="quick_settings_power_menu_label">電源メニュー</string>
 </resources>
