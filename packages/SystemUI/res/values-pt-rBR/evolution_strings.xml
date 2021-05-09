@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2020 The Evolution X Project
+     Copyright (C) 2019-2021 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -24,6 +24,8 @@
     <string name="accessibility_quick_settings_ambient_display_changed_on">Tela ambiente foi ligada.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Always On Display</string>
+    <string name="quick_settings_aod_on_charge_label">AOD ao carregar</string>
+    <string name="quick_settings_aod_off_label">AOD desligado</string>
     <string name="quick_settings_aod_off_powersave_label">AOD desligado\nEconomia de bateria</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Cafeína</string>
@@ -55,6 +57,8 @@
     <string name="qs_data_switch_label">Trocar SIM de dados</string>
     <string name="qs_data_switch_changed_1">Usando o SIM 1 para dados móveis</string>
     <string name="qs_data_switch_changed_2">Usando o SIM 2 para dados móveis</string>
+    <string name="qs_data_switch_toast_0">Atualmente nenhum cartão SIM está inserido</string>
+    <string name="qs_data_switch_toast_1">Atualmente apenas um cartão SIM está inserido</string>
     <!-- FPS Info tile -->
     <string name="quick_settings_fpsinfo_label">Informação de FPS</string>
     <string name="accessibility_quick_settings_fpsinfo_off">Informação do FPS desativado</string>
@@ -100,8 +104,6 @@
     <string name="quick_settings_usb_tether_label">Compartilhamento por USB</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Painel de volume</string>
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Deslize a partir do ícone para iniciar</string>
     <!-- Status bar icons -->
     <string name="statusbar_items_title">Ícone da barra de status</string>
     <string name="status_bar_data_disabled">Dados desativados</string>
@@ -109,12 +111,19 @@
     <string name="status_bar_nfc">NFC</string>
     <string name="status_bar_roaming">Roaming</string>
     <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
+    <string name="status_bar_camera">Câmera</string>
+    <string name="status_bar_location">Localização</string>
+    <string name="status_bar_microphone">Microfone</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
     <string name="accessibility_status_bar_nfc">NFC</string>
     <string name="global_action_restart_advanced">Avançado</string>
     <string name="global_action_restart_recovery">Recuperação</string>
     <string name="global_action_restart_bootloader">Fastboot</string>
     <string name="global_action_restart_ui">Interface do sistema</string>
+    <string name="global_action_screenshot">Captura de tela</string>
+    <string name="global_action_screenrecord">Gravar tela</string>
+    <string name="global_action_flashlight">Lanterna</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento rápido(<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%s</xliff:g> até completar a carga)</string>
     <string name="keyguard_plugged_in_dash_charging">Carregamento Rápido</string>
@@ -124,6 +133,9 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="porcentagem">%2$s</xliff:g> • Carregamento rápido (<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%1$s</xliff:g> até completar a carga)</string>
     <string name="keyguard_plugged_in_vooc_charging">Carregamento VOOC</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento rápido (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até concluir)</string>
+    <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="percentage">%s</xliff:g> • Carregando Rapidamente</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">Segure &amp; arraste ou toque para adicionar blocos</string>
     <!-- Label for header of customize QS -->
@@ -151,14 +163,52 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Idioma</string>
     <string name="quick_settings_locale_more_locales_toast">Por favor, configure vários idiomas para habilitar funcionalidade de alternância</string>
-    <!-- HW Keys Tile -->
-    <string name="accessibility_quick_settings_hwkeys_on">Teclas físicas ativadas</string>
-    <string name="accessibility_quick_settings_hwkeys_off">Teclas físicas desativadas</string>
-    <string name="quick_settings_hwkeys_label">Teclas físicas</string>
     <!-- Gaming mode -->
     <string name="gaming_mode_not_enabled">Modo de jogo está desativado nas configurações</string>
     <string name="quick_settings_gaming_mode_label">Modo de jogo</string>
     <!-- App picker manifest entry -->
     <string name="app_picker_dialog_title">Selecione um app</string>
     <string name="app_picker_activity_select_title">Selecionar atividade</string>
+    <!-- Headphones Buddy -->
+    <string name="hp_buddy">Amiguinho dos fones</string>
+    <string name="hp_buddy_left">Apenas esquerda</string>
+    <string name="hp_buddy_right">Apenas a direita</string>
+    <string name="hp_buddy_center">Ambos</string>
+    <string name="hp_buddy_not_connected">Conecte seus fones de ouvido</string>
+    <!-- Ambient Music Ticker -->
+    <string name="ambientmusic_songinfo" formatted="false">%s por %s</string>
+    <!-- Daily data usage -->
+    <string name="daily_data_usage_title">Uso de hoje</string>
+    <!-- Scrolling Screenshot string -->
+    <string name="scrollss">Rolagem</string>
+    <!-- Biometric Dialog - Use Face -->
+    <string name="biometric_dialog_button_use_face">Usar o Desbloqueio Facial</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">Anti cintilação</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">Modo anti cintilação</string>
+    <string name="quick_settings_dc_brightness_mode">Modo de brilho</string>
+    <string name="quick_settings_dc_full_auto">Modo automático</string>
+    <!-- App Lock -->
+    <string name="applock_locked">&#160;está bloqueado</string>
+    <string name="applock_fingerprint_face">, impressão digital ou seu rosto para desbloquear</string>
+    <string name="applock_face">&#160;ou seu rosto para desbloquear</string>
+    <string name="applock_fingerprint">&#160;ou sua impressão digital para desbloquear</string>
+    <string name="applock_credential">&#160;para desbloquear</string>
+    <string name="applock_unlock">Desbloquear</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Carregamento reverso sem fio</string>
+    <string name="quick_settings_powershare_off_powersave_label">Compartilhamento de carga sem fio desligado\nEconomia de bateria</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Compartilhamento de carga sem fio desligado\nBateria muito baixa</string>
+    <string name="quick_settings_powershare_enabled_label">Compartilhamento de carga sem fio está ativado</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Ela é mantida à vista até que seja liberada. Toque &amp; em \"Voltar\" e mantenha essa opção pressionada para liberar.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Para liberar esta tela, toque &amp; segure o botão Voltar</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Ela é mantida à vista até que seja liberada. Toque &amp; segure o sensor de impressão digital para liberar.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Para liberar esta tela, toque &amp; segure o sensor de impressão digital</string>
+    <!-- Power menu QS tile -->
+    <string name="quick_settings_power_menu_label">Menu de energia</string>
 </resources>
