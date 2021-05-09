@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2020 The Evolution X Project
+     Copyright (C) 2019-2021 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -57,6 +57,8 @@
     <string name="qs_data_switch_label">Εναλλαγή κάρτας δεδομένων σε</string>
     <string name="qs_data_switch_changed_1">Χρήση της SIM 1 για τα δεδομένα κινητής τηλεφωνίας</string>
     <string name="qs_data_switch_changed_2">Χρήση της SIM 2 για τα δεδομένα κινητής τηλεφωνίας</string>
+    <string name="qs_data_switch_toast_0">Προς το παρόν δεν έχει εισαχθεί κάρτα SIM</string>
+    <string name="qs_data_switch_toast_1">Προς το παρόν έχει εισαχθεί μόνο μία κάρτα SIM</string>
     <!-- FPS Info tile -->
     <string name="quick_settings_fpsinfo_label">Πληροφορίες FPS</string>
     <string name="accessibility_quick_settings_fpsinfo_off">Πληροφορίες FPS ανενεργές</string>
@@ -109,12 +111,19 @@
     <string name="status_bar_nfc">NFC</string>
     <string name="status_bar_roaming">Περιαγωγή</string>
     <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
+    <string name="status_bar_camera">Φωτογραφική μηχανή</string>
+    <string name="status_bar_location">Τοποθεσία</string>
+    <string name="status_bar_microphone">Μικρόφωνο</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
     <string name="accessibility_status_bar_nfc">Nfc</string>
     <string name="global_action_restart_advanced">Για προχωρημένους</string>
     <string name="global_action_restart_recovery">Ανάκτηση</string>
     <string name="global_action_restart_bootloader">Αρχικός εκκινητής/Bootloader</string>
     <string name="global_action_restart_ui">ΣύστημαUI</string>
+    <string name="global_action_screenshot">Στιγμιότυπο οθόνης</string>
+    <string name="global_action_screenrecord">Καταγραφή Οθόνης</string>
+    <string name="global_action_flashlight">Φακός</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Γρήγορη φόρτιση (<xliff:g id="charging_time_left" example="4 ώρες και 2 λεπτά">%s</xliff:g> μέχρι πλήρης φόρτιση)</string>
     <string name="keyguard_plugged_in_dash_charging">Γρήγορη Φόρτιση</string>
@@ -143,9 +152,7 @@
     <string name="force_stop_dlg_title">Αναγκαστική διακοπή;</string>
     <string name="force_stop_dlg_text">Εάν υποχρεώσετε να σταματήσετε μια εφαρμογή, ενδέχεται να συμπεριφέρεται εσφαλμένα.</string>
     <string name="guts_force_close_app">Κλείσιμο εφαρμογής</string>
-    <!-- Power menu item for taking a Screen record [CHAR LIMIT=20]-->
-    <string name="global_action_screenrecord">Καταγραφή Οθόνης</string>
-    <!-- Screen recorder -->
+    <!-- Screenrecorder -->
     <string name="screenrecord_stopdot_label">Εμφάνιση κουκίδας παύσης και παρατεταμέο πάτημα για να την μετακινήσεις</string>
     <string name="screenrecord_lowquality_label">Μείωση της ποιότητας για μικρότερο μέγεθος αρχείου</string>
     <!-- Kill app -->
@@ -157,10 +164,6 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Γλώσσα</string>
     <string name="quick_settings_locale_more_locales_toast">Διαμορφώστε πολλές γλώσσες για να ενεργοποιήσετε τη λειτουργία εναλλαγής</string>
-    <!-- HW Keys Tile -->
-    <string name="accessibility_quick_settings_hwkeys_on">Φυσικά πλήκτρα ενεργά</string>
-    <string name="accessibility_quick_settings_hwkeys_off">Φυσικά πλήκτρα ανενεργά</string>
-    <string name="quick_settings_hwkeys_label">Φυσικά πλήκτρα</string>
     <!-- Gaming mode -->
     <string name="gaming_mode_not_enabled">Η λειτουργία παιχνιδιού είναι ανενεργή στις ρυθμίσεις</string>
     <string name="quick_settings_gaming_mode_label">Λειτουργία παιχνιδιού</string>
@@ -177,9 +180,36 @@
     <string name="ambientmusic_songinfo" formatted="false">%s από %s</string>
     <!-- Daily data usage -->
     <string name="daily_data_usage_title">Σημερινή χρήση</string>
-    <!-- Smart Pixels QS Tile -->
-    <string name="quick_settings_smart_pixels">Έξυπνα εικονοστοιχεία</string>
-    <string name="quick_settings_smart_pixels_on_power_save">Έξυπνα εικονοστοιχεία με αυτόματη ενεργοποίηση</string>
     <!-- Scrolling Screenshot string -->
     <string name="scrollss">Κύλιση</string>
+    <!-- Biometric Dialog - Use Face -->
+    <string name="biometric_dialog_button_use_face">Χρήση Προσώπου</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">Αντι τρεμόπαιγμα</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">Μείωση DC</string>
+    <string name="quick_settings_dc_brightness_mode">Λειτουργία φωτεινότητας</string>
+    <string name="quick_settings_dc_full_auto">Αυτόματη λειτουργία</string>
+    <!-- App Lock -->
+    <string name="applock_locked">&#160;είναι κλειδωμένο</string>
+    <string name="applock_fingerprint_face">, δακτυλικό αποτύπωμα ή το πρόσωπό σας για ξεκλείδωμα</string>
+    <string name="applock_face">&#160;ή το πρόσωπό σας για ξεκλείδωμα</string>
+    <string name="applock_fingerprint">&#160;ή το δακτυλικό σας αποτύπωμα για ξεκλείδωμα</string>
+    <string name="applock_credential">&#160;για να ξεκλειδώσετε</string>
+    <string name="applock_unlock">Ξεκλείδωμα</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Ασύρματος διαμοιρασμός ενέργειας</string>
+    <string name="quick_settings_powershare_off_powersave_label">Ασύρματος διαμοιρασμός ενέργειας απενεργοποιημένος\nΕνεργή εξοικονόμηση ενέργειας</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Ασύρματος διαμοιρασμός ενέργειας απενεργοποιημένος\nΜπαταρία πολύ χαμηλή</string>
+    <string name="quick_settings_powershare_enabled_label">Ο ασύρματος διαμοιρασμός ενέργειας είναι ενεργοποιημένος</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Αυτό το διατηρεί μέχρι να ξεκαρφιτσώσετε. Αγγίξτε &amp; παρατεταμένα Πίσω για ξεκαρφίτσωμα.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Για να ξεκαρφιτσώσετε αυτήν την οθόνη, αγγίξτε &amp; κρατήστε παρατεταμένα το πλήκτρο \"Πίσω\"</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Με αυτόν τον τρόπο παραμένει σε προβολή μέχρι να το ξεκαρφιτσώσετε. Αγγίξτε &amp; κρατήστε παρατεταμένα τον αισθητήρα δακτυλικών αποτυπωμάτων για ξεκαρφίτσωμα.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Για να ξεκαρφιτσώσετε αυτήν την οθόνη, αγγίξτε &amp; κρατήστε παρατεταμένα τον αισθητήρα δακτυλικών αποτυπωμάτων</string>
+    <!-- Power menu QS tile -->
+    <string name="quick_settings_power_menu_label">Μενού ισχύος</string>
 </resources>
