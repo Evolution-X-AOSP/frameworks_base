@@ -59,4 +59,7 @@
     <string name="gaming_mode_disabled_toast">Mode Permainan dinonaktifkan</string>
     <string name="active_edge_app_select_title">Pilih aplikasi</string>
     <string name="active_edge_activity_select_title">Pilih aktivitas</string>
+    <!-- Clipboard access toast -->
+    <string name="app_clipboard_access_denied">%1$s ditolak akses ke clipboard</string>
+    <string name="app_clipboard_access_granted">%1$s diberi akses ke clipboard</string>
 </resources>
