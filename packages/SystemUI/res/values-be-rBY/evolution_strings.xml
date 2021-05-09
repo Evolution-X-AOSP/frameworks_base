@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2020 The Evolution X Project
+     Copyright (C) 2019-2021 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -57,6 +57,8 @@
     <string name="qs_data_switch_label">Пераключыце карту мабільных дадзеных</string>
     <string name="qs_data_switch_changed_1">Выкарыстанне SIM 1 для перадачы дадзеных</string>
     <string name="qs_data_switch_changed_2">Выкарыстанне SIM 2 для перадачы дадзеных</string>
+    <string name="qs_data_switch_toast_0">У цяперашні час SIM-карта не ўстаўлена</string>
+    <string name="qs_data_switch_toast_1">У цяперашні час ўстаўлена толькі адна SIM-карта</string>
     <!-- FPS Info tile -->
     <string name="quick_settings_fpsinfo_label">Інфармацыя аб FPS</string>
     <string name="accessibility_quick_settings_fpsinfo_off">Інфармацыя аб FPS адключана</string>
@@ -102,8 +104,6 @@
     <string name="quick_settings_usb_tether_label">USB-мадэм</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Панэль гучнасці</string>
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Правядзіце ад значка для запуску</string>
     <!-- Status bar icons -->
     <string name="statusbar_items_title">Значкі радку стану</string>
     <string name="status_bar_data_disabled">Перадача дадзеных адключана</string>
@@ -111,12 +111,19 @@
     <string name="status_bar_nfc">NFC</string>
     <string name="status_bar_roaming">Роўмінг</string>
     <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
+    <string name="status_bar_camera">Камера</string>
+    <string name="status_bar_location">Месцазнаходжанне</string>
+    <string name="status_bar_microphone">Мікрафон</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
     <string name="accessibility_status_bar_nfc">Nfc</string>
     <string name="global_action_restart_advanced">Пашыраныя налады</string>
     <string name="global_action_restart_recovery">Рэжым аднаўлення</string>
     <string name="global_action_restart_bootloader">Загрузчык</string>
     <string name="global_action_restart_ui">Сістэмны інтэрфейс</string>
+    <string name="global_action_screenshot">Здымак экрана</string>
+    <string name="global_action_screenrecord">Запіс экрана</string>
+    <string name="global_action_flashlight">Ліхтарык</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Хуткая зарадка (<xliff:g id="charging_time_left" example="4 гадзіны і 2 хвіліны">%s</xliff:g> да поўнай зарадкі)</string>
     <string name="keyguard_plugged_in_dash_charging">Хуткая зарадка</string>
@@ -126,6 +133,9 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • VOOC зарадка • (<xliff:g id="charging_time_left" example="4 гадзінны і 2 хвіліны">%1$s</xliff:g> да поўнай зарадкі)</string>
     <string name="keyguard_plugged_in_vooc_charging">Зарадка VOOC</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Турба зарадка (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> да поўный зарадкі)</string>
+    <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="percentage">%s</xliff:g> • Турба зарадка</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">Утрымлівайце і перацягвайце, каб дадаць пліткі</string>
     <!-- Label for header of customize QS -->
@@ -153,10 +163,6 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Мова</string>
     <string name="quick_settings_locale_more_locales_toast">Калі ласка, наладзьце некалькі моў, каб актываваць функцыю</string>
-    <!-- HW Keys Tile -->
-    <string name="accessibility_quick_settings_hwkeys_on">Апаратныя кнопкі ўключаны</string>
-    <string name="accessibility_quick_settings_hwkeys_off">Апаратныя кнопкі адключаны</string>
-    <string name="quick_settings_hwkeys_label">Апаратныя кнопкі</string>
     <!-- Gaming mode -->
     <string name="gaming_mode_not_enabled">Гульнявы рэжым адключаны ў наладах</string>
     <string name="quick_settings_gaming_mode_label">Гульнявы рэжым</string>
@@ -169,4 +175,40 @@
     <string name="hp_buddy_right">Правы канал</string>
     <string name="hp_buddy_center">Выходны і ўваходны</string>
     <string name="hp_buddy_not_connected">Падключыце навушнікі</string>
+    <!-- Ambient Music Ticker -->
+    <string name="ambientmusic_songinfo" formatted="false">%s ад %s</string>
+    <!-- Daily data usage -->
+    <string name="daily_data_usage_title">Выкарыстана за сёння</string>
+    <!-- Scrolling Screenshot string -->
+    <string name="scrollss">Прагортка</string>
+    <!-- Biometric Dialog - Use Face -->
+    <string name="biometric_dialog_button_use_face">Выкарыстоўваць твар</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">Фільтр мігацення</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">DC Dimming</string>
+    <string name="quick_settings_dc_brightness_mode">Рэжым яркасці</string>
+    <string name="quick_settings_dc_full_auto">Аўтаматычны рэжым</string>
+    <!-- App Lock -->
+    <string name="applock_locked">&#160; заблакавана</string>
+    <string name="applock_fingerprint_face">, адбітак пальца або твар, каб разблакаваць</string>
+    <string name="applock_face">&#160;або Ваш твар для разблакоўкі</string>
+    <string name="applock_fingerprint">&#160;або адбітак пальца для разблакоўкі</string>
+    <string name="applock_credential">&#160;для разблакоўкі</string>
+    <string name="applock_unlock">Разблакаваць</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Бесправадная зарадка</string>
+    <string name="quick_settings_powershare_off_powersave_label">Бесправадная зарадка адкл.\nЭнергазберажэнне</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Бесправадная зарадка адкл.\nНізкі зарад батарэі</string>
+    <string name="quick_settings_powershare_enabled_label">Бесправадная зарадка уключана</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Праграма застанецца актыўнай, пакуль вы не скасуеце блакаванне, націснуўшы і ўтрымліваючы кнопку \"Назад\".</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Каб адмацаваць гэты экран, дакраніцеся і ўтрымлівайце кнопку \"Назад\"</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Праграма застаецца актыўна, да таго часу, пакуль вы не скасуеце блакаванне. Націсніце і ўтрымлівайце палец на сканары адбіткаў, каб скасаваць блакіроўку.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Каб разблакаваць экран, націсніце і ўтрымлівайце палец на сканары адбіткаў пальцаў</string>
+    <!-- Power menu QS tile -->
+    <string name="quick_settings_power_menu_label">Меню кнопкі сілкавання</string>
 </resources>
