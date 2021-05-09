@@ -21,7 +21,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipChildren="false"
-    android:background="@drawable/qs_background_primary">
+    android:background="@color/qs_customize_background">
 
     <LinearLayout
         android:id="@+id/edit_container"
