@@ -6135,6 +6135,13 @@ public final class Settings {
         public static final String STATUS_BAR_LOGO_COLOR_ACCENT = "status_bar_logo_color_accent";
 
         /**
+         * Whether auto brightness is applied one shot when screen is turned on.
+         * Default 0
+         * @hide
+         */
+        public static final String AUTO_BRIGHTNESS_ONE_SHOT = "auto_brightness_one_shot";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
