@@ -301,6 +301,7 @@
     <!-- Screenshot tile -->
     <uses-permission android:name="android.permission.ACCESS_SURFACE_FLINGER" />
 
+    <protected-broadcast android:name="com.android.systemui.action.PLUGIN_CHANGED" />
     <protected-broadcast android:name="com.android.systemui.doze.pulse" />
 
     <!-- Locale QS -->
