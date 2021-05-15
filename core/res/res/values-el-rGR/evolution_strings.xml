@@ -59,4 +59,7 @@
     <string name="gaming_mode_disabled_toast">Η λειτουργία παιχνιδιού απενεργοποιήθηκε</string>
     <string name="active_edge_app_select_title">Επιλογή εφαρμογής</string>
     <string name="active_edge_activity_select_title">Επιλέξτε δραστηριότητα</string>
+    <!-- Clipboard access toast -->
+    <string name="app_clipboard_access_denied">%1$s απαγορεύτηκε η πρόσβαση στο πρόχειρο</string>
+    <string name="app_clipboard_access_granted">%1$s παραχωρήθηκε πρόσβαση στο πρόχειρο</string>
 </resources>

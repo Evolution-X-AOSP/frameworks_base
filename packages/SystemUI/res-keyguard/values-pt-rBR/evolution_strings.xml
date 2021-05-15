@@ -18,7 +18,7 @@
     <!-- Spectrum Analog clock -->
     <!-- Clock required strings -->
     <string name="date_long_title_today">Hoje é %s</string>
-    <string name="gradient_fire_clock_title">Fogo do Gradiente</string>
+    <string name="gradient_fire_clock_title">Gradiente Fire</string>
     <string name="sticker_tag_clock_title">Etiqueta de adesivo</string>
     <string name="custom_clock_hours_title">Horas</string>
     <string name="custom_clock_minutes_title">Minutos</string>
