@@ -28,7 +28,7 @@
     <string name="pocket_lock_message_long_press">Pressione e segure o botão power para interagir</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automático</string>
-    <string name="live_display_auto_summary">Ajusta automaticamente a cor da temperatura da tela depois do pôr e nascer do sol</string>
+    <string name="live_display_auto_summary">Ajusta automaticamente a temperatura de cor da tela após o anoitecer e o amanhecer</string>
     <string name="live_display_off">Desativado</string>
     <string name="live_display_off_summary">Desativar todos os ajustes</string>
     <string name="live_display_day">Dia</string>
@@ -40,14 +40,14 @@
     <string name="live_display_hint">LiveDisplay pode te ajudar a reduzir cansaço dos olhos e ajudar você a dormir durante a noite. Clique aqui para testar!</string>
     <string name="accessibility_quick_settings_live_display_off">LiveDisplay desligado.</string>
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: modo automatico.</string>
-    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: modo diurno.</string>
-    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: modo noturno.</string>
-    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: modo exterior.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: modo dia.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: modo noite.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: modo externo.</string>
     <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay foi desligado.</string>
     <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay alterado para modo automático.</string>
-    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay alterado para modo diurno.</string>
-    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay alterado para modo noturno.</string>
-    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay alterado para o modo exterior.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay alterado para o modo dia.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay alterado para o modo noite.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay alterado para o modo externo.</string>
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">É necessário reiniciar a Interface do Sistema</string>
     <string name="systemui_restart_message">Para que todas as alterações tenham efeito, é necessário reiniciar a interface do sistema. Deseja reiniciar a interface do sistema agora?</string>
