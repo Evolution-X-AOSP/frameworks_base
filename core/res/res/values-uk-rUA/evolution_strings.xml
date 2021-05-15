@@ -59,4 +59,7 @@
     <string name="gaming_mode_disabled_toast">Ігровий режим вимкнено</string>
     <string name="active_edge_app_select_title">Оберіть додаток</string>
     <string name="active_edge_activity_select_title">Виберіть дію</string>
+    <!-- Clipboard access toast -->
+    <string name="app_clipboard_access_denied">%1$s відмовлено в доступі до буфера обміну</string>
+    <string name="app_clipboard_access_granted">%1$s дозволено доступ до буфера обміну</string>
 </resources>
