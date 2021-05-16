@@ -5050,6 +5050,12 @@ public final class Settings {
         public static final String FOD_ICON_ANIMATION = "fod_icon_animation";
 
         /**
+         * FOD icon animation style
+         * @hide
+         */
+        public static final String FOD_ICON_ANIM_TYPE = "fod_icon_anim_type";
+
+        /**
          * Display style of the battery percentage in the quick status bar header.
          *    0: Hide the battery percentage (default)
          *    1: Display the battery percentage next to the icon

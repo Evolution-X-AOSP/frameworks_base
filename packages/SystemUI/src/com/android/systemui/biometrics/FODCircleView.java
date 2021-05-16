@@ -114,36 +114,6 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
     private boolean mIsRecognizingAnimEnabled;
     private boolean mIsFodAnimationAvailable = false;
 
-    private int mSelectedIcon;
-    private final int[] ICON_STYLES = {
-        R.drawable.fod_icon_default,
-        R.drawable.fod_icon_default_0,
-        R.drawable.fod_icon_default_1,
-        R.drawable.fod_icon_default_2,
-        R.drawable.fod_icon_default_3,
-        R.drawable.fod_icon_default_4,
-        R.drawable.fod_icon_default_5,
-        R.drawable.fod_icon_arc_reactor,
-        R.drawable.fod_icon_cpt_america_flat,
-        R.drawable.fod_icon_cpt_america_flat_gray,
-        R.drawable.fod_icon_dragon_black_flat,
-        R.drawable.fod_icon_evo1,
-        R.drawable.fod_icon_glow_circle,
-        R.drawable.fod_icon_neon_arc,
-        R.drawable.fod_icon_neon_arc_gray,
-        R.drawable.fod_icon_neon_circle_pink,
-        R.drawable.fod_icon_neon_triangle,
-        R.drawable.fod_icon_paint_splash_circle,
-        R.drawable.fod_icon_rainbow_horn,
-        R.drawable.fod_icon_shooky,
-        R.drawable.fod_icon_spiral_blue,
-        R.drawable.fod_icon_sun_metro,
-        R.drawable.fod_icon_scratch_pink_blue,
-        R.drawable.fod_icon_spiral,
-        R.drawable.fod_icon_fire_ice_ouroboros,
-        R.drawable.fod_icon_transparent
-    };
-
     private int mDefaultPressedColor;
     private int mPressedColor;
     private final int[] PRESSED_COLOR = {
@@ -446,9 +416,6 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
                     Settings.System.FOD_ANIM),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.FOD_ICON),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.FOD_COLOR),
                     false, this, UserHandle.USER_ALL);
         }
@@ -456,7 +423,6 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
         @Override
         public void onChange(boolean selfChange, Uri uri) {
             if (uri.equals(Settings.System.getUriFor(Settings.System.FOD_ANIM)) ||
-                    uri.equals(Settings.System.getUriFor(Settings.System.FOD_ICON)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.FOD_COLOR))) {
                 updateStyle();
             }
@@ -639,8 +605,6 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
     private void updateStyle() {
         mIsRecognizingAnimEnabled = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.FOD_RECOGNIZING_ANIMATION, 0) != 0;
-        mSelectedIcon = Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.FOD_ICON, 0);
         mPressedColor = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.FOD_COLOR, mDefaultPressedColor);
 
