@@ -186,12 +186,14 @@
   <!-- Default value for FOD animation package resources -->
   <java-symbol type="string" name="config_fodAnimationPackage" />
 
-  <!-- Smart charging -->
-  <java-symbol type="integer" name="config_smartChargingBatteryLevel" />
-  <java-symbol type="integer" name="config_smartChargingBatteryResumeLevel" /> 
-  <java-symbol type="string" name="config_SmartChargingSysfsNode" />
-  <java-symbol type="string" name="config_SmartChargingSuspendValue" />
-  <java-symbol type="string" name="config_SmartChargingResumeValue" />
+  <!-- Adaptive charging -->
+  <java-symbol type="integer" name="config_adaptiveChargingCutoffLevel" />
+  <java-symbol type="integer" name="config_adaptiveChargingResumeLevel" />
+  <java-symbol type="integer" name="config_adaptiveChargingCutoffTemperature" />
+  <java-symbol type="integer" name="config_adaptiveChargingResumeTemperature" />
+  <java-symbol type="string" name="config_adaptiveChargingSysfsNode" />
+  <java-symbol type="string" name="config_adaptiveChargingSuspendValue" />
+  <java-symbol type="string" name="config_adaptiveChargingResumeValue" />
 
   <!-- Button and keyboard backlight -->
   <java-symbol type="integer" name="config_deviceSupportsButtonBrightnessControl" />
@@ -230,10 +232,6 @@
 
   <!-- DC Dimming -->
   <java-symbol type="string" name="config_deviceDcDimmingSysfsNode" />
-
-  <!-- Smart cutoff temperature -->
-  <java-symbol type="integer" name="config_smartCutoffTemperature" />
-  <java-symbol type="integer" name="config_smartCutoffResumeTemperature" />
 
   <!-- Whether device can force navbar disabling -->
   <java-symbol type="bool" name="config_canForceDisableNavigationBar" />
