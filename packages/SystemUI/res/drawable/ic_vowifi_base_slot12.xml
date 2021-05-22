@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<vector xmlns:android="http://schemas.android.com/apk/res/android" android:height="14dp" android:width="17dp" android:viewportWidth="17" android:viewportHeight="14">
-    <path android:fillColor="#ffffff" android:pathData="M12.3333,9.3333C11.5,9.3333 10.7,9.2 9.9533,8.9533C9.72,8.88 9.46,8.9333 9.2733,9.1133L7.8067,10.58C5.92,9.62 4.3733,8.08 3.4133,6.1867L4.88,4.7133C5.0667,4.54 5.12,4.28 5.0467,4.0467C4.8,3.3 4.6667,2.5 4.6667,1.6667C4.6667,1.3 4.3667,1 4,1L1.6667,1C1.3,1 1,1.3 1,1.6667C1,7.9267 6.0733,13 12.3333,13C12.7,13 13,12.7 13,12.3333L13,10C13,9.6333 12.7,9.3333 12.3333,9.3333ZM11.6667,7L13,7C13,3.6867 10.3133,1 7,1L7,2.3333C9.58,2.3333 11.6667,4.42 11.6667,7ZM9,7L10.3333,7C10.3333,5.16 8.84,3.6667 7,3.6667L7,5C8.1067,5 9,5.8933 9,7Z" android:strokeColor="#00000000" android:strokeWidth="1" android:fillType="nonZero"/>
-    <path android:fillColor="#ffffff" android:pathData="M16.1663,-0l0,5.545l-1.333,0l0,-4.6784l-0.8333,0l0,-0.8667z" android:strokeColor="#00000000" android:strokeWidth="1" android:fillType="evenOdd"/>
-    <path android:fillColor="#ffffff" android:pathData="M17,9.8C17,10.355 16.55,10.8 16,10.8L15,10.8L15,12L17,12L17,13L14,13L14,10.8C14,10.245 14.45,9.8 15,9.8L16,9.8L16,8.4464L14,8.4464L14,7.4464L16,7.4464C16.55,7.4464 17,7.8914 17,8.4464L17,9.8Z" android:strokeColor="#00000000" android:strokeWidth="1" android:fillType="evenOdd"/>
+<!--
+    Copyright (c) 2021 ShapeShiftOS
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+        http://www.apache.org/licenses/LICENSE-2.0
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="20dp"
+    android:height="14dp"
+    android:viewportWidth="20"
+    android:viewportHeight="14">
+    <path
+        android:fillColor="#000"
+        android:fillType="evenOdd"
+        android:pathData="M11.66 0c1.6 0.93 2.68 2.66 2.68 4.65c0 0.98-0.26 1.9-0.72 2.69L12.69 6.8c0.36-0.63 0.57-1.37 0.57-2.15c0-1.59-0.86-2.98-2.14-3.72L11.66 0zm-2.7 2.5c1.2 0 2.16 0.96 2.16 2.15S10.15 6.8 8.97 6.8c-1.19 0-2.15-0.96-2.15-2.15S7.78 2.5 8.97 2.5zM2.86 1.43L4.5 5.2l1.67-3.78h1.4L5.2 6.8H3.8L1.45 1.43h1.4zm8-0.03c1.12 0.65 1.88 1.86 1.88 3.25c0 0.69-0.19 1.33-0.5 1.88L11.28 6c0.23-0.4 0.36-0.86 0.36-1.35c0-1-0.54-1.86-1.34-2.32l0.54-0.93zM8.97 3.58c-0.6 0-1.08 0.48-1.08 1.07c0 0.6 0.48 1.07 1.08 1.07c0.6 0 1.07-0.48 1.07-1.07c0-0.6-0.48-1.07-1.07-1.07z"/>
+    <path
+        android:fillColor="#000"
+        android:pathData="M2.42 14h1.03l0.95-3.27h0.04L5.39 14h1.03l1.43-5H6.69l-0.82 3.48H5.82L4.92 9h-1l-0.9 3.48H2.96L2.14 9H1l1.43 5z"/>
+    <path
+        android:fillColor="#000"
+        android:pathData="M8.4 14h1.03v-3.75H8.4V14zm0.52-4.23c0.3 0 0.56-0.24 0.56-0.53c0-0.29-0.25-0.52-0.56-0.52c-0.31 0-0.56 0.23-0.56 0.52c0 0.3 0.25 0.53 0.56 0.53z"/>
+    <path
+        android:fillColor="#000"
+        android:pathData="M10.29 14h1.05v-2.06h2.03v-0.88h-2.03V9.88h2.25V9h-3.3v5z"/>
+    <path
+        android:fillColor="#000"
+        android:pathData="M14.29 14h1.03v-3.75H14.3V14zm0.52-4.23c0.3 0 0.56-0.24 0.56-0.53c0-0.29-0.25-0.52-0.56-0.52c-0.31 0-0.56 0.23-0.56 0.52c0 0.3 0.25 0.53 0.56 0.53z"/>
+    <path
+        android:fillColor="#000"
+        android:pathData="M16.15 14h3.56v-0.86h-2.1V13.1l0.73-0.71c1.03-0.94 1.3-1.4 1.3-1.98c0-0.86-0.7-1.47-1.78-1.47c-1.04 0-1.76 0.62-1.76 1.6h1c0-0.48 0.3-0.77 0.76-0.77c0.44 0 0.76 0.28 0.76 0.71c0 0.4-0.24 0.68-0.7 1.11l-1.77 1.65V14z"/>
+    <path
+        android:fillColor="#000"
+        android:pathData="M18.5 1.23h-0.98L16.28 2v0.94l1.14-0.72h0.03v4h1.06v-5z"/>
 </vector>
