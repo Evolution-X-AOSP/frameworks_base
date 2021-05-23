@@ -32,9 +32,6 @@ import com.android.systemui.R;
 import android.annotation.CallSuper;
 import android.annotation.NonNull;
 import android.app.ActivityManager;
-import android.app.WallpaperColors;
-import android.app.WallpaperManager;
-import android.content.res.ColorUtils;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -66,7 +63,6 @@ import com.android.settingslib.Utils;
 import com.android.systemui.Dependency;
 import com.android.systemui.Dumpable;
 import com.android.systemui.Prefs;
-import com.android.systemui.colorextraction.SysuiColorExtractor;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.qs.DetailAdapter;
 import com.android.systemui.plugins.qs.QSIconView;
@@ -528,32 +524,13 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
      */
     public abstract CharSequence getTileLabel();
 
-    private static int getWallpaperColor(int defaultColor) {
-        final SysuiColorExtractor colorExtractor = Dependency.get(SysuiColorExtractor.class);
-        // TODO: Find a way to trigger setBackground on lock event, and use FLAG_LOCK there
-        if (colorExtractor == null) return defaultColor;
-        WallpaperColors wallpaperColors = colorExtractor.getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
-        if (wallpaperColors == null) return defaultColor;
-        return wallpaperColors.getPrimaryColor().toArgb();
-    }
-
     public static int getColorForState(Context context, int state) {
-        int defaultColor = ColorUtils.genRandomQsColor();
         int setQsUseNewTint = Settings.System.getIntForUser(context.getContentResolver(),
                 System.QS_PANEL_BG_USE_NEW_TINT, 0, UserHandle.USER_CURRENT);
         int qsTileStyle = Settings.System.getIntForUser(context.getContentResolver(),
                 System.QS_TILE_STYLE, 0, UserHandle.USER_CURRENT);
         boolean shouldDisco = Settings.System.getIntForUser(context.getContentResolver(),
                 System.QS_TILES_BG_DISCO, 0, UserHandle.USER_CURRENT) == 1;
-        boolean setQsFromWall = System.getIntForUser(context.getContentResolver(),
-                System.SYSUI_COLORS_ACTIVE, 0, UserHandle.USER_CURRENT) == 1;
-        boolean setQsFromResources = System.getIntForUser(context.getContentResolver(),
-                System.QS_PANEL_BG_USE_FW, 1, UserHandle.USER_CURRENT) == 1;
-
-        int qsBackGroundColor = ColorUtils.getValidQsColor(System.getIntForUser(context.getContentResolver(),
-                System.QS_PANEL_BG_COLOR, defaultColor, UserHandle.USER_CURRENT));
-        int qsBackGroundColorWall = ColorUtils.getValidQsColor(getWallpaperColor(defaultColor));
-
         switch (state) {
             case Tile.STATE_UNAVAILABLE:
                 return Utils.getDisabled(context,
@@ -570,7 +547,7 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
                 if (qsTileStyle == 7 || qsTileStyle == 9 || qsTileStyle == 10 || qsTileStyle == 12 ||
                         qsTileStyle == 13 || qsTileStyle == 14) {
                     return Utils.getColorAttrDefaultColor(context, android.R.attr.colorAccent);
-                } else if (setQsFromResources) {
+                } else {
                     if (shouldDisco) {
                         return Utils.getColorAttrDefaultColor(context, android.R.attr.colorPrimary);
                     } else if (setQsUseNewTint == 1 && !shouldDisco) {
@@ -579,12 +556,6 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
                         return context.getResources().getColor(R.color.qs_tile_oos);
                     } else {
                         return Utils.getColorAttrDefaultColor(context, android.R.attr.colorPrimary);
-                    }
-                } else {
-                    if (setQsFromWall) {
-                        return qsBackGroundColorWall;
-                    } else {
-                        return qsBackGroundColor;
                     }
                 }
             default:

@@ -390,8 +390,6 @@
         <item name="android:homeAsUpIndicator">@drawable/ic_arrow_back</item>
     </style>
 
-    <style name="qs_panel_theme" parent="@style/qs_theme" />
-
     <style name="systemui_theme_remote_input" parent="@android:style/Theme.DeviceDefault.Light">
         <item name="android:colorAccent">@color/remote_input_accent</item>
     </style>

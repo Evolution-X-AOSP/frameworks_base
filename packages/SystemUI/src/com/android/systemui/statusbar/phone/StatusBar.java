@@ -2085,10 +2085,6 @@ public class StatusBar extends SystemUI implements DemoMode,
     @Override
     public void onColorsChanged(ColorExtractor extractor, int which) {
         updateTheme();
-        mHandler.postDelayed(() -> {
-            mQSPanel.getHost().reloadAllTiles();
-        },
-        1000);
     }
 
     @Nullable
@@ -2284,15 +2280,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.SWITCH_STYLE),
                     false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.QS_PANEL_BG_USE_FW),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.QS_PANEL_BG_COLOR),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.SYSUI_COLORS_ACTIVE),
-                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -2318,10 +2305,7 @@ public class StatusBar extends SystemUI implements DemoMode,
                 updateTileStyle();
                 mQSPanel.getHost().reloadAllTiles();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_PANEL_BG_USE_NEW_TINT)) ||
-                    uri.equals(Settings.System.getUriFor(Settings.System.QS_TILES_BG_DISCO)) ||
-                    uri.equals(Settings.System.getUriFor(Settings.System.QS_PANEL_BG_USE_FW)) ||
-                    uri.equals(Settings.System.getUriFor(Settings.System.QS_PANEL_BG_COLOR)) ||
-                    uri.equals(Settings.System.getUriFor(Settings.System.SYSUI_COLORS_ACTIVE))) {
+                    uri.equals(Settings.System.getUriFor(Settings.System.QS_TILES_BG_DISCO))) {
                 mQSPanel.getHost().reloadAllTiles();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.GAMING_MODE_ACTIVE)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.GAMING_MODE_HEADSUP_TOGGLE))) {
@@ -3995,7 +3979,7 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         // Lock wallpaper defines the color of the majority of the views, hence we'll use it
         // to set our default theme.
-        final boolean lockDarkText = mColorExtractor.getScrimColors(WallpaperManager.FLAG_LOCK).supportsDarkText();
+        final boolean lockDarkText = mColorExtractor.getNeutralColors().supportsDarkText();
         final int themeResId = lockDarkText ? R.style.Theme_SystemUI_Light : R.style.Theme_SystemUI;
         if (mContext.getThemeResId() != themeResId) {
             mContext.setTheme(themeResId);

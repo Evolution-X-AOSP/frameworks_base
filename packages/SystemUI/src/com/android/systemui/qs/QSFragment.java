@@ -114,7 +114,7 @@ public class QSFragment extends LifecycleFragment implements QS, CommandQueue.Ca
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
             Bundle savedInstanceState) {
         inflater = mInjectionInflater.injectable(
-                inflater.cloneInContext(new ContextThemeWrapper(getContext(), R.style.qs_panel_theme)));
+                inflater.cloneInContext(new ContextThemeWrapper(getContext(), R.style.qs_theme)));
         return inflater.inflate(R.layout.qs_panel, container, false);
     }
 

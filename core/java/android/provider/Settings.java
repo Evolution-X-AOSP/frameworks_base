@@ -6027,6 +6027,12 @@ public final class Settings {
         public static final String LOCKSCREEN_STATUS_BAR = "lockscreen_status_bar";
 
         /**
+         * Whether to change the transparency of the qs panel
+         * @hide
+         */
+        public static final String QS_PANEL_BG_ALPHA = "qs_panel_bg_alpha";
+
+        /**
          * Whether to show battery percent on ambient bottom
          * @hide
          */
@@ -6246,34 +6252,10 @@ public final class Settings {
         public static final String CLOCK_SHOW_STATUS_AREA = "clock_show_status_area";
 
         /**
-         * Control how to handle the display cutout
-         * @hide
-         */
-        public static final String SYSUI_COLORS_ACTIVE = "sysui_colors_active";
-
-        /**
-         * Whether to change the transparency of the qs panel
-         * @hide
-         */
-        public static final String QS_PANEL_BG_ALPHA = "qs_panel_bg_alpha";
-
-        /**
          * Whether to change the transparency of the notifications
          * @hide
          */
         public static final String NOTIFICATION_BG_ALPHA = "notification_bg_alpha";
-
-        /**
-         * Whether to change the color of the qs panel
-         * @hide
-         */
-        public static final String QS_PANEL_BG_COLOR = "qs_panel_bg_color";
-
-        /**
-         * Whether to use framework styles and resources on qs panel
-         * @hide
-         */
-        public static final String QS_PANEL_BG_USE_FW = "qs_panel_bg_use_fw";
 
         /**
          * Disable hw buttons
@@ -6563,9 +6545,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(CAMERA_LAUNCH);
             PRIVATE_SETTINGS.add(TOUCHSCREEN_GESTURE_HAPTIC_FEEDBACK);
             PRIVATE_SETTINGS.add(HIGH_TOUCH_SENSITIVITY_ENABLE);
-            PRIVATE_SETTINGS.add(QS_PANEL_BG_ALPHA);
-            PRIVATE_SETTINGS.add(QS_PANEL_BG_COLOR);
-            PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_FW);
         }
 
         /**

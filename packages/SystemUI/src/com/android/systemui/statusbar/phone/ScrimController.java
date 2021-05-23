@@ -23,7 +23,6 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.annotation.IntDef;
 import android.app.AlarmManager;
-import android.app.WallpaperManager;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
@@ -152,7 +151,6 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
 
     private final SysuiColorExtractor mColorExtractor;
     private GradientColors mColors;
-    private GradientColors mLockColors;
     private boolean mNeedsDrawableColorUpdate;
 
     private float mScrimBehindAlphaKeyguard = KEYGUARD_SCRIM_ALPHA;
@@ -230,8 +228,7 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
 
         mColorExtractor = sysuiColorExtractor;
         mColorExtractor.addOnColorsChangedListener(this);
-        mColors = mColorExtractor.getScrimColors(WallpaperManager.FLAG_SYSTEM, ColorExtractor.TYPE_DARK);
-        mLockColors = mColorExtractor.getScrimColors(WallpaperManager.FLAG_LOCK, ColorExtractor.TYPE_DARK);
+        mColors = mColorExtractor.getNeutralColors();
         mNeedsDrawableColorUpdate = true;
     }
 
@@ -595,11 +592,6 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
         mUpdatePending = true;
     }
 
-    private GradientColors getCurrentColors() {
-        boolean isKeyguard = mKeyguardUpdateMonitor.isKeyguardVisible() && !mKeyguardOccluded;
-        return isKeyguard ? mLockColors : mColors;
-    }
-
     protected void updateScrims() {
         // Make sure we have the right gradients and their opacities will satisfy GAR.
         if (mNeedsDrawableColorUpdate) {
@@ -608,15 +600,14 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
             boolean animateScrimInFront = mScrimInFront.getViewAlpha() != 0 && !mBlankScreen;
             boolean animateScrimBehind = mScrimBehind.getViewAlpha() != 0 && !mBlankScreen;
             boolean animateScrimForBubble = mScrimForBubble.getViewAlpha() != 0 && !mBlankScreen;
-	    GradientColors colors = getCurrentColors();
 
-            mScrimInFront.setColors(colors, animateScrimInFront);
-            mScrimBehind.setColors(colors, animateScrimBehind);
-            mScrimForBubble.setColors(colors, animateScrimForBubble);
+            mScrimInFront.setColors(mColors, animateScrimInFront);
+            mScrimBehind.setColors(mColors, animateScrimBehind);
+            mScrimForBubble.setColors(mColors, animateScrimForBubble);
 
             // Calculate minimum scrim opacity for white or black text.
-            int textColor = colors.supportsDarkText() ? Color.BLACK : Color.WHITE;
-            int mainColor = colors.getMainColor();
+            int textColor = mColors.supportsDarkText() ? Color.BLACK : Color.WHITE;
+            int mainColor = mColors.getMainColor();
             float minOpacity = ColorUtils.calculateMinimumBackgroundAlpha(textColor, mainColor,
                     4.5f /* minimumContrast */) / 255f;
             dispatchScrimState(mScrimBehind.getViewAlpha());
@@ -938,7 +929,7 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
     }
 
     public int getBackgroundColor() {
-        int color = getCurrentColors().getMainColor();
+        int color = mColors.getMainColor();
         return Color.argb((int) (mScrimBehind.getViewAlpha() * Color.alpha(color)),
                 Color.red(color), Color.green(color), Color.blue(color));
     }
@@ -953,12 +944,7 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, OnCo
 
     @Override
     public void onColorsChanged(ColorExtractor colorExtractor, int which) {
-        if ((which & WallpaperManager.FLAG_LOCK) != 0) {
-            mLockColors = mColorExtractor.getScrimColors(WallpaperManager.FLAG_LOCK, ColorExtractor.TYPE_DARK);
-	}
-	if ((which & WallpaperManager.FLAG_SYSTEM) != 0) {
-            mColors = mColorExtractor.getScrimColors(WallpaperManager.FLAG_SYSTEM, ColorExtractor.TYPE_DARK);
-	}
+        mColors = mColorExtractor.getNeutralColors();
         mNeedsDrawableColorUpdate = true;
         scheduleUpdate();
     }

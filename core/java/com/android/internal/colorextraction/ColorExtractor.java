@@ -146,7 +146,7 @@ public class ColorExtractor implements WallpaperManager.OnColorsChangedListener 
                     "type should be TYPE_NORMAL, TYPE_DARK or TYPE_EXTRA_DARK");
         }
         if (which != WallpaperManager.FLAG_LOCK && which != WallpaperManager.FLAG_SYSTEM) {
-            throw new IllegalArgumentException("which should be FLAG_LOCK or FLAG_SYSTEM");
+            throw new IllegalArgumentException("which should be FLAG_SYSTEM or FLAG_NORMAL");
         }
         return mGradientColors.get(which)[type];
     }

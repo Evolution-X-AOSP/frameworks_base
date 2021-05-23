@@ -106,14 +106,6 @@ class ConfigurationControllerImpl(context: Context) : ConfigurationController {
     override fun removeCallback(listener: ConfigurationController.ConfigurationListener) {
         listeners.remove(listener)
     }
-
-    /** @hide */
-    override fun reloadUiModeListeners() {
-        context.theme.applyStyle(context.themeResId, true)
-        listeners.filterForEach({ listeners.contains(it) }) {
-            it.onUiModeChanged()
-        }
-    }
 }
 
 // This could be done with a Collection.filter and Collection.forEach, but Collection.filter

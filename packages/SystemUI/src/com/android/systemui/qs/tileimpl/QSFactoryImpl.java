@@ -373,7 +373,7 @@ public class QSFactoryImpl implements QSFactory {
 
     @Override
     public QSTileView createTileView(QSTile tile, boolean collapsedView) {
-        Context context = new ContextThemeWrapper(mQsHostLazy.get().getContext(), R.style.qs_panel_theme);
+        Context context = new ContextThemeWrapper(mQsHostLazy.get().getContext(), R.style.qs_theme);
         QSIconView icon = tile.createTileView(context);
         if (collapsedView) {
             return new QSTileBaseView(context, icon, collapsedView);

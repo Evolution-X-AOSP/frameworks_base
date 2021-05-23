@@ -16,13 +16,11 @@
 
 package com.android.systemui.colorextraction;
 
-import android.app.ActivityThread;
 import android.app.WallpaperColors;
 import android.app.WallpaperManager;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.UserHandle;
-import android.provider.Settings;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.colorextraction.ColorExtractor;
@@ -123,22 +121,6 @@ public class SysuiColorExtractor extends ColorExtractor implements Dumpable,
      */
     public GradientColors getNeutralColors() {
         return mHasMediaArtwork ? mBackdropColors : mNeutralColorsLock;
-    }
-
-    public GradientColors getScrimColors(int which) {
-        return getScrimColors(which, 1 /* TYPE_DARK */);
-    }
-
-    public GradientColors getScrimColors(int which, int type) {
-        final Context context = ActivityThread.currentApplication();
-        boolean useNeutral = Settings.System.getInt(context.getContentResolver(),
-                        Settings.System.SYSUI_COLORS_ACTIVE, 0) != 1;
-        if (useNeutral ||
-                (which != WallpaperManager.FLAG_SYSTEM && which != WallpaperManager.FLAG_LOCK)) {
-            return getNeutralColors();
-        } else {
-            return getColors(which, type);
-        }
     }
 
     public void setHasMediaArtwork(boolean hasBackdrop) {

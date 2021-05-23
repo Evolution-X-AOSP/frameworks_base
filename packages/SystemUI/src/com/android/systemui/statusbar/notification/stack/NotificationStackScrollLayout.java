@@ -549,7 +549,7 @@ public class NotificationStackScrollLayout extends ViewGroup implements ScrollAd
 
     private SysuiColorExtractor.OnColorsChangedListener mOnColorsChangedListener =
             (colorExtractor, which) -> {
-                final boolean useDarkText = mColorExtractor.getScrimColors(which).supportsDarkText();
+                final boolean useDarkText = mColorExtractor.getNeutralColors().supportsDarkText();
                 updateDecorViews(useDarkText);
             };
 

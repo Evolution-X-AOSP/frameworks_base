@@ -24,7 +24,6 @@ import static com.android.systemui.DejankUtils.whitelistIpcs;
 import static com.android.systemui.statusbar.NotificationRemoteInputManager.ENABLE_REMOTE_INPUT;
 
 import android.app.IActivityManager;
-import android.app.WallpaperManager;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
@@ -623,10 +622,7 @@ public class NotificationShadeWindowController implements Callback, Dumpable,
             return;
         }
 
-        final boolean keyguardShowing = mCurrentState.isKeyguardShowingAndNotOccluded();
-        final boolean useDarkText = mColorExtractor.getScrimColors(keyguardShowing
-                ? WallpaperManager.FLAG_LOCK
-                : WallpaperManager.FLAG_SYSTEM).supportsDarkText();
+        final boolean useDarkText = mColorExtractor.getNeutralColors().supportsDarkText();
         // Make sure we have the correct navbar/statusbar colors.
         setKeyguardDark(useDarkText);
     }
