@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -16,14 +16,20 @@
 
 package com.android.systemui.biometrics;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.database.ContentObserver;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.drawable.AnimationDrawable;
+import android.net.Uri;
+import android.os.Handler;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.view.WindowManager;
 import android.widget.ImageView;
+
 import com.android.systemui.R;
 
 public class FODIconView extends ImageView {
@@ -35,6 +41,8 @@ public class FODIconView extends ImageView {
     private int mPositionY;
     private int mSize;
     private final WindowManager mWindowManager;
+
+    private Handler mHandler;
 
     private int mSelectedAnim;
     private final int[] ANIMATION_STYLES_NAMES = {
@@ -96,7 +104,8 @@ public class FODIconView extends ImageView {
         boolean z = Settings.System.getInt(getContext().getContentResolver(), "fod_icon_animation", 0) != 0;
         this.mIsFODIconAnimated = z;
         if (z) {
-            update(z);
+            mCustomSettingsObserver.observe();
+            mCustomSettingsObserver.update();
             setBackgroundResource(ANIMATION_STYLES_NAMES[mSelectedAnim]);
             this.iconAnim = (AnimationDrawable) getBackground();
         } else {
@@ -104,10 +113,45 @@ public class FODIconView extends ImageView {
         }
         hide();
 
-        update(z);
+        mCustomSettingsObserver.observe();
+        mCustomSettingsObserver.update();
     }
 
-    public void update(boolean isEnabled) {
+    private CustomSettingsObserver mCustomSettingsObserver = new CustomSettingsObserver(mHandler);
+    private class CustomSettingsObserver extends ContentObserver {
+
+        CustomSettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.FOD_ICON),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.FOD_ICON_ANIM_TYPE),
+                    false, this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            boolean z = Settings.System.getInt(getContext().getContentResolver(), "fod_icon_animation", 0) != 0;
+            mIsFODIconAnimated = z;
+            if (uri.equals(Settings.System.getUriFor(Settings.System.FOD_ICON)) ||
+                    uri.equals(Settings.System.getUriFor(Settings.System.FOD_ICON_ANIM_TYPE))) {
+                updateStyle(z);
+            }
+        }
+
+        public void update() {
+            boolean z = Settings.System.getInt(getContext().getContentResolver(), "fod_icon_animation", 0) != 0;
+            mIsFODIconAnimated = z;
+            updateStyle(z);
+        }
+    }
+
+    public void updateStyle(boolean isEnabled) {
         mSelectedIcon = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.FOD_ICON, 0);
         mSelectedAnim = Settings.System.getInt(mContext.getContentResolver(),
@@ -145,7 +189,8 @@ public class FODIconView extends ImageView {
         this.mIsFODIconAnimated = z;
         if (z) {
             setImageResource(0);
-            update(z);
+            mCustomSettingsObserver.observe();
+            mCustomSettingsObserver.update();
             setBackgroundResource(ANIMATION_STYLES_NAMES[mSelectedAnim]);
             this.iconAnim = (AnimationDrawable) getBackground();
             return;
@@ -156,11 +201,8 @@ public class FODIconView extends ImageView {
 
     public void setIsKeyguard(boolean z) {
         this.mIsKeyguard = z;
-        if (z && !this.mIsFODIconAnimated) {
-            setColorFilter(-1);
-        } else if (this.mIsKeyguard || !this.mIsFODIconAnimated) {
+        if (this.mIsKeyguard || !this.mIsFODIconAnimated) {
             setBackgroundTintList(null);
-            setColorFilter((ColorFilter) null);
         } else {
             setBackgroundTintList(ColorStateList.valueOf(Color.parseColor("#807B7E")));
         }
