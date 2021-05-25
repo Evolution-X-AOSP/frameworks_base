@@ -40,7 +40,8 @@ public class FODIconView extends ImageView {
     private final int[] ANIMATION_STYLES_NAMES = {
         R.drawable.fod_icon_aod_anim,
         R.drawable.zaid_oneui_fod,
-        R.drawable.oneui2_fod
+        R.drawable.oneui2_fod,
+        R.drawable.oos_fod_animated
     };
 
     private int mSelectedIcon;
