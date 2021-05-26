@@ -55,8 +55,6 @@
         android:layout_gravity="center_horizontal"
         android:visibility="gone"
         android:layout_above="@+id/row"
-        android:layout_marginBottom="44dp"
-        android:layout_marginTop="-44dp"
         android:text="@string/change_clock_face"/>
 
 </com.android.keyguard.KeyguardSliceView>
