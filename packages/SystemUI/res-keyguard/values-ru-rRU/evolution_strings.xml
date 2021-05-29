@@ -18,7 +18,7 @@
     <!-- Spectrum Analog clock -->
     <!-- Clock required strings -->
     <string name="date_long_title_today">Сегодня %s</string>
-    <string name="gradient_fire_clock_title">Градиентный огонь</string>
+    <string name="gradient_fire_clock_title">Огненный градиент</string>
     <string name="sticker_tag_clock_title">Метка-стикер</string>
     <string name="custom_clock_hours_title">Часы</string>
     <string name="custom_clock_minutes_title">Минуты</string>
