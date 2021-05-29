@@ -17,19 +17,19 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Spectrum Analog clock -->
     <!-- Clock required strings -->
-    <string name="date_long_title_today">Сегодня %s</string>
-    <string name="gradient_fire_clock_title">Огненный градиент</string>
-    <string name="sticker_tag_clock_title">Метка-стикер</string>
-    <string name="custom_clock_hours_title">Часы</string>
-    <string name="custom_clock_minutes_title">Минуты</string>
+    <string name="date_long_title_today">Сёння %s</string>
+    <string name="gradient_fire_clock_title">Агністы градыент</string>
+    <string name="sticker_tag_clock_title">Sticker Tag</string>
+    <string name="custom_clock_hours_title">Гадзіны</string>
+    <string name="custom_clock_minutes_title">Хвіліны</string>
     <string name="custom_clock_seconds_title">Секунды</string>
-    <string name="custom_clock_day_title">День</string>
+    <string name="custom_clock_day_title">Дзень</string>
     <string name="custom_clock_month_title">Месяц</string>
     <string name="custom_clock_year_title">Год</string>
-    <string name="ide_java_comment">Покажи дату хоть раз, пользователю любопытно</string>
-    <string name="salute_fallback">Здравствуйте</string>
-    <string name="salute_morning">Доброе утро</string>
-    <string name="salute_afternoon">Добрый день</string>
-    <string name="salute_evening">Добрый вечер</string>
-    <string name="salute_night">Доброй ночи</string>
+    <string name="ide_java_comment">Пакажыце дату адзін раз, карыстальніку цікава</string>
+    <string name="salute_fallback">Прывітанне</string>
+    <string name="salute_morning">Добрай раніцы</string>
+    <string name="salute_afternoon">Добры дзень</string>
+    <string name="salute_evening">Добры вечар</string>
+    <string name="salute_night">Дабранач</string>
 </resources>
