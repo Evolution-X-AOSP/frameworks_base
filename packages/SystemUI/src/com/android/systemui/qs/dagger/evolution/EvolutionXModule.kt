@@ -31,6 +31,7 @@ import com.android.systemui.qs.tiles.PowerShareTile
 import com.android.systemui.qs.tiles.ReadingModeTile
 import com.android.systemui.qs.tiles.RefreshRateTile
 import com.android.systemui.qs.tiles.ScreenshotTile
+import com.android.systemui.qs.tiles.SleepModeTile
 import com.android.systemui.qs.tiles.SmartPixelsTile
 import com.android.systemui.qs.tiles.SoundTile
 import com.android.systemui.qs.tiles.SoundSearchTile
@@ -81,6 +82,12 @@ interface EvolutionXModule {
     @IntoMap
     @StringKey(FPSInfoTile.TILE_SPEC)
     fun FPSInfoTile(fpsInfoTile: FPSInfoTile): QSTileImpl<*>
+
+    /** Inject SleepModeTile into tileMap in QSModule */
+    @Binds  
+    @IntoMap
+    @StringKey(SleepModeTile.TILE_SPEC)
+    fun bindSleepModeTile(sleepModeTile: SleepModeTile): QSTileImpl<*>
 
     /** Inject SoundTile into tileMap in QSModule */
     @Binds

@@ -183,6 +183,7 @@ import com.android.server.policy.PhoneWindowManager;
 import com.android.server.policy.role.RoleServicePlatformHelperImpl;
 import com.android.server.power.PowerManagerService;
 import com.android.server.power.ShutdownThread;
+import com.android.server.power.SleepModeService;
 import com.android.server.power.ThermalManagerService;
 import com.android.server.power.hint.HintManagerService;
 import com.android.server.powerstats.PowerStatsService;
@@ -447,6 +448,8 @@ public final class SystemServer implements Dumpable {
 
     private static final String POCKETLOCK_SERVICE_CLASS =
             "org.rising.server.PocketModeService";
+    private static final String SLEEP_MODE_SERVICE_CLASS =
+            "com.android.server.power.SleepModeService";
 
     private static final String TETHERING_CONNECTOR_CLASS = "android.net.ITetheringConnector";
 
@@ -2915,6 +2918,10 @@ public final class SystemServer implements Dumpable {
 
         t.traceBegin("StartPocketLockService");
         mSystemServiceManager.startService(POCKETLOCK_SERVICE_CLASS);
+        t.traceEnd();
+
+        t.traceBegin("SleepModeService");
+        mSystemServiceManager.startService(SLEEP_MODE_SERVICE_CLASS);
         t.traceEnd();
 
         t.traceBegin("HealthConnectManagerService");
