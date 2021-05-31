@@ -70,6 +70,7 @@ import com.android.systemui.qs.tiles.RefreshRateTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.ScreenRecordTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
+import com.android.systemui.qs.tiles.SleepModeTile;
 import com.android.systemui.qs.tiles.SoundSearchTile;
 import com.android.systemui.qs.tiles.SoundTile;
 import com.android.systemui.qs.tiles.SyncTile;
@@ -146,6 +147,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<VPNTetheringTile> mVPNTetheringTileProvider;
     private final Provider<GloveModeTile> mGloveModeTileProvider;
     private final Provider<CompassTile> mCompassTileProvider;
+    private final Provider<SleepModeTile> mSleepModeTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
     private final Provider<CustomTile.Builder> mCustomTileBuilderProvider;
@@ -207,7 +209,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<ScreenshotTile> screenshotTileProvider,
             Provider<VPNTetheringTile> vpnTetheringTileProvider,
             Provider<GloveModeTile> gloveModeTileProvider,
-            Provider<CompassTile> compassTileProvider) {
+            Provider<CompassTile> compassTileProvider,
+            Provider<SleepModeTile> sleepModeTileProvider) {
         mQsHostLazy = qsHostLazy;
         mCustomTileBuilderProvider = customTileBuilderProvider;
 
@@ -265,6 +268,7 @@ public class QSFactoryImpl implements QSFactory {
         mVPNTetheringTileProvider = vpnTetheringTileProvider;
         mGloveModeTileProvider = gloveModeTileProvider;
         mCompassTileProvider = compassTileProvider;
+        mSleepModeTileProvider = sleepModeTileProvider;
     }
 
     /** Creates a tile with a type based on {@code tileSpec} */
@@ -389,6 +393,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mGloveModeTileProvider.get();
             case "compass":
                 return mCompassTileProvider.get();
+            case "sleep_mode":
+                return mSleepModeTileProvider.get();
         }
 
         // Custom tiles
