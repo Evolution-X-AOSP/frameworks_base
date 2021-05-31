@@ -69,6 +69,7 @@ public class SystemNotificationChannels {
     public static String ACCESSIBILITY_MAGNIFICATION = "ACCESSIBILITY_MAGNIFICATION";
     public static String ACCESSIBILITY_SECURITY_POLICY = "ACCESSIBILITY_SECURITY_POLICY";
     public static String ABUSIVE_BACKGROUND_APPS = "ABUSIVE_BACKGROUND_APPS";
+    public static String SLEEP = "SLEEP";
 
     public static void createAll(Context context) {
         final NotificationManager nm = context.getSystemService(NotificationManager.class);
@@ -199,6 +200,11 @@ public class SystemNotificationChannels {
                 context.getString(R.string.notification_channel_do_not_disturb),
                 NotificationManager.IMPORTANCE_LOW);
         channelsList.add(dndChanges);
+
+        NotificationChannel sleepModeChanges = new NotificationChannel(SLEEP,
+                context.getString(R.string.notification_channel_sleep),
+                NotificationManager.IMPORTANCE_LOW);
+        channelsList.add(sleepModeChanges);
 
         final NotificationChannel newFeaturePrompt = new NotificationChannel(
                 ACCESSIBILITY_MAGNIFICATION,
