@@ -71,6 +71,7 @@ import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.ScreenRecordTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
 import com.android.systemui.qs.tiles.SmartPixelsTile;
+import com.android.systemui.qs.tiles.SleepModeTile;
 import com.android.systemui.qs.tiles.SoundSearchTile;
 import com.android.systemui.qs.tiles.SoundTile;
 import com.android.systemui.qs.tiles.SyncTile;
@@ -148,6 +149,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<GloveModeTile> mGloveModeTileProvider;
     private final Provider<CompassTile> mCompassTileProvider;
     private final Provider<SmartPixelsTile> mSmartPixelsTileProvider;
+    private final Provider<SleepModeTile> mSleepModeTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
     private final Provider<CustomTile.Builder> mCustomTileBuilderProvider;
@@ -210,7 +212,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<VPNTetheringTile> vpnTetheringTileProvider,
             Provider<GloveModeTile> gloveModeTileProvider,
             Provider<CompassTile> compassTileProvider,
-            Provider<SmartPixelsTile> smartPixelsTileProvider) {
+            Provider<SmartPixelsTile> smartPixelsTileProvider,
+            Provider<SleepModeTile> sleepModeTileProvider) {
         mQsHostLazy = qsHostLazy;
         mCustomTileBuilderProvider = customTileBuilderProvider;
 
@@ -269,6 +272,7 @@ public class QSFactoryImpl implements QSFactory {
         mGloveModeTileProvider = gloveModeTileProvider;
         mCompassTileProvider = compassTileProvider;
         mSmartPixelsTileProvider = smartPixelsTileProvider;
+        mSleepModeTileProvider = sleepModeTileProvider;
     }
 
     /** Creates a tile with a type based on {@code tileSpec} */
@@ -395,6 +399,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mCompassTileProvider.get();
             case "smartpixels":
                 return mSmartPixelsTileProvider.get();
+            case "sleep_mode":
+                return mSleepModeTileProvider.get();
         }
         // Custom tiles
         if (tileSpec.startsWith(CustomTile.PREFIX)) {
