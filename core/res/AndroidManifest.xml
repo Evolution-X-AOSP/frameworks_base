@@ -835,6 +835,9 @@
     <protected-broadcast android:name="android.intent.action.PROFILE_AVAILABLE" />
     <protected-broadcast android:name="android.intent.action.PROFILE_UNAVAILABLE" />
 
+    <!-- Sleep Mode -->
+    <protected-broadcast android:name="android.intent.action.SLEEP_MODE_TURN_OFF" />
+
     <!-- ====================================================================== -->
     <!--                          RUNTIME PERMISSIONS                           -->
     <!-- ====================================================================== -->
