@@ -178,6 +178,7 @@ import com.android.server.policy.PhoneWindowManager;
 import com.android.server.policy.role.RoleServicePlatformHelperImpl;
 import com.android.server.power.PowerManagerService;
 import com.android.server.power.ShutdownThread;
+import com.android.server.power.SleepModeService;
 import com.android.server.power.ThermalManagerService;
 import com.android.server.power.hint.HintManagerService;
 import com.android.server.powerstats.PowerStatsService;
@@ -414,6 +415,8 @@ public final class SystemServer implements Dumpable {
             "ink.kaleidoscope.server.GmsManagerService";
     private static final String PARALLEL_SPACE_SERVICE_CLASS =
             "ink.kaleidoscope.server.ParallelSpaceManagerService";
+    private static final String SLEEP_MODE_SERVICE_CLASS =
+            "com.android.server.power.SleepModeService";
 
     private static final String ROLE_SERVICE_CLASS = "com.android.role.RoleService";
     private static final String GAME_MANAGER_SERVICE_CLASS =
@@ -2828,6 +2831,10 @@ public final class SystemServer implements Dumpable {
 
         t.traceBegin("StartParallelSpaceManagerService");
         mSystemServiceManager.startService(PARALLEL_SPACE_SERVICE_CLASS);
+        t.traceEnd();
+
+        t.traceBegin("SleepModeService");
+        mSystemServiceManager.startService(SLEEP_MODE_SERVICE_CLASS);
         t.traceEnd();
 
         // These are needed to propagate to the runnable below.
