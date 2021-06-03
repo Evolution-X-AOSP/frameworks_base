@@ -6312,12 +6312,6 @@ public final class Settings {
         public static final String LOCKSCREEN_SOLID_UNITS_OPACITY = "lockscreen_solid_units_opacity";
 
         /**
-         * SBC HD priority - whether to use dual channel for SBC by default
-         * @hide
-         */
-        public static final String SBC_HD_PRIORITY = "sbc_hd_priority";
-
-        /**
          * Whether to enable status and navigation bar color in battery saver mode.
          * Heads up timeout configuration
          * @hide
