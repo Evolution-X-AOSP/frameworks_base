@@ -1492,14 +1492,6 @@ public final class DisplayManagerService extends SystemService {
         }
     }
 
-    void setDisplayModeDirectorLoggingEnabled(boolean enabled) {
-        synchronized (mSyncRoot) {
-            if (mDisplayModeDirector != null) {
-                mDisplayModeDirector.setLoggingEnabled(enabled);
-            }
-        }
-    }
-
     void setAmbientColorTemperatureOverride(float cct) {
         if (mDisplayPowerController != null) {
             synchronized (mSyncRoot) {
