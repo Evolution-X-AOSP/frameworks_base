@@ -63,7 +63,7 @@ public class TunerServiceImpl extends TunerService {
     private static final String TAG = "TunerService";
     private static final String TUNER_VERSION = "sysui_tuner_version";
 
-    private static final int CURRENT_TUNER_VERSION = 4;
+    private static final int CURRENT_TUNER_VERSION = 5;
 
     // Things that use the tunable infrastructure but are now real user settings and
     // shouldn't be reset with tuner settings.
@@ -149,15 +149,15 @@ public class TunerServiceImpl extends TunerService {
                         TextUtils.join(",", iconHideList), mCurrentUser);
             }
         }
-        if (oldVersion < 2) {
-            setTunerEnabled(false);
-        }
         // 3 Removed because of a revert.
         if (oldVersion < 4) {
             // Delay this so that we can wait for everything to be registered first.
             final int user = mCurrentUser;
             mainHandler.postDelayed(
                     () -> clearAllFromUser(user), 5000);
+        }
+        if (oldVersion < 5) {
+            setTunerEnabled(true);
         }
         setValue(TUNER_VERSION, newVersion);
     }
