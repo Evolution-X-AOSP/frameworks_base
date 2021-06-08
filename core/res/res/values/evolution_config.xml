@@ -366,4 +366,8 @@
 
     <!-- Whether doze feature is enabled by default in settings -->
     <bool name="config_dozeDefaultEnabled">true</bool>
+
+    <!-- OnePlus uses a proprietary vibrator hal to utilize the new powerful motor since the
+         OnePlus 7 Pro. -->
+    <bool name="config_hasOnePlusHapticMotor">false</bool>
 </resources>
