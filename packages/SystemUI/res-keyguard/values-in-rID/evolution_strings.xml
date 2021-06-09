@@ -32,4 +32,5 @@
     <string name="salute_afternoon">Selamat sore</string>
     <string name="salute_evening">Selamat malam</string>
     <string name="salute_night">Selamat malam</string>
+    <string name="salute_sleep">Waktunya tidur</string>
 </resources>
