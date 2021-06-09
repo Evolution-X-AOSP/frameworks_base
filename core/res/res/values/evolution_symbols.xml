@@ -264,4 +264,8 @@
   <!-- System fonts -->
   <java-symbol type="array" name="config_fontPackages" />
   <java-symbol type="string" name="fontservice_incompatible_font" />
+
+  <!-- Switch to last app  -->
+  <java-symbol type="anim" name="custom_app_in" />
+  <java-symbol type="anim" name="custom_app_out" />
 </resources>
