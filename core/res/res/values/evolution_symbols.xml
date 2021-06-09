@@ -177,9 +177,6 @@
   <!-- Default fod pressed icon -->
   <java-symbol type="integer" name="config_fod_pressed_color" />
 
-  <!-- NightLight FOD -->
-  <java-symbol type="bool" name="disable_fod_night_light"/>
-
   <!-- Default value for FOD animation package resources -->
   <java-symbol type="string" name="config_fodAnimationPackage" />
 
@@ -214,8 +211,6 @@
 
   <!-- Pulse brightness -->
   <java-symbol type="integer" name="config_screenBrightnessPulse" />
-
-  <java-symbol type="bool" name="config_has_weird_dt_sensor" />
 
   <!-- Screen recorder framerate limit -->
   <java-symbol type="integer" name="config_screenRecorderMaxFramerate" />

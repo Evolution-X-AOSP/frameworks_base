@@ -447,12 +447,7 @@ public class DozeTriggers implements DozeMachine.Part {
                 || state == Display.STATE_OFF) {
             mDozeSensors.setProxListening(mWantProx);
             mDozeSensors.setListening(mWantSensors);
-            if (mConfig.deviceHasWeirtdDtSensor() && mWantTouchScreenSensors) {
-                mDozeSensors.setTouchscreenSensorsListening(false);
-                mDozeSensors.setTouchscreenSensorsListening(true);
-            } else {
-                mDozeSensors.setTouchscreenSensorsListening(mWantTouchScreenSensors);
-            }
+            mDozeSensors.setTouchscreenSensorsListening(mWantTouchScreenSensors);
         } else {
             mDozeSensors.setProxListening(false);
             mDozeSensors.setListening(mWantSensors);
