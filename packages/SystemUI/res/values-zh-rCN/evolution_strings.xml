@@ -15,7 +15,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Custom QS tiles -->
     <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">环境显示</string>
     <string name="accessibility_quick_settings_ambient_display_off">关闭息屏显示</string>
@@ -154,6 +153,7 @@
     <!-- Screenrecorder -->
     <string name="screenrecord_stopdot_label">显示停止点\n长按移动它</string>
     <string name="screenrecord_lowquality_label">较小文件大小的质量较低</string>
+    <string name="screenrecord_longer_timeout_switch_label">文件大小限制\n将录制大小限制为 15 GB</string>
     <!-- Kill app -->
     <string name="task_helper_app_killed">%1$s 已停止运行</string>
     <string name="empty_app_killed">应用</string>
@@ -163,7 +163,7 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">语言</string>
     <string name="quick_settings_locale_more_locales_toast">请配置多种语言以启用切换功能</string>
-    <!-- Gaming mode -->
+    <!-- Game mode -->
     <string name="gaming_mode_not_enabled">游戏模式在设置中被禁用</string>
     <string name="quick_settings_gaming_mode_label">游戏模式</string>
     <!-- App picker manifest entry -->
@@ -211,4 +211,33 @@
     <string name="screen_pinning_toast_no_navbar_fpsensor">要取消固定此屏幕，请触摸并按住指纹传感器。</string>
     <!-- Power menu QS tile -->
     <string name="quick_settings_power_menu_label">电源菜单</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">阅读模式</string>
+    <string name="accessibility_quick_settings_reading_mode_on">启用阅读模式</string>
+    <string name="accessibility_quick_settings_reading_mode_off">停用阅读模式</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">阅读模式已启用</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">阅读模式已停用</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">连接到 \u2026</string>
+    <string name="vpn_credentials_hint">请输入您的证书以连接 <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">用户名</string>
+    <string name="vpn_credentials_password">密码</string>
+    <string name="vpn_credentials_dialog_connect">连接</string>
+    <!-- Alert slide extras -->
+    <string name="volume_ringer_priority_only">优先</string>
+    <string name="volume_ringer_alarms_only">闹钟</string>
+    <string name="volume_ringer_dnd">DnD</string>
+    <string name="tristate_flashlight_on">手电筒已打开</string>
+    <string name="tristate_flashlight_off">手电筒已关闭</string>
+    <string name="tristate_flashlight_blink">闪光灯</string>
+    <string name="tristate_brightness_bright">最大亮度</string>
+    <string name="tristate_brightness_dark">最小亮度</string>
+    <string name="tristate_brightness_auto">自动亮度</string>
+    <string name="tristate_rotation_auto">自动旋转屏幕</string>
+    <string name="tristate_rotation_0">纵向</string>
+    <string name="tristate_rotation_90">横向 (90°)</string>
+    <string name="tristate_rotation_270">横向 (270°)</string>
+    <!-- Change clockface -->
+    <string name="change_clock_face">滑动以更改时钟样式</string>
 </resources>
