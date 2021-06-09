@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2020 The Evolution X Project
+     Copyright (C) 2019-2021 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -51,7 +51,7 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Es necesario reiniciar la UI del sistema</string>
     <string name="systemui_restart_message">Para que todos los cambios surtan efecto, se requiere un reinicio de SystemUI. ¿Reiniciar SystemUI ahora?</string>
-    <!-- Gaming mode -->
+    <!-- Game mode -->
     <string name="notification_channel_gaming">Modo Juego</string>
     <string name="gaming_mode_notification_title">Modo Juego habilitado</string>
     <string name="gaming_mode_notification_content">Toca para desactivar el Modo Juego</string>
@@ -62,4 +62,17 @@
     <!-- Clipboard access toast -->
     <string name="app_clipboard_access_denied">%1$s se le denegó acceso al portapapeles</string>
     <string name="app_clipboard_access_granted">%1$s se le concedió acceso al portapapeles</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_view_title">Modo bolsillo activado</string>
+    <string name="pocket_view_title_cancel">Para activar su teléfono:</string>
+    <string name="pocket_view_top_tag_cancel">No cubra la zona azul de su teléfono, y elimine cualquier suciedad o polvo.</string>
+    <string name="pocket_view_top_tag_cancel2">Mantenga pulsado el botón encendido para forzar el apagado del modo bolsillo</string>
+    <string name="pocket_view_top_tag_number1">1.\u0020</string>
+    <string name="pocket_view_top_tag_number2">2.\u0020</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">acceder al gestor de fuentes</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Permite a una aplicación acceder al gestor de fuentes.</string>
+    <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
+    <string name="fontservice_incompatible_font">El paquete de fuentes que ha instalado no es compatible debido a que faltan fonts.xml en sus archivos. Por favor, contacte con el desarrollador del paquete para obtener soporte.</string>
 </resources>

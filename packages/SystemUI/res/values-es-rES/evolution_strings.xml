@@ -15,7 +15,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Custom QS tiles -->
     <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Pantalla ambiente</string>
     <string name="accessibility_quick_settings_ambient_display_off">Pantalla ambiente desactivada.</string>
@@ -154,6 +153,7 @@
     <!-- Screenrecorder -->
     <string name="screenrecord_stopdot_label">Mostrar punto para detener grabación.\nPulsación larga para moverlo</string>
     <string name="screenrecord_lowquality_label">Menor calidad para un tamaño de archivo más pequeño</string>
+    <string name="screenrecord_longer_timeout_switch_label">Límite de tamaño de archivo más grande\nLímite de tamaño de grabación a 15 GB</string>
     <!-- Kill app -->
     <string name="task_helper_app_killed">%1$s se detuvo</string>
     <string name="empty_app_killed">Aplicación</string>
@@ -163,7 +163,7 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Idioma</string>
     <string name="quick_settings_locale_more_locales_toast">Por favor configure varios idiomas para habilitar la función del interruptor</string>
-    <!-- Gaming mode -->
+    <!-- Game mode -->
     <string name="gaming_mode_not_enabled">El modo Juego está deshabilitado en los ajustes</string>
     <string name="quick_settings_gaming_mode_label">Modo Juego</string>
     <!-- App picker manifest entry -->
@@ -211,4 +211,33 @@
     <string name="screen_pinning_toast_no_navbar_fpsensor">Para soltar esta pantalla, manten &amp; tocado el sensor de huella</string>
     <!-- Power menu QS tile -->
     <string name="quick_settings_power_menu_label">Menu de apagado</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Modo lectura</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Modo lectura activado.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Modo lectura desactivado.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">El modo lectura se ha activado.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">El modo lectura se ha desactivado.</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Conectar a\u2026</string>
+    <string name="vpn_credentials_hint">Por favor, introduzca sus credenciales para conectarse a <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Nombre de Usuario</string>
+    <string name="vpn_credentials_password">Contraseña</string>
+    <string name="vpn_credentials_dialog_connect">Conectar</string>
+    <!-- Alert slide extras -->
+    <string name="volume_ringer_priority_only">Prioridad</string>
+    <string name="volume_ringer_alarms_only">Alarmas</string>
+    <string name="volume_ringer_dnd">No Molestar</string>
+    <string name="tristate_flashlight_on">Linterna activada</string>
+    <string name="tristate_flashlight_off">Lintenda desactivada</string>
+    <string name="tristate_flashlight_blink">Parpadeo de Linterna</string>
+    <string name="tristate_brightness_bright">Brillo máximo</string>
+    <string name="tristate_brightness_dark">Brillo mínimo</string>
+    <string name="tristate_brightness_auto">Brillo automático</string>
+    <string name="tristate_rotation_auto">Rotación automática</string>
+    <string name="tristate_rotation_0">Retrato</string>
+    <string name="tristate_rotation_90">Apaisado (90º)</string>
+    <string name="tristate_rotation_270">Apaisado (270º)</string>
+    <!-- Change clockface -->
+    <string name="change_clock_face">Desliza para cambiar la interfaz del reloj</string>
 </resources>

@@ -15,7 +15,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Custom QS tiles -->
     <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Tela ambiente</string>
     <string name="accessibility_quick_settings_ambient_display_off">Tela Ambiente desligada.</string>
@@ -23,14 +22,14 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">Tela ambiente foi desligada.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Tela ambiente foi ligada.</string>
     <!-- AOD QS tile -->
-    <string name="quick_settings_aod_label">Always On Display</string>
+    <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_on_charge_label">AOD ao carregar</string>
     <string name="quick_settings_aod_off_label">AOD desligado</string>
     <string name="quick_settings_aod_off_powersave_label">AOD desligado\nEconomia de bateria</string>
     <!-- Caffeine QS tile -->
     <string name="quick_settings_caffeine_label">Cafeína</string>
-    <string name="accessibility_quick_settings_caffeine_off">Caffeine desligado.</string>
-    <string name="accessibility_quick_settings_caffeine_on">Caffeine ligado.</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cafeína desligada.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cafeína ligada.</string>
     <!-- Compass QS Tile -->
     <string name="quick_settings_compass_label">Bússola</string>
     <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
@@ -85,7 +84,7 @@
     <string name="quick_settings_screenshot_label">Captura de tela</string>
     <string name="quick_settings_region_screenshot_label">Captura de tela parcial</string>
     <!-- SleepScreen QS Tile -->
-    <string name="quick_settings_sleepscreen_label">Tela de suspensão</string>
+    <string name="quick_settings_sleepscreen_label">Suspender tela</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Som</string>
     <string name="quick_settings_sound_mute">Desativar som</string>
@@ -119,23 +118,23 @@
     <string name="accessibility_status_bar_nfc">NFC</string>
     <string name="global_action_restart_advanced">Avançado</string>
     <string name="global_action_restart_recovery">Recuperação</string>
-    <string name="global_action_restart_bootloader">Fastboot</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">Interface do sistema</string>
     <string name="global_action_screenshot">Captura de tela</string>
-    <string name="global_action_screenrecord">Gravar tela</string>
+    <string name="global_action_screenrecord">Gravação de Tela</string>
     <string name="global_action_flashlight">Lanterna</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento rápido(<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%s</xliff:g> até completar a carga)</string>
     <string name="keyguard_plugged_in_dash_charging">Carregamento Rápido</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento rápido (<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%s</xliff:g> até completar a carga)</string>
-    <string name="keyguard_plugged_in_warp_charging">Carregamento Turbo</string>
+    <string name="keyguard_plugged_in_warp_charging">Carregamento Rápido</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="porcentagem">%2$s</xliff:g> • Carregamento rápido (<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%1$s</xliff:g> até completar a carga)</string>
     <string name="keyguard_plugged_in_vooc_charging">Carregamento VOOC</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento rápido (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até concluir)</string>
-    <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="percentage">%s</xliff:g> • Carregando Rapidamente</string>
+    <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento Turbo (<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%1$s</xliff:g> até completar a carga)</string>
+    <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="percentage">%s</xliff:g> • Carregamento Turbo</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">Segure &amp; arraste ou toque para adicionar blocos</string>
     <!-- Label for header of customize QS -->
@@ -154,6 +153,7 @@
     <!-- Screenrecorder -->
     <string name="screenrecord_stopdot_label">Mostrar ponto de parada\nPressionamento longo para movê-lo</string>
     <string name="screenrecord_lowquality_label">Qualidade inferior para arquivo menor</string>
+    <string name="screenrecord_longer_timeout_switch_label">Limite maior para arquivo\nLimitar o tamanho de gravação para 15 GB</string>
     <!-- Kill app -->
     <string name="task_helper_app_killed">%1$s força parada</string>
     <string name="empty_app_killed">Aplicativo</string>
@@ -162,23 +162,23 @@
     <string name="accessibility_quick_settings_running_services">Abrir tela de serviços em execução.</string>
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Idioma</string>
-    <string name="quick_settings_locale_more_locales_toast">Por favor, configure vários idiomas para habilitar funcionalidade de alternância</string>
-    <!-- Gaming mode -->
-    <string name="gaming_mode_not_enabled">Modo de jogo está desativado nas configurações</string>
+    <string name="quick_settings_locale_more_locales_toast">Por favor, configure vários idiomas para usar essa função</string>
+    <!-- Game mode -->
+    <string name="gaming_mode_not_enabled">Modo de jogo está desativado</string>
     <string name="quick_settings_gaming_mode_label">Modo de jogo</string>
     <!-- App picker manifest entry -->
     <string name="app_picker_dialog_title">Selecione um app</string>
     <string name="app_picker_activity_select_title">Selecionar atividade</string>
     <!-- Headphones Buddy -->
     <string name="hp_buddy">Amiguinho dos fones</string>
-    <string name="hp_buddy_left">Apenas esquerda</string>
-    <string name="hp_buddy_right">Apenas a direita</string>
+    <string name="hp_buddy_left">Somente esquerda</string>
+    <string name="hp_buddy_right">Somente direita</string>
     <string name="hp_buddy_center">Ambos</string>
     <string name="hp_buddy_not_connected">Conecte seus fones de ouvido</string>
     <!-- Ambient Music Ticker -->
     <string name="ambientmusic_songinfo" formatted="false">%s por %s</string>
     <!-- Daily data usage -->
-    <string name="daily_data_usage_title">Uso de hoje</string>
+    <string name="daily_data_usage_title">Usado hoje</string>
     <!-- Scrolling Screenshot string -->
     <string name="scrollss">Rolagem</string>
     <!-- Biometric Dialog - Use Face -->
@@ -192,8 +192,8 @@
     <!-- App Lock -->
     <string name="applock_locked">&#160;está bloqueado</string>
     <string name="applock_fingerprint_face">, impressão digital ou seu rosto para desbloquear</string>
-    <string name="applock_face">&#160;ou seu rosto para desbloquear</string>
-    <string name="applock_fingerprint">&#160;ou sua impressão digital para desbloquear</string>
+    <string name="applock_face">&#160;ou use seu rosto para desbloquear</string>
+    <string name="applock_fingerprint">&#160;ou use sua impressão digital para desbloquear</string>
     <string name="applock_credential">&#160;para desbloquear</string>
     <string name="applock_unlock">Desbloquear</string>
     <!-- PowerShare QS tile -->
@@ -204,11 +204,40 @@
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Ela é mantida à vista até que seja liberada. Toque &amp; em \"Voltar\" e mantenha essa opção pressionada para liberar.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
-    <string name="screen_pinning_toast_no_navbar">Para liberar esta tela, toque &amp; segure o botão Voltar</string>
+    <string name="screen_pinning_toast_no_navbar">Para liberar esta tela, mantenha o botão Voltar pressionado</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
-    <string name="screen_pinning_description_no_navbar_fpsensor">Ela é mantida à vista até que seja liberada. Toque &amp; segure o sensor de impressão digital para liberar.</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Ela é mantida à vista até que seja liberada. Toque e segure o sensor de impressão de digital para liberar.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
-    <string name="screen_pinning_toast_no_navbar_fpsensor">Para liberar esta tela, toque &amp; segure o sensor de impressão digital</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Para liberar esta tela, toque e segure o sensor de impressão digital</string>
     <!-- Power menu QS tile -->
     <string name="quick_settings_power_menu_label">Menu de energia</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Modo leitura</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Modo leitura ligado.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Modo leitura desligado.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">O modo leitura foi ativado.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">O modo leitura foi desativado.</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Conectar a\u2026</string>
+    <string name="vpn_credentials_hint">Por favor, insira suas credenciais para se conectar a <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Usuário</string>
+    <string name="vpn_credentials_password">Senha</string>
+    <string name="vpn_credentials_dialog_connect">Conectar</string>
+    <!-- Alert slide extras -->
+    <string name="volume_ringer_priority_only">Prioridade</string>
+    <string name="volume_ringer_alarms_only">Alarmes</string>
+    <string name="volume_ringer_dnd">Não Perturbe</string>
+    <string name="tristate_flashlight_on">Lanterna ligada</string>
+    <string name="tristate_flashlight_off">Lanterna desligada</string>
+    <string name="tristate_flashlight_blink">Piscar lanterna</string>
+    <string name="tristate_brightness_bright">Brilho máximo</string>
+    <string name="tristate_brightness_dark">Brilho mínimo</string>
+    <string name="tristate_brightness_auto">Brilho automático</string>
+    <string name="tristate_rotation_auto">Rotação automática</string>
+    <string name="tristate_rotation_0">Retrato</string>
+    <string name="tristate_rotation_90">Paisagem (90°)</string>
+    <string name="tristate_rotation_270">Paisagem (270°)</string>
+    <!-- Change clockface -->
+    <string name="change_clock_face">Deslize para alterar o estilo do relógio</string>
 </resources>

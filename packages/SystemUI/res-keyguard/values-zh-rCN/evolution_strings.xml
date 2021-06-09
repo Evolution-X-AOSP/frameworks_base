@@ -32,4 +32,5 @@
     <string name="salute_afternoon">下午好</string>
     <string name="salute_evening">晚上好</string>
     <string name="salute_night">晚安</string>
+    <string name="salute_sleep">去睡觉吧~</string>
 </resources>

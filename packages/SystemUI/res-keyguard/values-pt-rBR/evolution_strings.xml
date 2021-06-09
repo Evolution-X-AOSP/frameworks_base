@@ -26,10 +26,11 @@
     <string name="custom_clock_day_title">Dia</string>
     <string name="custom_clock_month_title">Mês</string>
     <string name="custom_clock_year_title">Ano</string>
-    <string name="ide_java_comment">Mostrar a data por uma vez, o usuário está curioso</string>
+    <string name="ide_java_comment">Mostrar a data uma vez, o usuário está curioso</string>
     <string name="salute_fallback">Olá</string>
     <string name="salute_morning">Bom dia</string>
     <string name="salute_afternoon">Boa tarde</string>
     <string name="salute_evening">Boa madrugada</string>
     <string name="salute_night">Boa noite</string>
+    <string name="salute_sleep">Suspender</string>
 </resources>

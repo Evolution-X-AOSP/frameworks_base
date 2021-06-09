@@ -32,4 +32,5 @@
     <string name="salute_afternoon">Buenas tardes</string>
     <string name="salute_evening">Buenas noches</string>
     <string name="salute_night">Buenas noches</string>
+    <string name="salute_sleep">Ir a Dormir</string>
 </resources>

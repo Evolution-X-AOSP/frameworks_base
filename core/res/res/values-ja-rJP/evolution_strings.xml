@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2020 The Evolution X Project
+     Copyright (C) 2019-2021 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -51,7 +51,7 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">システム UI の再起動が必要です</string>
     <string name="systemui_restart_message">全ての変更を反映するにはシステム UI の再起動が必要です。再起動しますか?</string>
-    <!-- Gaming mode -->
+    <!-- Game mode -->
     <string name="notification_channel_gaming">ゲームモード</string>
     <string name="gaming_mode_notification_title">ゲームモードが有効です</string>
     <string name="gaming_mode_notification_content">タップでゲームモードを無効化</string>
@@ -62,4 +62,17 @@
     <!-- Clipboard access toast -->
     <string name="app_clipboard_access_denied">%1$s はクリップボードへのアクセスを拒否されました</string>
     <string name="app_clipboard_access_granted">%1$s はクリップボードへのアクセスの権限を付与されました</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_view_title">ポケットモードは ON です</string>
+    <string name="pocket_view_title_cancel">携帯電話の有効化:</string>
+    <string name="pocket_view_top_tag_cancel">携帯電話の青い部分を覆わず、汚れやほこりを落として下さい。</string>
+    <string name="pocket_view_top_tag_cancel2">電源ボタンを長押ししてポケットモードを強制終了します</string>
+    <string name="pocket_view_top_tag_number1">1.\u0020</string>
+    <string name="pocket_view_top_tag_number2">2.\u0020</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">フォントマネージャーにアクセス</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">アプリにフォントマネージャーへのアクセスを許可する</string>
+    <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
+    <string name="fontservice_incompatible_font">あなたがインストールしたフォントパッケージは fonts.xml が見つからないため互換性がありません。支援を受けるにはパッケージ開発者に連絡して下さい。</string>
 </resources>

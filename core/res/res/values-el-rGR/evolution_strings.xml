@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2020 The Evolution X Project
+     Copyright (C) 2019-2021 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -51,7 +51,7 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Απαιτείται επανεκκίνηση του Συστήματος Ui</string>
     <string name="systemui_restart_message">Για να εφαρμοστούν όλες οι αλλαγές, απαιτείται επανεκκίνηση του Συστήματος Ui. Επανεκκίνηση Συστήματος Ui τώρα;</string>
-    <!-- Gaming mode -->
+    <!-- Game mode -->
     <string name="notification_channel_gaming">Λειτουργία παιχνιδιού</string>
     <string name="gaming_mode_notification_title">Λειτουργία παιχνιδιού ενεργή</string>
     <string name="gaming_mode_notification_content">Πατήστε για απενεργοποίηση της λειτ. παιχνιδιού</string>
@@ -62,4 +62,17 @@
     <!-- Clipboard access toast -->
     <string name="app_clipboard_access_denied">%1$s απαγορεύτηκε η πρόσβαση στο πρόχειρο</string>
     <string name="app_clipboard_access_granted">%1$s παραχωρήθηκε πρόσβαση στο πρόχειρο</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_view_title">Η λειτουργία τσέπης είναι ενεργοποιημένη</string>
+    <string name="pocket_view_title_cancel">Για να ενεργοποιήσετε το τηλέφωνό σας:</string>
+    <string name="pocket_view_top_tag_cancel">Μην καλύπτετε την μπλε περιοχή του τηλεφώνου σας και καθαρίστε τυχόν βρωμιά ή σκόνη.</string>
+    <string name="pocket_view_top_tag_cancel2">Πατήστε παρατεταμένα το κουμπί τροφοδοσίας για εξαναγκασμό τερματισμού λειτουργίας τσέπης</string>
+    <string name="pocket_view_top_tag_number1">1.\u0020</string>
+    <string name="pocket_view_top_tag_number2">2.\u0020</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">πρόσβαση διαχειριστή γραμματοσειρών</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Επιτρέπει σε μια εφαρμογή την πρόσβαση στη διαχείριση γραμματοσειρών.</string>
+    <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
+    <string name="fontservice_incompatible_font">Το πακέτο γραμματοσειρών που έχετε εγκαταστήσει δεν είναι συμβατό λόγω του ότι λείπουν fonts.xml στα αρχεία τους. Επικοινωνήστε με τον προγραμματιστή πακέτων για υποστήριξη.</string>
 </resources>
