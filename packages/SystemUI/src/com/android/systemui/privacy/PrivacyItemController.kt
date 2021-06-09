@@ -98,9 +98,9 @@ class PrivacyItemController @Inject constructor(
         uiExecutor.execute(notifyChanges)
     }
 
-    var allIndicatorsAvailable = false
+    var allIndicatorsAvailable = isAllIndicatorsEnabled()
         private set
-    var micCameraAvailable = false
+    var micCameraAvailable = isMicCameraEnabled()
         private set
 
     private val devicePropertiesChangedListener =
@@ -152,6 +152,10 @@ class PrivacyItemController @Inject constructor(
         }
 
     init {
+        deviceConfigProxy.addOnPropertiesChangedListener(
+                DeviceConfig.NAMESPACE_PRIVACY,
+                uiExecutor,
+                devicePropertiesChangedListener)
         dumpManager.registerDumpable(TAG, this)
     }
 
