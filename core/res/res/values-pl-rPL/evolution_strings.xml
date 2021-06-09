@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2020 The Evolution X Project
+     Copyright (C) 2019-2021 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -51,7 +51,7 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Wymagane ponowne uruchomienie SystemUI</string>
     <string name="systemui_restart_message">Zapisanie wszystkich zmian wymaga ponownego uruchomienia SystemUI. Zrobić to teraz?</string>
-    <!-- Gaming mode -->
+    <!-- Game mode -->
     <string name="notification_channel_gaming">Tryb gry</string>
     <string name="gaming_mode_notification_title">Tryb gry włączony</string>
     <string name="gaming_mode_notification_content">Naciśnij, aby wyłączyć tryb gry</string>
@@ -62,4 +62,17 @@
     <!-- Clipboard access toast -->
     <string name="app_clipboard_access_denied">%1$s został pozbawiony dostępu do schowka</string>
     <string name="app_clipboard_access_granted">%1$s uzyskał dostęp do schowka</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_view_title">Tryb kieszonkowy jest włączony</string>
+    <string name="pocket_view_title_cancel">Aby aktywować swój telefon:</string>
+    <string name="pocket_view_top_tag_cancel">Nie należy przykryć niebieskiej powierzchni telefonu i wyczyścić śmieci lub kurz.</string>
+    <string name="pocket_view_top_tag_cancel2">Przytrzymaj przycisk zasilania, aby wymusić wyjście z trybu kieszonkowego</string>
+    <string name="pocket_view_top_tag_number1">1.\u0020</string>
+    <string name="pocket_view_top_tag_number2">2.\u0020</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">dostęp do menadżera czcionek</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Zezwól aplikacjom na dostęp do menadżera czcionek.</string>
+    <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
+    <string name="fontservice_incompatible_font">Zainstalowany pakiet czcionek nie jest kompatybilny z powodu braku fonts.xml w ich plikach. Skontaktuj się z twórcą pakietu, aby uzyskać pomoc.</string>
 </resources>
