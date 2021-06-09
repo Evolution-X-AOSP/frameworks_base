@@ -26,6 +26,7 @@ import static android.os.BatteryManager.EXTRA_MAX_CHARGING_CURRENT;
 import static android.os.BatteryManager.EXTRA_MAX_CHARGING_VOLTAGE;
 import static android.os.BatteryManager.EXTRA_TEMPERATURE;
 import static android.os.BatteryManager.EXTRA_PLUGGED;
+import static android.os.BatteryManager.EXTRA_PRESENT;
 import static android.os.BatteryManager.EXTRA_STATUS;
 import static android.os.BatteryManager.EXTRA_DASH_CHARGER;
 import static android.os.BatteryManager.EXTRA_WARP_CHARGER;
@@ -68,12 +69,13 @@ public class BatteryStatus {
     public final boolean voocChargeStatus;
     public final boolean oemFastChargeStatus;
     public final boolean turboPowerStatus;
+    public final boolean present;
 
     public BatteryStatus(int status, int level, int plugged, int health,
             int maxChargingCurrent, int maxChargingVoltage,
             int maxChargingWattage, float temperature, boolean dashChargeStatus,
             boolean warpChargeStatus, boolean voocChargeStatus, boolean oemFastChargeStatus,
-            boolean turboPowerStatus) {
+            boolean turboPowerStatus, boolean present) {
         this.status = status;
         this.level = level;
         this.plugged = plugged;
@@ -87,6 +89,7 @@ public class BatteryStatus {
         this.voocChargeStatus = voocChargeStatus;
         this.oemFastChargeStatus = oemFastChargeStatus;
         this.turboPowerStatus = turboPowerStatus;
+        this.present = present;
     }
 
     public BatteryStatus(Intent batteryChangedIntent) {
@@ -100,6 +103,7 @@ public class BatteryStatus {
         voocChargeStatus = batteryChangedIntent.getBooleanExtra(EXTRA_VOOC_CHARGER, false);
         oemFastChargeStatus = batteryChangedIntent.getBooleanExtra(EXTRA_OEM_FAST_CHARGER, false);
         turboPowerStatus = batteryChangedIntent.getBooleanExtra(EXTRA_TURBO_POWER, false);
+        present = batteryChangedIntent.getBooleanExtra(EXTRA_PRESENT, true);
 
         final int maxChargingMicroAmp = batteryChangedIntent.getIntExtra(EXTRA_MAX_CHARGING_CURRENT,
                 -1);

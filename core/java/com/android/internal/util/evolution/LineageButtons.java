@@ -270,6 +270,9 @@ public final class LineageButtons {
             case 18: // Hush mute
                 ActionUtils.triggerHushMute(context);
                 break;
+            case 19: // Switch recent app
+                ActionUtils.switchToLastApp(mContext);
+                break;
         }
     }
 }
