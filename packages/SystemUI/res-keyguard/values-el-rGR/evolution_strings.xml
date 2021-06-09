@@ -32,4 +32,5 @@
     <string name="salute_afternoon">Καλό απόγευμα</string>
     <string name="salute_evening">Καλησπέρα</string>
     <string name="salute_night">Καληνύχτα</string>
+    <string name="salute_sleep">Πηγαίνετε για Ύπνο</string>
 </resources>
