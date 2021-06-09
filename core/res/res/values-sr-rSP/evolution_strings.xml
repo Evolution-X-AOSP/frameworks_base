@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2020 The Evolution X Project
+     Copyright (C) 2019-2021 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -51,7 +51,7 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Потребно је поновно покретање интерфејса</string>
     <string name="systemui_restart_message">Да би све промене ступиле на снагу, потребно је поновно покретање интерфејса. Поново покренути инферфејс сада?</string>
-    <!-- Gaming mode -->
+    <!-- Game mode -->
     <string name="notification_channel_gaming">Мод за игре</string>
     <string name="gaming_mode_notification_title">Омогући Мод за игре</string>
     <string name="gaming_mode_notification_content">Кликни да искључиш Мод за игре</string>
@@ -62,4 +62,17 @@
     <!-- Clipboard access toast -->
     <string name="app_clipboard_access_denied">%1$s је одбијен приступ међуспремнику</string>
     <string name="app_clipboard_access_granted">%1$s је добио приступ клипборду</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_view_title">Мод када је у џепу је укључен</string>
+    <string name="pocket_view_title_cancel">За активацију вашег телефона:</string>
+    <string name="pocket_view_top_tag_cancel">Не покривајте плаву зону вашег телефона, и обришите нечистоћу и прашину.</string>
+    <string name="pocket_view_top_tag_cancel2">Дуги притисак на дугме за укључење за форсирано искључење мода у џепу</string>
+    <string name="pocket_view_top_tag_number1">1.\u0020</string>
+    <string name="pocket_view_top_tag_number2">2.\u0020</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">приступ менаџеру фонтова</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Дозвољава апликацији приступ фонт менаџеру.</string>
+    <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
+    <string name="fontservice_incompatible_font">Пакет фонтова које сте инсталисали није компатибилан јер недостаје fonts.xml фајл или неки њен део.Потражите помоћ од тех. подршке.</string>
 </resources>
