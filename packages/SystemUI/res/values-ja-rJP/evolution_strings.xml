@@ -15,7 +15,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Custom QS tiles -->
     <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">アンビエント\n表示</string>
     <string name="accessibility_quick_settings_ambient_display_off">アンビエント表示 OFF</string>
@@ -154,6 +153,7 @@
     <!-- Screenrecorder -->
     <string name="screenrecord_stopdot_label">停止ドット\n長押しして移動</string>
     <string name="screenrecord_lowquality_label">低品質にしてファイルサイズ縮小</string>
+    <string name="screenrecord_longer_timeout_switch_label">ファイルサイズ制限です\n録画サイズを15 GBに制限します</string>
     <!-- Kill app -->
     <string name="task_helper_app_killed">%1$s を強制停止しました</string>
     <string name="empty_app_killed">アプリ</string>
@@ -163,7 +163,7 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">言語</string>
     <string name="quick_settings_locale_more_locales_toast">言語の切り替えを有効にするために複数の言語を設定してください</string>
-    <!-- Gaming mode -->
+    <!-- Game mode -->
     <string name="gaming_mode_not_enabled">ゲームモードが設定で無効になっています</string>
     <string name="quick_settings_gaming_mode_label">ゲームモード</string>
     <!-- App picker manifest entry -->
@@ -211,4 +211,33 @@
     <string name="screen_pinning_toast_no_navbar_fpsensor">画面の固定を解除するには指紋センサーを長押しします</string>
     <!-- Power menu QS tile -->
     <string name="quick_settings_power_menu_label">電源メニュー</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">読書モード</string>
+    <string name="accessibility_quick_settings_reading_mode_on">読書モード ON</string>
+    <string name="accessibility_quick_settings_reading_mode_off">読書モード OFF</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">読書モードを ON にしました</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">読書モードを OFF にしました</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">接続先\u2026</string>
+    <string name="vpn_credentials_hint"><xliff:g id="name">%s</xliff:g> への接続の認証情報を入力して下さい</string>
+    <string name="vpn_credentials_username">ユーザー名</string>
+    <string name="vpn_credentials_password">パスワード</string>
+    <string name="vpn_credentials_dialog_connect">接続</string>
+    <!-- Alert slide extras -->
+    <string name="volume_ringer_priority_only">優先度</string>
+    <string name="volume_ringer_alarms_only">アラーム</string>
+    <string name="volume_ringer_dnd">DnD</string>
+    <string name="tristate_flashlight_on">トーチ ON</string>
+    <string name="tristate_flashlight_off">トーチ OFF</string>
+    <string name="tristate_flashlight_blink">トーチ点滅</string>
+    <string name="tristate_brightness_bright">最大の明るさ</string>
+    <string name="tristate_brightness_dark">最小の明るさ</string>
+    <string name="tristate_brightness_auto">自動の明るさ</string>
+    <string name="tristate_rotation_auto">自動回転</string>
+    <string name="tristate_rotation_0">縦向き</string>
+    <string name="tristate_rotation_90">横向き (90°)</string>
+    <string name="tristate_rotation_270">横向き (270°)</string>
+    <!-- Change clockface -->
+    <string name="change_clock_face">スワイプして時計の面を変更</string>
 </resources>
