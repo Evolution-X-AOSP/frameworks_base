@@ -101,12 +101,6 @@
          timing(the duration which the vibrator is expected to vibrate for). -->
     <bool name="config_hasOnePlusHapticMotor">false</bool>
 
-    <!-- Name of a font family to use as light font. For theming purpose. -->
-    <string name="config_lightFontFamily" translatable="false">sans-serif-light</string>
-
-    <!-- Name of a font family to use as regular font. For theming purpose. -->
-    <string name="config_regularFontFamily" translatable="false">sans-serif-regular</string>
-
     <string-array translatable="false" name="custom_config_globalActionsList">
         <item>emergency</item>
         <item>lockdown</item>
