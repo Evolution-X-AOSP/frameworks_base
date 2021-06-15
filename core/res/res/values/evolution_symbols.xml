@@ -264,4 +264,7 @@
   <!-- Switch to last app  -->
   <java-symbol type="anim" name="custom_app_in" />
   <java-symbol type="anim" name="custom_app_out" />
+
+  <!-- App Lock -->
+  <java-symbol type="string" name="lockscreen_pattern_instructions" />
 </resources>
