@@ -5804,16 +5804,6 @@ public final class Settings {
         public static final String GAMING_MODE_DYNAMIC_STATE = "gaming_mode_dynamic_state";
 
         /**
-         * Set edge gesture Y dead zone
-         * 0 - disabled - stock behavior - default
-         * 1 - smaller top area of the screen
-         * 2 - small top area of the screen
-         * 3 - half top of the screen
-         * @hide
-         */
-        public static final String EDGE_GESTURE_Y_DEAD_ZONE = "edge_gesture_y_dead_zone";
-
-        /**
          * Gestures nav: left long back swipe action
          * @hide
          */
@@ -10862,12 +10852,6 @@ public final class Settings {
          * @hide
          */
         public static final String TOUCH_SENSITIVITY_ENABLED = "touch_sensitivity_enabled";
-
-        /**
-         * boolean value. toggles swipe up hint in gestural nav mode
-         * @hide
-         */
-        public static final String NAVIGATION_BAR_HINT = "navigation_bar_hint";
 
         /**
          * Whether to show FOD on doze or AOD

@@ -722,13 +722,8 @@ public class NavigationBarView extends FrameLayout implements
         getBackButton().setVisibility(disableBack       ? View.INVISIBLE : View.VISIBLE);
         getHomeButton().setVisibility(disableHome       ? View.INVISIBLE : View.VISIBLE);
         getRecentsButton().setVisibility(disableRecent  ? View.INVISIBLE : View.VISIBLE);
-        getHomeHandle().setVisibility(disableHomeHandle || !isHintEnabled()
-                ? View.INVISIBLE : View.VISIBLE);
+        getHomeHandle().setVisibility(disableHomeHandle ? View.INVISIBLE : View.VISIBLE);
         notifyActiveTouchRegions();
-    }
-
-    public boolean isHintEnabled() {
-        return mNavigationInflaterView.isHintEnabled();
     }
 
     @VisibleForTesting
@@ -958,7 +953,7 @@ public class NavigationBarView extends FrameLayout implements
     private void updateSamplingRect() {
         mSamplingBounds.setEmpty();
         // TODO: Extend this to 2/3 button layout as well
-        View view = isHintEnabled() ? getHomeHandle().getCurrentView() : null;
+        View view = getHomeHandle().getCurrentView();
 
         if (view != null) {
             int[] pos = new int[2];
