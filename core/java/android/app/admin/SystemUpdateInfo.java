@@ -129,7 +129,7 @@ public final class SystemUpdateInfo implements Parcelable {
         out.startTag(null, tag);
         out.attribute(null, ATTR_RECEIVED_TIME, String.valueOf(mReceivedTime));
         out.attribute(null, ATTR_SECURITY_PATCH_STATE, String.valueOf(mSecurityPatchState));
-        out.attribute(null, ATTR_ORIGINAL_BUILD , Build.DATE);
+        out.attribute(null, ATTR_ORIGINAL_BUILD , Build.EVOLUTION_FINGERPRINT);
         out.endTag(null, tag);
     }
 
@@ -138,7 +138,7 @@ public final class SystemUpdateInfo implements Parcelable {
     public static SystemUpdateInfo readFromXml(XmlPullParser parser) {
         // If an OTA has been applied (build fingerprint has changed), discard stale info.
         final String buildFingerprint = parser.getAttributeValue(null, ATTR_ORIGINAL_BUILD );
-        if (!Build.DATE.equals(buildFingerprint)) {
+        if (!Build.EVOLUTION_FINGERPRINT.equals(buildFingerprint)) {
             return null;
         }
         final long receivedTime =
