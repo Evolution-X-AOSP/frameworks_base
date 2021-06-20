@@ -67,8 +67,6 @@
     <string name="pocket_view_title_cancel">激活您的手机</string>
     <string name="pocket_view_top_tag_cancel">不要覆盖您手机的蓝色区域，并保持清洁</string>
     <string name="pocket_view_top_tag_cancel2">长按电源按钮强制退出口袋模式</string>
-    <string name="pocket_view_top_tag_number1">1.\u0020</string>
-    <string name="pocket_view_top_tag_number2">2.\u0020</string>
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_accessFontManager">访问字体管理器</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->

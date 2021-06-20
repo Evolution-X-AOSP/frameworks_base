@@ -67,8 +67,6 @@
     <string name="pocket_view_title_cancel">За активацију вашег телефона:</string>
     <string name="pocket_view_top_tag_cancel">Не покривајте плаву зону вашег телефона, и обришите нечистоћу и прашину.</string>
     <string name="pocket_view_top_tag_cancel2">Дуги притисак на дугме за укључење за форсирано искључење мода у џепу</string>
-    <string name="pocket_view_top_tag_number1">1.\u0020</string>
-    <string name="pocket_view_top_tag_number2">2.\u0020</string>
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_accessFontManager">приступ менаџеру фонтова</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->

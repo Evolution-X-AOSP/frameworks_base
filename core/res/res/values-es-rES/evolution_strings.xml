@@ -67,8 +67,6 @@
     <string name="pocket_view_title_cancel">Para activar su teléfono:</string>
     <string name="pocket_view_top_tag_cancel">No cubra la zona azul de su teléfono, y elimine cualquier suciedad o polvo.</string>
     <string name="pocket_view_top_tag_cancel2">Mantenga pulsado el botón encendido para forzar el apagado del modo bolsillo</string>
-    <string name="pocket_view_top_tag_number1">1.\u0020</string>
-    <string name="pocket_view_top_tag_number2">2.\u0020</string>
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_accessFontManager">acceder al gestor de fuentes</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->

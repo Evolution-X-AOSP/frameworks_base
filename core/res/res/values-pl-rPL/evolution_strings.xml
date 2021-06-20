@@ -67,8 +67,6 @@
     <string name="pocket_view_title_cancel">Aby aktywować swój telefon:</string>
     <string name="pocket_view_top_tag_cancel">Nie należy przykryć niebieskiej powierzchni telefonu i wyczyścić śmieci lub kurz.</string>
     <string name="pocket_view_top_tag_cancel2">Przytrzymaj przycisk zasilania, aby wymusić wyjście z trybu kieszonkowego</string>
-    <string name="pocket_view_top_tag_number1">1.\u0020</string>
-    <string name="pocket_view_top_tag_number2">2.\u0020</string>
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_accessFontManager">dostęp do menadżera czcionek</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->

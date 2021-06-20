@@ -67,8 +67,6 @@
     <string name="pocket_view_title_cancel">Kích hoạt điện thoại của bạn:</string>
     <string name="pocket_view_top_tag_cancel">Không che vùng màu xanh của điện thoại và lau sạch bụi bẩn.</string>
     <string name="pocket_view_top_tag_cancel2">Nhấn và giữ nút nguồn để buộc thoát khỏi chế độ bỏ túi</string>
-    <string name="pocket_view_top_tag_number1">1.\u0020</string>
-    <string name="pocket_view_top_tag_number2">2.\u0020</string>
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_accessFontManager">truy cập trình quản lý phông chữ</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
