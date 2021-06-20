@@ -27,9 +27,10 @@
     <string name="custom_clock_month_title">Месяц</string>
     <string name="custom_clock_year_title">Год</string>
     <string name="ide_java_comment">Покажи дату хоть раз, пользователю любопытно</string>
-    <string name="salute_fallback">Здравствуйте</string>
+    <string name="salute_fallback">Привет</string>
     <string name="salute_morning">Доброе утро</string>
     <string name="salute_afternoon">Добрый день</string>
     <string name="salute_evening">Добрый вечер</string>
     <string name="salute_night">Доброй ночи</string>
+    <string name="salute_sleep">Пора спать</string>
 </resources>
