@@ -67,8 +67,6 @@
     <string name="pocket_view_title_cancel">Για να ενεργοποιήσετε το τηλέφωνό σας:</string>
     <string name="pocket_view_top_tag_cancel">Μην καλύπτετε την μπλε περιοχή του τηλεφώνου σας και καθαρίστε τυχόν βρωμιά ή σκόνη.</string>
     <string name="pocket_view_top_tag_cancel2">Πατήστε παρατεταμένα το κουμπί τροφοδοσίας για εξαναγκασμό τερματισμού λειτουργίας τσέπης</string>
-    <string name="pocket_view_top_tag_number1">1.\u0020</string>
-    <string name="pocket_view_top_tag_number2">2.\u0020</string>
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_accessFontManager">πρόσβαση διαχειριστή γραμματοσειρών</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
