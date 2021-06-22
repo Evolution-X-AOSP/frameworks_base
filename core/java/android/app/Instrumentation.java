@@ -41,6 +41,7 @@ import android.os.Process;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemClock;
+import android.os.SystemProperties;
 import android.os.TestLooperManager;
 import android.os.UserHandle;
 import android.util.AndroidRuntimeException;
@@ -56,14 +57,14 @@ import android.view.Window;
 import android.view.WindowManagerGlobal;
 
 import com.android.internal.content.ReferrerIntent;
+import com.android.internal.util.evolution.ResetPropsUtils;
+import com.android.internal.util.evolution.PixelPropsUtils;
 
 import java.io.File;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.android.internal.util.evolution.PixelPropsUtils;
 
 /**
  * Base class for implementing application instrumentation code.  When running
@@ -89,6 +90,11 @@ public class Instrumentation {
      * instrumentation can also be launched, and results collected, by an automated system.
      */
     public static final String REPORT_KEY_STREAMRESULT = "stream";
+
+    /**
+     * @hide
+     */
+    public static final String EXTHM_STATUS_BAR_LYRIC_PROP = "sys.status_bar_lyric.fakeprop";
 
     private static final String TAG = "Instrumentation";
 
@@ -1161,6 +1167,9 @@ public class Instrumentation {
         app.attach(context);
         String packageName = app.getPackageName();
         PixelPropsUtils.setProps(packageName);
+        if (SystemProperties.getBoolean(EXTHM_STATUS_BAR_LYRIC_PROP, false)) {
+            ResetPropsUtils.setProps(packageName);
+        }
         return app;
     }
     
@@ -1180,6 +1189,9 @@ public class Instrumentation {
         app.attach(context);
         String packageName = app.getPackageName();
         PixelPropsUtils.setProps(packageName);
+        if (SystemProperties.getBoolean(EXTHM_STATUS_BAR_LYRIC_PROP, false)) {
+            ResetPropsUtils.setProps(packageName);
+        }
         return app;
     }
 
