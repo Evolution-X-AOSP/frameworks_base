@@ -6444,6 +6444,14 @@ public final class Settings {
         public static final String ON_THE_GO_CAMERA = "on_the_go_camera";
 
         /**
+         * Whether to use the Android 12 searchbar in settings, the value is boolean.
+         * 0 = 0ff, 1 = on
+         *
+         * @hide
+         */
+        public static final String USE_NEW_SEARCHBAR = "use_new_searchbar";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
