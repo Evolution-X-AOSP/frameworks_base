@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2020 The Evolution X Project
+     Copyright (C) 2019-2021 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -51,7 +51,7 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Требуется перезагрузка SystemUI</string>
     <string name="systemui_restart_message">Чтобы все изменения вступили в силу, требуется перезагрузка SystemUI. Перезапустить его прямо сейчас?</string>
-    <!-- Gaming mode -->
+    <!-- Game mode -->
     <string name="notification_channel_gaming">Игровой режим</string>
     <string name="gaming_mode_notification_title">Игровой режим включён</string>
     <string name="gaming_mode_notification_content">Нажмите, чтобы выключить Игровой режим</string>
@@ -62,4 +62,15 @@
     <!-- Clipboard access toast -->
     <string name="app_clipboard_access_denied">%1$s: отказано в доступе к буферу обмена</string>
     <string name="app_clipboard_access_granted">%1$s: предоставлен доступ к буферу обмена</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_view_title">Режим \"В кармане\" включен</string>
+    <string name="pocket_view_title_cancel">Для использования телефона:</string>
+    <string name="pocket_view_top_tag_cancel">Проверьте, не закрыта ли синяя область вашего телефона от какими-либо предметами, и очистите от грязи или пыли.</string>
+    <string name="pocket_view_top_tag_cancel2">Долгое нажатие кнопки питания для принудительного выхода из режима \"В кармане\".</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">Доступ к менеджеру шрифтов</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Разрешает приложению получить доступ к менеджеру шрифтов</string>
+    <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
+    <string name="fontservice_incompatible_font">Набор шрифтов который вы установили несовместим, из-за отсутствия fonts.xml. Пожалуйста, обратитесь к разработчику пакета за помощью.</string>
 </resources>
