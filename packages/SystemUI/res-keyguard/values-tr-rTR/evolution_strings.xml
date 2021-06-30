@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2020 The Evolution X Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Spectrum Analog clock -->
+    <!-- Clock required strings -->
+    <string name="date_long_title_today">Bugün %s</string>
+    <string name="gradient_fire_clock_title">Gradyan ateşi</string>
+    <string name="sticker_tag_clock_title">Çıkartma etiketi</string>
+    <string name="custom_clock_hours_title">Saat</string>
+    <string name="custom_clock_minutes_title">Dakika</string>
+    <string name="custom_clock_seconds_title">Saniye</string>
+    <string name="custom_clock_day_title">Gün</string>
+    <string name="custom_clock_month_title">Ay</string>
+    <string name="custom_clock_year_title">Yıl</string>
+    <string name="ide_java_comment">Tarihi bir kez göster, kullanıcı merak ediyor</string>
+    <string name="salute_fallback">Hey oradaki</string>
+    <string name="salute_morning">Günaydın</string>
+    <string name="salute_afternoon">Tünaydın</string>
+    <string name="salute_evening">İyi akşamlar</string>
+    <string name="salute_night">İyi geceler</string>
+    <string name="salute_sleep">Hadi Uyu Artık</string>
+</resources>
