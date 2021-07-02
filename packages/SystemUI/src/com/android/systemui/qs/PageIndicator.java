@@ -107,6 +107,9 @@ public class PageIndicator extends ViewGroup {
     }
 
     private void setIndex(int index) {
+        if (index == (mPosition >> 1)) {
+            post(() -> requestLayout());
+        }
         final int N = getChildCount();
         for (int i = 0; i < N; i++) {
             ImageView v = (ImageView) getChildAt(i);
