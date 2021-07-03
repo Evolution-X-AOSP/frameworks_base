@@ -184,6 +184,8 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
                 BiometricSourceType biometricSourceType) {
             if (biometricSourceType == BiometricSourceType.FINGERPRINT) {
                 mIsBiometricRunning = running;
+                if (!mIsBiometricRunning)
+                    hide();
             }
         }
 
