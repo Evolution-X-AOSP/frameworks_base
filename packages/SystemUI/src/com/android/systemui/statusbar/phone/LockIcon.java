@@ -77,7 +77,7 @@ public class LockIcon extends KeyguardAffordanceView {
                         R.string.accessibility_scanning_face));
             }
 
-            setImageDrawable(icon, false, false);
+            setImageDrawable(icon, false);
             shakeFace();
 
             if (icon instanceof AnimatedVectorDrawable) {

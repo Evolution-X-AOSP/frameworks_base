@@ -3733,16 +3733,14 @@ public class NotificationPanelViewController extends PanelViewController {
                     mView.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL ? !rightIcon
                             : rightIcon;
             if (rightIcon) {
-                mStatusBar.onCustomHintStarted();
+                mStatusBar.onCameraHintStarted();
             } else {
                 if (mKeyguardBottomArea.isLeftVoiceAssist()) {
                     mStatusBar.onVoiceAssistHintStarted();
-                } else if (mKeyguardBottomArea.getLeftIntent() == KeyguardBottomAreaView.PHONE_INTENT) {
-                    mStatusBar.onPhoneHintStarted();
                 } else {
-                mStatusBar.onCustomHintStarted();
+                    mStatusBar.onPhoneHintStarted();
+                }
             }
-          }
         }
 
         @Override
