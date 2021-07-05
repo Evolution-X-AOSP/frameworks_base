@@ -631,14 +631,8 @@ public class Notification implements Parcelable
      */
     public static final int FLAG_BUBBLE = 0x00001000;
 
-    /**
-     * @hide
-     */
     public static final int FLAG_ALWAYS_SHOW_TICKER = 0x1000000;
 
-    /**
-     * @hide
-     */
     public static final int FLAG_ONLY_UPDATE_TICKER = 0x2000000;
 
     /** @hide */
