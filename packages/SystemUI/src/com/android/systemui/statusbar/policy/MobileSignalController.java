@@ -584,6 +584,10 @@ public class MobileSignalController extends SignalController<MobileState, Mobile
                 case 8:
                     resId = R.drawable.ic_volte_emui;
                     break;
+                // Vivo X60 Pro
+                case 9:
+                    resId = R.drawable.ic_volte_vivo;
+                    break;
                 default:
                     break;
             }
