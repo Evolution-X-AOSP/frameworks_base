@@ -33,4 +33,7 @@
     <string name="salute_evening">Bom final de tarde</string>
     <string name="salute_night">Boa noite</string>
     <string name="salute_sleep">Suspender</string>
+    <!-- Oneplus Analog clock -->
+    <!-- Oneplus Minimal clock -->
+    <!-- Oneplus Numbers clock -->
 </resources>
