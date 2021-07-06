@@ -33,4 +33,7 @@
     <string name="salute_evening">晚上好</string>
     <string name="salute_night">晚安</string>
     <string name="salute_sleep">快睡吧</string>
+    <!-- Oneplus Analog clock -->
+    <!-- Oneplus Minimal clock -->
+    <!-- Oneplus Numbers clock -->
 </resources>

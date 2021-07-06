@@ -82,6 +82,7 @@
     <string name="quick_settings_reboot_recovery_label">Ανάκτηση</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">Στιγμιότυπο οθόνης</string>
+    <string name="quick_settings_full_screenshot_label">Πλήρης</string>
     <string name="quick_settings_region_screenshot_label">Μερικό στιγμιότυπο οθόνης</string>
     <!-- SleepScreen QS Tile -->
     <string name="quick_settings_sleepscreen_label">Αναστολή λειτουργίας οθόνης</string>
@@ -140,8 +141,6 @@
     <string name="drag_or_tap_to_add_tiles">Κρατήστε &amp; σύρετε ή πατήστε για να προσθέσετε πλακίδια</string>
     <!-- Label for header of customize QS -->
     <string name="drag_or_tap_to_rearrange_tiles">Κρατήστε &amp; σύρετε για αναδιάταξη ή πατήστε για αφαίρεση</string>
-    <string name="lockscreen_default">Προεπιλογή</string>
-    <string name="lockscreen_hidden">Κανένα</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Το στιγμιότυπο οθόνης διαγράφηκε</string>
     <!-- Partial screenshot -->
@@ -151,7 +150,7 @@
     <string name="force_stop_dlg_title">Αναγκαστική διακοπή;</string>
     <string name="force_stop_dlg_text">Εάν υποχρεώσετε να σταματήσετε μια εφαρμογή, ενδέχεται να συμπεριφέρεται εσφαλμένα.</string>
     <string name="guts_force_close_app">Κλείσιμο εφαρμογής</string>
-    <!-- Screenrecorder -->
+    <!-- Screen Record -->
     <string name="screenrecord_stopdot_label">Εμφάνιση κουκίδας παύσης και παρατεταμέο πάτημα για να την μετακινήσεις</string>
     <string name="screenrecord_lowquality_label">Μείωση της ποιότητας για μικρότερο μέγεθος αρχείου</string>
     <string name="screenrecord_longer_timeout_switch_label">Μεγαλύτερο όριο μεγέθους αρχείου \n Περιορίστε το μέγεθος εγγραφής στα 15 GB</string>
@@ -180,8 +179,6 @@
     <string name="ambientmusic_songinfo" formatted="false">%s από %s</string>
     <!-- Daily data usage -->
     <string name="daily_data_usage_title">Σημερινή χρήση</string>
-    <!-- Scrolling Screenshot string -->
-    <string name="scrollss">Κύλιση</string>
     <!-- Biometric Dialog - Use Face -->
     <string name="biometric_dialog_button_use_face">Χρήση Προσώπου</string>
     <!-- Anti flicker QS tile -->
@@ -191,11 +188,6 @@
     <string name="quick_settings_dc_brightness_mode">Λειτουργία φωτεινότητας</string>
     <string name="quick_settings_dc_full_auto">Αυτόματη λειτουργία</string>
     <!-- App Lock -->
-    <string name="applock_locked">&#160;είναι κλειδωμένο</string>
-    <string name="applock_fingerprint_face">, δακτυλικό αποτύπωμα ή το πρόσωπό σας για ξεκλείδωμα</string>
-    <string name="applock_face">&#160;ή το πρόσωπό σας για ξεκλείδωμα</string>
-    <string name="applock_fingerprint">&#160;ή το δακτυλικό σας αποτύπωμα για ξεκλείδωμα</string>
-    <string name="applock_credential">&#160;για να ξεκλειδώσετε</string>
     <string name="applock_unlock">Ξεκλείδωμα</string>
     <!-- PowerShare QS tile -->
     <string name="quick_settings_powershare_label">Ασύρματος διαμοιρασμός ενέργειας</string>

@@ -18,7 +18,7 @@
     <!-- Button that copies the url to the log of a crashed application -->
     <string name="aerr_copy">Copiar URL del registro de errores</string>
     <string name="url_copy_success">URL copiada satisfactoriamente</string>
-    <string name="url_copy_failed">Se ha producido un error al cargar el registro en Dogbin</string>
+    <string name="url_copy_failed">Ocurrió un error mientras se subía el registro a pasty</string>
     <string name="reboot_title">Reiniciar</string>
     <string name="reboot_message">Reiniciando sistema</string>
     <!-- Alert slider proc nodes paths. -->

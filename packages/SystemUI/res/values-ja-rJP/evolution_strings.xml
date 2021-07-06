@@ -82,6 +82,7 @@
     <string name="quick_settings_reboot_recovery_label">リカバリー</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">スクリーン\nショット</string>
+    <string name="quick_settings_full_screenshot_label">全て</string>
     <string name="quick_settings_region_screenshot_label">範囲選択</string>
     <!-- SleepScreen QS Tile -->
     <string name="quick_settings_sleepscreen_label">画面の消灯</string>
@@ -139,8 +140,6 @@
     <string name="drag_or_tap_to_add_tiles">長押しして移動するかタップしてタイルを追加する</string>
     <!-- Label for header of customize QS -->
     <string name="drag_or_tap_to_rearrange_tiles">長押しして移動することで並び替えてタップして削除する</string>
-    <string name="lockscreen_default">既定</string>
-    <string name="lockscreen_hidden">なし</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">スクリーンショットを削除しました</string>
     <!-- Partial screenshot -->
@@ -150,7 +149,7 @@
     <string name="force_stop_dlg_title">強制停止しますか?</string>
     <string name="force_stop_dlg_text">アプリを強制停止するとアプリが正常に機能しないことがあります</string>
     <string name="guts_force_close_app">アプリを終了</string>
-    <!-- Screenrecorder -->
+    <!-- Screen Record -->
     <string name="screenrecord_stopdot_label">停止ドット\n長押しして移動</string>
     <string name="screenrecord_lowquality_label">低品質にしてファイルサイズ縮小</string>
     <string name="screenrecord_longer_timeout_switch_label">ファイルサイズ制限です\n録画サイズを15 GBに制限します</string>
@@ -179,8 +178,6 @@
     <string name="ambientmusic_songinfo" formatted="false">%s - %s</string>
     <!-- Daily data usage -->
     <string name="daily_data_usage_title">今日の使用量</string>
-    <!-- Scrolling Screenshot string -->
-    <string name="scrollss">スクロール</string>
     <!-- Biometric Dialog - Use Face -->
     <string name="biometric_dialog_button_use_face">顔を使用</string>
     <!-- Anti flicker QS tile -->
@@ -190,11 +187,6 @@
     <string name="quick_settings_dc_brightness_mode">明るさモード</string>
     <string name="quick_settings_dc_full_auto">自動モード</string>
     <!-- App Lock -->
-    <string name="applock_locked">&#160;はロック中です</string>
-    <string name="applock_fingerprint_face">、指紋または顔でロック解除</string>
-    <string name="applock_face">&#160;または顔でロック解除</string>
-    <string name="applock_fingerprint">&#160;または指紋でロック解除</string>
-    <string name="applock_credential">&#160;でロック解除</string>
     <string name="applock_unlock">ロック解除</string>
     <!-- PowerShare QS tile -->
     <string name="quick_settings_powershare_label">ワイヤレス PowerShare</string>

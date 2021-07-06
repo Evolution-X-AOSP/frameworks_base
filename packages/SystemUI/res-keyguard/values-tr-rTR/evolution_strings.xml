@@ -33,4 +33,7 @@
     <string name="salute_evening">İyi akşamlar</string>
     <string name="salute_night">İyi geceler</string>
     <string name="salute_sleep">Hadi Uyu Artık</string>
+    <!-- Oneplus Analog clock -->
+    <!-- Oneplus Minimal clock -->
+    <!-- Oneplus Numbers clock -->
 </resources>

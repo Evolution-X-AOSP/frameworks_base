@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2020 The Evolution X Project
+     Copyright (C) 2019-2021 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,7 +15,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Custom QS tiles -->
     <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Ambient Display</string>
     <string name="accessibility_quick_settings_ambient_display_off">Ambient Display выкл.</string>
@@ -44,7 +43,7 @@
     <string name="quick_settings_compass_E">В</string>
     <string name="quick_settings_compass_SE">ЮВ</string>
     <string name="quick_settings_compass_S">Ю</string>
-    <string name="quick_settings_compass_SW">ЮВ</string>
+    <string name="quick_settings_compass_SW">ЮЗ</string>
     <string name="quick_settings_compass_W">З</string>
     <string name="quick_settings_compass_NW">СЗ</string>
     <!-- CPUInfo tile -->
@@ -57,6 +56,8 @@
     <string name="qs_data_switch_label">Переключить карту данных на</string>
     <string name="qs_data_switch_changed_1">Используется SIM-карта 1 для передачи данных</string>
     <string name="qs_data_switch_changed_2">Используется SIM-карта 2 для передачи данных</string>
+    <string name="qs_data_switch_toast_0">В настоящее время SIM-карта не вставлена</string>
+    <string name="qs_data_switch_toast_1">Установлена только одна SIM-карта</string>
     <!-- FPS Info tile -->
     <string name="quick_settings_fpsinfo_label">Информация о FPS</string>
     <string name="accessibility_quick_settings_fpsinfo_off">Информация о FPS выкл.</string>
@@ -78,9 +79,10 @@
     <!-- Power off/Reboot/Recovery QS Tile -->
     <string name="quick_settings_poweroff_label">Выключить</string>
     <string name="quick_settings_reboot_label">Перезагрузить</string>
-    <string name="quick_settings_reboot_recovery_label">Рекавери</string>
+    <string name="quick_settings_reboot_recovery_label">Режим восстановления</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">Скриншот</string>
+    <string name="quick_settings_full_screenshot_label">Полный</string>
     <string name="quick_settings_region_screenshot_label">Частичный скриншот</string>
     <!-- SleepScreen QS Tile -->
     <string name="quick_settings_sleepscreen_label">Режим сна</string>
@@ -109,12 +111,19 @@
     <string name="status_bar_nfc">Модуль NFC</string>
     <string name="status_bar_roaming">Роуминг</string>
     <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
+    <string name="status_bar_camera">Камера</string>
+    <string name="status_bar_location">Местоположение</string>
+    <string name="status_bar_microphone">Микрофон</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
     <string name="accessibility_status_bar_nfc">Nfc</string>
     <string name="global_action_restart_advanced">Расширенные</string>
-    <string name="global_action_restart_recovery">Рекавери</string>
+    <string name="global_action_restart_recovery">Режим восстановления</string>
     <string name="global_action_restart_bootloader">Загрузчик</string>
     <string name="global_action_restart_ui">Системный интерфейс</string>
+    <string name="global_action_screenshot">Снимок экрана</string>
+    <string name="global_action_screenrecord">Запись экрана</string>
+    <string name="global_action_flashlight">Фонарик</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Быстрая зарядка (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> до полной зарядки)</string>
     <string name="keyguard_plugged_in_dash_charging">Быстрая зарядка</string>
@@ -131,8 +140,6 @@
     <string name="drag_or_tap_to_add_tiles">Удерживайте и перетащите или нажмите для добавления плиток</string>
     <!-- Label for header of customize QS -->
     <string name="drag_or_tap_to_rearrange_tiles">Удерживайте и перетащите, чтобы изменить порядок или нажмите для удаления</string>
-    <string name="lockscreen_default">По умолчанию</string>
-    <string name="lockscreen_hidden">Нет</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Скриншот удален</string>
     <!-- Partial screenshot -->
@@ -142,11 +149,10 @@
     <string name="force_stop_dlg_title">Остановить принудительно?</string>
     <string name="force_stop_dlg_text">Если вы принудительно остановите приложение, он может неправильно работать.</string>
     <string name="guts_force_close_app">Закрыть приложение</string>
-    <!-- Power menu item for taking a Screen record [CHAR LIMIT=20]-->
-    <string name="global_action_screenrecord">Запись экрана</string>
-    <!-- Screen recorder -->
+    <!-- Screen Record -->
     <string name="screenrecord_stopdot_label">Показывать кнопку остановки\nУдерживайте для перемещения</string>
     <string name="screenrecord_lowquality_label">Меньшее качество для меньшего размера файла</string>
+    <string name="screenrecord_longer_timeout_switch_label">Максимальный размер файла\nОграничить размер записи до 15 Гб</string>
     <!-- Kill app -->
     <string name="task_helper_app_killed">%1$s принудительно остановлен</string>
     <string name="empty_app_killed">Приложение</string>
@@ -156,16 +162,12 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Язык</string>
     <string name="quick_settings_locale_more_locales_toast">Пожалуйста, настройте несколько языков для включения функционала</string>
-    <!-- HW Keys Tile -->
-    <string name="accessibility_quick_settings_hwkeys_on">Аппаратные кнопки включены</string>
-    <string name="accessibility_quick_settings_hwkeys_off">Аппаратные кнопки выключены</string>
-    <string name="quick_settings_hwkeys_label">Аппаратные кнопки</string>
-    <!-- Gaming mode -->
+    <!-- Game mode -->
     <string name="gaming_mode_not_enabled">Игровой режим отключен в настройках</string>
     <string name="quick_settings_gaming_mode_label">Игровой режим</string>
     <!-- App picker manifest entry -->
     <string name="app_picker_dialog_title">Выберите приложение</string>
-    <string name="app_picker_activity_select_title">Выберите действие</string>
+    <string name="app_picker_activity_select_title">Выберите активити</string>
     <!-- Headphones Buddy -->
     <string name="hp_buddy">Баланс звука в наушниках</string>
     <string name="hp_buddy_left">Левый канал</string>
@@ -176,9 +178,58 @@
     <string name="ambientmusic_songinfo" formatted="false">%s от %s</string>
     <!-- Daily data usage -->
     <string name="daily_data_usage_title">Использовано за сегодня</string>
-    <!-- Smart Pixels QS Tile -->
-    <string name="quick_settings_smart_pixels">Умные пиксели</string>
-    <string name="quick_settings_smart_pixels_on_power_save">Автоматическое включение Умных пикселей</string>
-    <!-- Scrolling Screenshot string -->
-    <string name="scrollss">Прокрутка</string>
+    <!-- Biometric Dialog - Use Face -->
+    <string name="biometric_dialog_button_use_face">Использовать лицо</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">Фильтр мерцания</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">DC Dimming</string>
+    <string name="quick_settings_dc_brightness_mode">Режим яркости</string>
+    <string name="quick_settings_dc_full_auto">Автоматический режим</string>
+    <!-- App Lock -->
+    <string name="applock_unlock">Разблокировать приложение</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Беспроводной PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Беспроводной PowerShare выкл\nЭкономия заряда батареи</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Беспроводной PowerShare выкл\nУровень заряда слишком низкий</string>
+    <string name="quick_settings_powershare_enabled_label">Беспроводной PowerShare включен</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Приложение останется активным, пока вы не открепите его. Нажмите и удерживайте \"Назад\" для открепления.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Чтобы открепить этот экран, нажмите &amp; и удерживайте кнопку \"Назад\"</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Приложение остаётся активным, до тех пор, пока вы не отмените блокировку. Нажмите &amp; и удерживайте палец на сканере отпечатков, чтобы отменить блокировку.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Чтобы открепить этот экран, нажмите &amp; и удерживайте сканер отпечатков пальцев</string>
+    <!-- Power menu QS tile -->
+    <string name="quick_settings_power_menu_label">Меню питания</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Режим чтения</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Режим чтения вкл.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Режим чтения выкл.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Режим чтения включен.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Режим чтения выключен.</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Подключить к\u2026</string>
+    <string name="vpn_credentials_hint">Пожалуйста, введите ваши учетные данные для подключения к <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Имя пользователя</string>
+    <string name="vpn_credentials_password">Пароль</string>
+    <string name="vpn_credentials_dialog_connect">Подключение</string>
+    <!-- Alert slide extras -->
+    <string name="volume_ringer_priority_only">Приоритет</string>
+    <string name="volume_ringer_alarms_only">Будильники</string>
+    <string name="volume_ringer_dnd">Не беспокоить</string>
+    <string name="tristate_flashlight_on">Фонарик включён</string>
+    <string name="tristate_flashlight_off">Фонарик выключен</string>
+    <string name="tristate_flashlight_blink">Мигание фонарика</string>
+    <string name="tristate_brightness_bright">Максимальная яркость</string>
+    <string name="tristate_brightness_dark">Минимальная яркость</string>
+    <string name="tristate_brightness_auto">Автоматическая яркость</string>
+    <string name="tristate_rotation_auto">Автоповорот</string>
+    <string name="tristate_rotation_0">Портретная ориентация</string>
+    <string name="tristate_rotation_90">Горизонтальная ориентация (90°)</string>
+    <string name="tristate_rotation_270">Горизонтальная ориентация (270°)</string>
+    <!-- Change clockface -->
+    <string name="change_clock_face">Проведите пальцем для изменения стиля часов</string>
 </resources>
