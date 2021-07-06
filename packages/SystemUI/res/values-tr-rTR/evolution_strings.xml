@@ -15,7 +15,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Custom QS tiles -->
     <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Ortam ekranı</string>
     <string name="accessibility_quick_settings_ambient_display_off">Ortam ekranı kapalı.</string>
@@ -83,7 +82,8 @@
     <string name="quick_settings_reboot_recovery_label">Kurtarma</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">Ekran görüntüsü</string>
-    <string name="quick_settings_region_screenshot_label">Kısmi ekran görüntüsü</string>
+    <string name="quick_settings_full_screenshot_label">Tam</string>
+    <string name="quick_settings_region_screenshot_label">Kısmi</string>
     <!-- SleepScreen QS Tile -->
     <string name="quick_settings_sleepscreen_label">Ekranı kapat</string>
     <!-- Sound QS Tile -->
@@ -140,8 +140,6 @@
     <string name="drag_or_tap_to_add_tiles">Kare eklemek için basılı tutun ve sürükleyin veya dokunun</string>
     <!-- Label for header of customize QS -->
     <string name="drag_or_tap_to_rearrange_tiles">Yeniden düzenlemek için basılı tutun ve kaydırın veya kaldırmak için dokunun</string>
-    <string name="lockscreen_default">Varsayılan</string>
-    <string name="lockscreen_hidden">Yok</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Ekran görüntüsü silindi</string>
     <!-- Partial screenshot -->
@@ -151,9 +149,10 @@
     <string name="force_stop_dlg_title">Durmaya zorlansın mı?</string>
     <string name="force_stop_dlg_text">Uygulamayı zorla durdurursanız, hatalı davranabilir.</string>
     <string name="guts_force_close_app">Uygulamayı Kapat</string>
-    <!-- Screenrecorder -->
-    <string name="screenrecord_stopdot_label">Durma noktasını göster\nTaşımak için uzun basın</string>
-    <string name="screenrecord_lowquality_label">Daha küçük dosya boyutu için daha düşük kalite</string>
+    <!-- Screen Record -->
+    <string name="screenrecord_stopdot_label">Kaydı durdurmak için noktayı göster</string>
+    <string name="screenrecord_lowquality_label">Daha düşük kayıt kalitesi</string>
+    <string name="screenrecord_longer_timeout_switch_label">Daha büyük dosya boyutu sınırı\nKayıt boyutunu 15 GB ile sınırlayın</string>
     <!-- Kill app -->
     <string name="task_helper_app_killed">%1$s zorla durduruldu</string>
     <string name="empty_app_killed">Uygulama</string>
@@ -163,8 +162,8 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Dil</string>
     <string name="quick_settings_locale_more_locales_toast">Geçiş işlevselliğinin etkin olması için lütfen birden fazla dil ekleyin</string>
-    <!-- Gaming mode -->
-    <string name="gaming_mode_not_enabled">Oyun modu ayarlarda devre dışı bırakıldı</string>
+    <!-- Game mode -->
+    <string name="gaming_mode_not_enabled">Oyun modu: kapalı</string>
     <string name="quick_settings_gaming_mode_label">Oyun modu</string>
     <!-- App picker manifest entry -->
     <string name="app_picker_dialog_title">Bir uygulama seç</string>
@@ -179,8 +178,6 @@
     <string name="ambientmusic_songinfo" formatted="false">%s tarafından %s</string>
     <!-- Daily data usage -->
     <string name="daily_data_usage_title">Bugünkü kullanım</string>
-    <!-- Scrolling Screenshot string -->
-    <string name="scrollss">Kaydır</string>
     <!-- Biometric Dialog - Use Face -->
     <string name="biometric_dialog_button_use_face">Bir yüz kullan</string>
     <!-- Anti flicker QS tile -->
@@ -190,12 +187,7 @@
     <string name="quick_settings_dc_brightness_mode">Parlaklık modu</string>
     <string name="quick_settings_dc_full_auto">Otomatik mod</string>
     <!-- App Lock -->
-    <string name="applock_locked">&#160;kilitli</string>
-    <string name="applock_fingerprint_face">, kilidi açmak için parmak izi yada yüz kilidini kullanın</string>
-    <string name="applock_face">Kilidi açmak için &#160;veya yüz kilidini kullanın</string>
-    <string name="applock_fingerprint">Kilidi açmak için &#160;veya parmak izini kullanın</string>
-    <string name="applock_credential">&#160;kilidini aç</string>
-    <string name="applock_unlock">Kilidi aç</string>
+    <string name="applock_unlock">Uygulama kilidini aç</string>
     <!-- PowerShare QS tile -->
     <string name="quick_settings_powershare_label">Kablosuz Güç Paylaşımı</string>
     <string name="quick_settings_powershare_off_powersave_label">Kablosuz Güç Paylaşımı kapalı\nPil tasarrufu</string>
@@ -211,4 +203,33 @@
     <string name="screen_pinning_toast_no_navbar_fpsensor">Bu ekranın sabitlemesini kaldırmak için parmak izi sensörüne dokunun ve basılı tutun</string>
     <!-- Power menu QS tile -->
     <string name="quick_settings_power_menu_label">Güç menüsü</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Okuma modu</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Okuma modu açık.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Okuma modu kapalı.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Okuma modu açıldı.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Okuma modu kapatıldı.</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">\u2026\'a bağlan</string>
+    <string name="vpn_credentials_hint">Lütfen <xliff:g id="name">%s</xliff:g> bağlanmak için kimlik bilgilerinizi girin</string>
+    <string name="vpn_credentials_username">Kullanıcı adı</string>
+    <string name="vpn_credentials_password">Şifre</string>
+    <string name="vpn_credentials_dialog_connect">Bağlan</string>
+    <!-- Alert slide extras -->
+    <string name="volume_ringer_priority_only">Öncelik</string>
+    <string name="volume_ringer_alarms_only">Alarmlar</string>
+    <string name="volume_ringer_dnd">Rahatsız etmeyin</string>
+    <string name="tristate_flashlight_on">Fener açık</string>
+    <string name="tristate_flashlight_off">Fener kapalı</string>
+    <string name="tristate_flashlight_blink">Feneri yakıp söndür</string>
+    <string name="tristate_brightness_bright">Maksimum parlaklık</string>
+    <string name="tristate_brightness_dark">Minimum parlaklık</string>
+    <string name="tristate_brightness_auto">Otomatik parlaklık</string>
+    <string name="tristate_rotation_auto">Otomatik döndürme</string>
+    <string name="tristate_rotation_0">Dikey</string>
+    <string name="tristate_rotation_90">Yatay (90°)</string>
+    <string name="tristate_rotation_270">Yatay (270°)</string>
+    <!-- Change clockface -->
+    <string name="change_clock_face">Saat kadranını değiştirmek için kaydırın</string>
 </resources>
