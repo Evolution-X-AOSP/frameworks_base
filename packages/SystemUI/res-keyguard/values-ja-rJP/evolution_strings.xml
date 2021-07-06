@@ -33,4 +33,7 @@
     <string name="salute_evening">こんばんは</string>
     <string name="salute_night">おやすみなさい</string>
     <string name="salute_sleep">寝ましょう</string>
+    <!-- Oneplus Analog clock -->
+    <!-- Oneplus Minimal clock -->
+    <!-- Oneplus Numbers clock -->
 </resources>
