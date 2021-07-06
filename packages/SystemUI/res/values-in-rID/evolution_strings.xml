@@ -82,7 +82,8 @@
     <string name="quick_settings_reboot_recovery_label">Pemulihan</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">Tangkapan Layar</string>
-    <string name="quick_settings_region_screenshot_label">Tangkapan layar sebagian</string>
+    <string name="quick_settings_full_screenshot_label">Penuh</string>
+    <string name="quick_settings_region_screenshot_label">Sebagian</string>
     <!-- SleepScreen QS Tile -->
     <string name="quick_settings_sleepscreen_label">Tidurkan Layar</string>
     <!-- Sound QS Tile -->
@@ -139,8 +140,6 @@
     <string name="drag_or_tap_to_add_tiles">Tahan &amp; tarik atau ketuk untuk menambahkan kartu</string>
     <!-- Label for header of customize QS -->
     <string name="drag_or_tap_to_rearrange_tiles">Tahan &amp; tarik untuk mengatur kembali atau ketuk untuk menghapus</string>
-    <string name="lockscreen_default">Standar</string>
-    <string name="lockscreen_hidden">Tak satupun</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Tangkapan Layar dihapus</string>
     <!-- Partial screenshot -->
@@ -150,7 +149,7 @@
     <string name="force_stop_dlg_title">Paksa berhenti?</string>
     <string name="force_stop_dlg_text">Jika Anda menghentikan paksa aplikasi, akan menyebabkan gagal fungsi.</string>
     <string name="guts_force_close_app">Tutup aplikasi</string>
-    <!-- Screenrecorder -->
+    <!-- Screen Record -->
     <string name="screenrecord_stopdot_label">Tampilkan titik berhenti\nTekan lama untuk memindahkannya</string>
     <string name="screenrecord_lowquality_label">Kualitas lebih rendah untuk ukuran file yang lebih kecil</string>
     <string name="screenrecord_longer_timeout_switch_label">Batas ukuran file lebih besar\nBatasi ukuran perekaman hingga 15 GB</string>
@@ -179,8 +178,6 @@
     <string name="ambientmusic_songinfo" formatted="false">%s oleh %s</string>
     <!-- Daily data usage -->
     <string name="daily_data_usage_title">Penggunaan hari ini</string>
-    <!-- Scrolling Screenshot string -->
-    <string name="scrollss">Gulir</string>
     <!-- Biometric Dialog - Use Face -->
     <string name="biometric_dialog_button_use_face">Gunakan Wajah</string>
     <!-- Anti flicker QS tile -->
@@ -190,12 +187,7 @@
     <string name="quick_settings_dc_brightness_mode">Mode kecerahan</string>
     <string name="quick_settings_dc_full_auto">Mode Otomatis</string>
     <!-- App Lock -->
-    <string name="applock_locked">&#160;terkunci</string>
-    <string name="applock_fingerprint_face">, sidik jari atau wajah Anda untuk membuka kunci</string>
-    <string name="applock_face">&#160;atau wajah Anda untuk membuka kunci</string>
-    <string name="applock_fingerprint">&#160;atau sidik jari Anda untuk membuka kunci</string>
-    <string name="applock_credential">&#160;untuk membuka</string>
-    <string name="applock_unlock">Buka</string>
+    <string name="applock_unlock">Buka aplikasi</string>
     <!-- PowerShare QS tile -->
     <string name="quick_settings_powershare_label">PowerShare Nirkabel</string>
     <string name="quick_settings_powershare_off_powersave_label">PowerShare Nirkabel mati\nPenghemat baterai</string>
