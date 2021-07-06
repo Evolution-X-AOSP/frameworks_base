@@ -33,4 +33,7 @@
     <string name="salute_evening">Добро вече</string>
     <string name="salute_night">Лаку ноћ</string>
     <string name="salute_sleep">Пређи у мод спавања</string>
+    <!-- Oneplus Analog clock -->
+    <!-- Oneplus Minimal clock -->
+    <!-- Oneplus Numbers clock -->
 </resources>
