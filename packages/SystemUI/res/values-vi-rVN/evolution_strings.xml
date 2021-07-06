@@ -82,6 +82,7 @@
     <string name="quick_settings_reboot_recovery_label">Chế độ phục hồi</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">Chụp màn hình</string>
+    <string name="quick_settings_full_screenshot_label">Đầy đủ</string>
     <string name="quick_settings_region_screenshot_label">Chụp một phần màn hình</string>
     <!-- SleepScreen QS Tile -->
     <string name="quick_settings_sleepscreen_label">Tắt màn hình</string>
@@ -139,8 +140,6 @@
     <string name="drag_or_tap_to_add_tiles">Giữ &amp; kéo hoặc chạm để thêm</string>
     <!-- Label for header of customize QS -->
     <string name="drag_or_tap_to_rearrange_tiles">Giữ &amp; kéo để sắp xếp lại hoặc nhấn để loại bỏ</string>
-    <string name="lockscreen_default">Mặc định</string>
-    <string name="lockscreen_hidden">Không có</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Đã xóa ảnh chụp màn hình</string>
     <!-- Partial screenshot -->
@@ -150,7 +149,7 @@
     <string name="force_stop_dlg_title">Buộc dừng?</string>
     <string name="force_stop_dlg_text">Nếu bạn buộc dừng ứng dụng, nó có thể hoạt động không ổn định.</string>
     <string name="guts_force_close_app">Đóng ứng dụng</string>
-    <!-- Screenrecorder -->
+    <!-- Screen Record -->
     <string name="screenrecord_stopdot_label">Hiện chấm dừng\nNhấn giữ để di chuyển nó</string>
     <string name="screenrecord_lowquality_label">Chất lượng thấp cho dung lượng nhỏ hơn</string>
     <string name="screenrecord_longer_timeout_switch_label">Giới hạn kích thước tệp lớn hơn\nKích thước bản ghi giới hạn ở 15 GB</string>
@@ -179,8 +178,6 @@
     <string name="ambientmusic_songinfo" formatted="false">%s của %s</string>
     <!-- Daily data usage -->
     <string name="daily_data_usage_title">Sử dụng hôm nay</string>
-    <!-- Scrolling Screenshot string -->
-    <string name="scrollss">Cuộn</string>
     <!-- Biometric Dialog - Use Face -->
     <string name="biometric_dialog_button_use_face">Sử dụng khuôn mặt</string>
     <!-- Anti flicker QS tile -->
@@ -190,11 +187,6 @@
     <string name="quick_settings_dc_brightness_mode">Chế độ sáng</string>
     <string name="quick_settings_dc_full_auto">Chế độ tự động</string>
     <!-- App Lock -->
-    <string name="applock_locked">&#160;đã khóa</string>
-    <string name="applock_fingerprint_face">, vân tay hoặc khuôn mặt để mở khóa</string>
-    <string name="applock_face">&#160;hoặc sử dụng khuôn mặt để mở khóa</string>
-    <string name="applock_fingerprint">&#160;hoặc sử dụng vân tay để mở khóa</string>
-    <string name="applock_credential">&#160;để mở khóa</string>
     <string name="applock_unlock">Mở khóa</string>
     <!-- PowerShare QS tile -->
     <string name="quick_settings_powershare_label">Sạc không dây</string>
