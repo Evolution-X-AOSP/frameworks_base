@@ -82,6 +82,7 @@
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">Captura de pantalla</string>
+    <string name="quick_settings_full_screenshot_label">Completo</string>
     <string name="quick_settings_region_screenshot_label">Captura de pantalla parcial</string>
     <!-- SleepScreen QS Tile -->
     <string name="quick_settings_sleepscreen_label">Apagar pantalla</string>
@@ -139,8 +140,6 @@
     <string name="drag_or_tap_to_add_tiles">Mantén pulsado y arrastra para añadir botones</string>
     <!-- Label for header of customize QS -->
     <string name="drag_or_tap_to_rearrange_tiles">Mantén pulsado y arrastra para reorganizar o pulsa para eliminar</string>
-    <string name="lockscreen_default">Por defecto</string>
-    <string name="lockscreen_hidden">Ninguno</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Captura de pantalla eliminada</string>
     <!-- Partial screenshot -->
@@ -150,7 +149,7 @@
     <string name="force_stop_dlg_title">¿Forzar detención?</string>
     <string name="force_stop_dlg_text">Si se detiene una aplicación, es posible que no funcione correctamente.</string>
     <string name="guts_force_close_app">Cerrar aplicación</string>
-    <!-- Screenrecorder -->
+    <!-- Screen Record -->
     <string name="screenrecord_stopdot_label">Mostrar punto para detener grabación.\nPulsación larga para moverlo</string>
     <string name="screenrecord_lowquality_label">Menor calidad para un tamaño de archivo más pequeño</string>
     <string name="screenrecord_longer_timeout_switch_label">Límite de tamaño de archivo más grande\nLímite de tamaño de grabación a 15 GB</string>
@@ -179,8 +178,6 @@
     <string name="ambientmusic_songinfo" formatted="false">%s de %s</string>
     <!-- Daily data usage -->
     <string name="daily_data_usage_title">Uso de hoy</string>
-    <!-- Scrolling Screenshot string -->
-    <string name="scrollss">Desplazar</string>
     <!-- Biometric Dialog - Use Face -->
     <string name="biometric_dialog_button_use_face">Usar reconocimiento facial</string>
     <!-- Anti flicker QS tile -->
@@ -190,11 +187,6 @@
     <string name="quick_settings_dc_brightness_mode">Modo de brillo</string>
     <string name="quick_settings_dc_full_auto">Modo automático</string>
     <!-- App Lock -->
-    <string name="applock_locked">&#160;está bloqueada</string>
-    <string name="applock_fingerprint_face">, huella dactilar o tu cara para desbloquear</string>
-    <string name="applock_face">&#160;o tu cara para desbloquear</string>
-    <string name="applock_fingerprint">&#160;o tu huella dactilar para desbloquear</string>
-    <string name="applock_credential">&#160;para desbloquear</string>
     <string name="applock_unlock">Desbloquear</string>
     <!-- PowerShare QS tile -->
     <string name="quick_settings_powershare_label">Transferencia de energía inalámbrica</string>
