@@ -243,6 +243,13 @@ public class BatteryManager {
      */
     public static final String EXTRA_TURBO_POWER = "turbo_power";
 
+    /**
+     * Extra for {@link android.content.Intent#ACTION_BATTERY_CHANGED}:
+     * boolean value to detect fast charging
+     * {@hide}
+     */
+    public static final String EXTRA_SUPERDART_CHARGER = "superdart_charger";
+
     /** @hide */
     public static final int BATTERY_PROPERTY_MOD_CHARGE_FULL = 100;
     /** @hide */

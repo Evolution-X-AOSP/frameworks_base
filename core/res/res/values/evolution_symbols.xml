@@ -71,6 +71,9 @@
   <!-- Whether device has turbo power charging support -->
   <java-symbol type="bool" name="config_hasTurboPowerCharger" />
 
+  <!-- Whether device has SuperDart charging support -->
+  <java-symbol type="bool" name="config_hasSuperdartCharger" />
+
   <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
   <java-symbol type="string" name="config_oemFastChargerStatusPath" />
 

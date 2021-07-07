@@ -206,6 +206,10 @@ public final class BatteryService extends SystemService {
     private boolean mHasTurboPower;
     private boolean mLastTurboPower;
 
+    private boolean mSuperdartCharger;
+    private boolean mHasSuperdartCharger;
+    private boolean mLastSuperdartCharger;
+
     private long mDischargeStartTime;
     private int mDischargeStartLevel;
 
@@ -269,6 +273,8 @@ public final class BatteryService extends SystemService {
                 com.android.internal.R.bool.config_hasVoocCharger);
         mHasTurboPower = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_hasTurboPowerCharger);
+        mHasSuperdartCharger = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_hasSuperdartCharger);
 
         mCriticalBatteryLevel = mContext.getResources().getInteger(
                 com.android.internal.R.integer.config_criticalBatteryWarningLevel);
@@ -708,6 +714,7 @@ public final class BatteryService extends SystemService {
         mVoocCharger = mHasVoocCharger && isVoocCharger();
         mOemFastCharger = isOemFastCharger();
         mTurboPower = mHasTurboPower && isTurboPower();
+        mSuperdartCharger = mHasSuperdartCharger && isSuperdartCharger();
 
         if (force || (mHealthInfo.batteryStatus != mLastBatteryStatus ||
                 mHealthInfo.batteryHealth != mLastBatteryHealth ||
@@ -725,6 +732,7 @@ public final class BatteryService extends SystemService {
                 mVoocCharger != mLastVoocCharger ||
                 mOemFastCharger != mLastOemFastCharger ||
                 mTurboPower != mLastTurboPower ||
+                mSuperdartCharger != mLastSuperdartCharger ||
                 mBatteryModProps.modLevel != mLastModLevel ||
                 mBatteryModProps.modStatus != mLastModStatus ||
                 mBatteryModProps.modFlag != mLastModFlag ||
@@ -905,6 +913,7 @@ public final class BatteryService extends SystemService {
             mLastVoocCharger = mVoocCharger;
             mLastOemFastCharger = mOemFastCharger;
             mLastTurboPower = mTurboPower;
+            mLastSuperdartCharger = mSuperdartCharger;
             mLastModLevel = mBatteryModProps.modLevel;
             mLastModStatus = mBatteryModProps.modStatus;
             mLastModFlag = mBatteryModProps.modFlag;
@@ -941,6 +950,7 @@ public final class BatteryService extends SystemService {
         intent.putExtra(BatteryManager.EXTRA_WARP_CHARGER, mWarpCharger);
         intent.putExtra(BatteryManager.EXTRA_VOOC_CHARGER, mVoocCharger);
         intent.putExtra(BatteryManager.EXTRA_TURBO_POWER, mTurboPower);
+        intent.putExtra(BatteryManager.EXTRA_SUPERDART_CHARGER, mSuperdartCharger);
         intent.putExtra(BatteryManager.EXTRA_MOD_LEVEL, mBatteryModProps.modLevel);
         intent.putExtra(BatteryManager.EXTRA_MOD_STATUS, mBatteryModProps.modStatus);
         intent.putExtra(BatteryManager.EXTRA_MOD_FLAG, mBatteryModProps.modFlag);
@@ -1072,6 +1082,20 @@ public final class BatteryService extends SystemService {
             br.close();
             file.close();
             return "Turbo".equals(state);
+        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
+        }
+        return false;
+    }
+
+    private boolean isSuperdartCharger() {
+        try {
+            FileReader file = new FileReader("/sys/class/power_supply/battery/voocchg_ing");
+            BufferedReader br = new BufferedReader(file);
+            String state = br.readLine();
+            br.close();
+            file.close();
+            return "1".equals(state);
         } catch (FileNotFoundException e) {
         } catch (IOException e) {
         }
