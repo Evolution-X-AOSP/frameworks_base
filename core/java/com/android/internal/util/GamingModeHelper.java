@@ -197,6 +197,10 @@ public class GamingModeHelper {
         if (isInGamingMode() && TextUtils.equals(packageName, getCurrentGame())) {
             return;
         }
+        
+        if (GAMING_MODE_PACKAGE.equals(packageName)) {
+            return;
+        }
 
         if (mGamingPackages.contains(packageName)) {
             startGamingMode(packageName);
