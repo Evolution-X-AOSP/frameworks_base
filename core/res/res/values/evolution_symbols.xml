@@ -235,4 +235,7 @@
     <java-symbol type="string" name="sleep_mode_notification_content" />
     <java-symbol type="string" name="sleep_mode_enabled_toast" />
     <java-symbol type="string" name="sleep_mode_disabled_toast" />
+
+    <!-- For dynamic default font styles -->
+    <java-symbol type="string" name="config_bodyFontFamily" />
 </resources>
