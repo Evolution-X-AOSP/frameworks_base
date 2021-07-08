@@ -39,6 +39,7 @@ import android.os.Handler;
 import android.os.RemoteException;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.provider.Settings;
 import android.security.KeyChain;
 import android.util.ArrayMap;
 import android.util.Log;
@@ -338,8 +339,13 @@ public class SecurityControllerImpl implements SecurityController {
     @Override
     public void onUserSwitched(int newUserId) {
         mCurrentUserId = newUserId;
+        final String globalVpnApp = Settings.Global.getString(mContext.getContentResolver(),
+                Settings.Global.GLOBAL_VPN_APP);
         final UserInfo newUserInfo = mUserManager.getUserInfo(newUserId);
-        if (newUserInfo.isRestricted()) {
+        if (mCurrentVpns.get(UserHandle.USER_SYSTEM) != null &&
+                mCurrentVpns.get(UserHandle.USER_SYSTEM).user.equals(globalVpnApp)) {
+            mVpnUserId = UserHandle.USER_SYSTEM;
+        } else if (newUserInfo.isRestricted()) {
             // VPN for a restricted profile is routed through its owner user
             mVpnUserId = newUserInfo.restrictedProfileParentId;
         } else {
