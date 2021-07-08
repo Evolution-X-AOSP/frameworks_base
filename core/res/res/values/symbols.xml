@@ -4868,4 +4868,7 @@
   <java-symbol type="dimen" name="status_bar_height_default" />
 
   <java-symbol type="bool" name="system_server_plays_face_haptics" />
+
+  <!-- For dynamic default font styles -->
+  <java-symbol type="string" name="config_bodyFontFamily" />
 </resources>
