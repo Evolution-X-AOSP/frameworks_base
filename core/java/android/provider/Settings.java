@@ -17892,6 +17892,12 @@ public final class Settings {
         public static final String PULSE_PANEL = "pulse_panel";
 
         /**
+         * Package designated as global VPN provider.
+         * @hide
+         */
+        public static final String GLOBAL_VPN_APP = "global_vpn_app";
+
+        /**
          * Global settings that shouldn't be persisted.
          *
          * @hide
