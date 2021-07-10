@@ -118,6 +118,7 @@
   <java-symbol type="bool" name="config_pocketUseLightSensor" />
 
   <!-- Pocket Service -->
+  <java-symbol type="string" name="config_pocketJudgeVendorProximitySensorName" />
   <java-symbol type="string" name="config_pocketJudgeVendorSensorName" />
 
   <!-- LiveDisplay -->

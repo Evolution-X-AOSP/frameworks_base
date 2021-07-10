@@ -129,6 +129,7 @@
     <string name="config_pocketBridgeSysfsInpocket"></string>
 
     <!-- Defines custom OEM sensor for pocket detection. -->
+    <string name="config_pocketJudgeVendorProximitySensorName"></string>
     <string name="config_pocketJudgeVendorSensorName"></string>
 
     <!-- Pocket Lock -->
