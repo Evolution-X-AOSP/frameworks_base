@@ -142,6 +142,7 @@ LOCAL_REQUIRED_MODULES := \
 	SliderStyleOOS \
 	SliderStyleAosp \
 	SliderStyleRUI \
+	SliderStyleA12 \
 	preinstalled-packages-platform-overlays.xml
 
 include $(BUILD_PHONY_PACKAGE)
