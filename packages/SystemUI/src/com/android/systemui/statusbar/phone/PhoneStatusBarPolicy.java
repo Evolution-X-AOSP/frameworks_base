@@ -488,7 +488,7 @@ public class PhoneStatusBarPolicy
                         if (state == BluetoothProfile.STATE_CONNECTED) {
                             int batteryLevel = device.getBatteryLevel();
                             BluetoothClass type = device.getBtClass();
-                            if (batteryLevel != BluetoothDevice.BATTERY_LEVEL_UNKNOWN && showBatteryForThis(type)) {
+                            if (batteryLevel > BluetoothDevice.BATTERY_LEVEL_UNKNOWN) {
                                 iconId = getBtLevelIconRes(batteryLevel);
                             } else {
                                 iconId = R.drawable.stat_sys_data_bluetooth_connected;
@@ -530,27 +530,6 @@ public class PhoneStatusBarPolicy
         } else {
             return R.drawable.stat_sys_data_bluetooth_connected;
         }
-     }
-
-    private boolean showBatteryForThis(BluetoothClass type) {
-        boolean show = false;
-        if (type != null) {
-            switch (type.getDeviceClass()) {
-            case BluetoothClass.Device.AUDIO_VIDEO_WEARABLE_HEADSET:
-            case BluetoothClass.Device.AUDIO_VIDEO_HANDSFREE:
-            case BluetoothClass.Device.AUDIO_VIDEO_PORTABLE_AUDIO:
-            case BluetoothClass.Device.AUDIO_VIDEO_LOUDSPEAKER:
-            case BluetoothClass.Device.AUDIO_VIDEO_HEADPHONES:
-                show = true;
-                break;
-            default:
-                show = false;
-                break;
-            }
-        } else {
-            show = false;
-        }
-        return show;
     }
 
     private final void updateTTY() {
