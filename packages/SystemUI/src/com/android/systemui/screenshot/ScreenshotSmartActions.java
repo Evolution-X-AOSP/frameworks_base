@@ -48,7 +48,6 @@ import javax.inject.Singleton;
 @Singleton
 public class ScreenshotSmartActions {
     private static final String TAG = "ScreenshotSmartActions";
-    private static ScreenshotNotificationsController mNotificationsController;
 
     @Inject
     public ScreenshotSmartActions() {}
@@ -142,7 +141,6 @@ public class ScreenshotSmartActions {
                     SystemUIFactory.getInstance().createScreenshotNotificationSmartActionsProvider(
                             context, THREAD_POOL_EXECUTOR, new Handler());
             provider.notifyAction(screenshotId, action, isSmartAction);
-            mNotificationsController.cancelScreenshotNotification(context);
         } catch (Throwable e) {
             Slog.e(TAG, "Error in notifyScreenshotAction: ", e);
         }

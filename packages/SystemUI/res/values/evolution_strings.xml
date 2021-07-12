@@ -220,6 +220,9 @@
     <!-- Daily data usage -->
     <string name="daily_data_usage_title">Today\'s usage</string>
 
+    <!-- Scrolling Screenshot string -->
+    <string name="scrollss">Scroll</string>
+
     <!-- Biometric Dialog - Use Face -->
     <string name="biometric_dialog_button_use_face">Use Face</string>
 
