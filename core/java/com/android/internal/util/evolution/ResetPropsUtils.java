@@ -36,7 +36,8 @@ public class ResetPropsUtils {
         "com.kugou.android",
         "cmccwm.mobilemusic",
         "cn.kuwo.player",
-        "com.meizu.media.music"
+        "com.meizu.media.music",
+        "com.salt.music"
     };
 
     static {
