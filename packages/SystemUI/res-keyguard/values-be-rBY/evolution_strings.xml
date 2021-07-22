@@ -32,4 +32,8 @@
     <string name="salute_afternoon">Добры дзень</string>
     <string name="salute_evening">Добры вечар</string>
     <string name="salute_night">Дабранач</string>
+    <string name="salute_sleep">Пара спаць</string>
+    <!-- Oneplus Analog clock -->
+    <!-- Oneplus Minimal clock -->
+    <!-- Oneplus Numbers clock -->
 </resources>
