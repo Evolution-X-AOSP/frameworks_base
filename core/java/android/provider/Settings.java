@@ -6139,6 +6139,12 @@ public final class Settings {
          */
 
         /**
+         * Setting to show battery text on left or right.
+         * @hide
+         */
+        public static final String DO_LEFT_BATTERY_TEXT = "do_left_battery_text";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
