@@ -6368,6 +6368,12 @@ public final class Settings {
         public static final String STOCK_STATUSBAR_IN_HIDE = "stock_statusbar_in_hide";
 
         /**
+         * Whether to hide notch fill
+         * @hide
+         */
+        public static final String DISPLAY_HIDE_NOTCH = "display_hide_notch";
+
+        /**
          * Whether to show the lyric on the status bar
          * @hide
          */
