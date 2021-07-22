@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2020 The Evolution X Project
+     Copyright (C) 2019-2021 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -51,7 +51,7 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Неабходна перазагрузка карыстацкага інтэрфейсу</string>
     <string name="systemui_restart_message">Каб усе змены набылі сілу, патрабуецца перазагрузка карыстацкага інтэрфейсу. Перазагрузіць інтэрфейс?</string>
-    <!-- Gaming mode -->
+    <!-- Game mode -->
     <string name="notification_channel_gaming">Гульнявы рэжым</string>
     <string name="gaming_mode_notification_title">Гульнявы рэжым уключаны</string>
     <string name="gaming_mode_notification_content">Націсніце, каб пераключыць гульнявы рэжым</string>
@@ -59,4 +59,18 @@
     <string name="gaming_mode_disabled_toast">Гульнявы рэжым адключаны</string>
     <string name="active_edge_app_select_title">Выбраць праграму</string>
     <string name="active_edge_activity_select_title">Выберыце дзеянне</string>
+    <!-- Clipboard access toast -->
+    <string name="app_clipboard_access_denied">%1$s забаронены доступ да буфера абмену</string>
+    <string name="app_clipboard_access_granted">%1$s дазволены доступ да буфера абмена</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_view_title">Рэжым \"У кішэні\" уключаны</string>
+    <string name="pocket_view_title_cancel">Для выкарыстання тэлефона:</string>
+    <string name="pocket_view_top_tag_cancel">Праверце, ці не закрыта сіняя вобласць вашага тэлефона якімі-небудзь прадметамі, і ачысціце ад бруду або пылу.</string>
+    <string name="pocket_view_top_tag_cancel2">Доўгі націск кнопкі сілкавання для прымусовага выхаду з рэжыму \"У кішэні\".</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">доступ да мэнэджэра шрыфтоў</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Дазваляе праграме атрымаць доступ да мэнэджэра шрыфтоў.</string>
+    <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
+    <string name="fontservice_incompatible_font">Набор шрыфтоў, які вы ўсталявалі, несумяшчальны з-за адсутнасці файла fonts.xml. Калі ласка, звярніцеся да распрацоўшчыка набору для атрымання падтрымкі.</string>
 </resources>
