@@ -41,6 +41,8 @@ import android.widget.RelativeLayout;
 import com.android.settingslib.Utils;
 import com.android.systemui.R;
 
+import androidx.palette.graphics.Palette;
+
 public class NotificationLightsView extends RelativeLayout {
     private static final boolean DEBUG = false;
     private static final String TAG = "NotificationLightsView";

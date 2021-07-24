@@ -105,6 +105,8 @@ LOCAL_REQUIRED_MODULES := \
 	IconPackKaiPixelThemePickerOverlay \
 	IconPackKaiSettingsOverlay \
 	IconPackKaiSystemUIOverlay \
+	IconPackOOSAndroidOverlay \
+	IconPackOOSSystemUIOverlay \
 	IconPackRoundedAndroidOverlay \
 	IconPackRoundedPixelLauncherOverlay \
 	IconPackRoundedPixelThemePickerOverlay \
