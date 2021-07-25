@@ -10919,10 +10919,10 @@ public final class Settings {
         public static final String FOD_ON_DOZE = "fod_on_doze";
 
         /**
-         * Immersive Navigation gesture
+         * boolean value. toggles swipe up hint in gestural nav mode
          * @hide
          */
-        public static final String IMMERSIVE_NAVIGATION = "immersive_navigation";
+        public static final String NAVIGATION_BAR_HINT = "navigation_bar_hint";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to
