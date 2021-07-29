@@ -310,21 +310,16 @@ public class KeyguardStatusView extends GridLayout implements
                 resolver, Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_FACE);
             boolean mCustomClockSelectionType = currentClock == null ? false : currentClock.contains("Type");
             boolean mCustomClockSelectionIDE = currentClock == null ? false : currentClock.contains("IDE");
-            boolean mCustomClockSelectionShapeShift = currentClock == null ? false : currentClock.contains("ShapeShift");
-            boolean mCustomClockSelectionS = currentClock == null ? false : ((currentClock.contains("Android") && currentClock.contains("S")) || (currentClock.contains("Android") && currentClock.contains("12")));
+            boolean mCustomClockSelectionTwelve = currentClock == null ? false : ((currentClock.contains("Android") && currentClock.contains("S")) || (currentClock.contains("Android") && currentClock.contains("12")) || (currentClock.contains("ShapeShift") || currentClock.contains("Twelve")));
 
             // If left aligned style clock, align the textView to start else keep it center.
             if (mCustomClockSelectionType) {
                 mOwnerInfo.setPaddingRelative((int) mContext.getResources()
                     .getDimension(R.dimen.custom_clock_left_padding) + 8, 0, 0, 0);
                 mOwnerInfo.setGravity(Gravity.START);
-            } else if (mCustomClockSelectionS) {
+            } else if (mCustomClockSelectionTwelve) {
                 mOwnerInfo.setPaddingRelative((int) mContext.getResources()
                     .getDimension(R.dimen.s_clock_left_padding) + 8, 0, 0, 0);
-                mOwnerInfo.setGravity(Gravity.START);
-            } else if (mCustomClockSelectionShapeShift) {
-                mOwnerInfo.setPaddingRelative((int) mContext.getResources()
-                    .getDimension(R.dimen.ssos_clock_left_padding) + 8, 0, 0, 0);
                 mOwnerInfo.setGravity(Gravity.START);
             } else if (mCustomClockSelectionIDE) {
                 mOwnerInfo.setPaddingRelative((int) mContext.getResources()

@@ -44,6 +44,9 @@
     <string name="salute_evening">Good evening</string>
     <string name="salute_night">Good night</string>
     <string name="salute_sleep">Go to Sleep</string>
+    <string name="clock_title_android_s" translatable="false">Android S</string>
+    <string name="clock_title_android_s_dp3" translatable="false">Android S DP3</string>
+    <string name="clock_title_android_twelve" translatable="false">Android 12</string>
 
     <!-- Oneplus Analog clock -->
     <string name="clock_title_oneplus_roman" translatable="false">OnePlus Roman</string>
