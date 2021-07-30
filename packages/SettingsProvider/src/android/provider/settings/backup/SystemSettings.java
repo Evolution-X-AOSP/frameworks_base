@@ -99,5 +99,6 @@ public class SystemSettings {
         Settings.System.NOTIFICATION_HEADERS,
         Settings.System.ACCENT_COLOR,
         Settings.System.PROXIMITY_ON_WAKE,
+        Settings.System.INCALL_FEEDBACK_VIBRATE,
     };
 }
