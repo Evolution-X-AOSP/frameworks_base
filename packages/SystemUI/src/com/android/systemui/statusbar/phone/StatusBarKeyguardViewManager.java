@@ -26,16 +26,20 @@ import static com.android.systemui.statusbar.phone.BiometricUnlockController.MOD
 import static com.android.systemui.statusbar.phone.BiometricUnlockController.MODE_WAKE_AND_UNLOCK_PULSING;
 
 import android.content.ComponentCallbacks2;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.provider.Settings;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewRootImpl;
 import android.view.WindowManagerGlobal;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import androidx.annotation.VisibleForTesting;
 
@@ -47,6 +51,7 @@ import com.android.keyguard.KeyguardViewController;
 import com.android.keyguard.ViewMediatorCallback;
 import com.android.settingslib.animation.AppearAnimationUtils;
 import com.android.systemui.DejankUtils;
+import com.android.systemui.R;
 import com.android.systemui.SystemUIFactory;
 import com.android.systemui.dock.DockManager;
 import com.android.systemui.keyguard.DismissCallbackRegistry;
@@ -347,6 +352,13 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
         boolean lockVisible = (mBouncer.isShowing() || keyguardWithoutQs) && !isHideLockIcon
                 && !mBouncer.isAnimatingAway() && !mKeyguardStateController.isKeyguardFadingAway();
 
+        final ContentResolver resolver = mContext.getContentResolver();
+        String currentClock = Settings.Secure.getString(
+            resolver, Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_FACE);
+        boolean mCustomClockSelectionType = currentClock == null ? false : currentClock.contains("Type");
+        boolean mCustomClockSelectionIDE = currentClock == null ? false : currentClock.contains("IDE");
+        boolean mCustomClockSelectionTwelve = currentClock == null ? false : ((currentClock.contains("Android") && currentClock.contains("S")) || (currentClock.contains("Android") && currentClock.contains("12")) || (currentClock.contains("ShapeShift") || currentClock.contains("Twelve")));
+
         if (mLastLockVisible != lockVisible) {
             mLastLockVisible = lockVisible;
             if (lockVisible) {
@@ -366,6 +378,35 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
                 CrossFadeHelper.fadeOut(mLockIconContainer, duration, delay, null /* runnable */);
             }
         }
+
+        FrameLayout.LayoutParams paramsContainer =
+            (FrameLayout.LayoutParams) mLockIconContainer.getLayoutParams();
+        LinearLayout.LayoutParams paramsIcon =
+            (LinearLayout.LayoutParams) mLockIconContainer.findViewById(R.id.lock_icon).getLayoutParams();
+
+        if (mCustomClockSelectionType) {
+            mLockIconContainer.setPaddingRelative((int) mContext.getResources()
+                    .getDimension(R.dimen.custom_clock_left_padding) + 8, 0, 0, 0);
+            paramsContainer.gravity = Gravity.TOP | Gravity.LEFT;
+            paramsIcon.gravity = Gravity.LEFT;
+        } else if (mCustomClockSelectionIDE) {
+            mLockIconContainer.setPaddingRelative((int) mContext.getResources()
+                    .getDimension(R.dimen.ide_clock_left_padding) + 8, 0, 0, 0);
+            paramsContainer.gravity = Gravity.TOP | Gravity.LEFT;
+            paramsIcon.gravity = Gravity.LEFT;
+        } else if (mCustomClockSelectionTwelve) {
+            mLockIconContainer.setPaddingRelative((int) mContext.getResources()
+                    .getDimension(R.dimen.s_clock_left_padding) + 8, 0, 0, 0);
+            paramsContainer.gravity = Gravity.TOP | Gravity.LEFT;
+            paramsIcon.gravity = Gravity.LEFT;
+        } else {
+            mLockIconContainer.setPaddingRelative(0, 0, 0, 0);
+            paramsContainer.gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;
+            paramsIcon.gravity = Gravity.CENTER_HORIZONTAL;
+        }
+
+        mLockIconContainer.setLayoutParams(paramsContainer);
+        mLockIconContainer.findViewById(R.id.lock_icon).setLayoutParams(paramsIcon);
     }
 
     /**
