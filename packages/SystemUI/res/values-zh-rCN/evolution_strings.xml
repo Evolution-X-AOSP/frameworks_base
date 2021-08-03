@@ -82,6 +82,7 @@
     <string name="quick_settings_reboot_recovery_label">恢复模式</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">屏幕截图</string>
+    <string name="quick_settings_full_screenshot_label">全屏</string>
     <string name="quick_settings_region_screenshot_label">部分</string>
     <!-- SleepScreen QS Tile -->
     <string name="quick_settings_sleepscreen_label">息屏</string>
@@ -135,12 +136,13 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • 涡轮闪充中 (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> 后充满)</string>
     <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="percentage">%s</xliff:g> • 涡轮闪充</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • SuperDart 闪充中 (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> 后充满)</string>
+    <string name="keyguard_plugged_in_superdart_charging">SuperDart 闪充中</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">按住 &amp; 拖动或点击添加磁贴</string>
     <!-- Label for header of customize QS -->
     <string name="drag_or_tap_to_rearrange_tiles">按住 &amp; 拖动以重新排列或点击删除</string>
-    <string name="lockscreen_default">默认</string>
-    <string name="lockscreen_hidden">无</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">屏幕截图已删除</string>
     <!-- Partial screenshot -->
@@ -150,7 +152,7 @@
     <string name="force_stop_dlg_title">强制停止？</string>
     <string name="force_stop_dlg_text">强行停止某个应用可能会导致其出现异常</string>
     <string name="guts_force_close_app">关闭应用</string>
-    <!-- Screenrecorder -->
+    <!-- Screen Record -->
     <string name="screenrecord_stopdot_label">显示停止点\n长按移动它</string>
     <string name="screenrecord_lowquality_label">较小文件大小的质量较低</string>
     <string name="screenrecord_longer_timeout_switch_label">文件大小限制\n将录制大小限制为 15 GB</string>
@@ -190,11 +192,6 @@
     <string name="quick_settings_dc_brightness_mode">亮度模式</string>
     <string name="quick_settings_dc_full_auto">自动模式</string>
     <!-- App Lock -->
-    <string name="applock_locked">&#160;已被锁定</string>
-    <string name="applock_fingerprint_face">，指纹或您的脸部以解锁</string>
-    <string name="applock_face">&#160;或您的脸以解锁</string>
-    <string name="applock_fingerprint">&#160;或您的指纹以解锁</string>
-    <string name="applock_credential">&#160;来解锁</string>
     <string name="applock_unlock">解锁</string>
     <!-- PowerShare QS tile -->
     <string name="quick_settings_powershare_label">无线电力共享</string>
@@ -240,4 +237,23 @@
     <string name="tristate_rotation_270">横向 (270°)</string>
     <!-- Change clockface -->
     <string name="change_clock_face">滑动以更改时钟样式</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">行走模式已激活</string>
+    <string name="onthego_notif_title">行走模式处于活动状态</string>
+    <string name="onthego_notif_stop">停止</string>
+    <string name="onthego_notif_options">选项</string>
+    <string name="onthego_notif_error">无法启动行走模式</string>
+    <string name="onthego_notif_restart">重新启用行走模式</string>
+    <string name="onthego_notif_camera_changed">相机模式已更改</string>
+    <string name="onthego_transparency">透明度</string>
+    <string name="onthego_front_camera">使用前置摄像头</string>
+    <string name="onthego_service_toggle">自动重启服务</string>
+    <string name="onthego_channel_name">主要</string>
+    <string name="global_action_onthego">行走模式</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">行走模式</string>
+    <string name="accessibility_quick_settings_onthego_off">行走模式关闭</string>
+    <string name="accessibility_quick_settings_onthego_on">行走模式开启</string>
+    <string name="accessibility_quick_settings_onthego_changed_off">行走模式已关闭</string>
+    <string name="accessibility_quick_settings_onthego_changed_on">行走模式已打开</string>
 </resources>
