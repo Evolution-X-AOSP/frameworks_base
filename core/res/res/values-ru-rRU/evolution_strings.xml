@@ -18,7 +18,7 @@
     <!-- Button that copies the url to the log of a crashed application -->
     <string name="aerr_copy">Скопировать URL журнала ошибки</string>
     <string name="url_copy_success">URL успешно скопирован</string>
-    <string name="url_copy_failed">Произошла ошибка при загрузке журнала в Dogbin</string>
+    <string name="url_copy_failed">Произошла ошибка при выгрузке лога в pasty</string>
     <string name="reboot_title">Перезагрузка</string>
     <string name="reboot_message">Перезагрузка системы</string>
     <!-- Alert slider proc nodes paths. -->
