@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2020 The Evolution X Project
+     Copyright (C) 2019-2021 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,7 +15,6 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Custom QS tiles -->
     <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">앰비언트 디스플레이</string>
     <string name="accessibility_quick_settings_ambient_display_off">앰비언트 디스플레이 꺼짐</string>
@@ -26,17 +25,17 @@
     <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_on_charge_label">충전 시 AOD 사용</string>
     <string name="quick_settings_aod_off_label">AOD 사용 안함</string>
-    <string name="quick_settings_aod_off_powersave_label">AOD 사용 안함\n절전 모드</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD 꺼짐\n절전 모드</string>
     <!-- Caffeine QS tile -->
-    <string name="quick_settings_caffeine_label">카페인 모드</string>
+    <string name="quick_settings_caffeine_label">화면 계속 켜기</string>
     <string name="accessibility_quick_settings_caffeine_off">카페인 꺼짐.</string>
-    <string name="accessibility_quick_settings_caffeine_on">카페인 켜짐.</string>
+    <string name="accessibility_quick_settings_caffeine_on">화면 계속 켜기 켜짐</string>
     <!-- Compass QS Tile -->
     <string name="quick_settings_compass_label">나침반</string>
     <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
     <string name="quick_settings_compass_init">초기화 중\u2026</string>
     <string name="accessibility_quick_settings_compass_off">나침반 꺼짐</string>
-    <string name="accessibility_quick_settings_compass_on">나침반 켜기</string>
+    <string name="accessibility_quick_settings_compass_on">나침반 켜짐</string>
     <string name="accessibility_quick_settings_compass_changed_off">나침반이 꺼졌습니다</string>
     <string name="accessibility_quick_settings_compass_changed_on">나침반이 켜졌습니다</string>
     <string name="quick_settings_compass_N">북</string>
@@ -57,12 +56,14 @@
     <string name="qs_data_switch_label">데이터 전용 SIM 카드 전환</string>
     <string name="qs_data_switch_changed_1">모바일 데이터에 SIM 1 사용</string>
     <string name="qs_data_switch_changed_2">모바일 데이터에 SIM 2 사용</string>
+    <string name="qs_data_switch_toast_0">현재 SIM 카드가 삽입되어 있지 않습니다</string>
+    <string name="qs_data_switch_toast_1">현재 한 개의 SIM 카드만 삽입되었습니다</string>
     <!-- FPS Info tile -->
     <string name="quick_settings_fpsinfo_label">FPS 정보</string>
     <string name="accessibility_quick_settings_fpsinfo_off">FPS 정보 꺼짐</string>
     <string name="accessibility_quick_settings_fpsinfo_on">FPS 정보 켜짐</string>
     <!-- Heads up QS tile -->
-    <string name="quick_settings_heads_up_label">헤드 업</string>
+    <string name="quick_settings_heads_up_label">화면 상단 알림</string>
     <string name="accessibility_quick_settings_heads_up_off">헤드 업 알림 꺼짐.</string>
     <string name="accessibility_quick_settings_heads_up_on">헤드 업 알림 켜짐.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">헤드 업 알림이 꺼졌습니다.</string>
@@ -76,14 +77,15 @@
     <string name="quick_settings_music_play">재생</string>
     <string name="quick_settings_music_pause">일시 중지</string>
     <!-- Power off/Reboot/Recovery QS Tile -->
-    <string name="quick_settings_poweroff_label">종료</string>
+    <string name="quick_settings_poweroff_label">전원 끄기</string>
     <string name="quick_settings_reboot_label">다시 시작</string>
     <string name="quick_settings_reboot_recovery_label">복구 모드</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">스크린샷</string>
-    <string name="quick_settings_region_screenshot_label">부분 스크린샷</string>
+    <string name="quick_settings_full_screenshot_label">전체</string>
+    <string name="quick_settings_region_screenshot_label">일부</string>
     <!-- SleepScreen QS Tile -->
-    <string name="quick_settings_sleepscreen_label">절전 화면</string>
+    <string name="quick_settings_sleepscreen_label">화면 끄기</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">소리</string>
     <string name="quick_settings_sound_mute">음소거</string>
@@ -91,7 +93,7 @@
     <string name="quick_settings_sound_vibrate">진동</string>
     <!-- Sound Search tile -->
     <string name="quick_settings_sound_search">사운드 검색</string>
-    <string name="quick_settings_sound_search_no_app">소리 검색 앱이 설치되지 않았습니다</string>
+    <string name="quick_settings_sound_search_no_app">기능을 사용하려면 사운드 검색 앱을 설치하세요</string>
     <!-- Sync QS tile -->
     <string name="quick_settings_sync_label">동기화</string>
     <string name="accessibility_quick_settings_sync_off">동기화 꺼짐.</string>
@@ -101,9 +103,7 @@
     <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">USB 테더링</string>
     <!-- Volume panel QS tile -->
-    <string name="quick_settings_volume_panel_label">볼륨 조절 창</string>
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">실행하려면 아이콘에서 스와이프하세요.</string>
+    <string name="quick_settings_volume_panel_label">음량 조절</string>
     <!-- Status bar icons -->
     <string name="statusbar_items_title">상태 표시줄 아이콘</string>
     <string name="status_bar_data_disabled">모바일 네트워크가 해제됨</string>
@@ -111,27 +111,38 @@
     <string name="status_bar_nfc">NFC</string>
     <string name="status_bar_roaming">데이터 로밍</string>
     <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_ims">VoLTE(HD Voice)/VoWiFi</string>
+    <string name="status_bar_camera">카메라</string>
+    <string name="status_bar_location">위치</string>
+    <string name="status_bar_microphone">마이크</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
-    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <string name="accessibility_status_bar_nfc">NFC</string>
     <string name="global_action_restart_advanced">다시 시작 (고급)</string>
-    <string name="global_action_restart_recovery">복구모드(Recovery)</string>
+    <string name="global_action_restart_recovery">복구 모드</string>
     <string name="global_action_restart_bootloader">부트로더</string>
     <string name="global_action_restart_ui">시스템 UI</string>
+    <string name="global_action_screenshot">스크린샷</string>
+    <string name="global_action_screenrecord">화면 녹화</string>
+    <string name="global_action_flashlight">손전등</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Dash 충전 중 (완전 충전까지 <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> 남음)</string>
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • 대시 고속 충전 중 (완전히 충전될 때까지 <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> 남음)</string>
     <string name="keyguard_plugged_in_dash_charging">고속 충전 (Dash)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Wrap 충전 중 (완전 충전까지 <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> 남음)</string>
+    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • 워프 고속 충전 중 (완전히 충전될 때까지 <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> 남음)</string>
     <string name="keyguard_plugged_in_warp_charging">고속 충전 (Warp)</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • VOOC 충전 (완전 충전까지 <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> 남음)</string>
-    <string name="keyguard_plugged_in_vooc_charging">고속 충전 (VOOC)</string>
+    <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • VOOC 고속 충전 중 (완전히 충전될 때까지 <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> 남음)</string>
+    <string name="keyguard_plugged_in_vooc_charging">VOOC 고속 충전 중</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • 터보 고속 충전 중 (완전히 충전될 때까지 <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> 남음)</string>
+    <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="percentage">%s</xliff:g> • 터보 고속 충전 중</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • SuperDart 고속 충전 중 (완전히 충전될 때까지 <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> 남음)</string>
+    <string name="keyguard_plugged_in_superdart_charging">SuperDart 고속 충전 중</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">&amp; 타일을 추가하려면 드래그하거나 탭하세요</string>
     <!-- Label for header of customize QS -->
     <string name="drag_or_tap_to_rearrange_tiles">&amp; 타일을 위치 변경 또는 제거하려면 드래그하세요</string>
-    <string name="lockscreen_default">기본설정</string>
-    <string name="lockscreen_hidden">없음</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">스크린샷이 삭제됨</string>
     <!-- Partial screenshot -->
@@ -141,9 +152,10 @@
     <string name="force_stop_dlg_title">강제로 종료하시겠습니까?</string>
     <string name="force_stop_dlg_text">강제로 앱을 종료하면 예기치 않은 오류가 발생할 수 있습니다.</string>
     <string name="guts_force_close_app">앱 닫기</string>
-    <!-- Screenrecorder -->
-    <string name="screenrecord_stopdot_label">정지 버튼 표시\n길게 눌러 이동하기</string>
+    <!-- Screen Record -->
+    <string name="screenrecord_stopdot_label">화면 녹화 중지 버튼 표시</string>
     <string name="screenrecord_lowquality_label">저화질, 저용량</string>
+    <string name="screenrecord_longer_timeout_switch_label">더 큰 파일 크기 제한\n녹화 최대 크기를 15GB로 제한합니다</string>
     <!-- Kill app -->
     <string name="task_helper_app_killed">%1$s가 중지됨</string>
     <string name="empty_app_killed">앱</string>
@@ -153,12 +165,8 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">언어</string>
     <string name="quick_settings_locale_more_locales_toast">토글 기능을 활성화 하려면 다중 언어를 설정하시기 바랍니다</string>
-    <!-- HW Keys Tile -->
-    <string name="accessibility_quick_settings_hwkeys_on">하드웨어 버튼 켜짐</string>
-    <string name="accessibility_quick_settings_hwkeys_off">하드웨어 버튼 꺼짐</string>
-    <string name="quick_settings_hwkeys_label">하드웨어 버튼</string>
-    <!-- Gaming mode -->
-    <string name="gaming_mode_not_enabled">게이밍 모드가 설정에서 사용 중지되었습니다</string>
+    <!-- Game mode -->
+    <string name="gaming_mode_not_enabled">게이밍 모드 꺼짐</string>
     <string name="quick_settings_gaming_mode_label">게이밍 모드</string>
     <!-- App picker manifest entry -->
     <string name="app_picker_dialog_title">앱 선택</string>
@@ -169,4 +177,83 @@
     <string name="hp_buddy_right">오른쪽만</string>
     <string name="hp_buddy_center">양쪽</string>
     <string name="hp_buddy_not_connected">헤드폰을 연결하세요</string>
+    <!-- Ambient Music Ticker -->
+    <string name="ambientmusic_songinfo" formatted="false">%s - %s</string>
+    <!-- Daily data usage -->
+    <string name="daily_data_usage_title">오늘 사용량</string>
+    <!-- Scrolling Screenshot string -->
+    <string name="scrollss">스크롤</string>
+    <!-- Biometric Dialog - Use Face -->
+    <string name="biometric_dialog_button_use_face">얼굴 인식 사용</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">안티 플리커 (화면 깜박임 방지)</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">DC 디밍</string>
+    <string name="quick_settings_dc_brightness_mode">밝기 모드</string>
+    <string name="quick_settings_dc_full_auto">자동 모드</string>
+    <!-- App Lock -->
+    <string name="applock_unlock">앱 잠금 해제</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">무선 전원 공유</string>
+    <string name="quick_settings_powershare_off_powersave_label">무선 전원 공유 꺼짐\n절전 모드</string>
+    <string name="quick_settings_powershare_off_low_battery_label">무선 전원 공유 꺼짐\n배터리 부족</string>
+    <string name="quick_settings_powershare_enabled_label">무선 전원 공유가 활성화되었습니다</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">고정을 해제하기 전까지는 이 앱만 사용할 수 있습니다. 화면 고정을 해제하려면 뒤로 가기를 길게 누르세요.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">화면 고정을 해제하려면 뒤로 가기를 길게 누르세요.</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">고정을 해제하기 전까지는 이 앱만 사용할 수 있습니다. 화면 고정을 해제하려면 지문 센서를 길게 누르세요.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">화면 고정을 해제하려면 지문 센서를 길게 누르세요.</string>
+    <!-- Power menu QS tile -->
+    <string name="quick_settings_power_menu_label">전원 메뉴</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">읽기 모드</string>
+    <string name="accessibility_quick_settings_reading_mode_on">읽기 모드 켜짐</string>
+    <string name="accessibility_quick_settings_reading_mode_off">읽기 모드 꺼짐</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">읽기 모드가 켜졌습니다</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">읽기 모드가 꺼졌습니다</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">\u2026에 연결</string>
+    <string name="vpn_credentials_hint"><xliff:g id="name">%s</xliff:g>에 연결하려면 자격 증명을 입력해주세요</string>
+    <string name="vpn_credentials_username">사용자 이름</string>
+    <string name="vpn_credentials_password">비밀번호</string>
+    <string name="vpn_credentials_dialog_connect">연결</string>
+    <!-- Alert slide extras -->
+    <string name="volume_ringer_priority_only">중요한 알림</string>
+    <string name="volume_ringer_alarms_only">알람</string>
+    <string name="volume_ringer_dnd">방해 금지</string>
+    <string name="tristate_flashlight_on">손전등 켜짐</string>
+    <string name="tristate_flashlight_off">손전등 꺼짐</string>
+    <string name="tristate_flashlight_blink">손전등 깜박임</string>
+    <string name="tristate_brightness_bright">최대 밝기</string>
+    <string name="tristate_brightness_dark">최소 밝기</string>
+    <string name="tristate_brightness_auto">자동 밝기</string>
+    <string name="tristate_rotation_auto">자동 회전</string>
+    <string name="tristate_rotation_0">세로</string>
+    <string name="tristate_rotation_90">가로 (90°)</string>
+    <string name="tristate_rotation_270">가로 (270°)</string>
+    <!-- Change clockface -->
+    <string name="change_clock_face">스와이프하여 시계 페이스 변경</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">On-The-Go 활성화됨</string>
+    <string name="onthego_notif_title">On-The-Go가 활성화 되었습니다</string>
+    <string name="onthego_notif_stop">중지</string>
+    <string name="onthego_notif_options">설정</string>
+    <string name="onthego_notif_error">On-The-Go를 시작할 수 없습니다</string>
+    <string name="onthego_notif_restart">On-The-Go 다시 시작</string>
+    <string name="onthego_notif_camera_changed">카메라 모드 변경됨</string>
+    <string name="onthego_transparency">투명도</string>
+    <string name="onthego_front_camera">전면 카메라 사용</string>
+    <string name="onthego_service_toggle">자동으로 서비스 시작</string>
+    <string name="onthego_channel_name">메인</string>
+    <string name="global_action_onthego">On-The-Go</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">On-The-Go</string>
+    <string name="accessibility_quick_settings_onthego_off">On-The-Go 꺼짐</string>
+    <string name="accessibility_quick_settings_onthego_on">On-The-Go 켜짐</string>
+    <string name="accessibility_quick_settings_onthego_changed_off">On-The-Go가 꺼졌습니다</string>
+    <string name="accessibility_quick_settings_onthego_changed_on">On-The-Go가 켜졌습니다</string>
 </resources>
