@@ -18,7 +18,32 @@
     <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
     <string name="screen_zoom_summary_smaller">더 작게</string>
     <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
-    <string name="screen_zoom_summary_smallest">가장 작음</string>
+    <string name="screen_zoom_summary_smallest">가장 작게</string>
     <!-- Deep sleep info -->
-    <string name="status_deep_sleep" formatted="false">(딥 슬립 %1$d%2$s)</string>
+    <string name="status_deep_sleep" formatted="false">(완전 절전: %1$d%2$s)</string>
+    <!-- Label for estimated remaining duration of dash battery charging -->
+    <string name="power_remaining_dash_charging_duration_only">대시 고속 충전 중 (완전히 충전될 때까지 <xliff:g id="time">%1$s</xliff:g> 남음)</string>
+    <!-- Battery use screen.  Battery status shown in chart label when charging from a dash source.  -->
+    <string name="battery_info_status_dash_charging">대시 고속 충전 중</string>
+    <!-- Label for estimated remaining duration of warp battery charging -->
+    <string name="power_remaining_warp_charging_duration_only">워프 고속 충전 중 (완전히 충전될 때까지 <xliff:g id="time">%1$s</xliff:g> 남음)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
+    <string name="battery_info_status_warp_charging">워프 고속 충전 중</string>
+    <!-- Label for estimated remaining duration of vooc battery charging -->
+    <string name="power_remaining_vooc_charging_duration_only">VOOC 고속 충전 중 (완전히 충전될 때까지 <xliff:g id="time">%1$s</xliff:g> 남음)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a VOOC source.  -->
+    <string name="battery_info_status_vooc_charging">VOOC 고속 충전 중</string>
+    <!-- Label for estimated remaining duration of TurboPower battery charging -->
+    <string name="power_remaining_turbo_charging_duration_only">터보 고속 충전 중 (완전히 충전될 때까지 <xliff:g id="time">%1$s</xliff:g> 남음)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
+    <string name="battery_info_status_turbo_charging">터보 고속 충전 중</string>
+    <!-- Label for estimated remaining duration of superdart battery charging -->
+    <string name="power_remaining_superdart_charging_duration_only">SuperDart 고속 충전 중 (완전히 충전될 때까지 <xliff:g id="time">%1$s</xliff:g> 남음)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a SuperDart source.  -->
+    <string name="battery_info_status_superdart_charging">SuperDart 고속 충전 중</string>
+    <!-- Bluetooth codecs -->
+    <string name="bluetooth_a2dp_codec_system">시스템 설정 사용 (기본값)</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_mono">모노</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_stereo">스테레오</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_dual">듀얼 채널</string>
 </resources>

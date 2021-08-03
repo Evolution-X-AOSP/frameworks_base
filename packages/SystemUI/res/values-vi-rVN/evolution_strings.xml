@@ -136,6 +136,9 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Sạc nhanh (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> cho đến khi đầy)</string>
     <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="percentage">%s</xliff:g> • Sạc nhanh</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Đang sạc nhanh (<xliff:g id="charging_time_left" example="4 giờ và 2 phút">%s</xliff:g> nữa sẽ đầy)</string>
+    <string name="keyguard_plugged_in_superdart_charging">Đang sạc nhanh</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">Giữ &amp; kéo hoặc chạm để thêm</string>
     <!-- Label for header of customize QS -->
@@ -178,6 +181,8 @@
     <string name="ambientmusic_songinfo" formatted="false">%s của %s</string>
     <!-- Daily data usage -->
     <string name="daily_data_usage_title">Sử dụng hôm nay</string>
+    <!-- Scrolling Screenshot string -->
+    <string name="scrollss">Cuộn</string>
     <!-- Biometric Dialog - Use Face -->
     <string name="biometric_dialog_button_use_face">Sử dụng khuôn mặt</string>
     <!-- Anti flicker QS tile -->
@@ -232,4 +237,23 @@
     <string name="tristate_rotation_270">Ngang (270°)</string>
     <!-- Change clockface -->
     <string name="change_clock_face">Vuốt để thay đổi mặt đồng hồ</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">Đã kích hoạt OTG</string>
+    <string name="onthego_notif_title">OTG đang hoạt động</string>
+    <string name="onthego_notif_stop">Dừng</string>
+    <string name="onthego_notif_options">Tùy chọn</string>
+    <string name="onthego_notif_error">Không thể khởi động OTG</string>
+    <string name="onthego_notif_restart">Khởi động lại OTG</string>
+    <string name="onthego_notif_camera_changed">Chế độ máy ảnh đã thay đổi</string>
+    <string name="onthego_transparency">Độ trong suốt</string>
+    <string name="onthego_front_camera">Sử dụng camera trước</string>
+    <string name="onthego_service_toggle">Tự động khởi động lại dịch vụ</string>
+    <string name="onthego_channel_name">Chính</string>
+    <string name="global_action_onthego">OTG</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">OTG</string>
+    <string name="accessibility_quick_settings_onthego_off">OTG tắt</string>
+    <string name="accessibility_quick_settings_onthego_on">OTG bật</string>
+    <string name="accessibility_quick_settings_onthego_changed_off">OTG đã tắt</string>
+    <string name="accessibility_quick_settings_onthego_changed_on">OTG đã bật</string>
 </resources>

@@ -37,6 +37,10 @@
     <string name="power_remaining_turbo_charging_duration_only">Szybkie ładowanie (<xliff:g id="time">%1$s</xliff:g> do pełnego naładowania)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
     <string name="battery_info_status_turbo_charging">Szybkie ładowanie</string>
+    <!-- Label for estimated remaining duration of superdart battery charging -->
+    <string name="power_remaining_superdart_charging_duration_only">Ładowanie SuperDart (<xliff:g id="time">%1$s</xliff:g> pozostało do pełnego naładowania)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a SuperDart source.  -->
+    <string name="battery_info_status_superdart_charging">Ładowanie SuperDart</string>
     <!-- Bluetooth codecs -->
     <string name="bluetooth_a2dp_codec_system">Użyj ustawień systemowych (Domyślne)</string>
     <string name="bluetooth_a2dp_codec_channel_mode_mono">Mono</string>

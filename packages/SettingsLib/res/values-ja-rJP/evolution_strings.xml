@@ -37,6 +37,10 @@
     <string name="power_remaining_turbo_charging_duration_only">Turbo Charging (充電完了まで残り<xliff:g id="time">%1$s</xliff:g>)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
     <string name="battery_info_status_turbo_charging">Turbo Charging</string>
+    <!-- Label for estimated remaining duration of superdart battery charging -->
+    <string name="power_remaining_superdart_charging_duration_only">SuperDart Charging (充電完了まで残り<xliff:g id="time">%1$s</xliff:g>)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a SuperDart source.  -->
+    <string name="battery_info_status_superdart_charging">SuperDart Charging</string>
     <!-- Bluetooth codecs -->
     <string name="bluetooth_a2dp_codec_system">システムの既定を使用</string>
     <string name="bluetooth_a2dp_codec_channel_mode_mono">モノラル</string>

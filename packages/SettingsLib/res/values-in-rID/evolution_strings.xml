@@ -37,6 +37,10 @@
     <string name="power_remaining_turbo_charging_duration_only">Pengisian Turbo (<xliff:g id="time">%1$s</xliff:g> tersisa sampai penuh)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
     <string name="battery_info_status_turbo_charging">Pengisian Turbo</string>
+    <!-- Label for estimated remaining duration of superdart battery charging -->
+    <string name="power_remaining_superdart_charging_duration_only">Pengisian SuperDart (<xliff:g id="time">%1$s</xliff:g> tersisa sampai penuh)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a SuperDart source.  -->
+    <string name="battery_info_status_superdart_charging">Pengisian SuperDart</string>
     <!-- Bluetooth codecs -->
     <string name="bluetooth_a2dp_codec_system">Gunakan Pemilihan Sistem (Default)</string>
     <string name="bluetooth_a2dp_codec_channel_mode_mono">Mono</string>

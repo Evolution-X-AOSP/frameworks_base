@@ -37,6 +37,10 @@
     <string name="power_remaining_turbo_charging_duration_only">Turbo φόρτιση (<xliff:g id="χρονος">%1$s</xliff:g> απομένουν μέχρι την πλήρη φόρτιση)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
     <string name="battery_info_status_turbo_charging">Ταχεία Φόρτιση</string>
+    <!-- Label for estimated remaining duration of superdart battery charging -->
+    <string name="power_remaining_superdart_charging_duration_only">Ταχεία φόρτιση (<xliff:g id="χρονος">%1$s</xliff:g> απομένουν μέχρι την πλήρη φόρτιση)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a SuperDart source.  -->
+    <string name="battery_info_status_superdart_charging">Έξυπνη φόρτιση</string>
     <!-- Bluetooth codecs -->
     <string name="bluetooth_a2dp_codec_system">Χρήση Επιλογής Συστήματος (Προεπιλογή)</string>
     <string name="bluetooth_a2dp_codec_channel_mode_mono">Μονοφωνικό</string>

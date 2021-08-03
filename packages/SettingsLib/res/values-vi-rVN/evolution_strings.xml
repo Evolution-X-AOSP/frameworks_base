@@ -37,6 +37,10 @@
     <string name="power_remaining_turbo_charging_duration_only">Sạc nhanh Warp (<xliff:g id="time">%1$s</xliff:g> đến khi đầy)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
     <string name="battery_info_status_turbo_charging">Đang sạc nhanh</string>
+    <!-- Label for estimated remaining duration of superdart battery charging -->
+    <string name="power_remaining_superdart_charging_duration_only">Đang sạc SuperDart (<xliff:g id="time">%1$s</xliff:g> còn lại cho đến khi đầy)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a SuperDart source.  -->
+    <string name="battery_info_status_superdart_charging">Đang sạc SuperDart</string>
     <!-- Bluetooth codecs -->
     <string name="bluetooth_a2dp_codec_system">Dùng lựa chọn hệ thống (Mặc định)</string>
     <string name="bluetooth_a2dp_codec_channel_mode_mono">Âm thanh đơn</string>

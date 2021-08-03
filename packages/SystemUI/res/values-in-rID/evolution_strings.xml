@@ -136,6 +136,9 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Pengisian Turbo (<xliff:g id="charging_time_left" example="4 jam 2 menit">%1$s</xliff:g> hingga penuh)</string>
     <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="percentage">%s</xliff:g> • Pengisian Turbo</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Pengisian SuperDart (<xliff:g id="charging_time_left" example="4 jam 2 menit">%1$s</xliff:g> hingga penuh)</string>
+    <string name="keyguard_plugged_in_superdart_charging">Pengisian SuperDart</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">Tahan &amp; tarik atau ketuk untuk menambahkan kartu</string>
     <!-- Label for header of customize QS -->
@@ -178,6 +181,8 @@
     <string name="ambientmusic_songinfo" formatted="false">%s oleh %s</string>
     <!-- Daily data usage -->
     <string name="daily_data_usage_title">Penggunaan hari ini</string>
+    <!-- Scrolling Screenshot string -->
+    <string name="scrollss">Gulir</string>
     <!-- Biometric Dialog - Use Face -->
     <string name="biometric_dialog_button_use_face">Gunakan Wajah</string>
     <!-- Anti flicker QS tile -->
@@ -232,4 +237,23 @@
     <string name="tristate_rotation_270">Lanskap (270°)</string>
     <!-- Change clockface -->
     <string name="change_clock_face">Usap untuk mengganti tampilan jam</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">On-The-Go diaktifkan</string>
+    <string name="onthego_notif_title">On-The-Go sudah diaktifkan</string>
+    <string name="onthego_notif_stop">Berhenti</string>
+    <string name="onthego_notif_options">Opsi</string>
+    <string name="onthego_notif_error">Tidak dapat memulai On-The-Go</string>
+    <string name="onthego_notif_restart">Mulai ulang On-The-Go</string>
+    <string name="onthego_notif_camera_changed">Mode kamera berubah</string>
+    <string name="onthego_transparency">Transparan</string>
+    <string name="onthego_front_camera">Gunakan kamera depan</string>
+    <string name="onthego_service_toggle">Mulai ulang layanan secara otomatis</string>
+    <string name="onthego_channel_name">Utama</string>
+    <string name="global_action_onthego">On-The-Go</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">On-The-Go</string>
+    <string name="accessibility_quick_settings_onthego_off">On-The-Go nonaktif</string>
+    <string name="accessibility_quick_settings_onthego_on">On-The-Go aktif</string>
+    <string name="accessibility_quick_settings_onthego_changed_off">On-The-Go dinonaktifkan</string>
+    <string name="accessibility_quick_settings_onthego_changed_on">On-The-Go diaktifkan</string>
 </resources>

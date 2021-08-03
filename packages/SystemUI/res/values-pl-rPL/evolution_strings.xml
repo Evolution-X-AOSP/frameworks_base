@@ -136,6 +136,9 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Szybkie ładowanie (<xliff:g id="charging_time_left" example="4 godziny i 2 minuty">%1$s</xliff:g> do pełnego naładowania)</string>
     <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="Percentage">%s</xliff:g> • Szybkie ładowanie</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Ładowanie SupetDart (<xliff:g id="charging_time_left" example="4 godziny i 2 minuty">%1$s</xliff:g> do pełnego naładowania)</string>
+    <string name="keyguard_plugged_in_superdart_charging">Ładowanie SuperDart</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">Przytrzymaj &amp; przeciągnij lub dotknij, aby dodać kafelki</string>
     <!-- Label for header of customize QS -->
@@ -178,6 +181,8 @@
     <string name="ambientmusic_songinfo" formatted="false">%s przez %s</string>
     <!-- Daily data usage -->
     <string name="daily_data_usage_title">Dzisiejsze użycie</string>
+    <!-- Scrolling Screenshot string -->
+    <string name="scrollss">Przewijanie</string>
     <!-- Biometric Dialog - Use Face -->
     <string name="biometric_dialog_button_use_face">Użyj twarzy</string>
     <!-- Anti flicker QS tile -->
@@ -232,4 +237,23 @@
     <string name="tristate_rotation_270">Poziomo (270°)</string>
     <!-- Change clockface -->
     <string name="change_clock_face">Przesuń, aby zmienić tarczę zegara</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">Tryb On-The-Go aktywowany</string>
+    <string name="onthego_notif_title">Tryb On-The-Go jest aktywny</string>
+    <string name="onthego_notif_stop">Zatrzymaj</string>
+    <string name="onthego_notif_options">Opcje</string>
+    <string name="onthego_notif_error">Nie można uruchomić trybu On-The-Go</string>
+    <string name="onthego_notif_restart">Uruchom ponownie tryb On-The-Go</string>
+    <string name="onthego_notif_camera_changed">Zmieniono tryb aparatu</string>
+    <string name="onthego_transparency">Przeźroczystość</string>
+    <string name="onthego_front_camera">Użyj przedniej kamery</string>
+    <string name="onthego_service_toggle">Automatycznie restartuj usługę</string>
+    <string name="onthego_channel_name">Główny</string>
+    <string name="global_action_onthego">On-The-Go</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">On-The-Go</string>
+    <string name="accessibility_quick_settings_onthego_off">On-The-Go wyłącz</string>
+    <string name="accessibility_quick_settings_onthego_on">On-The-Go włącz</string>
+    <string name="accessibility_quick_settings_onthego_changed_off">Tryb On-The-Go wyłączony</string>
+    <string name="accessibility_quick_settings_onthego_changed_on">Tryb On-The-Go włączony</string>
 </resources>

@@ -136,6 +136,9 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Turbo Şarj Oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> kaldı)</string>
     <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="percentage">%s</xliff:g> • Turbo Şarj Oluyor</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • SuperDart Şarj Oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> kaldı)</string>
+    <string name="keyguard_plugged_in_superdart_charging">SuperDart Şarj Oluyor</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">Kare eklemek için basılı tutun ve sürükleyin veya dokunun</string>
     <!-- Label for header of customize QS -->
@@ -178,6 +181,8 @@
     <string name="ambientmusic_songinfo" formatted="false">%s tarafından %s</string>
     <!-- Daily data usage -->
     <string name="daily_data_usage_title">Bugünkü kullanım</string>
+    <!-- Scrolling Screenshot string -->
+    <string name="scrollss">Kaydır</string>
     <!-- Biometric Dialog - Use Face -->
     <string name="biometric_dialog_button_use_face">Bir yüz kullan</string>
     <!-- Anti flicker QS tile -->
@@ -232,4 +237,23 @@
     <string name="tristate_rotation_270">Yatay (270°)</string>
     <!-- Change clockface -->
     <string name="change_clock_face">Saat kadranını değiştirmek için kaydırın</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">Yürüme modu etkin</string>
+    <string name="onthego_notif_title">Yürüme modu aktif</string>
+    <string name="onthego_notif_stop">Durdur</string>
+    <string name="onthego_notif_options">Seçenekler</string>
+    <string name="onthego_notif_error">Yürüme modu başlatılamıyor</string>
+    <string name="onthego_notif_restart">Yürüme modunu yeniden başlat</string>
+    <string name="onthego_notif_camera_changed">Kamera modu değişti</string>
+    <string name="onthego_transparency">Şeffaflık</string>
+    <string name="onthego_front_camera">Ön kamerayı kullan</string>
+    <string name="onthego_service_toggle">Servisi otomatik olarak yeniden başlat</string>
+    <string name="onthego_channel_name">Ana</string>
+    <string name="global_action_onthego">Yürüme modu</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">Yürüme modu</string>
+    <string name="accessibility_quick_settings_onthego_off">Yürüme modu kapalı</string>
+    <string name="accessibility_quick_settings_onthego_on">Yürüme modu açık</string>
+    <string name="accessibility_quick_settings_onthego_changed_off">Yürüme modu kapatıldı</string>
+    <string name="accessibility_quick_settings_onthego_changed_on">Yürüme modu açıldı</string>
 </resources>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2020 The Evolution X Project
+     Copyright (C) 2019-2021 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -21,4 +21,56 @@
     <string name="url_copy_failed">Er is een fout opgetreden tijdens het uploaden van de log naar dogbin</string>
     <string name="reboot_title">Opnieuw opstarten</string>
     <string name="reboot_message">Systeem opnieuw opstarten</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Geluid bij oproepen en meldingen</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Aan/uit-knop lang indrukken voor interactie</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Automatisch</string>
+    <string name="live_display_auto_summary">Automatisch kleurtemperatuur van het scherm aanpassen na zonsondergang en zonsopgang</string>
+    <string name="live_display_off">Uit</string>
+    <string name="live_display_off_summary">Alle aanpassingen uitschakelen</string>
+    <string name="live_display_day">Dag</string>
+    <string name="live_display_day_summary">Alleen instellingen voor overdag gebruiken</string>
+    <string name="live_display_night">Nacht</string>
+    <string name="live_display_night_summary">Alleen instellingen voor \'s nachts gebruiken</string>
+    <string name="live_display_outdoor">Buitenshuis (felle zon)</string>
+    <string name="live_display_outdoor_summary">Alleen instellingen voor buitenshuis gebruiken</string>
+    <string name="live_display_hint">LiveDisplay kan oogleed verminderen en helpt je beter te slapen. Klik hier om het te proberen!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay uit.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: automatische modus.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: dagmodus.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: nachtmodus.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: buitenshuis modus.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay uitgeschakeld.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay gewijzigd naar automatische modus.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay gewijzigd naar dagmodus.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay gewijzigd naar nachtmodus.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay gewijzigd naar buitenshuismodus.</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">SystemUI herstart vereist</string>
+    <string name="systemui_restart_message">Een herstart van SystemUI is vereist om alle wijzigingen door te voeren. SystemUI nu herstarten?</string>
+    <!-- Game mode -->
+    <string name="notification_channel_gaming">Gamemodus</string>
+    <string name="gaming_mode_notification_title">Gamemodus: aan</string>
+    <string name="gaming_mode_notification_content">Tik om Gamemodus uit te schakelen</string>
+    <string name="gaming_mode_enabled_toast">Gamemodus ingeschakeld</string>
+    <string name="gaming_mode_disabled_toast">Gamemodus uitgeschakeld</string>
+    <string name="active_edge_app_select_title">Kies app</string>
+    <string name="active_edge_activity_select_title">Kies activiteit</string>
+    <!-- Clipboard access toast -->
+    <string name="app_clipboard_access_denied">%1$s werd toegang tot het klembord geweigerd</string>
+    <string name="app_clipboard_access_granted">%1$s kreeg toegang tot het klembord</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_view_title">Zakmodus is aan</string>
+    <string name="pocket_view_title_cancel">Om je telefoon te gebruiken:</string>
+    <string name="pocket_view_top_tag_cancel">Controleer of het blauwe gedeelte van je telefoon vrij is van belemmeringen, en verwijder vuil of stof.</string>
+    <string name="pocket_view_top_tag_cancel2">Houd de aan-/uitknop ingedrukt om de zakmodus af te breken.</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">toegang krijgen tot lettertypebeheer</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Verleent een applicatie toegang tot de lettertypebeheerder.</string>
+    <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
+    <string name="fontservice_incompatible_font">Het lettertype dat u geïnstalleerd hebt is niet compatibel door het ontbreken van fonts.xml. Neem alstublieft contact op met de ontwikkelaar voor ondersteuning.</string>
 </resources>

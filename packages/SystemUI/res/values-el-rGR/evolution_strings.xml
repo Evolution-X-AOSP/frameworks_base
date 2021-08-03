@@ -137,6 +137,9 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Turbo Φόρτιση (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> until full)</string>
     <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="percentage">%s</xliff:g> • Turbo Φόρτιση</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="ποσοστό">%2$s</xliff:g> • Γρήγορη φόρτιση (<xliff:g id="φορτιση_χρονος_απεμεινε" παράδειγμα="4 ώρες και 2 λεπτά">%1$s</xliff:g> μέχρι την πλήρη φόρτιση)</string>
+    <string name="keyguard_plugged_in_superdart_charging">Έξυπνη φόρτιση</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">Κρατήστε &amp; σύρετε ή πατήστε για να προσθέσετε πλακίδια</string>
     <!-- Label for header of customize QS -->
@@ -179,6 +182,8 @@
     <string name="ambientmusic_songinfo" formatted="false">%s από %s</string>
     <!-- Daily data usage -->
     <string name="daily_data_usage_title">Σημερινή χρήση</string>
+    <!-- Scrolling Screenshot string -->
+    <string name="scrollss">Κύλιση</string>
     <!-- Biometric Dialog - Use Face -->
     <string name="biometric_dialog_button_use_face">Χρήση Προσώπου</string>
     <!-- Anti flicker QS tile -->
@@ -234,4 +239,23 @@
     <string name="tristate_rotation_270">Οριζόντια (270°)</string>
     <!-- Change clockface -->
     <string name="change_clock_face">Σύρετε για να αλλάξετε την όψη του ρολογιού</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">Ενεργοποιήθηκε εν κινήσει</string>
+    <string name="onthego_notif_title">Η λειτουργία On-The-Go είναι ενεργή</string>
+    <string name="onthego_notif_stop">Παύση</string>
+    <string name="onthego_notif_options">Επιλογές</string>
+    <string name="onthego_notif_error">Αδυναμία εκκίνησης On-The-Go</string>
+    <string name="onthego_notif_restart">Επανεκκίνηση On-The-Go</string>
+    <string name="onthego_notif_camera_changed">Η λειτουργία κάμερας άλλαξε</string>
+    <string name="onthego_transparency">Διαφάνεια</string>
+    <string name="onthego_front_camera">Χρησιμοποίησε την μπροστινή κάμερα</string>
+    <string name="onthego_service_toggle">Αυτόματη επανεκκίνηση υπηρεσίας</string>
+    <string name="onthego_channel_name">Κύρια</string>
+    <string name="global_action_onthego">Εν κινήσει</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">Εν κινήσει</string>
+    <string name="accessibility_quick_settings_onthego_off">On-The-Go ανενεργό</string>
+    <string name="accessibility_quick_settings_onthego_on">On-The-Go ενεργό</string>
+    <string name="accessibility_quick_settings_onthego_changed_off">Το On-The-Go απενεργοποιήθηκε</string>
+    <string name="accessibility_quick_settings_onthego_changed_on">Το On-The-Go ενεργοποιήθηκε</string>
 </resources>
