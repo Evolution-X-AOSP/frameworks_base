@@ -24,7 +24,7 @@
     <!-- Label for estimated remaining duration of dash battery charging -->
     <string name="power_remaining_dash_charging_duration_only">Dash閃充中(<xliff:g id="time">%1$s</xliff:g> 後充飽)</string>
     <!-- Battery use screen.  Battery status shown in chart label when charging from a dash source.  -->
-    <string name="battery_info_status_dash_charging">Dash閃充</string>
+    <string name="battery_info_status_dash_charging">Dash閃充中</string>
     <!-- Label for estimated remaining duration of warp battery charging -->
     <string name="power_remaining_warp_charging_duration_only">Warp 閃充中(<xliff:g id="time">%1$s</xliff:g> 後充飽)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
@@ -37,6 +37,10 @@
     <string name="power_remaining_turbo_charging_duration_only">Warp閃充中(<xliff:g id="time">%1$s</xliff:g> 後充飽)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
     <string name="battery_info_status_turbo_charging">Turbo閃充</string>
+    <!-- Label for estimated remaining duration of superdart battery charging -->
+    <string name="power_remaining_superdart_charging_duration_only">SuperDart 超級閃充中（<xliff:g id="time">%1$s</xliff:g>後充飽）</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a SuperDart source.  -->
+    <string name="battery_info_status_superdart_charging">SuperDart 超級閃充中</string>
     <!-- Bluetooth codecs -->
     <string name="bluetooth_a2dp_codec_system">使用系統選擇（預設）</string>
     <string name="bluetooth_a2dp_codec_channel_mode_mono">單聲道</string>
