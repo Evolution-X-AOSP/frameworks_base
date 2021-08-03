@@ -137,6 +137,9 @@
     <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Turbo 閃充中 (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> 後充飽)</string>
     <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="percentage">%s</xliff:g> • Turbo
 閃充中</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • SuperDart 超級閃充中 (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> 後充飽)</string>
+    <string name="keyguard_plugged_in_superdart_charging">SuperDart 超級閃充中</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">按住 &amp; 移動或點擊增加快速設定選項</string>
     <!-- Label for header of customize QS -->
@@ -179,6 +182,8 @@
     <string name="ambientmusic_songinfo" formatted="false">%s 來自 %s</string>
     <!-- Daily data usage -->
     <string name="daily_data_usage_title">今日使用量</string>
+    <!-- Scrolling Screenshot string -->
+    <string name="scrollss">滾動</string>
     <!-- Biometric Dialog - Use Face -->
     <string name="biometric_dialog_button_use_face">使用臉部辨識</string>
     <!-- Anti flicker QS tile -->
@@ -233,4 +238,23 @@
     <string name="tristate_rotation_270">橫向 (向右；270°)</string>
     <!-- Change clockface -->
     <string name="change_clock_face">滑動以切換時鐘樣式</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">OTG己開啟</string>
+    <string name="onthego_notif_title">OTG啟用中</string>
+    <string name="onthego_notif_stop">停止</string>
+    <string name="onthego_notif_options">選項</string>
+    <string name="onthego_notif_error">無法開啟OTG</string>
+    <string name="onthego_notif_restart">重新開啟OTG</string>
+    <string name="onthego_notif_camera_changed">已更改為相機模式</string>
+    <string name="onthego_transparency">透明度</string>
+    <string name="onthego_front_camera">使用前置鏡頭</string>
+    <string name="onthego_service_toggle">自動重新開啟OTG服務</string>
+    <string name="onthego_channel_name">主要的</string>
+    <string name="global_action_onthego">OTG</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">OTG</string>
+    <string name="accessibility_quick_settings_onthego_off">OTG關閉中</string>
+    <string name="accessibility_quick_settings_onthego_on">OTG開啟中</string>
+    <string name="accessibility_quick_settings_onthego_changed_off">關閉OTG</string>
+    <string name="accessibility_quick_settings_onthego_changed_on">開啟OTG</string>
 </resources>
