@@ -1010,8 +1010,7 @@ public class VolumeDialogImpl implements VolumeDialog,
 
         if (!mShowing && !mDialog.isShown()) {
             if (!isLandscape()) {
-                mDialogView.setTranslationX(
-                        (mVolumePanelOnLeft ? -1 : 1) * mDialogView.getWidth() / 2.0f);
+                mDialogView.setTranslationX(getAnimatorX());
             }
             mDialogView.setAlpha(0);
             mDialogView.animate()
