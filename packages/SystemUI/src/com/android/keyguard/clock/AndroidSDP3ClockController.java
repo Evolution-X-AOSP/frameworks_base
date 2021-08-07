@@ -303,7 +303,7 @@ public class AndroidSDP3ClockController implements ClockPlugin {
                 button.setGravity(Gravity.START);
                 button.setTextColor(blendedColor);
                 button.setTag(itemTag);
-                final int viewIndex = i - (mHasHeader ? 0 : 0);
+                final int viewIndex = i - (mHasHeader ? 3 : 0);
                 mRow.addView(button, viewIndex);
             } else {
                 button.setTextSize(isDateSlice ? mTitleTextSize : mSliceTextSize);
