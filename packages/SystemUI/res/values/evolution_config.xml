@@ -73,4 +73,8 @@
     <string name="quick_settings_tiles_extra" translatable="false">
         ambient_display,anti_flicker,aod,caffeine,dataswitch,heads_up,livedisplay,powershare,reading_mode,reboot,sound,soundsearch,sync,usb_tether,volume_panel,vpn
     </string>
+
+    <!-- The battery current divider, some kernel report current value in mA other in µA.
+         Leave 1 if you have mA, put 1000 if you have µA-->
+    <integer name="config_battCurrentDivider" translatable="false">1000</integer>
 </resources>

@@ -170,6 +170,7 @@ public class KeyguardIndicationController {
     private boolean mBatteryPresent = true;
     private long mChargingTimeRemaining;
     private int mChargingCurrent;
+    private int mBatteryCurrentDivider;
     private double mChargingVoltage;
     private float mTemperature;
     private String mMessageToShowOnScreenOn;
@@ -248,6 +249,8 @@ public class KeyguardIndicationController {
         mScreenLifecycle = screenLifecycle;
         mSystemSettings = systemSettings;
         mScreenLifecycle.addObserver(mScreenObserver);
+        mBatteryCurrentDivider = mContext.getResources()
+                .getInteger(R.integer.config_battCurrentDivider);
 
         mHandler = new Handler(mainLooper) {
             @Override
@@ -919,7 +922,7 @@ public class KeyguardIndicationController {
         final String percentage = NumberFormat.getPercentInstance().format(mBatteryLevel / 100f);
         String batteryInfo = "\n";
         if (mShowBatteryInfo) {
-            batteryInfo += (mChargingCurrent / 1000) + "mA";
+            batteryInfo += (mChargingCurrent / mBatteryCurrentDivider) + "mA";
             batteryInfo += " · " + String.format("%.1f", (mChargingVoltage / 1000000)) + "V";
             batteryInfo += " · " +  mTemperature / 10 + "°C";
         }
