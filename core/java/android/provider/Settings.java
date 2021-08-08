@@ -6104,6 +6104,12 @@ public final class Settings {
         public static final String SWITCH_STYLE = "switch_style";
 
         /**
+         * Switch between different rounded styles
+         * @hide
+         */
+        public static final String BERRY_ROUNDED_STYLE = "berry_rounded_style";
+
+        /**
          * Which action to display in the fourth (user) button in power menu
          * 0: None
          * 1: Screenshot
