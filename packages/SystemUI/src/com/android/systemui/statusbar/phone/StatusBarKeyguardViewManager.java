@@ -378,7 +378,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
             }
         }
 
-        if (!lockVisible)
+        if (!lockVisible || !mLockIcon)
             return;
 
         final ContentResolver resolver = mContext.getContentResolver();
@@ -391,10 +391,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
         FrameLayout.LayoutParams paramsContainer =
             (FrameLayout.LayoutParams) mLockIconContainer.getLayoutParams();
 
-        if (mBouncer.isShowing()) {
-            mLockIconContainer.setPaddingRelative(0, 0, 0, 0);
-            paramsContainer.gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;
-        } else if (mCustomClockSelectionType) {
+        if (mCustomClockSelectionType) {
             mLockIconContainer.setPaddingRelative((int) mContext.getResources()
                     .getDimension(R.dimen.custom_clock_left_padding) + 8, 0, 0, 0);
             paramsContainer.gravity = Gravity.TOP | Gravity.LEFT;
