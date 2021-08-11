@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2020 The Evolution X Project
+     Copyright (C) 2019-2021 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -51,4 +51,26 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Redémarrage de l\'interface utilisateur requis</string>
     <string name="systemui_restart_message">Pour que toutes les modifications prennent effet, un redémarrage de l\'interface utilisateur est nécessaire. Redémarrer l\'interface utilisateur maintenant ?</string>
+    <!-- Game mode -->
+    <string name="notification_channel_gaming">Mode Jeu</string>
+    <string name="gaming_mode_notification_title">Mode Jeu : activé</string>
+    <string name="gaming_mode_notification_content">Appuyer pour désactiver le Mode Jeu</string>
+    <string name="gaming_mode_enabled_toast">Mode Jeu activé</string>
+    <string name="gaming_mode_disabled_toast">Mode Jeu désactivé</string>
+    <string name="active_edge_app_select_title">Sélectionner une application</string>
+    <string name="active_edge_activity_select_title">Sélectionner une activité</string>
+    <!-- Clipboard access toast -->
+    <string name="app_clipboard_access_denied">%1$s s\'est vu refuser l\'accès au presse-papiers</string>
+    <string name="app_clipboard_access_granted">%1$s a obtenu l\'accès au presse-papiers</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_view_title">Le mode poche est activé</string>
+    <string name="pocket_view_title_cancel">Pour utiliser votre téléphone :</string>
+    <string name="pocket_view_top_tag_cancel">Vérifiez si la zone bleue de votre téléphone est exempte d\'obstacles et nettoyez toute saleté ou poussière.</string>
+    <string name="pocket_view_top_tag_cancel2">Appuyez longuement sur le bouton d\'alimentation pour quitter le Mode poche.</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">accéder au gestionnaire de polices</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Permettre à une application d\'accéder au gestionnaire de polices.</string>
+    <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
+    <string name="fontservice_incompatible_font">Le paquet de police que vous avez installé n\'est pas compatible à cause du fichier \"fonts.xml\" manquant dans ses fichiers. Veuillez contacter le développeur du paquet pour obtenir un support.</string>
 </resources>
