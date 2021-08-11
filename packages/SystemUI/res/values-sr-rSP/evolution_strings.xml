@@ -82,6 +82,7 @@
     <string name="quick_settings_reboot_recovery_label">Опоравак</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">Снимак екрана</string>
+    <string name="quick_settings_full_screenshot_label">Потпуно</string>
     <string name="quick_settings_region_screenshot_label">Делимичан снимак екрана</string>
     <!-- SleepScreen QS Tile -->
     <string name="quick_settings_sleepscreen_label">Успавај екран</string>
@@ -135,12 +136,13 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Турбо пуњење (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> until full)</string>
     <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="percentage">%s</xliff:g> • Турбо се пуни</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • SuperDart пуњење (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> до пуне батерије)</string>
+    <string name="keyguard_plugged_in_superdart_charging">SuperDart пуњење</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">Задржоте &amp; превуците или тапните да бисте додали плочице</string>
     <!-- Label for header of customize QS -->
     <string name="drag_or_tap_to_rearrange_tiles">Холд &amp; превуците за преуређивање или додирните за уклањање</string>
-    <string name="lockscreen_default">Подразумевано</string>
-    <string name="lockscreen_hidden">Ниједан</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Снимак екрана је обрисан</string>
     <!-- Partial screenshot -->
@@ -150,7 +152,7 @@
     <string name="force_stop_dlg_title">Присилно заустави?</string>
     <string name="force_stop_dlg_text">Ако принудно зауставите апликацију, можда ће се понашати неочекивано.</string>
     <string name="guts_force_close_app">Затворити апликацију</string>
-    <!-- Screenrecorder -->
+    <!-- Screen Record -->
     <string name="screenrecord_stopdot_label">Покажи тачку заустављања \nДуго притисните да бисте је померили</string>
     <string name="screenrecord_lowquality_label">Нижи квалитет за мању величину датотеке</string>
     <string name="screenrecord_longer_timeout_switch_label">Велиики фајлови су ограничени\nСнимци су ограничени на 15 GB</string>
@@ -190,11 +192,6 @@
     <string name="quick_settings_dc_brightness_mode">Режим осветљености</string>
     <string name="quick_settings_dc_full_auto">Аутоматски мод</string>
     <!-- App Lock -->
-    <string name="applock_locked">&#160;је закључано</string>
-    <string name="applock_fingerprint_face">, отисак прста или ваше лице за откључавање</string>
-    <string name="applock_face">&#160;или ваше лице за откључавање</string>
-    <string name="applock_fingerprint">&#160;или ваш отисак прста за откључавање</string>
-    <string name="applock_credential">&#160;за откључавање</string>
     <string name="applock_unlock">Откључај</string>
     <!-- PowerShare QS tile -->
     <string name="quick_settings_powershare_label">Бежични PowerShare</string>
@@ -240,4 +237,23 @@
     <string name="tristate_rotation_270">Положено (270 °)</string>
     <!-- Change clockface -->
     <string name="change_clock_face">Превући за промену изгледа сата</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">У-покрету активирано</string>
+    <string name="onthego_notif_title">У-покрету је активан</string>
+    <string name="onthego_notif_stop">Заустави</string>
+    <string name="onthego_notif_options">Подешавања</string>
+    <string name="onthego_notif_error">Не може се покренути У-покрету</string>
+    <string name="onthego_notif_restart">Поново покрени У-покрету</string>
+    <string name="onthego_notif_camera_changed">Мод камере је промењен</string>
+    <string name="onthego_transparency">Прозирност</string>
+    <string name="onthego_front_camera">Користи предњу камеру</string>
+    <string name="onthego_service_toggle">Аутоматски рестартуј сервис</string>
+    <string name="onthego_channel_name">Почетна</string>
+    <string name="global_action_onthego">У покрету</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">У покрету</string>
+    <string name="accessibility_quick_settings_onthego_off">Режим У-покрету искључен</string>
+    <string name="accessibility_quick_settings_onthego_on">Режим У-покрету укључен</string>
+    <string name="accessibility_quick_settings_onthego_changed_off">Режим У-покрету је искључен</string>
+    <string name="accessibility_quick_settings_onthego_changed_on">Режим У-покрету је укључен</string>
 </resources>
