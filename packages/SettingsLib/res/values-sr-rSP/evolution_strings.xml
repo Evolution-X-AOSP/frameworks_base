@@ -37,6 +37,10 @@
     <string name="power_remaining_turbo_charging_duration_only">Турбо пуњење (<xliff:g id="time">%1$s</xliff:g> остало до краја)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
     <string name="battery_info_status_turbo_charging">Турбо пуњење</string>
+    <!-- Label for estimated remaining duration of superdart battery charging -->
+    <string name="power_remaining_superdart_charging_duration_only">SuperDart пуњење (<xliff:g id="time">%1$s</xliff:g> преостало до пуне батерије)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a SuperDart source.  -->
+    <string name="battery_info_status_superdart_charging">SuperDart пуњење</string>
     <!-- Bluetooth codecs -->
     <string name="bluetooth_a2dp_codec_system">Користи избор система (подразумевано)</string>
     <string name="bluetooth_a2dp_codec_channel_mode_mono">Моно</string>
