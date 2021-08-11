@@ -21,4 +21,29 @@
     <string name="screen_zoom_summary_smallest">Le plus petit possible</string>
     <!-- Deep sleep info -->
     <string name="status_deep_sleep" formatted="false">(Sommeil profond : %1$d%2$s)</string>
+    <!-- Label for estimated remaining duration of dash battery charging -->
+    <string name="power_remaining_dash_charging_duration_only">Dash charge (<xliff:g id="time">%1$s</xliff:g> restant jusqu\'à charge complète)</string>
+    <!-- Battery use screen.  Battery status shown in chart label when charging from a dash source.  -->
+    <string name="battery_info_status_dash_charging">Dash charge</string>
+    <!-- Label for estimated remaining duration of warp battery charging -->
+    <string name="power_remaining_warp_charging_duration_only">Warp charge (<xliff:g id="time">%1$s</xliff:g> restant jusqu\'à charge complète)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
+    <string name="battery_info_status_warp_charging">Warp charge</string>
+    <!-- Label for estimated remaining duration of vooc battery charging -->
+    <string name="power_remaining_vooc_charging_duration_only">Charge VOOC (<xliff:g id="time">%1$s</xliff:g> restant jusqu\'à charge complète)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a VOOC source.  -->
+    <string name="battery_info_status_vooc_charging">Charge VOOC</string>
+    <!-- Label for estimated remaining duration of TurboPower battery charging -->
+    <string name="power_remaining_turbo_charging_duration_only">Charge Turbo (<xliff:g id="time">%1$s</xliff:g> restant jusqu\'à charge complète)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
+    <string name="battery_info_status_turbo_charging">Charge Turbo</string>
+    <!-- Label for estimated remaining duration of superdart battery charging -->
+    <string name="power_remaining_superdart_charging_duration_only">Recharge SuperDart (<xliff:g id="time">%1$s</xliff:g> restant jusqu\'à charge complète)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a SuperDart source.  -->
+    <string name="battery_info_status_superdart_charging">Chargement SuperDart</string>
+    <!-- Bluetooth codecs -->
+    <string name="bluetooth_a2dp_codec_system">Utiliser la sélection du système (par défaut)</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_mono">Mono</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_stereo">Stéréo</string>
+    <string name="bluetooth_a2dp_codec_channel_mode_dual">Double canal</string>
 </resources>

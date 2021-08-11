@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2020 The Evolution X Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Spectrum Analog clock -->
+    <!-- Clock required strings -->
+    <string name="date_long_title_today">Vandaag is het %s</string>
+    <string name="gradient_fire_clock_title">Kleurovergang vuur</string>
+    <string name="sticker_tag_clock_title">Sticker Tag</string>
+    <string name="custom_clock_hours_title">Uren</string>
+    <string name="custom_clock_minutes_title">Minuten</string>
+    <string name="custom_clock_seconds_title">Seconden</string>
+    <string name="custom_clock_day_title">Dag</string>
+    <string name="custom_clock_month_title">Maand</string>
+    <string name="custom_clock_year_title">Jaar</string>
+    <string name="ide_java_comment">Toon voor één keer de datum, de gebruiker is nieuwsgierig</string>
+    <string name="salute_fallback">Hallo daar</string>
+    <string name="salute_morning">Goedemorgen</string>
+    <string name="salute_afternoon">Goedemiddag</string>
+    <string name="salute_evening">Goedenavond</string>
+    <string name="salute_night">Goedenacht</string>
+    <string name="salute_sleep">Ga slapen</string>
+    <!-- Oneplus Analog clock -->
+    <!-- Oneplus Minimal clock -->
+    <!-- Oneplus Numbers clock -->
+</resources>

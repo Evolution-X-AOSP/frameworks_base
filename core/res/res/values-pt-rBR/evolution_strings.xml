@@ -41,12 +41,12 @@
     <string name="accessibility_quick_settings_live_display_off">LiveDisplay desligado.</string>
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: modo automatico.</string>
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay: modo dia.</string>
-    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: modo noite.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: modo noturno.</string>
     <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: modo externo.</string>
     <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay foi desligado.</string>
     <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay alterado para modo automático.</string>
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay alterado para o modo dia.</string>
-    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay alterado para o modo noite.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay alterado para modo noturno.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay alterado para o modo externo.</string>
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">É necessário reiniciar a Interface do Sistema</string>
