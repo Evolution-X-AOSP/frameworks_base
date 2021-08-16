@@ -3565,6 +3565,15 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
 
                 if (stack.inFreeformWindowingMode()) {
                     stack.setWindowingMode(WINDOWING_MODE_FULLSCREEN);
+                    // After exiting Freeform and entering split screen mode, the windowing mode
+                    // is still fullscreen. This is because,the windowing mode of
+                    // the mRequestedOverrideConfiguration is given preference while resolving
+                    // configuration from parent.So set windowing mode of
+                    // the mRequestedOverrideConfiguration to WINDOWING_MODE_UNDEFINED to resolve
+                    // configuration dynamically from parent.
+                    Slog.d(TAG,"set requested windowing mode to undefined after exiting freeform");
+                    stack.getRequestedOverrideConfiguration().windowConfiguration
+                        .setWindowingMode(WINDOWING_MODE_UNDEFINED);
                 } else if (!mSizeCompatFreeform && r.inSizeCompatMode()) {
                     throw new IllegalStateException("Size-compat windows are currently not"
                             + "freeform-enabled");
