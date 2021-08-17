@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2021 The Evolution X Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Ecrã ambiente</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ecrã ambiente desligado.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ecrã ambiente ligado.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ecrã ambiente desligado.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ecrã ambiente ligado.</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">AOD a carregar</string>
+    <string name="quick_settings_aod_off_label">AOD desligado</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD desligado\nPoupança de bateria</string>
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Cafeína</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cafeína desligada.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cafeína ligada.</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">Bússola</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">A iniciar\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Bússola desligada</string>
+    <string name="accessibility_quick_settings_compass_on">Bússola ligada</string>
+    <string name="accessibility_quick_settings_compass_changed_off">Bússola desligada</string>
+    <string name="accessibility_quick_settings_compass_changed_on">Bússola ligada</string>
+    <string name="quick_settings_compass_N">N</string>
+    <string name="quick_settings_compass_NE">NE</string>
+    <string name="quick_settings_compass_E">E</string>
+    <string name="quick_settings_compass_SE">SE</string>
+    <string name="quick_settings_compass_S">S</string>
+    <string name="quick_settings_compass_SW">SO</string>
+    <string name="quick_settings_compass_W">O</string>
+    <string name="quick_settings_compass_NW">NO</string>
+    <!-- CPUInfo tile -->
+    <string name="quick_settings_cpuinfo_label">Info. da CPU</string>
+    <string name="accessibility_quick_settings_cpuinfo_off">Info. da CPU desligada</string>
+    <string name="accessibility_quick_settings_cpuinfo_on">Info. da CPU ligada</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_off">Info. da CPU desligada</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_on">Info. da CPU ligada</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">Alterar cartão de dados para</string>
+    <string name="qs_data_switch_changed_1">Utilizar SIM 1 para dados móveis</string>
+    <string name="qs_data_switch_changed_2">Utilizar SIM 2 para dados móveis</string>
+    <string name="qs_data_switch_toast_0">Sem cartão SIM inserido</string>
+    <string name="qs_data_switch_toast_1">Apenas um cartão SIM inserido</string>
+    <!-- FPS Info tile -->
+    <string name="quick_settings_fpsinfo_label">Info. de FPS</string>
+    <string name="accessibility_quick_settings_fpsinfo_off">Info. de FPS desligada</string>
+    <string name="accessibility_quick_settings_fpsinfo_on">Info. de FPS ligada</string>
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Notificações flutuantes</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notificações flutuantes desligadas.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notificações flutuantes ligadas.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Notificações flutuantes desligadas.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Notificações flutuantes ligadas.</string>
+    <!-- Mono QS Tile -->
+    <string name="quick_settings_monotoggle_tile">Modo Áudio</string>
+    <string name="quick_settings_monotoggle_tile_mono">Áudio mono</string>
+    <string name="quick_settings_monotoggle_tile_stereo">Audio estéreo</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">Música</string>
+    <string name="quick_settings_music_play">Reproduzir</string>
+    <string name="quick_settings_music_pause">Pausar</string>
+    <!-- Power off/Reboot/Recovery QS Tile -->
+    <string name="quick_settings_poweroff_label">Desligar</string>
+    <string name="quick_settings_reboot_label">Reiniciar</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">Captura de ecrã</string>
+    <string name="quick_settings_full_screenshot_label">Completa</string>
+    <string name="quick_settings_region_screenshot_label">Parcial</string>
+    <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">Desligar ecrã</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Som</string>
+    <string name="quick_settings_sound_mute">Silêncio</string>
+    <string name="quick_settings_sound_ring">Toque</string>
+    <string name="quick_settings_sound_vibrate">Vibração</string>
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">Pesquisa de som</string>
+    <string name="quick_settings_sound_search_no_app">Isso não funciona se não tiver um aplicação de pesquisa de som.</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Sincronização</string>
+    <string name="accessibility_quick_settings_sync_off">Sincronização desligada.</string>
+    <string name="accessibility_quick_settings_sync_on">Sincronização ligada.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sincronização desligada.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sincronização ligada.</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">Partilha de Internet por USB</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Painel de volume</string>
+    <!-- Status bar icons -->
+    <string name="statusbar_items_title">Ícones da barra de estado</string>
+    <string name="status_bar_data_disabled">Dados desligados</string>
+    <string name="status_bar_data_saver">Poupança de dados</string>
+    <string name="status_bar_nfc">NFC</string>
+    <string name="status_bar_roaming">Roaming</string>
+    <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
+    <string name="status_bar_camera">Câmara</string>
+    <string name="status_bar_location">Localização</string>
+    <string name="status_bar_microphone">Microfone</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">NFC</string>
+    <string name="global_action_restart_advanced">Avançadas</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">Interface do sistema</string>
+    <string name="global_action_screenshot">Captura de ecrã</string>
+    <string name="global_action_screenrecord">Gravação de ecrã</string>
+    <string name="global_action_flashlight">Lanterna</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g>• Carregamento dash (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>até estar carregado)</string>
+    <string name="keyguard_plugged_in_dash_charging">Carregamento dash</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g>• Carregamento warp (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>até estar carregado)</string>
+    <string name="keyguard_plugged_in_warp_charging">Carregamento warp</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento VOOC (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até estar carregado)</string>
+    <string name="keyguard_plugged_in_vooc_charging">Carregamento VOOC</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g>• Carregamento Turbo (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g>até estar carregado)</string>
+    <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="percentage">%s</xliff:g> • Carregamento Turbo</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g>• Carregamento SuperDart (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g>até estar carregado)</string>
+    <string name="keyguard_plugged_in_superdart_charging">Carregamento SuperDart</string>
+    <!-- Label for area where tiles can be added to the qs panel -->
+    <string name="drag_or_tap_to_add_tiles">Arrastar ou tocar para adicionar atalhos</string>
+    <!-- Label for header of customize QS -->
+    <string name="drag_or_tap_to_rearrange_tiles">Arrastar para ordenar ou tocar para remover</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Captura de ecrã eliminada</string>
+    <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">Criar captura de ecrã parcial</string>
+    <string name="global_screenshot_selector_cancel_description">Cancelar captura de ecrã parcial</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Forçar paragem?</string>
+    <string name="force_stop_dlg_text">Se forçar a paragem de uma aplicação, esta pode não funcionar corretamente.</string>
+    <string name="guts_force_close_app">Fechar aplicação</string>
+    <!-- Screen Record -->
+    <string name="screenrecord_stopdot_label">Mostrar ponto para parar a gravação</string>
+    <string name="screenrecord_lowquality_label">Baixa qualidade de gravação</string>
+    <string name="screenrecord_longer_timeout_switch_label">Limite de tamanho de ficheiro maior\nLimitar o tamanho a 15 GB</string>
+    <!-- Kill app -->
+    <string name="task_helper_app_killed">%1$s forçado a parar</string>
+    <string name="empty_app_killed">Aplicação</string>
+    <string name="quick_settings_killapp_label">Fechar aplicação</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">Abrir serviços em execução.</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Idioma</string>
+    <string name="quick_settings_locale_more_locales_toast">Configurar vários idiomas para poder trocar</string>
+    <!-- Game mode -->
+    <string name="gaming_mode_not_enabled">Modo Jogo: desligado</string>
+    <string name="quick_settings_gaming_mode_label">Modo Jogo</string>
+    <!-- App picker manifest entry -->
+    <string name="app_picker_dialog_title">Selecionar uma aplicação</string>
+    <string name="app_picker_activity_select_title">Selecionar atividade</string>
+    <!-- Headphones Buddy -->
+    <string name="hp_buddy">Amigo de auriculares</string>
+    <string name="hp_buddy_left">Apenas esquerdo</string>
+    <string name="hp_buddy_right">Apenas direito</string>
+    <string name="hp_buddy_center">Ambos</string>
+    <string name="hp_buddy_not_connected">Ligar auriculares</string>
+    <!-- Ambient Music Ticker -->
+    <string name="ambientmusic_songinfo" formatted="false">%s por %s</string>
+    <!-- Daily data usage -->
+    <string name="daily_data_usage_title">Utilização de hoje</string>
+    <!-- Scrolling Screenshot string -->
+    <string name="scrollss">Navegar</string>
+    <!-- Biometric Dialog - Use Face -->
+    <string name="biometric_dialog_button_use_face">Utilizar rosto</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">Anti-cintilação</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">DC-Dimming</string>
+    <string name="quick_settings_dc_brightness_mode">Modo do brilho</string>
+    <string name="quick_settings_dc_full_auto">Modo automático</string>
+    <!-- App Lock -->
+    <string name="applock_unlock">Desbloquear aplicação</string>
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Wireless PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare desligado\nPoupança de bateria</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare desligado\nBateria fraca</string>
+    <string name="quick_settings_powershare_enabled_label">Wireless PowerShare ligado</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Vai ficar visível até soltar. Prima e segure Voltar para soltar.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Para soltar este ecrã, prima e segure o botão Voltar</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Vai ficar visível até soltar. prima e segure o sensor de imp. digital para soltar.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Para soltar este ecrã, prima e segure o sensor de imp. digital</string>
+    <!-- Power menu QS tile -->
+    <string name="quick_settings_power_menu_label">Menu ligar/desligar</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Modo de Leitura</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Modo de Leitura ligado.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Modo de Leitura desligado.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Modo de Leitura ligado.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Modo de Leitura desligado.</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Ligar a\u2026</string>
+    <string name="vpn_credentials_hint">Introduzir as credenciais para se ligar a <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Utilizador</string>
+    <string name="vpn_credentials_password">Palavra-passe</string>
+    <string name="vpn_credentials_dialog_connect">Ligar</string>
+    <!-- Alert slide extras -->
+    <string name="volume_ringer_priority_only">Prioridade</string>
+    <string name="volume_ringer_alarms_only">Alarmes</string>
+    <string name="volume_ringer_dnd">Não incomodar</string>
+    <string name="tristate_flashlight_on">Lanterna ligada</string>
+    <string name="tristate_flashlight_off">Lanterna desligada</string>
+    <string name="tristate_flashlight_blink">Lanterna a piscar</string>
+    <string name="tristate_brightness_bright">Brilho máximo</string>
+    <string name="tristate_brightness_dark">Brilho mínimo</string>
+    <string name="tristate_brightness_auto">Brilho automático</string>
+    <string name="tristate_rotation_auto">Rotação automática</string>
+    <string name="tristate_rotation_0">Retrato</string>
+    <string name="tristate_rotation_90">Paisagem (90°)</string>
+    <string name="tristate_rotation_270">Paisagem (270°)</string>
+    <!-- Change clockface -->
+    <string name="change_clock_face">Deslizar para alterar o estilo do relógio</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">OTG ligado</string>
+    <string name="onthego_notif_title">OTG ligado</string>
+    <string name="onthego_notif_stop">Parar</string>
+    <string name="onthego_notif_options">Opções</string>
+    <string name="onthego_notif_error">Não é possível iniciar OTG</string>
+    <string name="onthego_notif_restart">Reiniciar OTG</string>
+    <string name="onthego_notif_camera_changed">Modo de câmara alterado</string>
+    <string name="onthego_transparency">Transparência</string>
+    <string name="onthego_front_camera">Utilizar a câmara frontal</string>
+    <string name="onthego_service_toggle">Reiniciar o serviço automaticamente</string>
+    <string name="onthego_channel_name">Principal</string>
+    <string name="global_action_onthego">OTG</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">OTG</string>
+    <string name="accessibility_quick_settings_onthego_off">OTG desligado</string>
+    <string name="accessibility_quick_settings_onthego_on">OTG ligado</string>
+    <string name="accessibility_quick_settings_onthego_changed_off">OTG desligado</string>
+    <string name="accessibility_quick_settings_onthego_changed_on">OTG ligado</string>
+</resources>
