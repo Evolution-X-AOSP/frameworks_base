@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2020 The Evolution X Project
+     Copyright (C) 2019-2021 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -21,4 +21,56 @@
     <string name="url_copy_failed">Ocorreu um erro ao enviar o registo para o dogbin</string>
     <string name="reboot_title">Reiniciar</string>
     <string name="reboot_message">A reiniciar o sistema</string>
+    <!-- Alert slider proc nodes paths. -->
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">As chamadas e as notificações vão tocar</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Toque longo no botão de ligar/desligar para interagir</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Automático</string>
+    <string name="live_display_auto_summary">Ajustar automaticamente a temperatura de cor do ecrã após o nascer e pôr do sol</string>
+    <string name="live_display_off">Desligado</string>
+    <string name="live_display_off_summary">Desativar todos os ajustes</string>
+    <string name="live_display_day">Dia</string>
+    <string name="live_display_day_summary">Usar apenas as definições diurnas</string>
+    <string name="live_display_night">Noite</string>
+    <string name="live_display_night_summary">Usar apenas configurações noturnas</string>
+    <string name="live_display_outdoor">Exterior (sol forte)</string>
+    <string name="live_display_outdoor_summary">Usar apenas as definições de exterior</string>
+    <string name="live_display_hint">O LiveDisplay ajuda a reduzir a fadiga ocular e a dormir melhor à noite. Toque aqui para experimentar!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay desligado.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: modo automático.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: modo dia.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: modo noite.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: modo exterior.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay desligado.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay alterado para modo automático.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay alterado para modo dia.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay alterado para modo noite.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay alterado para modo exterior.</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">É necessário reiniciar a UI do sistema</string>
+    <string name="systemui_restart_message">Para que todas as alterações tenham efeito, é necessário reiniciar a Ui do sistema. Reiniciar agora?</string>
+    <!-- Game mode -->
+    <string name="notification_channel_gaming">Modo Jogo</string>
+    <string name="gaming_mode_notification_title">Modo Jogo: ligado</string>
+    <string name="gaming_mode_notification_content">Toque para desligar o Modo Jogo</string>
+    <string name="gaming_mode_enabled_toast">Modo Jogo ligado</string>
+    <string name="gaming_mode_disabled_toast">Modo Jogo desligado</string>
+    <string name="active_edge_app_select_title">Selecionar aplicação</string>
+    <string name="active_edge_activity_select_title">Selecionar atividade</string>
+    <!-- Clipboard access toast -->
+    <string name="app_clipboard_access_denied">Foi restringido o acesso à área de transferências a %1$s</string>
+    <string name="app_clipboard_access_granted">Foi permitido o acesso à área de transferências a %1$s</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_view_title">Modo Bolso ligado</string>
+    <string name="pocket_view_title_cancel">Para utilizar o seu telefone:</string>
+    <string name="pocket_view_top_tag_cancel">Não cubra a área azul do seu telefone e limpe qualquer terra ou poeira.</string>
+    <string name="pocket_view_top_tag_cancel2">Premir e segurar o botão ligar/desligar para forçar a saída do Modo Bolso.</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">aceder aos tipos de letra</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Permitir que uma aplicação aceda aos tipos de letra.</string>
+    <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
+    <string name="fontservice_incompatible_font">O tipo de letra que instalou não é compatível devido à falta do ficheiro fonts.xml. Contacte o criador do pacote para obter ajuda.</string>
 </resources>
