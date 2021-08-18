@@ -702,7 +702,7 @@ public class ConnectivityService extends IConnectivityManager.Stub
     @VisibleForTesting
     static class LegacyTypeTracker {
 
-        private static final boolean DBG = true;
+        private static final boolean DBG = android.os.Build.IS_DEBUGGABLE;
         private static final boolean VDBG = false;
 
         /**

@@ -41,7 +41,7 @@ import java.util.concurrent.Executor;
 @Deprecated
 public class ImsConfig {
     private static final String TAG = "ImsConfig";
-    private boolean DBG = true;
+    private boolean DBG = android.os.Build.IS_DEBUGGABLE;
     private final IImsConfig miConfig;
 
     /**

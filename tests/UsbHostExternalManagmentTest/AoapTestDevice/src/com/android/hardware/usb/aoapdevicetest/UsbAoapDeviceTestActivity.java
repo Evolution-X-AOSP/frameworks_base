@@ -35,7 +35,7 @@ import libcore.io.IoUtils;
 
 public class UsbAoapDeviceTestActivity extends Activity {
     private static final String TAG = UsbAoapDeviceTestActivity.class.getSimpleName();
-    private static final boolean DBG = true;
+    private static final boolean DBG = android.os.Build.IS_DEBUGGABLE;
 
     private static final String ACTION_USB_ACCESSORY_PERMISSION =
             "com.android.hardware.usb.aoapdevicetest.ACTION_USB_ACCESSORY_PERMISSION";

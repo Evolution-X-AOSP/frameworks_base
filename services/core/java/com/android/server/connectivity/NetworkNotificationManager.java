@@ -72,7 +72,7 @@ public class NetworkNotificationManager {
     };
 
     private static final String TAG = NetworkNotificationManager.class.getSimpleName();
-    private static final boolean DBG = true;
+    private static final boolean DBG = android.os.Build.IS_DEBUGGABLE;
     private static final boolean VDBG = false;
 
     private final Context mContext;

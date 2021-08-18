@@ -52,7 +52,7 @@ public class StateMachineTest extends TestCase {
     private static final int TEST_CMD_5 = 5;
     private static final int TEST_CMD_6 = 6;
 
-    private static final boolean DBG = true;
+    private static final boolean DBG = android.os.Build.IS_DEBUGGABLE;
     private static final boolean WAIT_FOR_DEBUGGER = false;
     private static final String TAG = "StateMachineTest";
 

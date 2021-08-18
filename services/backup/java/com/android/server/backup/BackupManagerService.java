@@ -93,7 +93,7 @@ public class BackupManagerService extends IBackupManager.Stub {
     public static final String TAG = "BackupManagerService";
     public static final boolean DEBUG = true;
     public static final boolean MORE_DEBUG = false;
-    public static final boolean DEBUG_SCHEDULING = true;
+    public static final boolean DEBUG_SCHEDULING = android.os.Build.IS_DEBUGGABLE;
 
     @VisibleForTesting
     static final String DUMP_RUNNING_USERS_MESSAGE = "Backup Manager is running for users:";

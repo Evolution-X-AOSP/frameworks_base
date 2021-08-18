@@ -74,7 +74,7 @@ import java.util.Set;
  */
 public class PermissionMonitor {
     private static final String TAG = "PermissionMonitor";
-    private static final boolean DBG = true;
+    private static final boolean DBG = android.os.Build.IS_DEBUGGABLE;
     protected static final Boolean SYSTEM = Boolean.TRUE;
     protected static final Boolean NETWORK = Boolean.FALSE;
     private static final int VERSION_Q = Build.VERSION_CODES.Q;

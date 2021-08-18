@@ -50,7 +50,7 @@ import java.net.URL;
  */
 public class OsuLoginActivity extends Activity {
     private static final String TAG = "OsuLogin";
-    private static final boolean DBG = true;
+    private static final boolean DBG = false;
 
     private String mUrl;
     private String mHostName;

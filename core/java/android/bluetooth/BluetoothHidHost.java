@@ -48,7 +48,7 @@ import java.util.List;
 @SystemApi
 public final class BluetoothHidHost implements BluetoothProfile {
     private static final String TAG = "BluetoothHidHost";
-    private static final boolean DBG = true;
+    private static final boolean DBG = android.os.Build.IS_DEBUGGABLE;
     private static final boolean VDBG = false;
 
     /**

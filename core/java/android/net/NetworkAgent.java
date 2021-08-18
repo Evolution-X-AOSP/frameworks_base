@@ -102,7 +102,7 @@ public abstract class NetworkAgent {
     private final Handler mHandler;
     private volatile AsyncChannel mAsyncChannel;
     private final String LOG_TAG;
-    private static final boolean DBG = true;
+    private static final boolean DBG = android.os.Build.IS_DEBUGGABLE;
     private static final boolean VDBG = false;
     private final ArrayList<Message> mPreConnectedQueue = new ArrayList<Message>();
     private volatile long mLastBwRefreshTime = 0;

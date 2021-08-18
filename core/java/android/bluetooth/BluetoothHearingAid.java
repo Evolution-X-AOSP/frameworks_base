@@ -45,7 +45,7 @@ import java.util.List;
  */
 public final class BluetoothHearingAid implements BluetoothProfile {
     private static final String TAG = "BluetoothHearingAid";
-    private static final boolean DBG = true;
+    private static final boolean DBG = android.os.Build.IS_DEBUGGABLE;
     private static final boolean VDBG = false;
 
     /**
