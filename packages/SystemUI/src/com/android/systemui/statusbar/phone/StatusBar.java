@@ -3402,7 +3402,7 @@ public class StatusBar extends SystemUI implements DemoMode,
     }
 
     public void haltLyricTicker() {
-        if (mLyricTicker != null && mLyricEnabled) {
+        if (mLyricTicker != null) {
             mLyricTicker.halt();
         }
     }
@@ -5495,6 +5495,9 @@ public class StatusBar extends SystemUI implements DemoMode,
         } else if (STATUS_BAR_SHOW_LYRIC.equals(key)) {
             mLyricEnabled = TunerService.parseIntegerSwitch(newValue, false);
             SystemProperties.set(Instrumentation.EXTHM_STATUS_BAR_LYRIC_PROP, mLyricEnabled ? "true" : "false");
+            if (mLyricEnabled == false) {
+                haltLyricTicker();
+            }
         } else if (STATUS_BAR_TICKER_ANIMATION_MODE.equals(key)) {
             mTickerAnimationMode = TunerService.parseInteger(newValue, 1);
             if (mTicker != null) {
