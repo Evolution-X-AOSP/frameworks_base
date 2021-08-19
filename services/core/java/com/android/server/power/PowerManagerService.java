@@ -2339,7 +2339,8 @@ public final class PowerManagerService extends SystemService
      */
     private void updateAdaptiveChargingStatus() {
         if (mPowerInputSuspended) {
-            boolean resumeByAdaptiveCharging = !mAdaptiveChargingEnabled || (mAdaptiveChargingEnabled && (mBatteryLevel <= mAdaptiveChargingResumeLevel));
+            boolean resumeByAdaptiveCharging = !mAdaptiveChargingEnabled || (mAdaptiveChargingEnabled && (mBatteryLevel < mAdaptiveChargingCutoffLevel &&
+                mBatteryLevel <= mAdaptiveChargingResumeLevel));
             boolean resumeByAdaptiveChargingTemperature = !mAdaptiveChargingTemperatureEnabled || (mAdaptiveChargingTemperatureEnabled && (mBatteryTemperature <= mAdaptiveChargingResumeTemperature));
             // Charging should only be resumed when all factors vote yes
             if (resumeByAdaptiveCharging && resumeByAdaptiveChargingTemperature) {
