@@ -166,9 +166,6 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">語言</string>
     <string name="quick_settings_locale_more_locales_toast">請配置多種語言以啟用切換功能</string>
-    <!-- Game mode -->
-    <string name="gaming_mode_not_enabled">遊戲模式：關閉</string>
-    <string name="quick_settings_gaming_mode_label">遊戲模式</string>
     <!-- App picker manifest entry -->
     <string name="app_picker_dialog_title">選擇應用程式</string>
     <string name="app_picker_activity_select_title">選擇活動</string>
