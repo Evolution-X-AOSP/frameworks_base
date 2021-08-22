@@ -165,9 +165,6 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Język</string>
     <string name="quick_settings_locale_more_locales_toast">Proszę skonfigurować wiele języków, aby włączyć funkcję przełączenia</string>
-    <!-- Game mode -->
-    <string name="gaming_mode_not_enabled">Tryb gry jest wyłączony w ustawieniach</string>
-    <string name="quick_settings_gaming_mode_label">Tryb gry</string>
     <!-- App picker manifest entry -->
     <string name="app_picker_dialog_title">Wybierz aplikację</string>
     <string name="app_picker_activity_select_title">Wybierz czynność</string>
