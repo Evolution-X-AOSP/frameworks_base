@@ -20,4 +20,16 @@
     <!-- Padding for signal cluster and battery icon when there are not icons in signal cluster -->
     <dimen name="no_signal_cluster_battery_padding">2dp</dimen>
 
+    <dimen name="qs_tile_layout_margin_side">9dp</dimen>
+    <dimen name="qs_tile_margin_horizontal">6dp</dimen>
+    <dimen name="qs_tile_margin_vertical">9dp</dimen>
+    <dimen name="qs_tile_margin_top_bottom">7dp</dimen>
+    <dimen name="qs_tile_background_size">48dp</dimen>
+    <dimen name="qs_tile_icon_size">20dp</dimen>
+    <dimen name="qs_tile_text_size">11sp</dimen>
+    <dimen name="qs_tile_padding_top">0dp</dimen>
+
+    <dimen name="qs_quick_tile_size">50dp</dimen>
+    <dimen name="qs_quick_tile_padding">16dp</dimen>
+
 </resources>
