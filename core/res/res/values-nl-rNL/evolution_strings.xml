@@ -51,12 +51,6 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">SystemUI herstart vereist</string>
     <string name="systemui_restart_message">Een herstart van SystemUI is vereist om alle wijzigingen door te voeren. SystemUI nu herstarten?</string>
-    <!-- Game mode -->
-    <string name="notification_channel_gaming">Gamemodus</string>
-    <string name="gaming_mode_notification_title">Gamemodus: aan</string>
-    <string name="gaming_mode_notification_content">Tik om Gamemodus uit te schakelen</string>
-    <string name="gaming_mode_enabled_toast">Gamemodus ingeschakeld</string>
-    <string name="gaming_mode_disabled_toast">Gamemodus uitgeschakeld</string>
     <string name="active_edge_app_select_title">Kies app</string>
     <string name="active_edge_activity_select_title">Kies activiteit</string>
     <!-- Clipboard access toast -->
