@@ -165,9 +165,6 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Мова</string>
     <string name="quick_settings_locale_more_locales_toast">Калі ласка, наладзьце некалькі моў, каб актываваць функцыю</string>
-    <!-- Game mode -->
-    <string name="gaming_mode_not_enabled">Гульнявы рэжым адключаны ў наладах</string>
-    <string name="quick_settings_gaming_mode_label">Гульнявы рэжым</string>
     <!-- App picker manifest entry -->
     <string name="app_picker_dialog_title">Выбраць праграму</string>
     <string name="app_picker_activity_select_title">Выберыце дзеянне</string>
