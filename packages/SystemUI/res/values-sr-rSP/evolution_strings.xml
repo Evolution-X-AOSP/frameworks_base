@@ -165,9 +165,6 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Језик</string>
     <string name="quick_settings_locale_more_locales_toast">Молим Вас одаберите више језика како би омогућили функционалност промене</string>
-    <!-- Game mode -->
-    <string name="gaming_mode_not_enabled">Мод за игре је искључен у подешавањима</string>
-    <string name="quick_settings_gaming_mode_label">Мод за игре</string>
     <!-- App picker manifest entry -->
     <string name="app_picker_dialog_title">Изабери апликацију</string>
     <string name="app_picker_activity_select_title">Изабери активност</string>
