@@ -165,9 +165,6 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Ngôn ngữ</string>
     <string name="quick_settings_locale_more_locales_toast">Vui lòng thiết lập nhiều ngôn ngữ để kích hoạt chức năng chuyển đổi</string>
-    <!-- Game mode -->
-    <string name="gaming_mode_not_enabled">Chế độ trò chơi đang tắt trong cài đặt</string>
-    <string name="quick_settings_gaming_mode_label">Chế độ trò chơi</string>
     <!-- App picker manifest entry -->
     <string name="app_picker_dialog_title">Vui lòng chọn ứng dụng</string>
     <string name="app_picker_activity_select_title">Chọn một hoạt động</string>
