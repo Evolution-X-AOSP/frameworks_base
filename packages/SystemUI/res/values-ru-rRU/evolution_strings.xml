@@ -165,9 +165,6 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Язык</string>
     <string name="quick_settings_locale_more_locales_toast">Пожалуйста, настройте несколько языков для включения функционала</string>
-    <!-- Game mode -->
-    <string name="gaming_mode_not_enabled">Игровой режим отключен в настройках</string>
-    <string name="quick_settings_gaming_mode_label">Игровой режим</string>
     <!-- App picker manifest entry -->
     <string name="app_picker_dialog_title">Выберите приложение</string>
     <string name="app_picker_activity_select_title">Выберите активити</string>
