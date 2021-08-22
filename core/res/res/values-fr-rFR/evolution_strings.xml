@@ -51,12 +51,6 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Redémarrage de l\'interface utilisateur requis</string>
     <string name="systemui_restart_message">Pour que toutes les modifications prennent effet, un redémarrage de l\'interface utilisateur est nécessaire. Redémarrer l\'interface utilisateur maintenant ?</string>
-    <!-- Game mode -->
-    <string name="notification_channel_gaming">Mode Jeu</string>
-    <string name="gaming_mode_notification_title">Mode Jeu : activé</string>
-    <string name="gaming_mode_notification_content">Appuyer pour désactiver le Mode Jeu</string>
-    <string name="gaming_mode_enabled_toast">Mode Jeu activé</string>
-    <string name="gaming_mode_disabled_toast">Mode Jeu désactivé</string>
     <string name="active_edge_app_select_title">Sélectionner une application</string>
     <string name="active_edge_activity_select_title">Sélectionner une activité</string>
     <!-- Clipboard access toast -->
