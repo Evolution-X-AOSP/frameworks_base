@@ -165,9 +165,6 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Dil</string>
     <string name="quick_settings_locale_more_locales_toast">Geçiş işlevselliğinin etkin olması için lütfen birden fazla dil ekleyin</string>
-    <!-- Game mode -->
-    <string name="gaming_mode_not_enabled">Oyun modu: kapalı</string>
-    <string name="quick_settings_gaming_mode_label">Oyun modu</string>
     <!-- App picker manifest entry -->
     <string name="app_picker_dialog_title">Bir uygulama seç</string>
     <string name="app_picker_activity_select_title">Etkinlik seç</string>

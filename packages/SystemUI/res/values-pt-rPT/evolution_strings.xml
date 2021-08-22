@@ -165,9 +165,6 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Idioma</string>
     <string name="quick_settings_locale_more_locales_toast">Configurar vários idiomas para poder trocar</string>
-    <!-- Game mode -->
-    <string name="gaming_mode_not_enabled">Modo Jogo: desligado</string>
-    <string name="quick_settings_gaming_mode_label">Modo Jogo</string>
     <!-- App picker manifest entry -->
     <string name="app_picker_dialog_title">Selecionar uma aplicação</string>
     <string name="app_picker_activity_select_title">Selecionar atividade</string>

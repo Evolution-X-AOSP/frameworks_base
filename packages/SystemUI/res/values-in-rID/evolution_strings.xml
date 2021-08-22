@@ -165,9 +165,6 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Bahasa</string>
     <string name="quick_settings_locale_more_locales_toast">Silakan konfigurasikan beberapa bahasa untuk mengaktifkan fungsionalitas tombol</string>
-    <!-- Game mode -->
-    <string name="gaming_mode_not_enabled">Mode Permainan dimatikan di pengaturan</string>
-    <string name="quick_settings_gaming_mode_label">Mode Permainan</string>
     <!-- App picker manifest entry -->
     <string name="app_picker_dialog_title">Pilih aplikasi</string>
     <string name="app_picker_activity_select_title">Pilih aktivitas</string>
