@@ -192,14 +192,6 @@
   <java-symbol type="dimen" name="config_buttonBrightnessSettingDefaultFloat" />
   <java-symbol type="dimen" name="config_keyboardBrightnessSettingDefaultFloat" />
 
-  <!-- Gaming mode -->
-  <java-symbol type="drawable" name="ic_gaming_notif" />
-  <java-symbol type="string" name="notification_channel_gaming" />
-  <java-symbol type="string" name="gaming_mode_notification_title" />
-  <java-symbol type="string" name="gaming_mode_notification_content" />
-  <java-symbol type="string" name="gaming_mode_enabled_toast" />
-  <java-symbol type="string" name="gaming_mode_disabled_toast" />
-
   <java-symbol type="id" name="app_name" />
   <java-symbol type="id" name="app_icon" />
   <java-symbol type="layout" name="app_list_item" />
