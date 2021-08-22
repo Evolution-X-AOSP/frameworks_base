@@ -338,7 +338,6 @@ import com.android.internal.util.FastPrintWriter;
 import com.android.internal.util.FrameworkStatsLog;
 import com.android.internal.util.MemInfoReader;
 import com.android.internal.util.Preconditions;
-import com.android.internal.util.evolution.GamingModeController;
 import com.android.internal.util.evolution.cutout.CutoutFullscreenController;
 import com.android.internal.util.function.HeptFunction;
 import com.android.internal.util.function.QuadFunction;
@@ -1367,12 +1366,6 @@ public class ActivityManagerService extends IActivityManager.Stub
     private int mCurResumedUid = -1;
 
     /**
-     * For Gaming Mode to temporarily hold app package name & uid
-     */
-    private String mCurResumedPackagex = null;
-    private int mCurResumedUidx = -1;
-
-    /**
      * For reporting to battery stats the apps currently running foreground
      * service.  The ProcessMap is package/uid tuples; each of these contain
      * an array of the currently foreground processes.
@@ -1695,13 +1688,11 @@ public class ActivityManagerService extends IActivityManager.Stub
     private ParcelFileDescriptor[] mLifeMonitorFds;
 
     private CutoutFullscreenController mCutoutFullscreenController;
-    
+
     static final HostingRecord sNullHostingRecord = new HostingRecord(null);
 
     final SwipeToScreenshotObserver mSwipeToScreenshotObserver;
     private boolean mIsSwipeToScreenshotEnabled;
-
-    private GamingModeController mGamingModeController;
 
     private SystemSensorManager mSystemSensorManager;
 
@@ -7999,9 +7990,6 @@ public class ActivityManagerService extends IActivityManager.Stub
         //mUsageStatsService.monitorPackages();
 
         mSystemSensorManager = new SystemSensorManager(mContext, mHandler.getLooper());
-
-        // Gaming mode provider
-        mGamingModeController = new GamingModeController(mContext);
 
         // Force full screen for devices with cutout
         mCutoutFullscreenController = new CutoutFullscreenController(mContext);
@@ -16287,9 +16275,6 @@ public class ActivityManagerService extends IActivityManager.Stub
                                         mServices.forceStopPackageLocked(ssp, userId);
                                         mAtmInternal.onPackageUninstalled(ssp);
                                         mBatteryStatsService.notePackageUninstalled(ssp);
-                                        if (mGamingModeController != null) {
-                                             mGamingModeController.notePackageUninstalled(ssp);
-                                        }
                                         if (mSystemSensorManager != null) {
                                            mSystemSensorManager.notePackageUninstalled(ssp);
                                         }
@@ -18028,23 +18013,6 @@ public class ActivityManagerService extends IActivityManager.Stub
                 }
             } finally {
                 Binder.restoreCallingIdentity(identity);
-            }
-
-            if (mCurResumedPackage != null && mGamingModeController != null && mGamingModeController.isGamingModeEnabled()) {
-                if (mGamingModeController.topAppChanged(mCurResumedPackage) && !mGamingModeController.isGamingModeActivated()) {
-                    Settings.System.putInt(mContext.getContentResolver(),
-                        Settings.System.GAMING_MODE_ACTIVE, 1);
-                    mCurResumedPackagex = mCurResumedPackage;
-                    mCurResumedUidx = uid;
-                } else if (mCurResumedUidx == uid && mGamingModeController.topAppChanged(mCurResumedPackagex)) {
-                    if (!mGamingModeController.isGamingModeActivated())
-                        Settings.System.putInt(mContext.getContentResolver(),
-                                Settings.System.GAMING_MODE_ACTIVE, 1);
-                } else if (!mGamingModeController.topAppChanged(mCurResumedPackage) &&
-                        mGamingModeController.isGamingModeActivated()) {
-                    Settings.System.putInt(mContext.getContentResolver(),
-                        Settings.System.GAMING_MODE_ACTIVE, 0);
-                }
             }
         }
         return r;

@@ -677,10 +677,6 @@
     <!-- Used for long press power torch feature - automatic turn off on timeout -->
     <protected-broadcast android:name="com.android.server.policy.PhoneWindowManager.ACTION_TORCH_OFF" />
 
-    <!-- Gaming mode -->
-    <protected-broadcast android:name="android.intent.action.GAMING_MODE_TURN_OFF" />
-    <protected-broadcast android:name="android.intent.action.GAMING_MODE_TURN_ON" />
-
     <!-- IMS Status -->
     <protected-broadcast android:name="android.intent.action.IMS_REGISTRATION_CHANGED" />
 
