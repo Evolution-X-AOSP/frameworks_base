@@ -51,12 +51,6 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Yêu cầu khởi động lại giao diện hệ thống</string>
     <string name="systemui_restart_message">Để mọi thay đổi được áp dụng, phải khởi động lại giao diện hệ thống. Khởi động lại bây giờ?</string>
-    <!-- Game mode -->
-    <string name="notification_channel_gaming">Chế độ trò chơi</string>
-    <string name="gaming_mode_notification_title">Chế độ trò chơi đã bật</string>
-    <string name="gaming_mode_notification_content">Nhấn để tắt chế độ trò chơi</string>
-    <string name="gaming_mode_enabled_toast">Chế độ trò chơi đã bật</string>
-    <string name="gaming_mode_disabled_toast">Chế độ trò chơi đã tắt</string>
     <string name="active_edge_app_select_title">Chọn ứng dụng</string>
     <string name="active_edge_activity_select_title">Chọn một hoạt động</string>
     <!-- Clipboard access toast -->
