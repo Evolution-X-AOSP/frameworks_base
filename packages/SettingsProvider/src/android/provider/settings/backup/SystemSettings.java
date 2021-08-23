@@ -100,5 +100,6 @@ public class SystemSettings {
         Settings.System.ACCENT_COLOR,
         Settings.System.PROXIMITY_ON_WAKE,
         Settings.System.INCALL_FEEDBACK_VIBRATE,
+        Settings.System.FP_WAKE_UNLOCK
     };
 }

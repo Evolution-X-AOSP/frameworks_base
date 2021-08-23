@@ -94,12 +94,14 @@ import com.android.internal.widget.LockPatternUtils;
 import com.android.settingslib.WirelessUtils;
 import com.android.settingslib.fuelgauge.BatteryStatus;
 import com.android.systemui.DejankUtils;
+import com.android.systemui.Dependency;
 import com.android.systemui.Dumpable;
 import com.android.systemui.R;
 import com.android.systemui.broadcast.BroadcastDispatcher;
 import com.android.systemui.dagger.qualifiers.Background;
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.dump.DumpManager;
+import com.android.systemui.evolution.EvolutionSettingsService;
 import com.android.systemui.plugins.statusbar.StatusBarStateController;
 import com.android.systemui.shared.system.ActivityManagerWrapper;
 import com.android.systemui.shared.system.TaskStackChangeListener;
@@ -137,7 +139,8 @@ import com.android.internal.util.custom.faceunlock.FaceUnlockUtils;
  * to be updated.
  */
 @Singleton
-public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpable {
+public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpable,
+        EvolutionSettingsService.EvolutionSettingsObserver {
 
     private static final String TAG = "KeyguardUpdateMonitor";
     private static final boolean DEBUG = KeyguardConstants.DEBUG;
@@ -296,7 +299,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
 
     SettingsObserver mSettingsObserver;
 
-    private final boolean mFingerprintWakeAndUnlock;
+    private boolean mFingerprintWakeAndUnlock;
     private final boolean mFaceAuthOnlyOnSecurityView;
     private static final int FACE_UNLOCK_BEHAVIOR_DEFAULT = 0;
     private static final int FACE_UNLOCK_BEHAVIOR_SWIPE = 1;
@@ -1623,8 +1626,9 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
         mSubscriptionManager = SubscriptionManager.from(context);
         mDeviceProvisioned = isDeviceProvisionedInSettingsDb();
         mStrongAuthTracker = new StrongAuthTracker(context, this::notifyStrongAuthStateChanged);
-        mFingerprintWakeAndUnlock = mContext.getResources().getBoolean(
-                com.android.systemui.R.bool.config_fingerprintWakeAndUnlock);
+        mFingerprintWakeAndUnlock = Settings.System.getIntForUser(
+                mContext.getContentResolver(), Settings.System.FP_WAKE_UNLOCK, 0,
+                UserHandle.USER_CURRENT) == 0;
         mFaceAuthOnlyOnSecurityView = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_faceAuthOnlyOnSecurityView);
         mBackgroundExecutor = backgroundExecutor;
@@ -1886,6 +1890,12 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
         }
         mSettingsObserver = new SettingsObserver(mHandler);
         mSettingsObserver.observe();
+        Dependency.get(EvolutionSettingsService.class).addIntObserver(this, Settings.System.FP_WAKE_UNLOCK);
+    }
+
+    @Override
+    public void onIntSettingChanged(String key, Integer newValue) {
+        mFingerprintWakeAndUnlock = (newValue == 0);
     }
 
     private final UserSwitchObserver mUserSwitchObserver = new UserSwitchObserver() {
