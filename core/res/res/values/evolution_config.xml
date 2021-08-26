@@ -352,9 +352,6 @@
     <!-- Switch USB controller on Asus ROG devices-->
     <bool name="config_switchUsbController">false</bool>
 
-    <!-- Whether device has fingerprint on power button -->
-    <bool name="config_powerButtonFingerprint">false</bool>
-
     <!-- Component name of popup camera service -->
     <string name="config_popUpCameraServiceComponentName" translatable="false"></string>
 
