@@ -6885,6 +6885,11 @@ public final class Settings {
         public static final String CLOCK_USE_CUSTOM_FORMAT = "clock_use_custom_format";
 
         /**
+         * @hide
+         */
+        public static final String RECENTS_LOCKED_TASKS = "recents_locked_tasks";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
