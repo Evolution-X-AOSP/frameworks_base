@@ -397,7 +397,7 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
     // PowerManager.BRIGHTNESS_INVALID_FLOAT when there's no temporary adjustment set.
     private float mTemporaryAutoBrightnessAdjustment;
 
-    // Wether auto brightness is applied one shot when screen is turned on
+    // Whether auto brightness is applied one shot when screen is turned on
     private boolean mAutoBrightnessOneShot;
 
     // Animators.
