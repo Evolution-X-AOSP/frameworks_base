@@ -6411,7 +6411,7 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_LOCK_ICON = "lockscreen_lock_icon";
 
-        /**          
+        /**
           * Setting to enable/disable gaming mode
           * @hide
           */
@@ -6573,6 +6573,18 @@ public final class Settings {
          * @hide
          */
         public static final String NOTIFICATION_MATERIAL_DISMISS = "notification_material_dismiss";
+
+        /**
+         * Whether to add left padding on statusbar
+         * @hide
+         */
+        public static final String LEFT_PADDING = "statusbar_left_padding";
+
+        /**
+         * Whether to add right padding on statusbar
+         * @hide
+         */
+        public static final String RIGHT_PADDING = "statusbar_right_padding";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to
