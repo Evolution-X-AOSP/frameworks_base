@@ -100,7 +100,8 @@ public class TriStateUiControllerImpl implements TriStateUiController,
     private static final int MODE_ROTATION_AUTO = 640;
     private static final int MODE_ROTATION_0 = 641;
     private static final int MODE_ROTATION_90 = 642;
-    private static final int MODE_ROTATION_270 = 643;
+    private static final int MODE_ROTATION_180 = 643;
+    private static final int MODE_ROTATION_270 = 644;
 
     private static final String EXTRA_SLIDER_POSITION = "position";
     private static final String EXTRA_SLIDER_POSITION_VALUE = "position_value";
@@ -429,6 +430,10 @@ public class TriStateUiControllerImpl implements TriStateUiController,
                     case MODE_ROTATION_90:
                         iconId = R.drawable.ic_tristate_rotate_landscape;
                         textId = R.string.tristate_rotation_90;
+                        break;
+                    case MODE_ROTATION_180:
+                        iconId = R.drawable.ic_tristate_rotate_portrait;
+                        textId = R.string.tristate_rotation_180;
                         break;
                     case MODE_ROTATION_270:
                         iconId = R.drawable.ic_tristate_rotate_landscape;
