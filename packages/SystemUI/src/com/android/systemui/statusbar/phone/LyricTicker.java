@@ -113,7 +113,9 @@ public abstract class LyricTicker implements DarkReceiver {
         if (!isNotificationEquals(mCurrentNotification, n) || notification.extras.getBoolean("ticker_icon_switch", false)) {
             mCurrentNotification = n;
             int iconId = notification.extras.getInt("ticker_icon", notification.icon);
-            icon = StatusBarIconView.getIcon(mContext, 
+            Context notifContext = n != null ?
+                    n.getPackageContext(mContext) : mContext;
+            icon = StatusBarIconView.getIcon(mContext, notifContext, 
                 new StatusBarIcon(n.getPackageName(), n.getUser(), iconId, notification.iconLevel, 0,
                     notification.tickerText));
 
