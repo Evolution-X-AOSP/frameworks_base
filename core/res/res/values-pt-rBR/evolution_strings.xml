@@ -58,7 +58,7 @@
     <string name="app_clipboard_access_granted">%1$s recebeu acesso à área de transferência</string>
     <!-- Pocket Lock -->
     <string name="pocket_view_title">Modo bolso está ativado</string>
-    <string name="pocket_view_title_cancel">Ativar seu telefone:</string>
+    <string name="pocket_view_title_cancel">Para usar seu telefone:</string>
     <string name="pocket_view_top_tag_cancel">Não cubra a área azul do seu telefone, limpe qualquer terra ou poeira.</string>
     <string name="pocket_view_top_tag_cancel2">Pressionar e segurar o botão liga/desliga para forçar a saída do modo bolso</string>
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->

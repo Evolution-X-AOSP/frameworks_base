@@ -82,7 +82,8 @@
     <string name="quick_settings_reboot_recovery_label">Recuperação</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenshot_label">Captura de tela</string>
-    <string name="quick_settings_region_screenshot_label">Captura de tela parcial</string>
+    <string name="quick_settings_full_screenshot_label">Máximo</string>
+    <string name="quick_settings_region_screenshot_label">Parcial</string>
     <!-- SleepScreen QS Tile -->
     <string name="quick_settings_sleepscreen_label">Suspender tela</string>
     <!-- Sound QS Tile -->
@@ -135,12 +136,13 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento Turbo (<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%1$s</xliff:g> até completar a carga)</string>
     <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="percentage">%s</xliff:g> • Carregamento Turbo</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento rápido(<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%1$s</xliff:g> até completar a carga)</string>
+    <string name="keyguard_plugged_in_superdart_charging">Super carregamento</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">Segure &amp; arraste ou toque para adicionar blocos</string>
     <!-- Label for header of customize QS -->
     <string name="drag_or_tap_to_rearrange_tiles">Segure &amp; arraste para reorganizar ou toque para remover</string>
-    <string name="lockscreen_default">Padrão</string>
-    <string name="lockscreen_hidden">Nenhum</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">A captura de tela foi excluída</string>
     <!-- Partial screenshot -->
@@ -150,8 +152,8 @@
     <string name="force_stop_dlg_title">Forçar fechamento?</string>
     <string name="force_stop_dlg_text">Se você forçar o fechamento de um aplicativo, este poderá apresentar um comportamento anormal.</string>
     <string name="guts_force_close_app">Fechar aplicativo</string>
-    <!-- Screenrecorder -->
-    <string name="screenrecord_stopdot_label">Mostrar ponto de parada\nPressionamento longo para movê-lo</string>
+    <!-- Screen Record -->
+    <string name="screenrecord_stopdot_label">Mostrar \"ponto\" para parar a gravação</string>
     <string name="screenrecord_lowquality_label">Qualidade inferior para arquivo menor</string>
     <string name="screenrecord_longer_timeout_switch_label">Limite maior para arquivo\nLimitar o tamanho de gravação para 15 GB</string>
     <!-- Kill app -->
@@ -163,9 +165,6 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Idioma</string>
     <string name="quick_settings_locale_more_locales_toast">Por favor, configure vários idiomas para usar essa função</string>
-    <!-- Game mode -->
-    <string name="gaming_mode_not_enabled">Modo de jogo está desativado</string>
-    <string name="quick_settings_gaming_mode_label">Modo de jogo</string>
     <!-- App picker manifest entry -->
     <string name="app_picker_dialog_title">Selecione um app</string>
     <string name="app_picker_activity_select_title">Selecionar atividade</string>
@@ -190,12 +189,7 @@
     <string name="quick_settings_dc_brightness_mode">Modo de brilho</string>
     <string name="quick_settings_dc_full_auto">Modo automático</string>
     <!-- App Lock -->
-    <string name="applock_locked">&#160;está bloqueado</string>
-    <string name="applock_fingerprint_face">, impressão digital ou seu rosto para desbloquear</string>
-    <string name="applock_face">&#160;ou use seu rosto para desbloquear</string>
-    <string name="applock_fingerprint">&#160;ou use sua impressão digital para desbloquear</string>
-    <string name="applock_credential">&#160;para desbloquear</string>
-    <string name="applock_unlock">Desbloquear</string>
+    <string name="applock_unlock">Desbloquear aplicativo</string>
     <!-- PowerShare QS tile -->
     <string name="quick_settings_powershare_label">Carregamento reverso sem fio</string>
     <string name="quick_settings_powershare_off_powersave_label">Compartilhamento de carga sem fio desligado\nEconomia de bateria</string>
@@ -240,4 +234,23 @@
     <string name="tristate_rotation_270">Paisagem (270°)</string>
     <!-- Change clockface -->
     <string name="change_clock_face">Deslize para alterar o estilo do relógio</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">On-The-Go ativado</string>
+    <string name="onthego_notif_title">On-The-Go está ativo</string>
+    <string name="onthego_notif_stop">Parar</string>
+    <string name="onthego_notif_options">Opções</string>
+    <string name="onthego_notif_error">Não é possível iniciar On-The-Go</string>
+    <string name="onthego_notif_restart">Reiniciar On-The-Go</string>
+    <string name="onthego_notif_camera_changed">Modo de câmera alterado</string>
+    <string name="onthego_transparency">Transparência</string>
+    <string name="onthego_front_camera">Usar câmera frontal</string>
+    <string name="onthego_service_toggle">Reiniciar automaticamente o serviço</string>
+    <string name="onthego_channel_name">Principal</string>
+    <string name="global_action_onthego">OTG</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">OTG</string>
+    <string name="accessibility_quick_settings_onthego_off">Modo OTG</string>
+    <string name="accessibility_quick_settings_onthego_on">Modo OTG ativado</string>
+    <string name="accessibility_quick_settings_onthego_changed_off">Modo On-The-Go foi desativado</string>
+    <string name="accessibility_quick_settings_onthego_changed_on">Modo OTG foi ativado</string>
 </resources>

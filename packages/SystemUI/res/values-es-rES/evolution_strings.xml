@@ -136,6 +136,9 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carga rápida (<xliff:g id="charging_time_left" example="4 horas y 2 minutos">%1$s</xliff:g> para completar)</string>
     <string name="keyguard_plugged_in_turbo_charging" formatted="false"><xliff:g id="percentage">%s</xliff:g> • Carga rápida</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carga rápida (<xliff:g id="charging_time_left" example="4 horas y 2 minutos">%1$s</xliff:g> para completar)</string>
+    <string name="keyguard_plugged_in_superdart_charging">Super-carga</string>
     <!-- Label for area where tiles can be added to the qs panel -->
     <string name="drag_or_tap_to_add_tiles">Mantén pulsado y arrastra para añadir botones</string>
     <!-- Label for header of customize QS -->
@@ -162,9 +165,6 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Idioma</string>
     <string name="quick_settings_locale_more_locales_toast">Por favor configure varios idiomas para habilitar la función del interruptor</string>
-    <!-- Game mode -->
-    <string name="gaming_mode_not_enabled">El modo Juego está deshabilitado en los ajustes</string>
-    <string name="quick_settings_gaming_mode_label">Modo Juego</string>
     <!-- App picker manifest entry -->
     <string name="app_picker_dialog_title">Selecciona una aplicación</string>
     <string name="app_picker_activity_select_title">Selecciona una actividad</string>
@@ -178,6 +178,8 @@
     <string name="ambientmusic_songinfo" formatted="false">%s de %s</string>
     <!-- Daily data usage -->
     <string name="daily_data_usage_title">Uso de hoy</string>
+    <!-- Scrolling Screenshot string -->
+    <string name="scrollss">Deslizar</string>
     <!-- Biometric Dialog - Use Face -->
     <string name="biometric_dialog_button_use_face">Usar reconocimiento facial</string>
     <!-- Anti flicker QS tile -->
@@ -232,4 +234,23 @@
     <string name="tristate_rotation_270">Apaisado (270º)</string>
     <!-- Change clockface -->
     <string name="change_clock_face">Desliza para cambiar la interfaz del reloj</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">Modo En-Marcha activado</string>
+    <string name="onthego_notif_title">El modo En-Marcha está activo</string>
+    <string name="onthego_notif_stop">Detener</string>
+    <string name="onthego_notif_options">Opciones</string>
+    <string name="onthego_notif_error">No se pudo iniciar el modo En-Marcha</string>
+    <string name="onthego_notif_restart">Reiniciar modo En-Marcha</string>
+    <string name="onthego_notif_camera_changed">Modo de cámara cambiado</string>
+    <string name="onthego_transparency">Transparencia</string>
+    <string name="onthego_front_camera">Utilizar la cámara frontal</string>
+    <string name="onthego_service_toggle">Reiniciar automáticamente el servicio</string>
+    <string name="onthego_channel_name">Principal</string>
+    <string name="global_action_onthego">Modo En-Marcha</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">Modo En-Marcha</string>
+    <string name="accessibility_quick_settings_onthego_off">Modo En-Marcha desactivado</string>
+    <string name="accessibility_quick_settings_onthego_on">Modo En-Marcha</string>
+    <string name="accessibility_quick_settings_onthego_changed_off">En-Marcha desactivado</string>
+    <string name="accessibility_quick_settings_onthego_changed_on">En-Marcha activado</string>
 </resources>
