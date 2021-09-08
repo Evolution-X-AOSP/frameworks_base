@@ -17,7 +17,6 @@ import android.graphics.drawable.InsetDrawable;
 import android.graphics.drawable.RippleDrawable;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.provider.Settings;
 import android.text.Layout;
 import android.text.TextPaint;
 import android.text.method.TransformationMethod;
@@ -44,7 +43,6 @@ import com.android.systemui.statusbar.notification.collection.NotificationEntry;
 import com.android.systemui.statusbar.notification.collection.NotificationEntry.EditedSuggestionInfo;
 import com.android.systemui.statusbar.notification.logging.NotificationLogger;
 import com.android.systemui.statusbar.phone.KeyguardDismissUtil;
-import com.android.systemui.tuner.TunerService;
 
 import java.text.BreakIterator;
 import java.util.ArrayList;
@@ -53,7 +51,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 /** View which displays smart reply and smart actions buttons in notifications. */
-public class SmartReplyView extends ViewGroup implements TunerService.Tunable {
+public class SmartReplyView extends ViewGroup {
 
     private static final String TAG = "SmartReplyView";
 
@@ -65,9 +63,6 @@ public class SmartReplyView extends ViewGroup implements TunerService.Tunable {
                     - (v1.getMeasuredWidth() - v1.getPaddingLeft() - v1.getPaddingRight()));
 
     private static final int SQUEEZE_FAILED = -1;
-
-    private static final String NOTIFICATION_BG_ALPHA =
-            "system:" + Settings.System.NOTIFICATION_BG_ALPHA;
 
     private final SmartReplyConstants mConstants;
     private final KeyguardDismissUtil mKeyguardDismissUtil;
@@ -119,9 +114,6 @@ public class SmartReplyView extends ViewGroup implements TunerService.Tunable {
     private final int mRippleColor;
     private final int mStrokeWidth;
     private final double mMinStrokeContrast;
-
-    private int mCurrentAlpha;
-    private int mAlpha = 255;
 
     private ActivityStarter mActivityStarter;
 
@@ -177,22 +169,6 @@ public class SmartReplyView extends ViewGroup implements TunerService.Tunable {
 
         mBreakIterator = BreakIterator.getLineInstance();
         reallocateCandidateButtonQueueForSqueezing();
-
-        final TunerService tunerService = Dependency.get(TunerService.class);
-        tunerService.addTunable(this, NOTIFICATION_BG_ALPHA);
-    }
-
-    @Override
-    public void onTuningChanged(String key, String newValue) {
-        switch (key) {
-            case NOTIFICATION_BG_ALPHA:
-                mAlpha =
-                        TunerService.parseInteger(newValue, 255);
-                setBackgroundTintColor(mCurrentBackgroundColor);
-                break;
-            default:
-                break;
-        }
     }
 
     /**
@@ -348,7 +324,7 @@ public class SmartReplyView extends ViewGroup implements TunerService.Tunable {
 
         SmartReplyView.setButtonColors(b, smartReplyView.mCurrentBackgroundColor,
                 smartReplyView.mDefaultStrokeColor, smartReplyView.mDefaultTextColor,
-                smartReplyView.mRippleColor, smartReplyView.mStrokeWidth, smartReplyView.mAlpha);
+                smartReplyView.mRippleColor, smartReplyView.mStrokeWidth);
         return b;
     }
 
@@ -849,12 +825,11 @@ public class SmartReplyView extends ViewGroup implements TunerService.Tunable {
     }
 
     public void setBackgroundTintColor(int backgroundColor) {
-        if (backgroundColor == mCurrentBackgroundColor && mAlpha == mCurrentAlpha) {
+        if (backgroundColor == mCurrentBackgroundColor) {
             // Same color ignoring.
            return;
         }
         mCurrentBackgroundColor = backgroundColor;
-        mCurrentAlpha = mAlpha;
 
         final boolean dark = !ContrastColorUtil.isColorLight(backgroundColor);
 
@@ -869,12 +844,12 @@ public class SmartReplyView extends ViewGroup implements TunerService.Tunable {
         for (int i = 0; i < childCount; i++) {
             final Button child = (Button) getChildAt(i);
             setButtonColors(child, backgroundColor, strokeColor, textColor, rippleColor,
-                    mStrokeWidth, mAlpha);
+                    mStrokeWidth);
         }
     }
 
     private static void setButtonColors(Button button, int backgroundColor, int strokeColor,
-            int textColor, int rippleColor, int strokeWidth, int alpha) {
+            int textColor, int rippleColor, int strokeWidth) {
         Drawable drawable = button.getBackground();
         if (drawable instanceof RippleDrawable) {
             // Mutate in case other notifications are using this drawable.
@@ -890,7 +865,6 @@ public class SmartReplyView extends ViewGroup implements TunerService.Tunable {
                     gradientDrawable.setStroke(strokeWidth, strokeColor);
                 }
             }
-            drawable.setAlpha(alpha);
             button.setBackground(drawable);
         }
         button.setTextColor(textColor);

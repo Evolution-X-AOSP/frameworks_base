@@ -24,7 +24,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.RectF;
-import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.MathUtils;
 import android.view.MotionEvent;
@@ -34,7 +33,6 @@ import android.view.accessibility.AccessibilityManager;
 import android.view.animation.Interpolator;
 import android.view.animation.PathInterpolator;
 
-import com.android.systemui.Dependency;
 import com.android.systemui.Gefingerpoken;
 import com.android.systemui.Interpolators;
 import com.android.systemui.R;
@@ -43,13 +41,12 @@ import com.android.systemui.statusbar.notification.FakeShadowView;
 import com.android.systemui.statusbar.notification.NotificationUtils;
 import com.android.systemui.statusbar.notification.stack.NotificationStackScrollLayout;
 import com.android.systemui.statusbar.notification.stack.StackStateAnimator;
-import com.android.systemui.tuner.TunerService;
 
 /**
  * Base class for both {@link ExpandableNotificationRow} and {@link NotificationShelf}
  * to implement dimming/activating on Keyguard for the double-tap gesture
  */
-public abstract class ActivatableNotificationView extends ExpandableOutlineView implements TunerService.Tunable {
+public abstract class ActivatableNotificationView extends ExpandableOutlineView {
 
     private static final int BACKGROUND_ANIMATION_LENGTH_MS = 220;
     private static final int ACTIVATE_ANIMATION_LENGTH = 220;
@@ -116,7 +113,7 @@ public abstract class ActivatableNotificationView extends ExpandableOutlineView 
     private Interpolator mCurrentAlphaInterpolator;
 
     NotificationBackgroundView mBackgroundNormal;
-    public NotificationBackgroundView mBackgroundDimmed;
+    private NotificationBackgroundView mBackgroundDimmed;
     private ObjectAnimator mBackgroundAnimator;
     private RectF mAppearAnimationRect = new RectF();
     private float mAnimationTranslationY;
@@ -158,11 +155,6 @@ public abstract class ActivatableNotificationView extends ExpandableOutlineView 
     private boolean mRefocusOnDismiss;
     private OnDimmedListener mOnDimmedListener;
     private AccessibilityManager mAccessibilityManager;
-
-    private float mNotificationBackgroundAlpha = 1f;
-
-    private static final String NOTIFICATION_BG_ALPHA =
-            "system:" + Settings.System.NOTIFICATION_BG_ALPHA;
 
     public ActivatableNotificationView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -212,28 +204,6 @@ public abstract class ActivatableNotificationView extends ExpandableOutlineView 
         updateBackground();
         updateBackgroundTint();
         updateOutlineAlpha();
-    }
-
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        final TunerService tunerService = Dependency.get(TunerService.class);
-        tunerService.addTunable(this, NOTIFICATION_BG_ALPHA);
-    }
-
-    @Override
-    public void onTuningChanged(String key, String newValue) {
-        switch (key) {
-            case NOTIFICATION_BG_ALPHA:
-                mNotificationBackgroundAlpha =
-                        TunerService.parseInteger(newValue, 255) / 255f;
-                resetBackgroundAlpha();
-                updateBackground();
-                updateOutlineAlpha();
-                break;
-            default:
-                break;
-        }
     }
 
     /**
@@ -337,7 +307,7 @@ public abstract class ActivatableNotificationView extends ExpandableOutlineView 
         animator.setInterpolator(interpolator);
         animator.setDuration(ACTIVATE_ANIMATION_LENGTH);
         if (reverse) {
-            mBackgroundNormal.setAlpha(mNotificationBackgroundAlpha);
+            mBackgroundNormal.setAlpha(1f);
             animator.addListener(new AnimatorListenerAdapter() {
                 @Override
                 public void onAnimationEnd(Animator animation) {
@@ -346,11 +316,11 @@ public abstract class ActivatableNotificationView extends ExpandableOutlineView 
             });
             animator.start();
         } else {
-            mBackgroundNormal.setAlpha(Math.min(mNotificationBackgroundAlpha, 0.4f));
+            mBackgroundNormal.setAlpha(0.4f);
             animator.start();
         }
         mBackgroundNormal.animate()
-                .alpha(reverse ? 0f : mNotificationBackgroundAlpha)
+                .alpha(reverse ? 0f : 1f)
                 .setInterpolator(alphaInterpolator)
                 .setUpdateListener(animation -> {
                     float animatedFraction = animation.getAnimatedFraction();
@@ -409,7 +379,7 @@ public abstract class ActivatableNotificationView extends ExpandableOutlineView 
     private void updateOutlineAlpha() {
         float alpha = NotificationStackScrollLayout.BACKGROUND_ALPHA_DIMMED;
         alpha = (alpha + (1.0f - alpha) * mNormalBackgroundVisibilityAmount);
-        setOutlineAlpha(Math.min(alpha, mNotificationBackgroundAlpha));
+        setOutlineAlpha(alpha);
     }
 
     private void setNormalBackgroundVisibilityAmount(float normalBackgroundVisibilityAmount) {
@@ -522,7 +492,7 @@ public abstract class ActivatableNotificationView extends ExpandableOutlineView 
         } else if (color != mCurrentBackgroundTint) {
             mStartTint = mCurrentBackgroundTint;
             mTargetTint = color;
-            mBackgroundColorAnimator = ValueAnimator.ofFloat(0.0f, mNotificationBackgroundAlpha);
+            mBackgroundColorAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
             mBackgroundColorAnimator.addUpdateListener(animation -> {
                 int newColor = NotificationUtils.interpolateColors(mStartTint, mTargetTint,
                         animation.getAnimatedFraction());
@@ -569,8 +539,8 @@ public abstract class ActivatableNotificationView extends ExpandableOutlineView 
                 mBackgroundNormal.setVisibility(View.VISIBLE);
             }
         }
-        float startAlpha = mDimmed ? mNotificationBackgroundAlpha : 0;
-        float endAlpha = mDimmed ? 0 : mNotificationBackgroundAlpha;
+        float startAlpha = mDimmed ? 1f : 0;
+        float endAlpha = mDimmed ? 0 : 1f;
         int duration = BACKGROUND_ANIMATION_LENGTH_MS;
         // Check whether there is already a background animation running.
         if (mBackgroundAnimator != null) {
@@ -601,7 +571,7 @@ public abstract class ActivatableNotificationView extends ExpandableOutlineView 
     }
 
     protected void updateBackgroundAlpha(float transformationAmount) {
-        float bgAlpha = isChildInGroup() && mDimmed ? transformationAmount : mNotificationBackgroundAlpha;
+        float bgAlpha = isChildInGroup() && mDimmed ? transformationAmount : 1f;
         if (mDimmedBackgroundFadeInAmount != -1) {
             bgAlpha *= mDimmedBackgroundFadeInAmount;
         }
@@ -628,7 +598,7 @@ public abstract class ActivatableNotificationView extends ExpandableOutlineView 
         } else {
             mBackgroundDimmed.setVisibility(View.INVISIBLE);
             mBackgroundNormal.setVisibility(View.VISIBLE);
-            mBackgroundNormal.setAlpha(mNotificationBackgroundAlpha);
+            mBackgroundNormal.setAlpha(1f);
             // make in inactive to avoid it sticking around active
             makeInactive(false /* animate */);
         }

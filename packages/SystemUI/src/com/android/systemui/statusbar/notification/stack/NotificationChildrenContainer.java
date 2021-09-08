@@ -21,7 +21,6 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.drawable.ColorDrawable;
-import android.provider.Settings;
 import android.service.notification.StatusBarNotification;
 import android.util.ArraySet;
 import android.util.AttributeSet;
@@ -33,7 +32,6 @@ import android.widget.RemoteViews;
 import android.widget.TextView;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.statusbar.CrossFadeHelper;
 import com.android.systemui.statusbar.NotificationHeaderUtil;
@@ -44,7 +42,6 @@ import com.android.systemui.statusbar.notification.row.HybridGroupManager;
 import com.android.systemui.statusbar.notification.row.HybridNotificationView;
 import com.android.systemui.statusbar.notification.row.wrapper.NotificationHeaderViewWrapper;
 import com.android.systemui.statusbar.notification.row.wrapper.NotificationViewWrapper;
-import com.android.systemui.tuner.TunerService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +49,7 @@ import java.util.List;
 /**
  * A container containing child notifications
  */
-public class NotificationChildrenContainer extends ViewGroup implements TunerService.Tunable {
+public class NotificationChildrenContainer extends ViewGroup {
 
     @VisibleForTesting
     static final int NUMBER_OF_CHILDREN_WHEN_COLLAPSED = 2;
@@ -68,9 +65,6 @@ public class NotificationChildrenContainer extends ViewGroup implements TunerSer
         }
     }.setDuration(200);
 
-    private static final String NOTIFICATION_BG_ALPHA =
-            "system:" + Settings.System.NOTIFICATION_BG_ALPHA;
-
     private final List<View> mDividers = new ArrayList<>();
     private final List<ExpandableNotificationRow> mAttachedChildren = new ArrayList<>();
     private final HybridGroupManager mHybridGroupManager;
@@ -78,7 +72,6 @@ public class NotificationChildrenContainer extends ViewGroup implements TunerSer
     private int mDividerHeight;
     private float mDividerAlpha;
     private int mNotificationHeaderMargin;
-    private int mNotificationBackgroundAlpha;
 
     private int mNotificatonTopPadding;
     private float mCollapsedBottompadding;
@@ -134,20 +127,6 @@ public class NotificationChildrenContainer extends ViewGroup implements TunerSer
         mHybridGroupManager = new HybridGroupManager(getContext());
         initDimens();
         setClipChildren(false);
-        final TunerService tunerService = Dependency.get(TunerService.class);
-        tunerService.addTunable(this, NOTIFICATION_BG_ALPHA);
-    }
-
-    @Override
-    public void onTuningChanged(String key, String newValue) {
-        switch (key) {
-            case NOTIFICATION_BG_ALPHA:
-                mNotificationBackgroundAlpha = (int)
-                        (TunerService.parseInteger(newValue, 100) * 2.55f);
-                break;
-            default:
-                break;
-        }
     }
 
     private void initDimens() {
@@ -1020,7 +999,6 @@ public class NotificationChildrenContainer extends ViewGroup implements TunerSer
             if (expanded) {
                 ColorDrawable cd = new ColorDrawable();
                 cd.setColor(mContainingNotification.calculateBgColor());
-                cd.setAlpha(mNotificationBackgroundAlpha);
                 mNotificationHeader.setHeaderBackgroundDrawable(cd);
             } else {
                 mNotificationHeader.setHeaderBackgroundDrawable(null);

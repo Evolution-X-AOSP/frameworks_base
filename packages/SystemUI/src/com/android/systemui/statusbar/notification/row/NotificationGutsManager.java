@@ -631,13 +631,12 @@ public class NotificationGutsManager implements Dumpable, NotificationLifetimeEx
                         (mStatusBarStateController.getState() == StatusBarState.KEYGUARD &&
                                 !mAccessibilityManager.isTouchExplorationEnabled());
 
-                row.onGutsOpened();
                 guts.openControls(
                         !row.isBlockingHelperShowing(),
                         x,
                         y,
                         needsFalsingProtection,
-                        null);
+                        row::onGutsOpened);
 
                 row.closeRemoteInput();
                 mListContainer.onHeightChanged(row, true /* needsAnimation */);
