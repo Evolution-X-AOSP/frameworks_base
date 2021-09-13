@@ -886,6 +886,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             StatusBarTouchableRegionManager statusBarTouchableRegionManager,
             FlashlightController flashlightController,
             TaskHelper taskHelper,
+            BurnInProtectionController burnInProtectionController,
             FODCircleViewImpl fodCircleViewImpl,
             TunerService tunerService) {
         super(context);
@@ -966,6 +967,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         mDismissCallbackRegistry = dismissCallbackRegistry;
         mFlashlightController = flashlightController;
         mTaskHelper = taskHelper;
+        mBurnInProtectionController = burnInProtectionController;
         mFODCircleViewImpl = fodCircleViewImpl;
         mTunerService = tunerService;
 
@@ -977,8 +979,7 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         DateTimeView.setReceiverHandler(timeTickHandler);
 
-        mBurnInProtectionController = new BurnInProtectionController(context,
-            this, configurationController);
+        mBurnInProtectionController.setStatusBar(this);
 
         mFingerprintService = IFingerprintService.Stub.asInterface(
                 ServiceManager.getService(Context.FINGERPRINT_SERVICE));
