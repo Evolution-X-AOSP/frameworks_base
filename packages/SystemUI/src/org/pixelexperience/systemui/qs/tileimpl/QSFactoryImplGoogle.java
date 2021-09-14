@@ -56,6 +56,7 @@ import com.android.systemui.qs.tiles.QuickAccessWalletTile;
 import com.android.systemui.qs.tiles.ReadingModeTile;
 import com.android.systemui.qs.tiles.RebootTile;
 import com.android.systemui.qs.tiles.ReduceBrightColorsTile;
+import com.android.systemui.qs.tiles.RefreshRateTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.ScreenRecordTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
@@ -137,7 +138,8 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
             Provider<VpnTile> vpnTileProvider,
             Provider<LiveDisplayTile> liveDisplayTileProvider,
             Provider<ReadingModeTile> readingModeTileProvider,
-            Provider<AntiFlickerTile> antiFlickerTileProvider) {
+            Provider<AntiFlickerTile> antiFlickerTileProvider,
+            Provider<RefreshRateTile> refreshRateTileProvider) {
         super(qsHostLazy,
                 customTileBuilderProvider,
                 wifiTileProvider,
@@ -188,7 +190,8 @@ public class QSFactoryImplGoogle extends QSFactoryImpl {
                 vpnTileProvider,
                 liveDisplayTileProvider,
                 readingModeTileProvider,
-                antiFlickerTileProvider);
+                antiFlickerTileProvider,
+                refreshRateTileProvider);
         mReverseChargingTileProvider = reverseChargingTileProvider;
         mBatterySaverTileGoogleProvider = batterySaverTileGoogleProvider;
     }
