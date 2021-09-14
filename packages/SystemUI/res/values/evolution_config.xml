@@ -81,4 +81,7 @@
 
     <!-- Interval between subsequent shifting of statusbar and navbar contents, in seconds -->
     <integer name="config_statusBarBurnInProtectionShiftInterval">60</integer>
+
+    <!-- Whether show refresh rate QS tile -->
+    <bool name="config_showRefreshRateQsTile">false</bool>
 </resources>
