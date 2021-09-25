@@ -429,7 +429,7 @@ public class EdgeBackGestureHandler extends CurrentUserTracker implements Displa
 
     private void vibrateTick() {
         AsyncTask.execute(() ->
-            mVibrator.vibrate(VibrationEffect.get(VibrationEffect.EFFECT_HEAVY_CLICK)));
+            mVibrator.vibrate(VibrationEffect.get(VibrationEffect.EFFECT_TICK)));
     }
 
     public void onSettingsChanged() {
