@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2022 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Titles for Bluetooth Audio Codec selection preference. [CHAR LIMIT=50] -->
     <string-array name="bluetooth_a2dp_codec_titles_cm" translatable="false">
@@ -23,4 +27,24 @@
         <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_adaptive">aptX™ Adaptive</xliff:g> audio</item>
         <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_twsp">aptX™ TWS+</xliff:g> audio</item>
     </string-array>
+
+    <!-- Custom Battery Levels  -->
+    <array name="custom_batterymeter_color_levels">
+        <item>15</item>
+        <item>25</item>
+        <item>40</item>
+        <item>55</item>
+        <item>70</item>
+        <item>85</item>
+        <item>100</item>
+    </array>
+    <array name="custom_batterymeter_color_values">
+        <item>?android:attr/colorError</item>
+        <item>@color/battery_25</item>
+        <item>@color/battery_40</item>
+        <item>@color/battery_55</item>
+        <item>@color/battery_70</item>
+        <item>@color/battery_85</item>
+        <item>@color/battery_full</item>
+    </array>
 </resources>
