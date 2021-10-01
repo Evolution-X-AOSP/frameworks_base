@@ -35,6 +35,9 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.util.TypedValue;
 
+import android.provider.Settings.System;
+import android.os.UserHandle;
+
 import com.android.settingslib.R;
 import com.android.settingslib.Utils;
 
@@ -99,22 +102,43 @@ public class BatteryMeterDrawableBase extends Drawable {
     public BatteryMeterDrawableBase(Context context, int frameColor) {
         mContext = context;
         final Resources res = context.getResources();
-        TypedArray levels = res.obtainTypedArray(R.array.batterymeter_color_levels);
-        TypedArray colors = res.obtainTypedArray(R.array.batterymeter_color_values);
+
+        boolean setCustomBatteryLevelTint = System.getIntForUser(context.getContentResolver(),
+                     System.BATTERY_LEVEL_COLORS, 0, UserHandle.USER_CURRENT) == 1;
+
+        if(setCustomBatteryLevelTint) {
+        TypedArray levels = res.obtainTypedArray(R.array.custom_batterymeter_color_levels);
+        TypedArray colors = res.obtainTypedArray(R.array.custom_batterymeter_color_values);
 
         final int N = levels.length();
-        mColors = new int[2 * N];
+        mColors  = new int[7 * N];
         for (int i = 0; i < N; i++) {
-            mColors[2 * i] = levels.getInt(i, 0);
+            mColors [7 * i] = levels.getInt(i, 0);
             if (colors.getType(i) == TypedValue.TYPE_ATTRIBUTE) {
-                mColors[2 * i + 1] = Utils.getColorAttrDefaultColor(context,
-                        colors.getThemeAttributeId(i, 0));
+                mColors [7 * i + 1] = Utils.getColorAttrDefaultColor(mContext, colors.getThemeAttributeId(i, 0));
             } else {
-                mColors[2 * i + 1] = colors.getColor(i, 0);
+                mColors [7 * i + 1] = colors.getColor(i, 0);
             }
         }
         levels.recycle();
         colors.recycle();
+        } else {
+        TypedArray levels = res.obtainTypedArray(R.array.batterymeter_color_levels);
+        TypedArray colors = res.obtainTypedArray(R.array.batterymeter_color_values);
+
+        final int N = levels.length();
+        mColors  = new int[2 * N];
+        for (int i = 0; i < N; i++) {
+            mColors [2 * i] = levels.getInt(i, 0);
+            if (colors.getType(i) == TypedValue.TYPE_ATTRIBUTE) {
+                mColors [2 * i + 1] = Utils.getColorAttrDefaultColor(mContext, colors.getThemeAttributeId(i, 0));
+            } else {
+                mColors [2 * i + 1] = colors.getColor(i, 0);
+            }
+        }
+        levels.recycle();
+        colors.recycle();
+        }
 
         mWarningString = context.getString(R.string.battery_meter_very_low_overlay_symbol);
         mCriticalLevel = mContext.getResources().getInteger(

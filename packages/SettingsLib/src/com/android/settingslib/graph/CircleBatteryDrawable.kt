@@ -20,6 +20,8 @@ import android.content.Context
 import android.content.res.Resources
 import android.graphics.*
 import android.graphics.drawable.Drawable
+import android.provider.Settings.System
+import android.os.UserHandle
 import android.util.TypedValue
 import com.android.settingslib.R
 import com.android.settingslib.Utils
@@ -262,9 +264,22 @@ class CircleBatteryDrawable(private val context: Context, frameColor: Int) : Dra
     }
 
     init {
+        val setCustomBatteryLevelTint = System.getIntForUser(
+            context.getContentResolver(),
+            System.BATTERY_LEVEL_COLORS, 0, UserHandle.USER_CURRENT
+        ) === 1
+
         val res = context.resources
-        val color_levels = res.obtainTypedArray(R.array.batterymeter_color_levels)
-        val color_values = res.obtainTypedArray(R.array.batterymeter_color_values)
+        val color_levels = if(setCustomBatteryLevelTint)
+            res.obtainTypedArray(R.array.custom_batterymeter_color_levels)
+        else
+            res.obtainTypedArray(R.array.batterymeter_color_levels)
+        
+        val color_values = if(setCustomBatteryLevelTint) 
+            res.obtainTypedArray(R.array.custom_batterymeter_color_values)
+        else
+            res.obtainTypedArray(R.array.batterymeter_color_values)
+            
         colors = IntArray(2 * color_levels.length())
         for (i in 0 until color_levels.length()) {
             colors[2 * i] = color_levels.getInt(i, 0)
