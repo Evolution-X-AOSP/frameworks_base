@@ -27,6 +27,8 @@ import android.graphics.Rect
 import android.graphics.RectF
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
+import android.provider.Settings.System
+import android.os.UserHandle
 import android.util.PathParser
 import android.util.TypedValue
 
@@ -165,13 +167,26 @@ open class LandscapeBatteryDrawable(private val context: Context, frameColor: In
     }
 
     init {
+        val setCustomBatteryLevelTint = System.getIntForUser(
+            context.getContentResolver(),
+            System.BATTERY_LEVEL_COLORS, 0, UserHandle.USER_CURRENT
+        ) === 1
+
         val density = context.resources.displayMetrics.density
         intrinsicHeight = (Companion.HEIGHT * density).toInt()
         intrinsicWidth = (Companion.WIDTH * density).toInt()
 
         val res = context.resources
-        val levels = res.obtainTypedArray(R.array.batterymeter_color_levels)
-        val colors = res.obtainTypedArray(R.array.batterymeter_color_values)
+        val levels = if(setCustomBatteryLevelTint)
+            res.obtainTypedArray(R.array.custom_batterymeter_color_levels)
+        else
+            res.obtainTypedArray(R.array.batterymeter_color_levels)
+
+        val colors = if(setCustomBatteryLevelTint)
+            res.obtainTypedArray(R.array.custom_batterymeter_color_values)
+        else
+            res.obtainTypedArray(R.array.batterymeter_color_values)
+
         val N = levels.length()
         colorLevels = IntArray(2 * N)
         for (i in 0 until N) {
