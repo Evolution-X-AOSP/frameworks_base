@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2022 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Battery level colors -->
+    <color name="battery_full">#00C853</color>
+    <color name="battery_85">#64DD17</color>
+    <color name="battery_70">#AEEA00</color>
+    <color name="battery_55">#FFD600</color>
+    <color name="battery_40">#FFAB00</color>
+    <color name="battery_25">#FF6D00</color>
+</resources>
