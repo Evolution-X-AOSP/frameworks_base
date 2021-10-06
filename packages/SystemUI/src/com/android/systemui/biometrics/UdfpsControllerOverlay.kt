@@ -111,7 +111,7 @@ class UdfpsControllerOverlay @JvmOverloads constructor(
     private var overlayTouchListener: TouchExplorationStateChangeListener? = null
 
     private val coreLayoutParams = WindowManager.LayoutParams(
-        WindowManager.LayoutParams.TYPE_KEYGUARD_DIALOG,
+        WindowManager.LayoutParams.TYPE_DISPLAY_OVERLAY,
         0 /* flags set in computeLayoutParams() */,
         PixelFormat.TRANSLUCENT
     ).apply {
