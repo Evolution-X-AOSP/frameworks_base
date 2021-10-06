@@ -232,6 +232,13 @@ public class UdfpsController implements DozeReceiver {
             if (BiometricFingerprintConstants.shouldTurnOffHbm(acquiredInfo)) {
                 boolean acquiredGood = acquiredInfo == FINGERPRINT_ACQUIRED_GOOD;
                 mFgExecutor.execute(() -> {
+                    if (acquiredInfo == 6 && (mStatusBarStateController.isDozing() || !mScreenOn)) {
+                        if (vendorCode == 22) { // Use overlay to determine pressed vendor code?
+                            mPowerManager.wakeUp(mSystemClock.uptimeMillis(),
+                                    PowerManager.WAKE_REASON_GESTURE, TAG);
+                            onAodInterrupt(0, 0, 0, 0); // To-Do pass proper values
+                        }
+                    }
                     if (mOverlay == null) {
                         Log.e(TAG, "Null request when onAcquired for sensorId: " + sensorId
                                 + " acquiredInfo=" + acquiredInfo);
