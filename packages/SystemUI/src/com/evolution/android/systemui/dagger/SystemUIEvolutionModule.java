@@ -17,6 +17,7 @@ import com.google.android.systemui.smartspace.KeyguardZenAlarmViewController;
 import com.google.android.systemui.smartspace.SmartSpaceController;
 
 import com.evolution.android.systemui.smartspace.KeyguardSmartspaceController;
+import com.evolution.android.systemui.theme.ThemeOverlayControllerEvolution;
 
 import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.keyguard.KeyguardViewController;
@@ -29,6 +30,7 @@ import com.android.systemui.dock.DockManager;
 import com.android.systemui.dock.DockManagerImpl;
 import com.android.systemui.doze.DozeHost;
 import com.android.systemui.dump.DumpManager;
+import com.android.systemui.flags.FeatureFlags;
 import com.android.systemui.media.dagger.MediaModule;
 import com.android.systemui.plugins.BcSmartspaceDataPlugin;
 import com.android.systemui.plugins.qs.QSFactory;
@@ -42,7 +44,6 @@ import com.android.systemui.qs.tileimpl.QSFactoryImpl;
 import com.android.systemui.recents.Recents;
 import com.android.systemui.recents.RecentsImplementation;
 import com.android.systemui.statusbar.CommandQueue;
-import com.android.systemui.flags.FeatureFlags;
 import com.android.systemui.statusbar.NotificationLockscreenUserManager;
 import com.android.systemui.statusbar.NotificationLockscreenUserManagerImpl;
 import com.android.systemui.statusbar.NotificationMediaManager;
@@ -68,9 +69,10 @@ import com.android.systemui.statusbar.policy.IndividualSensorPrivacyControllerIm
 import com.android.systemui.statusbar.policy.NextAlarmController;
 import com.android.systemui.statusbar.policy.SensorPrivacyController;
 import com.android.systemui.statusbar.policy.SensorPrivacyControllerImpl;
-import com.android.systemui.volume.dagger.VolumeModule;
 import com.android.systemui.statusbar.policy.ZenModeController;
+import com.android.systemui.theme.ThemeOverlayController;
 import com.android.systemui.util.concurrency.DelayableExecutor;
+import com.android.systemui.volume.dagger.VolumeModule;
 
 import dagger.Binds;
 import dagger.Module;
@@ -207,6 +209,9 @@ public abstract class SystemUIEvolutionModule {
 
     @Binds
     abstract DozeHost provideDozeHost(DozeServiceHost dozeServiceHost);
+
+    @Binds
+    abstract ThemeOverlayController provideThemeOverlayController(ThemeOverlayControllerEvolution themeOverlayController);
 
     // Google
     @Provides

@@ -123,6 +123,8 @@ android_library {
         "lottie",
         "vendor.lineage.powershare-V1.0-java",
         "faceunlock_framework",
+        "colorkt",
+        "themelib",
         "backgesture-google",
         "smartspace-google",
         "tensorflowlite_java",
