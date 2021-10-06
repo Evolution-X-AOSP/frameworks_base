@@ -22,6 +22,12 @@
     <!-- Udfps HBM provider class name -->
     <string name="config_udfpsHbmProviderComponent">com.android.systemui.biometrics.DummyUdfpsHbmProvider</string>
 
+    <!-- HBM type of UDFPS overlay.
+            0 - GLOBAL HBM
+            1 - LOCAL HBM
+    -->
+    <integer name="config_udfpsHbmType">1</integer>
+
     <!-- Udfps vendor code -->
     <integer name="config_udfps_vendor_code">22</integer>
 
