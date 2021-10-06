@@ -28,6 +28,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.database.ContentObserver;
 import android.graphics.Point;
 import android.hardware.biometrics.BiometricFingerprintConstants;
 import android.hardware.display.ColorDisplayManager;
@@ -39,8 +40,10 @@ import android.os.Handler;
 import android.os.PowerManager;
 import android.os.Process;
 import android.os.Trace;
+import android.os.UserHandle;
 import android.os.VibrationAttributes;
 import android.os.VibrationEffect;
+import android.provider.Settings;
 import android.util.Log;
 import android.util.RotationUtils;
 import android.view.LayoutInflater;
@@ -75,6 +78,8 @@ import com.android.systemui.util.concurrency.DelayableExecutor;
 import com.android.systemui.util.concurrency.Execution;
 import com.android.systemui.util.time.SystemClock;
 
+import com.android.systemui.R;
+
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -103,6 +108,8 @@ public class UdfpsController implements DozeReceiver {
 
     // Minimum required delay between consecutive touch logs in milliseconds.
     private static final long MIN_TOUCH_LOG_INTERVAL = 50;
+
+    private static final String PULSE_ACTION = "com.android.systemui.doze.pulse";
 
     private final Context mContext;
     private final Execution mExecution;
@@ -167,6 +174,8 @@ public class UdfpsController implements DozeReceiver {
     private boolean mOnFingerDown;
     private boolean mAttemptedToDismissKeyguard;
     private final Set<Callback> mCallbacks = new HashSet<>();
+    private final int mUdfpsVendorCode;
+    private boolean mScreenOffUdfpsEnabled;
 
     private boolean mDisableNightMode;
     private boolean mNightModeActive;
@@ -258,6 +267,15 @@ public class UdfpsController implements DozeReceiver {
                         mOverlay.onAcquiredGood();
                     }
                 });
+            }
+        }
+
+        @Override
+        public void onAcquiredVendor(int sensorId, int vendorCode) {
+            if (vendorCode == mUdfpsVendorCode && mStatusBarStateController.isDozing()
+                    && (mScreenOffUdfpsEnabled || mScreenOn)) {
+                mContext.sendBroadcastAsUser(
+                        new Intent(PULSE_ACTION), new UserHandle(UserHandle.USER_CURRENT));
             }
         }
 
@@ -676,6 +694,20 @@ public class UdfpsController implements DozeReceiver {
         udfpsHapticsSimulator.setUdfpsController(this);
         udfpsShell.setUdfpsOverlayController(mUdfpsOverlayController);
         mDisableNightMode = UdfpsUtils.hasUdfpsSupport(mContext);
+
+        mUdfpsVendorCode = context.getResources().getInteger(R.integer.config_udfpsVendorCode);
+        context.getContentResolver().registerContentObserver(
+                Settings.Secure.getUriFor(Settings.Secure.SCREEN_OFF_UDFPS_ENABLED), false,
+                new ContentObserver(mainHandler) {
+                    @Override
+                    public void onChange(boolean selfChange) {
+                        mScreenOffUdfpsEnabled =
+                                Settings.Secure.getIntForUser(mContext.getContentResolver(),
+                                        Settings.Secure.SCREEN_OFF_UDFPS_ENABLED, 0,
+                                        KeyguardUpdateMonitor.getCurrentUser())
+                                != 0;
+                    }
+                });
     }
 
     private void disableNightMode() {

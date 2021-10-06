@@ -23,6 +23,7 @@ import android.content.Context;
 import android.hardware.biometrics.BiometricAuthenticator;
 import android.hardware.biometrics.BiometricConstants;
 import android.hardware.biometrics.BiometricFingerprintConstants;
+import android.hardware.biometrics.BiometricFingerprintConstants.FingerprintAcquired;
 import android.hardware.biometrics.fingerprint.V2_1.IBiometricsFingerprint;
 import android.hardware.fingerprint.FingerprintSensorPropertiesInternal;
 import android.hardware.fingerprint.ISidefpsController;
@@ -138,6 +139,15 @@ class FingerprintAuthenticationClient extends AuthenticationClient<IBiometricsFi
                 cancel();
             }
         }
+    }
+
+    @Override
+    public void onAcquired(@FingerprintAcquired int acquiredInfo, int vendorCode) {
+        if (acquiredInfo == BiometricFingerprintConstants.FINGERPRINT_ACQUIRED_VENDOR) {
+            mSensorOverlays.ifUdfps(
+                    controller -> controller.onAcquiredVendor(getSensorId(), vendorCode));
+        }
+        super.onAcquired(acquiredInfo, vendorCode);
     }
 
     @Override
