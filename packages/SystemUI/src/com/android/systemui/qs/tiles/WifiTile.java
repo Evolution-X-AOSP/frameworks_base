@@ -54,11 +54,12 @@ import com.android.systemui.statusbar.connectivity.NetworkController;
 import com.android.systemui.statusbar.connectivity.SignalCallback;
 import com.android.systemui.statusbar.connectivity.WifiIcons;
 import com.android.systemui.statusbar.connectivity.WifiIndicators;
+import com.android.systemui.statusbar.policy.KeyguardStateController;
 
 import javax.inject.Inject;
 
 /** Quick settings tile: Wifi **/
-public class WifiTile extends QSTileImpl<SignalState> {
+public class WifiTile extends SecureQSTile<SignalState> {
 
     public static final String TILE_SPEC = "wifi";
 
@@ -83,10 +84,11 @@ public class WifiTile extends QSTileImpl<SignalState> {
             ActivityStarter activityStarter,
             QSLogger qsLogger,
             NetworkController networkController,
-            AccessPointController accessPointController
+            AccessPointController accessPointController,
+            KeyguardStateController keyguardStateController
     ) {
         super(host, uiEventLogger, backgroundLooper, mainHandler, falsingManager, metricsLogger,
-                statusBarStateController, activityStarter, qsLogger);
+                statusBarStateController, activityStarter, qsLogger, keyguardStateController);
         mController = networkController;
         mWifiController = accessPointController;
         mController.observe(getLifecycle(), mSignalCallback);
@@ -109,7 +111,11 @@ public class WifiTile extends QSTileImpl<SignalState> {
     }
 
     @Override
-    protected void handleClick(@Nullable View view) {
+    protected void handleClick(@Nullable View view, boolean keyguardShowing) {
+        if (checkKeyguard(view, keyguardShowing)) {
+            return;
+        }
+
         // Secondary clicks are header clicks, just toggle.
         mState.copyTo(mStateBeforeClick);
         boolean wifiEnabled = mState.value;
