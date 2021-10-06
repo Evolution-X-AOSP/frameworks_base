@@ -99,6 +99,8 @@ android_library {
         "lottie",
         "tensorflowlite_java",
         "SystemUIGoogle-lib",
+        "colorkt",
+        "themelib",
     ],
     manifest: "AndroidManifest.xml",
 
