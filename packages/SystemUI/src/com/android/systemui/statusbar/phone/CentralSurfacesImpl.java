@@ -3091,6 +3091,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
             getNotificationShadeWindowViewController().cancelCurrentTouch();
 
             mBurnInProtectionController.stopShiftTimer();
+
             if (mLaunchCameraOnFinishedGoingToSleep) {
                 mLaunchCameraOnFinishedGoingToSleep = false;
 

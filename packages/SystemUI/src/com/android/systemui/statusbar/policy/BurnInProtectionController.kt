@@ -20,9 +20,11 @@ package com.android.systemui.statusbar.policy
 import android.content.Context
 import android.util.Log
 
+import com.android.internal.policy.SystemBarUtils
+
 import com.android.systemui.R
 import com.android.systemui.dagger.SysUISingleton
-import com.android.systemui.doze.util.getBurnInOffset
+import com.android.systemui.doze.util.zigzag
 import com.android.systemui.navigationbar.NavigationBarView
 import com.android.systemui.navigationbar.NavigationModeController
 import com.android.systemui.shared.system.QuickStepContract.isGesturalMode
@@ -40,9 +42,6 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
-private const val BURN_IN_PREVENTION_PERIOD = 83f
-private const val UPDATE_INTERVAL = 1000 * 10L
-
 private val TAG = BurnInProtectionController::class.simpleName
 
 @SysUISingleton
@@ -55,7 +54,11 @@ class BurnInProtectionController @Inject constructor(
 
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
 
-    private val shiftEnabled = context.resources.getBoolean(com.android.internal.R.bool.config_enableBurnInProtection)
+    private val shiftEnabled = context.resources.getBoolean(
+        R.bool.config_statusBarBurnInProtection)
+
+    private val shiftInterval = context.resources.getInteger(
+        R.integer.config_statusBarBurnInProtectionShiftInterval) * 1000L
 
     private var navigationMode: Int = navigationModeController.addListener(this)
 
@@ -63,11 +66,12 @@ class BurnInProtectionController @Inject constructor(
     private var phoneStatusBarView: PhoneStatusBarView? = null
 
     private var shiftJob: Job? = null
+    private var shiftCounter = 0
 
     private var maxStatusBarOffsetX = 0
     private var maxStatusBarOffsetY = 0
-    private var maxNavBarShiftX = 0
-    private var maxNavBarShiftY = 0
+    private var maxNavBarOffsetX = 0
+    private var maxNavBarOffsetY = 0
 
     private var statusBarOffset = Offset.Zero
     private var navBarOffset = Offset.Zero
@@ -84,9 +88,14 @@ class BurnInProtectionController @Inject constructor(
         with(context.resources) {
             maxStatusBarOffsetX = minOf(
                 getDimensionPixelSize(R.dimen.status_bar_padding_start),
-                getDimensionPixelSize(R.dimen.status_bar_padding_end)
+                getDimensionPixelSize(R.dimen.status_bar_padding_end),
+                getDimensionPixelSize(R.dimen.status_bar_offset_max_x)
             ) / 2
-            maxStatusBarOffsetY = getDimensionPixelSize(R.dimen.status_bar_offset_max_y) / 2
+            maxStatusBarOffsetY = minOf(
+                SystemBarUtils.getStatusBarHeight(context) -
+                getDimensionPixelSize(com.android.internal.R.dimen.status_bar_height_default),
+                getDimensionPixelSize(R.dimen.status_bar_offset_max_y)
+            ) / 2
         }
         calculateNavBarMaxOffset()
         logD {
@@ -96,12 +105,12 @@ class BurnInProtectionController @Inject constructor(
 
     private fun calculateNavBarMaxOffset() {
         with(context.resources) {
-            maxNavBarShiftX = if (isGesturalMode()) {
+            maxNavBarOffsetX = if (isGesturalMode()) {
                 0
             } else {
                 getDimensionPixelSize(R.dimen.floating_rotation_button_min_margin) / 4
             }
-            maxNavBarShiftY = if (isGesturalMode()) {
+            maxNavBarOffsetY = if (isGesturalMode()) {
                 getDimensionPixelSize(R.dimen.navigation_handle_bottom) / 3
             } else {
                 val frameHeight = getDimensionPixelSize(R.dimen.navigation_bar_height)
@@ -110,7 +119,7 @@ class BurnInProtectionController @Inject constructor(
             }
         }
         logD {
-            "maxNavBarShiftX = $maxNavBarShiftX, maxNavBarShiftY = $maxNavBarShiftY"
+            "maxNavBarOffsetX = $maxNavBarOffsetX, maxNavBarOffsetY = $maxNavBarOffsetY"
         }
     }
 
@@ -127,24 +136,31 @@ class BurnInProtectionController @Inject constructor(
         shiftJob = coroutineScope.launch {
             while (isActive) {
                 val sbOffset = Offset(
-                    getBurnInOffsetX(maxStatusBarOffsetX),
-                    getBurnInOffsetY(maxStatusBarOffsetY)
+                    getBurnInOffset(maxStatusBarOffsetX),
+                    getBurnInOffset(maxStatusBarOffsetY)
                 )
-                val nbOffset = if (isGesturalMode()) {
-                    Offset(0, getBurnInOffsetY(maxNavBarShiftY))
-                } else {
-                    Offset(getBurnInOffsetX(maxNavBarShiftX), getBurnInOffsetY(maxNavBarShiftY))
-                }
+                val nbOffset = Offset(
+                    getBurnInOffset(maxNavBarOffsetX),
+                    getBurnInOffset(maxNavBarOffsetY)
+                )
                 logD {
                     "new offsets: sbOffset = $sbOffset, nbOffset = $nbOffset"
                 }
                 updateViews(sbOffset, nbOffset)
-                delay(UPDATE_INTERVAL)
+                delay(shiftInterval)
+                shiftCounter++
             }
         }
         logD {
             "Started shift job"
         }
+    }
+
+    private fun getBurnInOffset(maxOffset: Int): Int {
+        val amplitude = maxOffset.toFloat()
+        val period = amplitude * 2
+        val mult = if ((shiftCounter / period) % 2 == 0f) 1 else -1
+        return mult * Math.round(zigzag(shiftCounter.toFloat(), amplitude, period))
     }
 
     private fun updateViews(sbOffset: Offset, nbOffset: Offset) {
@@ -195,24 +211,6 @@ class BurnInProtectionController @Inject constructor(
     }
 
     private fun isGesturalMode() = isGesturalMode(navigationMode)
-}
-
-private fun getBurnInOffsetX(maxOffset: Int): Int {
-    return maxOffset - getBurnInOffset(
-        amplitude = maxOffset * 2,
-        xAxis = true,
-        periodX = BURN_IN_PREVENTION_PERIOD,
-        periodY = BURN_IN_PREVENTION_PERIOD
-    )
-}
-
-private fun getBurnInOffsetY(maxOffset: Int): Int {
-    return maxOffset - getBurnInOffset(
-        amplitude = maxOffset * 2,
-        xAxis = false,
-        periodX = BURN_IN_PREVENTION_PERIOD,
-        periodY = BURN_IN_PREVENTION_PERIOD
-    )
 }
 
 private inline fun logD(crossinline msg: () -> String) {
