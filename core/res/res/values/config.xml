@@ -1095,7 +1095,7 @@
             5 - Go to assistant (Settings.Secure.ASSISTANT)
             6 - Toggle torch on / off (if screen is off)
     -->
-    <integer name="config_longPressOnPowerBehavior">5</integer>
+    <integer name="config_longPressOnPowerBehavior">1</integer>
 
     <!-- The time in milliseconds after which a press on power button is considered "long". -->
     <integer name="config_longPressOnPowerDurationMs">500</integer>
@@ -1127,7 +1127,7 @@
             1 - Mute toggle
             2 - Global actions menu
     -->
-    <integer name="config_keyChordPowerVolumeUp">2</integer>
+    <integer name="config_keyChordPowerVolumeUp">1</integer>
 
     <!-- Allows activities to be launched on a long press on power during device setup. -->
     <bool name="config_allowStartActivityForLongPressOnPowerInSetup">false</bool>
