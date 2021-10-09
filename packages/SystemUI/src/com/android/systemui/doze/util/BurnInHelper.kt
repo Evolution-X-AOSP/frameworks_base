@@ -31,10 +31,18 @@ private const val BURN_IN_PREVENTION_PERIOD_PROGRESS = 89f
  * @param amplitude Maximum translation that will be interpolated.
  * @param xAxis If we're moving on X or Y.
  */
-fun getBurnInOffset(amplitude: Int, xAxis: Boolean): Int {
-    return zigzag(System.currentTimeMillis() / MILLIS_PER_MINUTES,
-            amplitude.toFloat(),
-            if (xAxis) BURN_IN_PREVENTION_PERIOD_X else BURN_IN_PREVENTION_PERIOD_Y).toInt()
+@JvmOverloads
+fun getBurnInOffset(
+    amplitude: Int,
+    xAxis: Boolean,
+    periodX: Float = BURN_IN_PREVENTION_PERIOD_X,
+    periodY: Float = BURN_IN_PREVENTION_PERIOD_Y
+): Int {
+    return zigzag(
+        System.currentTimeMillis() / MILLIS_PER_MINUTES,
+        amplitude.toFloat(),
+        if (xAxis) periodX else periodY
+    ).toInt()
 }
 
 /**
@@ -63,7 +71,7 @@ fun getBurnInScale(): Float {
  * @param amplitude maximum value of the function
  * @return a value between 0 and amplitude
  */
-private fun zigzag(x: Float, amplitude: Float, period: Float): Float {
+fun zigzag(x: Float, amplitude: Float, period: Float): Float {
     val xprime = x % period / (period / 2)
     val interpolationAmount = if (xprime <= 1) xprime else 2 - xprime
     return MathUtils.lerp(0f, amplitude, interpolationAmount)
