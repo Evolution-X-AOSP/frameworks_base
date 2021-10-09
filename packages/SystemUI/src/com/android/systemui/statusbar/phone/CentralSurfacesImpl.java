@@ -237,6 +237,7 @@ import com.android.systemui.statusbar.phone.dagger.StatusBarPhoneModule;
 import com.android.systemui.statusbar.phone.ongoingcall.OngoingCallController;
 import com.android.systemui.statusbar.policy.BatteryController;
 import com.android.systemui.statusbar.policy.BrightnessMirrorController;
+import com.android.systemui.statusbar.policy.BurnInProtectionController;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.ConfigurationController.ConfigurationListener;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
@@ -697,6 +698,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces,
     };
 
     private final SysUiState mSysUiState;
+    private final BurnInProtectionController mBurnInProtectionController;
 
     /**
      * Public constructor for CentralSurfaces.
@@ -802,7 +804,8 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces,
             Provider<FingerprintManager> fingerprintManager,
             SysUiState sysUiState,
             TunerService tunerService,
-            TaskHelper taskHelper
+            TaskHelper taskHelper,
+            BurnInProtectionController burnInProtectionController
     ) {
         mContext = context;
         mNotificationsController = notificationsController;
@@ -896,6 +899,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces,
         statusBarWindowStateController.addListener(this::onStatusBarWindowStateChanged);
 
         mScreenOffAnimationController = screenOffAnimationController;
+        mBurnInProtectionController = burnInProtectionController;
 
         mShadeExpansionStateManager.addExpansionListener(this::onPanelExpansionChanged);
         mShadeExpansionStateManager.addFullExpansionListener(this::onShadeExpansionFullyChanged);
@@ -928,6 +932,8 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces,
         wiredChargingRippleController.registerCallbacks();
 
         mLightRevealScrimViewModelLazy = lightRevealScrimViewModelLazy;
+
+        mBurnInProtectionController.setCentralSurfaces(this);
 
         // Based on teamfood flag, turn predictive back dispatch on at runtime.
         if (mFeatureFlags.isEnabled(Flags.WM_ENABLE_PREDICTIVE_BACK_SYSUI)) {
@@ -1276,6 +1282,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces,
                     mNotificationPanelViewController.updatePanelExpansionAndVisibility();
                     setBouncerShowingForStatusBarComponents(mBouncerShowing);
                     checkBarModes();
+                    mBurnInProtectionController.setPhoneStatusBarView(mStatusBarView);
                 });
         initializer.initializeStatusBar(mCentralSurfacesComponent);
 
@@ -3568,6 +3575,8 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces,
 
             updateNotificationPanelTouchState();
             mNotificationShadeWindowViewController.cancelCurrentTouch();
+
+            mBurnInProtectionController.stopShiftTimer();
             if (mLaunchCameraOnFinishedGoingToSleep) {
                 mLaunchCameraOnFinishedGoingToSleep = false;
 
@@ -3710,6 +3719,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces,
                 }
             }
             updateScrimController();
+            mBurnInProtectionController.startShiftTimer();
         }
     };
 
