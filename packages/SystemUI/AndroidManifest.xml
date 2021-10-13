@@ -367,7 +367,7 @@
         <service android:name="com.google.android.systemui.elmyra.ElmyraServiceProxy" android:permission="com.google.android.elmyra.permission.CONFIGURE_ASSIST_GESTURE" android:exported="true"/>
         <service android:name="com.google.android.systemui.columbus.ColumbusServiceProxy" android:permission="com.google.android.columbus.permission.CONFIGURE_COLUMBUS_GESTURE" android:exported="true"/>
         <service android:name="com.google.android.systemui.statusbar.NotificationVoiceReplyManagerService" android:exported="true"/>
-        <provider android:name="com.google.android.systemui.keyguard.KeyguardSliceProviderGoogle" android:enabled="true" android:exported="true" android:authorities="com.android.systemui.keyguard"/>
+        <provider android:name="com.google.android.systemui.keyguard.KeyguardSliceProviderGoogle" android:enabled="@bool/flag_smartspace" android:exported="true" android:authorities="com.android.systemui.keyguard"/>
         <activity android:theme="@style/GameMenuTheme" android:name="com.google.android.systemui.gamedashboard.GameMenuActivity" android:exported="false" android:excludeFromRecents="true" android:launchMode="singleTask" android:screenOrientation="behind" android:finishOnCloseSystemDialogs="true" android:showForAllUsers="true"/>
         <activity android:theme="@style/GameMenuTheme" android:name="com.google.android.systemui.gamedashboard.GameDndConfigActivity" android:exported="false" android:excludeFromRecents="true" android:launchMode="singleTask" android:screenOrientation="behind" android:finishOnCloseSystemDialogs="true" android:showForAllUsers="true"/>
 
@@ -926,11 +926,12 @@
                 android:resource="@xml/fileprovider" />
         </provider>
 
-        <!--provider android:name=".keyguard.KeyguardSliceProvider"
+        <provider android:name=".keyguard.KeyguardSliceProvider"
                   android:authorities="com.android.systemui.keyguard"
                   android:grantUriPermissions="true"
-                  android:exported="true">
-        </provider-->
+                  android:exported="true"
+                  android:enabled="@bool/enable_aosp_keyguard_slice_provider">
+        </provider>
 
         <!-- Provides list and realistic previews of clock faces for the picker app. -->
         <provider

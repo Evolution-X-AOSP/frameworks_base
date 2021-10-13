@@ -51,6 +51,7 @@
     <bool name="config_touch_context_enabled">false</bool>
     <bool name="config_nfc_conflict_with_usb_audio">false</bool>
     <bool name="config_nfc_conflict_with_wlc">false</bool>
+    <bool name="enable_aosp_keyguard_slice_provider">true</bool>
     <array name="config_nfc_conflict_with_usb_audio_productid" />
     <array name="config_nfc_conflict_with_usb_audio_vendorid" />
     <string name="config_dockComponent" />
