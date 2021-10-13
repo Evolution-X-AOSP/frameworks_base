@@ -100,6 +100,7 @@ public class KeyguardSimPinViewController
         mKeyguardUpdateMonitor = keyguardUpdateMonitor;
         mTelephonyManager = telephonyManager;
         mSimImageView = mView.findViewById(R.id.keyguard_sim);
+        mPasswordEntry.setQuickUnlockListener(null);
     }
 
     @Override
