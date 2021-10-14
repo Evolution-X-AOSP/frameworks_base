@@ -35,6 +35,7 @@ import static android.content.Intent.ACTION_PACKAGE_ADDED;
 import static android.content.Intent.ACTION_UID_REMOVED;
 import static android.content.Intent.ACTION_USER_ADDED;
 import static android.content.Intent.ACTION_USER_REMOVED;
+import static android.content.Intent.EXTRA_REPLACING;
 import static android.content.Intent.EXTRA_UID;
 import static android.content.pm.PackageManager.MATCH_ANY_USER;
 import static android.content.pm.PackageManager.MATCH_DIRECT_BOOT_AWARE;
@@ -164,6 +165,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageManager;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.PackageManagerInternal;
@@ -296,6 +298,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
 import java.util.function.IntConsumer;
+import java.util.stream.Collectors;
 
 /**
  * Service that maintains low-level network policy rules, using
@@ -1207,12 +1210,25 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             final int uid = intent.getIntExtra(EXTRA_UID, -1);
             if (uid == -1) return;
 
+            if (intent.getBooleanExtra(EXTRA_REPLACING, false)) {
+                if (LOGV) Slog.v(TAG, "ACTION_PACKAGE_ADDED Not new app, skip it uid=" + uid);
+                return;
+            }
+
             if (ACTION_PACKAGE_ADDED.equals(action)) {
                 // update rules for UID, since it might be subject to
                 // global background data policy
-                if (LOGV) Slog.v(TAG, "ACTION_PACKAGE_ADDED for uid=" + uid);
                 // Clear the cache for the app
                 synchronized (mUidRulesFirstLock) {
+                    if (hasInternetPermissionUL(uid)) {
+                        Slog.i(TAG, "ACTION_PACKAGE_ADDED for uid=" + uid);
+                        Set<Integer> uids =
+                                ConnectivitySettingsManager.getUidsAllowedOnRestrictedNetworks(
+                                        context);
+                        uids.add(uid);
+                        ConnectivitySettingsManager.setUidsAllowedOnRestrictedNetworks(context,
+                                uids);
+                    }
                     mInternetPermissionMap.delete(uid);
                     updateRestrictionRulesForUidUL(uid);
                 }
@@ -1229,7 +1245,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             if (uid == -1) return;
 
             // remove any policy and update rules to clean up
-            if (LOGV) Slog.v(TAG, "ACTION_UID_REMOVED for uid=" + uid);
+            Slog.i(TAG, "ACTION_UID_REMOVED for uid=" + uid);
             synchronized (mUidRulesFirstLock) {
                 onUidDeletedUL(uid);
                 synchronized (mNetworkPoliciesSecondLock) {
@@ -1259,10 +1275,28 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                         // Removing outside removeUserStateUL since that can also be called when
                         // user resets app preferences.
                         mMeteredRestrictedUids.remove(userId);
+                        Set<Integer> uids =
+                                ConnectivitySettingsManager.getUidsAllowedOnRestrictedNetworks(
+                                        mContext);
                         if (action == ACTION_USER_ADDED) {
                             // Add apps that are allowed by default.
                             addDefaultRestrictBackgroundAllowlistUidsUL(userId);
+                            try {
+                                List<PackageInfo> packages = mIPm.getPackagesHoldingPermissions(
+                                        new String[]{Manifest.permission.INTERNET},
+                                        0, userId).getList();
+                                uids.addAll(packages.stream().map(packageInfo ->
+                                        packageInfo.applicationInfo.uid)
+                                                .collect(Collectors.toSet()));
+                            } catch (RemoteException ignored) {
+                            }
+                        } else {
+                            uids.removeAll(uids.stream().filter(uid ->
+                                    UserHandle.getUserId(uid) == userId)
+                                    .collect(Collectors.toSet()));
                         }
+                        ConnectivitySettingsManager.setUidsAllowedOnRestrictedNetworks(mContext,
+                                uids);
                         // Update global restrict for that user
                         synchronized (mNetworkPoliciesSecondLock) {
                             updateRulesForGlobalChangeAL(true);
