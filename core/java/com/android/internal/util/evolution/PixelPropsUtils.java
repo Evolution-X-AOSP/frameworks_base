@@ -29,9 +29,8 @@ public class PixelPropsUtils {
     private static final boolean DEBUG = false;
 
     private static final Map<String, Object> propsToChangePixelXL;
-    private static final Map<String, Object> propsToChangePixel2;
     private static final Map<String, Object> propsToChangePixel3XL;
-    private static final Map<String, Object> propsToChangePixel5a;
+    private static final Map<String, Object> propsToChangePixel5;
     private static final Map<String, Object> propsToChangeOnePlus9Pro;
 
     private static final String[] packagesToChangePixelXL = {
@@ -48,26 +47,31 @@ public class PixelPropsUtils {
             "com.samsung.android.waterplugin"
     };
 
-    private static final String[] packagesToChangePixel2 = {
-            "com.google.android.gms",
-            "com.google.android.gms.location.history"
-    };
-
     private static final String[] packagesToChangePixel3XL = {
             "com.google.android.googlequicksearchbox"
     };
 
-    private static final String[] packagesToChangePixel5a = {
+    private static final String[] packagesToChangePixel5 = {
+            "com.android.chrome",
             "com.breel.wallpapers20",
             "com.google.android.apps.customization.pixel",
+            "com.google.android.apps.googleassistant",
             "com.google.android.apps.maps",
+            "com.google.android.apps.messaging",
+            "com.google.android.apps.nbu.files",
+            "com.google.android.apps.podcasts",
             "com.google.android.apps.safetyhub",
             "com.google.android.apps.subscriptions.red",
             "com.google.android.apps.turbo",
             "com.google.android.apps.turboadapter",
             "com.google.android.apps.wallpaper",
             "com.google.android.apps.wallpaper.pixel",
+            "com.google.android.apps.youtube.music",
             "com.google.android.as",
+            "com.google.android.contacts",
+            "com.google.android.deskclock",
+            "com.google.android.gms",
+            "com.google.android.gms.location.history",
             "com.google.android.inputmethod.latin",
             "com.google.pixel.dynamicwallpapers",
             "com.google.pixel.livewallpaper"
@@ -84,34 +88,35 @@ public class PixelPropsUtils {
         propsToChangePixelXL.put("DEVICE", "marlin");
         propsToChangePixelXL.put("PRODUCT", "marlin");
         propsToChangePixelXL.put("MODEL", "Pixel XL");
+        propsToChangePixelXL.put("ID", "QP1A.191005.007.A3");
+        propsToChangePixelXL.put("SECURITY_PATCH", "2019-10-05");
         propsToChangePixelXL.put("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys");
-        propsToChangePixel2 = new HashMap<>();
-        propsToChangePixel2.put("BRAND", "google");
-        propsToChangePixel2.put("MANUFACTURER", "Google");
-        propsToChangePixel2.put("DEVICE", "walleye");
-        propsToChangePixel2.put("PRODUCT", "walleye");
-        propsToChangePixel2.put("MODEL", "Pixel 2");
-        propsToChangePixel2.put("FINGERPRINT", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
         propsToChangePixel3XL = new HashMap<>();
         propsToChangePixel3XL.put("BRAND", "google");
         propsToChangePixel3XL.put("MANUFACTURER", "Google");
         propsToChangePixel3XL.put("DEVICE", "crosshatch");
         propsToChangePixel3XL.put("PRODUCT", "crosshatch");
         propsToChangePixel3XL.put("MODEL", "Pixel 3 XL");
-        propsToChangePixel3XL.put("FINGERPRINT", "google/crosshatch/crosshatch:11/RQ3A.210905.001/7511028:user/release-keys");
-        propsToChangePixel5a = new HashMap<>();
-        propsToChangePixel5a.put("BRAND", "google");
-        propsToChangePixel5a.put("MANUFACTURER", "Google");
-        propsToChangePixel5a.put("DEVICE", "barbet");
-        propsToChangePixel5a.put("PRODUCT", "barbet");
-        propsToChangePixel5a.put("MODEL", "Pixel 5a");
-        propsToChangePixel5a.put("FINGERPRINT", "google/barbet/barbet:11/RD2A.210905.002/7513089:user/release-keys");
+        propsToChangePixel3XL.put("ID", "RQ3A.211001.001");
+        propsToChangePixel3XL.put("SECURITY_PATCH", "2021-10-01");
+        propsToChangePixel3XL.put("FINGERPRINT", "google/crosshatch/crosshatch:11/RQ3A.211001.001/7641976:user/release-keys");
+        propsToChangePixel5 = new HashMap<>();
+        propsToChangePixel5.put("BRAND", "google");
+        propsToChangePixel5.put("MANUFACTURER", "Google");
+        propsToChangePixel5.put("DEVICE", "redfin");
+        propsToChangePixel5.put("PRODUCT", "redfin");
+        propsToChangePixel5.put("MODEL", "Pixel 5");
+        propsToChangePixel5.put("ID", "RQ3A.211001.001");
+        propsToChangePixel5.put("SECURITY_PATCH", "2021-10-01");
+        propsToChangePixel5.put("FINGERPRINT", "google/redfin/redfin:11/RQ3A.211001.001/7641976:user/release-keys");
         propsToChangeOnePlus9Pro = new HashMap<>();
         propsToChangeOnePlus9Pro.put("BRAND", "OnePlus");
         propsToChangeOnePlus9Pro.put("MANUFACTURER", "OnePlus");
         propsToChangeOnePlus9Pro.put("DEVICE", "OnePlus9Pro");
         propsToChangeOnePlus9Pro.put("PRODUCT", "OnePlus9Pro_EEA");
         propsToChangeOnePlus9Pro.put("MODEL", "LE2123");
+        propsToChangeOnePlus9Pro.put("ID", "RKQ1.201105.002");
+        propsToChangeOnePlus9Pro.put("SECURITY_PATCH", "2020-11-05");
         propsToChangeOnePlus9Pro.put("FINGERPRINT", "OnePlus/OnePlus9Pro_EEA/OnePlus9Pro:11/RKQ1.201105.002/2107082109:user/release-keys");
     }
 
@@ -129,16 +134,6 @@ public class PixelPropsUtils {
                 setPropValue(key, value);
             }
         }
-        if (Arrays.asList(packagesToChangePixel2).contains(packageName)){
-            if (DEBUG){
-                Log.d(TAG, "Defining props for: " + packageName);
-            }
-            for (Map.Entry<String, Object> prop : propsToChangePixel2.entrySet()) {
-                String key = prop.getKey();
-                Object value = prop.getValue();
-                setPropValue(key, value);
-            }
-        }
         if (Arrays.asList(packagesToChangePixel3XL).contains(packageName)){
             if (DEBUG){
                 Log.d(TAG, "Defining props for: " + packageName);
@@ -149,11 +144,11 @@ public class PixelPropsUtils {
                 setPropValue(key, value);
             }
         }
-        if (Arrays.asList(packagesToChangePixel5a).contains(packageName)){
+        if (Arrays.asList(packagesToChangePixel5).contains(packageName)){
             if (DEBUG){
                 Log.d(TAG, "Defining props for: " + packageName);
             }
-            for (Map.Entry<String, Object> prop : propsToChangePixel5a.entrySet()) {
+            for (Map.Entry<String, Object> prop : propsToChangePixel5.entrySet()) {
                 String key = prop.getKey();
                 Object value = prop.getValue();
                 setPropValue(key, value);
