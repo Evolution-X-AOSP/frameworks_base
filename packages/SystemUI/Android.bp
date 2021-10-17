@@ -214,6 +214,10 @@ android_app {
     use_embedded_native_libs: true,
     resource_dirs: [],
     asset_dirs: ["assets"],
+    aaptflags: [
+        "-0 .tflite",
+        "-0 .vocab",
+    ],
 
     platform_apis: true,
     system_ext_specific: true,
