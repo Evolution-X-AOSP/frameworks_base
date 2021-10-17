@@ -49,6 +49,7 @@ public class PixelPropsUtils {
             "com.google.android.apps.podcasts",
             "com.google.android.apps.nbu.files",
             "com.google.android.contacts",
+            "com.google.android.calculator",
             "com.google.android.apps.messaging",
             "com.google.android.gm",
             "com.google.android.gms.location.history",
