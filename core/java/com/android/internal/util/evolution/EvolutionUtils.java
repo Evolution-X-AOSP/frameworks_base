@@ -21,6 +21,8 @@ import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
 import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
 
 public class EvolutionUtils {
 
@@ -49,6 +51,15 @@ public class EvolutionUtils {
     public static boolean isWifiOnly(Context context) {
         ConnectivityManager cm = (ConnectivityManager)context.getSystemService(
                 Context.CONNECTIVITY_SERVICE);
-        return (cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE) == false);
+        Network[] networks = cm.getAllNetworks();
+
+        for (Network network : networks) {
+            NetworkCapabilities netCaps = cm.getNetworkCapabilities(network);
+            if (netCaps.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
