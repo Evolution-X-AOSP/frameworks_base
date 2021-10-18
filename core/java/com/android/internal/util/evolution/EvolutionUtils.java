@@ -82,16 +82,7 @@ public class EvolutionUtils {
     }
 
     public static boolean isWifiOnly(Context context) {
-        ConnectivityManager cm = (ConnectivityManager)context.getSystemService(
-                Context.CONNECTIVITY_SERVICE);
-        Network[] networks = cm.getAllNetworks();
-        for (int i = 0; i < networks.length; i++) {
-            NetworkCapabilities caps = cm.getNetworkCapabilities(networks[i]);
-            if (caps.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
-                return false;
-            }
-        }
-        return true;
+        return !context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
     }
 
     // Check to see if Wifi is connected
