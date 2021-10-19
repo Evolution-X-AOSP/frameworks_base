@@ -930,7 +930,7 @@
                   android:authorities="com.android.systemui.keyguard"
                   android:grantUriPermissions="true"
                   android:exported="true"
-                  android:enabled="@bool/enable_aosp_keyguard_slice_provider">
+                  android:enabled="false">
         </provider>
 
         <!-- Provides list and realistic previews of clock faces for the picker app. -->
