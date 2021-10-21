@@ -388,7 +388,7 @@
 
         <activity android:name=".tuner.TunerActivity"
                   android:icon="@drawable/tuner"
-                  android:theme="@style/TunerSettings"
+                  android:theme="@style/Theme.SubSettingsBase"
                   android:label="@string/system_ui_tuner"
                   android:process=":tuner"
                   android:exported="true">
@@ -415,8 +415,8 @@
         </activity-alias>
 
         <activity android:name=".tuner.StatusbarItemsActivity"
-                  android:theme="@style/ExTunerSettings"
                   android:label="@string/statusbar_items_title"
+                  android:theme="@style/Theme.SubSettingsBase"
                   android:process=":tuner"
                   android:parentActivityName="com.evolution.settings.fragments.StatusbarSettings"
                   android:exported="true">
