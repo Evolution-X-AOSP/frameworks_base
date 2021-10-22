@@ -293,10 +293,16 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
                 UserHandle.USER_CURRENT) == 1);
     }
 
-    public void vibrateTile(int duration) {
+    public int getVibrationDuration() {
+        return Settings.Secure.getIntForUser(mContext.getContentResolver(),
+               Settings.Secure.QUICK_SETTINGS_TILES_VIBRATE_DURATION, 45,
+               UserHandle.USER_CURRENT);
+    }
+
+    public void vibrateTile() {
         if (!isVibrationEnabled()) { return; }
         if (mVibrator != null) {
-            if (mVibrator.hasVibrator()) { mVibrator.vibrate(duration); }
+            if (mVibrator.hasVibrator()) { mVibrator.vibrate(getVibrationDuration()); }
         }
     }
 
@@ -324,7 +330,7 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
         if (!mFalsingManager.isFalseTap(FalsingManager.LOW_PENALTY)) {
             mHandler.obtainMessage(H.CLICK, eventId, 0, view).sendToTarget();
         }
-        vibrateTile(45);
+        vibrateTile();
     }
 
     public void secondaryClick(@Nullable View view) {
@@ -350,7 +356,7 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
         mQSLogger.logTileLongClick(mTileSpec, mStatusBarStateController.getState(), mState.state,
                 eventId);
         mHandler.obtainMessage(H.LONG_CLICK, eventId, 0, view).sendToTarget();
-        vibrateTile(45);
+        vibrateTile();
     }
 
     public LogMaker populate(LogMaker logMaker) {
