@@ -43,7 +43,10 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.android.systemui.Dependency;
 import com.android.systemui.R;
+import com.android.systemui.plugins.DarkIconDispatcher;
+import com.android.systemui.plugins.DarkIconDispatcher.DarkReceiver;
 
 /*
 *
@@ -51,7 +54,7 @@ import com.android.systemui.R;
 * to only use it for a single boolean. 32-bits is plenty of room for what we need it to do.
 *
 */
-public class NetworkTraffic extends TextView {
+public class NetworkTraffic extends TextView implements DarkReceiver {
 
     private static final int INTERVAL = 1500; //ms
     private static final int BOTH = 0;
@@ -301,6 +304,7 @@ public class NetworkTraffic extends TextView {
             filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
             mContext.registerReceiver(mIntentReceiver, filter, null, getHandler());
         }
+        Dependency.get(DarkIconDispatcher.class).addDarkReceiver(this);
         updateSettings();
     }
 
@@ -312,6 +316,7 @@ public class NetworkTraffic extends TextView {
             mContext.unregisterReceiver(mIntentReceiver);
             mAttached = false;
         }
+        Dependency.get(DarkIconDispatcher.class).removeDarkReceiver(this);
     }
 
     private final BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
@@ -461,6 +466,13 @@ public class NetworkTraffic extends TextView {
         setTextSize(TypedValue.COMPLEX_UNIT_PX, (float)txtSize);
         setCompoundDrawablePadding(txtImgPadding);
         updateTextSize();
+    }
+
+    @Override
+    public void onDarkChanged(Rect area, float darkIntensity, int tint) {
+        mTintColor = DarkIconDispatcher.getTint(area, this, tint);
+        setTextColor(mTintColor);
+        updateTrafficDrawable();
     }
 }
 
