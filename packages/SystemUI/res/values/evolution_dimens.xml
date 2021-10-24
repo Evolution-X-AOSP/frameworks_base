@@ -70,4 +70,7 @@
     <dimen name="alertslider_dialog_minwidth">108dp</dimen>
     <dimen name="alertslider_padding">15dp</dimen>
 
+    <!-- QQS Brightness slider -->
+    <dimen name="quick_qs_brightness_margin_top">24dp</dimen>
+
 </resources>
