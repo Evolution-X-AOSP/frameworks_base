@@ -7437,7 +7437,7 @@ message MetricsEvent {
     // END OF AOSP CONSTANTS
 
     // EVOLUTION X Metrics
-    EVOLUTION = 2772;
+    EVO = 2772;
     EVOLVER = 2773;
     EVO_SETTINGS = 2774;
     EVO_QS_TILES = 2775;
