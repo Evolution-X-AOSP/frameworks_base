@@ -109,6 +109,10 @@ public abstract class HeadsUpManager extends AlertingNotificationManager {
             @Override
             public void onChange(boolean selfChange) {
                 mSnoozedPackages.clear();
+                mSnoozeLengthMs = Settings.System.getIntForUser(context.getContentResolver(),
+                        Settings.System.HEADS_UP_NOTIFICATION_SNOOZE,
+                        context.getResources().getInteger(R.integer.heads_up_default_snooze_length_ms),
+                        UserHandle.USER_CURRENT);
             }
         };
         context.getContentResolver().registerContentObserver(
