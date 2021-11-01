@@ -860,6 +860,14 @@ public class DisplayDeviceConfig {
         return mBrightnessDefault;
     }
 
+    public float getBacklightMin() {
+        return mBacklightMinimum;
+    }
+
+    public float getBacklightMax() {
+        return mBacklightMaximum;
+    }
+
     public float getBrightnessRampFastDecrease() {
         return mBrightnessRampFastDecrease;
     }
@@ -2065,7 +2073,7 @@ public class DisplayDeviceConfig {
         for (int i = 0; i < mBrightness.length; i++) {
             mBrightness[i] = MathUtils.map(mBacklight[0],
                     mBacklight[mBacklight.length - 1],
-                    PowerManager.BRIGHTNESS_MIN, PowerManager.BRIGHTNESS_MAX, mBacklight[i]);
+                    mBacklightMinimum, mBacklightMaximum, mBacklight[i]);
         }
         mBrightnessToBacklightSpline = mInterpolationType == INTERPOLATION_LINEAR
                 ? Spline.createLinearSpline(mBrightness, mBacklight)
