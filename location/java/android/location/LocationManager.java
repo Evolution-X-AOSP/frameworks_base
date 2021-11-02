@@ -40,7 +40,6 @@ import android.annotation.TestApi;
 import android.app.AppOpsManager;
 import android.app.PendingIntent;
 import android.app.PropertyInvalidatedCache;
-import android.app.compat.gms.GmsCompat;
 import android.compat.Compatibility;
 import android.compat.annotation.ChangeId;
 import android.compat.annotation.EnabledAfter;
@@ -535,10 +534,6 @@ public class LocationManager {
     @SystemApi
     @RequiresPermission(Manifest.permission.LOCATION_HARDWARE)
     public void setExtraLocationControllerPackageEnabled(boolean enabled) {
-        if (GmsCompat.isEnabled()) {
-            return;
-        }
-
         try {
             mService.setExtraLocationControllerPackageEnabled(enabled);
         } catch (RemoteException e) {

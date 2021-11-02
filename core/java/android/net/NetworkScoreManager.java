@@ -26,7 +26,6 @@ import android.annotation.SdkConstant;
 import android.annotation.SdkConstant.SdkConstantType;
 import android.annotation.SystemApi;
 import android.annotation.SystemService;
-import android.app.compat.gms.GmsCompat;
 import android.content.Context;
 import android.os.Binder;
 import android.os.RemoteException;
@@ -248,10 +247,6 @@ public class NetworkScoreManager {
     @RequiresPermission(anyOf = {android.Manifest.permission.SCORE_NETWORKS,
                                  android.Manifest.permission.REQUEST_NETWORK_SCORES})
     public String getActiveScorerPackage() {
-        if (GmsCompat.isEnabled()) {
-            return null;
-        }
-
         try {
             return mService.getActiveScorerPackage();
         } catch (RemoteException e) {
@@ -453,10 +448,6 @@ public class NetworkScoreManager {
     @RequiresPermission(android.Manifest.permission.REQUEST_NETWORK_SCORES)
     public void registerNetworkScoreCache(int networkType, INetworkScoreCache scoreCache,
             @ScoreUpdateFilter int filterType) {
-        if (GmsCompat.isEnabled()) {
-            return;
-        }
-
         try {
             mService.registerNetworkScoreCache(networkType, scoreCache, filterType);
         } catch (RemoteException e) {
@@ -476,10 +467,6 @@ public class NetworkScoreManager {
      */
     @RequiresPermission(android.Manifest.permission.REQUEST_NETWORK_SCORES)
     public void unregisterNetworkScoreCache(int networkType, INetworkScoreCache scoreCache) {
-        if (GmsCompat.isEnabled()) {
-            return;
-        }
-
         try {
             mService.unregisterNetworkScoreCache(networkType, scoreCache);
         } catch (RemoteException e) {

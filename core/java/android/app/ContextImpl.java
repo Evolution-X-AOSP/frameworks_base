@@ -25,7 +25,6 @@ import android.annotation.IntDef;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.annotation.UiContext;
-import android.app.compat.gms.GmsCompat;
 import android.compat.annotation.UnsupportedAppUsage;
 import android.content.AttributionSource;
 import android.content.AutofillOptions;
@@ -95,7 +94,6 @@ import android.window.WindowContext;
 import android.window.WindowTokenClient;
 
 import com.android.internal.annotations.GuardedBy;
-import com.android.internal.gmscompat.GmsHooks;
 import com.android.internal.util.Preconditions;
 
 import dalvik.system.BlockGuard;
@@ -1386,8 +1384,6 @@ class ContextImpl extends Context {
 
     @Override
     public void sendBroadcastAsUser(Intent intent, UserHandle user) {
-        user = GmsHooks.getUserHandle(user);
-
         String resolvedType = intent.resolveTypeIfNeeded(getContentResolver());
         try {
             intent.prepareToLeaveProcess(this);
@@ -1409,8 +1405,6 @@ class ContextImpl extends Context {
     @Override
     public void sendBroadcastAsUser(Intent intent, UserHandle user, String receiverPermission,
             Bundle options) {
-        user = GmsHooks.getUserHandle(user);
-
         String resolvedType = intent.resolveTypeIfNeeded(getContentResolver());
         String[] receiverPermissions = receiverPermission == null ? null
                 : new String[] {receiverPermission};
@@ -1429,8 +1423,6 @@ class ContextImpl extends Context {
     @Override
     public void sendBroadcastAsUser(Intent intent, UserHandle user,
             String receiverPermission, int appOp) {
-        user = GmsHooks.getUserHandle(user);
-
         String resolvedType = intent.resolveTypeIfNeeded(getContentResolver());
         String[] receiverPermissions = receiverPermission == null ? null
                 : new String[] {receiverPermission};
@@ -1465,8 +1457,6 @@ class ContextImpl extends Context {
     public void sendOrderedBroadcastAsUser(Intent intent, UserHandle user,
             String receiverPermission, int appOp, Bundle options, BroadcastReceiver resultReceiver,
             Handler scheduler, int initialCode, String initialData, Bundle initialExtras) {
-        user = GmsHooks.getUserHandle(user);
-
         IIntentReceiver rd = null;
         if (resultReceiver != null) {
             if (mPackageInfo != null) {
@@ -1823,10 +1813,6 @@ class ContextImpl extends Context {
 
     @Override
     public ComponentName startService(Intent service) {
-        if (GmsCompat.isEnabled()) {
-            return GmsHooks.startService(this, service);
-        }
-
         warnIfCallingFromSystemProcess();
         return startServiceCommon(service, false, mUser);
     }
