@@ -250,7 +250,9 @@ public final class BatteryService extends SystemService {
         mHasWarpCharger = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_hasWarpCharger);
         mHasVoocCharger = mContext.getResources().getBoolean(
-                com.android.internal.R.bool.config_hasVoocCharger);
+                com.android.internal.R.bool.config_hasVoocCharger)
+                || mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_hasSuperDartCharger);
         mHasTurboPower = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_hasTurboPowerCharger);
 
