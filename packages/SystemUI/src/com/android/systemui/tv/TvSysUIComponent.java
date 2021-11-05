@@ -22,7 +22,6 @@ import com.android.systemui.dagger.SysUIComponent;
 import com.android.systemui.dagger.SysUISingleton;
 import com.android.systemui.dagger.SystemUIBinder;
 import com.android.systemui.dagger.SystemUIModule;
-import com.google.android.systemui.SystemUIGoogleModule;
 
 import dagger.Subcomponent;
 
@@ -36,7 +35,6 @@ import dagger.Subcomponent;
         SystemUIBinder.class,
         SystemUIModule.class,
         TvSystemUIModule.class,
-        SystemUIGoogleModule.class,
         TvSystemUIBinder.class})
 public interface TvSysUIComponent extends SysUIComponent {
 
