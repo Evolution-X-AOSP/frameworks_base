@@ -254,8 +254,8 @@ public class ToastPresenter {
                 horizontalMargin, verticalMargin, removeWindowAnimations);
 
         ImageView appIcon = (ImageView) mView.findViewById(android.R.id.icon);
-        if ((Settings.System.getInt(mContext.getContentResolver(), Settings.System.TOAST_ICON, 1) == 1)) {
-            if (appIcon != null) {
+        if (appIcon != null) {
+            if ((Settings.System.getInt(mContext.getContentResolver(), Settings.System.TOAST_ICON, 1) == 1)) {
                 PackageManager pm = mContext.getPackageManager();
                 Drawable icon = null;
                 try {
@@ -264,6 +264,8 @@ public class ToastPresenter {
                     // nothing to do
                 }
                 appIcon.setImageDrawable(icon);
+            } else {
+                appIcon.setVisibility(View.GONE);
             }
         }
 
