@@ -655,7 +655,9 @@ public class UdfpsController implements DozeReceiver, UdfpsHbmProvider {
      */
     @VisibleForTesting
     public void playStartHaptic() {
-        if (mVibrator != null) {
+        boolean vibrate = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.UDFPS_HAPTIC_FEEDBACK, 1) == 1;
+        if (mVibrator != null && vibrate) {
             mVibrator.vibrate(
                     Process.myUid(),
                     mContext.getOpPackageName(),
