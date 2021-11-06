@@ -40,6 +40,7 @@ import android.os.Process;
 import android.os.Trace;
 import android.os.VibrationAttributes;
 import android.os.VibrationEffect;
+import android.provider.Settings;
 import android.util.Log;
 import android.util.RotationUtils;
 import android.view.LayoutInflater;
@@ -679,7 +680,9 @@ public class UdfpsController implements DozeReceiver {
      */
     @VisibleForTesting
     public void playStartHaptic() {
-        if (mAccessibilityManager.isTouchExplorationEnabled()) {
+        boolean vibrate = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.UDFPS_HAPTIC_FEEDBACK, 1) == 1;
+        if (mAccessibilityManager.isTouchExplorationEnabled() && vibrate) {
             mVibrator.vibrate(
                     Process.myUid(),
                     mContext.getOpPackageName(),
