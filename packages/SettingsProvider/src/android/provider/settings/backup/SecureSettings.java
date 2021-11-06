@@ -219,5 +219,6 @@ public class SecureSettings {
         Settings.Secure.QUICK_SETTINGS_TILES_ANIM_DURATION,
         Settings.Secure.QUICK_SETTINGS_TILES_ANIM_INTERPOLATOR,
         Settings.Secure.SHOW_WIFI_STANDARD_ICON,
+        Settings.Secure.DISABLE_SECURE_TILES_ON_LOCKSCREEN,
     };
 }
