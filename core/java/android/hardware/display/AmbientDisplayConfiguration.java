@@ -18,6 +18,9 @@ package android.hardware.display;
 
 import android.annotation.TestApi;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.BatteryManager;
 import android.os.Build;
 import android.os.SystemProperties;
 import android.provider.Settings;
@@ -32,6 +35,8 @@ import com.android.internal.R;
  */
 @TestApi
 public class AmbientDisplayConfiguration {
+
+    private static final IntentFilter sIntentFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
 
     private final Context mContext;
     private final boolean mAlwaysOnByDefault;
@@ -191,9 +196,10 @@ public class AmbientDisplayConfiguration {
         final boolean dozeOnChargeEnabled = Settings.System.getIntForUser(
                 mContext.getContentResolver(), Settings.System.DOZE_ON_CHARGE, 0, user) == 1;
         if (dozeOnChargeEnabled) {
-            final boolean dozeOnChargeEnabledNow = Settings.System.getIntForUser(
-                mContext.getContentResolver(), Settings.System.DOZE_ON_CHARGE_NOW, 0, user) == 1;
-            return dozeOnChargeEnabledNow && alwaysOnAvailable() && !accessibilityInversionEnabled(user);
+            final Intent intent = mContext.registerReceiver(null, sIntentFilter);
+            if (intent != null) {
+                return intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0) != 0;
+            }
         }
         return false;
     }
