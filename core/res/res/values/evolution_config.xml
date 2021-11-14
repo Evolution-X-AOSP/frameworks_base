@@ -77,4 +77,7 @@
 
     <!-- Whether device supports in-display fingerprint -->
     <bool name="config_supportsUdfps">true</bool>
+
+    <!-- Whether device supports in-display fingerprint when screen is off -->
+    <bool name="config_supportsScreenOffUdfps">false</bool>
 </resources>
