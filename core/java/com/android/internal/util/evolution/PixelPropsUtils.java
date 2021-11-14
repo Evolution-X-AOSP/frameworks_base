@@ -88,8 +88,6 @@ public class PixelPropsUtils {
         propsToChangePixelXL.put("DEVICE", "marlin");
         propsToChangePixelXL.put("PRODUCT", "marlin");
         propsToChangePixelXL.put("MODEL", "Pixel XL");
-        propsToChangePixelXL.put("ID", "QP1A.191005.007.A3");
-        propsToChangePixelXL.put("SECURITY_PATCH", "2019-10-05");
         propsToChangePixelXL.put("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys");
         propsToChangePixel3XL = new HashMap<>();
         propsToChangePixel3XL.put("BRAND", "google");
@@ -97,26 +95,20 @@ public class PixelPropsUtils {
         propsToChangePixel3XL.put("DEVICE", "crosshatch");
         propsToChangePixel3XL.put("PRODUCT", "crosshatch");
         propsToChangePixel3XL.put("MODEL", "Pixel 3 XL");
-        propsToChangePixel3XL.put("ID", "RQ3A.211001.001");
-        propsToChangePixel3XL.put("SECURITY_PATCH", "2021-10-01");
-        propsToChangePixel3XL.put("FINGERPRINT", "google/crosshatch/crosshatch:11/RQ3A.211001.001/7641976:user/release-keys");
+        propsToChangePixel3XL.put("FINGERPRINT", "google/crosshatch/crosshatch:12/SP1A.210812.015/7679548:user/release-keys");
         propsToChangePixel5 = new HashMap<>();
         propsToChangePixel5.put("BRAND", "google");
         propsToChangePixel5.put("MANUFACTURER", "Google");
-        propsToChangePixel5.put("DEVICE", "redfin");
-        propsToChangePixel5.put("PRODUCT", "redfin");
-        propsToChangePixel5.put("MODEL", "Pixel 5");
-        propsToChangePixel5.put("ID", "RQ3A.211001.001");
-        propsToChangePixel5.put("SECURITY_PATCH", "2021-10-01");
-        propsToChangePixel5.put("FINGERPRINT", "google/redfin/redfin:11/RQ3A.211001.001/7641976:user/release-keys");
+        propsToChangePixel5.put("DEVICE", "raven");
+        propsToChangePixel5.put("PRODUCT", "raven");
+        propsToChangePixel5.put("MODEL", "Pixel 6 Pro");
+        propsToChangePixel5.put("FINGERPRINT", "google/raven/raven:12/SD1A.210817.036/7805805:user/release-keys");
         propsToChangeOnePlus9Pro = new HashMap<>();
         propsToChangeOnePlus9Pro.put("BRAND", "OnePlus");
         propsToChangeOnePlus9Pro.put("MANUFACTURER", "OnePlus");
         propsToChangeOnePlus9Pro.put("DEVICE", "OnePlus9Pro");
         propsToChangeOnePlus9Pro.put("PRODUCT", "OnePlus9Pro_EEA");
         propsToChangeOnePlus9Pro.put("MODEL", "LE2123");
-        propsToChangeOnePlus9Pro.put("ID", "RKQ1.201105.002");
-        propsToChangeOnePlus9Pro.put("SECURITY_PATCH", "2020-11-05");
         propsToChangeOnePlus9Pro.put("FINGERPRINT", "OnePlus/OnePlus9Pro_EEA/OnePlus9Pro:11/RKQ1.201105.002/2107082109:user/release-keys");
     }
 
