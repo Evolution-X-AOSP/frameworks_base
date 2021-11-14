@@ -65,6 +65,7 @@ import com.android.systemui.statusbar.phone.UnlockedScreenOffAnimationController
 import com.android.systemui.statusbar.policy.ConfigurationController
 import com.android.systemui.statusbar.policy.KeyguardStateController
 import com.android.systemui.user.domain.interactor.SelectedUserInteractor
+import com.android.systemui.util.settings.SecureSettings
 import dagger.Lazy
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
@@ -95,6 +96,7 @@ class UdfpsControllerOverlay @JvmOverloads constructor(
     private val keyguardStateController: KeyguardStateController,
     private val unlockedScreenOffAnimationController: UnlockedScreenOffAnimationController,
     private var udfpsDisplayModeProvider: UdfpsDisplayModeProvider,
+    private val secureSettings: SecureSettings,
     val requestId: Long,
     @RequestReason val requestReason: Int,
     private val controllerCallback: IUdfpsOverlayControllerCallback,
