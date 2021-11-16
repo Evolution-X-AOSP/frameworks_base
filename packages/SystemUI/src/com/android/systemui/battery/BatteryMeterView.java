@@ -75,6 +75,8 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
     private static final int BATTERY_STYLE_TEXT = 4;
     public static final int BATTERY_STYLE_RLANDSCAPE = 5;
     public static final int BATTERY_STYLE_LANDSCAPE = 6;
+    public static final int BATTERY_STYLE_BIG_CIRCLE = 7;
+    public static final int BATTERY_STYLE_BIG_DOTTED_CIRCLE = 8;
 
     @Retention(SOURCE)
     @IntDef({MODE_DEFAULT, MODE_ON, MODE_OFF, MODE_ESTIMATE})
@@ -430,12 +432,16 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
                 res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_height);
         batteryHeight = mBatteryStyle == BATTERY_STYLE_LANDSCAPE || mBatteryStyle == BATTERY_STYLE_RLANDSCAPE ?
                 res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_height_landscape) : batteryHeight;
+        batteryHeight = mBatteryStyle == BATTERY_STYLE_BIG_CIRCLE || mBatteryStyle == BATTERY_STYLE_BIG_DOTTED_CIRCLE ?
+                res.getDimensionPixelSize(R.dimen.status_bar_battery_bigcircle_icon_height) : batteryHeight;
         int batteryWidth = mBatteryStyle == BATTERY_STYLE_CIRCLE || mBatteryStyle == BATTERY_STYLE_DOTTED_CIRCLE
                 || mBatteryStyle == BATTERY_STYLE_FULL_CIRCLE ?
                 res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_circle_width) :
                 res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_width);
         batteryWidth = mBatteryStyle == BATTERY_STYLE_LANDSCAPE || mBatteryStyle == BATTERY_STYLE_RLANDSCAPE ?
                 res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_width_landscape) : batteryWidth;
+        batteryWidth = mBatteryStyle == BATTERY_STYLE_BIG_CIRCLE || mBatteryStyle == BATTERY_STYLE_BIG_DOTTED_CIRCLE ?
+                res.getDimensionPixelSize(R.dimen.status_bar_battery_bigcircle_icon_width) : batteryWidth;
         int marginBottom = res.getDimensionPixelSize(R.dimen.battery_margin_bottom);
 
         LinearLayout.LayoutParams scaledLayoutParams = new LinearLayout.LayoutParams(
