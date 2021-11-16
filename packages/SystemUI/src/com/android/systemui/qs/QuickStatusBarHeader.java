@@ -19,6 +19,8 @@ import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 import static com.android.systemui.battery.BatteryMeterView.BATTERY_STYLE_CIRCLE;
 import static com.android.systemui.battery.BatteryMeterView.BATTERY_STYLE_DOTTED_CIRCLE;
 import static com.android.systemui.battery.BatteryMeterView.BATTERY_STYLE_FULL_CIRCLE;
+import static com.android.systemui.battery.BatteryMeterView.BATTERY_STYLE_BIG_CIRCLE;
+import static com.android.systemui.battery.BatteryMeterView.BATTERY_STYLE_BIG_DOTTED_CIRCLE;
 import static com.android.systemui.battery.BatteryMeterView.BATTERY_STYLE_RLANDSCAPE;
 import static com.android.systemui.battery.BatteryMeterView.BATTERY_STYLE_LANDSCAPE;
 
@@ -356,6 +358,8 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
             if (mBatteryRemainingIcon.getBatteryStyle() == BATTERY_STYLE_CIRCLE
                 || mBatteryRemainingIcon.getBatteryStyle() == BATTERY_STYLE_DOTTED_CIRCLE
                 || mBatteryRemainingIcon.getBatteryStyle() == BATTERY_STYLE_FULL_CIRCLE
+                || mBatteryRemainingIcon.getBatteryStyle() == BATTERY_STYLE_BIG_CIRCLE
+                || mBatteryRemainingIcon.getBatteryStyle() == BATTERY_STYLE_BIG_DOTTED_CIRCLE
                 || mBatteryRemainingIcon.getBatteryStyle() == BATTERY_STYLE_RLANDSCAPE
                 || mBatteryRemainingIcon.getBatteryStyle() == BATTERY_STYLE_LANDSCAPE) {
                 textColorSecondary = Utils.getColorAttrDefaultColor(mContext,
