@@ -46,4 +46,8 @@
     <!-- FPSInfoService FPS node file path -->
     <string name="config_fpsInfoSysNode" translatable="false"></string>
 
+    <!-- SystemUI Google -->
+    <bool name="flag_monet">true</bool>
+    <bool name="flag_smartspace">true</bool>
+
 </resources>
