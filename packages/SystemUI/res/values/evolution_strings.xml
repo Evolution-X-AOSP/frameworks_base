@@ -198,7 +198,7 @@
     <string name="gaming_mode_tile_toast">Gaming macros enabled</string>
     <string name="gaming_mode_tile_toast_disabled">Gaming macros disabled</string>
     <string name="gaming_mode_dialog_title">Gaming Macro</string>
-    <string name="gaming_mode_dialog_message">Gaming Macro is capable of toggling heads-up, hardware keys, DND, nav-bar, auto brightness and setting media volume. All of the toggled settings will be toggled back once you disable Gaming Macro. Long press for settings</string>
+    <string name="gaming_mode_dialog_message">Go to \'Settings > The Evolver > Quick Settings > Gaming macro\' for more details and settings</string>
     <string name="accessibility_quick_settings_gaming_mode_on">Gaming macros on</string>
     <string name="accessibility_quick_settings_gaming_mode_off">Gaming macros off</string>
     <string name="gaming_mode_panel_headsup_title">Disable Heads Up</string>

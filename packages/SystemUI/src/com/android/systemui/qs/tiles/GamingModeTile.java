@@ -50,7 +50,6 @@ import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.Dependency;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.FalsingManager;
-import com.android.systemui.plugins.qs.DetailAdapter;
 import com.android.systemui.plugins.qs.QSIconView;
 import com.android.systemui.plugins.qs.QSTile.BooleanState;
 import com.android.systemui.plugins.qs.QSTile.State;
@@ -80,7 +79,6 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
 
     private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_gaming_mode);
     private final SystemSetting mSetting;
-    private final GamingModeTileDetailAdapter mDetailAdapter;
     private AudioManager mAudio;
     private NotificationManager mNm;
     private ContentResolver mResolver;
@@ -107,23 +105,12 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
             }
         };
         mResolver = mContext.getContentResolver();
-        mDetailAdapter = (GamingModeTileDetailAdapter) createDetailAdapter();
         mAudio = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
         mNm = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
 
         // find out if a physical navbar is present
         Configuration c = mContext.getResources().getConfiguration();
         mHasHWKeys = c.navigation != Configuration.NAVIGATION_NONAV;
-    }
-
-    @Override
-    public DetailAdapter getDetailAdapter() {
-        return mDetailAdapter;
-    }
-
-    @Override
-    protected DetailAdapter createDetailAdapter() {
-        return new GamingModeTileDetailAdapter();
     }
 
     @Override
@@ -148,7 +135,6 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        enableGamingMode();
                         Prefs.putBoolean(mContext, Prefs.Key.QS_GAMING_MODE_DIALOG_SHOWN, true);
                     }
                 });
@@ -168,7 +154,7 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
 
     @Override
     protected void handleLongClick(@Nullable View view) {
-        showDetail(true);
+        showGamingModeWhatsThisDialog();
     }
 
     private void handleState(boolean enabled) {
@@ -320,158 +306,5 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
         mAudio.setStreamVolume(AudioManager.STREAM_MUSIC,
                 Math.round((float)max * (float)prevVol / 100f),
                 AudioManager.FLAG_SHOW_UI);
-    }
-
-    private class GamingModeTileDetailAdapter implements DetailAdapter {
-        // private LinearLayout mHWButtonsLayout;
-        private SeekBar mMediaSeekBar;
-        private Switch mHeadsUpSwitch;
-        private Switch mZenSwitch;
-        // private Switch mNavBarSwitch;
-        private Switch mHWSwitch;
-        private Switch mBrightnessSwitch;
-        private Switch mMediaSwitch;
-        private TextView mMediaLabel;
-
-        private final SeekBar.OnSeekBarChangeListener mSeekBarListener = new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                mMediaLabel.setText(String.valueOf(progress) + "%");
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                Settings.System.putInt(mResolver,
-                        Settings.System.GAMING_MODE_MEDIA,
-                        seekBar.getProgress());
-            }
-        };
-
-        @Override
-        public int getMetricsCategory() {
-            return MetricsEvent.YASP;
-        }
-
-        @Override
-        public CharSequence getTitle() {
-            return mContext.getString(R.string.gaming_mode_dialog_title);
-        }
-
-        @Override
-        public Boolean getToggleState() {
-            return mState.value;
-        }
-
-        @Override
-        public Intent getSettingsIntent() {
-            return null;
-        }
-
-        @Override
-        public void setToggleState(boolean state) {
-            Settings.System.putInt(mResolver, System.ENABLE_GAMING_MODE, state ? 1 : 0);
-            refreshState();
-            if (!state) {
-                showDetail(false);
-            }
-        }
-
-        @Override
-        public View createDetailView(Context context, View convertView, ViewGroup parent) {
-            final View view = convertView != null ? convertView : LayoutInflater.from(context).inflate(
-                            R.layout.gaming_mode_tile_panel, parent, false);
-
-            if (convertView == null) {
-                mMediaLabel = (TextView) view.findViewById(R.id.media_percent);
-                mMediaSeekBar = (SeekBar) view.findViewById(R.id.media_seekbar);
-                int value = Settings.System.getInt(mResolver,
-                        Settings.System.GAMING_MODE_MEDIA, 80);
-                mMediaSeekBar.setProgress(value);
-                mMediaLabel.setText(String.valueOf(value) + "%");
-                mMediaSeekBar.setOnSeekBarChangeListener(mSeekBarListener);
-
-                mMediaSwitch = (Switch) view.findViewById(R.id.media_switch);
-                boolean enabled = Settings.System.getInt(mResolver,
-                        Settings.System.GAMING_MODE_MEDIA_ENABLED, 0) == 1;
-                mMediaSwitch.setChecked(enabled);
-                mMediaSeekBar.setEnabled(enabled);
-                mMediaSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        Settings.System.putInt(mResolver,
-                                Settings.System.GAMING_MODE_MEDIA_ENABLED,
-                                isChecked ? 1 : 0);
-                        mMediaSeekBar.setEnabled(isChecked);
-                    }
-                });
-
-                mBrightnessSwitch = (Switch) view.findViewById(R.id.brightness_switch);
-                enabled = Settings.System.getInt(mResolver,
-                        Settings.System.GAMING_MODE_BRIGHTNESS_ENABLED, 0) == 1;
-                mBrightnessSwitch.setChecked(enabled);
-                mBrightnessSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        Settings.System.putInt(mResolver,
-                                Settings.System.GAMING_MODE_BRIGHTNESS_ENABLED,
-                                isChecked ? 1 : 0);
-                    }
-                });
-
-                mHeadsUpSwitch = (Switch) view.findViewById(R.id.heads_up_switch);
-                enabled = Settings.System.getInt(mResolver,
-                        Settings.System.GAMING_MODE_HEADS_UP, 1) == 1;
-                mHeadsUpSwitch.setChecked(enabled);
-                mHeadsUpSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        Settings.System.putInt(mResolver,
-                                Settings.System.GAMING_MODE_HEADS_UP,
-                                isChecked ? 1 : 0);
-                    }
-                });
-
-                mZenSwitch = (Switch) view.findViewById(R.id.zen_switch);
-                enabled = Settings.System.getInt(mResolver,
-                        Settings.System.GAMING_MODE_ZEN, 0) == 1;
-                mZenSwitch.setChecked(enabled);
-                mZenSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        Settings.System.putInt(mResolver,
-                                Settings.System.GAMING_MODE_ZEN,
-                                isChecked ? 1 : 0);
-                    }
-                });
-
-                // mNavBarSwitch = (Switch) view.findViewById(R.id.navbar_switch);
-                // enabled = Settings.System.getInt(mResolver,
-                //         Settings.System.GAMING_MODE_NAVBAR, 0) == 1;
-                // mNavBarSwitch.setChecked(enabled);
-                // mNavBarSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                //     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                //         Settings.System.putInt(mResolver,
-                //                 Settings.System.GAMING_MODE_NAVBAR,
-                //                 isChecked ? 1 : 0);
-                //     }
-                // });
-                //
-                // if (mHasHWKeys) {
-                //     mHWButtonsLayout = (LinearLayout) view.findViewById(R.id.hw_buttons_layout);
-                //     mHWButtonsLayout.setVisibility(View.VISIBLE);
-                //
-                //     mHWSwitch = (Switch) view.findViewById(R.id.hw_buttons_switch);
-                //     mHWSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                //         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                //             Settings.System.putInt(mResolver,
-                //                     Settings.System.GAMING_MODE_HW_BUTTONS,
-                //                     isChecked ? 1 : 0);
-                //         }
-                //     });
-                // }
-            }
-            return view;
-        }
     }
 }
