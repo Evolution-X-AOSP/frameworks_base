@@ -5899,11 +5899,6 @@ public final class Settings {
         public static final String CUSTOM_CARRIER_LABEL = "custom_carrier_label";
 
         /**
-         * @hide
-         */
-        public static final String USE_TILES_ON_SECURE_KEYGUARD = "use_tiles_on_secure_keyguard";
-
-        /**
          * Which Vibration Pattern to use
          * 0: dzzz-dzzz
          * 1: dzzz-da
@@ -10558,7 +10553,7 @@ public final class Settings {
 
         /**
          * What behavior should be invoked when the volume hush gesture is triggered
-         * One of VOLUME_HUSH_OFF, VOLUME_HUSH_VIBRATE, VOLUME_HUSH_MUTE, VOLUME_HUSH_CYCLE.
+         * One of VOLUME_HUSH_OFF, VOLUME_HUSH_VIBRATE, VOLUME_HUSH_MUTE.
          *
          * @hide
          */
@@ -10575,8 +10570,6 @@ public final class Settings {
         /** @hide */
         @SystemApi
         public static final int VOLUME_HUSH_MUTE = 2;
-        /** @hide */
-        public static final int VOLUME_HUSH_CYCLE = 3;
 
         /**
          * The number of times (integer) the user has manually enabled battery saver.
@@ -10688,12 +10681,6 @@ public final class Settings {
         @Readable
         public static final String BACK_GESTURE_INSET_SCALE_RIGHT =
                 "back_gesture_inset_scale_right";
-
-        /**
-         * Position of gesture bar length slider.
-         * @hide
-         */
-        public static final String GESTURE_NAVBAR_LENGTH = "gesture_navbar_length";
 
         /**
          * Current provider of proximity-based sharing services.
