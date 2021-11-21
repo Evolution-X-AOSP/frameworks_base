@@ -31,8 +31,8 @@
     <dimen name="keyguard_indication_margin_bottom_fingerprint_in_display">@dimen/keyguard_indication_margin_bottom</dimen>
 
     <!-- Burn-in protection -->
-    <dimen name="horizontal_max_swift">3.0dp</dimen>
-    <dimen name="vertical_max_swift">1.0dp</dimen>
+    <dimen name="horizontal_max_shift">3.0dp</dimen>
+    <dimen name="vertical_max_shift">2.0dp</dimen>
 
     <dimen name="screenrecord_dot_size">48dp</dimen>
 

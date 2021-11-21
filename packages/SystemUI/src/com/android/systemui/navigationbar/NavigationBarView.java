@@ -81,6 +81,7 @@ import com.android.systemui.navigationbar.buttons.NearestTouchFrame;
 import com.android.systemui.navigationbar.buttons.RotationContextButton;
 import com.android.systemui.navigationbar.gestural.EdgeBackGestureHandler;
 import com.android.systemui.navigationbar.gestural.FloatingRotationButton;
+import com.android.systemui.navigationbar.gestural.NavigationHandle;
 import com.android.systemui.navigationbar.gestural.RegionSamplingHelper;
 import com.android.systemui.recents.OverviewProxyService;
 import com.android.systemui.recents.Recents;
@@ -960,15 +961,23 @@ public class NavigationBarView extends FrameLayout implements
         mContextualButtonGroup.setButtonVisibility(R.id.accessibility_button, visible);
     }
 
-    public void swiftNavigationBarItems(int horizontalShift, int verticalShift) {
+    public void shiftNavigationBarItems(int horizontalShift, int verticalShift) {
         if (mNavigationBarContents == null) {
             return;
         }
-
-        mNavigationBarContents.setPaddingRelative(mBasePaddingLeft + horizontalShift,
-                                              mBasePaddingTop + verticalShift,
-                                              mBasePaddingRight + horizontalShift,
-                                              mBasePaddingBottom - verticalShift);
+        if (isGesturalMode(mNavBarMode)) {
+            final NavigationHandle handle = (NavigationHandle) getHomeHandle().getCurrentView();
+            if (handle != null) {
+                handle.shiftHandle(verticalShift);
+            }
+            return;
+        }
+        mNavigationBarContents.setPaddingRelative(
+            mBasePaddingLeft + horizontalShift,
+            mBasePaddingTop + verticalShift,
+            mBasePaddingRight + horizontalShift,
+            mBasePaddingBottom - verticalShift
+        );
         invalidate();
     }
 
