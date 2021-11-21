@@ -70,14 +70,6 @@
     <!-- QQS Height -->
     <java-symbol type="dimen" name="quick_qs_total_height" />
 
-    <!-- App error dialog -->
-    <java-symbol type="id" name="aerr_copy" />
-    <java-symbol type="string" name="url_copy_success" />
-    <java-symbol type="string" name="url_copy_failed" />
-
-    <!-- Cycle through ringer modes -->
-    <java-symbol type="string" name="volume_dialog_ringer_guidance_normal" />
-
     <!-- Pocket Lock -->
     <java-symbol type="layout" name="pocket_lock_view" />
 
