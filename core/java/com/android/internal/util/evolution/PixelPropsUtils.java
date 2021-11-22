@@ -30,7 +30,7 @@ public class PixelPropsUtils {
 
     private static final Map<String, Object> propsToChangePixelXL;
     private static final Map<String, Object> propsToChangePixel3XL;
-    private static final Map<String, Object> propsToChangePixel5;
+    private static final Map<String, Object> propsToChangePixel6Pro;
     private static final Map<String, Object> propsToChangeOnePlus9Pro;
 
     private static final String[] packagesToChangePixelXL = {
@@ -51,7 +51,7 @@ public class PixelPropsUtils {
             "com.google.android.googlequicksearchbox"
     };
 
-    private static final String[] packagesToChangePixel5 = {
+    private static final String[] packagesToChangePixel6Pro = {
             "com.android.chrome",
             "com.breel.wallpapers20",
             "com.google.android.apps.customization.pixel",
@@ -96,13 +96,13 @@ public class PixelPropsUtils {
         propsToChangePixel3XL.put("PRODUCT", "crosshatch");
         propsToChangePixel3XL.put("MODEL", "Pixel 3 XL");
         propsToChangePixel3XL.put("FINGERPRINT", "google/crosshatch/crosshatch:12/SP1A.210812.015/7679548:user/release-keys");
-        propsToChangePixel5 = new HashMap<>();
-        propsToChangePixel5.put("BRAND", "google");
-        propsToChangePixel5.put("MANUFACTURER", "Google");
-        propsToChangePixel5.put("DEVICE", "raven");
-        propsToChangePixel5.put("PRODUCT", "raven");
-        propsToChangePixel5.put("MODEL", "Pixel 6 Pro");
-        propsToChangePixel5.put("FINGERPRINT", "google/raven/raven:12/SD1A.210817.036/7805805:user/release-keys");
+        propsToChangePixel6Pro = new HashMap<>();
+        propsToChangePixel6Pro.put("BRAND", "google");
+        propsToChangePixel6Pro.put("MANUFACTURER", "Google");
+        propsToChangePixel6Pro.put("DEVICE", "raven");
+        propsToChangePixel6Pro.put("PRODUCT", "raven");
+        propsToChangePixel6Pro.put("MODEL", "Pixel 6 Pro");
+        propsToChangePixel6Pro.put("FINGERPRINT", "google/raven/raven:12/SD1A.210817.036/7805805:user/release-keys");
         propsToChangeOnePlus9Pro = new HashMap<>();
         propsToChangeOnePlus9Pro.put("BRAND", "OnePlus");
         propsToChangeOnePlus9Pro.put("MANUFACTURER", "OnePlus");
@@ -136,11 +136,11 @@ public class PixelPropsUtils {
                 setPropValue(key, value);
             }
         }
-        if (Arrays.asList(packagesToChangePixel5).contains(packageName)){
+        if (Arrays.asList(packagesToChangePixel6Pro).contains(packageName)){
             if (DEBUG){
                 Log.d(TAG, "Defining props for: " + packageName);
             }
-            for (Map.Entry<String, Object> prop : propsToChangePixel5.entrySet()) {
+            for (Map.Entry<String, Object> prop : propsToChangePixel6Pro.entrySet()) {
                 String key = prop.getKey();
                 Object value = prop.getValue();
                 setPropValue(key, value);
