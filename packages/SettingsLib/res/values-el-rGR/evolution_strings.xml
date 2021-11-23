@@ -19,5 +19,4 @@
     <string name="screen_zoom_summary_smaller">Μικρότερo</string>
     <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
     <string name="screen_zoom_summary_smallest">Ελάχιστο</string>
-    <string name="status_deep_sleep">(Βαθιά αδράνεια: %1$d%2$s)</string>
 </resources>
