@@ -87,8 +87,6 @@
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Остановить принудительно?</string>
     <string name="force_stop_dlg_text">Если вы принудительно остановите приложение, он может неправильно работать.</string>
-    <string name="dlg_ok">@android:string/ок</string>
-    <string name="dlg_cancel">@android:string/отмена</string>
     <string name="guts_force_close_app">Закрыть приложение</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">Поменять SIM-карту для передачи данных</string>
