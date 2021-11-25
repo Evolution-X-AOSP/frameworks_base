@@ -87,8 +87,6 @@
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">確定強制停止嗎？</string>
     <string name="force_stop_dlg_text">如果您強制停止應用程式，應用程式可能無法正常運作。</string>
-    <string name="dlg_ok">@android:string/ok</string>
-    <string name="dlg_cancel">@android:string/cancel</string>
     <string name="guts_force_close_app">關閉應用程式</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">切換行動數據 SIM 卡</string>
