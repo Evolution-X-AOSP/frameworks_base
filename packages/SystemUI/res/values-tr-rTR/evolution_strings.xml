@@ -87,8 +87,6 @@
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Durmaya zorlansın mı?</string>
     <string name="force_stop_dlg_text">Uygulamayı zorla durdurursanız, hatalı davranabilir.</string>
-    <string name="dlg_ok">ok</string>
-    <string name="dlg_cancel">iptal</string>
     <string name="guts_force_close_app">Uygulamayı Kapat</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">Mobil veri kartını değiştir</string>
