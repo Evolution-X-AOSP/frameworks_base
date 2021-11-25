@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2019-2021 The Evolution X Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Label for UI element which allows deleting the screenshot [CHAR LIMIT=30] -->
+    <string name="screenshot_delete_label">削除</string>
+    <!-- Content description indicating that tapping the element will allow deleting the screenshot [CHAR LIMIT=NONE] -->
+    <string name="screenshot_delete_description">スクリーンショットを削除</string>
+    <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">カフェイン</string>
+    <string name="accessibility_quick_settings_caffeine_off">カフェイン OFF</string>
+    <string name="accessibility_quick_settings_caffeine_on">カフェイン ON</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">アンビエント\n表示</string>
+    <string name="accessibility_quick_settings_ambient_display_off">アンビエント表示 OFF</string>
+    <string name="accessibility_quick_settings_ambient_display_on">アンビエント表示 ON</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">アンビエント表示を OFF にしました</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">アンビエント表示を ON にしました</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">USB\nテザリング</string>
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">同期</string>
+    <string name="accessibility_quick_settings_sync_off">同期 OFF</string>
+    <string name="accessibility_quick_settings_sync_on">同期 ON</string>
+    <string name="accessibility_quick_settings_sync_changed_off">同期を OFF にしました</string>
+    <string name="accessibility_quick_settings_sync_changed_on">同期を ON にしました</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">音声</string>
+    <string name="quick_settings_sound_ring">着信</string>
+    <string name="quick_settings_sound_vibrate">振動</string>
+    <string name="quick_settings_sound_mute">消音</string>
+    <!-- SystemUI Tuner -->
+    <string name="statusbar_items_title">ステータスバーのアイコン</string>
+    <string name="lockscreen_default">既定</string>
+    <string name="lockscreen_hidden">なし</string>
+    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">アイコンをスワイプして起動</string>
+    <!-- VPN -->
+    <string name="status_bar_vpn">VPN</string>
+    <!-- Advanced Reboot -->
+    <string name="global_action_restart_advanced">高度な再起動</string>
+    <string name="global_action_restart_recovery">リカバリー</string>
+    <string name="global_action_restart_bootloader">ブートローダー</string>
+    <string name="global_action_restart_ui">システム UI</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">スクリーン\nショット</string>
+    <string name="quick_settings_region_screenshot_label">範囲選択</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">Heads Up</string>
+    <string name="accessibility_quick_settings_heads_up_off">Heads Up OFF</string>
+    <string name="accessibility_quick_settings_heads_up_on">Heads Up ON</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Heads Up を OFF にしました</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Heads Up を ON にしました</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - 通知の表示は1分間一時停止します</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - 通知の表示は<xliff:g id="number">%2$d</xliff:g>分間停止します</string>
+    <!-- Running service button -->
+    <string name="accessibility_quick_settings_running_services">実行中のサービスを開く</string>
+    <!-- CPUInfo tile -->
+    <string name="quick_settings_cpuinfo_label">CPU 情報</string>
+    <string name="accessibility_quick_settings_cpuinfo_off">CPU 情報 OFF</string>
+    <string name="accessibility_quick_settings_cpuinfo_on">CPU 情報 ON</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_off">CPU 情報を OFF にしました</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_on">CPU 情報を ON にしました</string>
+    <!-- Poweroff/Reboot/Recovery QS tile -->
+    <string name="quick_settings_poweroff_label">電源を切る</string>
+    <string name="quick_settings_reboot_label">再起動</string>
+    <string name="quick_settings_reboot_recovery_label">リカバリー</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">充電時の AOD</string>
+    <string name="quick_settings_aod_off_label">AOD OFF</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD OFF\nバッテリー節約</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">強制停止しますか?</string>
+    <string name="force_stop_dlg_text">アプリを強制停止するとアプリが正常に機能しないことがあります</string>
+    <string name="guts_force_close_app">アプリを終了</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">データ SIM の変更</string>
+    <string name="qs_data_switch_toast_0">現在 SIM カードは挿入されていません</string>
+    <string name="qs_data_switch_toast_1">現在1枚のみ SIM カードが挿入されています</string>
+    <string name="qs_data_switch_changed_1">SIM 1 をデータ通信に使用します</string>
+    <string name="qs_data_switch_changed_2">SIM 2 をデータ通信に使用します</string>
+    <!-- Name of the nfc status bar icon. -->
+    <string name="status_bar_nfc">NFC</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">NFC</string>
+    <!-- Navbar -->
+    <string name="systemui_tuner_navbar_title">配置</string>
+    <string name="navigation_bar_format_title">ナビゲーションバーのレイアウト</string>
+    <string name="navigation_bar_inverse_title">ボタンの入れ替え</string>
+    <string name="navigation_bar_inverse_summary">アプリ履歴ボタンと戻るボタンの位置を入れ替える</string>
+    <string name="navigation_bar_accessibility_dpad_left">カーソルを左</string>
+    <string name="navigation_bar_accessibility_dpad_right">カーソルを右</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">音量パネル</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">コンパス</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">初期化中...</string>
+    <string name="accessibility_quick_settings_compass_off">コンパス OFF</string>
+    <string name="accessibility_quick_settings_compass_on">コンパス ON</string>
+    <string name="accessibility_quick_settings_compass_changed_off">コンパスを OFF にしました</string>
+    <string name="accessibility_quick_settings_compass_changed_on">コンパスを ON にしました</string>
+    <string name="quick_settings_compass_N">北</string>
+    <string name="quick_settings_compass_NE">北東</string>
+    <string name="quick_settings_compass_E">東</string>
+    <string name="quick_settings_compass_SE">南東</string>
+    <string name="quick_settings_compass_S">南</string>
+    <string name="quick_settings_compass_SW">南西</string>
+    <string name="quick_settings_compass_W">西</string>
+    <string name="quick_settings_compass_NW">北西</string>
+    <!-- FPS Info tile -->
+    <string name="quick_settings_fpsinfo_label">FPS 情報</string>
+    <string name="accessibility_quick_settings_fpsinfo_off">FPS 情報 OFF</string>
+    <string name="accessibility_quick_settings_fpsinfo_on">FPS 情報 ON</string>
+    <!-- Screen record -->
+    <!-- Label for notification action to delete a screen recording file [CHAR LIMIT=35] -->
+    <string name="screenrecord_delete_label">削除</string>
+    <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
+    <string name="screenrecord_delete_description">画面録画を削除しました</string>
+    <string name="screenrecord_stopdot_label">停止ドット\n長押しして移動</string>
+    <string name="screenrecord_lowquality_label">低品質にしてファイルサイズ縮小</string>
+    <string name="screenrecord_longer_timeout_switch_label">ファイルサイズ制限です\n録画サイズを15GBに制限します</string>
+    <string name="task_helper_app_killed">%1$s を強制停止しました</string>
+    <string name="empty_app_killed">アプリ</string>
+</resources>
