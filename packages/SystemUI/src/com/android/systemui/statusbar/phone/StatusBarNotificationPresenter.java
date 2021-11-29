@@ -225,6 +225,11 @@ public class StatusBarNotificationPresenter implements NotificationPresenter,
                 && !mNotificationPanel.isQsExpanded()
                 && mStatusBarStateController.getState() == StatusBarState.SHADE_LOCKED
                 && !isCollapsing()) {
+            /** if (mStatusBar != null && mStatusBar.mLyricTicker != null && mStatusBar.mLyricEnabled) {
+                try {
+                    mStatusBar.mLyricTicker.removeEntry(old);
+                } catch (Exception e) {}
+            } */
             mStatusBarStateController.setState(StatusBarState.KEYGUARD);
         }
     }

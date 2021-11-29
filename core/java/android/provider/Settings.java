@@ -8263,6 +8263,13 @@ public final class Settings {
         public static final String USER_SETUP_COMPLETE = "user_setup_complete";
 
         /**
+         * Whether to show the lyric on the status bar
+         * @hide
+         */
+        @Readable
+        public static final String STATUS_BAR_SHOW_LYRIC = "status_bar_show_lyric";
+
+        /**
          * Indicates that the user has not started setup personalization.
          * One of the possible states for {@link #USER_SETUP_PERSONALIZATION_STATE}.
          *

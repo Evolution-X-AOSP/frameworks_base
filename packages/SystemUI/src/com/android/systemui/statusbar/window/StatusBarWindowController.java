@@ -70,7 +70,7 @@ public class StatusBarWindowController {
     private int mBarHeight = -1;
     private final State mCurrentState = new State();
 
-    private final ViewGroup mStatusBarWindowView;
+    public final ViewGroup mStatusBarWindowView;
     // The container in which we should run launch animations started from the status bar and
     //   expanding into the opening window.
     private final ViewGroup mLaunchAnimationContainer;
