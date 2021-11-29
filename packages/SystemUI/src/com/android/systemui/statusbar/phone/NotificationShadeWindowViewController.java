@@ -17,13 +17,15 @@
 package com.android.systemui.statusbar.phone;
 
 import static android.app.StatusBarManager.WINDOW_STATE_SHOWING;
-import static com.android.systemui.qs.QSPanel.QS_SHOW_AUTO_BRIGHTNESS_BUTTON;
 
 import android.app.StatusBarManager;
+import android.database.ContentObserver;
 import android.graphics.RectF;
 import android.hardware.display.AmbientDisplayConfiguration;
 import android.media.AudioManager;
 import android.media.session.MediaSessionLegacyHelper;
+import android.net.Uri;
+import android.os.Handler;
 import android.os.SystemClock;
 import android.os.UserHandle;
 import android.provider.Settings;
@@ -40,6 +42,7 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.keyguard.LockIconViewController;
 import com.android.systemui.R;
 import com.android.systemui.classifier.FalsingCollector;
+import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.dock.DockManager;
 import com.android.systemui.doze.DozeLog;
 import com.android.systemui.shared.plugins.PluginManager;
@@ -58,8 +61,9 @@ import com.android.systemui.statusbar.notification.NotificationWakeUpCoordinator
 import com.android.systemui.statusbar.notification.stack.NotificationStackScrollLayout;
 import com.android.systemui.statusbar.notification.stack.NotificationStackScrollLayoutController;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
-import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.InjectionInflationController;
+import com.android.systemui.util.settings.SecureSettings;
+import com.android.systemui.util.settings.SystemSettings;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -78,7 +82,6 @@ public class NotificationShadeWindowViewController {
     private final KeyguardBypassController mBypassController;
     private final PluginManager mPluginManager;
     private final FalsingCollector mFalsingCollector;
-    private final TunerService mTunerService;
     private final NotificationLockscreenUserManager mNotificationLockscreenUserManager;
     private final NotificationEntryManager mNotificationEntryManager;
     private final KeyguardStateController mKeyguardStateController;
@@ -111,8 +114,12 @@ public class NotificationShadeWindowViewController {
     private final DockManager mDockManager;
     private final NotificationPanelViewController mNotificationPanelViewController;
     private final SuperStatusBarViewFactory mStatusBarViewFactory;
+    private final SystemSettings mSystemSettings;
+    private final SecureSettings mSecureSettings;
+    private final Handler mHandler;
+    private final boolean mAutoBrightnessConfigEnabled;
 
-    private ImageView mAutoBrightnessIcon;
+    private View mAutoBrightnessIcon;
     private boolean mShowAutoBrightnessButton;
 
     // Used for determining view / touch intersection
@@ -130,7 +137,6 @@ public class NotificationShadeWindowViewController {
             LockscreenShadeTransitionController transitionController,
             FalsingCollector falsingCollector,
             PluginManager pluginManager,
-            TunerService tunerService,
             NotificationLockscreenUserManager notificationLockscreenUserManager,
             NotificationEntryManager notificationEntryManager,
             KeyguardStateController keyguardStateController,
@@ -146,7 +152,10 @@ public class NotificationShadeWindowViewController {
             SuperStatusBarViewFactory statusBarViewFactory,
             NotificationStackScrollLayoutController notificationStackScrollLayoutController,
             StatusBarKeyguardViewManager statusBarKeyguardViewManager,
-            LockIconViewController lockIconViewController) {
+            LockIconViewController lockIconViewController,
+            SystemSettings systemSettings,
+            SecureSettings secureSettings,
+            @Main Handler mainHandler) {
         mInjectionInflationController = injectionInflationController;
         mCoordinator = coordinator;
         mPulseExpansionHandler = pulseExpansionHandler;
@@ -155,7 +164,6 @@ public class NotificationShadeWindowViewController {
         mLockscreenShadeTransitionController = transitionController;
         mFalsingCollector = falsingCollector;
         mPluginManager = pluginManager;
-        mTunerService = tunerService;
         mNotificationLockscreenUserManager = notificationLockscreenUserManager;
         mNotificationEntryManager = notificationEntryManager;
         mKeyguardStateController = keyguardStateController;
@@ -172,43 +180,61 @@ public class NotificationShadeWindowViewController {
         mNotificationStackScrollLayoutController = notificationStackScrollLayoutController;
         mStatusBarKeyguardViewManager = statusBarKeyguardViewManager;
         mLockIconViewController = lockIconViewController;
+        mSystemSettings = systemSettings;
+        mSecureSettings = secureSettings;
+        mHandler = mainHandler;
 
         // This view is not part of the newly inflated expanded status bar.
         mBrightnessMirror = mView.findViewById(R.id.brightness_mirror_container);
-        mAutoBrightnessIcon = (ImageView)
-                mBrightnessMirror.findViewById(R.id.brightness_icon);
-        mShowAutoBrightnessButton = mTunerService.getValue(
-                QS_SHOW_AUTO_BRIGHTNESS_BUTTON, 1) == 1;
+        mAutoBrightnessIcon = mBrightnessMirror.findViewById(R.id.brightness_icon);
+        mAutoBrightnessConfigEnabled = mView.getContext().getResources().getBoolean(
+            com.android.internal.R.bool.config_automatic_brightness_available);
+        mShowAutoBrightnessButton = mAutoBrightnessConfigEnabled && mSystemSettings.getIntForUser(
+                Settings.System.QS_SHOW_AUTO_BRIGHTNESS_BUTTON,
+                0, UserHandle.USER_CURRENT) == 1;
     }
 
     /** Inflates the {@link R.layout#status_bar_expanded} layout and sets it up. */
     public void setupExpandedStatusBar() {
         mStackScrollLayout = mView.findViewById(R.id.notification_stack_scroller);
 
-        TunerService.Tunable tunable = (key, newValue) -> {
-            AmbientDisplayConfiguration configuration =
+        final ContentObserver contentObserver = new ContentObserver(mHandler) {
+            @Override
+            public void onChange(boolean selfChange, Uri uri) {
+                final AmbientDisplayConfiguration configuration =
                     new AmbientDisplayConfiguration(mView.getContext());
-            switch (key) {
-                case Settings.Secure.DOZE_DOUBLE_TAP_GESTURE:
-                    mDoubleTapEnabled = Settings.Secure.getIntForUser(mView.getContext().getContentResolver(),
-                            Settings.Secure.DOZE_DOUBLE_TAP_GESTURE, 1, UserHandle.USER_CURRENT) == 1;
-                    break;
-                case Settings.Secure.DOZE_TAP_SCREEN_GESTURE:
-                    mSingleTapEnabled = configuration.tapGestureEnabled(UserHandle.USER_CURRENT);
-                case QS_SHOW_AUTO_BRIGHTNESS_BUTTON:
-                    if (mAutoBrightnessIcon != null) {
-                        mShowAutoBrightnessButton = (newValue == null ||
-                                Integer.parseInt(newValue) == 0) ? false : true;
-                        mAutoBrightnessIcon.setVisibility(!mShowAutoBrightnessButton
-                                ? View.GONE : View.VISIBLE);
-                    }
-                    break;
+                switch (uri.getLastPathSegment()) {
+                    case Settings.Secure.DOZE_DOUBLE_TAP_GESTURE:
+                        mDoubleTapEnabled = configuration.doubleTapGestureEnabled(
+                                UserHandle.USER_CURRENT);
+                        break;
+                    case Settings.Secure.DOZE_TAP_SCREEN_GESTURE:
+                        mSingleTapEnabled = configuration.tapGestureEnabled(UserHandle.USER_CURRENT);
+                        break;
+                    case Settings.System.QS_SHOW_AUTO_BRIGHTNESS_BUTTON:
+                        if (mAutoBrightnessIcon != null) {
+                            mShowAutoBrightnessButton = mSystemSettings.getIntForUser(
+                                Settings.System.QS_SHOW_AUTO_BRIGHTNESS_BUTTON, 0,
+                                UserHandle.USER_CURRENT) == 1;
+                            mAutoBrightnessIcon.setVisibility(mShowAutoBrightnessButton
+                                    ? View.VISIBLE : View.GONE);
+                        }
+                        break;
+                }
             }
         };
-        mTunerService.addTunable(tunable,
-                Settings.Secure.DOZE_DOUBLE_TAP_GESTURE,
-                Settings.Secure.DOZE_TAP_SCREEN_GESTURE,
-                QS_SHOW_AUTO_BRIGHTNESS_BUTTON);
+
+        mSecureSettings.registerContentObserverForUser(
+            Settings.Secure.DOZE_DOUBLE_TAP_GESTURE,
+            contentObserver, UserHandle.USER_ALL);
+        mSecureSettings.registerContentObserverForUser(
+            Settings.Secure.DOZE_TAP_SCREEN_GESTURE,
+            contentObserver, UserHandle.USER_ALL);
+        if (mAutoBrightnessConfigEnabled) {
+            mSystemSettings.registerContentObserverForUser(
+                Settings.System.QS_SHOW_AUTO_BRIGHTNESS_BUTTON,
+                contentObserver, UserHandle.USER_ALL);
+        }
 
         GestureDetector.SimpleOnGestureListener gestureListener =
                 new GestureDetector.SimpleOnGestureListener() {
@@ -447,10 +473,9 @@ public class NotificationShadeWindowViewController {
             public void onChildViewAdded(View parent, View child) {
                 if (child.getId() == R.id.brightness_mirror_container) {
                     mBrightnessMirror = child;
-                    mAutoBrightnessIcon = (ImageView)
-                            child.findViewById(R.id.brightness_icon);
-                    mAutoBrightnessIcon.setVisibility(!mShowAutoBrightnessButton
-                            ? View.GONE : View.VISIBLE);
+                    mAutoBrightnessIcon = child.findViewById(R.id.brightness_icon);
+                    mAutoBrightnessIcon.setVisibility(mShowAutoBrightnessButton
+                            ? View.VISIBLE : View.GONE);
                 }
             }
 

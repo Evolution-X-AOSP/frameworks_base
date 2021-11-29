@@ -6383,6 +6383,35 @@ public final class Settings {
         public static final String RIGHT_VERTICAL_BACK_SWIPE_APP_ACTIVITY_ACTION = "right_vertical_back_swipe_app_activity_action";
 
         /**
+         * Whether to show brightness slider in qs panel.
+         * Default 1.
+         * @hide
+         */
+        public static final String QS_SHOW_BRIGHTNESS = "qs_show_brightness";
+
+        /**
+         * Whether to show brightness slider in qqs panel.
+         * This setting is independent of QS_SHOW_BRIGHTNESS.
+         * Default 0.
+         * @hide
+         */
+        public static final String QQS_SHOW_BRIGHTNESS = "qqs_show_brightness";
+
+        /**
+         * Whether to show qs / qqs brightness slider at the bottom of the panel.
+         * Default 0.
+         * @hide
+         */
+        public static final String QS_BRIGHTNESS_POSITION_BOTTOM = "qs_brightness_position_bottom";
+
+        /**
+         * Whether to show auto brightness icon next to brightness slider.
+         * Default 0.
+         * @hide
+         */
+        public static final String QS_SHOW_AUTO_BRIGHTNESS_BUTTON = "qs_show_auto_brightness_button";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
