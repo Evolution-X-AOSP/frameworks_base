@@ -25,6 +25,10 @@
     <!-- Udfps vendor code -->
     <integer name="config_udfpsVendorCode">-1</integer>
 
+    <!-- Whether to pulse onFingerDown actions instead
+        of waking the screen while the screen is off or in lpm. -->
+    <bool name="config_pulseOnFingerDown">false</bool>
+
     <!-- Whether usage of the proximity sensor during doze is supported -->
     <bool name="doze_proximity_sensor_supported">true</bool>
 

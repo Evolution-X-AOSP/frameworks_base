@@ -274,8 +274,13 @@ public class UdfpsController implements DozeReceiver {
         public void onAcquiredVendor(int sensorId, int vendorCode) {
             if (vendorCode == mUdfpsVendorCode && mStatusBarStateController.isDozing()
                     && (mScreenOffUdfpsEnabled || mScreenOn)) {
-                mContext.sendBroadcastAsUser(
-                        new Intent(PULSE_ACTION), new UserHandle(UserHandle.USER_CURRENT));
+                if (mContext.getResources().getBoolean(R.bool.config_pulseOnFingerDown)) {
+                    mContext.sendBroadcastAsUser(
+                            new Intent(PULSE_ACTION), new UserHandle(UserHandle.USER_CURRENT));
+                } else {
+                    mPowerManager.wakeUp(mSystemClock.uptimeMillis(),
+                            PowerManager.WAKE_REASON_GESTURE, TAG);
+                }
             }
         }
 
