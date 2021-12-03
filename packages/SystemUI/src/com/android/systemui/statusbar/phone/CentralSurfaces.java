@@ -457,6 +457,8 @@ public interface CentralSurfaces extends Dumpable, LifecycleOwner {
 
     boolean shouldDelayWakeUpAnimation();
 
+    void setBlockedGesturalNavigation(boolean blocked);
+
     public static class KeyboardShortcutsMessage {
         final int mDeviceId;
 
