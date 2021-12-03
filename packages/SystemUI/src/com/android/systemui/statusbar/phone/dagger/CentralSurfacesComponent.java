@@ -21,6 +21,7 @@ import static com.android.systemui.statusbar.phone.dagger.StatusBarViewModule.ST
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 import com.android.systemui.scene.ui.view.WindowRootView;
+import com.android.systemui.shade.NotificationPanelViewController;
 import com.android.systemui.shade.ShadeHeaderController;
 import com.android.systemui.statusbar.notification.NotificationActivityStarter;
 import com.android.systemui.statusbar.phone.CentralSurfacesCommandQueueCallbacks;
@@ -88,4 +89,9 @@ public interface CentralSurfacesComponent {
     CollapsedStatusBarFragment createCollapsedStatusBarFragment();
 
     NotificationActivityStarter getNotificationActivityStarter();
+
+    /**
+     * Creates a NotificationPanelViewController.
+     */
+    NotificationPanelViewController getNotificationPanelViewController();
 }
