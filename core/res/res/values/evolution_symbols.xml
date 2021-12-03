@@ -118,4 +118,7 @@
     <!-- Whether device has hardware alertslider -->
     <java-symbol type="bool" name="config_hasAlertSlider" />
 
+    <!-- NightLight FOD -->
+    <java-symbol type="bool" name="disable_fod_night_light"/>
+
 </resources>

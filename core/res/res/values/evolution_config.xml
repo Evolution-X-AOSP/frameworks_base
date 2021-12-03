@@ -135,4 +135,7 @@
     <!-- Whether device has hardware alertslider -->
     <bool name="config_hasAlertSlider">false</bool>
 
+    <!-- NightLight FOD -->
+    <bool name="disable_fod_night_light">false</bool>
+
 </resources>
