@@ -170,7 +170,22 @@ public class BatteryManager {
      * sole battery. This isn't used by any Mods we have come across.
      * {@hide}
      */
+
     public static final String EXTRA_MOD_FLAG = "mod_flag";
+
+     /**
+     * Extra for {@link android.content.Intent#ACTION_BATTERY_CHANGED}:
+     * boolean value to detect fast charging
+     * {@hide}
+     */
+    public static final String EXTRA_DASH_CHARGER = "dash_charger";
+
+    /**
+     * Extra for {@link android.content.Intent#ACTION_BATTERY_CHANGED}:
+     * boolean value to detect fast charging
+     * {@hide}
+     */
+    public static final String EXTRA_WARP_CHARGER = "warp_charger";
 
     /**
      * Extra for {@link android.content.Intent#ACTION_BATTERY_CHANGED}:
