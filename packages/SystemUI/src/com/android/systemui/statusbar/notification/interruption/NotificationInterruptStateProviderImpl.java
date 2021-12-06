@@ -31,8 +31,10 @@ import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.UserHandle;
 import android.provider.Settings;
+import android.provider.Telephony.Sms;
 import android.service.dreams.IDreamManager;
 import android.service.notification.StatusBarNotification;
+import android.telecom.TelecomManager;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -72,6 +74,7 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
     private final BatteryController mBatteryController;
     private final ContentObserver mHeadsUpObserver;
     private HeadsUpManager mHeadsUpManager;
+    private TelecomManager mTm;
     private Context mContext;
 
     ActivityManager mAm;
@@ -103,6 +106,7 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
         mNotificationFilter = notificationFilter;
         mStatusBarStateController = statusBarStateController;
         mContext = context;
+        mTm = (TelecomManager) context.getSystemService(Context.TELECOM_SERVICE);
         mHeadsUpManager = headsUpManager;
         mAm = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
         setHeadsUpStoplist();
@@ -424,10 +428,19 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
     public boolean shouldSkipHeadsUp(StatusBarNotification sbn) {
         boolean isImportantHeadsUp = false;
         String notificationPackageName = sbn.getPackageName().toLowerCase();
-        isImportantHeadsUp = notificationPackageName.contains("dialer") ||
-                notificationPackageName.contains("messaging") ||
-                notificationPackageName.contains("clock");
+        isImportantHeadsUp = notificationPackageName.equals(getDefaultDialerPackage(mTm))
+                || notificationPackageName.equals(getDefaultSmsPackage(mContext))
+                || notificationPackageName.contains("clock");
         return !mStatusBarStateController.isDozing() && mLessBoringHeadsUp && !isImportantHeadsUp;
+    }
+
+    private static String getDefaultSmsPackage(Context ctx) {
+        return Sms.getDefaultSmsPackage(ctx);
+        // for reference, there's also a new RoleManager api with getDefaultSmsPackage(context, userid)
+    }
+
+    private static String getDefaultDialerPackage(TelecomManager tm) {
+        return tm != null ? tm.getDefaultDialerPackage() : "";
     }
 
     /**
