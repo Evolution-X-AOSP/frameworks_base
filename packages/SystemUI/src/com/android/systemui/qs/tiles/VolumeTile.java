@@ -22,7 +22,6 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.media.AudioManager;
-import android.provider.Settings;
 import android.service.quicksettings.Tile;
 import android.view.View;
 
@@ -46,7 +45,7 @@ import javax.inject.Inject;
 
 public class VolumeTile extends QSTileImpl<BooleanState> {
 
-    private static final Intent SOUND_SETTINGS = new Intent(Settings.Panel.ACTION_VOLUME);
+    private static final Intent SOUND_SETTINGS = new Intent("android.settings.SOUND_SETTINGS");
 
     @Inject
     public VolumeTile(
