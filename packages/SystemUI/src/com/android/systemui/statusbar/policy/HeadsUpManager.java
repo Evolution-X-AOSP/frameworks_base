@@ -94,10 +94,11 @@ public abstract class HeadsUpManager extends AlertingNotificationManager {
         mUiEventLogger = Dependency.get(UiEventLogger.class);
         Resources resources = context.getResources();
         mMinimumDisplayTime = resources.getInteger(R.integer.heads_up_notification_minimum_time);
+        int defaultHeadsUpNotificationDecayMs =
+                resources.getInteger(R.integer.heads_up_notification_decay);
         mAutoDismissNotificationDecay = Settings.System.getIntForUser(context.getContentResolver(),
                 Settings.System.HEADS_UP_TIMEOUT,
-                context.getResources().getInteger(R.integer.heads_up_notification_decay),
-                UserHandle.USER_CURRENT);
+                defaultHeadsUpNotificationDecayMs, UserHandle.USER_CURRENT);
         mSnoozeLengthMs = Settings.System.getIntForUser(context.getContentResolver(),
                 Settings.System.HEADS_UP_NOTIFICATION_SNOOZE,
                 context.getResources().getInteger(R.integer.heads_up_default_snooze_length_ms),
@@ -436,6 +437,15 @@ public abstract class HeadsUpManager extends AlertingNotificationManager {
     protected class HeadsUpEntry extends AlertEntry {
         public boolean remoteInputActive;
         protected boolean expanded;
+
+        @Override
+        public void updateEntry(boolean updatePostTime) {
+            mAutoDismissNotificationDecay = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.HEADS_UP_TIMEOUT,
+                mContext.getResources().getInteger(R.integer.heads_up_notification_decay),
+                UserHandle.USER_CURRENT);
+            super.updateEntry(updatePostTime);
+        }
 
         @Override
         public boolean isSticky() {
