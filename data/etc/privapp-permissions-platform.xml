@@ -588,4 +588,10 @@ applications that come with the platform
     <privapp-permissions package="com.android.calllogbackup">
         <permission name="com.android.voicemail.permission.READ_VOICEMAIL"/>
     </privapp-permissions>
+
+    <privapp-permissions package="com.android.systemui">
+        <permission name="android.permission.WRITE_APN_SETTINGS"/>
+        <permission name="android.permission.PREVENT_POWER_KEY"/>
+    </privapp-permissions>
+
 </permissions>
