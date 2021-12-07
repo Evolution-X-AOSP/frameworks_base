@@ -4179,6 +4179,14 @@ public class NotificationPanelViewController extends PanelViewController {
                     return false;
                 }
 
+                if (((mIsLockscreenDoubleTapEnabled
+                    && mBarState == StatusBarState.KEYGUARD) ||
+                    (!mQsExpanded && mDoubleTapToSleepEnabled
+                    && event.getY() < mStatusBarHeaderHeightKeyguard))
+                        && !mPulsing && !mDozing) {
+                    mDoubleTapToSleepGesture.onTouchEvent(event);
+                }
+
                 // Make sure the next touch won't the blocked after the current ends.
                 if (event.getAction() == MotionEvent.ACTION_UP
                         || event.getAction() == MotionEvent.ACTION_CANCEL) {
@@ -4190,14 +4198,6 @@ public class NotificationPanelViewController extends PanelViewController {
                 if (mLastEventSynthesizedDown && event.getAction() == MotionEvent.ACTION_UP) {
                     expand(true /* animate */);
                 }
-
-                if ((mIsLockscreenDoubleTapEnabled && !mPulsing && !mDozing
-                        && mBarState == StatusBarState.KEYGUARD) ||
-                        (!mQsExpanded && mDoubleTapToSleepEnabled
-                        && event.getY() < mStatusBarHeaderHeight)) {
-                    mDoubleTapToSleepGesture.onTouchEvent(event);
-                }
-
                 initDownStates(event);
 
                 // If pulse is expanding already, let's give it the touch. There are situations
