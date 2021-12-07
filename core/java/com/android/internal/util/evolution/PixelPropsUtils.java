@@ -39,12 +39,11 @@ public class PixelPropsUtils {
             "com.google.android.googlequicksearchbox",
             "com.google.android.apps.recorder"
     };
-    
+
     private static final Map<String, Object> propsToChangePixelXL;
     private static final String[] packagesToChangePixelXL = {
             "com.google.android.apps.photos"
     };
-    
 
     private static final Map<String, ArrayList<String>> propsToKeep;
     private static final String[] extraPackagesToChange = {
@@ -75,7 +74,7 @@ public class PixelPropsUtils {
         propsToChangePixel5.put("DEVICE", "redfin");
         propsToChangePixel5.put("PRODUCT", "redfin");
         propsToChangePixel5.put("MODEL", "Pixel 5");
-        propsToChangePixel5.put("FINGERPRINT", "google/redfin/redfin:12/SP1A.210812.015/7679548:user/release-keys");
+        propsToChangePixel5.put("FINGERPRINT", "google/redfin/redfin:12/SQ1A.211205.008/7888514:user/release-keys");
         propsToChangePixelXL = new HashMap<>();
         propsToChangePixelXL.put("BRAND", "google");
         propsToChangePixelXL.put("MANUFACTURER", "Google");
