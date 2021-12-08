@@ -5716,13 +5716,6 @@ public final class Settings {
         public static final String LOCK_POWER_MENU_DISABLED = "lockscreen_power_menu_disabled";
 
         /**
-         * Whether to hide navbar pill and keyboard space.
-         * Default 0.
-         * @hide
-         */
-        public static final String FULLSCREEN_GESTURES = "fullscreen_gestures";
-
-        /**
          * Whether to inverse keys in navigation bar
          * Default 0
          * @hide
@@ -11536,7 +11529,7 @@ public final class Settings {
 
         /**
          * Gesture navbar length mode.
-         * Supported modes: 0 for normal length, 1 for medium and 2 for long.
+         * Supported modes: 0 for hidden, 1 for normal length, 2 for medium and 3 for long.
          * Default 0.
          * @hide
          */

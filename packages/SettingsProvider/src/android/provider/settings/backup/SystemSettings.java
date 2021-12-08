@@ -92,7 +92,6 @@ public class SystemSettings {
         Settings.System.ENABLE_RIPPLE_EFFECT,
         Settings.System.NETWORK_TRAFFIC_STATE,
         Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD,
-        Settings.System.FULLSCREEN_GESTURES,
         Settings.System.NAVIGATION_BAR_INVERSE,
         Settings.System.USE_OLD_MOBILETYPE,
         Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL,
