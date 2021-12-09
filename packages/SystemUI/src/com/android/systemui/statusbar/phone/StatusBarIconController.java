@@ -419,6 +419,7 @@ public interface StatusBarIconController {
         }
 
         public void onSetIcon(int viewIndex, StatusBarIcon icon) {
+            if (!(mGroup.getChildAt(viewIndex) instanceof StatusBarIconView)) return;
             View view = mGroup.getChildAt(viewIndex);
             if (view instanceof StatusBarIconView) {
                 ((StatusBarIconView) view).set(icon);
