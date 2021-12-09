@@ -101,5 +101,6 @@ public class SystemSettings {
         Settings.System.FLASHLIGHT_ON_CALL_IGNORE_DND,
         Settings.System.FLASHLIGHT_ON_CALL_RATE,
         Settings.System.VOLUME_DIALOG_TIMEOUT,
+        Settings.System.SCREEN_OFF_FOD,
     };
 }

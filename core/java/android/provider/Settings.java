@@ -5665,13 +5665,13 @@ public final class Settings {
          */
         public static final String VIBRATE_ON_CONNECT = "vibrate_on_connect";
 
-         /**
+        /**
          * Whether the phone vibrates on call waiting
          * @hide
          */
         public static final String VIBRATE_ON_CALLWAITING = "vibrate_on_callwaiting";
 
-         /**
+        /**
          * Whether the phone vibrates on disconnect
          * @hide
          */
@@ -6193,6 +6193,14 @@ public final class Settings {
          * @hide
          */
         public static final String ON_THE_GO_CAMERA = "on_the_go_camera";
+
+        /**
+         * Enable fod detection even when screen is off
+         * Default value is 0
+         * @hide
+         */
+        @Readable
+        public static final String SCREEN_OFF_FOD = "screen_off_fod";
 
         /**
          * IMPORTANT: If you add a new public settings you also have to add it to
