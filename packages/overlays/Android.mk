@@ -63,6 +63,11 @@ LOCAL_REQUIRED_MODULES := \
     IconPackOOSThemePickerOverlay \
     IconPackAcherusAndroidOverlay \
     IconPackAcherusSystemUIOverlay \
+    IconPackPUIAndroidOverlay \
+    IconPackPUILauncherOverlay \
+    IconPackPUISettingsOverlay \
+    IconPackPUISystemUIOverlay \
+    IconPackPUIThemePickerOverlay \
     IconShapeCloudyOverlay \
     IconShapeCylinderOverlay \
     IconShapeFlowerOverlay \
