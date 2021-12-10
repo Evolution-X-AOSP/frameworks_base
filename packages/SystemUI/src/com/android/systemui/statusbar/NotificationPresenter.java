@@ -63,7 +63,4 @@ public interface NotificationPresenter extends ExpandableNotificationRow.OnExpan
      * @return true if the shade is collapsing.
      */
     boolean isCollapsing();
-
-    void setHeadsUpStoplist();
-    void setHeadsUpBlacklist();
 }
