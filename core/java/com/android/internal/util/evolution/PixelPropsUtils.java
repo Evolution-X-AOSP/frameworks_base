@@ -17,6 +17,7 @@
  */
 package com.android.internal.util.evolution;
 
+import android.app.Application;
 import android.os.Build;
 import android.os.SystemProperties;
 import android.util.Log;
@@ -199,12 +200,25 @@ public class PixelPropsUtils {
         propsToChangeMI11.put("MODEL", "M2102K1G");
     }
 
-    public static void setProps(String packageName) {
+    public static void setProps(Application app) {
+        String packageName = app.getPackageName();
         if (packageName == null) {
             return;
         }
         if (Arrays.asList(packagesToKeep).contains(packageName)) {
             return;
+        }
+        if (Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE))) {
+            if (packageName.equals(PACKAGE_GMS) && app.getProcessName().equals("com.google.android.gms.unstable")) {
+                setPropValue("MODEL", SystemProperties.get("ro.product.model") + " ");
+                setPropValue("PRODUCT", SystemProperties.get(DEVICE));
+                sIsGms = true;
+            }
+            return;
+        }
+        if (packageName.equals(PACKAGE_GMS) && app.getProcessName().equals("com.google.android.gms.unstable")) {
+            setPropValue("MODEL", "Pixel 5" + " ");
+            sIsGms = true;
         }
         if (packageName.startsWith("com.google.")
                 || Arrays.asList(extraPackagesToChange).contains(packageName)) {
@@ -240,9 +254,6 @@ public class PixelPropsUtils {
                 }
                 if (DEBUG) Log.d(TAG, "Defining " + key + " prop for: " + packageName);
                 setPropValue(key, value);
-            }
-            if (packageName.equals(PACKAGE_GMS)) {
-                sIsGms = true;
             }
             // Set proper indexing fingerprint
             if (packageName.equals("com.google.android.settings.intelligence")) {
