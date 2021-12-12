@@ -18,10 +18,4 @@
 
     <solid android:color="?android:attr/colorBackgroundFloating" />
 
-    <corners
-        android:bottomLeftRadius="@dimen/alertslider_bg_radius"
-        android:bottomRightRadius="@dimen/alertslider_bg_radius"
-        android:topLeftRadius="@dimen/alertslider_bg_radius"
-        android:topRightRadius="@dimen/alertslider_bg_radius" />
-
 </shape>
