@@ -14,8 +14,9 @@
      limitations under the License.
 -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle" >
+     xmlns:androidprv="http://schemas.android.com/apk/prv/res/android"
+     android:shape="rectangle">
 
-    <solid android:color="?android:attr/colorBackgroundFloating" />
+     <solid android:color="?androidprv:attr/colorSurface" />
 
 </shape>

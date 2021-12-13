@@ -35,8 +35,7 @@
         android:id="@+id/label"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textColor="?android:attr/textColorPrimary"
-        android:textSize="@dimen/alertslider_textsize"
+        android:textAppearance="?android:attr/textAppearance"
         android:layout_gravity="center_vertical"
         android:layout_weight="5"
         android:gravity="center" />
