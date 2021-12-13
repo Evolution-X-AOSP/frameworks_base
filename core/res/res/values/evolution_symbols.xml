@@ -97,4 +97,11 @@
     <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
     <java-symbol type="bool" name="config_cleanupUnusedFingerprints" />
 
+   <!-- AlertSlider modes -->
+    <java-symbol type="string" name="alert_slider_mode_normal" />
+    <java-symbol type="string" name="alert_slider_mode_priority" />
+    <java-symbol type="string" name="alert_slider_mode_vibrate" />
+    <java-symbol type="string" name="alert_slider_mode_silent" />
+    <java-symbol type="string" name="alert_slider_mode_dnd" />
+
 </resources>

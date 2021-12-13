@@ -53,4 +53,13 @@
     <!-- Margin on the right side of the center clock -->
     <dimen name="status_bar_center_clock_padding_end">0dp</dimen>
 
+    <!-- AlertSlider -->
+    <dimen name="alertslider_bg_radius">24dp</dimen>
+    <dimen name="alertslider_dialog_minheight">48dp</dimen>
+    <dimen name="alertslider_dialog_minwidth">108dp</dimen>
+    <dimen name="alertslider_padding_inner_edge">15dp</dimen>
+    <dimen name="alertslider_padding_inner_top">15dp</dimen>
+    <dimen name="alertslider_text_fontsize">14sp</dimen>
+    <dimen name="alertslider_step_size">11dp</dimen>
+
 </resources>

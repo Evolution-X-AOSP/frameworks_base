@@ -23,6 +23,7 @@ import com.android.systemui.SliceBroadcastRelayHandler;
 import com.android.systemui.SystemUI;
 import com.android.systemui.accessibility.SystemActions;
 import com.android.systemui.accessibility.WindowMagnification;
+import com.android.systemui.alertslider.AlertSliderUI;
 import com.android.systemui.biometrics.AuthController;
 import com.android.systemui.globalactions.GlobalActionsComponent;
 import com.android.systemui.keyguard.KeyguardViewMediator;
@@ -257,4 +258,12 @@ public abstract class SystemUIGoogleBinder {
     @IntoMap
     @ClassKey(GameMenuActivityWrapper.class)
     public abstract Activity bindGameMenuActivity(GameMenuActivityWrapper activity);
+
+    /**
+     * Inject into AlertSliderUI.
+     */
+    @Binds
+    @IntoMap
+    @ClassKey(AlertSliderUI.class)
+    public abstract SystemUI bindAlertSliderUI(AlertSliderUI sysui);
 }
