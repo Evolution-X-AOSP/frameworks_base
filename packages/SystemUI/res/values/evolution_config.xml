@@ -59,4 +59,9 @@
     <!-- Whether to pulse onFingerDown actions while in AOD. -->
     <bool name="config_pulseOnFingerDownInAod">false</bool>
 
+    <!-- Whether device has hardware alertslider -->
+    <bool name="config_hasAlertSlider">false</bool>
+
+    <!-- Offset for alertslider dialog from status bar -->
+    <integer name="config_alertSliderOffset">0</integer>
 </resources>
