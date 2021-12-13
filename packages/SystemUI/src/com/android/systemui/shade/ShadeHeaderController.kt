@@ -29,10 +29,12 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Trace
 import android.os.Trace.TRACE_TAG_APP
+import android.os.UserHandle;
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.provider.AlarmClock
 import android.provider.CalendarContract
+import android.provider.Settings
 import android.view.DisplayCutout
 import android.view.View
 import android.view.WindowInsets
@@ -72,6 +74,8 @@ import com.android.systemui.statusbar.policy.ConfigurationController
 import com.android.systemui.statusbar.policy.NextAlarmController
 import com.android.systemui.statusbar.policy.VariableDateView
 import com.android.systemui.statusbar.policy.VariableDateViewController
+import com.android.systemui.tuner.TunerService
+import com.android.systemui.tuner.TunerService.Tunable
 import com.android.systemui.util.ViewController
 import java.io.PrintWriter
 import javax.inject.Inject
@@ -106,6 +110,7 @@ constructor(
     private val nextAlarmController: NextAlarmController,
     private val activityStarter: ActivityStarter,
     private val statusOverlayHoverListenerFactory: StatusOverlayHoverListenerFactory,
+    private val tunerService: TunerService,
 ) : ViewController<View>(header), Dumpable, View.OnClickListener, View.OnLongClickListener {
 
     companion object {
@@ -120,6 +125,15 @@ constructor(
 
         @VisibleForTesting internal val DEFAULT_CLOCK_INTENT = Intent(AlarmClock.ACTION_SHOW_ALARMS)
 
+        internal val QS_BATTERY_STYLE =
+            "system:" + Settings.System.QS_BATTERY_STYLE
+
+        internal val STATUS_BAR_BATTERY_STYLE =
+            "system:" + Settings.System.STATUS_BAR_BATTERY_STYLE
+
+        internal val QS_SHOW_BATTERY_PERCENT =
+            "system:" + Settings.System.QS_SHOW_BATTERY_PERCENT
+
         private fun Int.stateToString() =
             when (this) {
                 QQS_HEADER_CONSTRAINT -> "QQS Header"
@@ -130,6 +144,13 @@ constructor(
     }
 
     var shadeCollapseAction: Runnable? = null
+
+    private var qsBatteryPercent = Settings.System.getIntForUser(
+             context.contentResolver, Settings.System.QS_SHOW_BATTERY_PERCENT, 2, UserHandle.USER_CURRENT)
+    private var batteryStyle = Settings.System.getIntForUser(
+             context.contentResolver, Settings.System.STATUS_BAR_BATTERY_STYLE, 0, UserHandle.USER_CURRENT)
+    private var qsBatteryStyle = Settings.System.getIntForUser(
+             context.contentResolver, Settings.System.QS_BATTERY_STYLE, -1, UserHandle.USER_CURRENT)
 
     private lateinit var iconManager: StatusBarIconController.TintedIconManager
     private lateinit var carrierIconSlots: List<String>
@@ -305,6 +326,15 @@ constructor(
             nextAlarmIntent = nextAlarm?.showIntent
         }
 
+    fun updateQsBatteryStyle() {
+        if (qsBatteryStyle >= 0)  {
+            batteryIcon.setBatteryStyle(qsBatteryStyle)
+        } else {
+            batteryIcon.setBatteryStyle(batteryStyle)
+        }
+        batteryIcon.setBatteryPercent(qsBatteryPercent)
+    }
+
     override fun onInit() {
         variableDateViewControllerFactory.create(date as VariableDateView).init()
         batteryMeterViewController.init()
@@ -324,6 +354,29 @@ constructor(
             shadeCarrierGroupControllerBuilder.setShadeCarrierGroup(mShadeCarrierGroup).build()
 
         privacyIconsController.onParentVisible()
+
+        tunerService.addTunable(object : TunerService.Tunable {
+            override fun onTuningChanged(key: String?, value: String?) {
+                qsBatteryStyle = TunerService.parseInteger(value, -1)
+                updateQsBatteryStyle()
+            }
+        }, QS_BATTERY_STYLE)
+
+        tunerService.addTunable(object : TunerService.Tunable {
+            override fun onTuningChanged(key: String?, value: String?) {
+                batteryStyle = TunerService.parseInteger(value, 0)
+                updateQsBatteryStyle()
+            }
+        }, STATUS_BAR_BATTERY_STYLE)
+
+        tunerService.addTunable(object : TunerService.Tunable {
+            override fun onTuningChanged(key: String?, value: String?) {
+                qsBatteryPercent = TunerService.parseInteger(value, 2)
+                updateQsBatteryStyle()
+            }
+        }, QS_SHOW_BATTERY_PERCENT)
+
+        updateQsBatteryStyle()
 
         // click actions
         date.setOnClickListener(this)
@@ -479,13 +532,6 @@ constructor(
         }
 
         view.updateAllConstraints(changes)
-        updateBatteryMode()
-    }
-
-    private fun updateBatteryMode() {
-        qsBatteryModeController.getBatteryMode(cutout, qsExpandedFraction)?.let {
-            batteryIcon.setPercentShowMode(it)
-        }
     }
 
     private fun updateScrollY() {
@@ -548,7 +594,6 @@ constructor(
         if (!largeScreenActive && visible) {
             logInstantEvent("updatePosition: $qsExpandedFraction")
             header.progress = qsExpandedFraction
-            updateBatteryMode()
         }
         setBatteryClickable(qsExpandedFraction == 1f || !privacyChipVisible)
     }
