@@ -60,24 +60,25 @@ class AlertSliderController @Inject constructor(
     private val MODE_DND: String
 
     private lateinit var dialogView: View
+    private lateinit var dialogViewBackground: GradientDrawable
     private lateinit var layoutParams: LayoutParams
     private lateinit var icon: ImageView
     private lateinit var label: TextView
 
     private var appearAnimator: ValueAnimator? = null
-    private var disappearAnimator: ValueAnimator? = null
     private var transitionAnimator: ValueAnimator? = null
     private var radiusAnimator: ValueAnimator? = null
 
     private val dismissDialogRunnable = Runnable {
         prevPosition = currPosition
         if (dialogView.parent != null) {
-            animateDisappear()
+            animateAppear(false)
         }
     }
 
     private var alertSliderTopY: Int = 0
     private var stepSize: Int = 0
+    private var positionGravity = Gravity.RIGHT
 
     private var currPosition = 0
     private var prevPosition = 0
@@ -97,6 +98,8 @@ class AlertSliderController @Inject constructor(
         context.resources.let {
             alertSliderTopY = it.getInteger(R.integer.alert_slider_top_y)
             stepSize = it.getInteger(R.integer.alertslider_width) / 2
+            if (it.getBoolean(R.bool.config_alertSliderOnLeft))
+                positionGravity = Gravity.LEFT
         }
 
         context.registerReceiver(object: BroadcastReceiver() {
@@ -110,10 +113,12 @@ class AlertSliderController @Inject constructor(
     }
 
     fun updateConfiguration(newConfig: Configuration) {
+        removeHandlerCalbacks()
         if (dialogView.parent != null) {
             radiusAnimator?.cancel()
             transitionAnimator?.cancel()
             appearAnimator?.cancel()
+            appearAnimator = null
             windowManager.removeViewImmediate(dialogView)
         }
         isPortrait = newConfig.orientation == Configuration.ORIENTATION_PORTRAIT
@@ -145,31 +150,36 @@ class AlertSliderController @Inject constructor(
     }
 
     private fun showDialog(position: Int) {
-        if (handler.hasCallbacks(dismissDialogRunnable)) {
-            handler.removeCallbacks(dismissDialogRunnable)
-            prevPosition = currPosition
-        }
+        removeHandlerCalbacks()
         currPosition = position
-        disappearAnimator?.cancel()
+        appearAnimator?.cancel()
+        appearAnimator = null
         if (dialogView.parent == null) {
             updateCornerRadii(false)
             layoutParams = updateLayoutParams()
             dialogView.alpha = 0f
             windowManager.addView(dialogView, layoutParams)
-            animateAppear()
+            animateAppear(true)
         } else {
-            appearAnimator?.end()
             transitionAnimator?.end()
-            dialogView.alpha = 1f // Make sure alpha is 1 for transitions
+            dialogView.alpha = 1f // Make sure view is visible for transitions
             updateCornerRadii(true)
             animateTransition()
         }
         handler.postDelayed(dismissDialogRunnable, TIMEOUT)
     }
 
+    private fun removeHandlerCalbacks() {
+        if (handler.hasCallbacks(dismissDialogRunnable)) {
+            handler.removeCallbacks(dismissDialogRunnable)
+            prevPosition = currPosition
+        }
+    }
+
     private fun initDialog() {
         dialogView = LayoutInflater.from(context).inflate(
             R.layout.alertslider_dialog, null, false)
+        dialogViewBackground = dialogView.background as GradientDrawable
         icon = dialogView.findViewById(R.id.icon)
         label = dialogView.findViewById(R.id.label)
 
@@ -191,7 +201,7 @@ class AlertSliderController @Inject constructor(
             x = 0
             y = 0
             if (isPortrait) {
-                gravity = Gravity.RIGHT
+                gravity = positionGravity
                 horizontalMargin = 0.025f
                 verticalMargin = 0f
             } else {
@@ -212,29 +222,28 @@ class AlertSliderController @Inject constructor(
 
     private fun getOffsetForPosition() =
         when (currPosition) {
-            0 -> dialogView.getMeasuredHeight() / 2
-            2 -> -dialogView.getMeasuredHeight() / 2
+            0 -> dialogView.measuredHeight / 2
+            2 -> -dialogView.measuredHeight / 2
             else -> 0
         }
     
     private fun updateCornerRadii(animate: Boolean) {
-        val background = dialogView.background as GradientDrawable
-        var radius = dialogView.getMeasuredHeight() / 2f
+        var radius = dialogView.measuredHeight / 2f
         if (radius == 0f) {
             // Use the default radius value since view hasn't been drawn yet,
             // which will be pretty close to the actual value.
             radius = context.resources.getDimension(R.dimen.alertslider_dialog_minradius)
         }
         if (!isPortrait) {
-            background.cornerRadius = radius
+            dialogViewBackground.cornerRadius = radius
             return
         }
         if (!animate) {
             if (currPosition == 1) {
-                background.cornerRadius = radius
+                dialogViewBackground.cornerRadius = radius
                 return
             }
-            background.cornerRadii = floatArrayOf(
+            dialogViewBackground.cornerRadii = floatArrayOf(
                 radius, radius, // T-L
                 if (currPosition == 0) 0f else radius, if (currPosition == 0) 0f else radius, // T-R
                 if (currPosition == 2) 0f else radius, if (currPosition == 2) 0f else radius, // B-R
@@ -242,97 +251,48 @@ class AlertSliderController @Inject constructor(
             )
         }
         when (currPosition) {
-            0 -> {
-                radiusAnimator = ValueAnimator.ofFloat(radius, 0f).also {
-                    it.setDuration(TRANSITION_ANIM_DURATION)
-                    it.addUpdateListener {
-                        val topRightRadius = it.animatedValue as Float
-                        background.cornerRadii = floatArrayOf(
-                            radius, radius,
-                            topRightRadius, topRightRadius,
-                            radius, radius,
-                            radius, radius,
-                        )
-                    }
-                    it.addListener(onEnd = {
-                        radiusAnimator = null
-                    })
-                    it.start()
-                }
-            }
-            1 -> {
-                radiusAnimator = ValueAnimator.ofFloat(0f, radius).also {
-                    it.setDuration(TRANSITION_ANIM_DURATION)
-                    it.addUpdateListener {
-                        val topRightRadius = if (prevPosition == 0) it.animatedValue as Float else radius
-                        val bottomRightRadius = if (prevPosition == 2) it.animatedValue as Float else radius
-                        background.cornerRadii = floatArrayOf(
-                            radius, radius,
-                            topRightRadius, topRightRadius,
-                            bottomRightRadius, bottomRightRadius,
-                            radius, radius,
-                        )
-                    }
-                    it.addListener(onEnd = {
-                        radiusAnimator = null
-                    })
-                    it.start()
-                }
-            }
-            2 -> {
-                radiusAnimator = ValueAnimator.ofFloat(radius, 0f).also {
-                    it.setDuration(TRANSITION_ANIM_DURATION)
-                    it.addUpdateListener {
-                        val bottomRightRadius = it.animatedValue as Float
-                        background.cornerRadii = floatArrayOf(
-                            radius, radius,
-                            radius, radius,
-                            bottomRightRadius, bottomRightRadius,
-                            radius, radius,
-                        )
-                    }
-                    it.addListener(onEnd = {
-                        radiusAnimator = null
-                    })
-                    it.start()
-                }
-            }
+            0, 2 -> startRadiusAnimator(radius, currPosition, radius, 0f)
+            1 -> startRadiusAnimator(radius, prevPosition, 0f, radius)
         }
     }
 
-    private fun animateAppear() {
-        appearAnimator = ValueAnimator.ofFloat(0f, 1f).also {
-            it.setDuration(APPEAR_ANIM_DURATION)
-            it.addUpdateListener {
+    private fun startRadiusAnimator(radius: Float, position: Int, vararg values: Float) {
+        radiusAnimator = ValueAnimator.ofFloat(*values).apply {
+            setDuration(TRANSITION_ANIM_DURATION)
+            addUpdateListener {
+                val topRightRadius = if (position == 0) it.animatedValue as Float else radius
+                val bottomRightRadius = if (position == 2) it.animatedValue as Float else radius
+                dialogViewBackground.cornerRadii = floatArrayOf(
+                    radius, radius,
+                    topRightRadius, topRightRadius,
+                    bottomRightRadius, bottomRightRadius,
+                    radius, radius,
+                )
+            }
+            addListener(onEnd = { radiusAnimator = null })
+            start()
+        }
+    }
+
+    private fun animateAppear(appearing: Boolean) {
+        appearAnimator = ValueAnimator.ofFloat(0f, 1f).apply {
+            setDuration(APPEAR_ANIM_DURATION)
+            addUpdateListener {
                 dialogView.alpha = it.animatedValue as Float
             }
-            it.addListener(onEnd = {
+            addListener(onEnd = {
                 appearAnimator = null
+                if (!appearing) windowManager.removeViewImmediate(dialogView)
             })
-            it.start()
-        }
-    }
-
-    private fun animateDisappear() {
-        disappearAnimator = ValueAnimator.ofFloat(1f, 0f).also {
-            it.setDuration(APPEAR_ANIM_DURATION)
-            it.addUpdateListener {
-                dialogView.alpha = it.animatedValue as Float
-            }
-            it.addListener(onEnd = {
-                disappearAnimator = null
-                windowManager.removeViewImmediate(dialogView)
-            })
-            it.start()
+            if (appearing) start()
+            else reverse()
         }
     }
 
     private fun animateTransition() {
         val lp = updateLayoutParams()
-        transitionAnimator = if (isPortrait)
-            ValueAnimator.ofInt(layoutParams.y, lp.y)
-        else
-            ValueAnimator.ofInt(layoutParams.x, lp.x)
+        transitionAnimator = if (isPortrait) ValueAnimator.ofInt(layoutParams.y, lp.y)
+            else ValueAnimator.ofInt(layoutParams.x, lp.x)
         transitionAnimator!!.let {
             it.setDuration(TRANSITION_ANIM_DURATION)
             it.addUpdateListener { animator ->
@@ -341,9 +301,7 @@ class AlertSliderController @Inject constructor(
                 } else {
                     lp.x = animator.animatedValue as Int
                 }
-                if (dialogView.parent != null) {
-                    windowManager.updateViewLayout(dialogView, lp)
-                }
+                windowManager.updateViewLayout(dialogView, lp)
             }
             it.addListener(onEnd = {
                 transitionAnimator = null
@@ -351,7 +309,6 @@ class AlertSliderController @Inject constructor(
             })
             it.start()
         }
-        
     }
 
     companion object {
