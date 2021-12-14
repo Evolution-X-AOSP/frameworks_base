@@ -198,7 +198,7 @@ class InstallationAsyncTask extends AsyncTask<String, InstallationAsyncTask.Prog
                 return null;
             }
 
-            if (Build.IS_DEBUGGABLE) {
+            if (Build.IS_ENG) {
                 // If host is debuggable, then install a scratch partition so that we can do
                 // adb remount in the guest system.
                 try {

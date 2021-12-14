@@ -82,7 +82,7 @@ public abstract class WMShellConcurrencyModule {
         if (enableShellMainThread(context)) {
              HandlerThread mainThread = new HandlerThread("wmshell.main", THREAD_PRIORITY_DISPLAY);
              mainThread.start();
-             if (Build.IS_DEBUGGABLE) {
+             if (Build.IS_ENG) {
                  mainThread.getLooper().setTraceTag(Trace.TRACE_TAG_WINDOW_MANAGER);
                  mainThread.getLooper().setSlowLogThresholdMs(MSGQ_SLOW_DISPATCH_THRESHOLD_MS,
                          MSGQ_SLOW_DELIVERY_THRESHOLD_MS);
@@ -116,7 +116,7 @@ public abstract class WMShellConcurrencyModule {
          HandlerThread shellAnimationThread = new HandlerThread("wmshell.anim",
                  THREAD_PRIORITY_DISPLAY);
          shellAnimationThread.start();
-        if (Build.IS_DEBUGGABLE) {
+        if (Build.IS_ENG) {
             shellAnimationThread.getLooper().setTraceTag(Trace.TRACE_TAG_WINDOW_MANAGER);
             shellAnimationThread.getLooper().setSlowLogThresholdMs(MSGQ_SLOW_DISPATCH_THRESHOLD_MS,
                     MSGQ_SLOW_DELIVERY_THRESHOLD_MS);

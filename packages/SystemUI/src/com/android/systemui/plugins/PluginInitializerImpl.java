@@ -71,6 +71,6 @@ public class PluginInitializerImpl implements PluginInitializer {
 
     @Override
     public boolean isDebuggable() {
-        return Build.IS_DEBUGGABLE;
+        return Build.IS_ENG;
     }
 }

@@ -172,7 +172,7 @@ class ConfigurationController {
             final boolean hasIme = mActivityThread.hasImeComponent();
             if (config == null) {
                 // TODO (b/135719017): Temporary log for debugging IME service.
-                if (Build.IS_DEBUGGABLE && hasIme) {
+                if (Build.IS_ENG && hasIme) {
                     Log.w(TAG, "handleConfigurationChanged for IME app but config is null");
                 }
                 return;
@@ -206,7 +206,7 @@ class ConfigurationController {
             }
             if (!mConfiguration.isOtherSeqNewer(config) && compat == null) {
                 // TODO (b/135719017): Temporary log for debugging IME service.
-                if (Build.IS_DEBUGGABLE && hasIme) {
+                if (Build.IS_ENG && hasIme) {
                     Log.w(TAG, "handleConfigurationChanged for IME app but config seq is obsolete "
                             + ", config=" + config
                             + ", mConfiguration=" + mConfiguration);
@@ -240,7 +240,7 @@ class ConfigurationController {
                     performConfigurationChanged(cb, config);
                 } else {
                     // TODO (b/135719017): Temporary log for debugging IME service.
-                    if (Build.IS_DEBUGGABLE && cb instanceof InputMethodService) {
+                    if (Build.IS_ENG && cb instanceof InputMethodService) {
                         Log.w(TAG, "performConfigurationChanged didn't callback to IME "
                                 + ", configDiff=" + configDiff
                                 + ", mConfiguration=" + mConfiguration);

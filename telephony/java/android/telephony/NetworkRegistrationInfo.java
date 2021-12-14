@@ -641,7 +641,7 @@ public final class NetworkRegistrationInfo implements Parcelable {
                 .append(" cellIdentity=").append(mCellIdentity)
                 .append(" voiceSpecificInfo=").append(mVoiceSpecificInfo)
                 .append(" dataSpecificInfo=").append(mDataSpecificInfo)
-                .append(" nrState=").append(Build.IS_DEBUGGABLE
+                .append(" nrState=").append(Build.IS_ENG
                         ? nrStateToString(mNrState) : "****")
                 .append(" rRplmn=").append(mRplmn)
                 .append(" isUsingCarrierAggregation=").append(mIsUsingCarrierAggregation)

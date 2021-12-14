@@ -357,7 +357,7 @@ public abstract class ListenerMultiplexer<TKey, TListener,
 
     @GuardedBy("mRegistrations")
     private TRegistration removeRegistration(int index, boolean removeEntry) {
-        if (Build.IS_DEBUGGABLE) {
+        if (Build.IS_ENG) {
             Preconditions.checkState(Thread.holdsLock(mRegistrations));
         }
 
@@ -517,7 +517,7 @@ public abstract class ListenerMultiplexer<TKey, TListener,
 
     @GuardedBy("mRegistrations")
     private void onRegistrationActiveChanged(TRegistration registration) {
-        if (Build.IS_DEBUGGABLE) {
+        if (Build.IS_ENG) {
             Preconditions.checkState(Thread.holdsLock(mRegistrations));
         }
 
@@ -655,7 +655,7 @@ public abstract class ListenerMultiplexer<TKey, TListener,
 
         @GuardedBy("mRegistrations")
         boolean isReentrant() {
-            if (Build.IS_DEBUGGABLE) {
+            if (Build.IS_ENG) {
                 Preconditions.checkState(Thread.holdsLock(mRegistrations));
             }
             return mGuardCount != 0;
@@ -663,7 +663,7 @@ public abstract class ListenerMultiplexer<TKey, TListener,
 
         @GuardedBy("mRegistrations")
         void markForRemoval(Object key, ListenerRegistration<?> registration) {
-            if (Build.IS_DEBUGGABLE) {
+            if (Build.IS_ENG) {
                 Preconditions.checkState(Thread.holdsLock(mRegistrations));
             }
             Preconditions.checkState(isReentrant());

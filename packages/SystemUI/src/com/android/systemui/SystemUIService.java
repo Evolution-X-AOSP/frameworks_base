@@ -78,7 +78,7 @@ public class SystemUIService extends Service {
         }
 
         // For debugging RescueParty
-        if (Build.IS_DEBUGGABLE && SystemProperties.getBoolean("debug.crash_sysui", false)) {
+        if (Build.IS_ENG && SystemProperties.getBoolean("debug.crash_sysui", false)) {
             throw new RuntimeException();
         }
 

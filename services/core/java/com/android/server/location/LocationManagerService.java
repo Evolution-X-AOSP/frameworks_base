@@ -370,7 +370,7 @@ public class LocationManagerService extends ILocationManager.Stub implements
     }
 
     void onSystemReady() {
-        if (Build.IS_DEBUGGABLE) {
+        if (Build.IS_ENG) {
             // on debug builds, watch for location noteOps while location is off. there are some
             // scenarios (emergency location) where this is expected, but generally this should
             // rarely occur, and may indicate bugs. dump occurrences to logs for further evaluation

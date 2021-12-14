@@ -92,7 +92,7 @@ public class PackageParser2 implements AutoCloseable {
 
     private static final String TAG = ParsingUtils.TAG;
 
-    private static final boolean LOG_PARSE_TIMINGS = Build.IS_DEBUGGABLE;
+    private static final boolean LOG_PARSE_TIMINGS = Build.IS_ENG;
     private static final int LOG_PARSE_TIMINGS_THRESHOLD_MS = 100;
 
     private ThreadLocal<ApplicationInfo> mSharedAppInfo =

@@ -1217,8 +1217,8 @@ public final class MultiClientInputMethodManagerService {
                     + android.Manifest.permission.BIND_INPUT_METHOD);
             return null;
         }
-        if (!Build.IS_DEBUGGABLE && (si.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
-            Slog.e(TAG, imeId + " must be pre-installed when Build.IS_DEBUGGABLE is false");
+        if (!Build.IS_ENG && (si.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
+            Slog.e(TAG, imeId + " must be pre-installed when Build.IS_ENG is false");
             return null;
         }
         return ri;

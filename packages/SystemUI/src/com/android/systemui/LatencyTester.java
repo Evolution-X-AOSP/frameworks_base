@@ -67,7 +67,7 @@ public class LatencyTester extends SystemUI {
 
     @Override
     public void start() {
-        if (!Build.IS_DEBUGGABLE) {
+        if (!Build.IS_ENG) {
             return;
         }
 

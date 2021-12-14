@@ -145,8 +145,8 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
     private static final String TAG = "KeyguardUpdateMonitor";
     private static final boolean DEBUG = KeyguardConstants.DEBUG;
     private static final boolean DEBUG_SIM_STATES = KeyguardConstants.DEBUG_SIM_STATES;
-    private static final boolean DEBUG_FACE = Build.IS_DEBUGGABLE;
-    private static final boolean DEBUG_FINGERPRINT = Build.IS_DEBUGGABLE;
+    private static final boolean DEBUG_FACE = Build.IS_ENG;
+    private static final boolean DEBUG_FINGERPRINT = Build.IS_ENG;
     private static final boolean DEBUG_SPEW = false;
     private static final int FINGERPRINT_LOCKOUT_RESET_DELAY_MS = 600;
 

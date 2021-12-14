@@ -5820,7 +5820,7 @@ public class UserManagerService extends IUserManager.Stub {
      */
     private static int getMaxUsersOfTypePerParent(UserTypeDetails userTypeDetails) {
         final int defaultMax = userTypeDetails.getMaxAllowedPerParent();
-        if (!Build.IS_DEBUGGABLE) {
+        if (!Build.IS_ENG) {
             return defaultMax;
         } else {
             if (userTypeDetails.isManagedProfile()) {

@@ -31,7 +31,7 @@ public class TraceErrorLogger {
     private static final int PLACEHOLDER_VALUE = 1;
 
     public boolean isAddErrorIdEnabled() {
-        return Build.IS_DEBUGGABLE;
+        return Build.IS_ENG;
     }
 
     /**

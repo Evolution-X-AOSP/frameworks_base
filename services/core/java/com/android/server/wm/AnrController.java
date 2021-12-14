@@ -166,7 +166,7 @@ class AnrController {
      * Do not hold the {@link WindowManagerGlobalLock} while calling this method.
      */
     private void preDumpIfLockTooSlow() {
-        if (!Build.IS_DEBUGGABLE)  {
+        if (!Build.IS_ENG)  {
             return;
         }
         final long now = SystemClock.uptimeMillis();

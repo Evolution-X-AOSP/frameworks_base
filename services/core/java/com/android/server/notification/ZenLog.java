@@ -40,7 +40,7 @@ public class ZenLog {
     // the ZenLog is *very* verbose, so be careful about setting this to true
     private static final boolean DEBUG = false;
 
-    private static final int SIZE = Build.IS_DEBUGGABLE ? 200 : 100;
+    private static final int SIZE = Build.IS_ENG ? 200 : 100;
 
     private static final long[] TIMES = new long[SIZE];
     private static final int[] TYPES = new int[SIZE];

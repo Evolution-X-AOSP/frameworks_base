@@ -61,7 +61,7 @@ import android.util.SparseArray;
   */
 @SystemApi
 public class GbaService extends Service  {
-    private static final boolean DBG = Build.IS_DEBUGGABLE;
+    private static final boolean DBG = Build.IS_ENG;
     private static final String TAG = "GbaService";
 
     /**

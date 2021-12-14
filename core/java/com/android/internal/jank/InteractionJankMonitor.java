@@ -111,7 +111,7 @@ public class InteractionJankMonitor {
     private static final String SETTINGS_THRESHOLD_FRAME_TIME_MILLIS_KEY =
             "trace_threshold_frame_time_millis";
     /** Default to being enabled on debug builds. */
-    private static final boolean DEFAULT_ENABLED = Build.IS_DEBUGGABLE;
+    private static final boolean DEFAULT_ENABLED = Build.IS_ENG;
     /** Default to collecting data for all CUJs. */
     private static final int DEFAULT_SAMPLING_INTERVAL = 1;
     /** Default to triggering trace if 3 frames are missed OR a frame takes at least 64ms */

@@ -158,7 +158,7 @@ interface IPlatformCompat {
      * {@code android.permission.OVERRIDE_COMPAT_CHANGE_CONFIG_ON_RELEASE_BUILD} and all change ids
      * in {@code overrides} need to annotated with {@link android.compat.annotation.Overridable}.
      *
-     * A release build in this definition means that {@link android.os.Build#IS_DEBUGGABLE} needs to
+     * A release build in this definition means that {@link android.os.Build.IS_ENG} needs to
      * be {@code false}.
      *
      * <p>Note that this does not kill the app, and therefore overrides read from the app process
@@ -213,7 +213,7 @@ interface IPlatformCompat {
      * in {@code overridesToRemove} need to annotated with
      * {@link android.compat.annotation.Overridable}.
      *
-     * A release build in this definition means that {@link android.os.Build#IS_DEBUGGABLE} needs to
+     * A release build in this definition means that {@link android.os.Build.IS_ENG} needs to
      * be {@code false}.
      *
      * <p>Note that this does not kill the app, and therefore overrides read from the app process

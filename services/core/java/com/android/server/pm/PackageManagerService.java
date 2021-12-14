@@ -531,7 +531,7 @@ public class PackageManagerService extends IPackageManager.Stub
     private static final boolean DEBUG_VERIFY = false;
     public static final boolean DEBUG_PERMISSIONS = false;
     private static final boolean DEBUG_SHARED_LIBRARIES = false;
-    public static final boolean DEBUG_COMPRESSION = Build.IS_DEBUGGABLE;
+    public static final boolean DEBUG_COMPRESSION = Build.IS_ENG;
     public static final boolean TRACE_SNAPSHOTS = false;
     private static final boolean DEBUG_PER_UID_READ_TIMEOUTS = false;
 
@@ -541,7 +541,7 @@ public class PackageManagerService extends IPackageManager.Stub
     public static final boolean DEBUG_DEXOPT = false;
 
     static final boolean DEBUG_ABI_SELECTION = false;
-    private static final boolean DEBUG_INSTANT = Build.IS_DEBUGGABLE;
+    private static final boolean DEBUG_INSTANT = Build.IS_ENG;
     private static final boolean DEBUG_APP_DATA = false;
 
     /** REMOVE. According to Svet, this was only used to reset permissions during development. */
@@ -8433,7 +8433,7 @@ public class PackageManagerService extends IPackageManager.Stub
     private @Nullable ComponentName getInstantAppResolverLPr() {
         final String[] packageArray =
                 mContext.getResources().getStringArray(R.array.config_ephemeralResolverPackage);
-        if (packageArray.length == 0 && !Build.IS_DEBUGGABLE) {
+        if (packageArray.length == 0 && !Build.IS_ENG) {
             if (DEBUG_INSTANT) {
                 Slog.d(TAG, "Ephemeral resolver NOT found; empty package list");
             }
@@ -8444,7 +8444,7 @@ public class PackageManagerService extends IPackageManager.Stub
         final int resolveFlags =
                 MATCH_DIRECT_BOOT_AWARE
                 | MATCH_DIRECT_BOOT_UNAWARE
-                | (!Build.IS_DEBUGGABLE ? MATCH_SYSTEM_ONLY : 0);
+                | (!Build.IS_ENG ? MATCH_SYSTEM_ONLY : 0);
         final Intent resolverIntent = new Intent(Intent.ACTION_RESOLVE_INSTANT_APP_PACKAGE);
         List<ResolveInfo> resolvers = queryIntentServicesInternal(resolverIntent, null,
                 resolveFlags, UserHandle.USER_SYSTEM, callingUid, false /*includeInstantApps*/);
@@ -8465,7 +8465,7 @@ public class PackageManagerService extends IPackageManager.Stub
             }
 
             final String packageName = info.serviceInfo.packageName;
-            if (!possiblePackages.contains(packageName) && !Build.IS_DEBUGGABLE) {
+            if (!possiblePackages.contains(packageName) && !Build.IS_ENG) {
                 if (DEBUG_INSTANT) {
                     Slog.d(TAG, "Ephemeral resolver not in allowed package list;"
                             + " pkg: " + packageName + ", info:" + info);
@@ -21187,7 +21187,7 @@ public class PackageManagerService extends IPackageManager.Stub
             // In legacy mode, fs-verity can only be enabled by process with CAP_SYS_ADMIN.
             final VerityUtils.SetupResult result = VerityUtils.generateApkVeritySetupData(filePath);
             if (result.isOk()) {
-                if (Build.IS_DEBUGGABLE) Slog.i(TAG, "Enabling verity to " + filePath);
+                if (Build.IS_ENG) Slog.i(TAG, "Enabling verity to " + filePath);
                 final FileDescriptor fd = result.getUnownedFileDescriptor();
                 try {
                     final byte[] rootHash = VerityUtils.generateApkVerityRootHash(filePath);
@@ -28794,7 +28794,7 @@ public class PackageManagerService extends IPackageManager.Stub
 
     @Override
     public IBinder getHoldLockToken() {
-        if (!Build.IS_DEBUGGABLE) {
+        if (!Build.IS_ENG) {
             throw new SecurityException("getHoldLockToken requires a debuggable build");
         }
 
@@ -28809,7 +28809,7 @@ public class PackageManagerService extends IPackageManager.Stub
 
     @Override
     public void verifyHoldLockToken(IBinder token) {
-        if (!Build.IS_DEBUGGABLE) {
+        if (!Build.IS_ENG) {
             throw new SecurityException("holdLock requires a debuggable build");
         }
 

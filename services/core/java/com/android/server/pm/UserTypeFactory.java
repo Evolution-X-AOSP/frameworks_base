@@ -102,7 +102,7 @@ public final class UserTypeFactory {
         builders.put(USER_TYPE_FULL_RESTRICTED, getDefaultTypeFullRestricted());
         builders.put(USER_TYPE_SYSTEM_HEADLESS, getDefaultTypeSystemHeadless());
         builders.put(USER_TYPE_PROFILE_CLONE, getDefaultTypeProfileClone());
-        if (Build.IS_DEBUGGABLE) {
+        if (Build.IS_ENG) {
             builders.put(USER_TYPE_PROFILE_TEST, getDefaultTypeProfileTest());
         }
 

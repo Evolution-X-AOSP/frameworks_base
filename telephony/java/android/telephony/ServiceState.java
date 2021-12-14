@@ -1155,7 +1155,7 @@ public class ServiceState implements Parcelable {
                     .append(", isUsingCarrierAggregation=").append(isUsingCarrierAggregation())
                     .append(", mArfcnRsrpBoost=").append(mArfcnRsrpBoost)
                     .append(", mNetworkRegistrationInfos=").append(mNetworkRegistrationInfos)
-                    .append(", mNrFrequencyRange=").append(Build.IS_DEBUGGABLE
+                    .append(", mNrFrequencyRange=").append(Build.IS_ENG
                             ? mNrFrequencyRange : FREQUENCY_RANGE_UNKNOWN)
                     .append(", mOperatorAlphaLongRaw=").append(mOperatorAlphaLongRaw)
                     .append(", mOperatorAlphaShortRaw=").append(mOperatorAlphaShortRaw)

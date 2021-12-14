@@ -263,7 +263,7 @@ public final class AttributionSource implements Parcelable {
 
     @Override
     public String toString() {
-        if (Build.IS_DEBUGGABLE) {
+        if (Build.IS_ENG) {
             return "AttributionSource { " +
                     "uid = " + mAttributionSourceState.uid + ", " +
                     "packageName = " + mAttributionSourceState.packageName + ", " +

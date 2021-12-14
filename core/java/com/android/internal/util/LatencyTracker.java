@@ -45,7 +45,7 @@ public class LatencyTracker {
     private static final String SETTINGS_ENABLED_KEY = "enabled";
     private static final String SETTINGS_SAMPLING_INTERVAL_KEY = "sampling_interval";
     /** Default to being enabled on debug builds. */
-    private static final boolean DEFAULT_ENABLED = Build.IS_DEBUGGABLE;
+    private static final boolean DEFAULT_ENABLED = Build.IS_ENG;
     /** Default to collecting data for 1/5 of all actions (randomly sampled). */
     private static final int DEFAULT_SAMPLING_INTERVAL = 5;
 

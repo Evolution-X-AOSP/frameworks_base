@@ -48,7 +48,7 @@ import java.util.concurrent.TimeUnit;
 public final class SystemServerInitThreadPool implements Dumpable {
     private static final String TAG = SystemServerInitThreadPool.class.getSimpleName();
     private static final int SHUTDOWN_TIMEOUT_MILLIS = 20000;
-    private static final boolean IS_DEBUGGABLE = Build.IS_DEBUGGABLE;
+    private static final boolean IS_DEBUGGABLE = Build.IS_ENG;
     private static final Object LOCK = new Object();
 
     @GuardedBy("LOCK")

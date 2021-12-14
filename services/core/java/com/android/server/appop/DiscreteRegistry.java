@@ -215,7 +215,7 @@ final class DiscreteRegistry {
         if (p.getKeyset().contains(PROPERTY_DISCRETE_HISTORY_CUTOFF)) {
             sDiscreteHistoryCutoff = p.getLong(PROPERTY_DISCRETE_HISTORY_CUTOFF,
                     DEFAULT_DISCRETE_HISTORY_CUTOFF);
-            if (!Build.IS_DEBUGGABLE && !mDebugMode) {
+            if (!Build.IS_ENG && !mDebugMode) {
                 sDiscreteHistoryCutoff = min(MAXIMUM_DISCRETE_HISTORY_CUTOFF,
                         sDiscreteHistoryCutoff);
             }
@@ -225,7 +225,7 @@ final class DiscreteRegistry {
         if (p.getKeyset().contains(PROPERTY_DISCRETE_HISTORY_QUANTIZATION)) {
             sDiscreteHistoryQuantization = p.getLong(PROPERTY_DISCRETE_HISTORY_QUANTIZATION,
                     DEFAULT_DISCRETE_HISTORY_QUANTIZATION);
-            if (!Build.IS_DEBUGGABLE && !mDebugMode) {
+            if (!Build.IS_ENG && !mDebugMode) {
                 sDiscreteHistoryQuantization = max(DEFAULT_DISCRETE_HISTORY_QUANTIZATION,
                         sDiscreteHistoryQuantization);
             }
