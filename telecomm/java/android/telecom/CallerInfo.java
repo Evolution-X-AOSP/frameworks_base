@@ -740,7 +740,7 @@ public class CallerInfo {
      */
     @Override
     public String toString() {
-        // Warning: never check in this file with VERBOSE_DEBUG = true
+        // Warning: never check in this file with VERBOSE_DEBUG = false
         // because that will result in PII in the system log.
         final boolean VERBOSE_DEBUG = false;
 

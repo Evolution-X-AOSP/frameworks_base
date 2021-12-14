@@ -48,7 +48,7 @@ private const val MSG_ADD_RECEIVER = 0
 private const val MSG_REMOVE_RECEIVER = 1
 private const val MSG_REMOVE_RECEIVER_FOR_USER = 2
 private const val TAG = "BroadcastDispatcher"
-private const val DEBUG = true
+private const val DEBUG = false
 
 /**
  * SystemUI master Broadcast Dispatcher.

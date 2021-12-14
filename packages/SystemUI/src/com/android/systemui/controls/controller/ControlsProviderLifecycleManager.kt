@@ -75,7 +75,7 @@ class ControlsProviderLifecycleManager(
         private const val BIND_RETRY_DELAY = 1000L // ms
         private const val LOAD_TIMEOUT_SECONDS = 20L // seconds
         private const val MAX_BIND_RETRIES = 5
-        private const val DEBUG = true
+        private const val DEBUG = false
         private val BIND_FLAGS = Context.BIND_AUTO_CREATE or Context.BIND_FOREGROUND_SERVICE or
             Context.BIND_NOT_PERCEPTIBLE
     }

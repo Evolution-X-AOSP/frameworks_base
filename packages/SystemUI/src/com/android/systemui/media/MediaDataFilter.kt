@@ -31,7 +31,7 @@ import javax.inject.Inject
 import kotlin.collections.LinkedHashMap
 
 private const val TAG = "MediaDataFilter"
-private const val DEBUG = true
+private const val DEBUG = false
 private const val RESUMABLE_MEDIA_MAX_AGE_SECONDS_KEY = "resumable_media_max_age_seconds"
 
 /**
