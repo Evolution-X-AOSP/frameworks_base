@@ -1238,7 +1238,8 @@ public class NavigationBar implements View.OnAttachStateChangeListener,
 
         boolean clickable = (a11yFlags & SYSUI_STATE_A11Y_BUTTON_CLICKABLE) != 0;
         boolean longClickable = (a11yFlags & SYSUI_STATE_A11Y_BUTTON_LONG_CLICKABLE) != 0;
-        mNavigationBarView.setAccessibilityButtonState(clickable, longClickable);
+        if (mNavigationBarView != null)
+            mNavigationBarView.setAccessibilityButtonState(clickable, longClickable);
 
         updateSystemUiStateFlags(a11yFlags);
     }
