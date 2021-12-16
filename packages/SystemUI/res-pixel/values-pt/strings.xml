@@ -28,10 +28,17 @@
     <string name="assistant_scrim_label">Ouvindo, toque para cancelar</string>
     <string name="assistant_zero_state_icon_label">Visão geral do Assistente</string>
     <string name="charging_reverse_text">Compartilhando a bateria</string>
+    <string name="columbus_bouncer_message">Desbloqueie a tela para concluir o Toque rápido</string>
+    <string name="columbus_target_request_dialog_allow">Permitir</string>
+    <string name="columbus_target_request_dialog_deny">Não permitir</string>
+    <string name="columbus_target_request_dialog_summary">Quando você tocar duas vezes na parte de trás do smartphone, o app %1$s será aberto. Você pode mudar essa preferência a qualquer momento nas Configurações.</string>
+    <string name="columbus_target_request_dialog_title">Permitir que o Toque rápido abra o app %1$s?</string>
     <string name="defender_notify_des">O smartphone está limitando o carregamento para ajudar a preservar a integridade da bateria</string>
     <string name="defender_notify_learn_more">Saiba mais</string>
     <string name="defender_notify_resume_charge">Retomar o carregamento</string>
     <string name="defender_notify_title">Carregamento temporariamente limitado</string>
+    <string name="defender_post_notify_des">Para preservar a integridade da bateria, o carregamento foi limitado a %1$s neste período: %2$s a %3$s</string>
+    <string name="defender_post_notify_title">Carregando normalmente</string>
     <string name="dock_photo_preview_text">Iniciando \"Porta-retratos\"…</string>
     <string name="dock_promo_text">Deslize para a esquerda para ver o porta-retratos</string>
     <string name="extreme_battery_saver_text">Extrema</string>

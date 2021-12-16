@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
-    <string name="accessibility_assistant_poodle">వాయిస్ శోధన</string>
+    <string name="accessibility_assistant_poodle">వాయిస్ సెర్చ్</string>
     <string name="accessibility_game_dashboard_back_button">గేమ్ డ్యాష్‌బోర్డ్‌కు తిరిగి వెళ్లు</string>
     <string name="accessibility_game_dashboard_dnd_config_dialog_exit">నిష్క్రమించు</string>
     <string name="accessibility_game_dashboard_dnd_toggle">"గేమ్‌లకు చెందిన 'అంతరాయం కలిగించవద్దు'ను టోగుల్ చేయి"</string>
@@ -26,14 +26,21 @@
     <string name="assistant_half_listening_label">వినడం కొనసాగించండి, రద్దు చేయడానికి నొక్కండి</string>
     <string name="assistant_keyboard_icon_label">కీబోర్డ్</string>
     <string name="assistant_scrim_label">వింటోంది, రద్దు చేయడానికి నొక్కండి</string>
-    <string name="assistant_zero_state_icon_label">అసిస్టెంట్ అవలోకనం</string>
+    <string name="assistant_zero_state_icon_label">Assistant ఓవర్‌వ్యూ</string>
     <string name="charging_reverse_text">బ్యాటరీ షేర్ చేయబడుతోంది</string>
+    <string name="columbus_bouncer_message">క్విక్ ట్యాప్‌ను పూర్తి చేయడానికి అన్‌లాక్ చేయండి</string>
+    <string name="columbus_target_request_dialog_allow">అనుమతించండి</string>
+    <string name="columbus_target_request_dialog_deny">అనుమతించవద్దు</string>
+    <string name="columbus_target_request_dialog_summary">మీరు మీ ఫోన్ వెనుక భాగంలో రెండుసార్లు నొక్కినప్పుడు, %1$s తెరుచుకుంటుంది. మీరు ఈ ఎంపికను సెట్టింగ్‌లలో ఎప్పుడైనా మార్చవచ్చు.</string>
+    <string name="columbus_target_request_dialog_title">%1$sను తెరవడానికి క్విక్ ట్యాప్‌ను అనుమతించాలా?</string>
     <string name="copied_text_label">కాపీ చేసిన టెక్స్ట్</string>
     <string name="copy_url_description">టెక్స్ట్ కాపీ చేయబడింది</string>
     <string name="defender_notify_des">బ్యాటరీ స్థితిని కాపాడటంలో సహాయపడడానికి మీ ఫోన్, ఛార్జింగ్‌ను పరిమితం చేస్తోంది</string>
     <string name="defender_notify_learn_more">మరింత తెలుసుకోండి</string>
     <string name="defender_notify_resume_charge">ఛార్జింగ్‌ను కొనసాగించండి</string>
     <string name="defender_notify_title">ఛార్జింగ్ తాత్కాలికంగా పరిమితం చేయబడింది</string>
+    <string name="defender_post_notify_des">బ్యాటరీ స్థితిని కాపాడడానికి ఛార్జింగ్, %2$s నుండి %3$s వరకు %1$sకు పరిమితం చేయబడింది</string>
+    <string name="defender_post_notify_title">సాధారణంగా ఛార్జ్ అవుతోంది</string>
     <string name="dock_photo_preview_text">ఫోటో ఫ్రేమ్ ప్రారంభమవుతోంది...</string>
     <string name="dock_promo_text">ఫోటో ఫ్రేమ్ కోసం ఎడమవైపుకి స్వైప్ చేయండి</string>
     <string name="extreme_battery_saver_text">ఎక్స్‌ట్రీమ్</string>
@@ -79,8 +86,8 @@
     <string name="game_mode_unsupported_description">ఈ గేమ్ కోసం అందుబాటులో లేదు</string>
     <string name="game_screen_record_saved">స్క్రీన్ రికార్డింగ్ సేవ్ చేయబడింది</string>
     <string name="global_actions_change_description">%1$s, డివైజ్ కంట్రోల్స్‌ను యాక్సెస్ చేయడానికి, మీ స్క్రీన్ పై నుండి కిందకు స్వైప్ చేయండి</string>
-    <string name="google_services_wallpaper_permission">Google స్థాన సేవను యాక్సెస్ చేయడం ద్వారా <b>మీ స్థానానికి అనుగుణంగా మార్పు చెందేలా Google సచేతన చిత్రాలను అనుమతించండి</b>.</string>
-    <string name="google_services_wallpaper_permission_dialog_text">మీరు, సెట్టింగ్‌లు &gt; యాప్‌లు &gt; నిండుగా ఉన్న మెనూలో సిస్టమ్ యాప్‌లు &gt; లైవ్ డేటా చిత్రాలు / లైవ్ భూమి చిత్రాలకు వెళ్లి, ఆపై అనుమతులను నొక్కడం ద్వారా లైవ్ చిత్రాల కోసం Google స్థాన సేవ యాక్సెస్‌ను ఆన్ లేదా ఆఫ్ చేయవచ్చు.</string>
+    <string name="google_services_wallpaper_permission">Google లొకేషన్ సర్వీస్‌ను యాక్సెస్ చేయడం ద్వారా <b>మీ లొకేషన్‌కు అనుగుణంగా మార్పు చెందేలా Google లైవ్ వాల్‌పేపర్లను అనుమతించండి</b>.</string>
+    <string name="google_services_wallpaper_permission_dialog_text">మీరు, సెట్టింగ్‌లు &gt; యాప్‌లు &gt; ఓవర్ ఫ్లో మెనూలో సిస్టమ్ యాప్‌లు &gt; లైవ్ డేటా వాల్‌పేపర్ / లైవ్ ఎర్త్ వాల్‌పేపర్లకు వెళ్లి, అనుమతులను ట్యాప్ చేయడం ద్వారా లైవ్ వాల్‌పేపర్ల కోసం Google లొకేషన్ సర్వీస్ యాక్సెస్‌ను ఆన్ లేదా ఆఫ్ చేయవచ్చు.</string>
     <string name="handle_invocation_prompt">మాట్లాడటానికి స్వైప్ చేయండి</string>
     <string name="image_content_description">ఎంచుకోదగిన ఇమేజ్</string>
     <string name="keyguard_indication_trust_unlocked">Smart Lock దీన్ని అన్‌లాక్ చేసి ఉంచింది</string>

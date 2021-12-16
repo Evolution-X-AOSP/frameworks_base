@@ -3,6 +3,7 @@
     <item type="id" name="alarm_icon"/>
     <item type="id" name="alarm_text"/>
     <item type="id" name="ambient_indication"/>
+    <item type="id" name="ambient_indication_icon"/>
     <item type="id" name="ambient_indication_text"/>
     <item type="id" name="assist_prompt"/>
     <item type="id" name="base_action_icon_subtitle"/>
@@ -88,11 +89,13 @@
     <item type="id" name="loyalty_program_logo"/>
     <item type="id" name="loyalty_program_name"/>
     <item type="id" name="match_time_summary"/>
+    <item type="id" name="negative_button"/>
     <item type="id" name="performance_mode"/>
     <item type="id" name="performance_mode_radio_button"/>
     <item type="id" name="photo_preview"/>
     <item type="id" name="photo_preview_text"/>
     <item type="id" name="photo_promo_text"/>
+    <item type="id" name="positive_button"/>
     <item type="id" name="record"/>
     <item type="id" name="red"/>
     <item type="id" name="red_glow"/>

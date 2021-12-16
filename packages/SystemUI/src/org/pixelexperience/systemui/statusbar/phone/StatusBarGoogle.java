@@ -238,7 +238,8 @@ public class StatusBarGoogle extends StatusBar {
                            WallpaperNotifier wallpaperNotifier,
                            Optional<ReverseChargingViewController> reverseChargingViewController,
                            Lazy<Optional<NotificationVoiceReplyClient>> notificationVoiceReplyClient,
-                           BurnInProtectionController burnInProtectionController, TaskHelper taskHelper) {
+                           BurnInProtectionController burnInProtectionController,
+                           TaskHelper taskHelper) {
         super(context, notificationsController, lightBarController, autoHideController, keyguardUpdateMonitor,
                 signalPolicy, pulseExpansionHandler, notificationWakeUpCoordinator, keyguardBypassController,
                 keyguardStateController, headsUpManagerPhone, dynamicPrivacyController, bypassHeadsUpNotifier,

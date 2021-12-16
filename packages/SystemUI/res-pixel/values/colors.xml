@@ -9,7 +9,6 @@
     <color name="assist_chip_ripple_light">#1f000000</color>
     <color name="assist_chip_text_dark">#fff5f7fa</color>
     <color name="assist_chip_text_light">#ff202124</color>
-    <color name="biometric_dialog_accent">@android:color/system_accent1_600</color>
     <color name="chip_hint_background_color2">#fff1f3f4</color>
     <color name="chip_hint_foreground_color2">#ff3c4043</color>
     <color name="default_gleam_background_color">#ff000000</color>

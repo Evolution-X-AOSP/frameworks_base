@@ -30,6 +30,11 @@
     <string name="calendar_component_name">com.google.android.calendar/com.android.calendar.AllInOneActivity</string>
     <string name="charging_reverse_text">Sharing battery</string>
     <string name="clock_component_name">com.google.android.deskclock/com.android.deskclock.DeskClock</string>
+    <string name="columbus_bouncer_message">Unlock to complete Quick Tap</string>
+    <string name="columbus_target_request_dialog_allow">Allow</string>
+    <string name="columbus_target_request_dialog_deny">Don’t allow</string>
+    <string name="columbus_target_request_dialog_summary">When you double-tap the back of your phone, %1$s will open. You can change this preference anytime in Settings.</string>
+    <string name="columbus_target_request_dialog_title">Allow Quick Tap to open %1$s?</string>
     <string name="config_dockComponent"/>
     <string name="config_preferredEmergencySosPackage">com.google.android.apps.safetyhub</string>
     <!--string name="config_statusBarComponent">com.google.android.systemui.statusbar.phone.StatusBarGoogle</string>
@@ -38,10 +43,12 @@
     <string name="copied_text_label">Copied text</string>
     <string name="copy_url_description">Text copied</string>
     <string name="defender_notify_des">Your phone is limiting charging to help preserve battery health</string>
-    <string name="defender_notify_help_url">https://support.google.com/pixelphone?p=overheat_emergency</string>
+    <string name="defender_notify_help_url">https://support.google.com/pixelphone?p=android_batterydefender</string>
     <string name="defender_notify_learn_more">Learn more</string>
     <string name="defender_notify_resume_charge">Resume charging</string>
     <string name="defender_notify_title">Charging temporarily limited</string>
+    <string name="defender_post_notify_des">Charging was limited to %1$s from %2$s to %3$s to preserve battery health</string>
+    <string name="defender_post_notify_title">Charging normally</string>
     <string name="dock_photo_preview_text">Photo frame starting...</string>
     <string name="dock_promo_text">Swipe left for photo frame</string>
     <string name="elmyra_raw_sensor_string_type">com.google.sensor.elmyra.raw</string>
