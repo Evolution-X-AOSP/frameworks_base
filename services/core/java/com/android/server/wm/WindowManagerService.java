@@ -2715,8 +2715,8 @@ public class WindowManagerService extends IWindowManager.Stub
     }
 
     @Override
-    public boolean attachWindowContextToDisplayArea(IBinder clientToken, int type, int displayId,
-            Bundle options) {
+    public Configuration attachWindowContextToDisplayArea(IBinder clientToken, int
+            type, int displayId, Bundle options) {
         final boolean callerCanManageAppTokens = checkCallingPermission(MANAGE_APP_TOKENS,
                 "attachWindowContextToDisplayArea", false /* printLog */);
         final int callingUid = Binder.getCallingUid();
@@ -2727,15 +2727,17 @@ public class WindowManagerService extends IWindowManager.Stub
                 if (dc == null) {
                     ProtoLog.w(WM_ERROR, "attachWindowContextToDisplayArea: trying to attach"
                             + " to a non-existing display:%d", displayId);
-                    return false;
+                    return null;
                 }
                 // TODO(b/155340867): Investigate if we still need roundedCornerOverlay after
                 // the feature b/155340867 is completed.
                 final DisplayArea da = dc.findAreaForWindowType(type, options,
                         callerCanManageAppTokens, false /* roundedCornerOverlay */);
+                // TODO(b/190019118): Avoid to send onConfigurationChanged because it has been done
+                //  in return value of attachWindowContextToDisplayArea.
                 mWindowContextListenerController.registerWindowContainerListener(clientToken, da,
                         callingUid, type, options);
-                return true;
+                return da.getConfiguration();
             }
         } finally {
             Binder.restoreCallingIdentity(origId);
@@ -7085,6 +7087,7 @@ public class WindowManagerService extends IWindowManager.Stub
                             "requestScrollCapture: caught exception dispatching to window."
                                     + "token=%s", targetWindow.mClient.asBinder());
                     responseBuilder.setWindowTitle(targetWindow.getName());
+                    responseBuilder.setPackageName(targetWindow.getOwningPackage());
                     responseBuilder.setDescription(String.format("caught exception: %s", e));
                     listener.onScrollCaptureResponse(responseBuilder.build());
                 }
@@ -8612,8 +8615,9 @@ public class WindowManagerService extends IWindowManager.Stub
             if (imeTargetWindowTask == null) {
                 return false;
             }
-            final TaskSnapshot snapshot = mAtmService.getTaskSnapshot(imeTargetWindowTask.mTaskId,
-                    false /* isLowResolution */);
+            final TaskSnapshot snapshot = getTaskSnapshot(imeTargetWindowTask.mTaskId,
+                    imeTargetWindowTask.mUserId, false /* isLowResolution */,
+                    false /* restoreFromDisk */);
             return snapshot != null && snapshot.hasImeSurface();
         }
     }

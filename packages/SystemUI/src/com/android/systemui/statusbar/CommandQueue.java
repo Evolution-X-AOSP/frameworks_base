@@ -295,8 +295,8 @@ public class CommandQueue extends IStatusBar.Stub implements CallbackController<
         default void showAuthenticationDialog(PromptInfo promptInfo,
                 IBiometricSysuiReceiver receiver,
                 int[] sensorIds, boolean credentialAllowed,
-                boolean requireConfirmation, int userId, String opPackageName,
-                long operationId, @BiometricMultiSensorMode int multiSensorConfig) {
+                boolean requireConfirmation, int userId, long operationId, String opPackageName,
+                long requestId, @BiometricMultiSensorMode int multiSensorConfig) {
         }
 
         /** @see IStatusBar#onBiometricAuthenticated() */
@@ -859,7 +859,7 @@ public class CommandQueue extends IStatusBar.Stub implements CallbackController<
     @Override
     public void showAuthenticationDialog(PromptInfo promptInfo, IBiometricSysuiReceiver receiver,
             int[] sensorIds, boolean credentialAllowed, boolean requireConfirmation,
-            int userId, String opPackageName, long operationId,
+            int userId, long operationId, String opPackageName, long requestId,
             @BiometricMultiSensorMode int multiSensorConfig) {
         synchronized (mLock) {
             SomeArgs args = SomeArgs.obtain();
@@ -871,6 +871,7 @@ public class CommandQueue extends IStatusBar.Stub implements CallbackController<
             args.argi1 = userId;
             args.arg6 = opPackageName;
             args.arg7 = operationId;
+            args.arg8 = requestId;
             args.argi2 = multiSensorConfig;
             mHandler.obtainMessage(MSG_BIOMETRIC_SHOW, args)
                     .sendToTarget();
@@ -1355,8 +1356,9 @@ public class CommandQueue extends IStatusBar.Stub implements CallbackController<
                                 (boolean) someArgs.arg4 /* credentialAllowed */,
                                 (boolean) someArgs.arg5 /* requireConfirmation */,
                                 someArgs.argi1 /* userId */,
-                                (String) someArgs.arg6 /* opPackageName */,
                                 (long) someArgs.arg7 /* operationId */,
+                                (String) someArgs.arg6 /* opPackageName */,
+                                (long) someArgs.arg8 /* requestId */,
                                 someArgs.argi2 /* multiSensorConfig */);
                     }
                     someArgs.recycle();

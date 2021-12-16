@@ -92,12 +92,19 @@ public final class SingleKeyGestureDetector {
      *  </pre>
      */
     abstract static class SingleKeyRule {
+
         private final int mKeyCode;
         private final int mSupportedGestures;
+        private final long mDefaultLongPressTimeout;
+        private final long mDefaultVeryLongPressTimeout;
 
-        SingleKeyRule(int keyCode, @KeyGestureFlag int supportedGestures) {
+        SingleKeyRule(Context context, int keyCode, @KeyGestureFlag int supportedGestures) {
             mKeyCode = keyCode;
             mSupportedGestures = supportedGestures;
+            mDefaultLongPressTimeout =
+                ViewConfiguration.get(context).getDeviceGlobalActionKeyTimeout();
+            mDefaultVeryLongPressTimeout = context.getResources().getInteger(
+                com.android.internal.R.integer.config_veryLongPressTimeout);
         }
 
         /**
@@ -140,9 +147,27 @@ public final class SingleKeyGestureDetector {
          */
         void onMultiPress(long downTime, int count) {}
         /**
+         *  Returns the timeout in milliseconds for a long press.
+         *
+         *  If multipress is also supported, this should always be greater than the multipress
+         *  timeout. If very long press is supported, this should always be less than the very long
+         *  press timeout.
+         */
+        long getLongPressTimeoutMs() {
+            return mDefaultLongPressTimeout;
+        }
+        /**
          *  Callback when long press has been detected.
          */
         void onLongPress(long eventTime) {}
+        /**
+         *  Returns the timeout in milliseconds for a very long press.
+         *
+         *  If long press is supported, this should always be longer than the long press timeout.
+         */
+        long getVeryLongPressTimeoutMs() {
+            return mDefaultVeryLongPressTimeout;
+        }
         /**
          *  Callback when very long press has been detected.
          */
@@ -232,14 +257,14 @@ public final class SingleKeyGestureDetector {
                 final Message msg = mHandler.obtainMessage(MSG_KEY_LONG_PRESS, keyCode, 0,
                         eventTime);
                 msg.setAsynchronous(true);
-                mHandler.sendMessageDelayed(msg, mLongPressTimeout);
+                mHandler.sendMessageDelayed(msg, mActiveRule.getLongPressTimeoutMs());
             }
 
             if (mActiveRule.supportVeryLongPress()) {
                 final Message msg = mHandler.obtainMessage(MSG_KEY_VERY_LONG_PRESS, keyCode, 0,
                         eventTime);
                 msg.setAsynchronous(true);
-                mHandler.sendMessageDelayed(msg, mVeryLongPressTimeout);
+                mHandler.sendMessageDelayed(msg, mActiveRule.getVeryLongPressTimeoutMs());
             }
         } else {
             mHandler.removeMessages(MSG_KEY_LONG_PRESS);
