@@ -34,4 +34,5 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Απαιτείται επανεκκίνηση του Συστήματος Ui</string>
     <string name="systemui_restart_message">Για να εφαρμοστούν όλες οι αλλαγές, απαιτείται επανεκκίνηση του Συστήματος Ui. Επανεκκίνηση Συστήματος Ui τώρα;</string>
+    <!-- AlertSlider modes -->
 </resources>
