@@ -34,4 +34,5 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Wymagane ponowne uruchomienie SystemUI</string>
     <string name="systemui_restart_message">Zapisanie wszystkich zmian wymaga ponownego uruchomienia SystemUI. Zrobić to teraz?</string>
+    <!-- AlertSlider modes -->
 </resources>

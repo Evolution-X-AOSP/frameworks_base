@@ -34,4 +34,5 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">需要重新啟動系統介面</string>
     <string name="systemui_restart_message">要使所有更改生效，需要重新啟動系統介面。 現在重新啟動系統介面？</string>
+    <!-- AlertSlider modes -->
 </resources>

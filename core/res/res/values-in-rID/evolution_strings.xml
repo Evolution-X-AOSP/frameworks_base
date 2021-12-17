@@ -34,4 +34,5 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Diperlukan memulai ulang SistemUI</string>
     <string name="systemui_restart_message">Untuk melihat semua perubahan, diperlukan memulai ulang SistemUI. Mulai ulang sekarang?</string>
+    <!-- AlertSlider modes -->
 </resources>

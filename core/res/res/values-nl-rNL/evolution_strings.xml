@@ -34,4 +34,5 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">SysteemUI herstart vereist</string>
     <string name="systemui_restart_message">Een herstart van SysteemUI is vereist om alle wijzigingen door te voeren. SysteemUI nu herstarten?</string>
+    <!-- AlertSlider modes -->
 </resources>

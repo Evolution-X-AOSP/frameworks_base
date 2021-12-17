@@ -34,4 +34,5 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Требуется перезагрузка SystemUI</string>
     <string name="systemui_restart_message">Чтобы все изменения вступили в силу, требуется перезагрузка SystemUI. Перезапустить его прямо сейчас?</string>
+    <!-- AlertSlider modes -->
 </resources>

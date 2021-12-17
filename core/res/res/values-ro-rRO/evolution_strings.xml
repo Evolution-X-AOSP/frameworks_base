@@ -34,4 +34,5 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Este necesară repornirea interfeței sistemului</string>
     <string name="systemui_restart_message">Pentru ca toate modificările să aibă efect, este necesară o repornire a interfeței sistemului. Reporniți interfața de sistem acum?</string>
+    <!-- AlertSlider modes -->
 </resources>

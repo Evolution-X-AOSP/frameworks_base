@@ -34,4 +34,5 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Neustart der SystemUI erforderlich</string>
     <string name="systemui_restart_message">Um alle Änderungen anzuwenden, ist ein Neustart des SystemUI notwendig. SystemUI jetzt neu starten?</string>
+    <!-- AlertSlider modes -->
 </resources>
