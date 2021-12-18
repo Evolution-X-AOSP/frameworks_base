@@ -36,6 +36,11 @@ public class ThemesUtils {
             "com.custom.systemui.signalbar_a",
             "com.custom.systemui.signalbar_b",
             "com.custom.systemui.signalbar_c",
+            "com.custom.systemui.signalbar_d",
+            "com.custom.systemui.signalbar_e",
+            "com.custom.systemui.signalbar_f",
+            "com.custom.systemui.signalbar_g",
+            "com.custom.systemui.signalbar_h",
     };
 
     // Statusbar Wifi icons
@@ -43,5 +48,10 @@ public class ThemesUtils {
             "com.custom.systemui.wifibar_a",
             "com.custom.systemui.wifibar_b",
             "com.custom.systemui.wifibar_c",
+            "com.custom.systemui.wifibar_d",
+            "com.custom.systemui.wifibar_e",
+            "com.custom.systemui.wifibar_f",
+            "com.custom.systemui.wifibar_g",
+            "com.custom.systemui.wifibar_h",
     };
 }
