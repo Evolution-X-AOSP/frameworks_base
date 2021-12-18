@@ -60,8 +60,8 @@ import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.phone.StatusBarIconController.TintedIconManager;
 import com.android.systemui.statusbar.phone.StatusIconContainer;
 import com.android.systemui.statusbar.policy.Clock;
-import com.android.systemui.statusbar.policy.VariableDateView;
 import com.android.systemui.statusbar.policy.NetworkTraffic;
+import com.android.systemui.statusbar.policy.VariableDateView;
 import com.android.systemui.tuner.TunerService;
 
 import java.util.List;
@@ -102,7 +102,6 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
     private View mSecurityHeaderView;
     private View mStatusIconsView;
     private View mContainer;
-    private NetworkTraffic mNetworkTraffic;
 
     private View mQSCarriers;
     private ViewGroup mClockContainer;
@@ -135,12 +134,15 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
     private boolean mIsSingleCarrier;
 
     private boolean mUseCombinedQSHeader;
+    private boolean mShowClock;
     private boolean mShowDate;
 
     private final ActivityStarter mActivityStarter;
     private final Vibrator mVibrator;
 
     private int mStatusBarBatteryStyle, mQSBatteryStyle;
+
+    private NetworkTraffic mNetworkTraffic;
 
     public QuickStatusBarHeader(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -249,7 +251,7 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         if (mDatePrivacyView.getMeasuredHeight() != mTopViewMeasureHeight) {
             mTopViewMeasureHeight = mDatePrivacyView.getMeasuredHeight();
-            post(this::updateAnimators);
+            updateAnimators();
         }
     }
 
@@ -273,10 +275,10 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
         // Clock view is still there when the panel is not expanded
         // Making sure we get the date action when the user clicks on it
         // but actually is seeing the date
-        if (mExpanded && v == mClockView) {
+        if (v == mClockView) {
             mActivityStarter.postStartActivityDismissingKeyguard(new Intent(
                     AlarmClock.ACTION_SHOW_ALARMS), 0);
-        } else if (v == mDateView || (v == mClockView && !mExpanded || v == mClockDateView)) {
+        } else if (v == mDateView || v == mClockDateView) {
             Uri.Builder builder = CalendarContract.CONTENT_URI.buildUpon();
             builder.appendPath("time");
             builder.appendPath(Long.toString(System.currentTimeMillis()));
@@ -445,7 +447,7 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
 
                     @Override
                     public void onAnimationStarted() {
-                        if (mShowDate) {
+                        if (mShowClock && mShowDate) {
                             mClockDateView.setVisibility(View.VISIBLE);
                             mClockDateView.setFreezeSwitching(true);
                         }
@@ -458,7 +460,7 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
                     @Override
                     public void onAnimationAtStart() {
                         super.onAnimationAtStart();
-                        if (mShowDate) {
+                        if (mShowClock && mShowDate) {
                             mClockDateView.setFreezeSwitching(false);
                             mClockDateView.setVisibility(View.VISIBLE);
                         }
@@ -673,15 +675,16 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
     public void onTuningChanged(String key, String newValue) {
         switch (key) {
             case SHOW_QS_CLOCK:
-                boolean showClock =
+                mShowClock =
                         TunerService.parseIntegerSwitch(newValue, true);
-                mClockView.setClockVisibleByUser(showClock);
+                mClockView.setClockVisibleByUser(mShowClock);
+                mClockDateView.setVisibility(mShowClock && mShowDate ? View.VISIBLE : View.GONE);
                 break;
             case SHOW_QS_DATE:
                 mShowDate =
                         TunerService.parseIntegerSwitch(newValue, true);
                 mDateContainer.setVisibility(mShowDate ? View.VISIBLE : View.GONE);
-                mClockDateView.setVisibility(mShowDate ? View.VISIBLE : View.GONE);
+                mClockDateView.setVisibility(mShowClock && mShowDate ? View.VISIBLE : View.GONE);
                 break;
             case QS_BATTERY_STYLE:
                 mQSBatteryStyle =
