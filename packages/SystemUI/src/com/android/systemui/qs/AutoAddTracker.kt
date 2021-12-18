@@ -107,7 +107,7 @@ class AutoAddTracker @VisibleForTesting constructor(
                         }
             }
             Settings.Secure.QS_AUTO_ADDED_TILES -> {
-                restoredTiles?.let { tiles ->
+                restoredTiles?.let { restoredTiles ->
                     val restoredAutoAdded = intent
                             .getStringExtra(Intent.EXTRA_SETTING_NEW_VALUE)
                             ?.split(",")
@@ -117,7 +117,7 @@ class AutoAddTracker @VisibleForTesting constructor(
                             ?.split(",")
                             ?: emptyList()
 
-                    val tilesToRemove = restoredAutoAdded.filter { it !in tiles }
+                    val tilesToRemove = restoredAutoAdded.filter { it !in restoredTiles }
                     if (tilesToRemove.isNotEmpty()) {
                         qsHost.removeTiles(tilesToRemove)
                     }

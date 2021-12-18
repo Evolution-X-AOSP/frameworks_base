@@ -20,6 +20,7 @@ class SensorUseDialog(
 
     // TODO move to onCreate (b/200815309)
     init {
+        @Suppress("DEPRECATION")
         window!!.addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED)
         window!!.addSystemFlags(
                 WindowManager.LayoutParams.SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS)

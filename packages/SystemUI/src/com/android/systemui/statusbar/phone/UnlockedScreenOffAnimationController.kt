@@ -76,7 +76,7 @@ class UnlockedScreenOffAnimationController @Inject constructor(
         addUpdateListener {
             lightRevealScrim.revealAmount = it.animatedValue as Float
             sendUnlockedScreenOffProgressUpdate(
-                    1f - (it.animatedFraction as Float),
+                    1f - (it.animatedFraction),
                     1f - (it.animatedValue as Float))
         }
         addListener(object : AnimatorListenerAdapter() {
