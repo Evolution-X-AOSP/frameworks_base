@@ -103,4 +103,8 @@
     <!-- Lyric -->
     <dimen name="lyric_icon_margin_end">4dp</dimen>
     <dimen name="lyric_padding_end">4dp</dimen>
+
+    <!-- Udfps fingerprint animation -->
+    <dimen name="udfps_animation_size">280dp</dimen>
+    <dimen name="udfps_animation_offset">0dp</dimen>
 </resources>
