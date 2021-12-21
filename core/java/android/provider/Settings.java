@@ -6241,6 +6241,21 @@ public final class Settings {
         public static final String QS_BATTERY_LOCATION = "qs_battery_location";
 
         /**
+         * @hide
+         */
+        public static final String UDFPS_ANIM = "udfps_anim";
+
+        /**
+         * @hide
+         */
+        public static final String UDFPS_ANIM_STYLE = "udfps_anim_style";
+
+        /**
+         * @hide
+         */
+        public static final String UDFPS_ICON = "udfps_icon";
+
+        /**
          * QS battery %
          * 0: Hide the battery percentage
          * 1: Display the battery percentage inside the icon
