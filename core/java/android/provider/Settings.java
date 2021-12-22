@@ -7263,6 +7263,54 @@ public final class Settings {
             return isCallingPackageAllowedToWriteSettings(context, Process.myUid(),
                     context.getOpPackageName(), false);
         }
+
+        /**
+         Add omni settings like e.g.
+         @hide
+         public static final String OMNI_FOO_BAR_BALABALA = "foo_bar_balabala";
+        */
+        
+        /**
+         * @hide
+         */
+        public static final String OMNI_QS_LAYOUT_COLUMNS_LANDSCAPE = "qs_layout_columns_landscape";
+
+        /**
+         * @hide
+         */
+        public static final String OMNI_QS_LAYOUT_COLUMNS = "qs_layout_columns";
+
+        /**
+         * @hide
+         */
+        public static final String OMNI_QS_TILE_VERTICAL_LAYOUT = "qs_tile_vertical_layout";
+
+        /**
+         * SettingsBackupAgent will combine its list with this so we dont need
+         * to add new things into SettingsProvider SystemSettings
+         * @hide
+         */
+        public static final String[] OMNI_SETTINGS_TO_BACKUP = {
+            OMNI_QS_LAYOUT_COLUMNS_LANDSCAPE,
+            OMNI_QS_LAYOUT_COLUMNS,
+            OMNI_QS_TILE_VERTICAL_LAYOUT,
+        };
+
+        /**
+         * SettingsBackupAgent will combine its list with this so we dont need
+         * to add new things into SettingsProvider SystemSettingsValidators
+         * we cant use Validators interface so use a simple integer mapping
+         * BOOLEAN_VALIDATOR == 0
+         * ANY_INTEGER_VALIDATOR == 1
+         * ANY_STRING_VALIDATOR == 2
+         * @hide
+         */
+        public static final Map<String, Integer> OMNI_SETTINGS_VALIDATORS = new ArrayMap<>();
+        static {
+            OMNI_SETTINGS_VALIDATORS.put(OMNI_QS_LAYOUT_COLUMNS_LANDSCAPE, 1);
+            OMNI_SETTINGS_VALIDATORS.put(OMNI_QS_LAYOUT_COLUMNS, 1);
+            OMNI_SETTINGS_VALIDATORS.put(OMNI_QS_TILE_VERTICAL_LAYOUT, 0);
+        }
     }
 
     /**
