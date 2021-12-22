@@ -67,4 +67,8 @@
          the sensor embedded in the power key and listening all the time
          causes a poor experience. -->
     <bool name="config_fingerprintWakeAndUnlock">true</bool>
+
+    <!-- QuickSettings configs -->
+    <bool name="qs_tile_vertical_layout">false</bool>
+    <integer name="quick_qs_panel_max_columns">4</integer>
 </resources>

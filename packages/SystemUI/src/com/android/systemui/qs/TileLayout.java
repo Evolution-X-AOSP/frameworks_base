@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.android.internal.logging.UiEventLogger;
+import com.android.internal.util.evolution.EvolutionUtils;
 import com.android.systemui.R;
 import com.android.systemui.qs.QSPanel.QSTileLayout;
 import com.android.systemui.qs.QSPanelControllerBase.TileRecord;
@@ -118,8 +119,6 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
 
     public boolean updateResources() {
         final Resources res = mContext.getResources();
-        mResourceColumns = Math.max(1, res.getInteger(R.integer.quick_settings_num_columns));
-        updateColumns();
         mMaxCellHeight = mContext.getResources().getDimensionPixelSize(mCellHeightResId);
         mCellMarginHorizontal = res.getDimensionPixelSize(R.dimen.qs_tile_margin_horizontal);
         mSidePadding = useSidePadding() ? mCellMarginHorizontal / 2 : 0;
@@ -139,7 +138,7 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
 
     private boolean updateColumns() {
         int oldColumns = mColumns;
-        mColumns = Math.min(mResourceColumns, mMaxColumns);
+        mColumns = Math.min(getResourceColumns(), mMaxColumns);
         return oldColumns != mColumns;
     }
 
@@ -293,5 +292,17 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
                 ((HeightOverrideable) record.tileView).setSquishinessFraction(mSquishinessFraction);
             }
         }
+    }
+
+    @Override
+    public int getResourceColumns() {
+        int resourceColumns = Math.max(2, getResources().getInteger(R.integer.quick_settings_num_columns));
+        return EvolutionUtils.getQSColumnsCount(mContext, resourceColumns);
+    }
+
+    @Override
+    public void updateSettings() {
+        setMaxColumns(getResourceColumns());
+        requestLayout();
     }
 }

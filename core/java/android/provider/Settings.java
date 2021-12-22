@@ -6202,6 +6202,21 @@ public final class Settings {
         public static final String LOCKSCREEN_ALBUMART_FILTER = "lockscreen_albumart_filter";
 
         /**
+         * @hide
+         */
+        public static final String QS_LAYOUT_COLUMNS_LANDSCAPE = "qs_layout_columns_landscape";
+
+        /**
+         * @hide
+         */
+        public static final String QS_LAYOUT_COLUMNS = "qs_layout_columns";
+
+        /**
+         * @hide
+         */
+        public static final String QS_TILE_VERTICAL_LAYOUT = "qs_tile_vertical_layout";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -6353,6 +6368,9 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_POSITION);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_STYLE);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_COLOR_ACCENT);
+            PRIVATE_SETTINGS.add(QS_LAYOUT_COLUMNS_LANDSCAPE);
+            PRIVATE_SETTINGS.add(QS_LAYOUT_COLUMNS);
+            PRIVATE_SETTINGS.add(QS_TILE_VERTICAL_LAYOUT);
         }
 
         /**
