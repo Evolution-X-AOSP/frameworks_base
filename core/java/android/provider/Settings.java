@@ -5435,13 +5435,7 @@ public final class Settings {
         public static final String SHOW_FOURG_ICON = "show_fourg_icon";
 
         /**
-         * Whether to show VoLTE icon or not
-         * @hide
-         */
-        public static final String SHOW_VOLTE_ICON = "show_volte_icon";
-
-        /**
-         * VoLTE icon style
+         * Whether to display VoLTE icon when VoLTE present
          * @hide
          */
         public static final String VOLTE_ICON_STYLE = "volte_icon_style";
@@ -6126,23 +6120,16 @@ public final class Settings {
         public static final String DOZE_TRIGGER_DOUBLETAP = "doze_trigger_doubletap";
 
         /**
-         * Whether to show VoWiFi icon or not
+         * Whether VoWiFi icon should override VoLTE icon
          * @hide
          */
-        public static final String VOWIFI_ICON = "vowifi_icon";
+        public static final String VOLTE_VOWIFI_OVERRIDE = "volte_vowifi_override";
 
         /**
          * VoWiFi icon style
          * @hide
          */
         public static final String VOWIFI_ICON_STYLE = "vowifi_icon_style";
-
-        /**
-         * IMPORTANT: If you add a new public settings you also have to add it to
-         * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
-         * it to PRIVATE_SETTINGS below. Also add a validator that can validate
-         * the setting value. See an example above.
-         */
 
         /**
          * Setting to show battery text on left or right.
@@ -6206,6 +6193,13 @@ public final class Settings {
          * @hide
          */
         public static final String ON_THE_GO_CAMERA = "on_the_go_camera";
+
+        /**
+         * IMPORTANT: If you add a new public settings you also have to add it to
+         * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
+         * it to PRIVATE_SETTINGS below. Also add a validator that can validate
+         * the setting value. See an example above.
+         */
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to

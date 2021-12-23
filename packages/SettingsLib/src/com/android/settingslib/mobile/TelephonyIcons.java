@@ -46,16 +46,16 @@ public class TelephonyIcons {
     public static final int ICON_CWF = R.drawable.ic_carrier_wifi;
     public static final int ICON_VOWIFI = R.drawable.ic_vowifi;
     public static final int ICON_VOWIFI_CALLING = R.drawable.ic_vowifi_calling;
-
-    static final int ICON_VOWIFI_ASUS = R.drawable.ic_vowifi_asus;
-    static final int ICON_VOWIFI_MOTO = R.drawable.ic_vowifi_moto;
-    static final int ICON_VOWIFI_ONEPLUS = R.drawable.ic_vowifi_oneplus;
-    static final int ICON_VOWIFI_EMUI = R.drawable.ic_vowifi_emui;
-    static final int ICON_VOWIFI_Simple1 = R.drawable.ic_vowifi_simple1;
-    static final int ICON_VOWIFI_Simple2 = R.drawable.ic_vowifi_simple2;
-    static final int ICON_VOWIFI_Simple3 = R.drawable.ic_vowifi_simple3;
-    static final int ICON_VOWIFI_VIVO = R.drawable.ic_vowifi_vivo;
-    static final int ICON_VOWIFI_Margaritov = R.drawable.ic_vowifi_margaritov;
+    public static final int ICON_VOWIFI_ASUS = R.drawable.ic_vowifi_asus;
+    public static final int ICON_VOWIFI_MOTO = R.drawable.ic_vowifi_moto;
+    public static final int ICON_VOWIFI_ONEPLUS = R.drawable.ic_vowifi_oneplus;
+    public static final int ICON_VOWIFI_ONEPLUS_COMPACT = R.drawable.ic_vowifi_oneplus_compact;
+    public static final int ICON_VOWIFI_EMUI = R.drawable.ic_vowifi_emui;
+    public static final int ICON_VOWIFI_Simple1 = R.drawable.ic_vowifi_simple1;
+    public static final int ICON_VOWIFI_Simple2 = R.drawable.ic_vowifi_simple2;
+    public static final int ICON_VOWIFI_Simple3 = R.drawable.ic_vowifi_simple3;
+    public static final int ICON_VOWIFI_VIVO = R.drawable.ic_vowifi_vivo;
+    public static final int ICON_VOWIFI_Margaritov = R.drawable.ic_vowifi_margaritov;
 
 
     public static final MobileIconGroup CARRIER_NETWORK_CHANGE = new MobileIconGroup(
@@ -367,6 +367,19 @@ public class TelephonyIcons {
             AccessibilityContentDescriptions.PHONE_SIGNAL_STRENGTH[0],
             0,
             TelephonyIcons.ICON_VOWIFI_ONEPLUS,
+            false);
+
+    public static final MobileIconGroup VOWIFI_ONEPLUS_COMPACT = new MobileIconGroup(
+            "VoWIFI_Oneplus_Compact",
+            null,
+            null,
+            AccessibilityContentDescriptions.PHONE_SIGNAL_STRENGTH,
+            0, 0,
+            0,
+            0,
+            AccessibilityContentDescriptions.PHONE_SIGNAL_STRENGTH[0],
+            0,
+            TelephonyIcons.ICON_VOWIFI_ONEPLUS_COMPACT,
             false);
 
     public static final MobileIconGroup VOWIFI_EMUI = new MobileIconGroup(
