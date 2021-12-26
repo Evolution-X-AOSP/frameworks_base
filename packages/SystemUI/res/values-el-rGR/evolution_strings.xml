@@ -51,7 +51,7 @@
     <!-- VPN -->
     <string name="status_bar_vpn">VPN</string>
     <!-- Advanced Reboot -->
-    <string name="global_action_restart_advanced">Για προχωρημένους</string>
+    <string name="global_action_restart_system">Σύστημα</string>
     <string name="global_action_restart_recovery">Ανάκτηση</string>
     <string name="global_action_restart_bootloader">Αρχικός εκκινητής/Bootloader</string>
     <string name="global_action_restart_ui">ΣύστημαUI</string>
@@ -137,4 +137,24 @@
     <string name="screenrecord_longer_timeout_switch_label">Μεγαλύτερο όριο μεγέθους αρχείου\nΠεριορίστε το μέγεθος εγγραφής στα 15 GB</string>
     <string name="task_helper_app_killed">%1$s αναγκαστικό κλείσιμο</string>
     <string name="empty_app_killed">Εφαρμογή</string>
+    <!-- AlertSlider -->
+    <string name="alert_slider_mode_priority_text">Προτεραιότητα</string>
+    <string name="alert_slider_mode_dnd_text">Μην ενοχλείτε</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">On-The-Go ενεργοποιήθηκε</string>
+    <string name="onthego_notif_title">Το On-The-Go είναι ενεργό</string>
+    <string name="onthego_notif_stop">Διακοπή</string>
+    <string name="onthego_notif_options">Επιλογές</string>
+    <string name="onthego_notif_error">Αδυναμία εκκίνησης On-The-Go</string>
+    <string name="onthego_notif_restart">Επανεκκίνηση On-The-Go</string>
+    <string name="onthego_notif_camera_changed">Η λειτουργία κάμερας άλλαξε</string>
+    <string name="onthego_transparency">Διαφάνεια</string>
+    <string name="onthego_front_camera">Χρήση μπροστινής κάμερας</string>
+    <string name="onthego_service_toggle">Αυτόματη επανεκκίνηση υπηρεσίας</string>
+    <string name="onthego_channel_name">Κύρια</string>
+    <string name="global_action_onthego">On-The-Go</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">On-The-Go</string>
+    <string name="accessibility_quick_settings_onthego_off">On-The-Go ανενεργό</string>
+    <string name="accessibility_quick_settings_onthego_on">On-The-Go ενεργό</string>
 </resources>
