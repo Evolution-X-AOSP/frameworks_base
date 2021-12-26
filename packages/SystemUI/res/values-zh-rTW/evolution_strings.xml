@@ -51,7 +51,7 @@
     <!-- VPN -->
     <string name="status_bar_vpn">VPN</string>
     <!-- Advanced Reboot -->
-    <string name="global_action_restart_advanced">進階選項</string>
+    <string name="global_action_restart_system">系統</string>
     <string name="global_action_restart_recovery">Recovery 模式</string>
     <string name="global_action_restart_bootloader">Bootloader 模式</string>
     <string name="global_action_restart_ui">系統使用者介面重啟</string>
@@ -137,4 +137,24 @@
     <string name="screenrecord_longer_timeout_switch_label">檔案大小限制 \n將錄製大小限制為在15 GB</string>
     <string name="task_helper_app_killed">%1$s 已強制停止</string>
     <string name="empty_app_killed">應用程式</string>
+    <!-- AlertSlider -->
+    <string name="alert_slider_mode_priority_text">遊戲優先模式</string>
+    <string name="alert_slider_mode_dnd_text">零打擾</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">OTG 模式己開啟</string>
+    <string name="onthego_notif_title">OTG 模式啟用中</string>
+    <string name="onthego_notif_stop">停止</string>
+    <string name="onthego_notif_options">選項</string>
+    <string name="onthego_notif_error">無法啟用 OTG 模式</string>
+    <string name="onthego_notif_restart">重新啟用 OTG 模式</string>
+    <string name="onthego_notif_camera_changed">相機模式已更改</string>
+    <string name="onthego_transparency">通透</string>
+    <string name="onthego_front_camera">使用前置鏡頭</string>
+    <string name="onthego_service_toggle">自動重新啟用 OTG 服務</string>
+    <string name="onthego_channel_name">主要的</string>
+    <string name="global_action_onthego">OTG 模式</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">OTG 模式</string>
+    <string name="accessibility_quick_settings_onthego_off">OTG 模式關閉</string>
+    <string name="accessibility_quick_settings_onthego_on">OTG 模式開啟</string>
 </resources>
