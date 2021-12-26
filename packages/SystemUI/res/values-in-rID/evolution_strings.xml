@@ -51,7 +51,7 @@
     <!-- VPN -->
     <string name="status_bar_vpn">VPN</string>
     <!-- Advanced Reboot -->
-    <string name="global_action_restart_advanced">Lanjutan</string>
+    <string name="global_action_restart_system">Sistem</string>
     <string name="global_action_restart_recovery">Pemulihan</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">Sistem UI</string>
@@ -137,4 +137,24 @@
     <string name="screenrecord_longer_timeout_switch_label">Batas ukuran file lebih besar\nBatasi ukuran perekaman hingga 15GB</string>
     <string name="task_helper_app_killed">%1$s paksa berhenti</string>
     <string name="empty_app_killed">Aplikasi</string>
+    <!-- AlertSlider -->
+    <string name="alert_slider_mode_priority_text">Prioritas</string>
+    <string name="alert_slider_mode_dnd_text">Jangan Ganggu</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">On-The-Go diaktifkan</string>
+    <string name="onthego_notif_title">On-The-Go sudah diaktifkan</string>
+    <string name="onthego_notif_stop">Berhenti</string>
+    <string name="onthego_notif_options">Opsi</string>
+    <string name="onthego_notif_error">Tidak dapat memulai On-The-Go</string>
+    <string name="onthego_notif_restart">Mulai ulang On-The-Go</string>
+    <string name="onthego_notif_camera_changed">Mode kamera berubah</string>
+    <string name="onthego_transparency">Transparan</string>
+    <string name="onthego_front_camera">Gunakan kamera depan</string>
+    <string name="onthego_service_toggle">Mulai ulang layanan secara otomatis</string>
+    <string name="onthego_channel_name">Utama</string>
+    <string name="global_action_onthego">On-The-Go</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">On-The-Go</string>
+    <string name="accessibility_quick_settings_onthego_off">On-The-Go nonaktif</string>
+    <string name="accessibility_quick_settings_onthego_on">On-The-Go aktif</string>
 </resources>

@@ -51,7 +51,7 @@
     <!-- VPN -->
     <string name="status_bar_vpn">VPN</string>
     <!-- Advanced Reboot -->
-    <string name="global_action_restart_advanced">Avançado</string>
+    <string name="global_action_restart_system">Sistema</string>
     <string name="global_action_restart_recovery">Recuperação</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">Interface do sistema</string>
@@ -86,7 +86,7 @@
     <string name="quick_settings_aod_off_powersave_label">AOD desligado\nEconomia de bateria</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Forçar fechamento?</string>
-    <string name="force_stop_dlg_text">Se você forçar o fechamento de um aplicativo, este poderá apresentar um comportamento anormal.</string>
+    <string name="force_stop_dlg_text">Se você forçar a parada de um aplicativo, ele poderá apresentar falhas.</string>
     <string name="guts_force_close_app">Fechar aplicativo</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">Trocar Sim de dados</string>
@@ -137,4 +137,24 @@
     <string name="screenrecord_longer_timeout_switch_label">Limite maior para arquivo\nLimitar o tamanho de gravação para 15Gb</string>
     <string name="task_helper_app_killed">%1$s força parada</string>
     <string name="empty_app_killed">Aplicativo</string>
+    <!-- AlertSlider -->
+    <string name="alert_slider_mode_priority_text">Prioridade</string>
+    <string name="alert_slider_mode_dnd_text">Não perturbe</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">On-The-Go ativado</string>
+    <string name="onthego_notif_title">On-The-Go está ativo</string>
+    <string name="onthego_notif_stop">Parar</string>
+    <string name="onthego_notif_options">Opções</string>
+    <string name="onthego_notif_error">Não é possível iniciar On-The-Go</string>
+    <string name="onthego_notif_restart">Reiniciar On-The-Go</string>
+    <string name="onthego_notif_camera_changed">Modo de câmera alterado</string>
+    <string name="onthego_transparency">Transparência</string>
+    <string name="onthego_front_camera">Usar câmera frontal</string>
+    <string name="onthego_service_toggle">Reiniciar automaticamente o serviço</string>
+    <string name="onthego_channel_name">Principal</string>
+    <string name="global_action_onthego">On-The-Go</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">On-The-Go</string>
+    <string name="accessibility_quick_settings_onthego_off">Modo On-The-Go desativado</string>
+    <string name="accessibility_quick_settings_onthego_on">Modo On-The-Go ativado</string>
 </resources>
