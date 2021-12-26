@@ -51,7 +51,7 @@
     <!-- VPN -->
     <string name="status_bar_vpn">VPN</string>
     <!-- Advanced Reboot -->
-    <string name="global_action_restart_advanced">Расширенные</string>
+    <string name="global_action_restart_system">Система</string>
     <string name="global_action_restart_recovery">Режим восстановления</string>
     <string name="global_action_restart_bootloader">Загрузчик</string>
     <string name="global_action_restart_ui">Системный интерфейс</string>
@@ -71,16 +71,16 @@
     <string name="accessibility_quick_settings_running_services">Открыть меню запущенных приложений.</string>
     <!-- CPUInfo tile -->
     <string name="quick_settings_cpuinfo_label">Информация о CPU</string>
-    <string name="accessibility_quick_settings_cpuinfo_off">Информация о ЦП выкл.</string>
-    <string name="accessibility_quick_settings_cpuinfo_on">Информация о ЦП вкл.</string>
-    <string name="accessibility_quick_settings_cpuinfo_changed_off">Информация о ЦП выключена</string>
-    <string name="accessibility_quick_settings_cpuinfo_changed_on">Информация о ЦП включена</string>
+    <string name="accessibility_quick_settings_cpuinfo_off">Информация о CPU выкл.</string>
+    <string name="accessibility_quick_settings_cpuinfo_on">Информация о CPU вкл.</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_off">Информация о CPU выключена</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_on">Информация о CPU включена</string>
     <!-- Poweroff/Reboot/Recovery QS tile -->
     <string name="quick_settings_poweroff_label">Выключить</string>
     <string name="quick_settings_reboot_label">Перезагрузить</string>
     <string name="quick_settings_reboot_recovery_label">Режим восстановления</string>
     <!-- AOD QS tile -->
-    <string name="quick_settings_aod_label">Always On Display</string>
+    <string name="quick_settings_aod_label">Экран всегда Включён</string>
     <string name="quick_settings_aod_on_charge_label">Всегда включенный дисплей при зарядке</string>
     <string name="quick_settings_aod_off_label">Всегда включенный дисплей выключен</string>
     <string name="quick_settings_aod_off_powersave_label">Всегда включённый экран выключен\nЭкономия энергии</string>
@@ -99,7 +99,7 @@
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
     <string name="accessibility_status_bar_nfc">Nfc</string>
     <!-- Navbar -->
-    <string name="systemui_tuner_navbar_title">Макет</string>
+    <string name="systemui_tuner_navbar_title">Настройка отображения</string>
     <string name="navigation_bar_format_title">Формат панели навигации</string>
     <string name="navigation_bar_inverse_title">Поменять кнопки местами</string>
     <string name="navigation_bar_inverse_summary">Поменять местами кнопки назад и недвание</string>
@@ -137,4 +137,24 @@
     <string name="screenrecord_longer_timeout_switch_label">Больший размер файла\nОграничение размера записи до 15 ГБ</string>
     <string name="task_helper_app_killed">%1$s принудительно остановлен</string>
     <string name="empty_app_killed">Приложение</string>
+    <!-- AlertSlider -->
+    <string name="alert_slider_mode_priority_text">Приоритет</string>
+    <string name="alert_slider_mode_dnd_text">Не беспокоить</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">Режим \"На ходу\" включён</string>
+    <string name="onthego_notif_title">Режим \"На ходу\" активен</string>
+    <string name="onthego_notif_stop">Стоп</string>
+    <string name="onthego_notif_options">Настройки</string>
+    <string name="onthego_notif_error">Невозможно запустить режим «На ходу»</string>
+    <string name="onthego_notif_restart">Перезапустить режим \"На ходу\"</string>
+    <string name="onthego_notif_camera_changed">Режим камеры изменен</string>
+    <string name="onthego_transparency">Прозрачность</string>
+    <string name="onthego_front_camera">Использовать переднюю камеру</string>
+    <string name="onthego_service_toggle">Автоматический перезапуск службы</string>
+    <string name="onthego_channel_name">Основной</string>
+    <string name="global_action_onthego">Режим \"На ходу\"</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">Режим \"На ходу\"</string>
+    <string name="accessibility_quick_settings_onthego_off">Режим \"На ходу\" выкл</string>
+    <string name="accessibility_quick_settings_onthego_on">Режим \"На ходу\" вкл</string>
 </resources>
