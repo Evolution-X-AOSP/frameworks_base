@@ -934,11 +934,14 @@ public class DisplayModeDirector {
         }
 
         private void updateLowPowerModeSettingLocked() {
-            boolean inLowPowerMode = Settings.Global.getInt(mContext.getContentResolver(),
+            final ContentResolver cr = mContext.getContentResolver();
+            boolean inLowPowerMode = Settings.Global.getInt(cr,
                     Settings.Global.LOW_POWER_MODE, 0 /*default*/) != 0;
             final Vote vote;
             if (inLowPowerMode) {
-                vote = Vote.forRenderFrameRates(0f, 60f);
+                float lowPowerRefreshRate = Settings.System.getFloatForUser(cr,
+                    Settings.System.LOW_POWER_REFRESH_RATE, 60f /*default*/, cr.getUserId());
+                vote = Vote.forRenderFrameRates(0f, lowPowerRefreshRate);
             } else {
                 vote = null;
             }
