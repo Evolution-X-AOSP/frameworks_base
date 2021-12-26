@@ -19,7 +19,7 @@ package com.android.systemui.alertslider
 import android.content.Context
 import android.content.res.Configuration
 
-import com.android.systemui.R
+import com.android.internal.R
 import com.android.systemui.SystemUI
 import com.android.systemui.dagger.SysUISingleton
 

@@ -132,4 +132,7 @@
     <!-- Default FOD pressed color -->
     <integer name="config_fod_pressed_color">0</integer>
 
+    <!-- Whether device has hardware alertslider -->
+    <bool name="config_hasAlertSlider">false</bool>
+
 </resources>

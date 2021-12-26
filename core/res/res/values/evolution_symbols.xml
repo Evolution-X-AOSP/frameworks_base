@@ -115,4 +115,7 @@
     <!-- Default FOD pressed icon -->
     <java-symbol type="integer" name="config_fod_pressed_color" />
 
+    <!-- Whether device has hardware alertslider -->
+    <java-symbol type="bool" name="config_hasAlertSlider" />
+
 </resources>
