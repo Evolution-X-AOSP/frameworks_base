@@ -4949,7 +4949,8 @@ public final class Settings {
          * Whether refresh rate should be switched to 60Hz on power save mode.
          * @hide
          */
-        public static final String LOW_POWER_REFRESH_RATE = "low_power_rr_switch";
+        @Readable
+        public static final String LOW_POWER_REFRESH_RATE = "low_power_refresh_rate";
 
         /**
          * Control lock behavior on fold
