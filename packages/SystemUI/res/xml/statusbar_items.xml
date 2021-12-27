@@ -31,6 +31,10 @@
         android:title="@string/quick_settings_bluetooth_label" />
 
     <com.android.systemui.tuner.StatusBarSwitch
+        android:key="call_strength"
+        android:title="@string/status_bar_call_strength" />
+
+    <com.android.systemui.tuner.StatusBarSwitch
         android:key="cast"
         android:title="@string/quick_settings_cast_title" />
 
@@ -68,16 +72,16 @@
         android:title="@*android:string/volume_unknown" />
 
     <com.android.systemui.tuner.StatusBarSwitch
+        android:key="vpn"
+        android:title="@string/status_bar_vpn" />
+
+    <com.android.systemui.tuner.StatusBarSwitch
         android:key="wifi"
         android:title="@string/quick_settings_wifi_label" />
 
     <com.android.systemui.tuner.StatusBarSwitch
         android:key="zen"
         android:title="@string/quick_settings_dnd_label" />
-
-    <com.android.systemui.tuner.StatusBarSwitch
-        android:key="vpn"
-        android:title="@string/status_bar_vpn" />
 
     <!--<com.android.systemui.tuner.BatteryPreference
         android:title="@string/battery"
