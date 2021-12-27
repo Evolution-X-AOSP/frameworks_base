@@ -135,13 +135,9 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
         boolean vpnVisible = mSecurityController.isVpnEnabled() && !mHideVpn;
         int vpnIconId = currentVpnIconId(mSecurityController.isVpnBranded());
 
-        if (vpnVisible && vpnIconId > 0) {
-            mIconController.setIcon(mSlotVpn, vpnIconId,
+        mIconController.setIcon(mSlotVpn, vpnIconId,
                 mContext.getResources().getString(R.string.accessibility_vpn_on));
-            mIconController.setIconVisibility(mSlotVpn, true);
-        } else {
-            mIconController.setIconVisibility(mSlotVpn, false);
-        }
+        mIconController.setIconVisibility(mSlotVpn, vpnVisible);
     }
 
     private int currentVpnIconId(boolean isBranded) {
@@ -173,16 +169,16 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
         boolean hideVpn = hideList.contains(mSlotVpn);
 
         if (hideAirplane != mHideAirplane || hideMobile != mHideMobile
-                || hideEthernet != mHideEthernet || hideWifi != mHideWifi
-                || hideVpn != mHideVpn) {
+                || hideEthernet != mHideEthernet || hideWifi != mHideWifi || hideVpn != mHideVpn) {
             mHideAirplane = hideAirplane;
             mHideMobile = hideMobile;
             mHideEthernet = hideEthernet;
-            mHideWifi = hideWifi || mForceHideWifi;
             mHideVpn = hideVpn;
+            mHideWifi = hideWifi || mForceHideWifi;
             // Re-register to get new callbacks.
             mNetworkController.removeCallback(this);
             mNetworkController.addCallback(this);
+            updateVpn();
         }
     }
 
