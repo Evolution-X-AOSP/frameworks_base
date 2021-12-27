@@ -55,6 +55,7 @@ import com.android.systemui.statusbar.LightRevealScrim;
 import com.android.systemui.statusbar.NotificationPresenter;
 import com.android.systemui.statusbar.notification.row.ExpandableNotificationRow;
 import com.android.systemui.util.Compile;
+import com.android.systemui.statusbar.policy.GameSpaceManager;
 
 import java.io.PrintWriter;
 
@@ -456,6 +457,8 @@ public interface CentralSurfaces extends Dumpable, LifecycleOwner {
     void extendDozePulse();
 
     boolean shouldDelayWakeUpAnimation();
+
+    GameSpaceManager getGameSpaceManager();
 
     void setBlockedGesturalNavigation(boolean blocked);
 
