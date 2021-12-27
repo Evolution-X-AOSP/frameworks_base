@@ -26,7 +26,6 @@
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
     <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES"/>
     <uses-permission android:name="android.permission.HIGH_SAMPLING_RATE_SENSORS"/>
-    <uses-permission android:name="android.permission.MANAGE_GAME_MODE" android:protectionLevel="signature"/>
     <uses-permission android:name="android.permission.REGISTER_STATS_PULL_ATOM"/>
     <uses-permission android:name="android.permission.SET_WALLPAPER_COMPONENT"/>
     <uses-permission android:name="android.permission.VIBRATE_ALWAYS_ON"/>
@@ -51,7 +50,5 @@
             </intent-filter>
         </service>
         <provider android:name="org.pixelexperience.android.systemui.keyguard.KeyguardSliceProviderGoogle" android:enabled="true" android:exported="true" android:authorities="com.android.systemui.keyguard"/>
-        <activity android:theme="@style/GameMenuTheme" android:name="org.pixelexperience.systemui.gamedashboard.GameMenuActivityWrapper" android:exported="false" android:excludeFromRecents="true" android:launchMode="singleTask" android:screenOrientation="behind" android:finishOnCloseSystemDialogs="true" android:showForAllUsers="true"/>
-        <activity android:theme="@style/GameMenuTheme" android:name="com.google.android.systemui.gamedashboard.GameDndConfigActivity" android:exported="false" android:excludeFromRecents="true" android:screenOrientation="behind" android:finishOnCloseSystemDialogs="true" android:showForAllUsers="true"/>
     </application>
 </manifest>
