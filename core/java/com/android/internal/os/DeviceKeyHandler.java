@@ -25,7 +25,7 @@ public interface DeviceKeyHandler {
      * this special keys prior to pass the key to the active app.
      *
      * @param event The key event to be handled
-     * @return null if event is consumed, KeyEvent to be handled otherwise
+     * @return true if event is consumed
      */
-    public KeyEvent handleKeyEvent(KeyEvent event);
+    public boolean handleKeyEvent(KeyEvent event);
 }
