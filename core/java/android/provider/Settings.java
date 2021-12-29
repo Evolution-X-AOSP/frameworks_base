@@ -5381,13 +5381,6 @@ public final class Settings {
         public static final String POWERMENU_EMERGENCY = "powermenu_emergency";
 
         /**
-         * Whether to display the torch option in the power menu
-         *
-         * @hide
-         */
-        public static final String POWERMENU_TORCH = "powermenu_torch";
-
-        /**
          * Whether to display the on-the-go option in the power menu
          * @hide
          */
@@ -6049,32 +6042,6 @@ public final class Settings {
         public static final String NOTIFICATION_HEADERS = "notification_headers";
 
         /**
-         * Whether to blink flashlight for incoming calls
-         * 0 = Disabled (Default)
-         * 1 = Blink flashlight only in Ringer mode
-         * 2 = Blink flashlight only when ringer is not audible
-         * 3 = Blink flahslight only when entirely silent
-         * 4 = Blink flashlight always regardless of ringer mode
-         * @hide
-         */
-        @Readable
-        public static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
-
-        /**
-         * Whether flashlight_on_call ignores DND (Zen Mode)
-         * @hide
-         */
-        @Readable
-        public static final String FLASHLIGHT_ON_CALL_IGNORE_DND = "flashlight_on_call_ignore_dnd";
-
-        /**
-         * Rate in Hz in which to blink flashlight_on_call
-         * @hide
-         */
-        @Readable
-        public static final String FLASHLIGHT_ON_CALL_RATE = "flashlight_on_call_rate";
-
-        /**
          * Volume dialog timeout. Value in seconds
          * @hide
          */
@@ -6374,9 +6341,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_CLOCK_AUTO_HIDE);
             PRIVATE_SETTINGS.add(STATUS_BAR_CLOCK_AUTO_HIDE_HDURATION);
             PRIVATE_SETTINGS.add(STATUS_BAR_CLOCK_AUTO_HIDE_SDURATION);
-            PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL);
-            PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL_IGNORE_DND);
-            PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL_RATE);
             PRIVATE_SETTINGS.add(ALERTSLIDER_MODE_POSITION_BOTTOM);
             PRIVATE_SETTINGS.add(ALERTSLIDER_MODE_POSITION_MIDDLE);
             PRIVATE_SETTINGS.add(ALERTSLIDER_MODE_POSITION_TOP);
