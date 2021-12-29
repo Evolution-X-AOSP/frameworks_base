@@ -519,69 +519,54 @@ public class MobileSignalController extends SignalController<MobileState, Mobile
                 resId = R.drawable.ic_vowifi_calling;
             } else {
                 switch (mVoWIFIicon) {
+                    // CAF
                     case 1:
                     default:
                         resId = com.android.settingslib.R.drawable.ic_vowifi;
                         break;
-                    // OOS
+                    // OnePlus
                     case 2:
                         resId = com.android.settingslib.R.drawable.ic_vowifi_oneplus;
                         break;
-                    // Oneplus Compact
-                    case 3:
-                        resId = com.android.settingslib.R.drawable.ic_vowifi_oneplus_compact;
-                        break;
                     // Motorola
-                    case 4:
+                    case 3:
                         resId = com.android.settingslib.R.drawable.ic_vowifi_moto;
                         break;
                     // ASUS
-                    case 5:
+                    case 4:
                         resId = com.android.settingslib.R.drawable.ic_vowifi_asus;
                         break;
                     // EMUI (Huawei P10)
-                    case 6:
+                    case 5:
                         resId = com.android.settingslib.R.drawable.ic_vowifi_emui;
                         break;
                     // Vivo
-                    case 7:
+                    case 6:
                         resId = com.android.settingslib.R.drawable.ic_vowifi_vivo;
                         break;
-                    // Simple 1
-                    case 8:
-                        resId = com.android.settingslib.R.drawable.ic_vowifi_simple1;
-                        break;
-                    // Simple 2
-                    case 9:
-                        resId = com.android.settingslib.R.drawable.ic_vowifi_simple2;
-                        break;
-                    // Simple 3
-                    case 10:
-                        resId = com.android.settingslib.R.drawable.ic_vowifi_simple3;
-                        break;
                     // Margaritov
-                    case 11:
+                    case 7:
                         resId = com.android.settingslib.R.drawable.ic_vowifi_margaritov;
                         break;
                 }
             }
         } else if (mImsManager != null && mVoLTEicon > 0 && isVolteAvailable()) {
             switch (mVoLTEicon) {
- 	        // Default
+ 	        // OnePlus
                 case 1:
                     resId = R.drawable.ic_volte;
                     break;
-                // VoLTE
+                // OnePlus Compact
                 case 2:
-                    resId = R.drawable.ic_volte1;
+                    resId = R.drawable.ic_volte_oos_compact;
                     break;
-                // OOS VoLTE
+                // VoLTE
                 case 3:
-                    resId = R.drawable.ic_volte2;
+                    resId = R.drawable.ic_volte1;
                     break;
                 // ASUS VoLTE
                 case 4:
-                    resId = R.drawable.ic_volte3;
+                    resId = R.drawable.ic_volte_asus;
                     break;
                 // HD Icon
                 case 5:
@@ -598,10 +583,6 @@ public class MobileSignalController extends SignalController<MobileState, Mobile
                 // EMUI icon
                 case 8:
                     resId = R.drawable.ic_volte_emui;
-                    break;
-                // OnePlus Compact
-                case 9:
-                    resId = R.drawable.ic_volte9;
                     break;
                 default:
                     break;
@@ -1156,38 +1137,27 @@ public class MobileSignalController extends SignalController<MobileState, Mobile
             return TelephonyIcons.VOWIFI_CALLING;
         } else if (isVowifiAvailable()) {
             switch (mVoWIFIicon) {
+                // CAF
                 case 1:
                 default:
                     return TelephonyIcons.VOWIFI;
-                // OOS
+                // OnePlus
                 case 2:
                     return TelephonyIcons.VOWIFI_ONEPLUS;
-                // Oneplus Compact
-                case 3:
-                    return TelephonyIcons.VOWIFI_ONEPLUS_COMPACT;
                 // Motorola
-                case 4:
+                case 3:
                     return TelephonyIcons.VOWIFI_MOTO;
                 // ASUS
-                case 5:
+                case 4:
                     return TelephonyIcons.VOWIFI_ASUS;
                 // EMUI (Huawei P10)
-                case 6:
+                case 5:
                     return TelephonyIcons.VOWIFI_EMUI;
                 // Vivo
-                case 7:
+                case 6:
                     return TelephonyIcons.VOWIFI_VIVO;
-                // Simple1
-                case 8:
-                    return TelephonyIcons.VOWIFI_Simple1;
-                // Simple2
-                case 9:
-                    return TelephonyIcons.VOWIFI_Simple2;
-                // Simple3
-                case 10:
-                    return TelephonyIcons.VOWIFI_Simple3;
                 // Margaritov
-                case 11:
+                case 7:
                     return TelephonyIcons.VOWIFI_Margaritov;
             }
         } else {
