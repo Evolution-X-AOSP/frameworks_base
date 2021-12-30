@@ -5846,6 +5846,16 @@ public final class Settings {
 
         /**
          * Battery style
+         * 0: portrait (default)
+         * 1: circle
+         * 2: dotted circle
+         * 3: full circle
+         * 4: text
+         * 5: hidden
+         * 6: big circle
+         * 7: big dotted circle
+         * 8: right landscape
+         * 9: left landscape
          * @hide
          */
         public static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
