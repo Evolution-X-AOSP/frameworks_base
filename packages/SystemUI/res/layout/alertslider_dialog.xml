@@ -19,8 +19,7 @@
     android:minHeight="@dimen/alertslider_dialog_minheight"
     android:minWidth="@dimen/alertslider_dialog_minwidth"
     android:padding="@dimen/alertslider_padding"
-    android:background="@drawable/alertslider_background"
-    android:orientation="horizontal">
+    android:background="@drawable/alertslider_background">
 
     <ImageView
         android:id="@+id/icon"

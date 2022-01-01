@@ -46,50 +46,43 @@ class AlertSliderDialog @Inject constructor(
     private val windowManager: WindowManager,
 ) {
 
-    private var view: View
-    private var background: GradientDrawable
-    private var layoutParams: LayoutParams
-    private var icon: ImageView
-    private var label: TextView
+    private lateinit var view: View
+    private lateinit var background: GradientDrawable
+    private lateinit var icon: ImageView
+    private lateinit var label: TextView
 
     private var appearAnimator: ValueAnimator? = null
     private var transitionAnimator: ValueAnimator? = null
     private var radiusAnimator: ValueAnimator? = null
 
-    private var alertSliderTopY: Int = 0
-    private var stepSize: Int = 0
-    private var positionGravity = Gravity.RIGHT
+    private var alertSliderTopY = 0
+    private var stepSize = 0
+    private val positionGravity: Int
 
     private var currPosition = 0
     private var prevPosition = 0
 
-    private var isPortrait: Boolean
+    private var isPortrait = context.resources.configuration.orientation ==
+        Configuration.ORIENTATION_PORTRAIT
+
+    private var layoutParams = LayoutParams(
+        LayoutParams.WRAP_CONTENT /** width */,
+        LayoutParams.WRAP_CONTENT /** height */,
+        LayoutParams.TYPE_SECURE_SYSTEM_OVERLAY /** type */,
+        LayoutParams.FLAG_NOT_FOCUSABLE or
+            LayoutParams.FLAG_NOT_TOUCHABLE or
+            LayoutParams.FLAG_HARDWARE_ACCELERATED /** flags */,
+        PixelFormat.TRANSLUCENT /** format */
+    )
 
     init {
-        isPortrait = context.display.rotation == Surface.ROTATION_0
-
         context.resources.let {
             alertSliderTopY = it.getInteger(R.integer.alert_slider_top_y)
             stepSize = it.getInteger(R.integer.alertslider_width) / 2
-            if (it.getBoolean(R.bool.config_alertSliderOnLeft))
-                positionGravity = Gravity.LEFT
+            positionGravity = if (it.getBoolean(R.bool.config_alertSliderOnLeft)) Gravity.LEFT
+                else Gravity.RIGHT
         }
-
-        view = LayoutInflater.from(context).inflate(
-            R.layout.alertslider_dialog, null, false)
-        background = view.background as GradientDrawable
-        icon = view.findViewById(R.id.icon)
-        label = view.findViewById(R.id.label)
-
-        layoutParams = LayoutParams().apply {
-            width = LayoutParams.WRAP_CONTENT
-            height = LayoutParams.WRAP_CONTENT
-            flags = flags or LayoutParams.FLAG_NOT_FOCUSABLE or
-                LayoutParams.FLAG_NOT_TOUCHABLE
-                LayoutParams.FLAG_HARDWARE_ACCELERATED
-            type = LayoutParams.TYPE_SECURE_SYSTEM_OVERLAY
-            format = PixelFormat.TRANSLUCENT
-        }
+        inflateLayout()
     }
 
     fun updateConfiguration(newConfig: Configuration) {
@@ -100,6 +93,11 @@ class AlertSliderDialog @Inject constructor(
             windowManager.removeViewImmediate(view)
         }
         isPortrait = newConfig.orientation == Configuration.ORIENTATION_PORTRAIT
+        context.resources.let {
+            alertSliderTopY = it.getInteger(R.integer.alert_slider_top_y)
+            stepSize = it.getInteger(R.integer.alertslider_width) / 2
+        }
+        inflateLayout()
     }
 
     fun setIconAndLabel(@IdRes iconResId: Int, @IdRes labelResId: Int) {
@@ -138,6 +136,13 @@ class AlertSliderDialog @Inject constructor(
         }
     }
 
+    private fun inflateLayout() {
+        view = LayoutInflater.from(context).inflate(R.layout.alertslider_dialog, null, false)
+        background = view.background as GradientDrawable
+        icon = view.findViewById(R.id.icon)
+        label = view.findViewById(R.id.label)
+    }
+
     private fun updateLayoutParams(): LayoutParams {
         val lp = LayoutParams().apply {
             copyFrom(layoutParams)
@@ -154,11 +159,14 @@ class AlertSliderDialog @Inject constructor(
             }
         }
         val bounds = windowManager.currentWindowMetrics.bounds
-        when (context.display.rotation) {
-            Surface.ROTATION_0 -> lp.y = alertSliderTopY - (bounds.height() / 2) +
+        if (isPortrait) {
+            lp.y = alertSliderTopY - (bounds.height() / 2) +
                 ((2 - currPosition) * stepSize) + getOffsetForPosition()
-            Surface.ROTATION_90 -> lp.x = alertSliderTopY - (bounds.width() / 2) + ((2 - currPosition) * stepSize)
-            Surface.ROTATION_270 -> lp.x = (bounds.width() / 2) - alertSliderTopY - ((2 - currPosition) * stepSize)
+        } else {
+            lp.x = alertSliderTopY - (bounds.width() / 2) + ((2 - currPosition) * stepSize)
+            if (context.display.rotation == Surface.ROTATION_270) {
+                lp.x = -lp.x
+            }
         }
         return lp
     }
