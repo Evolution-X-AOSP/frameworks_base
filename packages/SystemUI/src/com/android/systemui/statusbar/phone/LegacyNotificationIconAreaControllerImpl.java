@@ -36,6 +36,7 @@ import com.android.app.animation.Interpolators;
 import com.android.internal.statusbar.StatusBarIcon;
 import com.android.internal.util.ContrastColorUtil;
 import com.android.settingslib.Utils;
+import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.dagger.SysUISingleton;
 import com.android.systemui.demomode.DemoMode;
@@ -58,6 +59,7 @@ import com.android.systemui.statusbar.notification.collection.ListEntry;
 import com.android.systemui.statusbar.notification.collection.NotificationEntry;
 import com.android.systemui.statusbar.notification.collection.provider.SectionStyleProvider;
 import com.android.systemui.statusbar.window.StatusBarWindowController;
+import com.android.systemui.tuner.TunerService;
 import com.android.wm.shell.bubbles.Bubbles;
 
 import org.jetbrains.annotations.NotNull;
@@ -79,7 +81,10 @@ public class LegacyNotificationIconAreaControllerImpl implements
         DarkReceiver,
         StatusBarStateController.StateListener,
         NotificationWakeUpCoordinator.WakeUpListener,
-        DemoMode {
+        DemoMode, TunerService.Tunable {
+
+    public static final String STATUSBAR_NOTIF_COUNT =
+            "system:" + Settings.System.STATUSBAR_NOTIF_COUNT;
 
     private static final long AOD_ICONS_APPEAR_DURATION = 200;
     @ColorInt
@@ -117,6 +122,7 @@ public class LegacyNotificationIconAreaControllerImpl implements
     private int mAodIconTint;
     private boolean mAodIconsVisible;
     private boolean mShowLowPriority = true;
+    private boolean mShowNotificationCount = false;
 
     @VisibleForTesting
     final NotificationListener.NotificationSettingsListener mSettingsListener =
@@ -164,6 +170,25 @@ public class LegacyNotificationIconAreaControllerImpl implements
         initializeNotificationAreaViews(context);
         reloadAodColor();
         darkIconDispatcher.addDarkReceiver(this);
+
+        final TunerService tunerService = Dependency.get(TunerService.class);
+        tunerService.addTunable(this, STATUSBAR_NOTIF_COUNT);
+    }
+
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        switch (key) {
+            case STATUSBAR_NOTIF_COUNT:
+                boolean showIconCount =
+                    TunerService.parseIntegerSwitch(newValue, false);
+                if (mShowNotificationCount != showIconCount) {
+                    mShowNotificationCount = showIconCount;
+                    updateNotificationIcons();
+                }
+                break;
+            default:
+                break;
+        }
     }
 
     protected View inflateIconArea(LayoutInflater inflater) {
@@ -341,6 +366,9 @@ public class LegacyNotificationIconAreaControllerImpl implements
     }
 
     public void updateStatusBarIcons() {
+        if (mNotificationIcons == null) {
+            return;
+        }
         updateIconsForLayout(entry -> entry.getIcons().getStatusBarIcon(), mNotificationIcons,
                 false /* showAmbient */,
                 mShowLowPriority,
@@ -463,6 +491,8 @@ public class LegacyNotificationIconAreaControllerImpl implements
                 }
                 hostLayout.addView(v, i, params);
             }
+            v.setShowCount(mShowNotificationCount);
+            v.updateIconForced();
         }
 
         hostLayout.setChangingViewPositions(true);
