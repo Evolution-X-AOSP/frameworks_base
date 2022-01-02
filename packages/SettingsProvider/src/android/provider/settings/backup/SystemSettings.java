@@ -119,5 +119,6 @@ public class SystemSettings {
         Settings.System.GAMING_MODE_SCREEN_OFF,
         Settings.System.ENABLE_FLOATING_ROTATION_BUTTON,
         Settings.System.STATUS_BAR_NOTIF_COUNT,
+        Settings.System.LOCKSCREEN_SMALL_CLOCK,
     };
 }
