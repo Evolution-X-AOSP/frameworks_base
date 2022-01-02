@@ -118,5 +118,6 @@ public class SystemSettings {
         Settings.System.GAMING_MODE_MEDIA,
         Settings.System.GAMING_MODE_SCREEN_OFF,
         Settings.System.ENABLE_FLOATING_ROTATION_BUTTON,
+        Settings.System.STATUS_BAR_NOTIF_COUNT,
     };
 }

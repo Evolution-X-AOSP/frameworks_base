@@ -264,5 +264,6 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.GAMING_MODE_MEDIA, new InclusiveIntegerRangeValidator(0, 100));
         VALIDATORS.put(System.GAMING_MODE_SCREEN_OFF, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.ENABLE_FLOATING_ROTATION_BUTTON, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.STATUS_BAR_NOTIF_COUNT, BOOLEAN_VALIDATOR);
     }
 }
