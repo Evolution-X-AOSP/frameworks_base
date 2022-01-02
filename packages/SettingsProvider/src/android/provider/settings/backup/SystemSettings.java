@@ -108,5 +108,6 @@ public class SystemSettings {
         Settings.System.QS_SHOW_AUTO_BRIGHTNESS_BUTTON,
         Settings.System.COLOR_BUCKET_OVERLAY,
         Settings.System.ENABLE_FLOATING_ROTATION_BUTTON,
+        Settings.System.STATUS_BAR_NOTIF_COUNT,
     };
 }
