@@ -23,6 +23,7 @@ import com.android.systemui.qs.tiles.AODTile
 import com.android.systemui.qs.tiles.CaffeineTile
 import com.android.systemui.qs.tiles.CellularTile
 import com.android.systemui.qs.tiles.DataSwitchTile
+import com.android.systemui.qs.tiles.GloveModeTile
 import com.android.systemui.qs.tiles.HeadsUpTile
 import com.android.systemui.qs.tiles.LiveDisplayTile
 import com.android.systemui.qs.tiles.OnTheGoTile
@@ -81,6 +82,12 @@ interface EvolutionModule {
     @IntoMap
     @StringKey(DataSwitchTile.TILE_SPEC)
     fun bindDataSwitchTile(dataSwitchTile: DataSwitchTile): QSTileImpl<*>
+
+    /** Inject GloveModeTile into tileMap in QSModule */
+    @Binds
+    @IntoMap
+    @StringKey(GloveModeTile.TILE_SPEC)
+    fun bindGloveModeTile(gloveModeTile: GloveModeTile): QSTileImpl<*>
 
     /** Inject HeadsUpTile into tileMap in QSModule */
     @Binds
