@@ -235,4 +235,7 @@
     <string name="vpn_tethering_label">VPN tethering</string>
     <string name="vpn_tethering_changed_off">VPN tethering turned off.</string>
     <string name="vpn_tethering_changed_on">VPN tethering turned on.</string>
+
+    <!-- Glove Mode Tile -->
+    <string name="quick_settings_glove_mode_label">Glove Mode</string>
 </resources>
