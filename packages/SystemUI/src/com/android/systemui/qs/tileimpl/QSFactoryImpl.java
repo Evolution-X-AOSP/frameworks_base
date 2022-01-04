@@ -48,6 +48,7 @@ import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.DreamTile;
 import com.android.systemui.qs.tiles.FPSInfoTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
+import com.android.systemui.qs.tiles.GloveModeTile;
 import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.InternetTile;
@@ -142,6 +143,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<CPUInfoTile> mCPUInfoTileProvider;
     private final Provider<ScreenshotTile> mScreenshotTileProvider;
     private final Provider<VPNTetheringTile> mVPNTetheringTileProvider;
+    private final Provider<GloveModeTile> mGloveModeTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
     private final Provider<CustomTile.Builder> mCustomTileBuilderProvider;
@@ -201,7 +203,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<OnTheGoTile> onTheGoTileProvider,
             Provider<CPUInfoTile> cpuInfoTileProvider,
             Provider<ScreenshotTile> screenshotTileProvider,
-            Provider<VPNTetheringTile> vpnTetheringTileProvider) {
+            Provider<VPNTetheringTile> vpnTetheringTileProvider,
+            Provider<GloveModeTile> gloveModeTileProvider) {
         mQsHostLazy = qsHostLazy;
         mCustomTileBuilderProvider = customTileBuilderProvider;
 
@@ -257,6 +260,7 @@ public class QSFactoryImpl implements QSFactory {
         mCPUInfoTileProvider = cpuInfoTileProvider;
         mScreenshotTileProvider = screenshotTileProvider;
         mVPNTetheringTileProvider = vpnTetheringTileProvider;
+        mGloveModeTileProvider = gloveModeTileProvider;
     }
 
     /** Creates a tile with a type based on {@code tileSpec} */
@@ -377,6 +381,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mScreenshotTileProvider.get();
             case "vpn_tethering":
                 return mVPNTetheringTileProvider.get();
+            case "glovemode":
+                return mGloveModeTileProvider.get();
         }
 
         // Custom tiles

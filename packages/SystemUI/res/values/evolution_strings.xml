@@ -265,4 +265,7 @@
 
     <!-- Face Unlock -->
     <string name="face_unlock_recognizing">Recognizing face...</string>
+
+    <!-- Glove Mode Tile -->
+    <string name="quick_settings_glove_mode_label">Glove Mode</string>
 </resources>
