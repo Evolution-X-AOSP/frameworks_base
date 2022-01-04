@@ -16,6 +16,8 @@
 
 package com.android.systemui.qs.tiles;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.ComponentName;
 import android.content.ContentResolver;
@@ -23,9 +25,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.hardware.display.DisplayManager;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.UserHandle;
 import android.media.AudioManager;
 import android.provider.Settings;
 import android.provider.Settings.System;
@@ -68,6 +72,8 @@ import javax.inject.Inject;
 
 /** Quick settings tile: Gaming Mode tile **/
 public class GamingModeTile extends QSTileImpl<BooleanState> {
+    private static final int NOTIFICATION_ID = 10000;
+    private static final String CHANNEL_ID = "gaming_mode";
 
     // saved settings state keys
     private static final String KEY_HEADSUP_STATE = "gaming_mode_state_headsup";
@@ -211,6 +217,7 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
         } else {
             restoreSettingsState();
         }
+        setNotification(enabled);
 
         Settings.System.putInt(mResolver,
                 Settings.System.ENABLE_GAMING_MODE, enabled ? 1 : 0);
@@ -306,5 +313,28 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
         mAudio.setStreamVolume(AudioManager.STREAM_MUSIC,
                 Math.round((float)max * (float)prevVol / 100f),
                 AudioManager.FLAG_SHOW_UI);
+    }
+
+    private void setNotification(boolean show) {
+        if (show) {
+            final Resources res = mContext.getResources();
+            NotificationChannel channel = new NotificationChannel(
+                    CHANNEL_ID,
+                    res.getString(R.string.gaming_mode_tile_title),
+                    NotificationManager.IMPORTANCE_LOW);
+            channel.setDescription(res.getString(R.string.accessibility_quick_settings_gaming_mode_on));
+            channel.enableVibration(false);
+            mNm.createNotificationChannel(channel);
+            Notification notification = new Notification.Builder(mContext, CHANNEL_ID)
+                    .setSmallIcon(R.drawable.ic_qs_gaming_mode)
+                    .setContentTitle(res.getString(R.string.gaming_mode_tile_title))
+                    .setContentText(res.getString(R.string.accessibility_quick_settings_gaming_mode_on))
+                    .setShowWhen(true)
+                    .setOngoing(true)
+                    .build();
+            mNm.notifyAsUser(null, NOTIFICATION_ID, notification, UserHandle.CURRENT);
+        } else {
+            mNm.cancelAsUser(null, NOTIFICATION_ID, UserHandle.CURRENT);
+        }
     }
 }

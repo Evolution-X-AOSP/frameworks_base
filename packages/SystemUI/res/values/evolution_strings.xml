@@ -199,8 +199,8 @@
     <string name="gaming_mode_tile_toast_disabled">Gaming macros disabled</string>
     <string name="gaming_mode_dialog_title">Gaming Macro</string>
     <string name="gaming_mode_dialog_message">Go to \'Settings > The Evolver > Quick Settings > Gaming macro\' for more details and settings</string>
-    <string name="accessibility_quick_settings_gaming_mode_on">Gaming macros on</string>
-    <string name="accessibility_quick_settings_gaming_mode_off">Gaming macros off</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">Gaming macros are on</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">Gaming macros are off</string>
     <string name="gaming_mode_panel_headsup_title">Disable Heads Up</string>
     <string name="gaming_mode_panel_zen_title">Enable Do Not Disturb</string>
     <string name="gaming_mode_panel_navbar_title">Disable navigation bar</string>
