@@ -479,8 +479,11 @@ public class AuthController extends SystemUI implements CommandQueue.Callbacks,
                     (float) faceAuthLocation[1]);
         }
 
+        boolean isPowerbuttonFps =
+                mFingerprintManager != null && mFingerprintManager.isPowerbuttonFps();
+
         int fingerprintLocationX;
-        if (mFingerprintManager != null && mFingerprintManager.isPowerbuttonFps()) {
+        if (isPowerbuttonFps) {
             fingerprintLocationX = DisplayUtils.getWidth(mContext);
         } else {
             fingerprintLocationX = DisplayUtils.getWidth(mContext) / 2;
