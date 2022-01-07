@@ -293,6 +293,7 @@
     <protected-broadcast android:name="com.android.settingslib.action.REGISTER_SLICE_RECEIVER" />
     <protected-broadcast android:name="com.android.settingslib.action.UNREGISTER_SLICE_RECEIVER" />
     <protected-broadcast android:name="com.android.settings.flashlight.action.FLASHLIGHT_CHANGED" />
+    <protected-broadcast android:name="com.android.systemui.doze.pulse" />
 
     <!-- DataSwitch tile -->
     <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" />
@@ -308,8 +309,6 @@
     <!-- Custom permissions -->
     <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
     <uses-permission android:name="android.permission.PREVENT_POWER_KEY" />
-
-    <protected-broadcast android:name="com.android.systemui.doze.pulse" />
 
     <application
         android:name=".SystemUIApplication"
