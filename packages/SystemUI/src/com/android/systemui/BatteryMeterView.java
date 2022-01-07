@@ -244,7 +244,7 @@ public class BatteryMeterView extends LinearLayout implements
 
     private void updateQsBatteryEstimate() {
         mShowBatteryEstimate = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.QS_SHOW_BATTERY_ESTIMATE, 1,
+                Settings.System.QS_SHOW_BATTERY_ESTIMATE, 0,
                 UserHandle.USER_CURRENT) == 1;
         updatePercentView();
     }
