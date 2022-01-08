@@ -19,11 +19,13 @@ package com.android.systemui.qs.tiles;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.hardware.display.DisplayManager;
@@ -85,10 +87,12 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
 
     private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_gaming_mode);
     private final SystemSetting mSetting;
-    private AudioManager mAudio;
-    private NotificationManager mNm;
-    private ContentResolver mResolver;
-    private boolean mHasHWKeys;
+    private final AudioManager mAudio;
+    private final NotificationManager mNm;
+    private final ContentResolver mResolver;
+    private final ScreenBroadcastReceiver mScreenBroadcastReceiver;
+    private final boolean mHasHWKeys;
+    private boolean mRegistered;
 
     @Inject
     public GamingModeTile(QSHost host,
@@ -117,6 +121,8 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
         // find out if a physical navbar is present
         Configuration c = mContext.getResources().getConfiguration();
         mHasHWKeys = c.navigation != Configuration.NAVIGATION_NONAV;
+
+        mScreenBroadcastReceiver = new ScreenBroadcastReceiver();
     }
 
     @Override
@@ -167,18 +173,20 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
         if (enabled) {
             saveSettingsState();
 
-            boolean headsUpEnabled = Settings.System.getInt(mResolver,
+            final boolean headsUpEnabled = Settings.System.getInt(mResolver,
                     Settings.System.GAMING_MODE_HEADS_UP, 1) == 1;
-            boolean zenEnabled = Settings.System.getInt(mResolver,
+            final boolean zenEnabled = Settings.System.getInt(mResolver,
                     Settings.System.GAMING_MODE_ZEN, 0) == 1;
-            boolean navBarEnabled = Settings.System.getInt(mResolver,
+            final boolean navBarEnabled = Settings.System.getInt(mResolver,
                     Settings.System.GAMING_MODE_NAVBAR, 0) == 1;
-            boolean hwKeysEnabled = Settings.System.getInt(mResolver,
+            final boolean hwKeysEnabled = Settings.System.getInt(mResolver,
                     Settings.System.GAMING_MODE_HW_BUTTONS, 1) == 1;
-            boolean brightnessEnabled = Settings.System.getInt(mResolver,
+            final boolean brightnessEnabled = Settings.System.getInt(mResolver,
                     Settings.System.GAMING_MODE_BRIGHTNESS_ENABLED, 0) == 1;
-            boolean mediaEnabled = Settings.System.getInt(mResolver,
+            final boolean mediaEnabled = Settings.System.getInt(mResolver,
                     Settings.System.GAMING_MODE_MEDIA_ENABLED, 0) == 1;
+            final boolean screenOff = Settings.System.getInt(mResolver,
+                    Settings.System.GAMING_MODE_SCREEN_OFF, 0) == 1;
 
             if (headsUpEnabled) {
                 Settings.Global.putInt(mResolver,
@@ -214,8 +222,20 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
                 mAudio.setStreamVolume(AudioManager.STREAM_MUSIC, level,
                         AudioManager.FLAG_SHOW_UI);
             }
+
+            if (screenOff) {
+                IntentFilter filter = new IntentFilter();
+                filter.addAction(Intent.ACTION_SCREEN_ON);
+                filter.addAction(Intent.ACTION_SCREEN_OFF);
+                mContext.registerReceiver(mScreenBroadcastReceiver, filter);
+                mRegistered = true;
+            }
         } else {
             restoreSettingsState();
+            if (mRegistered) {
+                mContext.unregisterReceiver(mScreenBroadcastReceiver);
+                mRegistered = false;
+            }
         }
         setNotification(enabled);
 
@@ -285,8 +305,8 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
                 Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC));
         // save current volume as percentage
         // we can restore it that way even if vol steps was changed in runtime
-        int max = mAudio.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-        int curr = mAudio.getStreamVolume(AudioManager.STREAM_MUSIC);
+        final int max = mAudio.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        final int curr = mAudio.getStreamVolume(AudioManager.STREAM_MUSIC);
         Prefs.putInt(mContext, KEY_MEDIA_LEVEL,
                 Math.round((float)curr * 100f / (float)max));
     }
@@ -308,8 +328,8 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
                 Settings.System.SCREEN_BRIGHTNESS_MODE,
                 Prefs.getInt(mContext, KEY_BRIGHTNESS_STATE,
                 Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC));
-        int max = mAudio.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-        int prevVol = Prefs.getInt(mContext, KEY_MEDIA_LEVEL, 0);
+        final int max = mAudio.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+        final int prevVol = Prefs.getInt(mContext, KEY_MEDIA_LEVEL, 0);
         mAudio.setStreamVolume(AudioManager.STREAM_MUSIC,
                 Math.round((float)max * (float)prevVol / 100f),
                 AudioManager.FLAG_SHOW_UI);
@@ -335,6 +355,16 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
             mNm.notifyAsUser(null, NOTIFICATION_ID, notification, UserHandle.CURRENT);
         } else {
             mNm.cancelAsUser(null, NOTIFICATION_ID, UserHandle.CURRENT);
+        }
+    }
+
+    private class ScreenBroadcastReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
+                handleState(false);
+                refreshState();
+            }
         }
     }
 }
