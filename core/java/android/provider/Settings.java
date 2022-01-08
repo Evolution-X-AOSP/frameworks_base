@@ -6423,6 +6423,13 @@ public final class Settings {
         public static final String GAMING_MODE_MEDIA = "gaming_mode_media";
 
         /**
+         * Whether gaming mode turns off when screen is off
+         * @hide
+         */
+        @Readable
+        public static final String GAMING_MODE_SCREEN_OFF = "gaming_mode_screen_off";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
