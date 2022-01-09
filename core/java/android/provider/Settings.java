@@ -6308,6 +6308,45 @@ public final class Settings {
         public static final String ENABLE_UDFPS_START_HAPTIC_FEEDBACK = "enable_udfps_start_haptic_feedback";
 
         /**
+         * Whether edge light is enabled.
+         * Default 0
+         * @hide
+         */
+        public static final String EDGE_LIGHT_ENABLED = "edge_light_enabled";
+
+        /**
+         * Whether to show edge light for all pulse events and not just for notifications.
+         * Default 0
+         * @hide
+         */
+        public static final String EDGE_LIGHT_ALWAYS_TRIGGER_ON_PULSE = "edge_light_always_trigger_on_pulse";
+
+        /**
+         * Whether to repeat edge light animation until pulse timeout.
+         * Default 0
+         * @hide
+         */
+        public static final String EDGE_LIGHT_REPEAT_ANIMATION = "edge_light_repeat_animation";
+
+        /**
+         * Color mode of edge light.
+         * 0: Accent
+         * 1: Notification
+         * 2: Wallpaper
+         * 3: Custom
+         * Default 0
+         * @hide
+         */
+        public static final String EDGE_LIGHT_COLOR_MODE = "edge_light_color_mode";
+
+        /**
+         * Custom color (hex value) for edge light.
+         * Default #FFFFFF
+         * @hide
+         */
+        public static final String EDGE_LIGHT_CUSTOM_COLOR = "edge_light_custom_color";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
