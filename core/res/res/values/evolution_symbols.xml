@@ -122,4 +122,7 @@
     <!-- NightLight FOD -->
     <java-symbol type="bool" name="disable_fod_night_light"/>
 
+    <!-- Whether to force enable multi resolution configuration for camera -->
+    <java-symbol type="bool" name="config_forceMultiResolution" />
+
 </resources>

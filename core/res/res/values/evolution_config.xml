@@ -139,4 +139,7 @@
     <!-- NightLight FOD -->
     <bool name="disable_fod_night_light">false</bool>
 
+    <!-- Whether to force enable multi resolution configuration for camera -->
+    <bool name="config_forceMultiResolution">false</bool>
+
 </resources>
