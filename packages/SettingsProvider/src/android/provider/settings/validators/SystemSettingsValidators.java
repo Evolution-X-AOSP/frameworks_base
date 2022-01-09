@@ -21,6 +21,7 @@ import static android.provider.settings.validators.SettingsValidators.ANY_STRING
 import static android.provider.settings.validators.SettingsValidators.BOOLEAN_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.COMPONENT_NAME_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.LENIENT_IP_ADDRESS_VALIDATOR;
+import static android.provider.settings.validators.SettingsValidators.NON_EMPTY_HEX_COLOR_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.NON_NEGATIVE_INTEGER_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.URI_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.VIBRATION_INTENSITY_VALIDATOR;
@@ -273,5 +274,10 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.INCREASING_RING_START_VOLUME, new InclusiveFloatRangeValidator(0, 1));
         VALIDATORS.put(System.INCREASING_RING_RAMP_UP_TIME, new InclusiveFloatRangeValidator(5, 60));
         VALIDATORS.put(System.LOCKSCREEN_BATTERY_INFO, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.EDGE_LIGHT_ENABLED, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.EDGE_LIGHT_ALWAYS_TRIGGER_ON_PULSE, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.EDGE_LIGHT_REPEAT_ANIMATION, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.EDGE_LIGHT_COLOR_MODE, new InclusiveIntegerRangeValidator(0, 3));
+        VALIDATORS.put(System.EDGE_LIGHT_CUSTOM_COLOR, NON_EMPTY_HEX_COLOR_VALIDATOR);
     }
 }
