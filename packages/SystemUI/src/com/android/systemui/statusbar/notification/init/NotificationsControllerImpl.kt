@@ -21,6 +21,7 @@ import com.android.systemui.ForegroundServiceNotificationListener
 import com.android.systemui.dagger.SysUISingleton
 import com.android.systemui.people.widget.PeopleSpaceWidgetManager
 import com.android.systemui.plugins.statusbar.NotificationSwipeActionHelper.SnoozeOption
+import com.android.systemui.shade.EdgeLightViewController
 import com.android.systemui.statusbar.NotificationListener
 import com.android.systemui.statusbar.NotificationPresenter
 import com.android.systemui.statusbar.notification.AnimatedImageNotificationManager
@@ -68,6 +69,7 @@ class NotificationsControllerImpl @Inject constructor(
     private val peopleSpaceWidgetManager: PeopleSpaceWidgetManager,
     private val bubblesOptional: Optional<Bubbles>,
     private val fgsNotifListener: ForegroundServiceNotificationListener,
+    private val edgeLightViewController: EdgeLightViewController,
 ) : NotificationsController {
 
     override fun initialize(
@@ -106,6 +108,7 @@ class NotificationsControllerImpl @Inject constructor(
         targetSdkResolver.initialize(notifPipeline.get())
 
         peopleSpaceWidgetManager.attach(notificationListener)
+        edgeLightViewController.attach(notificationListener)
         fgsNotifListener.init()
     }
 
