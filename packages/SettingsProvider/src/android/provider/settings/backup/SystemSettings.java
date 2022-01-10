@@ -108,5 +108,6 @@ public class SystemSettings {
         Settings.System.NOTIFICATION_COOLDOWN_ALL,
         Settings.System.NOTIFICATION_COOLDOWN_VIBRATE_UNLOCKED,
         Settings.System.NAVIGATION_BAR_IME_SPACE,
+        Settings.System.ENABLE_FLOATING_ROTATION_BUTTON,
     };
 }
