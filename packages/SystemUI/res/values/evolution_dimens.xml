@@ -28,9 +28,9 @@
     <dimen name="status_bar_battery_bigcircle_icon_width">20.5dp</dimen>
 	
     <!-- Height of the landscape battery icon in the status bar. -->
-    <dimen name="status_bar_battery_icon_height_landscape">12.5dp</dimen>
+    <dimen name="status_bar_battery_icon_height_landscape">10.5dp</dimen>
     <!-- Width of the landscape battery icon in the status bar. -->
-    <dimen name="status_bar_battery_icon_width_landscape">24dp</dimen>
+    <dimen name="status_bar_battery_icon_width_landscape">20dp</dimen>
 
     <!-- Bottom margin size when fingerprint in display is active -->
     <dimen name="keyguard_indication_margin_bottom_fingerprint_in_display">@dimen/keyguard_indication_margin_bottom</dimen>
