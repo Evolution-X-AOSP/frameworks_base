@@ -209,5 +209,6 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.NOTIFICATION_LIGHT_PULSE, BOOLEAN_VALIDATOR);
         // Evolution X additions
         VALIDATORS.put(System.SWIPE_TO_SCREENSHOT, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.ENABLE_RIPPLE_EFFECT, BOOLEAN_VALIDATOR);
     }
 }
