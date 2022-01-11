@@ -166,6 +166,7 @@ import com.android.systemui.statusbar.policy.KeyguardStateController;
 import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.NextAlarmController;
 import com.android.systemui.statusbar.policy.RemoteInputQuickSettingsDisabler;
+import com.android.systemui.statusbar.policy.SecureLockscreenQSDisabler;
 import com.android.systemui.statusbar.policy.TaskHelper;
 import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
@@ -1250,7 +1251,8 @@ public class SystemUIGoogleDependencyProvider {
             Optional<ReverseChargingViewController> reverseChargingController,
             Lazy<Optional<NotificationVoiceReplyClient>> notificationVoiceReplyClient,
             BurnInProtectionController burnInProtectionController,
-            TaskHelper taskHelper) {
+            TaskHelper taskHelper,
+            SecureLockscreenQSDisabler secureLockscreenQSDisabler) {
         return new StatusBarGoogle(
                 context, notificationsController, lightBarController, autoHideController, keyguardUpdateMonitor,
                 signalPolicy, pulseExpansionHandler, notificationWakeUpCoordinator, keyguardBypassController,
@@ -1275,7 +1277,7 @@ public class SystemUIGoogleDependencyProvider {
                 locationPublisher, statusBarIconController, lockscreenShadeTransitionController, featureFlags,
                 keyguardUnlockAnimationController, unlockedScreenOffAnimationController, startingSurfaceOptional,
                 smartSpaceController, wallpaperNotifier, reverseChargingController, notificationVoiceReplyClient,
-                burnInProtectionController, taskHelper);
+                burnInProtectionController, taskHelper, secureLockscreenQSDisabler);
     }
 
     @SysUISingleton
