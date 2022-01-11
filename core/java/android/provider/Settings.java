@@ -5772,6 +5772,13 @@ public final class Settings {
                 "screen_flash_notification_color_global";
 
         /**
+         * IMPORTANT: If you add a new public settings you also have to add it to
+         * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
+         * it to PRIVATE_SETTINGS below. Also add a validator that can validate
+         * the setting value. See an example above.
+         */
+
+        /**
          * Force full screen for devices with cutout
          * @hide
          */
@@ -5836,13 +5843,6 @@ public final class Settings {
          */
         public static final String HIGH_TOUCH_POLLING_RATE_ENABLE =
                 "high_touch_polling_rate_enable";
-
-        /**
-         * IMPORTANT: If you add a new public settings you also have to add it to
-         * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
-         * it to PRIVATE_SETTINGS below. Also add a validator that can validate
-         * the setting value. See an example above.
-         */
 
         /**
          * Whether to show seconds next to clock in status bar
@@ -6172,6 +6172,12 @@ public final class Settings {
          * @hide
          */
         public static final String DOUBLE_TAP_SLEEP_LOCKSCREEN = "double_tap_sleep_lockscreen";
+
+        /**
+         * Whether to disable qs on secure lockscreen.
+         * @hide
+         */
+        public static final String SECURE_LOCKSCREEN_QS_DISABLED = "secure_lockscreen_qs_disabled";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to
