@@ -48,10 +48,8 @@
     <string name="lockscreen_hidden">Keine Auswahl</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Zum starten vom Symbol weg wischen</string>
-    <!-- VPN -->
-    <string name="status_bar_vpn">VPN</string>
     <!-- Advanced Reboot -->
-    <string name="global_action_restart_system">System</string>
+    <string name="global_action_restart_advanced">Erweitert</string>
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">SystemUI</string>
@@ -94,8 +92,10 @@
     <string name="qs_data_switch_toast_1">Derzeit ist nur eine SIM-Karte eingelegt</string>
     <string name="qs_data_switch_changed_1">Daten SIM-Karte zu SIM 1 wechseln.</string>
     <string name="qs_data_switch_changed_2">Daten SIM-Karte zu SIM 2 wechseln.</string>
-    <!-- Name of the nfc status bar icon. -->
+    <!-- Names of the status bar icons. -->
+    <string name="status_bar_call_strength">Rufstärke</string>
     <string name="status_bar_nfc">NFC</string>
+    <string name="status_bar_vpn">VPN</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
     <string name="accessibility_status_bar_nfc">Nfc</string>
     <!-- Navbar -->
@@ -157,4 +157,21 @@
     <string name="quick_settings_onthego_label">On-The-Go</string>
     <string name="accessibility_quick_settings_onthego_off">On-The-Go aus</string>
     <string name="accessibility_quick_settings_onthego_on">On-The-Go an</string>
+    <string name="app_picker_dialog_title">App auswählen</string>
+    <string name="active_edge_app_select_title">App auswählen</string>
+    <string name="active_edge_activity_select_title">Aktion auswählen</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">Spielmakro</string>
+    <string name="gaming_mode_tile_toast">Spielmodus aktiviert</string>
+    <string name="gaming_mode_tile_toast_disabled">Spielmodus deaktiviert</string>
+    <string name="gaming_mode_dialog_title">Spielemodus</string>
+    <string name="gaming_mode_dialog_message">Gehe zu \'Einstellungen &gt; Evolver &gt; Schnelleinstellungen &gt; Spielmakro\' für weitere Details und Einstellungen</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">Spielemakros sind an</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">Spielemakros sind aus</string>
+    <string name="gaming_mode_panel_headsup_title">Heads-Up Benachrichtigungen deaktivieren</string>
+    <string name="gaming_mode_panel_zen_title">Bitte nicht stören aktivieren</string>
+    <string name="gaming_mode_panel_navbar_title">Navigationsleiste deaktivieren</string>
+    <string name="gaming_mode_panel_hw_title">Hardware-Navigationstasten deaktivieren</string>
+    <string name="gaming_mode_panel_brightness_title">Automatische Helligkeit deaktivieren</string>
+    <string name="gaming_mode_panel_media_title">Medienlautstärke einstellen</string>
 </resources>
