@@ -48,10 +48,8 @@
     <string name="lockscreen_hidden">Nenhum</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Deslize a partir do ícone para abrir</string>
-    <!-- VPN -->
-    <string name="status_bar_vpn">VPN</string>
     <!-- Advanced Reboot -->
-    <string name="global_action_restart_system">Sistema</string>
+    <string name="global_action_restart_advanced">Avançado</string>
     <string name="global_action_restart_recovery">Recuperação</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">Interface do sistema</string>
@@ -94,8 +92,10 @@
     <string name="qs_data_switch_toast_1">Atualmente apenas um cartão SIM está inserido</string>
     <string name="qs_data_switch_changed_1">Mude o cartão de dados para o SIM 1.</string>
     <string name="qs_data_switch_changed_2">Mude o cartão de dados para o SIM 2.</string>
-    <!-- Name of the nfc status bar icon. -->
+    <!-- Names of the status bar icons. -->
+    <string name="status_bar_call_strength">Intensidade do sinal para chamadas</string>
     <string name="status_bar_nfc">NFC</string>
+    <string name="status_bar_vpn">VPN</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
     <string name="accessibility_status_bar_nfc">NFC</string>
     <!-- Navbar -->
@@ -157,4 +157,21 @@
     <string name="quick_settings_onthego_label">On-The-Go</string>
     <string name="accessibility_quick_settings_onthego_off">Modo On-The-Go desativado</string>
     <string name="accessibility_quick_settings_onthego_on">Modo On-The-Go ativado</string>
+    <string name="app_picker_dialog_title">Selecione um app</string>
+    <string name="active_edge_app_select_title">Selecionar app</string>
+    <string name="active_edge_activity_select_title">Selecionar atividade</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">Modo de Jogo</string>
+    <string name="gaming_mode_tile_toast">Modo de jogo ativado</string>
+    <string name="gaming_mode_tile_toast_disabled">Modo de jogo desativado</string>
+    <string name="gaming_mode_dialog_title">Modo de Jogo</string>
+    <string name="gaming_mode_dialog_message">Vá para Configurações* &gt; Evolução* &gt; Configurações Rápidas* &gt; Modo de Jogo* para mais detalhes e configurações</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">Modo de jogo está ativado</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">Modo de jogo está desativado</string>
+    <string name="gaming_mode_panel_headsup_title">Desativar notificações flutuantes</string>
+    <string name="gaming_mode_panel_zen_title">Ativar o modo Não perturbe</string>
+    <string name="gaming_mode_panel_navbar_title">Desativar barra de navegação</string>
+    <string name="gaming_mode_panel_hw_title">Desativar teclas de navegação físicas</string>
+    <string name="gaming_mode_panel_brightness_title">Desativar o brilho automático</string>
+    <string name="gaming_mode_panel_media_title">Definir Volume de Mídia</string>
 </resources>
