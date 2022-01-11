@@ -48,10 +48,8 @@
     <string name="lockscreen_hidden">Tidak ada</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Usap dari ikon untuk meluncurkan</string>
-    <!-- VPN -->
-    <string name="status_bar_vpn">VPN</string>
     <!-- Advanced Reboot -->
-    <string name="global_action_restart_system">Sistem</string>
+    <string name="global_action_restart_advanced">Lanjutan</string>
     <string name="global_action_restart_recovery">Pemulihan</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">Sistem UI</string>
@@ -94,8 +92,10 @@
     <string name="qs_data_switch_toast_1">Hanya satu kartu SIM yang terpasang saat ini</string>
     <string name="qs_data_switch_changed_1">Pindah kartu data ke SIM 1.</string>
     <string name="qs_data_switch_changed_2">Pindah kartu data ke SIM 2.</string>
-    <!-- Name of the nfc status bar icon. -->
+    <!-- Names of the status bar icons. -->
+    <string name="status_bar_call_strength">Kekuatan panggilan</string>
     <string name="status_bar_nfc">NFC</string>
+    <string name="status_bar_vpn">VPN</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
     <string name="accessibility_status_bar_nfc">Nfc</string>
     <!-- Navbar -->
@@ -157,4 +157,21 @@
     <string name="quick_settings_onthego_label">On-The-Go</string>
     <string name="accessibility_quick_settings_onthego_off">On-The-Go nonaktif</string>
     <string name="accessibility_quick_settings_onthego_on">On-The-Go aktif</string>
+    <string name="app_picker_dialog_title">Pilih aplikasi</string>
+    <string name="active_edge_app_select_title">Pilih aplikasi</string>
+    <string name="active_edge_activity_select_title">Pilih aktivitas</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">Makro Game</string>
+    <string name="gaming_mode_tile_toast">Game makro diaktifkan</string>
+    <string name="gaming_mode_tile_toast_disabled">Game makro dinonaktifkan</string>
+    <string name="gaming_mode_dialog_title">Makro Game</string>
+    <string name="gaming_mode_dialog_message">Buka \'Setelan &gt; Evolver &gt; Setelan Cepat &gt; Makro Game\' untuk detail dan pengaturan lebih lanjut</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">Makro game aktif</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">Makro game nonaktif</string>
+    <string name="gaming_mode_panel_headsup_title">Nonaktifkan Notifikasi Mengambang</string>
+    <string name="gaming_mode_panel_zen_title">Aktifkan Jangan Ganggu</string>
+    <string name="gaming_mode_panel_navbar_title">Nonaktifkan bilah navigasi</string>
+    <string name="gaming_mode_panel_hw_title">Nonaktifkan tombol navigasi perangkat keras</string>
+    <string name="gaming_mode_panel_brightness_title">Nonaktifkan kecerahan otomatis</string>
+    <string name="gaming_mode_panel_media_title">Atur Volume Media</string>
 </resources>
