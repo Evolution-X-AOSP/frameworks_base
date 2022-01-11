@@ -226,5 +226,6 @@ public class SecureSettings {
         Settings.Secure.ACCESSIBILITY_FONT_SCALING_HAS_BEEN_CHANGED,
         // Evolution X additions
         Settings.Secure.GESTURE_NAVBAR_LENGTH_MODE,
+        Settings.Secure.SECURE_LOCKSCREEN_QS_DISABLED,
     };
 }
