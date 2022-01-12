@@ -46,12 +46,11 @@ import com.android.systemui.statusbar.policy.LocationController.LocationChangeCa
 import javax.inject.Inject;
 
 /** Quick settings tile: Location **/
-public class LocationTile extends QSTileImpl<BooleanState> {
+public class LocationTile extends SecureQSTile<BooleanState> {
 
     public static final String TILE_SPEC = "location";
 
     private final LocationController mController;
-    private final KeyguardStateController mKeyguard;
     private final Callback mCallback = new Callback();
 
     @Inject
@@ -68,11 +67,9 @@ public class LocationTile extends QSTileImpl<BooleanState> {
             KeyguardStateController keyguardStateController
     ) {
         super(host, backgroundLooper, mainHandler, falsingManager, metricsLogger,
-                statusBarStateController, activityStarter, qsLogger);
+                statusBarStateController, activityStarter, qsLogger, keyguardStateController);
         mController = locationController;
-        mKeyguard = keyguardStateController;
         mController.observe(this, mCallback);
-        mKeyguard.observe(this, mCallback);
     }
 
     @Override
@@ -86,17 +83,11 @@ public class LocationTile extends QSTileImpl<BooleanState> {
     }
 
     @Override
-    protected void handleClick(@Nullable View view) {
-        if (mKeyguard.isMethodSecure() && mKeyguard.isShowing()) {
-            mActivityStarter.postQSRunnableDismissingKeyguard(() -> {
-                final boolean wasEnabled = mState.value;
-                mHost.openPanels();
-                mController.setLocationEnabled(!wasEnabled);
-            });
+    protected void handleClick(@Nullable View view, boolean keyguardShowing) {
+        if (checkKeyguard(view, keyguardShowing)) {
             return;
         }
-        final boolean wasEnabled = mState.value;
-        mController.setLocationEnabled(!wasEnabled);
+        mHost.openPanels();
     }
 
     @Override
@@ -115,6 +106,8 @@ public class LocationTile extends QSTileImpl<BooleanState> {
         // bug is fixed, this should be reverted to only hiding it on secure lock screens:
         // state.visible = !(mKeyguard.isMethodSecure() && mKeyguard.isShowing());
         state.value = locationEnabled;
+        // YAAP note: mKeyguard is removed since there is no longer use for it
+        // Use the function from SecureQSTile instead when AOSP fixes the bug above correctly
         checkIfRestrictionEnforcedByAdminOnly(state, UserManager.DISALLOW_SHARE_LOCATION);
         if (state.disabledByPolicy == false) {
             checkIfRestrictionEnforcedByAdminOnly(state, UserManager.DISALLOW_CONFIG_LOCATION);
