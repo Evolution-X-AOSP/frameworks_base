@@ -386,7 +386,7 @@ public class NavigationBarView extends FrameLayout implements
 
     @Override
     protected boolean onSetAlpha(int alpha) {
-        Log.w(TAG, "onSetAlpha, but defusing quietly");
+        Log.e(TAG, "onSetAlpha", new Throwable());
         return super.onSetAlpha(alpha);
     }
 

@@ -5741,48 +5741,6 @@ public final class Settings {
         public static final String HARDWARE_KEYS_DISABLE = "hardware_keys_disable";
 
         /**
-         * Enable and disable Lockscreen visualizer
-         * @hide
-         */
-        public static final String LOCKSCREEN_VISUALIZER_ENABLED = "lockscreen_visualizer_enabled";
-
-        /**
-         * Lockscreen lavalamp psychedelic colors
-         * @hide
-         */
-        public static final String LOCKSCREEN_LAVALAMP_ENABLED = "lockscreen_lavalamp_enabled";
-
-        /**
-         * Lockscreen lavalamp animation speed
-         * @hide
-         */
-        public static final String LOCKSCREEN_LAVALAMP_SPEED = "lockscreen_lavalamp_speed";
-
-        /**
-         * Whether to use automatic color for visualizer
-         * @hide
-         */
-        public static final String LOCKSCREEN_VISUALIZER_AUTOCOLOR = "lockscreen_visualizer_autocolor";
-
-        /**
-         * Number of bars shown in visualizer
-         * @hide
-         */
-        public static final String LOCKSCREEN_SOLID_UNITS_COUNT = "lockscreen_solid_units_count";
-
-        /**
-         * Visualizer sanity level
-         * @hide
-         */
-        public static final String LOCKSCREEN_SOLID_FUDGE_FACTOR = "lockscreen_solid_fudge_factor";
-
-        /**
-         * Visualizer opacity
-         * @hide
-         */
-        public static final String LOCKSCREEN_SOLID_UNITS_OPACITY = "lockscreen_solid_units_opacity";
-
-        /**
          * Quick Settings Smart Pulldown
          * @hide
          */
@@ -5859,16 +5817,6 @@ public final class Settings {
 
         /**
          * Battery style
-         * 0: portrait (default)
-         * 1: circle
-         * 2: dotted circle
-         * 3: full circle
-         * 4: text
-         * 5: hidden
-         * 6: big circle
-         * 7: big dotted circle
-         * 8: right landscape
-         * 9: left landscape
          * @hide
          */
         public static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";

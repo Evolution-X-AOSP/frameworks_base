@@ -2007,11 +2007,13 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                         mWindowManagerFuncs.onKeyguardShowingAndNotOccludedChanged();
                     }
                 });
-        final String[] deviceKeyHandlerLibs = res.getStringArray(R.array.config_deviceKeyHandlerLibs);
-        final String[] deviceKeyHandlerClasses = res.getStringArray(R.array.config_deviceKeyHandlerClasses);
-        final int maxHandlers = Math.min(deviceKeyHandlerLibs.length, deviceKeyHandlerClasses.length);
+        final String[] deviceKeyHandlerLibs = res.getStringArray(
+                com.android.internal.R.array.config_deviceKeyHandlerLibs);
+        final String[] deviceKeyHandlerClasses = res.getStringArray(
+                com.android.internal.R.array.config_deviceKeyHandlerClasses);
 
-        for (int i = 0; i < maxHandlers; i++) {
+        for (int i = 0;
+                i < deviceKeyHandlerLibs.length && i < deviceKeyHandlerClasses.length; i++) {
             try {
                 PathClassLoader loader = new PathClassLoader(
                         deviceKeyHandlerLibs[i], getClass().getClassLoader());
@@ -3127,7 +3129,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
 
         // Specific device key handling
-        if (dispatchEventToKeyHandlers(event)) {
+        if (dispatchKeyToKeyHandlers(event)) {
             return -1;
         }
 
@@ -3183,13 +3185,16 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
     }
 
-    private boolean dispatchEventToKeyHandlers(KeyEvent event) {
-        for (DeviceKeyHandler handler: mDeviceKeyHandlers) {
+    private boolean dispatchKeyToKeyHandlers(KeyEvent event) {
+        for (DeviceKeyHandler handler : mDeviceKeyHandlers) {
             try {
                 if (DEBUG_INPUT) {
                     Log.d(TAG, "Dispatching key event " + event + " to handler " + handler);
                 }
-                return handler.handleKeyEvent(event);
+                event = handler.handleKeyEvent(event);
+                if (event == null) {
+                    return true;
+                }
             } catch (Exception e) {
                 Slog.w(TAG, "Could not dispatch event to device key handler", e);
             }
@@ -3861,7 +3866,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 && !isHwKeysDisabled();
 
         // Specific device key handling
-        if (dispatchEventToKeyHandlers(event)) {
+        if (dispatchKeyToKeyHandlers(event)) {
             return 0;
         }
 
