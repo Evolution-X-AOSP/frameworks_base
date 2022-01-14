@@ -6388,11 +6388,18 @@ public final class Settings {
         public static final String GAMING_MODE_NAVBAR = "gaming_mode_navbar";
 
         /**
-         * Whether gaming sets {@link HARDWARE_KEYS_DISABLE}
+         * Whether gaming mode sets {@link HARDWARE_KEYS_DISABLE}
          * @hide
          */
         @Readable
         public static final String GAMING_MODE_HW_BUTTONS = "gaming_mode_hw_buttons";
+
+        /**
+         * Whether gaming mode sets night light
+         * @hide
+         */
+        @Readable
+        public static final String GAMING_MODE_NIGHT_LIGHT = "gaming_mode_night_light";
 
         /**
          * Whether gaming mode toggles auto brightness
@@ -6400,6 +6407,14 @@ public final class Settings {
          */
         @Readable
         public static final String GAMING_MODE_BRIGHTNESS_ENABLED = "gaming_mode_brightness_enabled";
+
+        /**
+         * Gaming mode brightness level in percentage
+         * 0 = disabled
+         * @hide
+         */
+        @Readable
+        public static final String GAMING_MODE_BRIGHTNESS = "gaming_mode_brightness";
 
         /**
          * Whether gaming mode sets media volume

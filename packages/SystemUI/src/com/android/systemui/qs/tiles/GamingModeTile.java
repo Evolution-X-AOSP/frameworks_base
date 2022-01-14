@@ -28,6 +28,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.hardware.display.ColorDisplayManager;
 import android.hardware.display.DisplayManager;
 import android.os.Handler;
 import android.os.Looper;
@@ -81,7 +82,9 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
     private static final String KEY_ZEN_STATE = "gaming_mode_state_zen";
     // private static final String KEY_NAVBAR_STATE = "gaming_mode_state_navbar";
     // private static final String KEY_HW_KEYS_STATE = "gaming_mode_state_hw_keys";
+    private static final String KEY_NIGHT_LIGHT = "gaming_mode_night_light";
     private static final String KEY_BRIGHTNESS_STATE = "gaming_mode_state_brightness";
+    private static final String KEY_BRIGHTNESS_LEVEL = "gaming_mode_level_brightness";
     private static final String KEY_MEDIA_LEVEL = "gaming_mode_level_media";
 
     private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_gaming_mode);
@@ -89,6 +92,7 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
     private final NotificationManager mNm;
     private final ContentResolver mResolver;
     private final ScreenBroadcastReceiver mScreenBroadcastReceiver;
+    private ColorDisplayManager mColorManager;
     private final boolean mHasHWKeys;
     private boolean mRegistered;
 
@@ -97,9 +101,12 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
     private boolean mZenEnabled;
     private boolean mNavBarEnabled;
     private boolean mHwKeysEnabled;
+    private boolean mNightLightEnabled;
     private boolean mBrightnessEnabled;
     private boolean mMediaEnabled;
     private boolean mScreenOffEnabled;
+    private int mBrightnessLevel = 80;
+    private int mMediaLevel = 80;
 
     @Inject
     public GamingModeTile(QSHost host,
@@ -111,13 +118,15 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
             ActivityStarter activityStarter,
             QSLogger qsLogger,
             BroadcastDispatcher broadcastDispatcher,
-            KeyguardStateController keyguardStateController
+            KeyguardStateController keyguardStateController,
+            ColorDisplayManager colorManager
     ) {
         super(host, backgroundLooper, mainHandler, falsingManager, metricsLogger,
                 statusBarStateController, activityStarter, qsLogger);
         mResolver = mContext.getContentResolver();
         mAudio = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
         mNm = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
+        mColorManager = colorManager;
 
         // find out if a physical navbar is present
         Configuration c = mContext.getResources().getConfiguration();
@@ -194,17 +203,26 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
             //             Settings.Secure.HARDWARE_KEYS_DISABLE, 1);
             // }
 
+            if (mNightLightEnabled) {
+                mColorManager.setNightDisplayActivated(false);
+            }
+
             if (mBrightnessEnabled) {
+                // Set manual
                 Settings.System.putInt(mResolver,
                         Settings.System.SCREEN_BRIGHTNESS_MODE,
                         Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
+                if (mBrightnessLevel != 0) {
+                    // Set level
+                    Settings.System.putInt(mResolver,
+                            Settings.System.SCREEN_BRIGHTNESS,
+                            Math.round(255f * (mBrightnessLevel / 100f)));
+                }
             }
 
             if (mMediaEnabled) {
-                int max = mAudio.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-                int level = Settings.System.getInt(mResolver,
-                        Settings.System.GAMING_MODE_MEDIA, 80);
-                level = Math.round((float)max * ((float)level / 100f));
+                final int max = mAudio.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+                final int level = Math.round((float)max * ((float)mMediaLevel / 100f));
                 mAudio.setStreamVolume(AudioManager.STREAM_MUSIC, level,
                         AudioManager.FLAG_SHOW_UI);
             }
@@ -285,10 +303,16 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
                 Settings.System.GAMING_MODE_NAVBAR, 0) == 1;
         mHwKeysEnabled = Settings.System.getInt(mResolver,
                 Settings.System.GAMING_MODE_HW_BUTTONS, 1) == 1;
+        mNightLightEnabled = Settings.System.getInt(mResolver,
+                Settings.System.GAMING_MODE_NIGHT_LIGHT, 0) == 1;
         mBrightnessEnabled = Settings.System.getInt(mResolver,
                 Settings.System.GAMING_MODE_BRIGHTNESS_ENABLED, 0) == 1;
+        mBrightnessLevel= Settings.System.getInt(mResolver,
+                Settings.System.GAMING_MODE_BRIGHTNESS, 80);
         mMediaEnabled = Settings.System.getInt(mResolver,
                 Settings.System.GAMING_MODE_MEDIA_ENABLED, 0) == 1;
+        mMediaLevel = Settings.System.getInt(mResolver,
+                Settings.System.GAMING_MODE_MEDIA, 80);
         mScreenOffEnabled = Settings.System.getInt(mResolver,
                 Settings.System.GAMING_MODE_SCREEN_OFF, 0) == 1;
     }
@@ -302,9 +326,13 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
         //         Settings.System.FORCE_SHOW_NAVBAR, 1));
         // Prefs.putInt(mContext, KEY_HW_KEYS_STATE, Settings.Secure.getInt(mResolver,
         //         Settings.Secure.HARDWARE_KEYS_DISABLE, 0));
+        Prefs.putInt(mContext, KEY_NIGHT_LIGHT,
+                mColorManager.isNightDisplayActivated() ? 1 : 0);
         Prefs.putInt(mContext, KEY_BRIGHTNESS_STATE, Settings.System.getInt(mResolver,
                 Settings.System.SCREEN_BRIGHTNESS_MODE,
                 Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC));
+        Prefs.putInt(mContext, KEY_BRIGHTNESS_LEVEL, Settings.System.getInt(mResolver,
+                Settings.System.SCREEN_BRIGHTNESS, 0));
         // save current volume as percentage
         // we can restore it that way even if vol steps was changed in runtime
         final int max = mAudio.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
@@ -338,16 +366,27 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
         //             Prefs.getInt(mContext, KEY_HW_KEYS_STATE, 0));
         // }
 
+        if (mNightLightEnabled) {
+            mColorManager.setNightDisplayActivated(
+                    Prefs.getInt(mContext, KEY_NIGHT_LIGHT, 0) == 1);
+        }
+
         if (mBrightnessEnabled) {
+            final int prevMode = Prefs.getInt(mContext, KEY_BRIGHTNESS_STATE,
+                    Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC);
             Settings.System.putInt(mResolver,
-                    Settings.System.SCREEN_BRIGHTNESS_MODE,
-                    Prefs.getInt(mContext, KEY_BRIGHTNESS_STATE,
-                    Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC));
+                    Settings.System.SCREEN_BRIGHTNESS_MODE, prevMode);
+            if (prevMode != Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC
+                    && mBrightnessLevel != 0) {
+                Settings.System.putInt(mResolver,
+                        Settings.System.SCREEN_BRIGHTNESS,
+                        Prefs.getInt(mContext, KEY_BRIGHTNESS_LEVEL, 0));
+            }
         }
 
         if (mMediaEnabled) {
             final int max = mAudio.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-            final int prevVol = Prefs.getInt(mContext, KEY_MEDIA_LEVEL, 0);
+            final int prevVol = Prefs.getInt(mContext, KEY_MEDIA_LEVEL, 80);
             mAudio.setStreamVolume(AudioManager.STREAM_MUSIC,
                     Math.round((float)max * (float)prevVol / 100f),
                     AudioManager.FLAG_SHOW_UI);
