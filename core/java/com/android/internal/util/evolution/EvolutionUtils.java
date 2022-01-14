@@ -45,23 +45,25 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemClock;
 import android.os.UserHandle;
-import android.text.TextUtils;
-import android.view.IWindowManager;
-import android.view.WindowManagerGlobal;
-import android.view.InputDevice;
-import android.view.KeyCharacterMap;
-import android.view.KeyEvent;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.DisplayCutout;
 import android.view.DisplayInfo;
+import android.view.IWindowManager;
+import android.view.InputDevice;
+import android.view.KeyCharacterMap;
+import android.view.KeyEvent;
+import android.view.WindowManagerGlobal;
+
 import com.android.internal.R;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
@@ -325,7 +327,7 @@ public class EvolutionUtils {
     }
 
     // Method to detect whether an overlay is enabled or not
-    public static boolean isOverlayEnabled(String packageName) {
+    public static boolean isThemeEnabled(String packageName) {
         mOverlayService = new OverlayManager();
         try {
             List<OverlayInfo> infos = mOverlayService.getOverlayInfosForTarget("android",
