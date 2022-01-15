@@ -63,7 +63,6 @@ import com.android.systemui.plugins.statusbar.StatusBarStateController;
 import com.android.systemui.Prefs;
 import com.android.systemui.qs.logging.QSLogger;
 import com.android.systemui.qs.QSHost;
-import com.android.systemui.qs.SystemSetting;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
 import com.android.systemui.R;
 import com.android.systemui.SysUIToast;
@@ -86,7 +85,6 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
     private static final String KEY_MEDIA_LEVEL = "gaming_mode_level_media";
 
     private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_gaming_mode);
-    private final SystemSetting mSetting;
     private final AudioManager mAudio;
     private final NotificationManager mNm;
     private final ContentResolver mResolver;
@@ -117,12 +115,6 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
     ) {
         super(host, backgroundLooper, mainHandler, falsingManager, metricsLogger,
                 statusBarStateController, activityStarter, qsLogger);
-        mSetting = new SystemSetting(mContext, mHandler, System.ENABLE_GAMING_MODE) {
-            @Override
-            protected void handleValueChanged(int value, boolean observedChange) {
-                handleRefreshState(value);
-            }
-        };
         mResolver = mContext.getContentResolver();
         mAudio = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
         mNm = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -141,11 +133,9 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
 
     @Override
     public void handleClick(@Nullable View view) {
-        if (Prefs.getBoolean(mContext, Prefs.Key.QS_GAMING_MODE_DIALOG_SHOWN, false)) {
-            enableGamingMode();
-            return;
-        }
-        showGamingModeWhatsThisDialog();
+        if (!Prefs.getBoolean(mContext, Prefs.Key.QS_GAMING_MODE_DIALOG_SHOWN, false))
+            showGamingModeWhatsThisDialog();
+        enableGamingMode();
     }
 
     private void showGamingModeWhatsThisDialog() {
@@ -164,8 +154,9 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
     }
 
     public void enableGamingMode() {
-        handleState(!mState.value);
-        refreshState();
+        final boolean newState = !mState.value;
+        handleState(newState);
+        refreshState(newState);
     }
 
     @Override
@@ -233,17 +224,16 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
             }
         }
         setNotification(enabled);
-
-        Settings.System.putInt(mResolver,
-                Settings.System.ENABLE_GAMING_MODE, enabled ? 1 : 0);
     }
 
     @Override
     protected void handleUpdateState(BooleanState state, Object arg) {
-        final int value = arg instanceof Integer ? (Integer)arg : mSetting.getValue();
-        final boolean enable = value != 0;
+        boolean enable = state.value;
         if (state.slash == null) {
             state.slash = new SlashState();
+        }
+        if (arg instanceof Boolean) {
+            enable = (Boolean) arg;
         }
         state.icon = mIcon;
         state.value = enable;
@@ -392,7 +382,7 @@ public class GamingModeTile extends QSTileImpl<BooleanState> {
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) {
                 handleState(false);
-                refreshState();
+                refreshState(false);
             }
         }
     }
