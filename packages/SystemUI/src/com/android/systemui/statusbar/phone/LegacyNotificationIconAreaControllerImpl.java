@@ -85,6 +85,8 @@ public class LegacyNotificationIconAreaControllerImpl implements
 
     public static final String STATUSBAR_NOTIF_COUNT =
             "system:" + Settings.System.STATUSBAR_NOTIF_COUNT;
+    public static final String STATUSBAR_COLORED_ICONS =
+            "system:" + Settings.System.STATUSBAR_COLORED_ICONS;
 
     private static final long AOD_ICONS_APPEAR_DURATION = 200;
     @ColorInt
@@ -120,6 +122,7 @@ public class LegacyNotificationIconAreaControllerImpl implements
     private boolean mAodIconsVisible;
     private boolean mShowLowPriority = true;
     private boolean mShowNotificationCount = false;
+    private boolean mNewIconStyle = false;
 
     @VisibleForTesting
     final NotificationListener.NotificationSettingsListener mSettingsListener =
@@ -168,6 +171,7 @@ public class LegacyNotificationIconAreaControllerImpl implements
 
         final TunerService tunerService = Dependency.get(TunerService.class);
         tunerService.addTunable(this, STATUSBAR_NOTIF_COUNT);
+        tunerService.addTunable(this, STATUSBAR_COLORED_ICONS);
     }
 
     @Override
@@ -178,6 +182,14 @@ public class LegacyNotificationIconAreaControllerImpl implements
                     TunerService.parseIntegerSwitch(newValue, false);
                 if (mShowNotificationCount != showIconCount) {
                     mShowNotificationCount = showIconCount;
+                    updateNotificationIcons();
+                }
+                break;
+            case STATUSBAR_COLORED_ICONS:
+                boolean newIconStyle =
+                    TunerService.parseIntegerSwitch(newValue, false);
+                if (mNewIconStyle != newIconStyle) {
+                    mNewIconStyle = newIconStyle;
                     updateNotificationIcons();
                 }
                 break;
@@ -479,7 +491,9 @@ public class LegacyNotificationIconAreaControllerImpl implements
                 }
                 hostLayout.addView(v, i, params);
             }
+            v.setIconStyle(mNewIconStyle);
             v.setShowCount(mShowNotificationCount);
+            v.updateDrawable();
             v.updateIconForced();
         }
 
@@ -497,6 +511,7 @@ public class LegacyNotificationIconAreaControllerImpl implements
         }
         hostLayout.setChangingViewPositions(false);
         hostLayout.setReplacingIconsLegacy(null);
+        hostLayout.updateState();
     }
 
     /**
@@ -522,13 +537,12 @@ public class LegacyNotificationIconAreaControllerImpl implements
         if (colorize) {
             color = DarkIconDispatcher.getTint(mTintAreas, v, tint);
         }
-        boolean newIconStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
-            Settings.System.STATUSBAR_COLORED_ICONS, 0, UserHandle.USER_CURRENT) == 1;
-        if (v.getStatusBarIcon().pkg.contains("systemui") || !newIconStyle) {
+        if (v.getStatusBarIcon().pkg.contains("systemui") || !mNewIconStyle) {
             v.setStaticDrawableColor(color);
             v.setDecorColor(tint);
         } else {
-            return;
+            v.setStaticDrawableColor(StatusBarIconView.NO_COLOR);
+            v.setDecorColor(Color.WHITE);
         }
     }
 
