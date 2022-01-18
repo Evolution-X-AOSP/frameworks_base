@@ -9352,7 +9352,9 @@ final class ActivityRecord extends WindowToken implements WindowManagerService.A
         int activityHeight = containingAppHeight;
 
         if (containingRatio - aspectRatioToApply > ASPECT_RATIO_ROUNDING_TOLERANCE) {
-            if (containingAppWidth < containingAppHeight) {
+            if (mAtmService.shouldForceCutoutFullscreen(packageName)) {
+                // Use containingAppWidth/Height for maxActivityWidth/Height when force long screen
+            } else if (containingAppWidth < containingAppHeight) {
                 // Width is the shorter side, so we use that to figure-out what the max. height
                 // should be given the aspect ratio.
                 activityHeight = (int) ((activityWidth * aspectRatioToApply) + 0.5f);
