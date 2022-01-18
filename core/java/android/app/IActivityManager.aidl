@@ -924,4 +924,9 @@ interface IActivityManager {
     void unregisterUidFrozenStateChangedCallback(in IUidFrozenStateChangedCallback callback);
     @JavaPassthrough(annotation="@android.annotation.RequiresPermission(android.Manifest.permission.PACKAGE_USAGE_STATS)")
     int[] getUidFrozenState(in int[] uids);
+
+    /**
+     *  Force full screen for devices with cutout
+     */
+    boolean shouldForceCutoutFullscreen(in String packageName);
 }

@@ -20162,4 +20162,8 @@ public class ActivityManagerService extends IActivityManager.Stub
             return index >= 0 && !mMediaProjectionTokenMap.valueAt(index).isEmpty();
         }
     }
+
+    public boolean shouldForceCutoutFullscreen(String packageName) {
+        return mActivityTaskManager.shouldForceCutoutFullscreen(packageName);
+    }
 }
