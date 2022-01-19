@@ -21,7 +21,7 @@
     <string name="reboot_to_bootloader_title">Bootloader</string>
     <string name="reboot_to_bootloader_message">Reiniciando para o bootloader</string>
     <string name="reboot_title">Reiniciar</string>
-    <string name="reboot_message">Reiniciando o sistema</string>
+    <string name="reboot_message">Reiniciando...</string>
     <!-- Cycle through ringer modes -->
     <string name="volume_dialog_ringer_guidance_normal">Chamadas e notificações tocarão</string>
     <!-- Pocket Lock -->
@@ -30,7 +30,7 @@
     <string name="pocket_view_title">Modo bolso está ativado</string>
     <string name="pocket_view_title_cancel">Para usar seu telefone:</string>
     <string name="pocket_view_top_tag_cancel">Não cubra a área azul do seu telefone, limpe qualquer terra ou poeira.</string>
-    <string name="pocket_view_top_tag_cancel2">Pressionar e segurar o botão liga/desliga para forçar a saída do modo bolso</string>
+    <string name="pocket_view_top_tag_cancel2">Pressione e segure o botão liga/desliga para forçar a saída do modo de bolso.</string>
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">É necessário reiniciar a Interface do Sistema</string>
     <string name="systemui_restart_message">Para que todas as alterações tenham efeito, é necessário reiniciar a interface do sistema. Deseja reiniciar a interface do sistema agora?</string>
