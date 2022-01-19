@@ -124,9 +124,9 @@
     <string name="quick_settings_compass_W">O</string>
     <string name="quick_settings_compass_NW">NO</string>
     <!-- FPS Info tile -->
-    <string name="quick_settings_fpsinfo_label">Informação de FPS</string>
-    <string name="accessibility_quick_settings_fpsinfo_off">Informação do FPS desativado</string>
-    <string name="accessibility_quick_settings_fpsinfo_on">Informação de FPS ativada</string>
+    <string name="quick_settings_fpsinfo_label">Info de FPS</string>
+    <string name="accessibility_quick_settings_fpsinfo_off">Info de FPS desativada</string>
+    <string name="accessibility_quick_settings_fpsinfo_on">Info de FPS ativada</string>
     <!-- Screen record -->
     <!-- Label for notification action to delete a screen recording file [CHAR LIMIT=35] -->
     <string name="screenrecord_delete_label">Excluir</string>
@@ -139,7 +139,7 @@
     <string name="empty_app_killed">Aplicativo</string>
     <!-- AlertSlider -->
     <string name="alert_slider_mode_priority_text">Prioridade</string>
-    <string name="alert_slider_mode_dnd_text">Não perturbe</string>
+    <string name="alert_slider_mode_dnd_text">Não Perturbe</string>
     <!-- On The Go -->
     <string name="onthego_notif_ticker">On-The-Go ativado</string>
     <string name="onthego_notif_title">On-The-Go está ativo</string>
@@ -161,17 +161,18 @@
     <string name="active_edge_app_select_title">Selecionar app</string>
     <string name="active_edge_activity_select_title">Selecionar atividade</string>
     <!-- Gaming Mode -->
-    <string name="gaming_mode_tile_title">Modo de Jogo</string>
-    <string name="gaming_mode_tile_toast">Modo de jogo ativado</string>
-    <string name="gaming_mode_tile_toast_disabled">Modo de jogo desativado</string>
-    <string name="gaming_mode_dialog_title">Modo de Jogo</string>
-    <string name="gaming_mode_dialog_message">Vá para Configurações* &gt; Evolução* &gt; Configurações Rápidas* &gt; Modo de Jogo* para mais detalhes e configurações</string>
-    <string name="accessibility_quick_settings_gaming_mode_on">Modo de jogo está ativado</string>
-    <string name="accessibility_quick_settings_gaming_mode_off">Modo de jogo está desativado</string>
+    <string name="gaming_mode_tile_title">Modo Gamer</string>
+    <string name="gaming_mode_tile_toast">Modo gamer ativado</string>
+    <string name="gaming_mode_tile_toast_disabled">Modo gamer desativado</string>
+    <string name="gaming_mode_dialog_title">Modo Gamer</string>
+    <string name="gaming_mode_dialog_message">Vá para Configurações* &gt; Evolução* &gt; Configurações Rápidas* &gt; Modo Gamer* para mais detalhes e configurações</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">Modo gamer está ativado</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">Modo gamer está desativado</string>
     <string name="gaming_mode_panel_headsup_title">Desativar notificações flutuantes</string>
-    <string name="gaming_mode_panel_zen_title">Ativar o modo Não perturbe</string>
+    <string name="gaming_mode_panel_zen_title">Ativar o modo Não Perturbe</string>
     <string name="gaming_mode_panel_navbar_title">Desativar barra de navegação</string>
     <string name="gaming_mode_panel_hw_title">Desativar teclas de navegação físicas</string>
     <string name="gaming_mode_panel_brightness_title">Desativar o brilho automático</string>
     <string name="gaming_mode_panel_media_title">Definir Volume de Mídia</string>
+    <!-- Text to use when the number in a notification info is too large -->
 </resources>
