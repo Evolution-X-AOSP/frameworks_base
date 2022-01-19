@@ -174,4 +174,5 @@
     <string name="gaming_mode_panel_hw_title">ハードウェアナビゲーションを無効化</string>
     <string name="gaming_mode_panel_brightness_title">自動明るさ調節を無効化</string>
     <string name="gaming_mode_panel_media_title">メディア音量を設定</string>
+    <!-- Text to use when the number in a notification info is too large -->
 </resources>
