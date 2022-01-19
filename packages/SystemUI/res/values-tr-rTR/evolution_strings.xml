@@ -141,22 +141,22 @@
     <string name="alert_slider_mode_priority_text">Öncelik</string>
     <string name="alert_slider_mode_dnd_text">Rahatsız etmeyin</string>
     <!-- On The Go -->
-    <string name="onthego_notif_ticker">On-The-Go etkinleştirildi</string>
-    <string name="onthego_notif_title">On-The-Go etkin</string>
+    <string name="onthego_notif_ticker">Yürüme modu etkinleştirildi</string>
+    <string name="onthego_notif_title">Yürüme modu etkin</string>
     <string name="onthego_notif_stop">Durdur</string>
     <string name="onthego_notif_options">Seçenekler</string>
-    <string name="onthego_notif_error">On-The-Go başlatılamadı</string>
-    <string name="onthego_notif_restart">Yeniden başlat</string>
+    <string name="onthego_notif_error">Yürüme modu başlatılamıyor</string>
+    <string name="onthego_notif_restart">Yürüme modunu yeniden başlat</string>
     <string name="onthego_notif_camera_changed">Kamera modu değiştirildi</string>
     <string name="onthego_transparency">Saydamlık</string>
     <string name="onthego_front_camera">Ön kamerayı kullan</string>
     <string name="onthego_service_toggle">Servisi otomatik olarak yeniden başlat</string>
     <string name="onthego_channel_name">Ana grup</string>
-    <string name="global_action_onthego">On-The-Go</string>
+    <string name="global_action_onthego">Yürüme modu</string>
     <!-- OnTheGo Tile -->
-    <string name="quick_settings_onthego_label">On-The-Go</string>
-    <string name="accessibility_quick_settings_onthego_off">On-The-Go kapalı</string>
-    <string name="accessibility_quick_settings_onthego_on">On-The-Go açık</string>
+    <string name="quick_settings_onthego_label">Yürüme modu</string>
+    <string name="accessibility_quick_settings_onthego_off">Yürüme modu kapalı</string>
+    <string name="accessibility_quick_settings_onthego_on">Yürüme modu açık</string>
     <string name="app_picker_dialog_title">Bir uygulama seç</string>
     <string name="active_edge_app_select_title">Uygulama seç</string>
     <string name="active_edge_activity_select_title">Etkinlik seç</string>
@@ -174,4 +174,5 @@
     <string name="gaming_mode_panel_hw_title">Donanım tuşlarını devre dışı bırak</string>
     <string name="gaming_mode_panel_brightness_title">Otomatik parlaklığı devre dışı bırak</string>
     <string name="gaming_mode_panel_media_title">Medya sesini ayarla</string>
+    <!-- Text to use when the number in a notification info is too large -->
 </resources>
