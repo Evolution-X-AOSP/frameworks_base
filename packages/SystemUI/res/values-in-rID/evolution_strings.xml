@@ -174,4 +174,5 @@
     <string name="gaming_mode_panel_hw_title">Nonaktifkan tombol navigasi perangkat keras</string>
     <string name="gaming_mode_panel_brightness_title">Nonaktifkan kecerahan otomatis</string>
     <string name="gaming_mode_panel_media_title">Atur Volume Media</string>
+    <!-- Text to use when the number in a notification info is too large -->
 </resources>
