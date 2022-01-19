@@ -64,6 +64,7 @@ import com.android.systemui.animation.ActivityLaunchAnimator;
 import com.android.systemui.biometrics.dagger.BiometricsBackground;
 import com.android.systemui.biometrics.UdfpsControllerOverlay;
 import com.android.systemui.dagger.SysUISingleton;
+import com.android.systemui.dagger.qualifiers.Background;
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.doze.DozeReceiver;
 import com.android.systemui.dump.DumpManager;
@@ -81,6 +82,7 @@ import com.android.systemui.statusbar.policy.KeyguardStateController;
 import com.android.systemui.util.concurrency.DelayableExecutor;
 import com.android.systemui.util.concurrency.Execution;
 import com.android.systemui.util.settings.SecureSettings;
+import com.android.systemui.util.settings.SystemSettings;
 import com.android.systemui.util.time.SystemClock;
 
 import com.android.systemui.R;
@@ -180,6 +182,8 @@ public class UdfpsController implements DozeReceiver {
     private boolean mAttemptedToDismissKeyguard;
     private final Set<Callback> mCallbacks = new HashSet<>();
     private final int mUdfpsVendorCode;
+    private final SystemSettings mSystemSettings;
+    private boolean mUdfpsStartHapticFeedbackEnabled = true;
 
     private final AmbientDisplayConfiguration mAmbientDisplayConfiguration;
     private final SecureSettings mSecureSettings;
@@ -660,7 +664,9 @@ public class UdfpsController implements DozeReceiver {
             @NonNull ActivityLaunchAnimator activityLaunchAnimator,
             @NonNull Optional<AlternateUdfpsTouchProvider> aternateTouchProvider,
             @NonNull SecureSettings secureSettings,
-            @BiometricsBackground Executor biometricsExecutor) {
+            @BiometricsBackground Executor biometricsExecutor,
+            @NonNull SystemSettings systemSettings,
+            @NonNull @Background Handler backgroundHandler) {
         mContext = context;
         mExecution = execution;
         mVibrator = vibrator;
@@ -714,6 +720,26 @@ public class UdfpsController implements DozeReceiver {
 
         udfpsHapticsSimulator.setUdfpsController(this);
         udfpsShell.setUdfpsOverlayController(mUdfpsOverlayController);
+        mSystemSettings = systemSettings;
+        backgroundHandler.post(() -> {
+            final boolean isEnabled = isUdfpsStartHapticFeedbackEnabled();
+            mainHandler.post(() -> {
+                mUdfpsStartHapticFeedbackEnabled = isEnabled;
+            });
+        });
+        final ContentObserver settingsObserver = new ContentObserver(backgroundHandler) {
+            @Override
+            public void onChange(boolean selfChange, Uri uri) {
+                if (uri.getLastPathSegment() == Settings.System.ENABLE_UDFPS_START_HAPTIC_FEEDBACK) {
+                    final boolean isEnabled = isUdfpsStartHapticFeedbackEnabled();
+                    mainHandler.post(() -> {
+                        mUdfpsStartHapticFeedbackEnabled = isEnabled;
+                    });
+                }
+            }
+        };
+        mSystemSettings.registerContentObserverForUser(Settings.System.ENABLE_UDFPS_START_HAPTIC_FEEDBACK,
+            settingsObserver, UserHandle.USER_ALL);
         mDisableNightMode = UdfpsUtils.hasUdfpsSupport(mContext);
         mUdfpsVendorCode = context.getResources().getInteger(R.integer.config_udfpsVendorCode);
         mAmbientDisplayConfiguration = new AmbientDisplayConfiguration(mContext);
@@ -754,12 +780,17 @@ public class UdfpsController implements DozeReceiver {
         }
     }
 
+    private boolean isUdfpsStartHapticFeedbackEnabled() {
+        return mSystemSettings.getIntForUser(
+            Settings.System.ENABLE_UDFPS_START_HAPTIC_FEEDBACK, 1, UserHandle.USER_CURRENT) == 1;
+    }
+
     /**
      * If a11y touchExplorationEnabled, play haptic to signal UDFPS scanning started.
      */
     @VisibleForTesting
     public void playStartHaptic() {
-        if (mAccessibilityManager.isTouchExplorationEnabled()) {
+        if (mAccessibilityManager.isTouchExplorationEnabled() && mUdfpsStartHapticFeedbackEnabled) {
             mVibrator.vibrate(
                     Process.myUid(),
                     mContext.getOpPackageName(),
