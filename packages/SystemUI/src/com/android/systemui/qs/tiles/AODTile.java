@@ -57,7 +57,7 @@ public class AODTile extends QSTileImpl<State> implements
     private final BatteryController mBatteryController;
 
     private static final ComponentName LS_DISPLAY_SETTINGS_COMPONENT = new ComponentName(
-            "com.android.settings", "com.android.settings.Settings$LockscreenDashboardActivity");
+            "com.android.settings", "com.android.settings.Settings$LockScreenSettingsActivity");
 
     private static final Intent LS_DISPLAY_SETTINGS =
             new Intent().setComponent(LS_DISPLAY_SETTINGS_COMPONENT);
