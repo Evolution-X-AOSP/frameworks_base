@@ -5174,6 +5174,8 @@ public class AudioService extends IAudioService.Stub
                         break;
                 }
                 break;
+            default:
+                return;
         }
         maybeVibrate(effect, reason);
         setRingerModeInternal(ringerMode, reason);
