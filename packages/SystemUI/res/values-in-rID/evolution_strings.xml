@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright 2019-2021 The Evolution X Project
+     Copyright 2019-2022 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -160,19 +160,16 @@
     <string name="app_picker_dialog_title">Pilih aplikasi</string>
     <string name="active_edge_app_select_title">Pilih aplikasi</string>
     <string name="active_edge_activity_select_title">Pilih aktivitas</string>
-    <!-- Gaming Mode -->
-    <string name="gaming_mode_tile_title">Makro Game</string>
-    <string name="gaming_mode_tile_toast">Game makro diaktifkan</string>
-    <string name="gaming_mode_tile_toast_disabled">Game makro dinonaktifkan</string>
-    <string name="gaming_mode_dialog_title">Makro Game</string>
-    <string name="gaming_mode_dialog_message">Buka \'Setelan &gt; Evolver &gt; Setelan Cepat &gt; Makro Game\' untuk detail dan pengaturan lebih lanjut</string>
-    <string name="accessibility_quick_settings_gaming_mode_on">Makro game aktif</string>
-    <string name="accessibility_quick_settings_gaming_mode_off">Makro game nonaktif</string>
-    <string name="gaming_mode_panel_headsup_title">Nonaktifkan Notifikasi Mengambang</string>
-    <string name="gaming_mode_panel_zen_title">Aktifkan Jangan Ganggu</string>
-    <string name="gaming_mode_panel_navbar_title">Nonaktifkan bilah navigasi</string>
-    <string name="gaming_mode_panel_hw_title">Nonaktifkan tombol navigasi perangkat keras</string>
-    <string name="gaming_mode_panel_brightness_title">Nonaktifkan kecerahan otomatis</string>
-    <string name="gaming_mode_panel_media_title">Atur Volume Media</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Hal ini membuatnya tetap dalam pandangan sampai Anda melepas sematan. Sentuh &amp; tahan tombol Kembali untuk melepas sematan.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Untuk melepaskan sematan layar ini, sentuh &amp; tahan tombol Kembali</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Hal ini membuatnya tetap ditampilkan sampai Anda melepas sematan. Sentuh &amp; tahan pemindai sidik jari untuk melepas sematan.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Untuk melepas sematan pada layar ini, sentuh &amp; tahan pemindai sidik jari</string>
     <!-- Text to use when the number in a notification info is too large -->
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">Mode Permainan dinonaktifkan di setelan</string>
+    <string name="quick_settings_gaming_mode_label">Mode Permainan</string>
 </resources>
