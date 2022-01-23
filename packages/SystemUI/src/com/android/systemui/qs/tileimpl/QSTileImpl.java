@@ -35,10 +35,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.metrics.LogMaker;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.UserHandle;
+import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.provider.Settings;
 import android.text.format.DateUtils;
@@ -285,6 +287,16 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
                 Settings.Secure.QUICK_SETTINGS_TILES_VIBRATE, 0, UserHandle.USER_CURRENT) == 1);
     }
 
+    public void vibrateTick() {
+        if (!isVibrationEnabled()) { return; }
+        if (mVibrator != null) {
+            if (mVibrator.hasVibrator()) {
+                AsyncTask.execute(() ->
+                        mVibrator.vibrate(VibrationEffect.get(VibrationEffect.EFFECT_TICK)));
+            }
+        }
+    }
+
     public void vibrateTile(int duration) {
         if (!isVibrationEnabled()) { return; }
         if (mVibrator != null) {
@@ -314,7 +326,7 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
         if (!mFalsingManager.isFalseTap(FalsingManager.LOW_PENALTY)) {
             mHandler.obtainMessage(H.CLICK, view).sendToTarget();
         }
-        vibrateTile(45);
+        vibrateTick();
     }
 
     public void secondaryClick(@Nullable View view) {
