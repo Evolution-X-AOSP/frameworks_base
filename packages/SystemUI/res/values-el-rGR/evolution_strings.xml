@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright 2019-2021 The Evolution X Project
+     Copyright 2019-2022 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -160,19 +160,16 @@
     <string name="app_picker_dialog_title">Επιλέξτε μια εφαρμογή</string>
     <string name="active_edge_app_select_title">Επιλέξτε εφαρμογή</string>
     <string name="active_edge_activity_select_title">Επιλέξτε δραστηριότητα</string>
-    <!-- Gaming Mode -->
-    <string name="gaming_mode_tile_title">Μακροεντολή Παιχνιδιών</string>
-    <string name="gaming_mode_tile_toast">Οι μακροεντολές παιχνιδιών είναι ενεργοποιημένες</string>
-    <string name="gaming_mode_tile_toast_disabled">Οι μακροεντολές παιχνιδιών είναι απενεργοποιημένες</string>
-    <string name="gaming_mode_dialog_title">Μακροεντολή Παιχνιδιών</string>
-    <string name="gaming_mode_dialog_message">Μεταβείτε στις «Ρυθμίσεις &gt; The Evolver &gt; Γρήγορες ρυθμίσεις &gt; Μακροεντολή παιχνιδιού» για περισσότερες λεπτομέρειες και ρυθμίσεις</string>
-    <string name="accessibility_quick_settings_gaming_mode_on">Οι μακροεντολές παιχνιδιών είναι ενεργές</string>
-    <string name="accessibility_quick_settings_gaming_mode_off">Οι μακροεντολές παιχνιδιών είναι ανενεργές</string>
-    <string name="gaming_mode_panel_headsup_title">Απενεργοποίηση Αναδυόμενων Ειδοποιήσεων</string>
-    <string name="gaming_mode_panel_zen_title">Ενεργοποίηση \"Μην Ενοχλείτε\"</string>
-    <string name="gaming_mode_panel_navbar_title">Απενεργοποίηση γραμμής πλοήγησης</string>
-    <string name="gaming_mode_panel_hw_title">Απενεργοποίηση φυσικών πλήκτρων πλοήγησης</string>
-    <string name="gaming_mode_panel_brightness_title">Απενεργοποίηση αυτόματης φωτεινότητας</string>
-    <string name="gaming_mode_panel_media_title">Ορισμός Έντασης Πολυμέσων</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Με αυτόν τον τρόπο παραμένει σε προβολή μέχρι να το ξεκαρφιτσώσετε. Αγγίξτε &amp; κρατήστε πατημένο το πλήκτρο \"Πίσω\" για ξεκαρφίτσωμα.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Για να ξεκαρφιτσώσετε αυτήν την οθόνη, αγγίξτε &amp; κρατήστε παρατεταμένα το πλήκτρο \"Πίσω\"</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Με αυτόν τον τρόπο παραμένει σε προβολή μέχρι να το ξεκαρφιτσώσετε. Αγγίξτε &amp; κρατήστε πατημένο τον αισθητήρα δακτυλικών αποτυπωμάτων για ξεκαρφίτσωμα.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Για να ξεκαρφιτσώσετε αυτήν την οθόνη, αγγίξτε &amp; κρατήστε πατημένο τον αισθητήρα δακτυλικών αποτυπωμάτων</string>
     <!-- Text to use when the number in a notification info is too large -->
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">Η λειτουργία παιχνιδιού είναι απενεργοποιημένη στις ρυθμίσεις</string>
+    <string name="quick_settings_gaming_mode_label">Λειτουργία παιχνιδιού</string>
 </resources>

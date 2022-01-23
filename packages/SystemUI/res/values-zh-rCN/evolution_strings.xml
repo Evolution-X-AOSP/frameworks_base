@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright 2019-2021 The Evolution X Project
+     Copyright 2019-2022 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -160,19 +160,16 @@
     <string name="app_picker_dialog_title">选择一个应用</string>
     <string name="active_edge_app_select_title">选择应用</string>
     <string name="active_edge_activity_select_title">选择活动</string>
-    <!-- Gaming Mode -->
-    <string name="gaming_mode_tile_title">游戏模式</string>
-    <string name="gaming_mode_tile_toast">游戏模式已启用</string>
-    <string name="gaming_mode_tile_toast_disabled">游戏模式已停用</string>
-    <string name="gaming_mode_dialog_title">游戏模式</string>
-    <string name="gaming_mode_dialog_message">转到“设置 &gt; Evolver &gt; 快速设置 &gt; Gaming macro”获取更多详细信息和设置</string>
-    <string name="accessibility_quick_settings_gaming_mode_on">游戏模式已开启</string>
-    <string name="accessibility_quick_settings_gaming_mode_off">游戏模式已关闭</string>
-    <string name="gaming_mode_panel_headsup_title">禁用浮动通知</string>
-    <string name="gaming_mode_panel_zen_title">启用勿扰模式</string>
-    <string name="gaming_mode_panel_navbar_title">禁用导航栏</string>
-    <string name="gaming_mode_panel_hw_title">禁用实体导航按键</string>
-    <string name="gaming_mode_panel_brightness_title">禁用自动亮度</string>
-    <string name="gaming_mode_panel_media_title">设置媒体音量</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">这将会固定显示此屏幕，直到您取消固定为止。触摸并按住返回即可取消固定屏幕。</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">要取消固定此屏内容，请点触并长按返回按钮。</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">这将会固定显示此屏幕，直到您取消固定为止。触摸并按住指纹传感器即可取消固定。</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">要取消固定此屏幕，请触摸并按住指纹传感器。</string>
     <!-- Text to use when the number in a notification info is too large -->
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">游戏模式在设置中被禁用</string>
+    <string name="quick_settings_gaming_mode_label">游戏模式</string>
 </resources>

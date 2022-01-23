@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright 2019-2021 The Evolution X Project
+     Copyright 2019-2022 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -160,19 +160,16 @@
     <string name="app_picker_dialog_title">App auswählen</string>
     <string name="active_edge_app_select_title">App auswählen</string>
     <string name="active_edge_activity_select_title">Aktion auswählen</string>
-    <!-- Gaming Mode -->
-    <string name="gaming_mode_tile_title">Spielmakro</string>
-    <string name="gaming_mode_tile_toast">Spielmodus aktiviert</string>
-    <string name="gaming_mode_tile_toast_disabled">Spielmodus deaktiviert</string>
-    <string name="gaming_mode_dialog_title">Spielemodus</string>
-    <string name="gaming_mode_dialog_message">Gehe zu \'Einstellungen &gt; Evolver &gt; Schnelleinstellungen &gt; Spielmakro\' für weitere Details und Einstellungen</string>
-    <string name="accessibility_quick_settings_gaming_mode_on">Spielemakros sind an</string>
-    <string name="accessibility_quick_settings_gaming_mode_off">Spielemakros sind aus</string>
-    <string name="gaming_mode_panel_headsup_title">Heads-Up Benachrichtigungen deaktivieren</string>
-    <string name="gaming_mode_panel_zen_title">Bitte nicht stören aktivieren</string>
-    <string name="gaming_mode_panel_navbar_title">Navigationsleiste deaktivieren</string>
-    <string name="gaming_mode_panel_hw_title">Hardware-Navigationstasten deaktivieren</string>
-    <string name="gaming_mode_panel_brightness_title">Automatische Helligkeit deaktivieren</string>
-    <string name="gaming_mode_panel_media_title">Medienlautstärke einstellen</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Der Bildschirm wird solange angezeigt, bis die Fixierung aufgehoben wurde. Drücke &amp; halte dafür die Zurück-Taste.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Um den Bildschirm zu lösen, drücke &amp; halte die Zurück-Taste</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Der Bildschirm wird solange angezeigt, bis die Fixierung aufgehoben wurde. Berühre &amp; halte den Fingerabdrucksensor, wenn die Fixierung aufgehoben werden soll.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Um die Fixierung dieses Bildschirms aufzuheben, drücke &amp; halte den Fingerabdrucksensor</string>
     <!-- Text to use when the number in a notification info is too large -->
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">Spielemodus ist in den Einstellungen deaktiviert</string>
+    <string name="quick_settings_gaming_mode_label">Spielemodus</string>
 </resources>
