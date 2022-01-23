@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright 2019-2021 The Evolution X Project
+     Copyright 2019-2022 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -160,19 +160,16 @@
     <string name="app_picker_dialog_title">Выберите приложение</string>
     <string name="active_edge_app_select_title">Выберите приложение</string>
     <string name="active_edge_activity_select_title">Выберите действие</string>
-    <!-- Gaming Mode -->
-    <string name="gaming_mode_tile_title">Игровой Макрос</string>
-    <string name="gaming_mode_tile_toast">Игровой макрос включен</string>
-    <string name="gaming_mode_tile_toast_disabled">Игровой макрос выключен</string>
-    <string name="gaming_mode_dialog_title">Игровой Макрос</string>
-    <string name="gaming_mode_dialog_message">Перейдите в раздел \'Настройки &gt; The Evolver &gt; Быстрые настройки &gt; Игровой Макрос\' для получения более подробной информации и настроек</string>
-    <string name="accessibility_quick_settings_gaming_mode_on">Игровые макросы включены</string>
-    <string name="accessibility_quick_settings_gaming_mode_off">Игровые макросы отключены</string>
-    <string name="gaming_mode_panel_headsup_title">Отключить всплывающие уведомления</string>
-    <string name="gaming_mode_panel_zen_title">Включить режим \"Не беспокоить\"</string>
-    <string name="gaming_mode_panel_navbar_title">Выключить панель навигации</string>
-    <string name="gaming_mode_panel_hw_title">Отключить аппаратные кнопки навигации</string>
-    <string name="gaming_mode_panel_brightness_title">Отключить автоматическую настройку яркости</string>
-    <string name="gaming_mode_panel_media_title">Установить громкость мультимедиа</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Будет на виду до тех пор, пока вы не открепите его. Чтобы открепить, нажмите и удерживайте \"Назад\" для открепления.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Чтобы открепить этот экран, нажмите и удерживайте кнопку \"Назад\"</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Будет на виду до тех пор, пока вы не открепите его. Нажмите и удерживайте палец на сканере отпечатков, чтобы открепить.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Чтобы открепить этот экран, нажмите и удерживайте сканер отпечатков пальцев</string>
     <!-- Text to use when the number in a notification info is too large -->
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">Игровой режим отключен в настройках</string>
+    <string name="quick_settings_gaming_mode_label">Игровой режим</string>
 </resources>
