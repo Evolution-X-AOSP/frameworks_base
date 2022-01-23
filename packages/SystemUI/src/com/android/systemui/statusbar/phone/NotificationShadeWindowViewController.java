@@ -208,8 +208,8 @@ public class NotificationShadeWindowViewController {
             public void onChange(boolean selfChange, Uri uri) {
                 switch (uri.getLastPathSegment()) {
                     case Settings.Secure.DOZE_DOUBLE_TAP_GESTURE:
-                        mDoubleTapEnabled = Settings.Secure.getIntForUser(mView.getContext().getContentResolver(),
-                                Settings.Secure.DOZE_DOUBLE_TAP_GESTURE, 1, UserHandle.USER_CURRENT) == 1;
+                        mDoubleTapEnabled = configuration.doubleTapGestureEnabled(
+                                UserHandle.USER_CURRENT);
                         break;
                     case Settings.Secure.DOZE_TAP_SCREEN_GESTURE:
                         mSingleTapEnabled = configuration.tapGestureEnabled(UserHandle.USER_CURRENT);
