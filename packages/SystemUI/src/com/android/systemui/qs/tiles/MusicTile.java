@@ -135,9 +135,11 @@ public class MusicTile extends QSTileImpl<BooleanState> {
             state.icon = ResourceIcon.get(R.drawable.ic_qs_media_pause);
             state.label = mMetadata.trackTitle != null && MusicTileTitle()
                 ? mMetadata.trackTitle : mContext.getString(R.string.quick_settings_music_pause);
+            state.state = Tile.STATE_ACTIVE;
         } else {
             state.icon = ResourceIcon.get(R.drawable.ic_qs_media_play);
             state.label = mContext.getString(R.string.quick_settings_music_play);
+            state.state = Tile.STATE_INACTIVE;
         }
     }
 
