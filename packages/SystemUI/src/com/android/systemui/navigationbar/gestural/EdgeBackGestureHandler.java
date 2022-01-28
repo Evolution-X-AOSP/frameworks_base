@@ -1162,6 +1162,12 @@ public class EdgeBackGestureHandler implements PluginListener<NavigationEdgeBack
             case 13: // Switch recent app
                 ActionUtils.switchToLastApp(mContext);
                 break;
+            case 14: // Skip song
+                EvolutionUtils.sendSystemKeyToStatusBar(KeyEvent.KEYCODE_MEDIA_NEXT);
+                break;
+            case 15: // Previous song
+                EvolutionUtils.sendSystemKeyToStatusBar(KeyEvent.KEYCODE_MEDIA_PREVIOUS);
+                break;
         }
     }
 
