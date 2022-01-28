@@ -293,6 +293,10 @@ public class EvolutionUtils {
         }
     }
 
+    public static void sendSystemKeyToStatusBar(int keyCode) {
+        FireActions.sendSystemKeyToStatusBar(keyCode);
+    }
+
     /**
      * Keep FireAction methods below this point.
      * Place calls to methods above this point.
@@ -306,6 +310,17 @@ public class EvolutionUtils {
                             ServiceManager.getService("statusbar"));
                 }
                 return mStatusBarService;
+            }
+        }
+
+        public static void sendSystemKeyToStatusBar(int keyCode) {
+            IStatusBarService service = getStatusBarService();
+            if (service != null) {
+                try {
+                    service.handleSystemKey(keyCode);
+                } catch (RemoteException e) {
+                    // do nothing.
+                }
             }
         }
 
