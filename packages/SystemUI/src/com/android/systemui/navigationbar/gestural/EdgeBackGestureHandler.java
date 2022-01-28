@@ -1168,6 +1168,9 @@ public class EdgeBackGestureHandler implements PluginListener<NavigationEdgeBack
             case 15: // Previous song
                 EvolutionUtils.sendSystemKeyToStatusBar(KeyEvent.KEYCODE_MEDIA_PREVIOUS);
                 break;
+            case 16: // Powermenu
+                EvolutionUtils.showPowerMenu();
+                break;
         }
     }
 
