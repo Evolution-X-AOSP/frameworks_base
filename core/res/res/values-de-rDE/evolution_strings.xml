@@ -23,7 +23,7 @@
     <string name="reboot_title">Neustart</string>
     <string name="reboot_message">Starte Sytem neu</string>
     <!-- Cycle through ringer modes -->
-    <string name="volume_dialog_ringer_guidance_normal">Ausgenommen sind Anrufe und Benachrichtigungen</string>
+    <string name="volume_dialog_ringer_guidance_normal">Bei Anrufen und Benachrichtigungen klingeln</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Drücke und halte die Power-Taste zum Entsperren</string>
     <!-- Pocket Lock -->
@@ -38,5 +38,5 @@
     <!-- Button that copies the url to the log of a crashed application -->
     <string name="aerr_copy">URL des Absturzberichts kopieren</string>
     <string name="url_copy_success">URL erfolgreich kopiert</string>
-    <string name="url_copy_failed">Beim Hochladen des Protokolls zu hastebin ist ein Fehler aufgetreten</string>
+    <string name="url_copy_failed">Beim Hochladen des Protokolls zu Pasty ist ein Fehler aufgetreten</string>
 </resources>
