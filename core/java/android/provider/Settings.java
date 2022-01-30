@@ -5921,9 +5921,6 @@ public final class Settings {
          */
         public static final String CHARGING_ANIMATION = "charging_animation";
 
-        /** @hide */
-        public static final String BACK_GESTURE_HEIGHT = "back_gesture_height";
-
         /**
          * Whether or not volume button music controls should be enabled to seek media tracks
          * @hide
