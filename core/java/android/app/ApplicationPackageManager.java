@@ -723,13 +723,28 @@ public class ApplicationPackageManager extends PackageManager {
             "com.google.android.feature.PIXEL_2017_EXPERIENCE"
     };
 
+    private static final String[] featuresWhitelist = {
+            "com.google.android.apps.photos.NEXUS_PRELOAD",
+            "com.google.android.apps.photos.nexus_preload"
+    };
+
+    private boolean useSpoofingForPhotos() {
+        final String useSpoof = SystemProperties.get("persist.sys.photo", "1");
+        boolean value = ("1".equals(useSpoof)) ? true : false;
+        return value;
+    }
+
     @Override
     public boolean hasSystemFeature(String name, int version) {
         String packageName = ActivityThread.currentPackageName();
-        if (packageName != null &&
-                packageName.contains("com.google.android.apps.photos") &&
-                Arrays.asList(featuresBlacklist).contains(name)) {
-            return false;
+        if (useSpoofingForPhotos()) {
+            if (packageName != null) {
+                if (packageName.contains("com.google.android.apps.photos") &&
+                    Arrays.asList(featuresBlacklist).contains(name)) return false;
+            }
+            if (Arrays.asList(featuresWhitelist).contains(name)) return true;
+        } else {
+            if (Arrays.asList(featuresBlacklist).contains(name)) return true;
         }
         return mHasSystemFeatureCache.query(new HasSystemFeatureQuery(name, version));
     }
