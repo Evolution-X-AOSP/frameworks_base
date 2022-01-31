@@ -144,7 +144,6 @@ class CircleBatteryDrawable(private val context: Context, frameColor: Int) : Dra
 
         iconTint = fillColor
         framePaint.color = bgColor
-        boltPaint.color = fillColor
         chargeColor = fillColor
 
         invalidateSelf()

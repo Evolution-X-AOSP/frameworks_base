@@ -42,6 +42,7 @@ class FullCircleBatteryDrawable(private val context: Context, frameColor: Int) :
 
     private var chargeColor: Int
     private var iconTint = Color.WHITE
+    private var fillColor = Color.BLACK
     private var intrinsicWidth: Int
     private var intrinsicHeight: Int
     private var height = 0
@@ -138,7 +139,7 @@ class FullCircleBatteryDrawable(private val context: Context, frameColor: Int) :
         width = bounds.right - padding.right - (bounds.left + padding.left)
         intrinsicHeight = res.getDimensionPixelSize(R.dimen.battery_height)
         intrinsicWidth = res.getDimensionPixelSize(R.dimen.battery_height)
-        textPaint.textSize = height * 0.7f
+        textPaint.textSize = height * 0.6f
     }
 
     override fun getPadding(padding: Rect): Boolean {
@@ -236,7 +237,7 @@ class FullCircleBatteryDrawable(private val context: Context, frameColor: Int) :
                 else
                     warningString
             val pctY = (height + textHeight) * 0.45f
-            textPaint.color = batteryColorForLevel(batteryLevel)
+            textPaint.color = fillColor
             c.drawText(pctText, frame.centerX(), pctY, textPaint)
             var textPath = Path()
             textPaint.getTextPath(pctText, 0, pctText.length, frame.centerX(),
@@ -299,8 +300,6 @@ class FullCircleBatteryDrawable(private val context: Context, frameColor: Int) :
         textPaint = Paint(Paint.ANTI_ALIAS_FLAG)
         textPaint.typeface = Typeface.create("sans-serif-condensed", Typeface.BOLD)
         textPaint.textAlign = Paint.Align.CENTER
-        textPaint.strokeWidth = 2f
-        textPaint.style = Paint.Style.STROKE
         chargeColor = Utils.getColorStateListDefaultColor(context, R.color.meter_consumed_color)
         powerSavePaint = Paint(Paint.ANTI_ALIAS_FLAG)
         powerSavePaint.color = Utils.getColorStateListDefaultColor(
