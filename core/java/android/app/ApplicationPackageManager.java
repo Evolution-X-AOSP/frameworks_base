@@ -709,7 +709,7 @@ public class ApplicationPackageManager extends PackageManager {
                 }
             };
 
-    private static final String[] featuresBlacklist = {
+    private static final String[] featuresPixel = {
             "com.google.android.apps.photos.PIXEL_2019_PRELOAD",
             "com.google.android.apps.photos.PIXEL_2019_MIDYEAR_PRELOAD",
             "com.google.android.apps.photos.PIXEL_2018_PRELOAD",
@@ -723,29 +723,21 @@ public class ApplicationPackageManager extends PackageManager {
             "com.google.android.feature.PIXEL_2017_EXPERIENCE"
     };
 
-    private static final String[] featuresWhitelist = {
+    private static final String[] featuresNexus = {
             "com.google.android.apps.photos.NEXUS_PRELOAD",
             "com.google.android.apps.photos.nexus_preload"
     };
 
-    private boolean useSpoofingForPhotos() {
-        final String useSpoof = SystemProperties.get("persist.sys.photo", "1");
-        boolean value = ("1".equals(useSpoof)) ? true : false;
-        return value;
-    }
-
     @Override
     public boolean hasSystemFeature(String name, int version) {
         String packageName = ActivityThread.currentPackageName();
-        if (useSpoofingForPhotos()) {
-            if (packageName != null) {
-                if (packageName.contains("com.google.android.apps.photos") &&
-                    Arrays.asList(featuresBlacklist).contains(name)) return false;
-            }
-            if (Arrays.asList(featuresWhitelist).contains(name)) return true;
-        } else {
-            if (Arrays.asList(featuresBlacklist).contains(name)) return true;
+        if (packageName != null &&
+                packageName.equals("com.google.android.apps.photos") &&
+                SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", true)) {
+            if (Arrays.asList(featuresPixel).contains(name)) return false;
+            if (Arrays.asList(featuresNexus).contains(name)) return true;
         }
+        if (Arrays.asList(featuresPixel).contains(name)) return true;
         return mHasSystemFeatureCache.query(new HasSystemFeatureQuery(name, version));
     }
 
