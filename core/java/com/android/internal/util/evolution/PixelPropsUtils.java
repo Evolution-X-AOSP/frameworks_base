@@ -182,6 +182,12 @@ public class PixelPropsUtils {
             ((packageName.startsWith("com.google.") && !Arrays.asList(packagesToKeep).contains(packageName))
                 || Arrays.asList(extraPackagesToChange).contains(packageName)
                 || Arrays.asList(streamingPackagesToChange).contains(packageName))) {
+
+            if (packageName.equals("com.google.android.apps.photos")) {
+                if (!SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", true))
+                    return;
+            }
+
             Map<String, Object> propsToChange = propsToChangePixel6;
 
             if (Arrays.asList(packagesToChangePixel5).contains(packageName)) {
@@ -189,9 +195,6 @@ public class PixelPropsUtils {
             }
 
             if (Arrays.asList(packagesToChangePixelXL).contains(packageName)) {
-                final String sysPropSpoof = SystemProperties.get("persist.sys.photo", "1");
-                boolean dontSpoof = ("0".equals(sysPropSpoof)) ? true : false;
-                if (dontSpoof && packageName.equals("com.google.android.apps.photos")) return;
                 propsToChange = propsToChangePixelXL;
             }
 
