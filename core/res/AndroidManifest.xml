@@ -816,9 +816,15 @@
     <protected-broadcast android:name="android.app.action.PROVISIONING_COMPLETED" />
     <protected-broadcast android:name="android.app.action.LOST_MODE_LOCATION_UPDATE" />
 
+<<<<<<< HEAD
     <!-- GameSpace -->
     <protected-broadcast android:name="io.chaldeaprjkt.gamespace.action.GAME_START" />
     <protected-broadcast android:name="io.chaldeaprjkt.gamespace.action.GAME_STOP" />
+=======
+    <!-- App lock -->
+    <protected-broadcast android:name="com.android.server.app.AppLockManagerService.APP_LOCK_TIMEOUT" />
+    <protected-broadcast android:name="android.app.action.UNLOCK_APP" />
+>>>>>>> 38a48c0631a3 (base: introduce app lock [1/4])
 
     <!-- ====================================================================== -->
     <!--                          RUNTIME PERMISSIONS                           -->
@@ -6521,6 +6527,11 @@
          @hide @TestApi @SystemApi(client=android.annotation.SystemApi.Client.MODULE_LIBRARIES) -->
     <permission android:name="android.permission.MAKE_UID_VISIBLE"
                 android:protectionLevel="signature" />
+
+    <!-- Allows an application to manage app lock
+         @hide -->
+    <permission android:name="android.permission.MANAGE_APP_LOCK"
+                android:protectionLevel="signature|privileged" />
 
     <!-- Attribution for Geofencing service. -->
     <attribution android:tag="GeofencingService" android:label="@string/geofencing_service"/>
