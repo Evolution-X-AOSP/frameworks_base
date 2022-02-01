@@ -250,4 +250,8 @@
 
     <!-- Expected value from fast charging status file  -->
     <string name="config_oemFastChargerStatusValue" translatable="false"></string>
+
+    <!-- List of system apps that are allowed to be locked with app lock.
+          Use with extreme caution. -->
+    <string-array name="config_appLockAllowedSystemApps" translatable="false" />
 </resources>
