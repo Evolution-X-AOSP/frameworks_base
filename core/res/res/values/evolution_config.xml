@@ -590,4 +590,8 @@
     <!-- Defines custom OEM sensor for pocket detection. -->
     <string name="config_pocketJudgeVendorSensorName"></string>
     <string name="config_pocketJudgeVendorProximitySensorName"></string>
+
+    <!-- List of system apps that are allowed to be locked with app lock.
+         Use with extreme caution. -->
+    <string-array name="config_appLockAllowedSystemApps" translatable="false" />
 </resources>
