@@ -11544,13 +11544,6 @@ public final class Settings {
         public static final String GESTURE_NAVBAR_LENGTH_MODE = "gesture_navbar_length_mode";
 
         /**
-         * Whether to show QS auto brightness toggle button
-         * @hide
-         */
-        @Readable
-        public static final String QSTILE_REQUIRES_UNLOCKING = "qstile_requires_unlocking";
-
-        /**
          * Whether to show privacy indicator for location
          * @hide
          */
@@ -11568,6 +11561,13 @@ public final class Settings {
          * @hide
          */
         public static final String SECURE_LOCKSCREEN_QS_DISABLED = "secure_lockscreen_qs_disabled";
+
+        /**
+         * Whether to disable secure qs tiles on lockscreen.
+         * Default 1
+         * @hide
+         */
+        public static final String DISABLE_SECURE_TILES_ON_LOCKSCREEN = "disable_secure_tiles_on_lockscreen";
 
         /**
          * These entries are considered common between the personal and the managed profile,
