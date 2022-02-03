@@ -12,10 +12,10 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- * 
+ *
  * Helper functions mostly for device configuration and some utilities
  * including a fun ViewGroup crawler and dpi conversion
- * 
+ *
  */
 
 package com.android.internal.util.hwkeys;
@@ -62,7 +62,6 @@ import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.util.Log;
 import android.view.Display;
-import android.provider.MediaStore;
 import android.view.IWindowManager;
 import android.view.View;
 import android.view.ViewGroup;
@@ -254,7 +253,7 @@ public final class ActionUtils {
     /**
      * This method converts dp unit to equivalent pixels, depending on device
      * density.
-     * 
+     *
      * @param dp A value in dp (density independent pixels) unit. Which we need
      *            to convert into pixels
      * @param context Context to get resources and device specific display
@@ -286,7 +285,7 @@ public final class ActionUtils {
     /**
      * This method converts device specific pixels to density independent
      * pixels.
-     * 
+     *
      * @param px A value in px (pixels) unit. Which we need to convert into db
      * @param context Context to get resources and device specific display
      *            metrics
@@ -490,7 +489,7 @@ public final class ActionUtils {
         return (Integer) getValue(context, resName, INT, null, pkg);
     }
 
-    public static int getColor(Context context, String resName, String pkg) {        
+    public static int getColor(Context context, String resName, String pkg) {
         return (Integer) getValue(context, resName, COLOR, null, pkg);
     }
 
@@ -678,7 +677,7 @@ public final class ActionUtils {
     }
 
     /**
-     * 
+     *
      * @param Target package resources
      * @param drawableName
      * @param Target package name
@@ -699,7 +698,7 @@ public final class ActionUtils {
     }
 
     /**
-     * 
+     *
      * @param Target package resources
      * @param drawableName
      * @param Target package name
@@ -730,7 +729,7 @@ public final class ActionUtils {
     }
 
     /**
-     * 
+     *
      * @param Context of the calling package
      * @param the action we want a drawable for
      * @return if a system action drawable is requested, we try to get the drawable
@@ -764,7 +763,7 @@ public final class ActionUtils {
     }
 
     /**
-     * 
+     *
      * @param calling package context, usually Settings for the custom action list adapter
      * @param target package resources, usually SystemUI
      * @param drawableName
