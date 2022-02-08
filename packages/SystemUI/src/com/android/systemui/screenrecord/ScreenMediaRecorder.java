@@ -161,7 +161,7 @@ public class ScreenMediaRecorder {
         but at the same time the cpu load is 8-10 times higher and some devices don't support it yet */
         mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
         mMediaRecorder.setVideoEncodingProfileLevel(
-                MediaCodecInfo.CodecProfileLevel.AVCProfileHigh,/*actually the common used high level profile*/
+                MediaCodecInfo.CodecProfileLevel.AVCProfileMain,
                 mLowQuality ? MediaCodecInfo.CodecProfileLevel.AVCLevel32/*level 3.2*/
                 : MediaCodecInfo.CodecProfileLevel.AVCLevel42/*level 4.2*/);
         mMediaRecorder.setVideoSize(width, height);
