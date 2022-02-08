@@ -24,7 +24,6 @@ import com.android.systemui.SliceBroadcastRelayHandler;
 import com.android.systemui.SystemUI;
 import com.android.systemui.accessibility.SystemActions;
 import com.android.systemui.accessibility.WindowMagnification;
-import com.android.systemui.alertslider.AlertSliderUI;
 import com.android.systemui.biometrics.AuthController;
 import com.android.systemui.globalactions.GlobalActionsComponent;
 import com.android.systemui.keyguard.KeyguardViewMediator;
@@ -268,12 +267,4 @@ public abstract class SystemUIGoogleBinder {
     @IntoMap
     @ClassKey(ColumbusTargetRequestServiceWrapper.class)
     public abstract Service bindColumbusTargetRequestService(ColumbusTargetRequestServiceWrapper activity);
-
-    /**
-     * Inject into AlertSliderUI.
-     */
-    @Binds
-    @IntoMap
-    @ClassKey(AlertSliderUI.class)
-    public abstract SystemUI bindAlertSliderUI(AlertSliderUI sysui);
 }

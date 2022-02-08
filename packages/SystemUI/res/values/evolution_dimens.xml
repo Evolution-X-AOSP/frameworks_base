@@ -54,18 +54,6 @@
     <!-- Margin on the right side of the center clock -->
     <dimen name="status_bar_center_clock_padding_end">0dp</dimen>
 
-    <!-- Absolute distance of the top position of alert slider from the top of the display -->
-    <integer name="alert_slider_top_y">0</integer>
-
-    <!-- Absolute width of the alert slider -->
-    <integer name="alertslider_width">0</integer>
-
-    <!-- AlertSlider -->
-    <dimen name="alertslider_dialog_minradius">24dp</dimen>
-    <dimen name="alertslider_dialog_minheight">48dp</dimen>
-    <dimen name="alertslider_dialog_minwidth">108dp</dimen>
-    <dimen name="alertslider_padding">15dp</dimen>
-
     <!-- QQS Brightness slider -->
     <dimen name="quick_qs_brightness_margin_top">24dp</dimen>
 

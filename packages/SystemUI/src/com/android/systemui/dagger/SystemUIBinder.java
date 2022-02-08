@@ -16,7 +16,6 @@
 
 package com.android.systemui.dagger;
 
-import com.android.systemui.alertslider.AlertSliderUI;
 import com.android.systemui.LatencyTester;
 import com.android.systemui.ScreenDecorations;
 import com.android.systemui.SliceBroadcastRelayHandler;
@@ -56,12 +55,6 @@ import dagger.multibindings.IntoMap;
  */
 @Module(includes = {RecentsModule.class, StatusBarModule.class, KeyguardModule.class})
 public abstract class SystemUIBinder {
-    /** Inject into AlertSliderUI. */
-    @Binds
-    @IntoMap
-    @ClassKey(AlertSliderUI.class)
-    public abstract SystemUI bindAlertSliderUI(AlertSliderUI sysui);
-
     /** Inject into AuthController. */
     @Binds
     @IntoMap

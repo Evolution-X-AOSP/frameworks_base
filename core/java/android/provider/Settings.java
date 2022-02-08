@@ -4904,27 +4904,6 @@ public final class Settings {
         public static final String TOUCHSCREEN_GESTURE_HAPTIC_FEEDBACK = "touchscreen_gesture_haptic_feedback";
 
         /**
-         * AlertSlider mode when alertslider is at the bottom.
-         * @hide
-         */
-        @SuppressLint("NoSettingsProvider")
-        public static final String ALERTSLIDER_MODE_POSITION_BOTTOM = "alertslider_mode_position_bottom";
-
-        /**
-         * AlertSlider mode when alertslider is at the middle.
-         * @hide
-         */
-        @SuppressLint("NoSettingsProvider")
-        public static final String ALERTSLIDER_MODE_POSITION_MIDDLE = "alertslider_mode_position_middle";
-
-        /**
-         * AlertSlider mode when alertslider is at the top.
-         * @hide
-         */
-        @SuppressLint("NoSettingsProvider")
-        public static final String ALERTSLIDER_MODE_POSITION_TOP = "alertslider_mode_position_top";
-
-        /**
          * Control whether the accelerometer will be used to change screen
          * orientation.  If 0, it will not be used unless explicitly requested
          * by the application; if 1, it will be used by default unless explicitly
@@ -6526,9 +6505,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL);
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL_IGNORE_DND);
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL_RATE);
-            PRIVATE_SETTINGS.add(ALERTSLIDER_MODE_POSITION_BOTTOM);
-            PRIVATE_SETTINGS.add(ALERTSLIDER_MODE_POSITION_MIDDLE);
-            PRIVATE_SETTINGS.add(ALERTSLIDER_MODE_POSITION_TOP);
             PRIVATE_SETTINGS.add(COLOR_BUCKET_OVERLAY);
             PRIVATE_SETTINGS.add(HEADSET_CONNECT_PLAYER);
             PRIVATE_SETTINGS.add(SCREENSHOT_TYPE);

@@ -98,13 +98,6 @@
     <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
     <java-symbol type="bool" name="config_cleanupUnusedFingerprints" />
 
-    <!-- AlertSlider modes -->
-    <java-symbol type="string" name="alert_slider_mode_normal" />
-    <java-symbol type="string" name="alert_slider_mode_priority" />
-    <java-symbol type="string" name="alert_slider_mode_vibrate" />
-    <java-symbol type="string" name="alert_slider_mode_silent" />
-    <java-symbol type="string" name="alert_slider_mode_dnd" />
-
     <!-- App error dialog -->
     <java-symbol type="id" name="aerr_copy" />
     <java-symbol type="string" name="url_copy_success" />
@@ -115,9 +108,6 @@
 
     <!-- Default FOD pressed icon -->
     <java-symbol type="integer" name="config_fod_pressed_color" />
-
-    <!-- Whether device has hardware alertslider -->
-    <java-symbol type="bool" name="config_hasAlertSlider" />
 
     <!-- NightLight FOD -->
     <java-symbol type="bool" name="disable_fod_night_light"/>
