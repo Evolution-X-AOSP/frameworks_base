@@ -1,5 +1,7 @@
 /*
- * Copyright (C) 2019-2021 The Evolution X Project
+ * Copyright (C) 2019-2022 The Evolution X Project
+ *           (C) 2017-2018 Benzo Rom
+ *           (C) 2017-2021 crDroidAndroid Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +21,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.Settings;
-import android.provider.Settings.Global;
+import android.provider.Settings.Secure;
 import android.service.quicksettings.Tile;
 import android.view.View;
 
@@ -35,18 +37,19 @@ import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.FalsingManager;
 import com.android.systemui.plugins.qs.QSTile.BooleanState;
 import com.android.systemui.plugins.statusbar.StatusBarStateController;
-import com.android.systemui.qs.GlobalSetting;
+import com.android.systemui.qs.SecureSetting;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.logging.QSLogger;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
+import com.android.systemui.util.settings.SecureSettings;
 
 import javax.inject.Inject;
 
-/** Quick settings tile: Enable/Disable CPUInfo Service **/
+/** Quick settings tile: CPUInfo overlay **/
 public class CPUInfoTile extends QSTileImpl<BooleanState> {
 
-    private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_cpuinfo);
-    private final GlobalSetting mSetting;
+    private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_cpu_info);
+    private final SecureSetting mSetting;
 
     @Inject
     public CPUInfoTile(
@@ -57,22 +60,17 @@ public class CPUInfoTile extends QSTileImpl<BooleanState> {
             MetricsLogger metricsLogger,
             StatusBarStateController statusBarStateController,
             ActivityStarter activityStarter,
-            QSLogger qsLogger) {
+            QSLogger qsLogger,
+            SecureSettings secureSettings) {
         super(host, backgroundLooper, mainHandler, falsingManager, metricsLogger,
                 statusBarStateController, activityStarter, qsLogger);
 
-        mSetting = new GlobalSetting(mContext, mHandler,
-                   Global.SHOW_CPU_OVERLAY) {
+        mSetting = new SecureSetting(secureSettings, mHandler, Secure.SHOW_CPU_OVERLAY) {
             @Override
-            protected void handleValueChanged(int value) {
+            protected void handleValueChanged(int value, boolean observedChange) {
                 handleRefreshState(value);
             }
         };
-    }
-
-    @Override
-    protected void handleDestroy() {
-        super.handleDestroy();
     }
 
     @Override
@@ -96,14 +94,14 @@ public class CPUInfoTile extends QSTileImpl<BooleanState> {
     protected void handleClick(@Nullable View view) {
         mSetting.setValue(mState.value ? 0 : 1);
         refreshState();
-        toggleService(mState.value ? 0 : 1);
+        toggleState();
     }
 
-    protected void toggleService(int enabled) {
+    protected void toggleState() {
         Intent service = (new Intent())
                 .setClassName("com.android.systemui",
                 "com.android.systemui.CPUInfoService");
-        if (enabled == 0) {
+        if (mSetting.getValue() == 0) {
             mContext.stopService(service);
         } else {
             mContext.startService(service);
@@ -119,17 +117,15 @@ public class CPUInfoTile extends QSTileImpl<BooleanState> {
     protected void handleUpdateState(BooleanState state, Object arg) {
         if (mSetting == null) return;
         final int value = arg instanceof Integer ? (Integer)arg : mSetting.getValue();
-        final boolean enable = value != 0;
-        state.value = enable;
+        final boolean cpuInfoEnabled = value != 0;
+        state.value = cpuInfoEnabled;
         state.label = mContext.getString(R.string.quick_settings_cpuinfo_label);
         state.icon = mIcon;
-        if (enable) {
-            state.contentDescription =  mContext.getString(
-                    R.string.accessibility_quick_settings_cpuinfo_on);
+        state.contentDescription =  mContext.getString(
+                R.string.quick_settings_cpuinfo_label);
+        if (cpuInfoEnabled) {
             state.state = Tile.STATE_ACTIVE;
         } else {
-            state.contentDescription =  mContext.getString(
-                    R.string.accessibility_quick_settings_cpuinfo_off);
             state.state = Tile.STATE_INACTIVE;
         }
     }
@@ -141,12 +137,6 @@ public class CPUInfoTile extends QSTileImpl<BooleanState> {
 
     @Override
     protected String composeChangeAnnouncement() {
-        if (mState.value) {
-            return mContext.getString(
-                    R.string.accessibility_quick_settings_cpuinfo_on);
-        } else {
-            return mContext.getString(
-                    R.string.accessibility_quick_settings_cpuinfo_off);
-        }
+        return mContext.getString(R.string.quick_settings_cpuinfo_label);
     }
 }

@@ -924,8 +924,8 @@
             </intent-filter>
         </receiver>
 
-        <!-- aospextended additions start -->
-        <service android:name=".CPUInfoService"
+        <!-- CPU Info -->
+        <service android:name="com.android.systemui.CPUInfoService"
                 android:exported="true" />
 
         <receiver android:name=".BootReceiver" android:exported="true">

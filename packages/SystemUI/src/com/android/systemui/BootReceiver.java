@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2020 The AospExtended Project
+ * Copyright (C) 2011 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,8 +42,8 @@ public class BootReceiver extends BroadcastReceiver {
         }
 
         void observe() {
-            mContext.getContentResolver().registerContentObserver(Settings.Global.getUriFor(
-                    Settings.Global.SHOW_CPU_OVERLAY),
+            mContext.getContentResolver().registerContentObserver(Settings.Secure.getUriFor(
+                    Settings.Secure.SHOW_CPU_OVERLAY),
                     false, this);
             mContext.getContentResolver().registerContentObserver(Settings.Global.getUriFor(
                     Settings.Global.SHOW_FPS_OVERLAY),
@@ -58,7 +59,7 @@ public class BootReceiver extends BroadcastReceiver {
         public void update() {
             Intent cpuinfo = new Intent(mContext, com.android.systemui.CPUInfoService.class);
             Intent fpsinfo = new Intent(mContext, com.android.systemui.FPSInfoService.class);
-            if (Settings.Global.getInt(mContext.getContentResolver(), Settings.Global.SHOW_CPU_OVERLAY, 0) != 0) {
+            if (Settings.Secure.getInt(mContext.getContentResolver(), Settings.Secure.SHOW_CPU_OVERLAY, 0) != 0) {
                 mContext.startService(cpuinfo);
             } else {
                 mContext.stopService(cpuinfo);
@@ -81,7 +82,7 @@ public class BootReceiver extends BroadcastReceiver {
             }
 
             // Start the cpu info overlay, if activated
-            if (Settings.Global.getInt(mContext.getContentResolver(), Settings.Global.SHOW_CPU_OVERLAY, 0) != 0) {
+            if (Settings.Secure.getInt(mContext.getContentResolver(), Settings.Secure.SHOW_CPU_OVERLAY, 0) != 0) {
                 Intent cpuinfo = new Intent(mContext, com.android.systemui.CPUInfoService.class);
                 mContext.startService(cpuinfo);
             }
