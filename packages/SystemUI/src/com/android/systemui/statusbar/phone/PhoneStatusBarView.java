@@ -64,6 +64,13 @@ public class PhoneStatusBarView extends PanelBar {
 
     private ViewGroup mStatusBarContents;
 
+    private int mBasePaddingBottomcc;
+    private int mBasePaddingLeftcc;
+    private int mBasePaddingRightcc;
+    private int mBasePaddingTopcc;
+
+    private ViewGroup mStatusBarContentscc;
+
     StatusBar mBar;
 
     boolean mIsFullyOpenedPanel = false;
@@ -122,11 +129,22 @@ public class PhoneStatusBarView extends PanelBar {
             return;
         }
 
+        if (mStatusBarContentscc == null) {
+            return;
+        }
+
         mStatusBarContents.setPaddingRelative(
             mBasePaddingLeft + horizontalShift,
             mBasePaddingTop + verticalShift,
             mBasePaddingRight + horizontalShift,
             mBasePaddingBottom - verticalShift
+        );
+
+        mStatusBarContentscc.setPaddingRelative(
+            mBasePaddingLeftcc + horizontalShift,
+            mBasePaddingTopcc + verticalShift,
+            mBasePaddingRightcc + horizontalShift,
+            mBasePaddingBottomcc - verticalShift
         );
         invalidate();
     }
@@ -140,11 +158,16 @@ public class PhoneStatusBarView extends PanelBar {
         mCutoutSpace = findViewById(R.id.cutout_space_view);
         mCenterIconSpace = findViewById(R.id.centered_icon_area);
         mStatusBarContents = (ViewGroup) findViewById(R.id.status_bar_contents);
+        mStatusBarContentscc = (ViewGroup) findViewById(R.id.center_clock_layout);
 
         mBasePaddingLeft = mStatusBarContents.getPaddingStart();
         mBasePaddingTop = mStatusBarContents.getPaddingTop();
         mBasePaddingRight = mStatusBarContents.getPaddingEnd();
         mBasePaddingBottom = mStatusBarContents.getPaddingBottom();
+        mBasePaddingLeftcc = mStatusBarContentscc.getPaddingStart();
+        mBasePaddingTopcc = mStatusBarContentscc.getPaddingTop();
+        mBasePaddingRightcc = mStatusBarContentscc.getPaddingEnd();
+        mBasePaddingBottomcc = mStatusBarContentscc.getPaddingBottom();
 
         updateResources();
     }
