@@ -81,6 +81,13 @@ public class PixelPropsUtils {
             "com.google.ar.core"
     };
 
+    private static final String[] streamingPackagesToChange = {
+            "com.amazon.avod.thirdpartyclient",
+            "com.disney.disneyplus",
+            "com.netflix.mediaclient",
+            "in.startv.hotstar"
+    };
+
     // Codenames for currently supported Pixels by Google
     private static final String[] pixelCodenames = {
             "oriole",
@@ -133,7 +140,11 @@ public class PixelPropsUtils {
         boolean isPixelDevice = Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE));
         if (!isPixelDevice &&
             ((packageName.startsWith("com.google.") && !Arrays.asList(packagesToKeep).contains(packageName))
-                || Arrays.asList(extraPackagesToChange).contains(packageName))) {
+                || Arrays.asList(extraPackagesToChange).contains(packageName)
+                || Arrays.asList(streamingPackagesToChange).contains(packageName))) {
+                final String streamPropSpoof = SystemProperties.get("persist.sys.stream", "1");
+                boolean dontSpoofStream = ("0".equals(streamPropSpoof)) ? true : false;
+                if (dontSpoofStream && Arrays.asList(streamingPackagesToChange).contains(packageName)) return;
             Map<String, Object> propsToChange = propsToChangePixel6;
 
             if (Arrays.asList(packagesToChangePixel5).contains(packageName)) {
