@@ -180,6 +180,7 @@ java_library_static {
         "kotlin-stdlib",
         "kotlinx_coroutines_android",
         "kotlinx_coroutines",
+        "faceunlock_framework",
     ],
     javac_shard_size: 50,
 }
