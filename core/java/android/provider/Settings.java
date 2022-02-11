@@ -6088,12 +6088,6 @@ public final class Settings {
         public static final String PULSE_LIGHT_LAYOUT_STYLE = "pulse_light_layout_style";
 
         /**
-         * If On-The-Go should be displayed at the power menu.
-         * @hide
-         */
-        public static final String GLOBAL_ACTIONS_ONTHEGO = "global_actions_onthego";
-
-        /**
          * The alpha value of the On-The-Go overlay.
          * @hide
          */
