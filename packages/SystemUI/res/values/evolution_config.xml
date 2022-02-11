@@ -70,4 +70,8 @@
     <!-- The CPUs to display in CPUInfoService view -->
     <string name="config_displayCpus" translatable="false"></string>
 
+    <!-- On-The-Go -->
+    <integer name="onthego_notification_shade_dialog_short_timeout">3000</integer>
+    <integer name="onthego_notification_shade_dialog_long_timeout">6000</integer>
+
 </resources>
