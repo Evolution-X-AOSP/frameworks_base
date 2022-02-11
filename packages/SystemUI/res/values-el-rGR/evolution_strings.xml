@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright 2019-2022 The Evolution X Project
+     Copyright (C) 2019-2022 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -44,16 +44,14 @@
     <string name="quick_settings_sound_mute">Σίγαση</string>
     <!-- SystemUI Tuner -->
     <string name="statusbar_items_title">Εικονίδιο γραμμής κατάστασης</string>
-    <string name="lockscreen_default">Προεπιλογή</string>
-    <string name="lockscreen_hidden">Κανένα</string>
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Σύρετε από το εικονίδιο για εκκίνηση</string>
     <!-- Advanced Reboot -->
     <string name="global_action_restart_advanced">Για προχωρημένους</string>
     <string name="global_action_restart_recovery">Ανάκτηση</string>
     <string name="global_action_restart_bootloader">Αρχικός εκκινητής/Bootloader</string>
     <string name="global_action_restart_ui">ΣύστημαUI</string>
+    <string name="global_action_onthego">On-The-Go</string>
     <!-- Screenshot QS tile -->
+    <string name="quick_settings_full_screenshot_label">Πλήρες</string>
     <string name="quick_settings_screenshot_label">Στιγμιότυπο οθόνης</string>
     <string name="quick_settings_region_screenshot_label">Μερικό στιγμιότυπο οθόνης</string>
     <!-- Heads Up QS Tile -->
@@ -67,12 +65,8 @@
     <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Οι αναδυόμενες ειδοποιήσεις είναι ανενεργές για <xliff:g id="number">%2$d</xliff:g> λεπτά.</string>
     <!-- Running service button -->
     <string name="accessibility_quick_settings_running_services">Άνοιγμα της οθόνης Εκτελούμενων Υπηρεσιών.</string>
-    <!-- CPUInfo tile -->
+    <!-- CPU Info tile -->
     <string name="quick_settings_cpuinfo_label">Πληροφορίες επεξεργαστή</string>
-    <string name="accessibility_quick_settings_cpuinfo_off">Πληροφορίες επεξεργαστή ανενεργές</string>
-    <string name="accessibility_quick_settings_cpuinfo_on">Πληροφορίες επεξεργαστή ενεργές</string>
-    <string name="accessibility_quick_settings_cpuinfo_changed_off">Οι πληροφορίες επεξεργαστή είναι απενεργοποιημένες</string>
-    <string name="accessibility_quick_settings_cpuinfo_changed_on">Οι πληροφορίες επεξεργαστή είναι ενεργοποιημένες</string>
     <!-- Poweroff/Reboot/Recovery QS tile -->
     <string name="quick_settings_poweroff_label">Απενεργοποίηση</string>
     <string name="quick_settings_reboot_label">Επανεκκίνηση</string>
@@ -88,10 +82,8 @@
     <string name="guts_force_close_app">Κλείσιμο εφαρμογής</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">Αλλαγή κάρτας για τα δεδομένα</string>
-    <string name="qs_data_switch_toast_0">Προς το παρόν δεν έχει εισαχθεί κάρτα SIM</string>
-    <string name="qs_data_switch_toast_1">Προς το παρόν έχει εισαχθεί μόνο μία κάρτα SIM</string>
-    <string name="qs_data_switch_changed_1">Μετάβαση χρήσης δεδομένων στην κάρτα στη SIM 1.</string>
-    <string name="qs_data_switch_changed_2">Μετάβαση χρήσης δεδομένων στην κάρτα στη SIM 2.</string>
+    <string name="qs_data_switch_changed_1">Χρήση SIM 1 για δεδομένα κινητής τηλεφωνίας</string>
+    <string name="qs_data_switch_changed_2">Χρήση SIM 2 για δεδομένα κινητής τηλεφωνίας</string>
     <!-- Names of the status bar icons. -->
     <string name="status_bar_call_strength">Δύναμη κλήσης</string>
     <string name="status_bar_nfc">NFC</string>
@@ -137,29 +129,24 @@
     <string name="screenrecord_longer_timeout_switch_label">Μεγαλύτερο όριο μεγέθους αρχείου\nΠεριορίστε το μέγεθος εγγραφής στα 15 GB</string>
     <string name="task_helper_app_killed">%1$s αναγκαστικό κλείσιμο</string>
     <string name="empty_app_killed">Εφαρμογή</string>
-    <!-- AlertSlider -->
-    <string name="alert_slider_mode_priority_text">Προτεραιότητα</string>
-    <string name="alert_slider_mode_dnd_text">Μην ενοχλείτε</string>
     <!-- On The Go -->
-    <string name="onthego_notif_ticker">On-The-Go ενεργοποιήθηκε</string>
-    <string name="onthego_notif_title">Το On-The-Go είναι ενεργό</string>
-    <string name="onthego_notif_stop">Διακοπή</string>
-    <string name="onthego_notif_options">Επιλογές</string>
-    <string name="onthego_notif_error">Αδυναμία εκκίνησης On-The-Go</string>
-    <string name="onthego_notif_restart">Επανεκκίνηση On-The-Go</string>
-    <string name="onthego_notif_camera_changed">Η λειτουργία κάμερας άλλαξε</string>
-    <string name="onthego_transparency">Διαφάνεια</string>
+    <string name="onthego_notification_ticker">On-The-Go ενεργοποιήθηκε</string>
+    <string name="onthego_notification_title">Το On-The-Go είναι ενεργό</string>
+    <string name="onthego_notification_stop">Διακοπή</string>
+    <string name="onthego_notification_options">Επιλογές</string>
+    <string name="onthego_notification_error">Δεν είναι δυνατή η εκκίνηση On-The-Go</string>
+    <string name="onthego_notification_restart">Επανεκκίνηση On-The-Go</string>
+    <string name="onthego_notification_camera_changed">Η λειτουργία κάμερας άλλαξε</string>
+    <string name="onthego_transparency">Διαφάνεια On-The-Go</string>
     <string name="onthego_front_camera">Χρήση μπροστινής κάμερας</string>
     <string name="onthego_service_toggle">Αυτόματη επανεκκίνηση υπηρεσίας</string>
-    <string name="onthego_channel_name">Κύρια</string>
-    <string name="global_action_onthego">On-The-Go</string>
+    <string name="onthego_channel_name">On-The-Go</string>
     <!-- OnTheGo Tile -->
     <string name="quick_settings_onthego_label">On-The-Go</string>
     <string name="accessibility_quick_settings_onthego_off">On-The-Go ανενεργό</string>
     <string name="accessibility_quick_settings_onthego_on">On-The-Go ενεργό</string>
-    <string name="app_picker_dialog_title">Επιλέξτε μια εφαρμογή</string>
-    <string name="active_edge_app_select_title">Επιλέξτε εφαρμογή</string>
-    <string name="active_edge_activity_select_title">Επιλέξτε δραστηριότητα</string>
+    <string name="accessibility_quick_settings_onthego_changed_off">Το On-The-Go απενεργοποιήθηκε</string>
+    <string name="accessibility_quick_settings_onthego_changed_on">Το On-The-Go ενεργοποιήθηκε</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Με αυτόν τον τρόπο παραμένει σε προβολή μέχρι να το ξεκαρφιτσώσετε. Αγγίξτε &amp; κρατήστε πατημένο το πλήκτρο \"Πίσω\" για ξεκαρφίτσωμα.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
@@ -172,4 +159,25 @@
     <!-- Gaming mode -->
     <string name="gaming_mode_not_enabled">Η λειτουργία παιχνιδιού είναι απενεργοποιημένη στις ρυθμίσεις</string>
     <string name="quick_settings_gaming_mode_label">Λειτουργία παιχνιδιού</string>
+    <!-- FPS view text placeholder -->
+    <string name="fps_text_placeholder">FPS: <xliff:g id="fps" παράδειγμα="90">%1$d</xliff:g></string>
+    <!-- Alert slider extras -->
+    <string name="volume_ringer_priority_only">Προτεραιότητα</string>
+    <string name="volume_ringer_alarms_only">Ξυπνητήρια</string>
+    <string name="volume_ringer_dnd">\"Μην ενοχλείτε\"</string>
+    <string name="tristate_flashlight">Φακός</string>
+    <string name="tristate_flashlight_on">Φακός ενεργός</string>
+    <string name="tristate_flashlight_off">Φακός ανενεργός</string>
+    <string name="tristate_flashlight_blink">Φακός αναβοσβήνει</string>
+    <string name="tristate_brightness_bright">Μέγιστη φωτεινότητα</string>
+    <string name="tristate_brightness_dark">Ελάχιστη φωτεινότητα</string>
+    <string name="tristate_brightness_auto">Αυτόματη φωτεινότητα</string>
+    <string name="tristate_rotation_auto">Αυτόματη περιστροφή</string>
+    <string name="tristate_rotation_0">Κατακόρυφα</string>
+    <string name="tristate_rotation_90">Οριζόντια (90°)</string>
+    <string name="tristate_rotation_270">Οριζόντια (270°)</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Το στιγμιότυπο οθόνης διαγράφηκε</string>
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">Αναγνώριση προσώπου...</string>
 </resources>

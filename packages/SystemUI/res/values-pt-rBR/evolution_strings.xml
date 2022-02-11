@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright 2019-2021 The Evolution X Project
+     Copyright (C) 2019-2022 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -44,18 +44,16 @@
     <string name="quick_settings_sound_mute">Desativar som</string>
     <!-- SystemUI Tuner -->
     <string name="statusbar_items_title">Ícone da barra de status</string>
-    <string name="lockscreen_default">Padrão</string>
-    <string name="lockscreen_hidden">Nenhum</string>
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Deslize a partir do ícone para abrir</string>
     <!-- Advanced Reboot -->
     <string name="global_action_restart_advanced">Avançado</string>
     <string name="global_action_restart_recovery">Recuperação</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">Interface do sistema</string>
+    <string name="global_action_onthego">On-The-Go</string>
     <!-- Screenshot QS tile -->
+    <string name="quick_settings_full_screenshot_label">Completo</string>
     <string name="quick_settings_screenshot_label">Captura de tela</string>
-    <string name="quick_settings_region_screenshot_label">Captura de tela parcial</string>
+    <string name="quick_settings_region_screenshot_label">Parcial</string>
     <!-- Heads Up QS Tile -->
     <string name="quick_settings_heads_up_label">Notificações flutuantes</string>
     <string name="accessibility_quick_settings_heads_up_off">Notificações flutuantes desativadas.</string>
@@ -67,12 +65,8 @@
     <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - As notificações flutuantes foram silenciadas por <xliff:g id="number">%2$d</xliff:g> minutos.</string>
     <!-- Running service button -->
     <string name="accessibility_quick_settings_running_services">Abrir tela de serviços em execução.</string>
-    <!-- CPUInfo tile -->
+    <!-- CPU Info tile -->
     <string name="quick_settings_cpuinfo_label">Informações da CPU</string>
-    <string name="accessibility_quick_settings_cpuinfo_off">Informação da CPU desligado</string>
-    <string name="accessibility_quick_settings_cpuinfo_on">Informação da CPU ligado</string>
-    <string name="accessibility_quick_settings_cpuinfo_changed_off">A Informação da CPU foi desligada</string>
-    <string name="accessibility_quick_settings_cpuinfo_changed_on">A Informação da CPU foi ligada</string>
     <!-- Poweroff/Reboot/Recovery QS tile -->
     <string name="quick_settings_poweroff_label">Desligar</string>
     <string name="quick_settings_reboot_label">Reiniciar</string>
@@ -88,10 +82,8 @@
     <string name="guts_force_close_app">Fechar aplicativo</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">Trocar Sim de dados</string>
-    <string name="qs_data_switch_toast_0">Atualmente nenhum cartão SIM está inserido</string>
-    <string name="qs_data_switch_toast_1">Atualmente apenas um cartão SIM está inserido</string>
-    <string name="qs_data_switch_changed_1">Mude o cartão de dados para o SIM 1.</string>
-    <string name="qs_data_switch_changed_2">Mude o cartão de dados para o SIM 2.</string>
+    <string name="qs_data_switch_changed_1">Usando o SIM 1 para dados móveis</string>
+    <string name="qs_data_switch_changed_2">Usando o SIM 2 para dados móveis</string>
     <!-- Names of the status bar icons. -->
     <string name="status_bar_call_strength">Intensidade do sinal para chamadas</string>
     <string name="status_bar_nfc">NFC</string>
@@ -137,42 +129,55 @@
     <string name="screenrecord_longer_timeout_switch_label">Limite maior para arquivo\nLimitar o tamanho de gravação para 15Gb</string>
     <string name="task_helper_app_killed">%1$s força parada</string>
     <string name="empty_app_killed">Aplicativo</string>
-    <!-- AlertSlider -->
-    <string name="alert_slider_mode_priority_text">Prioridade</string>
-    <string name="alert_slider_mode_dnd_text">Não Perturbe</string>
     <!-- On The Go -->
-    <string name="onthego_notif_ticker">On-The-Go ativado</string>
-    <string name="onthego_notif_title">On-The-Go está ativo</string>
-    <string name="onthego_notif_stop">Parar</string>
-    <string name="onthego_notif_options">Opções</string>
-    <string name="onthego_notif_error">Não é possível iniciar On-The-Go</string>
-    <string name="onthego_notif_restart">Reiniciar On-The-Go</string>
-    <string name="onthego_notif_camera_changed">Modo de câmera alterado</string>
+    <string name="onthego_notification_ticker">On-The-Go ativado</string>
+    <string name="onthego_notification_title">On-The-Go está ativo</string>
+    <string name="onthego_notification_stop">Parar</string>
+    <string name="onthego_notification_options">Opções</string>
+    <string name="onthego_notification_error">Não é possível iniciar On-The-Go</string>
+    <string name="onthego_notification_restart">Reiniciar On-The-Go</string>
+    <string name="onthego_notification_camera_changed">Modo de câmera alterado</string>
     <string name="onthego_transparency">Transparência</string>
     <string name="onthego_front_camera">Usar câmera frontal</string>
     <string name="onthego_service_toggle">Reiniciar automaticamente o serviço</string>
     <string name="onthego_channel_name">Principal</string>
-    <string name="global_action_onthego">On-The-Go</string>
     <!-- OnTheGo Tile -->
     <string name="quick_settings_onthego_label">On-The-Go</string>
     <string name="accessibility_quick_settings_onthego_off">Modo On-The-Go desativado</string>
     <string name="accessibility_quick_settings_onthego_on">Modo On-The-Go ativado</string>
-    <string name="app_picker_dialog_title">Selecione um app</string>
-    <string name="active_edge_app_select_title">Selecionar app</string>
-    <string name="active_edge_activity_select_title">Selecionar atividade</string>
-    <!-- Gaming Mode -->
-    <string name="gaming_mode_tile_title">Modo Gamer</string>
-    <string name="gaming_mode_tile_toast">Modo gamer ativado</string>
-    <string name="gaming_mode_tile_toast_disabled">Modo gamer desativado</string>
-    <string name="gaming_mode_dialog_title">Modo Gamer</string>
-    <string name="gaming_mode_dialog_message">Vá para Configurações* &gt; Evolução* &gt; Configurações Rápidas* &gt; Modo Gamer* para mais detalhes e configurações</string>
-    <string name="accessibility_quick_settings_gaming_mode_on">Modo gamer está ativado</string>
-    <string name="accessibility_quick_settings_gaming_mode_off">Modo gamer está desativado</string>
-    <string name="gaming_mode_panel_headsup_title">Desativar notificações flutuantes</string>
-    <string name="gaming_mode_panel_zen_title">Ativar o modo Não Perturbe</string>
-    <string name="gaming_mode_panel_navbar_title">Desativar barra de navegação</string>
-    <string name="gaming_mode_panel_hw_title">Desativar teclas de navegação físicas</string>
-    <string name="gaming_mode_panel_brightness_title">Desativar o brilho automático</string>
-    <string name="gaming_mode_panel_media_title">Definir Volume de Mídia</string>
+    <string name="accessibility_quick_settings_onthego_changed_off">Modo On-The-Go foi desativado</string>
+    <string name="accessibility_quick_settings_onthego_changed_on">Modo On-The-Go foi ativado</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Ela é mantida à vista até que seja liberada. Mantenha o botão Voltar pressionado para liberar.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Mantenha o botão Voltar precisando para liberar</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Ela é mantida à vista até que seja liberada. Toque e segure o sensor de impressão de digital para liberar.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Mantenha o dedo sobre o leitor de impressão digital para liberar</string>
     <!-- Text to use when the number in a notification info is too large -->
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">O modo de jogo está desativado nas configurações</string>
+    <string name="quick_settings_gaming_mode_label">Modo de jogo</string>
+    <!-- FPS view text placeholder -->
+    <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
+    <!-- Alert slider extras -->
+    <string name="volume_ringer_priority_only">Prioridade</string>
+    <string name="volume_ringer_alarms_only">Alarmes</string>
+    <string name="volume_ringer_dnd">Não Perturbe</string>
+    <string name="tristate_flashlight">Lanterna</string>
+    <string name="tristate_flashlight_on">Lanterna ligada</string>
+    <string name="tristate_flashlight_off">Lanterna desligada</string>
+    <string name="tristate_flashlight_blink">Piscar lanterna</string>
+    <string name="tristate_brightness_bright">Brilho máximo</string>
+    <string name="tristate_brightness_dark">Brilho mínimo</string>
+    <string name="tristate_brightness_auto">Brilho automático</string>
+    <string name="tristate_rotation_auto">Girar automaticamente</string>
+    <string name="tristate_rotation_0">Retrato</string>
+    <string name="tristate_rotation_90">Paisagem (90°)</string>
+    <string name="tristate_rotation_270">Paisagem (270°)</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">A captura de tela foi excluída</string>
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">Reconhecendo...</string>
 </resources>

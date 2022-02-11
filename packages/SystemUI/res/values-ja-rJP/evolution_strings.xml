@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright 2019-2022 The Evolution X Project
+     Copyright (C) 2019-2022 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -44,16 +44,14 @@
     <string name="quick_settings_sound_mute">消音</string>
     <!-- SystemUI Tuner -->
     <string name="statusbar_items_title">ステータスバーのアイコン</string>
-    <string name="lockscreen_default">既定</string>
-    <string name="lockscreen_hidden">なし</string>
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">アイコンをスワイプして起動</string>
     <!-- Advanced Reboot -->
     <string name="global_action_restart_advanced">高度な再起動</string>
     <string name="global_action_restart_recovery">リカバリー</string>
     <string name="global_action_restart_bootloader">ブートローダー</string>
     <string name="global_action_restart_ui">システム UI</string>
+    <string name="global_action_onthego">On-The-Go</string>
     <!-- Screenshot QS tile -->
+    <string name="quick_settings_full_screenshot_label">全画面</string>
     <string name="quick_settings_screenshot_label">スクリーン\nショット</string>
     <string name="quick_settings_region_screenshot_label">範囲選択</string>
     <!-- Heads Up QS Tile -->
@@ -67,12 +65,8 @@
     <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - 通知の表示は<xliff:g id="number">%2$d</xliff:g>分間停止します</string>
     <!-- Running service button -->
     <string name="accessibility_quick_settings_running_services">実行中のサービスを開く</string>
-    <!-- CPUInfo tile -->
+    <!-- CPU Info tile -->
     <string name="quick_settings_cpuinfo_label">CPU 情報</string>
-    <string name="accessibility_quick_settings_cpuinfo_off">CPU 情報 OFF</string>
-    <string name="accessibility_quick_settings_cpuinfo_on">CPU 情報 ON</string>
-    <string name="accessibility_quick_settings_cpuinfo_changed_off">CPU 情報を OFF にしました</string>
-    <string name="accessibility_quick_settings_cpuinfo_changed_on">CPU 情報を ON にしました</string>
     <!-- Poweroff/Reboot/Recovery QS tile -->
     <string name="quick_settings_poweroff_label">電源を切る</string>
     <string name="quick_settings_reboot_label">再起動</string>
@@ -88,8 +82,6 @@
     <string name="guts_force_close_app">アプリを終了</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">データ SIM の変更</string>
-    <string name="qs_data_switch_toast_0">現在 SIM カードは挿入されていません</string>
-    <string name="qs_data_switch_toast_1">現在1枚のみ SIM カードが挿入されています</string>
     <string name="qs_data_switch_changed_1">SIM 1 をデータ通信に使用します</string>
     <string name="qs_data_switch_changed_2">SIM 2 をデータ通信に使用します</string>
     <!-- Names of the status bar icons. -->
@@ -137,29 +129,24 @@
     <string name="screenrecord_longer_timeout_switch_label">ファイルサイズ制限です\n録画サイズを15GBに制限します</string>
     <string name="task_helper_app_killed">%1$s を強制停止しました</string>
     <string name="empty_app_killed">アプリ</string>
-    <!-- AlertSlider -->
-    <string name="alert_slider_mode_priority_text">優先</string>
-    <string name="alert_slider_mode_dnd_text">DND</string>
     <!-- On The Go -->
-    <string name="onthego_notif_ticker">On-The-Go が有効化されました</string>
-    <string name="onthego_notif_title">On-The-Go が有効です</string>
-    <string name="onthego_notif_stop">停止</string>
-    <string name="onthego_notif_options">オプション</string>
-    <string name="onthego_notif_error">On-The-Go を開始できません</string>
-    <string name="onthego_notif_restart">On-The-Go を再起動</string>
-    <string name="onthego_notif_camera_changed">カメラモードを変更しました</string>
+    <string name="onthego_notification_ticker">On-The-Go が有効化されました</string>
+    <string name="onthego_notification_title">On-The-Go が有効です</string>
+    <string name="onthego_notification_stop">停止</string>
+    <string name="onthego_notification_options">オプション</string>
+    <string name="onthego_notification_error">On-The-Go を開始できません</string>
+    <string name="onthego_notification_restart">On-The-Go を再始動します</string>
+    <string name="onthego_notification_camera_changed">カメラモードを変更しました</string>
     <string name="onthego_transparency">透明度</string>
     <string name="onthego_front_camera">フロントカメラを使用</string>
     <string name="onthego_service_toggle">自動でサービスを再始動</string>
     <string name="onthego_channel_name">メイン</string>
-    <string name="global_action_onthego">On-The-Go</string>
     <!-- OnTheGo Tile -->
     <string name="quick_settings_onthego_label">On-The-Go</string>
     <string name="accessibility_quick_settings_onthego_off">On-The-Go OFF</string>
     <string name="accessibility_quick_settings_onthego_on">On-The-Go ON</string>
-    <string name="app_picker_dialog_title">アプリを選択</string>
-    <string name="active_edge_app_select_title">アプリを選択</string>
-    <string name="active_edge_activity_select_title">アクティビティを選択</string>
+    <string name="accessibility_quick_settings_onthego_changed_off">On-The-Go を OFF にしました</string>
+    <string name="accessibility_quick_settings_onthego_changed_on">On-The-Go を ON にしました</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">固定を解除するまで表示されます。戻るボタンを押し続けると画面の固定が解除されます。</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
@@ -172,4 +159,25 @@
     <!-- Gaming mode -->
     <string name="gaming_mode_not_enabled">ゲームモードが設定で無効になっています</string>
     <string name="quick_settings_gaming_mode_label">ゲームモード</string>
+    <!-- FPS view text placeholder -->
+    <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
+    <!-- Alert slider extras -->
+    <string name="volume_ringer_priority_only">優先</string>
+    <string name="volume_ringer_alarms_only">アラーム</string>
+    <string name="volume_ringer_dnd">DND</string>
+    <string name="tristate_flashlight">トーチ</string>
+    <string name="tristate_flashlight_on">トーチ ON</string>
+    <string name="tristate_flashlight_off">トーチ OFF</string>
+    <string name="tristate_flashlight_blink">トーチ点滅</string>
+    <string name="tristate_brightness_bright">最大の明るさ</string>
+    <string name="tristate_brightness_dark">最小の明るさ</string>
+    <string name="tristate_brightness_auto">自動の明るさ</string>
+    <string name="tristate_rotation_auto">自動回転</string>
+    <string name="tristate_rotation_0">縦向き</string>
+    <string name="tristate_rotation_90">横向き (90°)</string>
+    <string name="tristate_rotation_270">横向き (270°)</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">スクリーンショットを削除しました</string>
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">顔を認識中...</string>
 </resources>
