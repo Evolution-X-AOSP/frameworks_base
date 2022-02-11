@@ -19,5 +19,4 @@
     <string name="screen_zoom_summary_smaller">சிறிய</string>
     <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
     <string name="screen_zoom_summary_smallest">மிகச்சிறிய</string>
-    <!-- On-The-Go -->
 </resources>
