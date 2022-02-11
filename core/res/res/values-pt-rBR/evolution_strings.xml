@@ -34,7 +34,6 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">É necessário reiniciar a Interface do Sistema</string>
     <string name="systemui_restart_message">Para que todas as alterações tenham efeito, é necessário reiniciar a interface do sistema. Deseja reiniciar a interface do sistema agora?</string>
-    <!-- AlertSlider modes -->
     <!-- Button that copies the url to the log of a crashed application -->
     <string name="aerr_copy">Copie o URL do registro de falhas</string>
     <string name="url_copy_success">URL copiado com sucesso</string>
