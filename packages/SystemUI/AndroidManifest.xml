@@ -381,9 +381,8 @@
             android:excludeFromRecents="true" />
         <service android:name=".screenrecord.RecordingService" />
 
-        <!-- started from PhoneWindowManager
-             TODO: Should have an android:permission attribute -->
-        <service android:name=".evolution.onthego.OnTheGoService"
+        <service
+            android:name=".evolution.onthego.OnTheGoService"
             android:process=":onthego"
             android:exported="false" />
 
