@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright 2019-2021 The Evolution X Project
+     Copyright (C) 2019-2022 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -44,16 +44,14 @@
     <string name="quick_settings_sound_mute">Silenciar</string>
     <!-- SystemUI Tuner -->
     <string name="statusbar_items_title">Icono de barra de estado</string>
-    <string name="lockscreen_default">Por defecto</string>
-    <string name="lockscreen_hidden">Ninguno</string>
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Deslizar desde el icono para abrir</string>
     <!-- Advanced Reboot -->
     <string name="global_action_restart_advanced">Avanzado</string>
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">IU del sistema</string>
+    <string name="global_action_onthego">On-The-Go</string>
     <!-- Screenshot QS tile -->
+    <string name="quick_settings_full_screenshot_label">Completa</string>
     <string name="quick_settings_screenshot_label">Captura de pantalla</string>
     <string name="quick_settings_region_screenshot_label">Captura de pantalla parcial</string>
     <!-- Heads Up QS Tile -->
@@ -67,12 +65,8 @@
     <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Las notificaciones flotantes están aplazadas durante <xliff:g id="number">%2$d</xliff:g> minutos.</string>
     <!-- Running service button -->
     <string name="accessibility_quick_settings_running_services">Abrir pantalla de Servicios en Ejecución.</string>
-    <!-- CPUInfo tile -->
+    <!-- CPU Info tile -->
     <string name="quick_settings_cpuinfo_label">Info de CPU</string>
-    <string name="accessibility_quick_settings_cpuinfo_off">Info de CPU desactivada</string>
-    <string name="accessibility_quick_settings_cpuinfo_on">Info de CPU activada</string>
-    <string name="accessibility_quick_settings_cpuinfo_changed_off">Info de CPU se ha desactivado</string>
-    <string name="accessibility_quick_settings_cpuinfo_changed_on">Info de CPU se ha activado</string>
     <!-- Poweroff/Reboot/Recovery QS tile -->
     <string name="quick_settings_poweroff_label">Apagar</string>
     <string name="quick_settings_reboot_label">Reiniciar</string>
@@ -88,8 +82,6 @@
     <string name="guts_force_close_app">Cerrar aplicación</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">Cambiar tarjeta SIM</string>
-    <string name="qs_data_switch_toast_0">Actualmente no se ha insertado ninguna tarjeta SIM</string>
-    <string name="qs_data_switch_toast_1">Actualmente solo se ha insertado una tarjeta SIM</string>
     <string name="qs_data_switch_changed_1">Cambiar datos a tarjeta SIM 1.</string>
     <string name="qs_data_switch_changed_2">Cambiar datos a tarjeta SIM 2.</string>
     <!-- Names of the status bar icons. -->
@@ -137,42 +129,55 @@
     <string name="screenrecord_longer_timeout_switch_label">Mayor límite de tamaño de archivo\nLimitar tamaño de grabación a 15GB</string>
     <string name="task_helper_app_killed">%1$s se detuvo</string>
     <string name="empty_app_killed">Aplicación</string>
-    <!-- AlertSlider -->
-    <string name="alert_slider_mode_priority_text">Prioridad</string>
-    <string name="alert_slider_mode_dnd_text">No molestar</string>
     <!-- On The Go -->
-    <string name="onthego_notif_ticker">On-The-Go activado</string>
-    <string name="onthego_notif_title">On-The-Go está activo</string>
-    <string name="onthego_notif_stop">Detener</string>
-    <string name="onthego_notif_options">Opciones</string>
-    <string name="onthego_notif_error">No es posible iniciar el modo On-The-Go</string>
-    <string name="onthego_notif_restart">Reiniciar On-The-Go</string>
-    <string name="onthego_notif_camera_changed">Modo de cámara cambiado</string>
+    <string name="onthego_notification_ticker">Modo On-The-Go activado</string>
+    <string name="onthego_notification_title">On-The-Go está activo</string>
+    <string name="onthego_notification_stop">Detener</string>
+    <string name="onthego_notification_options">Opciones</string>
+    <string name="onthego_notification_error">No se pudo iniciar el modo On-The-Go</string>
+    <string name="onthego_notification_restart">Reiniciar On-The-Go</string>
+    <string name="onthego_notification_camera_changed">Modo de cámara cambiado</string>
     <string name="onthego_transparency">Transparencia</string>
     <string name="onthego_front_camera">Usar cámara frontal</string>
     <string name="onthego_service_toggle">Reiniciar automáticamente el servicio</string>
     <string name="onthego_channel_name">Principal</string>
-    <string name="global_action_onthego">On-The-Go</string>
     <!-- OnTheGo Tile -->
     <string name="quick_settings_onthego_label">On-The-Go</string>
     <string name="accessibility_quick_settings_onthego_off">On-The-Go desactivado</string>
     <string name="accessibility_quick_settings_onthego_on">On-The-Go activado</string>
-    <string name="app_picker_dialog_title">Selecciona una aplicación</string>
-    <string name="active_edge_app_select_title">Seleccionar aplicación</string>
-    <string name="active_edge_activity_select_title">Seleccionar actividad</string>
-    <!-- Gaming Mode -->
-    <string name="gaming_mode_tile_title">Macro de Juegos</string>
-    <string name="gaming_mode_tile_toast">Macro de juegos activado</string>
-    <string name="gaming_mode_tile_toast_disabled">Macro de juegos desactivado</string>
-    <string name="gaming_mode_dialog_title">Macro de Juegos</string>
-    <string name="gaming_mode_dialog_message">Ve a \'Ajustes &gt; El Evolucionador &gt; Ajustes Rápidos &gt; Macro de Juegos\' para más detalles y ajustes</string>
-    <string name="accessibility_quick_settings_gaming_mode_on">Macros de juego están activadas</string>
-    <string name="accessibility_quick_settings_gaming_mode_off">Macros de juego están desactivadas</string>
-    <string name="gaming_mode_panel_headsup_title">Desactivar notificaciones flotantes</string>
-    <string name="gaming_mode_panel_zen_title">Activar No Molestar</string>
-    <string name="gaming_mode_panel_navbar_title">Desactivar barra de navegación</string>
-    <string name="gaming_mode_panel_hw_title">Desactivar botones físicos de navegación</string>
-    <string name="gaming_mode_panel_brightness_title">Desactivar brillo automático</string>
-    <string name="gaming_mode_panel_media_title">Establecer volumen multimedia</string>
+    <string name="accessibility_quick_settings_onthego_changed_off">On-The-Go desactivado</string>
+    <string name="accessibility_quick_settings_onthego_changed_on">On-The-Go activado</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Fija el contenido en pantalla. Mantén &amp; el botón Atrás para desfijar.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Para dejar de fijar esta pantalla, mantenga presionado el botón Atrás</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Esto mantiene la pantalla a la vista hasta que la sueltes. Mantén presionado el sensor de huella para soltar.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Para dejar de fijar esta pantalla, mantén tocado el sensor de huella</string>
     <!-- Text to use when the number in a notification info is too large -->
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">El Modo Juego está desactivado en los ajustes</string>
+    <string name="quick_settings_gaming_mode_label">Modo Juego</string>
+    <!-- FPS view text placeholder -->
+    <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
+    <!-- Alert slider extras -->
+    <string name="volume_ringer_priority_only">Prioridad</string>
+    <string name="volume_ringer_alarms_only">Alarmas</string>
+    <string name="volume_ringer_dnd">No Molestar</string>
+    <string name="tristate_flashlight">Linterna</string>
+    <string name="tristate_flashlight_on">Linterna activada</string>
+    <string name="tristate_flashlight_off">Lintenda desactivada</string>
+    <string name="tristate_flashlight_blink">Parpadeo de Linterna</string>
+    <string name="tristate_brightness_bright">Brillo máximo</string>
+    <string name="tristate_brightness_dark">Brillo mínimo</string>
+    <string name="tristate_brightness_auto">Brillo automático</string>
+    <string name="tristate_rotation_auto">Rotación automática</string>
+    <string name="tristate_rotation_0">Retrato</string>
+    <string name="tristate_rotation_90">Apaisado (90º)</string>
+    <string name="tristate_rotation_270">Apaisado (270º)</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Captura de pantalla eliminada</string>
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">Reconociendo cara...</string>
 </resources>
