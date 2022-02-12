@@ -6144,16 +6144,126 @@ public final class Settings {
         public static final String UDFPS_HAPTIC_FEEDBACK = "udfps_haptic_feedback";
 
         /**
-         * FOD pressed color
-         * @hide
-         */
-        public static final String FOD_COLOR = "fod_color";
-
-        /**
          * FOD night light
          * @hide
          */
         public static final String FOD_NIGHT_LIGHT = "fod_night_light";
+
+        /**
+         * Gestures nav: left long back swipe action
+         * @hide
+         */
+        public static final String LEFT_LONG_BACK_SWIPE_ACTION = "left_long_back_swipe_action";
+
+        /**
+         * Gestures nav: left long back swipe app action
+         * @hide
+         */
+        public static final String LEFT_LONG_BACK_SWIPE_APP_ACTION = "left_long_back_swipe_app_action";
+
+        /**
+         * Display friendly name of custom application launched when
+         * using the long left back swipe app action
+         * @hide
+         */
+        public static final String LEFT_LONG_BACK_SWIPE_APP_FR_ACTION = "left_long_back_swipe_app_fr_action";
+
+        /**
+         * Launch custom activity when using the long left back swipe app action
+         *
+         * @hide
+         */
+        public static final String LEFT_LONG_BACK_SWIPE_APP_ACTIVITY_ACTION = "left_long_back_swipe_app_activity_action";
+
+        /**
+         * Gestures nav: right long back swipe action
+         * @hide
+         */
+        public static final String RIGHT_LONG_BACK_SWIPE_ACTION = "right_long_back_swipe_action";
+
+        /**
+         * Gestures nav: right long back swipe app action
+         * @hide
+         */
+        public static final String RIGHT_LONG_BACK_SWIPE_APP_ACTION = "right_long_back_swipe_app_action";
+
+        /**
+         * Display friendly name of custom application launched when
+         * using the long right back swipe app action
+         * @hide
+         */
+        public static final String RIGHT_LONG_BACK_SWIPE_APP_FR_ACTION = "right_long_back_swipe_app_fr_action";
+
+        /**
+         * Launch custom activity when using the long right back swipe app action
+         *
+         * @hide
+         */
+        public static final String RIGHT_LONG_BACK_SWIPE_APP_ACTIVITY_ACTION = "right_long_back_swipe_app_activity_action";
+
+        /**
+         * Gestures nav: long back swipe timeout
+         * @hide
+         */
+        public static final String LONG_BACK_SWIPE_TIMEOUT = "long_back_swipe_timeout";
+
+        /**
+         * Gestures nav: whether to use extended swipe instead of timeout to trigger custom actions
+         * @hide
+         */
+        public static final String BACK_SWIPE_EXTENDED = "back_swipe_extended";
+
+        /**
+         * Gestures nav: left long back swipe action
+         * @hide
+         */
+        public static final String LEFT_VERTICAL_BACK_SWIPE_ACTION = "left_vertical_back_swipe_action";
+
+        /**
+         * Gestures nav: left long back swipe app action
+         * @hide
+         */
+        public static final String LEFT_VERTICAL_BACK_SWIPE_APP_ACTION = "left_vertical_back_swipe_app_action";
+
+        /**
+         * Display friendly name of custom application launched when
+         * using the long left back swipe app action
+         * @hide
+         */
+        public static final String LEFT_VERTICAL_BACK_SWIPE_APP_FR_ACTION = "left_vertical_back_swipe_app_fr_action";
+
+        /**
+         * Launch custom activity when using the long left back swipe app action
+         *
+         * @hide
+         */
+        public static final String LEFT_VERTICAL_BACK_SWIPE_APP_ACTIVITY_ACTION = "left_vertical_back_swipe_app_activity_action";
+
+        /**
+         * Gestures nav: right long back swipe action
+         * @hide
+         */
+        public static final String RIGHT_VERTICAL_BACK_SWIPE_ACTION = "right_vertical_back_swipe_action";
+
+        /**
+         * Gestures nav: right long back swipe app action
+         * @hide
+         */
+        public static final String RIGHT_VERTICAL_BACK_SWIPE_APP_ACTION = "right_vertical_back_swipe_app_action";
+
+        /**
+         * Display friendly name of custom application launched when
+         * using the long right back swipe app action
+         * @hide
+         */
+        public static final String RIGHT_VERTICAL_BACK_SWIPE_APP_FR_ACTION = "right_vertical_back_swipe_app_fr_action";
+
+        /**
+         * Launch custom activity when using the long right back swipe app action
+         *
+         * @hide
+         */
+        public static final String RIGHT_VERTICAL_BACK_SWIPE_APP_ACTIVITY_ACTION = "right_vertical_back_swipe_app_activity_action";
 
         /**
          * Whether to show brightness slider in qs panel.
@@ -6183,13 +6293,6 @@ public final class Settings {
          * @hide
          */
         public static final String QS_SHOW_AUTO_BRIGHTNESS_BUTTON = "qs_show_auto_brightness_button";
-
-        /**
-         * Setting to hold the current set overlay for color bucket.
-         * overlay package name (String)
-         * @hide
-         */
-        public static final String COLOR_BUCKET_OVERLAY = "color_bucket_overlay";
 
         /**
          * Adaptive playback
@@ -6242,12 +6345,6 @@ public final class Settings {
          * @hide
          */
         public static final String UDFPS_ICON = "udfps_icon";
-
-        /**
-         * Volume panel on left
-         * @hide
-         */
-        public static final String VOLUME_PANEL_ON_LEFT = "volume_panel_on_left";
 
         /**
          * Whether or not gaming mode is enabled.
@@ -6511,7 +6608,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL);
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL_IGNORE_DND);
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL_RATE);
-            PRIVATE_SETTINGS.add(COLOR_BUCKET_OVERLAY);
             PRIVATE_SETTINGS.add(HEADSET_CONNECT_PLAYER);
             PRIVATE_SETTINGS.add(SCREENSHOT_TYPE);
         }

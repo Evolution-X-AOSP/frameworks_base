@@ -65,7 +65,6 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.util.evolution.EvolutionUtils;
 import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.systemui.R;
-import com.android.systemui.biometrics.UdfpsHbmTypes.HbmType;
 import com.android.systemui.dagger.SysUISingleton;
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.doze.DozeReceiver;
@@ -106,7 +105,7 @@ import kotlin.Unit;
  */
 @SuppressWarnings("deprecation")
 @SysUISingleton
-public class UdfpsController implements DozeReceiver, UdfpsHbmProvider {
+public class UdfpsController implements DozeReceiver {
     private static final String TAG = "UdfpsController";
     private static final String PULSE_ACTION = "com.android.systemui.doze.pulse";
     private static final long AOD_INTERRUPT_TIMEOUT_MILLIS = 1000;
@@ -234,14 +233,12 @@ public class UdfpsController implements DozeReceiver, UdfpsHbmProvider {
         }
 
         void onAcquiredGood() {
-            Log.d(TAG, "onAcquiredGood");
             if (mEnrollHelper != null) {
                 mEnrollHelper.animateIfLastStep();
             }
         }
 
         void onEnrollmentHelp() {
-            Log.d(TAG, "onEnrollmentHelp");
             if (mEnrollHelper != null) {
                 mEnrollHelper.onEnrollmentHelp();
             }
@@ -340,10 +337,10 @@ public class UdfpsController implements DozeReceiver, UdfpsHbmProvider {
         public void onAcquired(int sensorId, int acquiredInfo, int vendorCode) {
             mFgExecutor.execute(() -> {
                 final boolean isDozing = mStatusBarStateController.isDozing() || !mScreenOn;
-                if (acquiredInfo == 6 && vendorCode == mUdfpsVendorCode) {;
+                if (acquiredInfo == 6 && vendorCode == mUdfpsVendorCode) {
                     if ((mScreenOffFod && isDozing) /** Screen off and dozing */ ||
                             (mKeyguardUpdateMonitor.isDreaming() && mScreenOn) /** AOD or pulse */) {
-                        if (mContext.getResources().getBoolean(R.bool.config_pulseOnFingerDownInAod)) {
+                        if (mContext.getResources().getBoolean(R.bool.config_pulseOnFingerDown)) {
                             mContext.sendBroadcastAsUser(new Intent(PULSE_ACTION),
                                     new UserHandle(UserHandle.USER_CURRENT));
                         } else {
@@ -588,7 +585,7 @@ public class UdfpsController implements DozeReceiver, UdfpsHbmProvider {
         mContext = context;
         mExecution = execution;
         // TODO (b/185124905): inject main handler and vibrator once done prototyping
-        mMainHandler = new Handler(Looper.getMainLooper());
+        mMainHandler = mainHandler;
         mVibrator = vibrator;
         mInflater = inflater;
         // The fingerprint manager is queried for UDFPS before this class is constructed, so the
@@ -860,7 +857,7 @@ public class UdfpsController implements DozeReceiver, UdfpsHbmProvider {
                 mView = (UdfpsView) mInflater.inflate(R.layout.udfps_view, null, false);
                 mOnFingerDown = false;
                 mView.setSensorProperties(mSensorProps);
-                mView.setHbmProvider(this);
+                mView.setHbmProvider(mHbmProvider);
                 UdfpsAnimationViewController animation = inflateUdfpsAnimation(reason);
                 mAttemptedToDismissKeyguard = false;
                 animation.init();
@@ -1131,22 +1128,5 @@ public class UdfpsController implements DozeReceiver, UdfpsHbmProvider {
          * Called onFingerDown events.
          */
         void onFingerDown();
-    }
-
-    @Override
-    public void enableHbm(@HbmType int hbmType, @Nullable Surface surface,
-            @Nullable Runnable onHbmEnabled) {
-        // TO-DO send call to lineage biometric hal and/or add dummy jni that device could override
-        if (onHbmEnabled != null) {
-            onHbmEnabled.run();
-        }
-    }
-
-    @Override
-    public void disableHbm(@Nullable Runnable onHbmDisabled) {
-        // TO-DO send call to lineage biometric hal and/or add dummy jni that device could override
-        if (onHbmDisabled != null) {
-            onHbmDisabled.run();
-        }
     }
 }

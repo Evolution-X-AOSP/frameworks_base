@@ -1,6 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:androidprv="http://schemas.android.com/apk/prv/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         package="com.android.systemui">
     <permission android:name="com.android.systemui.permission.SEND_ALERT_BROADCASTS" android:protectionLevel="signature|preinstalled"/>
     <permission android:name="com.breel.wallpapers.notifications"/>
