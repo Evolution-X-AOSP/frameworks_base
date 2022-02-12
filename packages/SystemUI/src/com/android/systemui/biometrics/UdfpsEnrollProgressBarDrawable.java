@@ -143,8 +143,6 @@ public class UdfpsEnrollProgressBarDrawable extends Drawable {
 
     @Override
     public void draw(@NonNull Canvas canvas) {
-        Log.d(TAG, "setEnrollmentProgress: draw");
-
         canvas.save();
 
         // Progress starts from the top, instead of the right

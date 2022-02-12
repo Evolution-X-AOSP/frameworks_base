@@ -51,11 +51,6 @@
 
     <!-- SystemUI Tuner -->
     <string name="statusbar_items_title">Statusbar icon</string>
-    <string name="lockscreen_default">Default</string>
-    <string name="lockscreen_hidden">None</string>
-
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Swipe from icon to launch</string>
 
     <!-- Advanced Reboot -->
     <string name="global_action_restart_advanced">Advanced</string>
@@ -182,6 +177,10 @@
     <string name="accessibility_quick_settings_onthego_off">On-The-Go off</string>
     <string name="accessibility_quick_settings_onthego_on">On-The-Go on</string>
 
+    <string name="app_picker_dialog_title">Select an app</string>
+    <string name="active_edge_app_select_title">Select app</string>
+    <string name="active_edge_activity_select_title">Select activity</string>
+	
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
 
