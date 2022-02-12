@@ -62,6 +62,7 @@ import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.util.Log;
 import android.view.Display;
+import android.provider.MediaStore;
 import android.view.IWindowManager;
 import android.view.View;
 import android.view.ViewGroup;
@@ -729,7 +730,7 @@ public final class ActionUtils {
     }
 
     /**
-     *
+     * 
      * @param Context of the calling package
      * @param the action we want a drawable for
      * @return if a system action drawable is requested, we try to get the drawable
