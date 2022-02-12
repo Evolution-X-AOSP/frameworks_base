@@ -6144,12 +6144,6 @@ public final class Settings {
         public static final String UDFPS_HAPTIC_FEEDBACK = "udfps_haptic_feedback";
 
         /**
-         * FOD pressed color
-         * @hide
-         */
-        public static final String FOD_COLOR = "fod_color";
-
-        /**
          * FOD night light
          * @hide
          */
@@ -6183,13 +6177,6 @@ public final class Settings {
          * @hide
          */
         public static final String QS_SHOW_AUTO_BRIGHTNESS_BUTTON = "qs_show_auto_brightness_button";
-
-        /**
-         * Setting to hold the current set overlay for color bucket.
-         * overlay package name (String)
-         * @hide
-         */
-        public static final String COLOR_BUCKET_OVERLAY = "color_bucket_overlay";
 
         /**
          * Adaptive playback
@@ -6242,12 +6229,6 @@ public final class Settings {
          * @hide
          */
         public static final String UDFPS_ICON = "udfps_icon";
-
-        /**
-         * Volume panel on left
-         * @hide
-         */
-        public static final String VOLUME_PANEL_ON_LEFT = "volume_panel_on_left";
 
         /**
          * Whether or not gaming mode is enabled.
@@ -6511,7 +6492,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL);
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL_IGNORE_DND);
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL_RATE);
-            PRIVATE_SETTINGS.add(COLOR_BUCKET_OVERLAY);
             PRIVATE_SETTINGS.add(HEADSET_CONNECT_PLAYER);
             PRIVATE_SETTINGS.add(SCREENSHOT_TYPE);
         }

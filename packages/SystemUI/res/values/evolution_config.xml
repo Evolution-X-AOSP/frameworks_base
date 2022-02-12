@@ -54,8 +54,12 @@
     <!-- If not zero, limits the internal screen recorder's framerate to the set value. -->
     <integer name="config_screenRecorderMaxFramerate">0</integer>
 
-    <!-- Whether to pulse onFingerDown actions while in AOD. -->
-    <bool name="config_pulseOnFingerDownInAod">false</bool>
+    <!-- Whether to pulse onFingerDown actions instead
+        of waking the screen while the screen is off or in lpm. -->
+    <bool name="config_pulseOnFingerDown">false</bool>
+
+    <!-- Allow devices override audio panel location to the left side -->
+    <bool name="config_audioPanelOnLeftSide">false</bool>
 
     <!-- The CPU temperature sensor path, defaults to empty -->
     <string name="config_cpuTempSensor" translatable="false">/sys/class/thermal/thermal_zone0/temp</string>

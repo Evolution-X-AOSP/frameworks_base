@@ -106,7 +106,6 @@ import com.android.systemui.R;
 import com.android.systemui.animation.ActivityLaunchAnimator;
 import com.android.systemui.animation.Interpolators;
 import com.android.systemui.biometrics.AuthController;
-import com.android.systemui.camera.CameraIntents;
 import com.android.systemui.classifier.Classifier;
 import com.android.systemui.classifier.FalsingCollector;
 import com.android.systemui.controls.dagger.ControlsComponent;
@@ -3580,8 +3579,7 @@ public class NotificationPanelViewController extends PanelViewController {
         // If we are launching it when we are occluded already we don't want it to animate,
         // nor setting these flags, since the occluded state doesn't change anymore, hence it's
         // never reset.
-        if (!isFullyCollapsed() && mLastCameraLaunchSource ==
-                KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCE_AFFORDANCE) {
+        if (!isFullyCollapsed()) {
             setLaunchingAffordance(true);
         } else {
             animate = false;
@@ -3617,12 +3615,12 @@ public class NotificationPanelViewController extends PanelViewController {
     /**
      * Whether the camera application can be launched for the camera launch gesture.
      */
-    public boolean canCameraGestureBeLaunched(int source) {
+    public boolean canCameraGestureBeLaunched() {
         if (!mStatusBar.isCameraAllowedByAdmin()) {
             return false;
         }
 
-        ResolveInfo resolveInfo = mKeyguardBottomArea.resolveCameraIntent(source);
+        ResolveInfo resolveInfo = mKeyguardBottomArea.resolveCameraIntent();
         String
                 packageToLaunch =
                 (resolveInfo == null || resolveInfo.activityInfo == null) ? null
@@ -4525,20 +4523,12 @@ public class NotificationPanelViewController extends PanelViewController {
                     mView.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL ? !rightIcon
                             : rightIcon;
             if (rightIcon) {
-                Intent intent = mKeyguardBottomArea.getRightIntent();
-                if (intent == CameraIntents.getSecureCameraIntent(mView.getContext())
-                        || intent == CameraIntents.getSecureCameraIntent(mView.getContext())) {
-                    mStatusBar.onCameraHintStarted();
-                } else {
-                    mStatusBar.onCustomHintStarted();
-                }
+                mStatusBar.onCameraHintStarted();
             } else {
                 if (mKeyguardBottomArea.isLeftVoiceAssist()) {
                     mStatusBar.onVoiceAssistHintStarted();
-                } else if (mKeyguardBottomArea.getLeftIntent() == KeyguardBottomAreaView.PHONE_INTENT) {
-                    mStatusBar.onPhoneHintStarted();
                 } else {
-                    mStatusBar.onCustomHintStarted();
+                    mStatusBar.onPhoneHintStarted();
                 }
             }
         }

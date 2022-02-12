@@ -106,10 +106,7 @@
     <!-- Switch USB controller on Asus ROG devices-->
     <java-symbol type="bool" name="config_switchUsbController" />
 
-    <!-- Default FOD pressed icon -->
-    <java-symbol type="integer" name="config_fod_pressed_color" />
-
-    <!-- NightLight FOD -->
+    <!-- Night Light FOD -->
     <java-symbol type="bool" name="disable_fod_night_light"/>
 
     <!-- Whether to force enable multi resolution configuration for camera -->
