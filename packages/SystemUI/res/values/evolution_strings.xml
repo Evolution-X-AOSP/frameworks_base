@@ -132,4 +132,7 @@
 
     <!-- The Evolver Tile -->
     <string name="quick_settings_evolver_label">The Evolver</string>
+
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">Recognizing face...</string>
 </resources>
