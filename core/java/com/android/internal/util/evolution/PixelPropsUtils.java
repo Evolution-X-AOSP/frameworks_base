@@ -226,6 +226,11 @@ public class PixelPropsUtils {
                 if (DEBUG) Log.d(TAG, "Defining " + key + " prop for: " + packageName);
                 setPropValue(key, value);
             }
+            if (isPixelDevice) {
+                if (packageName.equals(PACKAGE_GMS)) {
+                    setPropValue("MODEL", Build.MODEL + " ");
+                }
+            }
             // Set proper indexing fingerprint
             if (packageName.equals("com.google.android.settings.intelligence")) {
                 setPropValue("FINGERPRINT", Build.VERSION.INCREMENTAL);
