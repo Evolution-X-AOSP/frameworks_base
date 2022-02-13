@@ -188,6 +188,11 @@ public class PixelPropsUtils {
                     return;
             }
 
+            if (Arrays.asList(streamingPackagesToChange).contains(packageName)) {
+                if (!SystemProperties.getBoolean("persist.sys.pixelprops.streaming", true))
+                    return;
+            }
+
             Map<String, Object> propsToChange = propsToChangePixel6;
 
             if (Arrays.asList(packagesToChangePixel5).contains(packageName)) {
