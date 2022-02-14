@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright 2019-2022 The Evolution X Project
+     Copyright (C) 2019-2022 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -47,13 +47,15 @@
     <string name="lockscreen_default">Standard</string>
     <string name="lockscreen_hidden">Keine Auswahl</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Zum starten vom Symbol weg wischen</string>
+    <string name="custom_hint">Zum Starten vom Symbol wischen</string>
     <!-- Advanced Reboot -->
     <string name="global_action_restart_advanced">Erweitert</string>
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">SystemUI</string>
+    <string name="global_action_onthego">On-The-Go</string>
     <!-- Screenshot QS tile -->
+    <string name="quick_settings_full_screenshot_label">Vollständig</string>
     <string name="quick_settings_screenshot_label">Screenshot</string>
     <string name="quick_settings_region_screenshot_label">Bildschirmbereich aufnehmen</string>
     <!-- Heads Up QS Tile -->
@@ -67,19 +69,15 @@
     <string name="heads_up_snooze_message"><xliff:g id="string">%1$s </xliff:g> - Heads-Up Benachrichtigungen sind für <xliff:g id="number">%2$d </xliff:g> Minuten deaktiviert.</string>
     <!-- Running service button -->
     <string name="accessibility_quick_settings_running_services">Laufende Dienste anzeigen.</string>
-    <!-- CPUInfo tile -->
+    <!-- CPU Info tile -->
     <string name="quick_settings_cpuinfo_label">CPU-Informationen</string>
-    <string name="accessibility_quick_settings_cpuinfo_off">CPU-Info aus</string>
-    <string name="accessibility_quick_settings_cpuinfo_on">CPU-Info an</string>
-    <string name="accessibility_quick_settings_cpuinfo_changed_off">CPU-Info ausgeschaltet</string>
-    <string name="accessibility_quick_settings_cpuinfo_changed_on">CPU-Info eingeschaltet</string>
     <!-- Poweroff/Reboot/Recovery QS tile -->
     <string name="quick_settings_poweroff_label">Ausschalten</string>
     <string name="quick_settings_reboot_label">Neustart</string>
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Always-On-Display</string>
-    <string name="quick_settings_aod_on_charge_label">AOD bei Ladung</string>
+    <string name="quick_settings_aod_on_charge_label">AOD beim Laden</string>
     <string name="quick_settings_aod_off_label">AOD aus</string>
     <string name="quick_settings_aod_off_powersave_label">AOD aus\n Energiesparmodus</string>
     <!-- Kill button in notification guts -->
@@ -124,42 +122,37 @@
     <string name="quick_settings_compass_W">W</string>
     <string name="quick_settings_compass_NW">NW</string>
     <!-- FPS Info tile -->
-    <string name="quick_settings_fpsinfo_label">FPS Info</string>
-    <string name="accessibility_quick_settings_fpsinfo_off">FPS Info aus</string>
-    <string name="accessibility_quick_settings_fpsinfo_on">FPS Info ein</string>
+    <string name="quick_settings_fpsinfo_label">FPS-Informationen</string>
+    <string name="accessibility_quick_settings_fpsinfo_off">FPS-Informationen aus</string>
+    <string name="accessibility_quick_settings_fpsinfo_on">FPS-Informationen ein</string>
     <!-- Screen record -->
     <!-- Label for notification action to delete a screen recording file [CHAR LIMIT=35] -->
     <string name="screenrecord_delete_label">Löschen</string>
     <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
     <string name="screenrecord_delete_description">Bildschirmaufnahme gelöscht</string>
-    <string name="screenrecord_stopdot_label">Stoppunkt\nanzeigen, langes Drücken, um ihn zu verschieben</string>
-    <string name="screenrecord_lowquality_label">Niedrigere Qualität für kleinere Dateigrößen</string>
+    <string name="screenrecord_stopdot_label">Stopp-Punkt anzeigen\nZum Verschieben lang drücken</string>
+    <string name="screenrecord_lowquality_label">Niedrigere Qualität für geringere Dateigrößen</string>
     <string name="screenrecord_longer_timeout_switch_label">Größere Dateigröße\nBegrenzung der Aufnahmegröße auf 15 GB</string>
     <string name="task_helper_app_killed">%1$s erzwungen beendet</string>
     <string name="empty_app_killed">Anwendung</string>
-    <!-- AlertSlider -->
-    <string name="alert_slider_mode_priority_text">Priorität</string>
-    <string name="alert_slider_mode_dnd_text">Nachtmodus</string>
     <!-- On The Go -->
-    <string name="onthego_notif_ticker">On-The-Go aktiviert</string>
-    <string name="onthego_notif_title">On-The-Go ist aktiv</string>
-    <string name="onthego_notif_stop">Beenden</string>
-    <string name="onthego_notif_options">Optionen</string>
-    <string name="onthego_notif_error">On-The-Go kann nicht gestartet werden</string>
-    <string name="onthego_notif_restart">On-The-Go Modus neu starten</string>
-    <string name="onthego_notif_camera_changed">Kamera-Modus geändert</string>
+    <string name="onthego_notification_ticker">On-The-Go aktiviert</string>
+    <string name="onthego_notification_title">On-The-Go ist aktiv</string>
+    <string name="onthego_notification_stop">Stopp</string>
+    <string name="onthego_notification_options">Optionen</string>
+    <string name="onthego_notification_error">On-The-Go kann nicht gestartet werden</string>
+    <string name="onthego_notification_restart">On-The-Go Modus neu starten</string>
+    <string name="onthego_notification_camera_changed">Kamera-Modus geändert</string>
     <string name="onthego_transparency">Transparenz</string>
     <string name="onthego_front_camera">Frontkamera verwenden</string>
     <string name="onthego_service_toggle">Dienst automatisch neu starten</string>
     <string name="onthego_channel_name">Primär</string>
-    <string name="global_action_onthego">On-The-Go</string>
     <!-- OnTheGo Tile -->
     <string name="quick_settings_onthego_label">On-The-Go</string>
     <string name="accessibility_quick_settings_onthego_off">On-The-Go aus</string>
     <string name="accessibility_quick_settings_onthego_on">On-The-Go an</string>
-    <string name="app_picker_dialog_title">App auswählen</string>
-    <string name="active_edge_app_select_title">App auswählen</string>
-    <string name="active_edge_activity_select_title">Aktion auswählen</string>
+    <string name="accessibility_quick_settings_onthego_changed_off">On-The-Go ausgeschaltet</string>
+    <string name="accessibility_quick_settings_onthego_changed_on">On-The-Go eingeschaltet</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Der Bildschirm wird solange angezeigt, bis die Fixierung aufgehoben wurde. Drücke &amp; halte dafür die Zurück-Taste.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
@@ -172,4 +165,23 @@
     <!-- Gaming mode -->
     <string name="gaming_mode_not_enabled">Spielemodus ist in den Einstellungen deaktiviert</string>
     <string name="quick_settings_gaming_mode_label">Spielemodus</string>
+    <!-- FPS view text placeholder -->
+    <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
+    <!-- Alert slider extras -->
+    <string name="volume_ringer_priority_only">Priorität</string>
+    <string name="volume_ringer_alarms_only">Wecker</string>
+    <string name="volume_ringer_dnd">Bitte nicht stören</string>
+    <string name="tristate_flashlight">Taschenlampe</string>
+    <string name="tristate_flashlight_on">Taschenlampe an</string>
+    <string name="tristate_flashlight_off">Taschenlampe aus</string>
+    <string name="tristate_flashlight_blink">Taschenlampe blinken</string>
+    <string name="tristate_brightness_bright">Maximale Helligkeit</string>
+    <string name="tristate_brightness_dark">Minimale Helligkeit</string>
+    <string name="tristate_brightness_auto">Automatische Helligkeit</string>
+    <string name="tristate_rotation_auto">Automatisch drehen</string>
+    <string name="tristate_rotation_0">Hochformat</string>
+    <string name="tristate_rotation_90">Querformat (90°)</string>
+    <string name="tristate_rotation_270">Querformat (270°)</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Bildschirmfoto gelöscht</string>
 </resources>
