@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright 2019-2022 The Evolution X Project
+     Copyright (C) 2019-2022 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -53,7 +53,9 @@
     <string name="global_action_restart_recovery">Kurtarma</string>
     <string name="global_action_restart_bootloader">Önyükleyici</string>
     <string name="global_action_restart_ui">Sistem Arayüzü</string>
+    <string name="global_action_onthego">Yürüme modu</string>
     <!-- Screenshot QS tile -->
+    <string name="quick_settings_full_screenshot_label">Tam</string>
     <string name="quick_settings_screenshot_label">Ekran görüntüsü</string>
     <string name="quick_settings_region_screenshot_label">Kısmi ekran görüntüsü</string>
     <!-- Heads Up QS Tile -->
@@ -67,12 +69,8 @@
     <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Bildirim pencereleri <xliff:g id="number">%2$d</xliff:g> dakika erteleniyor.</string>
     <!-- Running service button -->
     <string name="accessibility_quick_settings_running_services">Çalışan hizmetler ekranını aç.</string>
-    <!-- CPUInfo tile -->
+    <!-- CPU Info tile -->
     <string name="quick_settings_cpuinfo_label">İşlemci bilgisi</string>
-    <string name="accessibility_quick_settings_cpuinfo_off">İşlemci bilgisi kapalı</string>
-    <string name="accessibility_quick_settings_cpuinfo_on">İşlemci bilgisi açık</string>
-    <string name="accessibility_quick_settings_cpuinfo_changed_off">İşlemci bilgisi kapatıldı</string>
-    <string name="accessibility_quick_settings_cpuinfo_changed_on">İşlemci bilgisi açıldı</string>
     <!-- Poweroff/Reboot/Recovery QS tile -->
     <string name="quick_settings_poweroff_label">Kapat</string>
     <string name="quick_settings_reboot_label">Yeniden başlat</string>
@@ -137,29 +135,24 @@
     <string name="screenrecord_longer_timeout_switch_label">Daha büyük dosya boyutu sınırı\nKayıt boyutunu 15 GB ile sınırlayın</string>
     <string name="task_helper_app_killed">%1$s zorla durduruldu</string>
     <string name="empty_app_killed">Uygulama</string>
-    <!-- AlertSlider -->
-    <string name="alert_slider_mode_priority_text">Öncelik</string>
-    <string name="alert_slider_mode_dnd_text">Rahatsız etmeyin</string>
     <!-- On The Go -->
-    <string name="onthego_notif_ticker">Yürüme modu etkinleştirildi</string>
-    <string name="onthego_notif_title">Yürüme modu etkin</string>
-    <string name="onthego_notif_stop">Durdur</string>
-    <string name="onthego_notif_options">Seçenekler</string>
-    <string name="onthego_notif_error">Yürüme modu başlatılamıyor</string>
-    <string name="onthego_notif_restart">Yürüme modunu yeniden başlat</string>
-    <string name="onthego_notif_camera_changed">Kamera modu değiştirildi</string>
+    <string name="onthego_notification_ticker">Yürüme modu etkinleştirildi</string>
+    <string name="onthego_notification_title">Yürüme modu etkin</string>
+    <string name="onthego_notification_stop">Durdur</string>
+    <string name="onthego_notification_options">Seçenekler</string>
+    <string name="onthego_notification_error">Yürüme modu başlatılamıyor</string>
+    <string name="onthego_notification_restart">Yürüme modunu yeniden başlat</string>
+    <string name="onthego_notification_camera_changed">Kamera modu değiştirildi</string>
     <string name="onthego_transparency">Saydamlık</string>
     <string name="onthego_front_camera">Ön kamerayı kullan</string>
     <string name="onthego_service_toggle">Servisi otomatik olarak yeniden başlat</string>
     <string name="onthego_channel_name">Ana grup</string>
-    <string name="global_action_onthego">Yürüme modu</string>
     <!-- OnTheGo Tile -->
     <string name="quick_settings_onthego_label">Yürüme modu</string>
     <string name="accessibility_quick_settings_onthego_off">Yürüme modu kapalı</string>
     <string name="accessibility_quick_settings_onthego_on">Yürüme modu açık</string>
-    <string name="app_picker_dialog_title">Bir uygulama seç</string>
-    <string name="active_edge_app_select_title">Uygulama seç</string>
-    <string name="active_edge_activity_select_title">Etkinlik seç</string>
+    <string name="accessibility_quick_settings_onthego_changed_off">Yürüme modu kapatıldı</string>
+    <string name="accessibility_quick_settings_onthego_changed_on">Yürüme modu açıldı</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">Siz sabitlemeyi kaldırana kadar ekranı görünür durumda tutar. Sabitlemeyi kaldırmak için Geri tuşuna basılı tutun.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
@@ -172,4 +165,23 @@
     <!-- Gaming mode -->
     <string name="gaming_mode_not_enabled">Oyun modu ayarlarda devre dışı bırakıldı</string>
     <string name="quick_settings_gaming_mode_label">Oyun modu</string>
+    <!-- FPS view text placeholder -->
+    <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
+    <!-- Alert slider extras -->
+    <string name="volume_ringer_priority_only">Öncelik</string>
+    <string name="volume_ringer_alarms_only">Alarmlar</string>
+    <string name="volume_ringer_dnd">Rahatsız etmeyin</string>
+    <string name="tristate_flashlight">El feneri</string>
+    <string name="tristate_flashlight_on">Fener açık</string>
+    <string name="tristate_flashlight_off">Fener kapalı</string>
+    <string name="tristate_flashlight_blink">Feneri yakıp söndür</string>
+    <string name="tristate_brightness_bright">Maksimum parlaklık</string>
+    <string name="tristate_brightness_dark">Minimum parlaklık</string>
+    <string name="tristate_brightness_auto">Otomatik parlaklık</string>
+    <string name="tristate_rotation_auto">Otomatik döndür</string>
+    <string name="tristate_rotation_0">Dikey</string>
+    <string name="tristate_rotation_90">Yatay (90°)</string>
+    <string name="tristate_rotation_270">Yatay (270°)</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Ekran görüntüsü silindi</string>
 </resources>
