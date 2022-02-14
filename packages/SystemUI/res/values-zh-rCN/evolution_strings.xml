@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright 2019-2022 The Evolution X Project
+     Copyright (C) 2019-2022 The Evolution X Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -53,9 +53,11 @@
     <string name="global_action_restart_recovery">恢复模式</string>
     <string name="global_action_restart_bootloader">引导模式</string>
     <string name="global_action_restart_ui">软重启</string>
+    <string name="global_action_onthego">行走模式</string>
     <!-- Screenshot QS tile -->
+    <string name="quick_settings_full_screenshot_label">全屏</string>
     <string name="quick_settings_screenshot_label">屏幕截图</string>
-    <string name="quick_settings_region_screenshot_label">部分截图</string>
+    <string name="quick_settings_region_screenshot_label">部分</string>
     <!-- Heads Up QS Tile -->
     <string name="quick_settings_heads_up_label">弹出通知</string>
     <string name="accessibility_quick_settings_heads_up_off">关闭浮动通知</string>
@@ -67,12 +69,8 @@
     <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - 浮动通知暂停<xliff:g id="number">%2$d</xliff:g>分钟</string>
     <!-- Running service button -->
     <string name="accessibility_quick_settings_running_services">显示正在运行的服务</string>
-    <!-- CPUInfo tile -->
+    <!-- CPU Info tile -->
     <string name="quick_settings_cpuinfo_label">CPU 信息</string>
-    <string name="accessibility_quick_settings_cpuinfo_off">CPU 信息关闭</string>
-    <string name="accessibility_quick_settings_cpuinfo_on">CPU 信息开启</string>
-    <string name="accessibility_quick_settings_cpuinfo_changed_off">CPU 信息已关闭</string>
-    <string name="accessibility_quick_settings_cpuinfo_changed_on">CPU 信息已开启</string>
     <!-- Poweroff/Reboot/Recovery QS tile -->
     <string name="quick_settings_poweroff_label">关机</string>
     <string name="quick_settings_reboot_label">重启</string>
@@ -137,29 +135,24 @@
     <string name="screenrecord_longer_timeout_switch_label">文件大小限制\n将录制大小限制为 15 GB</string>
     <string name="task_helper_app_killed">%1$s 已停止运行</string>
     <string name="empty_app_killed">应用</string>
-    <!-- AlertSlider -->
-    <string name="alert_slider_mode_priority_text">优先</string>
-    <string name="alert_slider_mode_dnd_text">勿扰</string>
     <!-- On The Go -->
-    <string name="onthego_notif_ticker">行走模式已激活</string>
-    <string name="onthego_notif_title">行走模式处于活动状态</string>
-    <string name="onthego_notif_stop">停止</string>
-    <string name="onthego_notif_options">选项</string>
-    <string name="onthego_notif_error">无法启动行走模式</string>
-    <string name="onthego_notif_restart">重新启动行走模式</string>
-    <string name="onthego_notif_camera_changed">相机模式已更改</string>
-    <string name="onthego_transparency">透明度</string>
+    <string name="onthego_notification_ticker">行走模式已激活</string>
+    <string name="onthego_notification_title">行走模式处于活动状态</string>
+    <string name="onthego_notification_stop">停止</string>
+    <string name="onthego_notification_options">选项</string>
+    <string name="onthego_notification_error">无法启动行走模式</string>
+    <string name="onthego_notification_restart">重新启动行走模式</string>
+    <string name="onthego_notification_camera_changed">相机模式已更改</string>
+    <string name="onthego_transparency">行走模式透明度</string>
     <string name="onthego_front_camera">使用前置摄像头</string>
     <string name="onthego_service_toggle">自动重启服务</string>
-    <string name="onthego_channel_name">主要</string>
-    <string name="global_action_onthego">行走模式</string>
+    <string name="onthego_channel_name">行走模式</string>
     <!-- OnTheGo Tile -->
     <string name="quick_settings_onthego_label">行走模式</string>
     <string name="accessibility_quick_settings_onthego_off">行走模式关闭</string>
     <string name="accessibility_quick_settings_onthego_on">行走模式开启</string>
-    <string name="app_picker_dialog_title">选择一个应用</string>
-    <string name="active_edge_app_select_title">选择应用</string>
-    <string name="active_edge_activity_select_title">选择活动</string>
+    <string name="accessibility_quick_settings_onthego_changed_off">行走模式已关闭</string>
+    <string name="accessibility_quick_settings_onthego_changed_on">行走模式已打开</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">这将会固定显示此屏幕，直到您取消固定为止。触摸并按住返回即可取消固定屏幕。</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
@@ -172,4 +165,23 @@
     <!-- Gaming mode -->
     <string name="gaming_mode_not_enabled">游戏模式在设置中被禁用</string>
     <string name="quick_settings_gaming_mode_label">游戏模式</string>
+    <!-- FPS view text placeholder -->
+    <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
+    <!-- Alert slider extras -->
+    <string name="volume_ringer_priority_only">优先</string>
+    <string name="volume_ringer_alarms_only">警报</string>
+    <string name="volume_ringer_dnd">勿扰</string>
+    <string name="tristate_flashlight">手电筒</string>
+    <string name="tristate_flashlight_on">手电筒已打开</string>
+    <string name="tristate_flashlight_off">手电筒已关闭</string>
+    <string name="tristate_flashlight_blink">手电筒闪烁</string>
+    <string name="tristate_brightness_bright">最大亮度</string>
+    <string name="tristate_brightness_dark">最小亮度</string>
+    <string name="tristate_brightness_auto">自动亮度</string>
+    <string name="tristate_rotation_auto">自动旋转</string>
+    <string name="tristate_rotation_0">纵向</string>
+    <string name="tristate_rotation_90">横向 (90°)</string>
+    <string name="tristate_rotation_270">横向 (270°)</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">屏幕截图已删除</string>
 </resources>
