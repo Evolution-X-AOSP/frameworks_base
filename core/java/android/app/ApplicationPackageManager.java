@@ -709,33 +709,56 @@ public class ApplicationPackageManager extends PackageManager {
                 }
             };
 
+    private static final String DEVICE = "org.evolution.device";
+
+    private static final String[] pixel2021Codenames = {
+            "oriole",
+            "raven",
+    };
+
     private static final String[] featuresPixel = {
             "com.google.android.apps.photos.PIXEL_2019_PRELOAD",
             "com.google.android.apps.photos.PIXEL_2019_MIDYEAR_PRELOAD",
             "com.google.android.apps.photos.PIXEL_2018_PRELOAD",
             "com.google.android.apps.photos.PIXEL_2017_PRELOAD",
-            "com.google.android.feature.PIXEL_2021_EXPERIENCE",
-            "com.google.android.feature.PIXEL_2021_MIDYEAR_EXPERIENCE",
             "com.google.android.feature.PIXEL_2020_EXPERIENCE",
             "com.google.android.feature.PIXEL_2020_MIDYEAR_EXPERIENCE",
             "com.google.android.feature.PIXEL_2019_EXPERIENCE",
             "com.google.android.feature.PIXEL_2019_MIDYEAR_EXPERIENCE",
-            "com.google.android.feature.PIXEL_2017_EXPERIENCE"
+            "com.google.android.feature.PIXEL_2018_EXPERIENCE",
+            "com.google.android.feature.PIXEL_2017_EXPERIENCE",
+            "com.google.android.feature.PIXEL_EXPERIENCE",
+            "com.google.android.feature.GOOGLE_BUILD",
+            "com.google.android.feature.GOOGLE_EXPERIENCE"
+    };
+
+    private static final String[] featuresPixel2021 = {
+            "com.google.android.feature.PIXEL_2021_EXPERIENCE",
+            "com.google.android.feature.PIXEL_2021_MIDYEAR_EXPERIENCE"
     };
 
     private static final String[] featuresNexus = {
             "com.google.android.apps.photos.NEXUS_PRELOAD",
-            "com.google.android.apps.photos.nexus_preload"
+            "com.google.android.apps.photos.nexus_preload",
+            "com.google.android.feature.PIXEL_EXPERIENCE",
+            "com.google.android.feature.GOOGLE_BUILD",
+            "com.google.android.feature.GOOGLE_EXPERIENCE"
     };
 
     @Override
     public boolean hasSystemFeature(String name, int version) {
+        boolean isPixel2021Device = Arrays.asList(pixel2021Codenames).contains(SystemProperties.get(DEVICE));
         String packageName = ActivityThread.currentPackageName();
         if (packageName != null &&
                 packageName.equals("com.google.android.apps.photos") &&
                 SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", true)) {
             if (Arrays.asList(featuresPixel).contains(name)) return false;
             if (Arrays.asList(featuresNexus).contains(name)) return true;
+        }
+        if (isPixel2021Device) {
+            if (Arrays.asList(featuresPixel2021).contains(name)) return true;
+        } else {
+            if (Arrays.asList(featuresPixel2021).contains(name)) return false;
         }
         if (Arrays.asList(featuresPixel).contains(name)) return true;
         return mHasSystemFeatureCache.query(new HasSystemFeatureQuery(name, version));
