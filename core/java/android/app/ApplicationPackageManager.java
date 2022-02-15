@@ -720,12 +720,23 @@ public class ApplicationPackageManager extends PackageManager {
             "com.google.android.feature.PIXEL_2020_MIDYEAR_EXPERIENCE",
             "com.google.android.feature.PIXEL_2019_EXPERIENCE",
             "com.google.android.feature.PIXEL_2019_MIDYEAR_EXPERIENCE",
-            "com.google.android.feature.PIXEL_2017_EXPERIENCE"
+            "com.google.android.feature.PIXEL_2018_EXPERIENCE",
+            "com.google.android.feature.PIXEL_2017_EXPERIENCE",
+            "com.google.android.feature.PIXEL_EXPERIENCE",
+            "com.google.android.feature.GOOGLE_BUILD",
+            "com.google.android.feature.GOOGLE_EXPERIENCE"
+    };
+
+    private static final String[] featuresPixel2021 = {
+            "com.google.android.feature.PIXEL_2021_EXPERIENCE"
     };
 
     private static final String[] featuresNexus = {
             "com.google.android.apps.photos.NEXUS_PRELOAD",
-            "com.google.android.apps.photos.nexus_preload"
+            "com.google.android.apps.photos.nexus_preload",
+            "com.google.android.feature.PIXEL_EXPERIENCE",
+            "com.google.android.feature.GOOGLE_BUILD",
+            "com.google.android.feature.GOOGLE_EXPERIENCE"
     };
 
     @Override
@@ -736,6 +747,9 @@ public class ApplicationPackageManager extends PackageManager {
                 SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", true)) {
             if (Arrays.asList(featuresPixel).contains(name)) return false;
             if (Arrays.asList(featuresNexus).contains(name)) return true;
+        } else if (packageName != null &&
+                packageName.equals("com.google.android.apps.photos")) {
+            if (Arrays.asList(featuresPixel2021).contains(name)) return false;
         }
         if (Arrays.asList(featuresPixel).contains(name)) return true;
         return mHasSystemFeatureCache.query(new HasSystemFeatureQuery(name, version));
