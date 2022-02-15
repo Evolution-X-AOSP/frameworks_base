@@ -39,14 +39,19 @@ public class PixelPropsUtils {
 
     private static final Map<String, Object> propsToChangePixel5;
     private static final String[] packagesToChangePixel5 = {
+            "com.google.android.apps.photos",
             "com.google.android.apps.recorder",
+            "com.google.android.apps.translate",
+            "com.google.android.apps.turbo",
+            "com.google.android.apps.turboadapter",
+            "com.google.android.apps.wearables.maestro.companion",
             "com.google.android.googlequicksearchbox",
-            "com.google.android.tts"
+            "com.google.android.tts",
+            "com.google.audio.hearing.visualization.accessibility.scribe"
     };
 
     private static final Map<String, Object> propsToChangePixelXL;
     private static final String[] packagesToChangePixelXL = {
-            "com.google.android.apps.photos",
             "com.samsung.accessory",
             "com.samsung.accessory.fridaymgr",
             "com.samsung.accessory.berrymgr",
@@ -116,7 +121,6 @@ public class PixelPropsUtils {
             "com.google.android.MTCL83",
             "com.google.android.UltraCVM",
             "com.google.android.apps.cameralite",
-            "com.google.android.dialer",
             "com.google.ar.core"
     };
 
@@ -196,10 +200,19 @@ public class PixelPropsUtils {
             Map<String, Object> propsToChange = propsToChangePixel6;
 
             if (Arrays.asList(packagesToChangePixel5).contains(packageName)) {
+                if (packageName.equals("com.google.android.apps.photos")) {
+                    if (!SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", true))
+                        return;
+                }
                 propsToChange = propsToChangePixel5;
             }
 
-            if (Arrays.asList(packagesToChangePixelXL).contains(packageName)) {
+            if ((Arrays.asList(packagesToChangePixelXL).contains(packageName))
+                    || (packageName.equals("com.google.android.apps.photos"))) {
+                if ((packageName.equals("com.google.android.apps.photos")
+                        && !SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", true))) {
+                    return;
+                }
                 propsToChange = propsToChangePixelXL;
             }
 
