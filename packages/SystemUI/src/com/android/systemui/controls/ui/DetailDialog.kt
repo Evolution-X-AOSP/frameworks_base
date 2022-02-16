@@ -128,11 +128,11 @@ class DetailDialog(
         }
 
         requireViewById<ImageView>(R.id.control_detail_close).apply {
-            setOnClickListener { _: View -> dismiss() }
+            setOnClickListener { dismiss() }
         }
 
         requireViewById<ImageView>(R.id.control_detail_open_in_app).apply {
-            setOnClickListener { v: View ->
+            setOnClickListener {
                 // Remove the task explicitly, since onRelease() callback will be executed after
                 // startActivity() below is called.
                 removeDetailTask()
