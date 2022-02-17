@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2013 Slimroms
+ * Copyright (C) 2018 The Dirty Unicorns Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -72,12 +73,19 @@ public class RebootTile extends QSTileImpl<BooleanState> {
 
     @Override
     public void handleClick(@Nullable View view) {
-        if (mRebootToRecovery == 0) {
-            mRebootToRecovery = 1;
-        } else if (mRebootToRecovery == 1) {
-            mRebootToRecovery = 2;
-        } else {
-            mRebootToRecovery = 0;
+        switch (mRebootToRecovery) {
+            default:
+                mRebootToRecovery = 0; // Reboot
+                break;
+            case 0:
+                mRebootToRecovery = 1; // Recovery
+                break;
+            case 1:
+                mRebootToRecovery = 2; // Bootloader
+                break;
+            case 2:
+                mRebootToRecovery = 3; // Power off
+                break;
         }
         refreshState();
     }
@@ -88,17 +96,27 @@ public class RebootTile extends QSTileImpl<BooleanState> {
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
-                PowerManager pm =
-                    (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
-                if (mRebootToRecovery == 1) {
-                    pm.reboot(PowerManager.REBOOT_RECOVERY);
-                } else if (mRebootToRecovery == 2) {
-                    pm.shutdown(false, pm.SHUTDOWN_USER_REQUESTED, false);
-                } else {
-                    pm.reboot("");
-                }
+                RebootToRecovery();
             }
         }, 500);
+    }
+
+    private void RebootToRecovery() {
+        PowerManager pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
+        switch (mRebootToRecovery) {
+            case 0: // Reboot
+                pm.reboot("");
+                break;
+            case 1: // Recovery
+                pm.reboot(PowerManager.REBOOT_RECOVERY);
+                break;
+            case 2: // Bootloader
+                pm.reboot(PowerManager.REBOOT_BOOTLOADER);
+                break;
+            case 3: // Power off
+                pm.shutdown(false, pm.SHUTDOWN_USER_REQUESTED, false);
+                break;
+        }
     }
 
     @Override
@@ -118,17 +136,25 @@ public class RebootTile extends QSTileImpl<BooleanState> {
 
     @Override
     protected void handleUpdateState(BooleanState state, Object arg) {
-        if (mRebootToRecovery == 1) {
-            state.label = mContext.getString(R.string.quick_settings_reboot_recovery_label);
-            state.icon = ResourceIcon.get(R.drawable.ic_qs_reboot_recovery);
-        } else if (mRebootToRecovery == 2) {
-            state.label = mContext.getString(R.string.quick_settings_poweroff_label);
-            state.icon = ResourceIcon.get(R.drawable.ic_qs_poweroff);
-        } else {
-            state.label = mContext.getString(R.string.quick_settings_reboot_label);
-            state.icon = ResourceIcon.get(R.drawable.ic_qs_reboot);
-        }
         state.state = Tile.STATE_INACTIVE;
+        switch (mRebootToRecovery) {
+            case 0: // Reboot
+                state.label = mContext.getString(R.string.quick_settings_reboot_label);
+                state.icon = ResourceIcon.get(R.drawable.ic_qs_reboot);
+                break;
+            case 1: // Recovery
+                state.label = mContext.getString(R.string.quick_settings_reboot_recovery_label);
+                state.icon = ResourceIcon.get(R.drawable.ic_qs_reboot_recovery);
+                break;
+            case 2: // Bootloader
+                state.label = mContext.getString(R.string.quick_settings_reboot_bootloader_label);
+                state.icon = ResourceIcon.get(R.drawable.ic_qs_reboot_bootloader);
+                break;
+            case 3: // Power off
+                state.label = mContext.getString(R.string.quick_settings_poweroff_label);
+                state.icon = ResourceIcon.get(R.drawable.ic_qs_poweroff);
+                break;
+        }
     }
 
     @Override
