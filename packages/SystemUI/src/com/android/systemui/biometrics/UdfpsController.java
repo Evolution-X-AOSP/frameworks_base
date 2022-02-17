@@ -918,6 +918,7 @@ public class UdfpsController implements DozeReceiver, UdfpsHbmProvider {
                 | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS;
         mParams.x = 0;
         mParams.y = 0;
+        mParams.privateFlags = WindowManager.LayoutParams.PRIVATE_FLAG_TRUSTED_OVERLAY;
         mWindowManager.addView(mHBMDimOverlay, mParams);
     }
 
