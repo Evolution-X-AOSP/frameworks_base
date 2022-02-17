@@ -86,8 +86,6 @@
     <string name="guts_force_close_app">Tutup aplikasi</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">Ganti kartu data</string>
-    <string name="qs_data_switch_toast_0">Tidak ada kartu SIM yang terpasang saat ini</string>
-    <string name="qs_data_switch_toast_1">Hanya satu kartu SIM yang terpasang saat ini</string>
     <string name="qs_data_switch_changed_1">Pindah kartu data ke SIM 1.</string>
     <string name="qs_data_switch_changed_2">Pindah kartu data ke SIM 2.</string>
     <!-- Names of the status bar icons. -->
