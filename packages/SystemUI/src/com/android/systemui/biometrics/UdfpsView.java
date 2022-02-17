@@ -105,6 +105,10 @@ public class UdfpsView extends FrameLayout implements DozeReceiver, UdfpsIllumin
         }
     }
 
+    public boolean shouldShowDimOverlay() {
+        return mHbmType == UdfpsHbmTypes.GLOBAL_HBM;
+    }
+
     // Don't propagate any touch events to the child views.
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {

@@ -180,6 +180,7 @@ public class UdfpsController implements DozeReceiver, UdfpsHbmProvider {
     private int mAutoModeState;
 
     private UdfpsAnimation mUdfpsAnimation;
+    private View mHBMDimOverlay;
 
     @VisibleForTesting
     public static final AudioAttributes VIBRATION_SONIFICATION_ATTRIBUTES =
@@ -295,6 +296,7 @@ public class UdfpsController implements DozeReceiver, UdfpsHbmProvider {
                     return;
                 }
                 mGoodCaptureReceived = true;
+                hideDimForHBM();
                 mView.stopIllumination();
                 if (mServerRequest != null) {
                     mServerRequest.onAcquiredGood();
@@ -875,6 +877,12 @@ public class UdfpsController implements DozeReceiver, UdfpsHbmProvider {
                     mView.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
                 }
 
+                // add dim overlay for HBM_GLOBAL
+                if (mView.shouldShowDimOverlay()) {
+                    addDimOverlay();
+                }
+
+                // add UDFPS overlay to main window
                 mWindowManager.addView(mView, computeLayoutParams(animation));
                 mAccessibilityManager.addTouchExplorationStateChangeListener(
                         mTouchExplorationStateChangeListener);
@@ -884,6 +892,55 @@ public class UdfpsController implements DozeReceiver, UdfpsHbmProvider {
             }
         } else {
             Log.v(TAG, "showUdfpsOverlay | the overlay is already showing");
+        }
+    }
+
+    /**
+     * If this devide has mHbmType == GLOBAL_HBM, that means when the user scan his fingerprint, the global brightness will be turned to maximum.
+     * This function add a dim overlay to bring the brightness back to normal.
+     * However, this can cause flickering light. See this commit for a fix:
+     * https://github.com/ngxson/device_xiaomi_laurel_sprout/commit/ad3fd92b21daf415d1fcb4369746262b3caa33e1
+     */
+    private void addDimOverlay() {
+        mHBMDimOverlay = new View(mContext);
+        mHBMDimOverlay.setBackgroundColor(0xFF000000);
+        mHBMDimOverlay.setAlpha(0);
+        WindowManager.LayoutParams mParams = new WindowManager.LayoutParams();
+        mParams.height = WindowManager.LayoutParams.MATCH_PARENT;
+        mParams.width = WindowManager.LayoutParams.MATCH_PARENT;
+        mParams.format = PixelFormat.TRANSLUCENT;
+        mParams.type = WindowManager.LayoutParams.TYPE_DISPLAY_OVERLAY;
+        mParams.layoutInDisplayCutoutMode =
+            WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS;
+        mParams.flags = WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
+                | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+                | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
+                | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS;
+        mParams.x = 0;
+        mParams.y = 0;
+        mWindowManager.addView(mHBMDimOverlay, mParams);
+    }
+
+    private void showDimForHBM() {
+        if (mHBMDimOverlay != null) {
+            int brightness = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.SCREEN_BRIGHTNESS, 100);
+            // brightness: 0 => 255
+            float alpha = 0.0F;
+            if (brightness > 62) {
+                alpha = (float) Math.pow((((brightness / 255.0) * 430.0) / 600.0), 0.455);
+            } else {
+                alpha = (float) Math.pow((brightness / 210.0), 0.455);
+            }
+            // alpha: 0.0 => 1.0
+            alpha = 1.0F - alpha;
+            mHBMDimOverlay.setAlpha(alpha);
+        }
+    }
+
+    private void hideDimForHBM() {
+        if (mHBMDimOverlay != null) {
+            mHBMDimOverlay.setAlpha(0);
         }
     }
 
@@ -955,6 +1012,7 @@ public class UdfpsController implements DozeReceiver, UdfpsHbmProvider {
             onFingerUp();
             boolean wasShowingAltAuth = mKeyguardViewManager.isShowingAlternateAuth();
             mWindowManager.removeView(mView);
+            mWindowManager.removeView(mHBMDimOverlay);
             mView.setOnTouchListener(null);
             mView.setOnHoverListener(null);
             mView.setAnimationViewController(null);
@@ -964,6 +1022,7 @@ public class UdfpsController implements DozeReceiver, UdfpsHbmProvider {
             mAccessibilityManager.removeTouchExplorationStateChangeListener(
                     mTouchExplorationStateChangeListener);
             mView = null;
+            mHBMDimOverlay = null;
         } else {
             Log.v(TAG, "hideUdfpsOverlay | the overlay is already hidden");
         }
@@ -1068,6 +1127,7 @@ public class UdfpsController implements DozeReceiver, UdfpsHbmProvider {
         mFingerprintManager.onPointerDown(mSensorProps.sensorId, x, y, minor, major);
         Trace.endAsyncSection("UdfpsController.e2e.onPointerDown", 0);
         Trace.beginAsyncSection("UdfpsController.e2e.startIllumination", 0);
+        showDimForHBM();
         mView.startIllumination(() -> {
             mFingerprintManager.onUiReady(mSensorProps.sensorId);
             Trace.endAsyncSection("UdfpsController.e2e.startIllumination", 0);
@@ -1100,6 +1160,7 @@ public class UdfpsController implements DozeReceiver, UdfpsHbmProvider {
         }
         mOnFingerDown = false;
         if (mView.isIlluminationRequested()) {
+            hideDimForHBM();
             mView.stopIllumination();
         }
     }
