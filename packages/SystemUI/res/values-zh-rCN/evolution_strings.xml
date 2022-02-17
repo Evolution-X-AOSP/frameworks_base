@@ -86,8 +86,6 @@
     <string name="guts_force_close_app">关闭应用</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">更改数据卡</string>
-    <string name="qs_data_switch_toast_0">当前没有插入 SIM 卡</string>
-    <string name="qs_data_switch_toast_1">当前仅插入一张 SIM 卡</string>
     <string name="qs_data_switch_changed_1">切换数据卡到 SIM 卡 1</string>
     <string name="qs_data_switch_changed_2">切换数据卡到 SIM 卡 2</string>
     <!-- Names of the status bar icons. -->
