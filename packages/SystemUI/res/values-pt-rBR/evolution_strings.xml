@@ -86,8 +86,6 @@
     <string name="guts_force_close_app">Fechar aplicativo</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">Trocar Sim de dados</string>
-    <string name="qs_data_switch_toast_0">Atualmente nenhum cartão SIM está inserido</string>
-    <string name="qs_data_switch_toast_1">Atualmente apenas um cartão SIM está inserido</string>
     <string name="qs_data_switch_changed_1">Mude o cartão de dados para o SIM 1.</string>
     <string name="qs_data_switch_changed_2">Mude o cartão de dados para o SIM 2.</string>
     <!-- Names of the status bar icons. -->

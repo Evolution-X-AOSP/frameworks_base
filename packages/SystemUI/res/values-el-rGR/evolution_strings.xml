@@ -86,8 +86,6 @@
     <string name="guts_force_close_app">Κλείσιμο εφαρμογής</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">Αλλαγή κάρτας για τα δεδομένα</string>
-    <string name="qs_data_switch_toast_0">Προς το παρόν δεν έχει εισαχθεί κάρτα SIM</string>
-    <string name="qs_data_switch_toast_1">Προς το παρόν έχει εισαχθεί μόνο μία κάρτα SIM</string>
     <string name="qs_data_switch_changed_1">Μετάβαση χρήσης δεδομένων στην κάρτα στη SIM 1.</string>
     <string name="qs_data_switch_changed_2">Μετάβαση χρήσης δεδομένων στην κάρτα στη SIM 2.</string>
     <!-- Names of the status bar icons. -->
