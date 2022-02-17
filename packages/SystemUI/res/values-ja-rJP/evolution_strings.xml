@@ -86,8 +86,6 @@
     <string name="guts_force_close_app">アプリを終了</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">データ SIM の変更</string>
-    <string name="qs_data_switch_toast_0">現在 SIM カードは挿入されていません</string>
-    <string name="qs_data_switch_toast_1">現在1枚のみ SIM カードが挿入されています</string>
     <string name="qs_data_switch_changed_1">SIM 1 をデータ通信に使用します</string>
     <string name="qs_data_switch_changed_2">SIM 2 をデータ通信に使用します</string>
     <!-- Names of the status bar icons. -->
