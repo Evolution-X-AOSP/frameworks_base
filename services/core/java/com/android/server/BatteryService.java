@@ -1424,8 +1424,8 @@ public final class BatteryService extends SystemService {
                         }
                         break;
                 }
-            } else if (status == BatteryManager.BATTERY_STATUS_CHARGING
-                    || status == BatteryManager.BATTERY_STATUS_FULL) {
+            } else if (mPlugType != 0 && (status == BatteryManager.BATTERY_STATUS_CHARGING
+                    || status == BatteryManager.BATTERY_STATUS_FULL)) {
                 if (status == BatteryManager.BATTERY_STATUS_FULL
                         || level >= mBatteryNearlyFullLevel) {
                     // Solid green when full or charging and nearly full
