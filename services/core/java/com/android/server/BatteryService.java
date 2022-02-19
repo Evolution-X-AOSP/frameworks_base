@@ -1395,8 +1395,8 @@ public final class BatteryService extends SystemService {
                     // "Pulse low battery light" is disabled, no lights.
                     mBatteryLight.turnOff();
                 }
-            } else if (status == BatteryManager.BATTERY_STATUS_CHARGING
-                    || status == BatteryManager.BATTERY_STATUS_FULL) {
+            } else if (mPlugType != 0 && (status == BatteryManager.BATTERY_STATUS_CHARGING
+                    || status == BatteryManager.BATTERY_STATUS_FULL)) {
                 if (status == BatteryManager.BATTERY_STATUS_FULL || level >= 90) {
                     if (level == 100) {
                         // Battery is really full
