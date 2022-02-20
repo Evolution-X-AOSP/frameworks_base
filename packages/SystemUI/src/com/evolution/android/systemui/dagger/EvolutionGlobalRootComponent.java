@@ -13,16 +13,16 @@ import dagger.Component;
 
 @Singleton
 @Component(modules = {
+        EvolutionSysUISubcomponentModule.class,
         GlobalModule.class,
-        SysUISubcomponentModuleEvolution.class,
         WMModule.class})
-public interface GlobalRootComponentEvolution extends GlobalRootComponent {
+public interface EvolutionGlobalRootComponent extends GlobalRootComponent {
 
     @Component.Builder
     interface Builder extends GlobalRootComponent.Builder {
-        GlobalRootComponentEvolution build();
+        EvolutionGlobalRootComponent build();
     }
 
     @Override
-    SysUIComponentEvolution.Builder getSysUIComponent();
+    EvolutionSysUIComponent.Builder getSysUIComponent();
 }

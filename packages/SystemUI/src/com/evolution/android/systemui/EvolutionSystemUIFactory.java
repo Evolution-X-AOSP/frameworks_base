@@ -5,9 +5,9 @@ import android.content.res.AssetManager;
 
 import com.google.android.systemui.gesture.BackGestureTfClassifierProviderGoogle;
 
-import com.evolution.android.systemui.dagger.DaggerGlobalRootComponentEvolution;
-import com.evolution.android.systemui.dagger.GlobalRootComponentEvolution;
-import com.evolution.android.systemui.dagger.SysUIComponentEvolution;
+import com.evolution.android.systemui.dagger.DaggerEvolutionGlobalRootComponent;
+import com.evolution.android.systemui.dagger.EvolutionGlobalRootComponent;
+import com.evolution.android.systemui.dagger.EvolutionSysUIComponent;
 
 import com.android.systemui.SystemUIFactory;
 import com.android.systemui.dagger.GlobalRootComponent;
@@ -17,10 +17,10 @@ import com.android.systemui.screenshot.ScreenshotNotificationSmartActionsProvide
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 
-public class SystemUIEvolutionFactory extends SystemUIFactory {
+public class EvolutionSystemUIFactory extends SystemUIFactory {
     @Override
     protected GlobalRootComponent buildGlobalRootComponent(Context context) {
-        return DaggerGlobalRootComponentEvolution.builder()
+        return DaggerEvolutionGlobalRootComponent.builder()
                 .context(context)
                 .build();
     }
@@ -34,7 +34,7 @@ public class SystemUIEvolutionFactory extends SystemUIFactory {
     public void init(Context context, boolean fromTest) throws ExecutionException, InterruptedException {
         super.init(context, fromTest);
         if (shouldInitializeComponents()) {
-            ((SysUIComponentEvolution) getSysUIComponent()).createKeyguardSmartspaceController();
+            ((EvolutionSysUIComponent) getSysUIComponent()).createKeyguardSmartspaceController();
         }
     }
 }
