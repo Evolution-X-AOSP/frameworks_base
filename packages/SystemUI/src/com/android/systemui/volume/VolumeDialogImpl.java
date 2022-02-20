@@ -87,6 +87,7 @@ import android.view.View.AccessibilityDelegate;
 import android.view.View.OnAttachStateChangeListener;
 import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
+import android.view.ViewGroup.MarginLayoutParams;
 import android.view.ViewPropertyAnimator;
 import android.view.ViewStub;
 import android.view.ViewTreeObserver;
@@ -223,7 +224,7 @@ public class VolumeDialogImpl implements VolumeDialog,
     private float mRingerDrawerClosedAmount = 1f;
 
     private ImageButton mRingerIcon;
-    private ViewGroup mODICaptionsView;
+    private FrameLayout mODICaptionsView;
     private CaptionsToggleImageButton mODICaptionsIcon;
     private View mSettingsView;
     private ImageButton mSettingsIcon;
@@ -576,8 +577,13 @@ public class VolumeDialogImpl implements VolumeDialog,
         mODICaptionsView = mDialog.findViewById(R.id.odi_captions);
         if (mODICaptionsView != null) {
             mODICaptionsIcon = mODICaptionsView.findViewById(R.id.odi_captions_icon);
+            if (!mShowActiveStreamOnly && !isLandscape()){
+                setLayoutGravity(mODICaptionsView.getLayoutParams(), mVolumePanelOnLeft ? Gravity.LEFT : Gravity.RIGHT);
+            }
         }
-        mODICaptionsTooltipViewStub = mDialog.findViewById(R.id.odi_captions_tooltip_stub);
+        mODICaptionsTooltipViewStub = mDialog.findViewById(mVolumePanelOnLeft ?
+                R.id.odi_captions_tooltip_stub_left :
+                R.id.odi_captions_tooltip_stub);
         if (mHasSeenODICaptionsTooltip && mODICaptionsTooltipViewStub != null) {
             mDialogView.removeView(mODICaptionsTooltipViewStub);
             mODICaptionsTooltipViewStub = null;
@@ -624,6 +630,14 @@ public class VolumeDialogImpl implements VolumeDialog,
         initSettingsH();
         initAppVolumeH();
         initODICaptionsH();
+    }
+
+    private void setLayoutGravity(Object obj, int gravity) {
+        if (obj instanceof FrameLayout.LayoutParams) {
+            ((FrameLayout.LayoutParams) obj).gravity = gravity;
+        } else if (obj instanceof LinearLayout.LayoutParams) {
+            ((LinearLayout.LayoutParams) obj).gravity = gravity;
+        }
     }
 
     private void initDimens() {

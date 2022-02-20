@@ -17,9 +17,12 @@
 package com.android.systemui.volume;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.graphics.CornerPathEffect;
 import android.graphics.Paint;
 import android.graphics.drawable.ShapeDrawable;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -35,6 +38,9 @@ import com.android.systemui.recents.TriangleShape;
  * Tool tip view that draws an arrow that points to the volume dialog.
  */
 public class VolumeToolTipView extends LinearLayout {
+    // Volume panel placement left or right
+    private boolean mVolumePanelOnLeft;
+
     public VolumeToolTipView(Context context) {
         super(context);
     }
@@ -60,9 +66,15 @@ public class VolumeToolTipView extends LinearLayout {
 
     private void drawArrow() {
         View arrowView = findViewById(R.id.arrow);
+        if (!isLandscape() && isAudioPanelOnLeftSide()){
+            arrowView.setVisibility(View.GONE);
+            View arrowViewLeft = findViewById(R.id.arrow_left);
+            arrowViewLeft.setVisibility(View.VISIBLE);
+            arrowView = arrowViewLeft;
+        }
         ViewGroup.LayoutParams arrowLp = arrowView.getLayoutParams();
         ShapeDrawable arrowDrawable = new ShapeDrawable(TriangleShape.createHorizontal(
-                arrowLp.width, arrowLp.height, false));
+                arrowLp.width, arrowLp.height, !isLandscape() && isAudioPanelOnLeftSide()));
         Paint arrowPaint = arrowDrawable.getPaint();
         TypedValue typedValue = new TypedValue();
         getContext().getTheme().resolveAttribute(android.R.attr.colorAccent, typedValue, true);
@@ -72,5 +84,22 @@ public class VolumeToolTipView extends LinearLayout {
                 getResources().getDimension(R.dimen.volume_tool_tip_arrow_corner_radius)));
         arrowView.setBackground(arrowDrawable);
 
+    }
+
+    private boolean isLandscape() {
+        return getContext().getResources().getConfiguration().orientation ==
+                Configuration.ORIENTATION_LANDSCAPE;
+    }
+
+    private boolean isAudioPanelOnLeftSide() {
+        mVolumePanelOnLeft = Settings.System.getInt(getContext().getContentResolver(),
+                Settings.System.VOLUME_PANEL_ON_LEFT, 0) == 1;
+        return !showActiveStreamOnly() && mVolumePanelOnLeft;
+    }
+
+    private boolean showActiveStreamOnly() {
+        PackageManager pm = getContext().getPackageManager();
+        return pm.hasSystemFeature(PackageManager.FEATURE_LEANBACK)
+                || pm.hasSystemFeature(PackageManager.FEATURE_TELEVISION);
     }
 }
