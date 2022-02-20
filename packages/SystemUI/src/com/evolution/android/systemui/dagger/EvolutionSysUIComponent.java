@@ -16,14 +16,14 @@ import dagger.Subcomponent;
 @Subcomponent(modules = {
         DefaultComponentBinder.class,
         DependencyProvider.class,
-        SystemUIBinder.class,
-        SystemUIModule.class,
-        SystemUIEvolutionModule.class })
-public interface SysUIComponentEvolution extends SysUIComponent {
+        EvolutionSystemUIBinder.class,
+        EvolutionSystemUIModule.class,
+        SystemUIModule.class})
+public interface EvolutionSysUIComponent extends SysUIComponent {
     @SysUISingleton
     @Subcomponent.Builder
     interface Builder extends SysUIComponent.Builder {
-        SysUIComponentEvolution build();
+        EvolutionSysUIComponent build();
     }
 
     /**

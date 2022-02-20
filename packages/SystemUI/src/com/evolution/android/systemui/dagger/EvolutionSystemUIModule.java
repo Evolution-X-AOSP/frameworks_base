@@ -16,9 +16,11 @@ import com.google.android.systemui.smartspace.KeyguardMediaViewController;
 import com.google.android.systemui.smartspace.KeyguardZenAlarmViewController;
 import com.google.android.systemui.smartspace.SmartSpaceController;
 
+import com.evolution.android.systemui.EvolutionServices;
 import com.evolution.android.systemui.smartspace.KeyguardSmartspaceController;
-import com.evolution.android.systemui.theme.ThemeOverlayControllerEvolution;
+import com.evolution.android.systemui.theme.EvolutionThemeOverlayController;
 
+import com.android.internal.logging.UiEventLogger;
 import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.keyguard.KeyguardViewController;
 import com.android.systemui.broadcast.BroadcastDispatcher;
@@ -57,6 +59,7 @@ import com.android.systemui.statusbar.phone.NotificationShadeWindowControllerImp
 import com.android.systemui.statusbar.phone.ShadeController;
 import com.android.systemui.statusbar.phone.ShadeControllerImpl;
 import com.android.systemui.statusbar.phone.StatusBarKeyguardViewManager;
+import com.android.systemui.statusbar.phone.StatusBar;
 import com.android.systemui.statusbar.policy.BatteryController;
 import com.android.systemui.statusbar.policy.BatteryControllerImpl;
 import com.android.systemui.statusbar.policy.ConfigurationController;
@@ -85,7 +88,7 @@ import javax.inject.Named;
         QSModule.class,
         VolumeModule.class
 })
-public abstract class SystemUIEvolutionModule {
+public abstract class EvolutionSystemUIModule {
 
     @SysUISingleton
     @Provides
@@ -205,7 +208,13 @@ public abstract class SystemUIEvolutionModule {
     abstract DozeHost provideDozeHost(DozeServiceHost dozeServiceHost);
 
     @Binds
-    abstract ThemeOverlayController provideThemeOverlayController(ThemeOverlayControllerEvolution themeOverlayController);
+    abstract ThemeOverlayController provideThemeOverlayController(EvolutionThemeOverlayController themeOverlayController);
+
+    @Provides
+    @SysUISingleton
+    static EvolutionServices provideEvolutionServices(Context context, UiEventLogger uiEventLogger, AlarmManager am, StatusBar sb) {
+        return new EvolutionServices(context, uiEventLogger, am, sb);
+    }
 
     // Google
     @Provides

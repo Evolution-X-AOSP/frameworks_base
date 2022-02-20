@@ -5,6 +5,6 @@ import dagger.Module;
 /**
  * Dagger module for including the WMComponent.
  */
-@Module(subcomponents = {SysUIComponentEvolution.class})
-public abstract class SysUISubcomponentModuleEvolution {
+@Module(subcomponents = {EvolutionSysUIComponent.class})
+public abstract class EvolutionSysUISubcomponentModule {
 }
