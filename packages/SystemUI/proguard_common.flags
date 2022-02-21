@@ -1,6 +1,10 @@
 -include proguard_kotlin.flags
 -keep class com.android.systemui.VendorServices
 
+-keep class * implements com.android.systemui.biometrics.UdfpsDisplayModeProvider {
+    public <init>(...);
+}
+
 # Needed to ensure callback field references are kept in their respective
 # owning classes when the downstream callback registrars only store weak refs.
 # Note that we restrict this to SysUISingleton classes, as other registering
