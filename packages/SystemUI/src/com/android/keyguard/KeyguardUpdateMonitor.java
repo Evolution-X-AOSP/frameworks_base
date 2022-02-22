@@ -2295,10 +2295,11 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
                 || (!userCanSkipBouncer
                     && !isEncryptedOrLockdownForUser
                     && userDoesNotHaveTrust
-                    && !mFingerprintLockedOut);
+                    && !mFingerprintLockedOut
+                    && !mIsDeviceInPocket);
 
         final boolean shouldListen = shouldListenKeyguardState && shouldListenUserState
-                && shouldListenBouncerState && shouldListenUdfpsState && !mIsDeviceInPocket;
+                && shouldListenBouncerState && shouldListenUdfpsState;
 
         if (DEBUG_FINGERPRINT || DEBUG_SPEW) {
             maybeLogListenerModelData(
