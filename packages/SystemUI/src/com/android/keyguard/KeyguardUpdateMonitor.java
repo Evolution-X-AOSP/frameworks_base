@@ -93,6 +93,7 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
 
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.internal.util.evolution.udfps.UdfpsUtils;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.settingslib.WirelessUtils;
 import com.android.settingslib.fuelgauge.BatteryStatus;
@@ -353,6 +354,8 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
     private int mHardwareFaceUnavailableRetryCount = 0;
     private static final int HAL_ERROR_RETRY_TIMEOUT = 500; // ms
     private static final int HAL_ERROR_RETRY_MAX = 20;
+
+    private boolean mHasUdfps;
 
     private final Runnable mFpCancelNotReceived = () -> {
         Log.e(TAG, "Fp cancellation not received, transitioning to STOPPED");
@@ -810,6 +813,9 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
     }
 
     private void handleFingerprintHelp(int msgId, String helpString) {
+        if (mIsDeviceInPocket && mHasUdfps) {
+            return;
+        }
         Assert.isMainThread();
         for (int i = 0; i < mCallbacks.size(); i++) {
             KeyguardUpdateMonitorCallback cb = mCallbacks.get(i).get();
@@ -2096,6 +2102,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
                 }
             }
         }
+        mHasUdfps = UdfpsUtils.hasUdfpsSupport(mContext);
 
         updateLockScreenMode(featureFlags.isKeyguardLayoutEnabled());
 
@@ -2195,7 +2202,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
 
         // TODO: Add support for multiple fingerprint sensors, b/173730729
         updateUdfpsEnrolled(getCurrentUser());
-        final boolean shouldListenForFingerprint = shouldListenForFingerprint(isUdfpsEnrolled());
+        final boolean shouldListenForFingerprint = !mIsDeviceInPocket && shouldListenForFingerprint(isUdfpsEnrolled());
         final boolean runningOrRestarting = mFingerprintRunningState == BIOMETRIC_STATE_RUNNING
                 || mFingerprintRunningState == BIOMETRIC_STATE_CANCELLING_RESTARTING;
         if (runningOrRestarting && !shouldListenForFingerprint) {
@@ -2261,7 +2268,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
             return;
         }
         mHandler.removeCallbacks(mRetryFaceAuthentication);
-        boolean shouldListenForFace = shouldListenForFace();
+        boolean shouldListenForFace = !mIsDeviceInPocket && shouldListenForFace();
         if (mFaceRunningState == BIOMETRIC_STATE_RUNNING && !shouldListenForFace) {
             mIsFaceAuthUserRequested = false;
             stopListeningForFace();
@@ -2274,7 +2281,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
         BiometricAuthenticated fingerprint = mUserFingerprintAuthenticated.get(getCurrentUser());
         return mAssistantVisible && mKeyguardOccluded
                 && !(fingerprint != null && fingerprint.mAuthenticated)
-                && !mUserHasTrust.get(getCurrentUser(), false);
+                && !mUserHasTrust.get(getCurrentUser(), false) && !mIsDeviceInPocket;
     }
 
     private boolean shouldListenForFaceAssistant() {
@@ -2409,7 +2416,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
                 && !mKeyguardGoingAway && biometricEnabledForUser && !mLockIconPressed
                 && strongAuthAllowsScanning && mIsPrimaryUser
                 && (!mSecureCameraLaunched || mOccludingAppRequestingFace)
-                && !faceAuthenticated;
+                && !faceAuthenticated && !mIsDeviceInPocket;
 
         if (shouldListen && mFaceUnlockBehavior == FACE_UNLOCK_BEHAVIOR_SWIPE && !mBouncerFullyShown){
             shouldListen = false;
