@@ -1223,12 +1223,12 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
 
         final ActivityInfo aInfo = resolveActivityInfoForIntent(intent, resolvedType, userId, callingUid);
         if (aInfo != null) {
-            if (getAppLockManagerService().requireUnlock(aInfo.packageName, mContext.getUserId())) {
+            if (getAppLockManagerService().requireUnlock(aInfo.packageName, userId)) {
                 getAppLockManagerService().unlock(aInfo.packageName, pkg -> {
                     mContext.getMainExecutor().execute(() -> {
                         activityStarter.execute();
                     });
-                }, null /* cancelCallback */, mContext.getUserId());
+                }, null /* cancelCallback */, userId);
                 return ActivityManager.START_ABORTED;
             }
         }
@@ -1759,8 +1759,7 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
         }
         final String packageName = getTaskPackageName(task);
         if (packageName != null) {
-            final int userId = mContext.getUserId();
-            if (getAppLockManagerService().requireUnlock(packageName, userId)) {
+            if (getAppLockManagerService().requireUnlock(packageName, task.mUserId)) {
                 getAppLockManagerService().unlock(packageName,
                 pkg -> {
                     mContext.getMainExecutor().execute(() -> {
@@ -1771,7 +1770,7 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
                 pkg -> {
                     // Send user to recents
                     getStatusBarManagerInternal().showRecentApps(false);
-                }, userId);
+                }, task.mUserId);
                 return ActivityManager.START_ABORTED;
             }
         }
@@ -3600,7 +3599,7 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
         }
         final String packageName = getTaskPackageName(task);
         if (packageName != null && getAppLockManagerService().requireUnlock(
-                packageName, mContext.getUserId())) {
+                packageName, task.mUserId)) {
             return null;
         }
         // Don't call this while holding the lock as this operation might hit the disk.
@@ -5286,14 +5285,14 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
             final ActivityInfo aInfo = resolveActivityInfoForIntent(intents[0], resolvedTypes[0], userId,
                 realCallingUid);
             if (aInfo != null) {
-                if (getAppLockManagerService().requireUnlock(aInfo.packageName, mContext.getUserId())) {
+                if (getAppLockManagerService().requireUnlock(aInfo.packageName, userId)) {
                     getAppLockManagerService().unlock(aInfo.packageName, pkg -> {
                         mContext.getMainExecutor().execute(() ->
                             getActivityStartController().startActivitiesInPackage(uid, realCallingPid,
                                 realCallingUid, callingPackage, callingFeatureId, intents, resolvedTypes,
                                 resultTo, options, userId, validateIncomingUser, originatingPendingIntent,
                                 allowBackgroundActivityStart));
-                    }, null /* cancelCallback */, mContext.getUserId());
+                    }, null /* cancelCallback */, userId);
                     return ActivityManager.START_ABORTED;
                 }
             }
@@ -5314,7 +5313,7 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
             final ActivityInfo aInfo = resolveActivityInfoForIntent(intent, resolvedType, userId,
                 realCallingUid);
             if (aInfo != null) {
-                if (getAppLockManagerService().requireUnlock(aInfo.packageName, mContext.getUserId())) {
+                if (getAppLockManagerService().requireUnlock(aInfo.packageName, userId)) {
                     getAppLockManagerService().unlock(aInfo.packageName, pkg -> {
                         mContext.getMainExecutor().execute(() ->
                             getActivityStartController().startActivityInPackage(uid, realCallingPid,
@@ -5322,7 +5321,7 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
                                 resultTo, resultWho, requestCode, startFlags, options, userId, inTask,
                                 reason, validateIncomingUser, originatingPendingIntent,
                                 allowBackgroundActivityStart));
-                    }, null /* cancelCallback */, mContext.getUserId());
+                    }, null /* cancelCallback */, userId);
                     return ActivityManager.START_ABORTED;
                 }
             }
