@@ -44,10 +44,6 @@
     <string name="quick_settings_sound_mute">Senyap</string>
     <!-- SystemUI Tuner -->
     <string name="statusbar_items_title">Ikon bilah status</string>
-    <string name="lockscreen_default">Default</string>
-    <string name="lockscreen_hidden">Tidak ada</string>
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Usap dari ikon untuk meluncurkan</string>
     <!-- Advanced Reboot -->
     <string name="global_action_restart_advanced">Lanjutan</string>
     <string name="global_action_restart_recovery">Pemulihan</string>
@@ -86,8 +82,8 @@
     <string name="guts_force_close_app">Tutup aplikasi</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">Ganti kartu data</string>
-    <string name="qs_data_switch_changed_1">Pindah kartu data ke SIM 1.</string>
-    <string name="qs_data_switch_changed_2">Pindah kartu data ke SIM 2.</string>
+    <string name="qs_data_switch_changed_1">Gunakan SIM 1 untuk Data Seluler</string>
+    <string name="qs_data_switch_changed_2">Gunakan SIM 2 untuk Data Seluler</string>
     <!-- Names of the status bar icons. -->
     <string name="status_bar_call_strength">Kekuatan panggilan</string>
     <string name="status_bar_nfc">NFC</string>
@@ -182,4 +178,6 @@
     <string name="tristate_rotation_270">Lanskap (270°)</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Tangkapan Layar dihapus</string>
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">Mengenali wajah...</string>
 </resources>
