@@ -44,10 +44,6 @@
     <string name="quick_settings_sound_mute">Sessiz</string>
     <!-- SystemUI Tuner -->
     <string name="statusbar_items_title">Durum çubuğu simgesi</string>
-    <string name="lockscreen_default">Varsayılan</string>
-    <string name="lockscreen_hidden">Hiçbiri</string>
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Başlatmak için simgeyi kaydırın</string>
     <!-- Advanced Reboot -->
     <string name="global_action_restart_advanced">Gelişmiş</string>
     <string name="global_action_restart_recovery">Kurtarma</string>
@@ -182,4 +178,6 @@
     <string name="tristate_rotation_270">Yatay (270°)</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Ekran görüntüsü silindi</string>
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">Yüz tanınıyor...</string>
 </resources>
