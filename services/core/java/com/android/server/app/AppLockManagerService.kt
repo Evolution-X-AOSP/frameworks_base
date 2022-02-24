@@ -313,15 +313,11 @@ class AppLockManagerService(private val context: Context) :
                 },
                 PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
             )
-            if (timeout == 0L) {
-                pendingIntent.send()
-            } else {
-                alarmManager.setExactAndAllowWhileIdle(
-                    AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                    SystemClock.elapsedRealtime() + timeout,
-                    pendingIntent
-                )
-            }
+            alarmManager.setExactAndAllowWhileIdle(
+                AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                SystemClock.elapsedRealtime() + timeout,
+                pendingIntent
+            )
             alarmsMutex.withLock {
                 scheduledAlarms[pkg] = pendingIntent
             }
@@ -472,7 +468,7 @@ class AppLockManagerService(private val context: Context) :
     /**
      * Set auto lock timeout.
      *
-     * @param timeout the timeout in milliseconds. Must be >= 0.
+     * @param timeout the timeout in milliseconds. Must be >= 5.
      * @param userId the user id of the caller.
      * @throws [SecurityException] if caller does not have permission
      *     [Manifest.permissions.MANAGE_APP_LOCK].
@@ -480,8 +476,8 @@ class AppLockManagerService(private val context: Context) :
     @RequiresPermission(Manifest.permission.MANAGE_APP_LOCK)
     override fun setTimeout(timeout: Long, userId: Int) {
         logD("setTimeout: timeout = $timeout, userId = $userId")
-        if (timeout < 0L) {
-            throw IllegalArgumentException("Timeout must be greater than or equal to 0")
+        if (timeout < 5L) {
+            throw IllegalArgumentException("Timeout must be greater than or equal to 5")
         }
         enforceCallingPermission("setTimeout")
         val actualUserId = getActualUserId(userId, "setTimeout")
