@@ -94,7 +94,7 @@ public final class AppLockManager {
      * Set auto lock timeout.
      * Caller must hold {@link android.permission.MANAGE_APP_LOCK}.
      *
-     * @param timeout the timeout in milliseconds. Must be >= 5.
+     * @param timeout the timeout in milliseconds. Must be >= 0.
      * @param userId the user id given by the caller.
      */
     @UserHandleAware
