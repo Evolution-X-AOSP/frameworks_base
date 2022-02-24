@@ -44,10 +44,6 @@
     <string name="quick_settings_sound_mute">消音</string>
     <!-- SystemUI Tuner -->
     <string name="statusbar_items_title">ステータスバーのアイコン</string>
-    <string name="lockscreen_default">既定</string>
-    <string name="lockscreen_hidden">なし</string>
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">アイコンをスワイプして起動</string>
     <!-- Advanced Reboot -->
     <string name="global_action_restart_advanced">高度な再起動</string>
     <string name="global_action_restart_recovery">リカバリー</string>
@@ -182,4 +178,6 @@
     <string name="tristate_rotation_270">横向き (270°)</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">スクリーンショットを削除しました</string>
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">顔を認識中...</string>
 </resources>
