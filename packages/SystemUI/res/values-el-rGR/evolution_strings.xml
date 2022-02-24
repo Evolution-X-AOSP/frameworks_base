@@ -44,10 +44,6 @@
     <string name="quick_settings_sound_mute">Σίγαση</string>
     <!-- SystemUI Tuner -->
     <string name="statusbar_items_title">Εικονίδιο γραμμής κατάστασης</string>
-    <string name="lockscreen_default">Προεπιλογή</string>
-    <string name="lockscreen_hidden">Κανένα</string>
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Σύρετε από το εικονίδιο για εκκίνηση</string>
     <!-- Advanced Reboot -->
     <string name="global_action_restart_advanced">Για προχωρημένους</string>
     <string name="global_action_restart_recovery">Ανάκτηση</string>
@@ -86,8 +82,8 @@
     <string name="guts_force_close_app">Κλείσιμο εφαρμογής</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">Αλλαγή κάρτας για τα δεδομένα</string>
-    <string name="qs_data_switch_changed_1">Μετάβαση χρήσης δεδομένων στην κάρτα στη SIM 1.</string>
-    <string name="qs_data_switch_changed_2">Μετάβαση χρήσης δεδομένων στην κάρτα στη SIM 2.</string>
+    <string name="qs_data_switch_changed_1">Χρήση SIM 1 για δεδομένα κινητής τηλεφωνίας</string>
+    <string name="qs_data_switch_changed_2">Χρήση SIM 2 για δεδομένα κινητής τηλεφωνίας</string>
     <!-- Names of the status bar icons. -->
     <string name="status_bar_call_strength">Δύναμη κλήσης</string>
     <string name="status_bar_nfc">NFC</string>
@@ -182,4 +178,6 @@
     <string name="tristate_rotation_270">Οριζόντια (270°)</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Το στιγμιότυπο οθόνης διαγράφηκε</string>
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">Αναγνώριση προσώπου...</string>
 </resources>
