@@ -44,10 +44,6 @@
     <string name="quick_settings_sound_mute">无声</string>
     <!-- SystemUI Tuner -->
     <string name="statusbar_items_title">状态栏图标</string>
-    <string name="lockscreen_default">默认</string>
-    <string name="lockscreen_hidden">无</string>
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">滑动图标以启动</string>
     <!-- Advanced Reboot -->
     <string name="global_action_restart_advanced">高级</string>
     <string name="global_action_restart_recovery">恢复模式</string>
@@ -86,8 +82,8 @@
     <string name="guts_force_close_app">关闭应用</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">更改数据卡</string>
-    <string name="qs_data_switch_changed_1">切换数据卡到 SIM 卡 1</string>
-    <string name="qs_data_switch_changed_2">切换数据卡到 SIM 卡 2</string>
+    <string name="qs_data_switch_changed_1">设置卡 1 为数据卡</string>
+    <string name="qs_data_switch_changed_2">设置卡 2 为数据卡</string>
     <!-- Names of the status bar icons. -->
     <string name="status_bar_call_strength">通话强度</string>
     <string name="status_bar_nfc">NFC 近场通讯</string>
@@ -182,4 +178,6 @@
     <string name="tristate_rotation_270">横向 (270°)</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">屏幕截图已删除</string>
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">正在识别面部...</string>
 </resources>
