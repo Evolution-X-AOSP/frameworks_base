@@ -221,7 +221,6 @@ public class UdfpsEnrollHelper {
     }
 
     void animateIfLastStep() {
-        Log.d(TAG, "animateIfLastStep: mRemainingSteps = " + mRemainingSteps);
         if (mListener == null) {
             Log.e(TAG, "animateIfLastStep, null listener");
             return;

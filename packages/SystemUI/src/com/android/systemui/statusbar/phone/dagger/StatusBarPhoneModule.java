@@ -227,10 +227,10 @@ public interface StatusBarPhoneModule {
             KeyguardUnlockAnimationController keyguardUnlockAnimationController,
             UnlockedScreenOffAnimationController unlockedScreenOffAnimationController,
             Optional<StartingSurface> startingSurfaceOptional,
+            TunerService tunerService,
             BurnInProtectionController burnInProtectionController,
             TaskHelper taskHelper,
-            SecureLockscreenQSDisabler secureLockscreenQSDisabler,
-            TunerService tunerService) {
+            SecureLockscreenQSDisabler secureLockscreenQSDisabler) {
         return new StatusBar(
                 context,
                 notificationsController,
@@ -321,9 +321,9 @@ public interface StatusBarPhoneModule {
                 keyguardUnlockAnimationController,
                 unlockedScreenOffAnimationController,
                 startingSurfaceOptional,
+                tunerService,
                 burnInProtectionController,
                 taskHelper,
-                secureLockscreenQSDisabler,
-                tunerService);
+                secureLockscreenQSDisabler);
     }
 }

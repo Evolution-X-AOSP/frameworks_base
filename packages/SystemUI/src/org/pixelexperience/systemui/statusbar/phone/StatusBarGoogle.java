@@ -240,10 +240,10 @@ public class StatusBarGoogle extends StatusBar {
                            WallpaperNotifier wallpaperNotifier,
                            Optional<ReverseChargingViewController> reverseChargingViewController,
                            Lazy<Optional<NotificationVoiceReplyClient>> notificationVoiceReplyClient,
+                           TunerService tunerService,
                            BurnInProtectionController burnInProtectionController,
                            TaskHelper taskHelper,
-                           SecureLockscreenQSDisabler secureLockscreenQSDisabler,
-                           TunerService tunerService) {
+                           SecureLockscreenQSDisabler secureLockscreenQSDisabler) {
         super(context, notificationsController, lightBarController, autoHideController, keyguardUpdateMonitor,
                 signalPolicy, pulseExpansionHandler, notificationWakeUpCoordinator, keyguardBypassController,
                 keyguardStateController, headsUpManagerPhone, dynamicPrivacyController, bypassHeadsUpNotifier,
@@ -266,7 +266,7 @@ public class StatusBarGoogle extends StatusBar {
                 brightnessSliderFactory, chargingRippleAnimationController, ongoingCallController, animationScheduler,
                 locationPublisher, statusBarIconController, lockscreenShadeTransitionController, featureFlags,
                 keyguardUnlockAnimationController, unlockedScreenOffAnimationController, startingSurfaceOptional,
-                burnInProtectionController, taskHelper, secureLockscreenQSDisabler, tunerService);
+                tunerService, burnInProtectionController, taskHelper, secureLockscreenQSDisabler);
         mSmartSpaceController = smartSpaceController;
         mWallpaperNotifier = wallpaperNotifier;
         mReverseChargingViewController = reverseChargingViewController;
