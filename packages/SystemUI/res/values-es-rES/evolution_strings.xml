@@ -44,10 +44,6 @@
     <string name="quick_settings_sound_mute">Silenciar</string>
     <!-- SystemUI Tuner -->
     <string name="statusbar_items_title">Icono de barra de estado</string>
-    <string name="lockscreen_default">Por defecto</string>
-    <string name="lockscreen_hidden">Ninguno</string>
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Deslizar desde el icono para abrir</string>
     <!-- Advanced Reboot -->
     <string name="global_action_restart_advanced">Avanzado</string>
     <string name="global_action_restart_recovery">Recovery</string>
@@ -182,4 +178,6 @@
     <string name="tristate_rotation_270">Apaisado (270º)</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Captura de pantalla eliminada</string>
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">Reconociendo cara...</string>
 </resources>
