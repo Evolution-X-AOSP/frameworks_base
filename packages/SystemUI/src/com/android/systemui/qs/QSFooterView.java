@@ -76,6 +76,7 @@ public class QSFooterView extends FrameLayout {
     private ConnectivityManager mConnectivityManager;
     private WifiManager mWifiManager;
     private SubscriptionManager mSubManager;
+    private boolean mShouldShowDataUsage;
 
     public QSFooterView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -209,7 +210,7 @@ public class QSFooterView extends FrameLayout {
         }
 
         if (mUsageText == null) return;
-        if (headerExpansionFraction == 1.0f) {
+        if (mShouldShowDataUsage && headerExpansionFraction == 1.0f) {
             mUsageText.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -244,7 +245,11 @@ public class QSFooterView extends FrameLayout {
                 Settings.System.QS_FOOTER_SHOW_EDIT, 1,
                 UserHandle.USER_CURRENT) == 1;
 
-        if (mExpanded) {
+        mShouldShowDataUsage = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.QS_FOOTER_DATA_USAGE, 1,
+                UserHandle.USER_CURRENT) == 1;
+
+        if (mExpanded && mShouldShowDataUsage) {
             mUsageText.setVisibility(View.VISIBLE);
             mEditButton.setVisibility(mShowEditIcon ? View.VISIBLE : View.INVISIBLE);
             mEditLayout.setVisibility(mShowEditIcon ? View.VISIBLE : View.INVISIBLE);
