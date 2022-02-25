@@ -43,7 +43,4 @@
          the sensor embedded in the power key and listening all the time
          causes a poor experience. -->
     <bool name="config_fingerprintWakeAndUnlock">true</bool>
-
-    <!-- Whether to show VoLTE icon in the status bar -->
-    <bool name="config_display_volte">true</bool>
 </resources>
