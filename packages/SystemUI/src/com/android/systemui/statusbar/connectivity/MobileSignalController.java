@@ -127,7 +127,6 @@ public class MobileSignalController extends SignalController<MobileState, Mobile
     private ImsManager mImsManager;
     private FeatureConnector<ImsManager> mFeatureConnector;
     private int mCallState = TelephonyManager.CALL_STATE_IDLE;
-    private boolean mShowVolteIcon;
     private boolean mDataDisabledIcon;
     private boolean mIsVowifiAvailable;
     private boolean mRoamingIconAllowed;
@@ -256,8 +255,6 @@ public class MobileSignalController extends SignalController<MobileState, Mobile
         mLastState.networkNameData = mCurrentState.networkNameData = networkName;
         mLastState.enabled = mCurrentState.enabled = hasMobileData;
         mLastState.iconGroup = mCurrentState.iconGroup = mDefaultIcons;
-
-        mShowVolteIcon = mContext.getResources().getBoolean(R.bool.config_display_volte);
 
         int phoneId = mSubscriptionInfo.getSimSlotIndex();
         mFeatureConnector = new FeatureConnector(mContext, phoneId,
@@ -1123,9 +1120,7 @@ public class MobileSignalController extends SignalController<MobileState, Mobile
     private final BroadcastReceiver mVolteSwitchObserver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
             Log.d(mTag, "action=" + intent.getAction());
-            if (mShowVolteIcon) {
-                notifyListeners();
-            }
+            notifyListeners();
         }
     };
 }

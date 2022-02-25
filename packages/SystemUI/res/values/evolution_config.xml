@@ -65,9 +65,6 @@
     <integer name="onthego_notification_shade_dialog_short_timeout">3000</integer>
     <integer name="onthego_notification_shade_dialog_long_timeout">6000</integer>
 
-    <!-- Whether to show VoLTE icon in the status bar -->
-    <bool name="config_display_volte">true</bool>
-
     <!-- FPSInfoService FPS node file path -->
     <string name="config_fpsInfoSysNode" translatable="false"></string>
 
