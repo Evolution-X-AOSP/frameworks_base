@@ -5747,6 +5747,12 @@ public final class Settings {
         public static final String POWERMENU_ONTHEGO = "powermenu_onthego";
 
         /**
+         * Whether to display the Device controls option in the power menu
+         * @hide
+         */
+        public static final String POWERMENU_DEVICECONTROLS = "powermenu_devicecontrols";
+
+        /**
          * Disable power menu on secure lock screens
          *
          * @hide
