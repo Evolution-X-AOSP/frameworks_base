@@ -63,6 +63,7 @@
         <item>lockdown</item>
         <item>torch</item>
         <item>onthego</item>
+        <item>devicecontrols</item>
         <item>bugreport</item>
     </string-array>
 
