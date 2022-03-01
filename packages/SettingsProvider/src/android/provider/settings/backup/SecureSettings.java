@@ -228,5 +228,6 @@ public class SecureSettings {
         Settings.Secure.QUICK_SETTINGS_TILES_ANIM_STYLE,
         Settings.Secure.QUICK_SETTINGS_TILES_ANIM_DURATION,
         Settings.Secure.QUICK_SETTINGS_TILES_ANIM_INTERPOLATOR,
+        Settings.Secure.IGNORE_AUTH_CONFIRMATION,
     };
 }
