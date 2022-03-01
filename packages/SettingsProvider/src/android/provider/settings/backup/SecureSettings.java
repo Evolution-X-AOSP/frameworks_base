@@ -249,5 +249,6 @@ public class SecureSettings {
         Settings.Secure.DOZE_ON_CHARGE,
         Settings.Secure.QUICK_SETTINGS_TILES_VIBRATE,
         Settings.Secure.NFC_SOUNDS,
+        Settings.Secure.IGNORE_AUTH_CONFIRMATION,
     };
 }
