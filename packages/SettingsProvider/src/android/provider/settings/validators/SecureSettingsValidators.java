@@ -381,8 +381,10 @@ public class SecureSettingsValidators {
         VALIDATORS.put(Secure.HEARING_AID_SYSTEM_SOUNDS_ROUTING,
                 new DiscreteValueValidator(new String[] {"0", "1", "2"}));
         VALIDATORS.put(Secure.ACCESSIBILITY_FONT_SCALING_HAS_BEEN_CHANGED, BOOLEAN_VALIDATOR);
+        // Evolution X additions
         VALIDATORS.put(Secure.FEATURE_TOUCH_HOVERING, BOOLEAN_VALIDATOR);
         VALIDATORS.put(Secure.SWAP_CAPACITIVE_KEYS, BOOLEAN_VALIDATOR);
         VALIDATORS.put(Secure.HIDE_DEVELOPER_STATUS, ANY_STRING_VALIDATOR);
+        VALIDATORS.put(Secure.IGNORE_AUTH_CONFIRMATION, BOOLEAN_VALIDATOR);
     }
 }

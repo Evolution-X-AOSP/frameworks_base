@@ -100,6 +100,7 @@ public class SystemSettings {
         Settings.System.CAMERA_FLASH_NOTIFICATION,
         Settings.System.SCREEN_FLASH_NOTIFICATION,
         Settings.System.SCREEN_FLASH_NOTIFICATION_COLOR,
+        // Evolution X additions
         Settings.System.AMBIENT_WAKE_GESTURES,
     };
 }
