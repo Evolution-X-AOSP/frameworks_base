@@ -32,6 +32,8 @@ import android.hardware.biometrics.PromptInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -506,6 +508,12 @@ public abstract class AuthBiometricView extends LinearLayout {
                 break;
 
             case STATE_PENDING_CONFIRMATION:
+                if (Settings.Secure.getIntForUser(mContext.getContentResolver(), 
+                        Settings.Secure.IGNORE_AUTH_CONFIRMATION,
+                        0, UserHandle.USER_CURRENT) == 1) {
+                    updateState(STATE_AUTHENTICATED);
+                    break;
+                }
                 removePendingAnimations();
                 mNegativeButton.setVisibility(View.GONE);
                 mCancelButton.setVisibility(View.VISIBLE);

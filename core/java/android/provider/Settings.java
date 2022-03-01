@@ -11642,6 +11642,13 @@ public final class Settings {
         public static final String TETHERING_ALLOW_VPN_UPSTREAMS = "tethering_allow_vpn_upstreams";
 
         /**
+         * Whether to skip biometric auth confirmation
+         * @hide
+         */
+        @Readable
+        public static final String IGNORE_AUTH_CONFIRMATION = "ignore_auth_confirmation";
+
+        /**
          * Controls whether the people strip is enabled.
          * @hide
          */
