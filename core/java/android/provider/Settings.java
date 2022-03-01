@@ -6108,12 +6108,12 @@ public final class Settings {
         public static final String ON_THE_GO_CAMERA = "on_the_go_camera";
 
         /**
-         * Enable fod detection even when screen is off
+         * Enable UDFPS detection even when screen is off
          * Default value is 0
          * @hide
          */
         @Readable
-        public static final String SCREEN_OFF_FOD = "screen_off_fod";
+        public static final String UDFPS_SCREEN_OFF = "udfps_screen_off";
 
         /**
          * Whether to pulse ambient on new music tracks
@@ -6138,10 +6138,10 @@ public final class Settings {
         public static final String UDFPS_HAPTIC_FEEDBACK = "udfps_haptic_feedback";
 
         /**
-         * FOD night light
+         * Whether to disable Night Light feature during UDFPS unlock
          * @hide
          */
-        public static final String FOD_NIGHT_LIGHT = "fod_night_light";
+        public static final String UDFPS_NIGHT_LIGHT = "udfps_night_light";
 
         /**
          * Gestures nav: left long back swipe action

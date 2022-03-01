@@ -28,8 +28,8 @@
     -->
     <integer name="config_udfpsHbmType">1</integer>
 
-    <!-- Udfps vendor code -->
-    <integer name="config_udfps_vendor_code">22</integer>
+    <!-- UDFPS vendor code -->
+    <integer name="config_udfpsVendorCode">22</integer>
 
     <!-- Max visible notification icons -->
     <integer name="config_maxVisibleNotificationIcons">4</integer>

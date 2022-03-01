@@ -49,7 +49,7 @@
     <java-symbol type="array" name="custom_config_globalActionsList" />
 
     <!-- Whether device supports an alt. ambient display -->
-    <java-symbol type="bool" name="config_alt_ambient_display"/>
+    <java-symbol type="bool" name="config_supportsAltAmbientDisplay"/>
 
     <!-- HW keys binding -->
     <java-symbol type="anim" name="custom_app_in" />
@@ -103,8 +103,8 @@
     <!-- Switch USB controller on Asus ROG devices-->
     <java-symbol type="bool" name="config_switchUsbController" />
 
-    <!-- Whether to disable Night Light feature on UDFPS unlock -->
-    <java-symbol type="bool" name="disable_fod_night_light"/>
+    <!-- Whether to disable Night Light feature during UDFPS unlock -->
+    <java-symbol type="bool" name="config_udfpsDisableNightLight"/>
 
     <!-- Whether to force enable multi resolution configuration for camera -->
     <java-symbol type="bool" name="config_forceMultiResolution" />

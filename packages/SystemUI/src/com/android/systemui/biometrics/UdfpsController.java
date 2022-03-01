@@ -173,7 +173,7 @@ public class UdfpsController implements DozeReceiver {
 
     private final int mUdfpsVendorCode;
     private final SystemSettings mSystemSettings;
-    private boolean mScreenOffFod;
+    private boolean mScreenOffUdfps;
     private boolean mDisableNightMode;
     private boolean mNightModeActive;
     private int mAutoModeState;
@@ -338,7 +338,7 @@ public class UdfpsController implements DozeReceiver {
             mFgExecutor.execute(() -> {
                 final boolean isDozing = mStatusBarStateController.isDozing() || !mScreenOn;
                 if (acquiredInfo == 6 && vendorCode == mUdfpsVendorCode) {
-                    if ((mScreenOffFod && isDozing) /** Screen off and dozing */ ||
+                    if ((mScreenOffUdfps && isDozing) /** Screen off and dozing */ ||
                             (mKeyguardUpdateMonitor.isDreaming() && mScreenOn) /** AOD or pulse */) {
                         if (mContext.getResources().getBoolean(R.bool.config_pulseOnFingerDown)) {
                             mContext.sendBroadcastAsUser(new Intent(PULSE_ACTION),
@@ -641,32 +641,32 @@ public class UdfpsController implements DozeReceiver {
         context.registerReceiver(mBroadcastReceiver, filter);
 
         udfpsHapticsSimulator.setUdfpsController(this);
-        mUdfpsVendorCode = mContext.getResources().getInteger(R.integer.config_udfps_vendor_code);
+        mUdfpsVendorCode = mContext.getResources().getInteger(R.integer.config_udfpsVendorCode);
         if (EvolutionUtils.isPackageInstalled(mContext, "com.evolution.udfps.resources")) {
             mUdfpsAnimation = new UdfpsAnimation(mContext, mWindowManager, mSensorProps);
         }
-        mDisableNightMode = mContext.getResources().getBoolean(com.android.internal.R.bool.disable_fod_night_light);
+        mDisableNightMode = mContext.getResources().getBoolean(com.android.internal.R.bool.config_udfpsDisableNightLight);
         mSystemSettings = systemSettings;
-        updateScreenOffFodState();
-        mSystemSettings.registerContentObserver(Settings.System.SCREEN_OFF_FOD,
+        updateScreenOffUdfpsState();
+        mSystemSettings.registerContentObserver(Settings.System.UDFPS_SCREEN_OFF,
             new ContentObserver(mMainHandler) {
                 @Override
                 public void onChange(boolean selfChange, Uri uri) {
-                    if (uri.getLastPathSegment().equals(Settings.System.SCREEN_OFF_FOD)) {
-                        updateScreenOffFodState();
+                    if (uri.getLastPathSegment().equals(Settings.System.UDFPS_SCREEN_OFF)) {
+                        updateScreenOffUdfpsState();
                     }
                 }
             }
         );
     }
 
-    private void updateScreenOffFodState() {
-        mScreenOffFod = mSystemSettings.getInt(Settings.System.SCREEN_OFF_FOD, 1) == 1;
+    private void updateScreenOffUdfpsState() {
+        mScreenOffUdfps = mSystemSettings.getInt(Settings.System.UDFPS_SCREEN_OFF, 1) == 1;
     }
 
     private boolean isNightLightEnabled() {
        return Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.FOD_NIGHT_LIGHT, 1) == 1;
+                Settings.System.UDFPS_NIGHT_LIGHT, 1) == 1;
     }
 
     private void disableNightMode() {
