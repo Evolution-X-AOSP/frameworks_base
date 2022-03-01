@@ -370,13 +370,13 @@ public class MobileSignalController extends SignalController<MobileState, Mobile
                 Settings.System.ROAMING_INDICATOR_ICON, 1,
                 UserHandle.USER_CURRENT) == 1;
         mVoLTEicon = Settings.System.getIntForUser(resolver,
-                Settings.System.VOLTE_ICON_STYLE, 0,
+                Settings.System.VOLTE_ICON_STYLE, 1,
                 UserHandle.USER_CURRENT);
         mOverride = Settings.System.getIntForUser(resolver,
                 Settings.System.VOLTE_VOWIFI_OVERRIDE, 1,
                 UserHandle.USER_CURRENT) == 1;
         mVoWIFIicon = Settings.System.getIntForUser(resolver,
-                Settings.System.VOWIFI_ICON_STYLE, 0,
+                Settings.System.VOWIFI_ICON_STYLE, 1,
                 UserHandle.USER_CURRENT);
         mConfig = Config.readConfig(mContext);
         setConfiguration(mConfig);
