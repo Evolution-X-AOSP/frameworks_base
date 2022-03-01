@@ -377,5 +377,6 @@ public class SecureSettingsValidators {
                 new InclusiveIntegerRangeValidator(0, 7));
         VALIDATORS.put(Secure.SHOW_WIFI_STANDARD_ICON, BOOLEAN_VALIDATOR);
         VALIDATORS.put(Secure.FACE_UNLOCK_METHOD, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(Secure.IGNORE_AUTH_CONFIRMATION, BOOLEAN_VALIDATOR);
     }
 }
