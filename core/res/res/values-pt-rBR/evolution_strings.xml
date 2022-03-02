@@ -17,9 +17,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced reboot -->
     <string name="reboot_to_recovery_title">Recuperação</string>
-    <string name="reboot_to_recovery_message">Reiniciando para o recovery</string>
+    <string name="reboot_to_recovery_message">Reiniciando...</string>
     <string name="reboot_to_bootloader_title">Bootloader</string>
-    <string name="reboot_to_bootloader_message">Reiniciando para o bootloader</string>
+    <string name="reboot_to_bootloader_message">Reiniciando...</string>
     <string name="reboot_title">Reiniciar</string>
     <string name="reboot_message">Reiniciando...</string>
     <!-- Cycle through ringer modes -->
