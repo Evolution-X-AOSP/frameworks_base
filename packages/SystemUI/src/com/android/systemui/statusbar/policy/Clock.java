@@ -91,7 +91,7 @@ public class Clock extends TextView implements
     protected SimpleDateFormat mClockFormat;
     private SimpleDateFormat mContentDescriptionFormat;
     protected Locale mLocale;
-    private Handler autoHideHandler = new Handler();
+    protected Handler autoHideHandler = new Handler();
 
     private static final int HIDE_DURATION = 60; // 1 minute
     private static final int SHOW_DURATION = 5; // 5 seconds
@@ -128,9 +128,9 @@ public class Clock extends TextView implements
     private Handler mSecondsHandler;
     private SettingsObserver mSettingsObserver;
 
-    private boolean mClockAutoHide;
-    private int mHideDuration = HIDE_DURATION;
-    private int mShowDuration = SHOW_DURATION;
+    protected boolean mClockAutoHide;
+    protected int mHideDuration = HIDE_DURATION;
+    protected int mShowDuration = SHOW_DURATION;
     private Handler mHandler = new Handler();
 
     /**

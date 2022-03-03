@@ -51,11 +51,24 @@ public class ClockRight extends Clock {
         updateClockVisibility();
     }
 
+    private void autoHideClock() {
+        setVisibility(View.GONE);
+        autoHideHandler.postDelayed(()->updateClockVisibility(), mHideDuration * 1000);
+    }
+
     protected void updateClockVisibility() {
         boolean visible = mClockStyle == STYLE_CLOCK_RIGHT && mShowClock
                 && mClockVisibleByPolicy && mClockVisibleByUser;
         int visibility = visible ? View.VISIBLE : View.GONE;
+        try {
+            autoHideHandler.removeCallbacksAndMessages(null);
+        } catch (NullPointerException e) {
+            // Do nothing
+        }
         setVisibility(visibility);
+        if (mClockAutoHide && visible) {
+            autoHideHandler.postDelayed(()->autoHideClock(), mShowDuration * 1000);
+        }
     }
 
     public void disable(int state1, int state2, boolean animate) {
