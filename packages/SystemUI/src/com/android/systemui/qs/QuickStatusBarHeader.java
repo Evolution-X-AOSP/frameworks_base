@@ -55,6 +55,7 @@ import com.android.systemui.statusbar.phone.StatusBarIconController.TintedIconMa
 import com.android.systemui.statusbar.phone.StatusBarWindowView;
 import com.android.systemui.statusbar.phone.StatusIconContainer;
 import com.android.systemui.statusbar.policy.Clock;
+import com.android.systemui.statusbar.policy.ClockEQS;
 import com.android.systemui.statusbar.policy.VariableDateView;
 import com.android.systemui.statusbar.policy.NetworkTraffic;
 
@@ -158,7 +159,7 @@ public class QuickStatusBarHeader extends FrameLayout implements
         mNetworkTraffic = findViewById(R.id.networkTraffic);
 
         mClockContainer = findViewById(R.id.clock_container);
-        mClockView = findViewById(R.id.clock);
+        mClockView = findViewById(R.id.clock_eqs);
         mClockView.setQsHeader();
         mClockView.setOnClickListener(this);
         mClockView.setOnLongClickListener(this);
