@@ -114,5 +114,6 @@ public class SystemSettings {
         Settings.System.NOTIFICATION_VIBRATION_PATTERN,
         Settings.System.CUSTOM_NOTIFICATION_VIBRATION_PATTERN,
         Settings.System.DEFAULT_NOTIFICATION_TORCH,
+        Settings.System.HEADS_UP_NOTIFICATIONS_THRESHOLD,
     };
 }
