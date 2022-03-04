@@ -6437,6 +6437,13 @@ public final class Settings {
         public static final String STATUSBAR_COLORED_ICONS = "statusbar_colored_icons";
 
         /**
+         * Heads up notifications threshold
+         * Default 0
+         * @hide
+         */
+        public static final String HEADS_UP_NOTIFICATIONS_THRESHOLD = "heads_up_notifications_threshold";
+
+        /**
          * Heads up timeout configuration
          * @hide
          */
