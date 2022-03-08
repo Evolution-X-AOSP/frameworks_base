@@ -64,6 +64,7 @@ import androidx.annotation.Nullable;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.settingslib.Utils;
+import com.android.systemui.Dependency;
 import com.android.systemui.Gefingerpoken;
 import com.android.systemui.R;
 import com.android.systemui.animation.Interpolators;
@@ -86,6 +87,7 @@ import com.android.systemui.shared.system.QuickStepContract;
 import com.android.systemui.statusbar.phone.AutoHideController;
 import com.android.systemui.statusbar.phone.CentralSurfaces;
 import com.android.systemui.statusbar.phone.LightBarTransitionsController;
+import com.android.systemui.tuner.TunerService;
 import com.android.wm.shell.back.BackAnimation;
 import com.android.wm.shell.pip.Pip;
 
@@ -96,9 +98,13 @@ import java.util.concurrent.Executor;
 import java.util.function.Consumer;
 
 /** */
-public class NavigationBarView extends FrameLayout {
+public class NavigationBarView extends FrameLayout implements
+        TunerService.Tunable {
     final static boolean DEBUG = false;
     final static String TAG = "NavBarView";
+
+    private static final String NAVBAR_STYLE =
+            "system:" + Settings.System.NAVBAR_STYLE;
 
     final static boolean ALTERNATE_CAR_MODE_UI = false;
 
@@ -1111,6 +1117,8 @@ public class NavigationBarView extends FrameLayout {
         mEdgeBackGestureHandler.onNavBarAttached();
         requestApplyInsets();
         reorient();
+        final TunerService tunerService = Dependency.get(TunerService.class);
+        tunerService.addTunable(this, NAVBAR_STYLE);
         if (mRotationButtonController != null) {
             mRotationButtonController.registerListeners();
         }
@@ -1130,6 +1138,13 @@ public class NavigationBarView extends FrameLayout {
         }
 
         mEdgeBackGestureHandler.onNavBarDetached();
+    }
+
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        if (NAVBAR_STYLE.equals(key)) {
+            reloadNavIcons();
+        }
     }
 
     void dump(PrintWriter pw) {
