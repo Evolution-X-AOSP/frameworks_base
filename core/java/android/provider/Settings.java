@@ -6792,6 +6792,181 @@ public final class Settings {
                 "notification_guts_kill_app_button";
 
         /**
+         * Whether the battery light should be enabled (if hardware supports it)
+         * The value is boolean (1 or 0).
+         * @hide
+         */
+        public static final String BATTERY_LIGHT_ENABLED = "battery_light_enabled";
+
+        /**
+         * Whether the battery LED should be disabled when the battery is fully charged.
+         * The value is boolean (1 or 0).
+         * @hide
+         */
+        public static final String BATTERY_LIGHT_FULL_CHARGE_DISABLED =
+                "battery_light_full_charge_disabled";
+
+        /**
+         * Whether the battery LED should repeatedly flash when the battery is low
+         * on charge. The value is boolean (1 or 0).
+         * @hide
+         */
+        public static final String BATTERY_LIGHT_PULSE = "battery_light_pulse";
+
+        /**
+         * What color to use for the battery LED while charging - low
+         * @hide
+         */
+        public static final String BATTERY_LIGHT_LOW_COLOR = "battery_light_low_color";
+
+        /**
+         * What color to use for the battery LED while charging - medium
+         * @hide
+         */
+        public static final String BATTERY_LIGHT_MEDIUM_COLOR = "battery_light_medium_color";
+
+        /**
+         * What color to use for the battery LED while charging - full
+         * @hide
+         */
+        public static final String BATTERY_LIGHT_FULL_COLOR = "battery_light_full_color";
+
+        /**
+         * Contains the battery light maximum brightness to use.
+         * Values range from 1 to 255
+         * @hide
+         */
+        public static final String BATTERY_LIGHT_BRIGHTNESS_LEVEL =
+                "battery_light_brightness_level";
+
+        /**
+         * Contains the battery light maximum brightness to use when Do Not
+         * Disturb is active.
+         * Values range from 1 to 255
+         * @hide
+         */
+        public static final String BATTERY_LIGHT_BRIGHTNESS_LEVEL_ZEN =
+                "battery_light_brightness_level_zen";
+
+        /**
+         * Contains the notifications light maximum brightness to use.
+         * Values range from 1 to 255
+         * @hide
+         */
+        public static final String NOTIFICATION_LIGHT_BRIGHTNESS_LEVEL =
+                "notification_light_brightness_level";
+
+        /**
+         * Contains the notifications light maximum brightness to use when Do Not
+         * Disturb is active.
+         * Values range from 1 to 255
+         * @hide
+         */
+        public static final String NOTIFICATION_LIGHT_BRIGHTNESS_LEVEL_ZEN =
+                "notification_light_brightness_level_zen";
+
+        /**
+         * Whether to allow notifications with the screen on or DayDreams.
+         * The value is boolean (1 or 0). Default will always be false.
+         * @hide
+         */
+        public static final String NOTIFICATION_LIGHT_SCREEN_ON =
+                "notification_light_screen_on_enable";
+
+        /**
+         * What color to use for the notification LED by default
+         * @hide
+         */
+        public static final String NOTIFICATION_LIGHT_PULSE_DEFAULT_COLOR =
+                "notification_light_pulse_default_color";
+
+        /**
+         * How long to flash the notification LED by default
+         * @hide
+         */
+        public static final String NOTIFICATION_LIGHT_PULSE_DEFAULT_LED_ON =
+                "notification_light_pulse_default_led_on";
+
+        /**
+         * How long to wait between flashes for the notification LED by default
+         * @hide
+         */
+        public static final String NOTIFICATION_LIGHT_PULSE_DEFAULT_LED_OFF =
+                "notification_light_pulse_default_led_off";
+
+        /**
+         * What color to use for the missed call notification LED
+         * @hide
+         */
+        public static final String NOTIFICATION_LIGHT_PULSE_CALL_COLOR =
+                "notification_light_pulse_call_color";
+
+        /**
+         * How long to flash the missed call notification LED
+         * @hide
+         */
+        public static final String NOTIFICATION_LIGHT_PULSE_CALL_LED_ON =
+                "notification_light_pulse_call_led_on";
+
+        /**
+         * How long to wait between flashes for the missed call notification LED
+         * @hide
+         */
+        public static final String NOTIFICATION_LIGHT_PULSE_CALL_LED_OFF =
+                "notification_light_pulse_call_led_off";
+
+        /**
+         * What color to use for the voicemail notification LED
+         * @hide
+         */
+        public static final String NOTIFICATION_LIGHT_PULSE_VMAIL_COLOR =
+                "notification_light_pulse_vmail_color";
+
+        /**
+         * How long to flash the voicemail notification LED
+         * @hide
+         */
+        public static final String NOTIFICATION_LIGHT_PULSE_VMAIL_LED_ON =
+                "notification_light_pulse_vmail_led_on";
+
+        /**
+         * How long to wait between flashes for the voicemail notification LED
+         * @hide
+         */
+        public static final String NOTIFICATION_LIGHT_PULSE_VMAIL_LED_OFF =
+                "notification_light_pulse_vmail_led_off";
+
+        /**
+         * Whether to use the custom LED values for the notification pulse LED.
+         * 0 = 0ff, 1 = on
+         * @hide
+         */
+        public static final String NOTIFICATION_LIGHT_PULSE_CUSTOM_ENABLE =
+                "notification_light_pulse_custom_enable";
+
+        /**
+         * Which custom LED values to use for the notification pulse LED.
+         * @hide
+         */
+        public static final String NOTIFICATION_LIGHT_PULSE_CUSTOM_VALUES =
+                "notification_light_pulse_custom_values";
+
+        /**
+         * Whether we automatically generate notification LED colors or just
+         * use the boring default.
+         *
+         * @hide
+         */
+        public static final String NOTIFICATION_LIGHT_COLOR_AUTO =
+                "notification_light_color_auto";
+
+        /**
+         * Whether the notification light will be allowed when in zen mode during downtime
+         * @hide
+         */
+        public static final String ZEN_ALLOW_LIGHTS = "allow_lights";
+
+        /**
          * Whether the phone ringtone should be played in an increasing manner
          * 0 = 0ff, 1 = on
          * @hide
