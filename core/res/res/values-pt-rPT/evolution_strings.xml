@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2021 The Evolution X Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">Recuperação</string>
+    <string name="reboot_to_recovery_message">Reiniciar para recuperação</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Reiniciar para bootloader</string>
+    <string name="reboot_title">Reiniciar</string>
+    <string name="reboot_message">A reiniciar o sistema</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">As chamadas e as notificações vão tocar</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Pressione e mantenha pressionado o botão Ligar/Desligar para desbloquear</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_view_title">Modo Bolso ligado</string>
+    <string name="pocket_view_title_cancel">Para utilizar o seu telefone:</string>
+    <string name="pocket_view_top_tag_cancel">Não cubra a área azul do seu telefone e limpe qualquer terra ou poeira.</string>
+    <string name="pocket_view_top_tag_cancel2">Premir e segurar o botão ligar/desligar para forçar a saída do Modo Bolso.</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">É necessário reiniciar a UI do sistema</string>
+    <string name="systemui_restart_message">Para que todas as alterações tenham efeito, é necessário reiniciar a Ui do sistema. Reiniciar agora?</string>
+    <!-- AlertSlider modes -->
+</resources>

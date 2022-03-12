@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2019-2021 The Evolution X Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Label for UI element which allows deleting the screenshot [CHAR LIMIT=30] -->
+    <string name="screenshot_delete_label">Verwijderen</string>
+    <!-- Content description indicating that tapping the element will allow deleting the screenshot [CHAR LIMIT=NONE] -->
+    <string name="screenshot_delete_description">Schermafbeelding verwijderen</string>
+    <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">Cafeïne</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cafeïne uit</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cafeïne aan</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Ambiente Scherm</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambient display uit.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambient display aan.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display uitgeschakeld.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display ingeschakeld.</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">USB tethering</string>
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">Synchroniseren</string>
+    <string name="accessibility_quick_settings_sync_off">Synchronisatie uit</string>
+    <string name="accessibility_quick_settings_sync_on">Synchronisatie aan</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Synchronisatie uitgeschakeld</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Synchronisatie ingeschakeld</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Geluid</string>
+    <string name="quick_settings_sound_ring">Beltoon</string>
+    <string name="quick_settings_sound_vibrate">Trillen</string>
+    <string name="quick_settings_sound_mute">Dempen</string>
+    <!-- SystemUI Tuner -->
+    <string name="statusbar_items_title">Statusbalk icoon</string>
+    <string name="lockscreen_default">Standaard</string>
+    <string name="lockscreen_hidden">Geen</string>
+    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">Sleep vanaf icoon om te starten</string>
+    <!-- VPN -->
+    <string name="status_bar_vpn">VPN</string>
+    <!-- Advanced Reboot -->
+    <string name="global_action_restart_system">Systeem</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">Systeem UI</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">Screenshot</string>
+    <string name="quick_settings_region_screenshot_label">Gedeeltelijke screenshot</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">Zwevende meldingen</string>
+    <string name="accessibility_quick_settings_heads_up_off">Zwevende meldingen uit.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Zwevende meldingen aan.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Zwevende meldingen zijn uitgeschakeld.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Zwevende meldingen zijn ingeschakeld.</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s </xliff:g> - Zwevende meldingen worden voor 1 minuut niet getoond.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Peeking notificaties zijn gedempt voor <xliff:g id="number">%2$d</xliff:g> minuten.</string>
+    <!-- Running service button -->
+    <string name="accessibility_quick_settings_running_services">Open Actieve Services scherm.</string>
+    <!-- CPUInfo tile -->
+    <string name="quick_settings_cpuinfo_label">CPU Info</string>
+    <string name="accessibility_quick_settings_cpuinfo_off">CPU Info uitgeschakeld</string>
+    <string name="accessibility_quick_settings_cpuinfo_on">CPU Info ingeschakeld</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_off">CPU-info uitgeschakeld</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_on">CPU-info ingeschakeld</string>
+    <!-- Poweroff/Reboot/Recovery QS tile -->
+    <string name="quick_settings_poweroff_label">Uitschakelen</string>
+    <string name="quick_settings_reboot_label">Opnieuw opstarten</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">Altijd Aan Display</string>
+    <string name="quick_settings_aod_on_charge_label">AOD tijdens opladen</string>
+    <string name="quick_settings_aod_off_label">AOD uit</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD uit\nBatterijbesparing</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Geforceerd stoppen?</string>
+    <string name="force_stop_dlg_text">Als je een app geforceerd stopt kan deze onverwacht gedrag vertonen.</string>
+    <string name="guts_force_close_app">App sluiten</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">Gegevenskaart wijzigen</string>
+    <string name="qs_data_switch_toast_0">Momenteel is er geen Simkaart geplaatst</string>
+    <string name="qs_data_switch_toast_1">Momenteel is slechts één Simkaart geplaatst</string>
+    <string name="qs_data_switch_changed_1">Gegevenskaart omschakelen naar SIM 1.</string>
+    <string name="qs_data_switch_changed_2">Gegevenskaart omschakelen naar SIM 2.</string>
+    <!-- Name of the nfc status bar icon. -->
+    <string name="status_bar_nfc">NFC</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">NFC</string>
+    <!-- Navbar -->
+    <string name="systemui_tuner_navbar_title">Layout</string>
+    <string name="navigation_bar_format_title">Navbar formaat</string>
+    <string name="navigation_bar_inverse_title">Knoppen wisselen</string>
+    <string name="navigation_bar_inverse_summary">Wissel de volgorde van recente apps en terugknoppen</string>
+    <string name="navigation_bar_accessibility_dpad_left">Cursor links</string>
+    <string name="navigation_bar_accessibility_dpad_right">Cursor rechts</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Volumepaneel</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">Kompas</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Initialiseren\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Kompas uit</string>
+    <string name="accessibility_quick_settings_compass_on">Kompas aan</string>
+    <string name="accessibility_quick_settings_compass_changed_off">Kompas uitgeschakeld</string>
+    <string name="accessibility_quick_settings_compass_changed_on">Kompas ingeschakeld</string>
+    <string name="quick_settings_compass_N">N</string>
+    <string name="quick_settings_compass_NE">NO</string>
+    <string name="quick_settings_compass_E">O</string>
+    <string name="quick_settings_compass_SE">ZO</string>
+    <string name="quick_settings_compass_S">Z</string>
+    <string name="quick_settings_compass_SW">ZW</string>
+    <string name="quick_settings_compass_W">W</string>
+    <string name="quick_settings_compass_NW">NW</string>
+    <!-- FPS Info tile -->
+    <string name="quick_settings_fpsinfo_label">FPS Info</string>
+    <string name="accessibility_quick_settings_fpsinfo_off">FPS Info uitgeschakeld</string>
+    <string name="accessibility_quick_settings_fpsinfo_on">FPS Info ingeschakeld</string>
+    <!-- Screen record -->
+    <!-- Label for notification action to delete a screen recording file [CHAR LIMIT=35] -->
+    <string name="screenrecord_delete_label">Verwijderen</string>
+    <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
+    <string name="screenrecord_delete_description">Schermopname verwijderd</string>
+    <string name="screenrecord_stopdot_label">Toon stoppunt\nLang indrukken om te verplaatsen</string>
+    <string name="screenrecord_lowquality_label">Lagere kwaliteit voor kleinere bestandsgrootte</string>
+    <string name="screenrecord_longer_timeout_switch_label">Grotere bestandsgrootte limiet\nLimiteer opnamegrootte tot 15 GB</string>
+    <string name="task_helper_app_killed">%1$s geforceerd gestopt</string>
+    <string name="empty_app_killed">App</string>
+    <!-- AlertSlider -->
+    <string name="alert_slider_mode_priority_text">Prioriteit</string>
+    <string name="alert_slider_mode_dnd_text">Niet storen</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">On-The-Go geactiveerd</string>
+    <string name="onthego_notif_title">On-The-Go is actief</string>
+    <string name="onthego_notif_stop">Stop</string>
+    <string name="onthego_notif_options">Opties</string>
+    <string name="onthego_notif_error">Kan On-The-Go niet starten</string>
+    <string name="onthego_notif_restart">Herstart On-The-Go</string>
+    <string name="onthego_notif_camera_changed">Cameramodus gewijzigd</string>
+    <string name="onthego_transparency">Transparantie</string>
+    <string name="onthego_front_camera">Gebruik selfiecamera</string>
+    <string name="onthego_service_toggle">Service automatisch herstarten</string>
+    <string name="onthego_channel_name">Algemeen</string>
+    <string name="global_action_onthego">On-The-Go</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">On-The-Go</string>
+    <string name="accessibility_quick_settings_onthego_off">On-The-Go uit</string>
+    <string name="accessibility_quick_settings_onthego_on">On-The-Go aan</string>
+</resources>
