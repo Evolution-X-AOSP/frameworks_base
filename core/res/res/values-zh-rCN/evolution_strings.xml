@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2023 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">恢复模式</string>
+    <string name="reboot_to_recovery_message">正在重启至恢复模式</string>
+    <string name="reboot_to_bootloader_title">引导模式</string>
+    <string name="reboot_to_bootloader_message">正在重启至引导模式</string>
+    <string name="reboot_title">重启</string>
+    <string name="reboot_message">正在重新启动</string>
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">复制崩溃日志链接</string>
+    <string name="url_copy_success">已成功复制链接</string>
+    <string name="url_copy_failed">将日志上传到 Pasty 时出错</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">需要重启系统界面</string>
+    <string name="systemui_restart_message">要使所有更改生效，需要重新启动系统界面。现在重新启动系统界面？</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">长按电源键来解锁</string>
+    <string name="pocket_view_title">口袋模式已开启</string>
+    <string name="pocket_view_title_cancel">要使用您的手机：</string>
+    <string name="pocket_view_top_tag_cancel">请不要覆盖您手机的蓝色区域，并保持该区域的清洁</string>
+    <string name="pocket_view_top_tag_cancel2">长按电源按钮强制退出口袋模式</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">自动</string>
+    <string name="live_display_auto_summary">在日出和日落后自动调节屏幕色温</string>
+    <string name="live_display_off">关闭</string>
+    <string name="live_display_off_summary">禁用所有调整</string>
+    <string name="live_display_day">白天</string>
+    <string name="live_display_day_summary">仅使用日间模式</string>
+    <string name="live_display_night">夜间</string>
+    <string name="live_display_night_summary">仅使用夜间模式</string>
+    <string name="live_display_outdoor">户外模式 (强光)</string>
+    <string name="live_display_outdoor_summary">仅使用户外模式</string>
+    <string name="live_display_hint">增强显示能帮助你减轻眼疲劳并在晚上帮助你入睡。点这里来试试吧！</string>
+    <string name="accessibility_quick_settings_live_display_off">关闭增强显示</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay：自动模式</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay：日间模式</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay：夜间模式</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay：户外模式</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay 已关闭</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay 已切换为自动模式</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisPlay 已切换为日间模式</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay 已切换为夜间模式</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay 已切换为户外模式</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">来电或有通知时响铃</string>
+    <!-- App lock -->
+    <string name="unlock_application">解锁 <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">面部解锁因不活跃被禁用</string>
+    <!-- Lock gesture -->
+    <string name="gesture_locked_warning">再次滑动以解锁手势</string>
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">睡眠模式</string>
+    <string name="sleep_mode_notification_title">睡眠模式已启用</string>
+    <string name="sleep_mode_notification_content">点击关闭睡眠模式</string>
+    <string name="sleep_mode_enabled_toast">睡眠模式已开启</string>
+    <string name="sleep_mode_disabled_toast">睡眠模式已关闭</string>
+    <!-- Parallel space badge -->
+</resources>

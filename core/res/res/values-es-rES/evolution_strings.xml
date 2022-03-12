@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2023 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Reiniciando al modo Recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Reiniciando al modo Bootloader</string>
+    <string name="reboot_title">Reiniciar</string>
+    <string name="reboot_message">Reiniciando sistema</string>
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Copiar URL del registro de errores</string>
+    <string name="url_copy_success">URL copiada satisfactoriamente</string>
+    <string name="url_copy_failed">Se ha producido un error al cargar el registro en Pasty</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Se requiere reinicio de SystemUI</string>
+    <string name="systemui_restart_message">Para que todos los cambios surtan efecto, se requiere un reinicio de SystemUI. ¿Reiniciar SystemUI ahora?</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Pulsar y mantener el botón de encendido para desbloquear</string>
+    <string name="pocket_view_title">Modo bolsillo activado</string>
+    <string name="pocket_view_title_cancel">Para activar tu teléfono:</string>
+    <string name="pocket_view_top_tag_cancel">Por favor no cubras la zona azul de tu teléfono y limpia cualquier suciedad o polvo de ella.</string>
+    <string name="pocket_view_top_tag_cancel2">Mantenga pulsado el botón encendido para forzar el apagado del modo bolsillo.</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Automático</string>
+    <string name="live_display_auto_summary">Ajustar automáticamente la temperatura del color de la pantalla entre anochecer y amanecer</string>
+    <string name="live_display_off">Desactivado</string>
+    <string name="live_display_off_summary">Desactivar todos los ajustes</string>
+    <string name="live_display_day">Día</string>
+    <string name="live_display_day_summary">Usar sólo ajustes de día</string>
+    <string name="live_display_night">Noche</string>
+    <string name="live_display_night_summary">Utilizar sólo los ajustes de noche</string>
+    <string name="live_display_outdoor">Exteriores (sol brillante)</string>
+    <string name="live_display_outdoor_summary">Usar sólo ajustes de exterior</string>
+    <string name="live_display_hint">LiveDisplay puede reducir la fatiga visual y ayudarte a dormir por la noche. ¡Toca aquí para probarlo!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay desactivado.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: modo automático.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: modo diurno.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: modo nocturno.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: modo exterior.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay desactivado.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay cambió a modo automático.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay cambió a modo diurno.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay cambió a modo nocturno.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay cambió a modo al aire libre.</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Las llamadas y las notificaciones sonarán</string>
+    <!-- App lock -->
+    <string name="unlock_application">Desbloquear <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">Desbloqueo facial desactivado debido a inactividad</string>
+    <!-- Lock gesture -->
+    <string name="gesture_locked_warning">Desliza de nuevo para desbloquear gestos</string>
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Modo Sueño</string>
+    <string name="sleep_mode_notification_title">Modo Sueño activado</string>
+    <string name="sleep_mode_notification_content">Toca para desactivar el modo sueño</string>
+    <string name="sleep_mode_enabled_toast">Modo Sueño activado</string>
+    <string name="sleep_mode_disabled_toast">Modo Sueño desactivado</string>
+    <!-- Parallel space badge -->
+</resources>

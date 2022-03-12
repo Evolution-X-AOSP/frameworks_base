@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2022 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Screenshot delete action -->
+    <!-- Label for UI element which allows deleting the screenshot [CHAR LIMIT=30] -->
+    <string name="screenshot_delete_label">حذف</string>
+    <!-- Content description indicating that tapping the element will allow deleting the screenshot [CHAR LIMIT=NONE] -->
+    <string name="screenshot_delete_description">حذف لقطات الشاشة</string>
+    <!-- Screen record delete action -->
+    <!-- Label for notification action to delete a screen recording file [CHAR LIMIT=35] -->
+    <string name="screenrecord_delete_label">حذف</string>
+    <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
+    <string name="screenrecord_delete_description">تم حذف تسجيل الشاشة</string>
+    <!-- Alert slider extras -->
+    <string name="volume_ringer_priority_only">أولوية</string>
+    <string name="volume_ringer_alarms_only">التنبيهات</string>
+    <string name="volume_ringer_dnd">وضع عدم الإزعاج</string>
+    <string name="tristate_flashlight">المصباح</string>
+    <string name="tristate_flashlight_on">تشغيل المصباح</string>
+    <string name="tristate_flashlight_off">إيقاف المصباح</string>
+    <string name="tristate_flashlight_blink">ومض المصباح</string>
+    <string name="tristate_brightness_bright">أقصى سطوع</string>
+    <string name="tristate_brightness_dark">أقل سطوع</string>
+    <string name="tristate_brightness_auto">السطوع التلقائي</string>
+    <string name="tristate_rotation_auto">تدوير تلقائي</string>
+    <string name="tristate_rotation_0">عمودي</string>
+    <string name="tristate_rotation_90">عرضي (90 درجة)</string>
+    <string name="tristate_rotation_270">عرضي (270 درجة)</string>
+    <!-- Name of the nfc status bar icon. -->
+    <string name="status_bar_nfc">‏الاتصالات قصيرة المدى (NFC)</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">‏الاتصالات قصيرة المدى</string>
+    <!-- Advanced Reboot -->
+    <string name="global_action_restart_advanced">خيارات متقدمة</string>
+    <string name="global_action_restart_recovery">الاسترداد</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">واجهة النظام</string>
+    <!-- Custom QS tiles -->
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">مشاركة الشحن لاسلكياً</string>
+    <string name="quick_settings_powershare_off_powersave_label">إيقاف\n مشاركة الشحن لاسلكياً عند تفعيل وضع توفير البطارية</string>
+    <string name="quick_settings_powershare_off_low_battery_label">إيقاف\n مشاركة الشحن لاسلكياً عندما يكون مستوى البطارية منخفضة جداً</string>
+    <string name="quick_settings_powershare_enabled_label">مشاركة الشحن لاسلكياً مفعلة</string>
+    <!-- Caffeine tile -->
+    <string name="quick_settings_caffeine_label">الإستراحة</string>
+    <string name="accessibility_quick_settings_caffeine_off">ايقاف النشط</string>
+    <string name="accessibility_quick_settings_caffeine_on">تشغيل النشط</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">العرض على الشاشة</string>
+    <string name="accessibility_quick_settings_ambient_display_off">العرض على الشاشة معطل.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">تفعيل عرض المحيط.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">تم تعطيل العرض المحيط.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">تم تشغيل عرض المحيط.</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">‏ربط USB</string>
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">مزامنة</string>
+    <string name="accessibility_quick_settings_sync_off">إيقاف المزامنة</string>
+    <string name="accessibility_quick_settings_sync_on">تفعيل المزامنة</string>
+    <string name="accessibility_quick_settings_sync_changed_off">تم تعطيل المزامنة</string>
+    <string name="accessibility_quick_settings_sync_changed_on">تم تفعيل المزامنة</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">الصوت</string>
+    <string name="quick_settings_sound_ring">الرنين</string>
+    <string name="quick_settings_sound_vibrate">إهتزاز</string>
+    <string name="quick_settings_sound_mute">كتم الصوت</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">التنبيهات العلوية</string>
+    <string name="accessibility_quick_settings_heads_up_off">إيقاف الإشعارات العلوية.</string>
+    <string name="accessibility_quick_settings_heads_up_on">تشغيل التنبيهات العلوية.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">تم إيقاف التنبيهات العلوية.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">تم تشغيل التنبيهات العلوية.</string>
+    <!-- Poweroff/Reboot/Recovery QS tile -->
+    <string name="quick_settings_poweroff_label">إيقاف التشغيل</string>
+    <string name="quick_settings_reboot_label">إعادة التشغيل</string>
+    <string name="quick_settings_reboot_recovery_label">الاسترداد</string>
+    <string name="quick_settings_reboot_bootloader_label">محمل الاقلاع</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">لوحة الصوت</string>
+    <!-- SoundSearch Tile -->
+    <string name="quick_settings_sound_search">البحث الصوتي</string>
+    <string name="quick_settings_sound_search_no_app">عذراً، ولكن هذا لا يعمل إذا لم يكن لديك تطبيق بحث صوتي.</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">الاتصال بـ\u2026</string>
+    <string name="vpn_credentials_hint">الرجاء إدخال بيانات الاعتماد الخاصة بك للاتصال ب <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">اسم المستخدم</string>
+    <string name="vpn_credentials_password">كلمة المرور</string>
+    <string name="vpn_credentials_dialog_connect">الاتصال</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">وضع القراءة</string>
+    <string name="accessibility_quick_settings_reading_mode_on">وضع القراءة مفعل.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">وضع القراءة متوقف.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">تم تشغيل وضع القراءة.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">تم إيقاف وضع القراءة.</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">مضاد الوميض</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">تبديل بطاقة البيانات</string>
+    <string name="qs_data_switch_toast_0">لا توجد بطاقة SIM حاليا</string>
+    <string name="qs_data_switch_toast_1">هناك شريحة SIM واحدة مدرجة</string>
+    <string name="qs_data_switch_text_1">SIM 1</string>
+    <string name="qs_data_switch_text_2">SIM 2</string>
+    <string name="qs_data_switch_changed_1">قم بتبديل بطاقة البيانات إلى بطاقة SIM 1.</string>
+    <string name="qs_data_switch_changed_2">قم بتبديل بطاقة البيانات إلى بطاقة SIM 2.</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">الشاشة الدائمة</string>
+    <string name="quick_settings_aod_on_charge_label">الشاشة الدائمة AOD عند الشحن</string>
+    <string name="quick_settings_aod_off_label">ايقاف الشاشة الدائمة</string>
+    <string name="quick_settings_aod_off_powersave_label">إيقاف الشاشة الدائمة \n عند تفعيل وضع توفير البطارية</string>
+    <!-- Advance location quick setting tile -->
+    <string name="accessibility_quick_settings_location_off">إيقاف الإبلاغ عن الموقع.</string>
+    <string name="quick_settings_location_secondary_battery_saving">توفير البطارية</string>
+    <string name="accessibility_quick_settings_location_battery_saving">تحديد الموقع: وضع توفير البطارية.</string>
+    <string name="quick_settings_location_secondary_gps_only">المستشعرات فقط</string>
+    <string name="accessibility_quick_settings_location_gps_only">تحديد الموقع: وضع المستشعرات فقط.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">دقة عالية</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">تقرير الموقع: وضعية الدقة العالية.</string>
+    <!-- Refresh Rate Tile -->
+    <string name="refresh_rate_tile_label">معدل التحديث</string>
+    <string name="refresh_rate_auto_mode_placeholder">        تلقائي (<xliff:g id="min_refresh_rate" example="60">%1$d</xliff:g> - <xliff:g id="max_refresh_rate" example="60">%2$d</xliff:g> هرتز)
+    </string>
+    <string name="refresh_rate_forced_mode_placeholder"><xliff:g id="refresh_rate" example="60">%1$d</xliff:g> هرتز</string>
+    <!-- FPS Info tile -->
+    <string name="quick_settings_fpsinfo_label">معلومات FPS</string>
+    <string name="accessibility_quick_settings_fpsinfo_off">إيقاف معلومات FPS</string>
+    <string name="accessibility_quick_settings_fpsinfo_on">تشغيل معلومات FPS</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">تم حذف لقطة الشاشة</string>
+    <!-- Status bar tuner -->
+    <string name="status_bar_items_title">أيقونات شريط الحالة</string>
+    <string name="status_bar_call_strength">قوة المكالمة</string>
+    <string name="status_bar_data_saver">موفر البيانات</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
+    <string name="status_bar_vpn">شبكة افتراضية خاصة</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">فرض الإيقاف؟</string>
+    <string name="force_stop_dlg_text">في حالة فرض إيقاف التطبيق، ربما لا يعمل بشكل صحيح.</string>
+    <string name="guts_force_close_app">إغلاق التطبيق</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • الشحن السريع (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> حتى الامتلاء)</string>
+    <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • الشحن السريع</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • الشحن السريع (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> حتى الامتلاء)</string>
+    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="Percentage">%s</xliff:g> • شحن سريع</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • الشحن السريع (متبقي <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> حتى الامتلاء)</string>
+    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="Percentage">%s</xliff:g> • شحن سريع</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • شحن توربو (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> حتى يكتمل)</string>
+    <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • شحن توربو</string>
+    <!-- Data usage info in QS footer -->
+    <string name="usage_data">المستخدمة اليوم</string>
+    <string name="usage_data_default_suffix">البيانات</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
+    <string name="clock">الساعة</string>
+    <!-- Screen record -->
+    <string name="screenrecord_stopdot_label">إظهار نقطة التوقف\nاضغط مطولاً لتحريكها</string>
+    <string name="screenrecord_stopdot_summary">اضغط مطوﻻ لتحريكها</string>
+    <string name="screenrecord_lowquality_label">جودة أقل لحجم ملف أصغر</string>
+    <string name="screenrecord_lowquality_summary">لحجم ملف أصغر</string>
+    <string name="screenrecord_longer_timeout_switch_label">الحد الأقصى لحجم الملف\nحد حجم التسجيل إلى 15جيجابايت</string>
+    <string name="screenrecord_longer_timeout_switch_summary">الحد من حجم التسجيل إلى 15 جيجابايت</string>
+    <string name="screenrecord_skip_time_label">تخطي المؤقت</string>
+    <string name="screenrecord_skip_time_summary">إزالة 3 ثانية انتظار</string>
+    <!-- FPS view text placeholder -->
+    <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
+</resources>
