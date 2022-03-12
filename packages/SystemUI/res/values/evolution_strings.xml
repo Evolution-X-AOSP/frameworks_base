@@ -98,9 +98,10 @@
 
     <!-- Status bar tuner -->
     <string name="status_bar_items_title">Status bar icons</string>
+    <string name="status_bar_call_strength">Call strength</string>
     <string name="status_bar_data_saver">Data saver</string>
-    <string name="status_bar_vpn">VPN</string>
     <string name="status_bar_ims">VoLTE/VoWiFi</string>
+    <string name="status_bar_vpn">VPN</string>
 
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Force stop?</string>
