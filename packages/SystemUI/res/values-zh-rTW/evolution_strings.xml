@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2019-2021 The Evolution X Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Label for UI element which allows deleting the screenshot [CHAR LIMIT=30] -->
+    <string name="screenshot_delete_label">刪除</string>
+    <!-- Content description indicating that tapping the element will allow deleting the screenshot [CHAR LIMIT=NONE] -->
+    <string name="screenshot_delete_description">螢幕截圖已刪除</string>
+    <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">關閉暫停休眠</string>
+    <string name="accessibility_quick_settings_caffeine_off">關閉暫停休眠 關閉</string>
+    <string name="accessibility_quick_settings_caffeine_on">關閉暫停休眠 開啟</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">微光螢幕</string>
+    <string name="accessibility_quick_settings_ambient_display_off">關閉微光螢幕</string>
+    <string name="accessibility_quick_settings_ambient_display_on">啓用微光螢幕</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">微光螢幕已關閉.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">微光螢幕已開啟.</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">USB 網路共用</string>
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">同步處理</string>
+    <string name="accessibility_quick_settings_sync_off">同步處理關閉</string>
+    <string name="accessibility_quick_settings_sync_on">同步處理開啟</string>
+    <string name="accessibility_quick_settings_sync_changed_off">同步處理已關閉</string>
+    <string name="accessibility_quick_settings_sync_changed_on">同步處理已開啟</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">音效</string>
+    <string name="quick_settings_sound_ring">鈴聲</string>
+    <string name="quick_settings_sound_vibrate">震動</string>
+    <string name="quick_settings_sound_mute">靜音</string>
+    <!-- SystemUI Tuner -->
+    <string name="statusbar_items_title">狀態列圖示</string>
+    <string name="lockscreen_default">預設</string>
+    <string name="lockscreen_hidden">無</string>
+    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">滑動圖示以啟動</string>
+    <!-- VPN -->
+    <string name="status_bar_vpn">VPN</string>
+    <!-- Advanced Reboot -->
+    <string name="global_action_restart_system">系統</string>
+    <string name="global_action_restart_recovery">Recovery 模式</string>
+    <string name="global_action_restart_bootloader">Bootloader 模式</string>
+    <string name="global_action_restart_ui">系統使用者介面重啟</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">螢幕擷取畫面</string>
+    <string name="quick_settings_region_screenshot_label">擷取部分螢幕畫面</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">彈出通知</string>
+    <string name="accessibility_quick_settings_heads_up_off">浮動通知關閉</string>
+    <string name="accessibility_quick_settings_heads_up_on">浮動通知開啟</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">浮動通知已關閉</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">浮動通知已開啟</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - 通知預覽暫停 1 分鐘。</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - 通知預覽暫停 <xliff:g id="number">%2$d</xliff:g> 分鐘。</string>
+    <!-- Running service button -->
+    <string name="accessibility_quick_settings_running_services">開啟「正在運作的服務」</string>
+    <!-- CPUInfo tile -->
+    <string name="quick_settings_cpuinfo_label">CPU 資訊</string>
+    <string name="accessibility_quick_settings_cpuinfo_off">CPU資訊關閉</string>
+    <string name="accessibility_quick_settings_cpuinfo_on">CPU資訊開啟</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_off">CPU資訊已關閉</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_on">CPU資訊已開啟</string>
+    <!-- Poweroff/Reboot/Recovery QS tile -->
+    <string name="quick_settings_poweroff_label">關機</string>
+    <string name="quick_settings_reboot_label">重新啟動</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery 模式</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">微光螢幕</string>
+    <string name="quick_settings_aod_on_charge_label">充電時顯示微光螢幕</string>
+    <string name="quick_settings_aod_off_label">關閉微光螢幕</string>
+    <string name="quick_settings_aod_off_powersave_label">關閉微光螢幕\n省電模式</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">確定強制停止嗎？</string>
+    <string name="force_stop_dlg_text">如果您強制停止應用程式，應用程式可能無法正常運作。</string>
+    <string name="guts_force_close_app">關閉應用程式</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">切換行動數據 SIM 卡</string>
+    <string name="qs_data_switch_toast_0">目前尚未插入SIM卡</string>
+    <string name="qs_data_switch_toast_1">目前僅插入一張SIM卡</string>
+    <string name="qs_data_switch_changed_1">將數據網路切換為 SIM卡1</string>
+    <string name="qs_data_switch_changed_2">將數據網路切換為 SIM卡2</string>
+    <!-- Name of the nfc status bar icon. -->
+    <string name="status_bar_nfc">NFC</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <!-- Navbar -->
+    <string name="systemui_tuner_navbar_title">佈局</string>
+    <string name="navigation_bar_format_title">導航列布局</string>
+    <string name="navigation_bar_inverse_title">交換按钮</string>
+    <string name="navigation_bar_inverse_summary">交換多工和返回鍵的順序</string>
+    <string name="navigation_bar_accessibility_dpad_left">游標左移</string>
+    <string name="navigation_bar_accessibility_dpad_right">游標右移</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">音量面板</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">指南針</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">正在初始化\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">指南針 關閉</string>
+    <string name="accessibility_quick_settings_compass_on">指南針開啟</string>
+    <string name="accessibility_quick_settings_compass_changed_off">指南針已關閉</string>
+    <string name="accessibility_quick_settings_compass_changed_on">指南針已開啟</string>
+    <string name="quick_settings_compass_N">北</string>
+    <string name="quick_settings_compass_NE">東北</string>
+    <string name="quick_settings_compass_E">東</string>
+    <string name="quick_settings_compass_SE">東南</string>
+    <string name="quick_settings_compass_S">南</string>
+    <string name="quick_settings_compass_SW">西南</string>
+    <string name="quick_settings_compass_W">西</string>
+    <string name="quick_settings_compass_NW">西北</string>
+    <!-- FPS Info tile -->
+    <string name="quick_settings_fpsinfo_label">FPS 資訊</string>
+    <string name="accessibility_quick_settings_fpsinfo_off">FPS 資訊關閉</string>
+    <string name="accessibility_quick_settings_fpsinfo_on">FPS 資訊開啟</string>
+    <!-- Screen record -->
+    <!-- Label for notification action to delete a screen recording file [CHAR LIMIT=35] -->
+    <string name="screenrecord_delete_label">刪除</string>
+    <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
+    <string name="screenrecord_delete_description">螢幕錄影已刪除</string>
+    <string name="screenrecord_stopdot_label">顯示停止按鈕\n長按移動</string>
+    <string name="screenrecord_lowquality_label">降低畫質以減少檔案大小</string>
+    <string name="screenrecord_longer_timeout_switch_label">檔案大小限制 \n將錄製大小限制為在15 GB</string>
+    <string name="task_helper_app_killed">%1$s 已強制停止</string>
+    <string name="empty_app_killed">應用程式</string>
+    <!-- AlertSlider -->
+    <string name="alert_slider_mode_priority_text">遊戲優先模式</string>
+    <string name="alert_slider_mode_dnd_text">零打擾</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">OTG 模式己開啟</string>
+    <string name="onthego_notif_title">OTG 模式啟用中</string>
+    <string name="onthego_notif_stop">停止</string>
+    <string name="onthego_notif_options">選項</string>
+    <string name="onthego_notif_error">無法啟用 OTG 模式</string>
+    <string name="onthego_notif_restart">重新啟用 OTG 模式</string>
+    <string name="onthego_notif_camera_changed">相機模式已更改</string>
+    <string name="onthego_transparency">通透</string>
+    <string name="onthego_front_camera">使用前置鏡頭</string>
+    <string name="onthego_service_toggle">自動重新啟用 OTG 服務</string>
+    <string name="onthego_channel_name">主要的</string>
+    <string name="global_action_onthego">OTG 模式</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">OTG 模式</string>
+    <string name="accessibility_quick_settings_onthego_off">OTG 模式關閉</string>
+    <string name="accessibility_quick_settings_onthego_on">OTG 模式開啟</string>
+</resources>
