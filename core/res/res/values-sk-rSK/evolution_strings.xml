@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2023 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Kopírovať URL adresu záznamu o chybe.</string>
+    <string name="url_copy_success">URL úspešne skopírované</string>
+    <string name="url_copy_failed">Pri nahrávaní protokolu o zlyhaní došlo k chybe</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Vyžaduje sa reštart SystemUI</string>
+    <string name="systemui_restart_message">Aby sa všetky zmeny prejavili je potrebné reštartovať SystemUI. Reštartovať teraz?</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Automatický</string>
+    <string name="live_display_auto_summary">Automaticky upraviť teplotu farieb obrazovky po západe a východe slnka</string>
+    <string name="live_display_off">Vypnúť</string>
+    <string name="live_display_off_summary">Zakázať všetky úpravy</string>
+    <string name="live_display_day">Deň</string>
+    <string name="live_display_day_summary">Použiť iba nastavenia pre deň</string>
+    <string name="live_display_night">Noc</string>
+    <string name="live_display_night_summary">Používať iba nastavenia pre noc</string>
+    <string name="live_display_outdoor">Vonku (slnečno)</string>
+    <string name="live_display_outdoor_summary">Použiť iba nastavenia vonku</string>
+    <string name="live_display_hint">LiveDisplay môže pomôcť znížiť únavu očí a pomôže vám spať v noci. Ťuknite sem a vyskúšajte túto funkciu!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay vyp.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: automatický režim.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: denný režim.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: nočný režim.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: režim vonku.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay vypnutý.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay sa zmenil na automatický režim.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay bol zmenený na denný režim.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay bol zmenený na nočný režim.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay bol zmenený na režim vonku.</string>
+    <!-- Advanced reboot -->
+    <string name="reboot_title">Reštartovať</string>
+    <string name="reboot_message">Reštartovanie systému...</string>
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">Ovládanie nabíjania</string>
+    <string name="charging_control_notification_title">Ovládanie nabíjania</string>
+    <string name="charging_control_notification_cancel_once">Zrušiť</string>
+    <string name="charging_control_notification_content_limit">Batéria bude nabitá na %1$d%%</string>
+    <string name="charging_control_notification_content_limit_reached">Batéria je nabitá na %1$d%%</string>
+    <string name="charging_control_notification_content_target">Batéria bude plne nabitá o %1$s</string>
+    <string name="charging_control_notification_content_target_reached">Batéria je nabitá</string>
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Režim spánku</string>
+    <string name="sleep_mode_notification_title">Režim spánku je povolený</string>
+    <string name="sleep_mode_notification_content">Ťuknutím na položku vypnete režim spánku</string>
+    <string name="sleep_mode_enabled_toast">Režim spánku zapnutý</string>
+    <string name="sleep_mode_disabled_toast">Režim spánku vypnutý</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Hovory a upozornenia budú zvoniť</string>
+    <!-- Lock gesture -->
+    <string name="gesture_locked_warning">Opätovným potiahnutím odomknete gestá</string>
+    <!-- Title & summary of notification letting users know that battery saver is now on [CHAR_LIMIT=80] -->
+    <string name="battery_saver_on_notification_title">Šetrič batérie zapnutý</string>
+    <string name="battery_saver_on_notification_summary">Podľa harmonogramu. Stlačením skontrolujete nastavenia.</string>
+    <!-- Long-press back kill application -->
+    <string name="app_killed_message">Aplikácia ukončená</string>
+    <!-- Settings Restart -->
+    <string name="settings_restart_title">Vyžaduje sa reštart nastavení</string>
+    <string name="settings_restart_message">Vyžaduje sa reštart aplikácie Nastavenia, aby sa prejavili všetky zmeny. Reštartovať aplikáciu Nastavenia teraz?</string>
+    <!-- System Reboot -->
+    <string name="system_restart_title">Vyžaduje sa reštart systému</string>
+    <string name="system_restart_message">Vyžaduje sa reštart systému, aby sa prejavili všetky zmeny. Reštartovať systém teraz?</string>
+    <!-- Launcher Restart -->
+    <string name="launcher_restart_title">Vyžaduje sa reštart spúšťača</string>
+    <string name="launcher_restart_message">Vyžaduje sa reštart spúšťača, aby sa prejavili všetky zmeny. Reštartovať spúšťač teraz?</string>
+</resources>

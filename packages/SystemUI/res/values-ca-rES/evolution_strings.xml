@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2023 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Screenshot delete action -->
+    <!-- Label for UI element which allows deleting the screenshot [CHAR LIMIT=30] -->
+    <string name="screenshot_delete_label">Eliminar</string>
+    <!-- Content description indicating that tapping the element will allow deleting the screenshot [CHAR LIMIT=NONE] -->
+    <string name="screenshot_delete_description">Eliminar captura</string>
+    <!-- Screen record delete action -->
+    <!-- Label for notification action to delete a screen recording file [CHAR LIMIT=35] -->
+    <string name="screenrecord_delete_label">Eliminar</string>
+    <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
+    <string name="screenrecord_delete_description">Enregistrament de pantalla eliminada</string>
+    <!-- Alert slider extras -->
+    <string name="volume_ringer_priority_only">Prioritat</string>
+    <string name="volume_ringer_alarms_only">Alarmes</string>
+    <string name="volume_ringer_dnd">No molestis</string>
+    <string name="tristate_flashlight">Llanterna</string>
+    <string name="tristate_flashlight_on">Llanterna activada</string>
+    <string name="tristate_flashlight_off">Llanterna desactivada</string>
+    <string name="tristate_flashlight_blink">Llanterna intermitent</string>
+    <string name="tristate_brightness_bright">Brillantor màx.</string>
+    <string name="tristate_brightness_dark">Brillantor mínima</string>
+    <string name="tristate_brightness_auto">Brillantor automàtica</string>
+    <string name="tristate_rotation_auto">Rotació automàtica</string>
+    <string name="tristate_rotation_0">Retrat</string>
+    <string name="tristate_rotation_90">Horitzontal (90°)</string>
+    <string name="tristate_rotation_270">Horitzontal (270°)</string>
+    <string name="tristate_refresh_auto">Refresc automàtic</string>
+    <string name="tristate_refresh_min">Refresc mín</string>
+    <string name="tristate_refresh_max">Refresc màx</string>
+    <string name="tristate_extradim_off">Atenuar off</string>
+    <string name="tristate_extradim_min">Atenuar Mín</string>
+    <string name="tristate_extradim_mid">Atenuar med</string>
+    <string name="tristate_extradim_max">Atenuar màx</string>
+    <string name="tristate_nightlight_off">Llum nocturna apagada</string>
+    <string name="tristate_nightlight_min">Temp mín</string>
+    <string name="tristate_nightlight_mid">Temp med</string>
+    <string name="tristate_nightlight_max">Temp màx</string>
+    <string name="tristate_colorspace_vivid">Viu</string>
+    <string name="tristate_colorspace_natural">Natural</string>
+    <string name="tristate_colorspace_cinematic">Cinemàtic</string>
+    <string name="tristate_colorspace_brilliant">Brillant</string>
+    <!-- Name of the nfc status bar icon. -->
+    <string name="status_bar_nfc">NFC</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">NFC</string>
+    <!-- Advanced Reboot -->
+    <string name="global_action_restart_advanced">Avançat</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">UI del sistema</string>
+    <!-- Custom QS tiles -->
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Transferència sense fil d\' energia</string>
+    <string name="quick_settings_powershare_off_powersave_label">Transferència sense fil d\' energia apagada\n\' Estalvi d\' energia</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Transferència sense fil d\' energia apagada\nBateria massa baixa</string>
+    <string name="quick_settings_powershare_enabled_label">La transferència sense fil d\'energia està activada</string>
+    <!-- Caffeine tile -->
+    <string name="quick_settings_caffeine_label">Cafeïna</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cafeïna desactivada</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cafeïna activada</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Pantalla ambient</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Pantalla ambient desactivada.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Pantalla ambient activada.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">La pantalla ambient s\'ha desactivat.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">La pantalla ambient s\'ha activat.</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">Ancoratge USB</string>
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">Sincronitzar</string>
+    <string name="accessibility_quick_settings_sync_off">Desactiva la sincronització</string>
+    <string name="accessibility_quick_settings_sync_on">Activa la sincronització</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sincronització ha estat desactivada</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sincronització ha estat activada</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">So</string>
+    <string name="quick_settings_sound_ring">To</string>
+    <string name="quick_settings_sound_vibrate">Vibrar</string>
+    <string name="quick_settings_sound_mute">Silenciar</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">Notificacions flotants</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notificacions emergents desactivades.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notificacions emergents activades.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Les notificacions emergents s\'han desactivat.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Les notificacions emergents s\'han activat.</string>
+    <!-- Poweroff/Reboot/Recovery QS tile -->
+    <string name="quick_settings_poweroff_label">Apagar</string>
+    <string name="quick_settings_reboot_label">Reiniciar</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <string name="quick_settings_reboot_bootloader_label">Gestor d\'arrancada</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Panell de volum</string>
+    <!-- SoundSearch Tile -->
+    <string name="quick_settings_sound_search">Recerca de sons</string>
+    <string name="quick_settings_sound_search_no_app">Ho sentim, però això no funciona si no tens una app de Busqueda de so.</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Connectar\u2026</string>
+    <string name="vpn_credentials_hint">Per favor, introdueixi les seves credencials per connectar-se a <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Nom d\' usuari</string>
+    <string name="vpn_credentials_password">Contrasenya</string>
+    <string name="vpn_credentials_dialog_connect">Connectar</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Mode lectura</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Mode lectura activat.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Mode lectura desactivat.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">El mode lectura s\'ha activat.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Mode de lectura desactivat.</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">Antiparpadeig</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">Canvia SIM de dades</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">Pantalla ambiental</string>
+    <string name="quick_settings_aod_on_charge_label">Pantalla ambiental en carregar</string>
+    <string name="quick_settings_aod_off_label">Pantalla ambiental apagada</string>
+    <string name="quick_settings_aod_off_powersave_label">Pantalla ambiental desactivada\nEstalvi de bateria</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">S\'ha eliminat la captura de pantalla</string>
+    <!-- Status bar tuner -->
+    <string name="status_bar_items_title">Icones de la barra d\'estat</string>
+    <string name="status_bar_call_strength">Intensitat del senyal</string>
+    <string name="status_bar_data_saver">Estalvi de dades</string>
+    <string name="status_bar_vpn">VPN</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Càrrega Dash (<xliff:g id="charging_time_left" example="4 hores i 2 minuts">%1$s</xliff:g> per a completar)</string>
+    <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Càrrega Dash</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="porcentaje">%2$s</xliff:g> • Càrrega Warp (<xliff:g id="charging_time_left" ejemplo="4 horas y 2 minutos">%1$s</xliff:g> per completar)</string>
+    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="porcentaje">%s</xliff:g> • Càrrega \"Warp\"</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="porcentaje">%2$s</xliff:g> • Càrrega \"VOOC\" (<xliff:g id="charging_time_left" example="4 horas y 2 minutos">%1$s</xliff:g> per completar)</string>
+    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="porcentaje">%s</xliff:g> • Càrrega \"VOOC\"</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time"><xliff:g id="porcentaje">%2$s</xliff:g> • Càrrega \"Turbo\" (<xliff:g id="charging_time_left" ejemplo="4 horas y 2 minutos">%1$s</xliff:g> per completar)</string>
+    <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Càrrega Turbo</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="porcentaje">%2$s</xliff:g> • Càrrega \"SuperDart\" (<xliff:g id="charging_time_left" example="4 horas y 2 minutos">%1$s</xliff:g> per completar)</string>
+    <string name="keyguard_plugged_in_superdart_charging"><xliff:g id="porcentaje">%s</xliff:g> •Carga \"SuperDart\"</string>
+    <!-- Screen record -->
+    <string name="screenrecord_stopdot_label">Mostra el punt de parada</string>
+    <string name="screenrecord_stopdot_summary">Mantén premut per a moure\'l</string>
+    <string name="screenrecord_lowquality_label">Qualitat més baixa</string>
+    <string name="screenrecord_lowquality_summary">Per a un fitxer de menor mida</string>
+    <string name="screenrecord_longer_timeout_switch_label">Límit de mida de fitxers més gran</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Limita l\'enregistrament a 15 GB</string>
+    <string name="screenrecord_skip_time_label">Ignora el temporitzador</string>
+    <string name="screenrecord_skip_time_summary">Elimina l\'espera de 3 segons</string>
+    <string name="screenrecord_hevc_switch_label">Habilitar HEVC</string>
+    <string name="screenrecord_hevc_switch_summary">Usar codificació de vídeo HEVC més eficient</string>
+    <!-- Kill foreground app -->
+    <string name="task_helper_app_killed">%1$s s\'ha aturat</string>
+    <string name="empty_app_killed">Aplicació</string>
+    <!-- Google Lens Screenshot string -->
+    <string name="lensss">Lens</string>
+    <string name="lens_unavailable">Google Lens no està instal·lat</string>
+    <!-- Bluetooth dialog -->
+    <string name="turn_on_bluetooth">Utilitza el Bluetooth</string>
+    <string name="bluetooth_is_off">El Bluetooth està desactivat</string>
+    <string name="tap_a_device_to_connect">Toca un dispositiu per connectar-te</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">On-The-Go activat</string>
+    <string name="onthego_notif_title">L\'On-The-Go està activat</string>
+    <string name="onthego_notif_stop">Atura</string>
+    <string name="onthego_notif_options">Opcions</string>
+    <string name="onthego_notif_error">No s\'ha pogut iniciar l\'On-The-Go</string>
+    <string name="onthego_notif_restart">Reinicia l\'On-The-Go</string>
+    <string name="onthego_notif_camera_changed">S\'ha canviat el mode de càmera</string>
+    <string name="onthego_transparency">Transparència</string>
+    <string name="onthego_front_camera">Utilitza la càmera frontal</string>
+    <string name="onthego_service_toggle">Reinicia automàticament el servei</string>
+    <string name="onthego_channel_name">Principal</string>
+    <string name="global_action_onthego">On-The-Go</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">On-The-Go</string>
+    <!-- Screenshot Tile -->
+    <string name="screenshot_long_press">Pulsació llarga per a fer una captura de pantalla parcial</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Aquest element es mostrarà fins que deixis de fixar-lo. Per a fer-ho, toca i manté premut el botó d\'enrere.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Per a deixar de fixar aquesta pantalla, mantén el botó d\'enrere</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Aquest element es mostrarà fins que deixis de fixar-lo. Per a fer-ho, toca i mantén premut el sensor d\'empremta.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Per a deixar de fixar aquesta pantalla, mantén premut el sensor d\'empremta</string>
+    <!-- VPN tethering QS tile -->
+    <string name="vpn_tethering_label">Ancoratge VPN</string>
+    <string name="vpn_tethering_changed_off">Ancoratge VPN desactivat.</string>
+    <string name="vpn_tethering_changed_on">Ancoratge VPN activat.</string>
+    <!-- Glove Mode Tile -->
+    <string name="quick_settings_glove_mode_label">Mode amb guants</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">Brúixola</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Iniciant-se\u2026</string>
+    <string name="quick_settings_compass_N">N</string>
+    <string name="quick_settings_compass_NE">NE</string>
+    <string name="quick_settings_compass_E">E</string>
+    <string name="quick_settings_compass_SE">SE</string>
+    <string name="quick_settings_compass_S">S</string>
+    <string name="quick_settings_compass_SW">SO</string>
+    <string name="quick_settings_compass_W">O</string>
+    <string name="quick_settings_compass_NW">NO</string>
+    <!-- Advance location quick setting tile -->
+    <string name="accessibility_quick_settings_location_off">Informe d\'ubicació: desactivat.</string>
+    <string name="quick_settings_location_secondary_battery_saving">Estalvi de bateria</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Informe d\'ubicació: mode d\'estalvi de bateria.</string>
+    <string name="quick_settings_location_secondary_gps_only">Només sensors</string>
+    <string name="accessibility_quick_settings_location_gps_only">Informe d\'ubicació: mode només sensors.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Alta precisió</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Informe d\'ubicació: mode d\'alta precisió.</string>
+    <!-- Sleep Mode -->
+    <string name="quick_settings_sleep_mode_label">Mode en repòs</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">Atenuació DC</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Llengua</string>
+    <string name="quick_settings_locale_more_locales_toast">Configura diverses llengües per a activar la funció d\'alternar entre elles</string>
+    <!-- App picker -->
+    <string name="app_picker_dialog_title">Selecciona una aplicació</string>
+    <string name="active_edge_app_select_title">Selecció d\'aplicació</string>
+    <string name="active_edge_activity_select_title">Selecció d’activitat</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Píxels intel·ligents</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Activa automàticament els píxels intel·ligents</string>
+    <!-- Text to use when the number in a notification info is too large -->
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Cursor esquerre</string>
+    <string name="accessibility_dpad_right">Cursor dret</string>
+    <!-- Preferred network tile -->
+    <string name="quick_settings_preferred_network_label">Xarxa preferida</string>
+    <string name="quick_settings_preferred_network_lte">4G / LTE</string>
+    <string name="quick_settings_preferred_network_nr">5G / NR</string>
+    <string name="quick_settings_preferred_network_unsupported">No és compatible</string>
+    <!-- Refresh Rate Tile -->
+    <string name="refresh_rate_tile_label">Freqüència de refresc</string>
+    <string name="auto_mode_label">Auto</string>
+    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
+    <string name="clock">Rellotge</string>
+    <!-- Name of the HD calling status bar icon. -->
+    <string name="status_bar_hd_calling">Trucades en HD (VoLTE/VoNR)</string>
+    <!-- Name of the VoWiFi status bar icon. -->
+    <string name="status_bar_vowifi">Trucades per Wi-Fi (VoWiFi)</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Vols forçar l\'aturada?</string>
+    <string name="force_stop_dlg_text">Si forces l\'aturada d\'una aplicació, és possible que no funcioni correctament.</string>
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">S\'està reconeixent la cara...</string>
+</resources>

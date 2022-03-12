@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2023 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Sao chép URL nhật ký sự cố</string>
+    <string name="url_copy_success">Đã sao chép URL thành công</string>
+    <string name="url_copy_failed">Đã xảy ra lỗi khi tải nhật ký lên dogbin</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Yêu cầu khởi động lại SystemUI (Giao diện người dùng)</string>
+    <string name="systemui_restart_message">Để mọi thay đổi được áp dụng, phải khởi động lại SystemUI. Khởi động lại bây giờ?</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Tự động</string>
+    <string name="live_display_auto_summary">Tự động điều chỉnh nhiệt độ màu của màn hình sau khi mặt trời lặn và mặt trời mọc</string>
+    <string name="live_display_off">Tắt</string>
+    <string name="live_display_off_summary">Vô hiệu hoá tất cả điều chỉnh</string>
+    <string name="live_display_day">Ban ngày</string>
+    <string name="live_display_day_summary">Chỉ sử dụng cài đặt ban ngày</string>
+    <string name="live_display_night">Đêm</string>
+    <string name="live_display_night_summary">Chỉ sử dụng cài đặt ban đêm</string>
+    <string name="live_display_outdoor">Ngoài trời (ánh sáng mạnh)</string>
+    <string name="live_display_outdoor_summary">Chỉ sử dụng cài đặt ngoài trời</string>
+    <string name="live_display_hint">LiveDisplay có thể giúp giảm mỏi mắt và giúp bạn ngủ vào ban đêm. Nhấn vào đây để thử!</string>
+    <string name="accessibility_quick_settings_live_display_off">Tắt LiveDisplay.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: chế độ tự động.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: chế độ ban ngày.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: chế độ ban đêm.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: chế độ ngoài trời.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay đã tắt.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay đã đổi sang chế độ tự động.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay đã đổi sang chế độ ban ngày.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay đã đổi sang chế độ ban đêm.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay đã đổi sang chế độ ngoài trời.</string>
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Đang khởi động lại vào Recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Đang khởi động lại vào Bootloader</string>
+    <string name="reboot_title">Khởi động lại</string>
+    <string name="reboot_message">Đang khởi động lại hệ thống</string>
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">Điều khiển Sạc</string>
+    <string name="charging_control_notification_title">Điều khiển Sạc</string>
+    <string name="charging_control_notification_cancel_once">Hủy</string>
+    <string name="charging_control_notification_content_limit">Pin sẽ được sạc đến %1$d%%</string>
+    <string name="charging_control_notification_content_limit_reached">Pin đã được sạc đến %1$d%%</string>
+    <string name="charging_control_notification_content_target">Pin sẽ được sạc đầy sau %s</string>
+    <string name="charging_control_notification_content_target_reached">Đã sạc đầy pin</string>
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Chế độ ngủ</string>
+    <string name="sleep_mode_notification_title">Đã bật chế độ ngủ</string>
+    <string name="sleep_mode_notification_content">Nhấn để tắt chế độ ngủ</string>
+    <string name="sleep_mode_enabled_toast">Đã bật chế độ ngủ</string>
+    <string name="sleep_mode_disabled_toast">Đã tắt chế độ ngủ</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Cuộc gọi và thông báo sẽ rung</string>
+    <!-- Lock gesture -->
+    <string name="gesture_locked_warning">Vuốt lại để mở khóa cử chỉ</string>
+    <!-- Title & summary of notification letting users know that battery saver is now on [CHAR_LIMIT=80] -->
+    <string name="battery_saver_on_notification_title">Đã bật Trình tiết kiệm pin</string>
+    <string name="battery_saver_on_notification_summary">Theo lịch trình. Nhấn để xem lại cài đặt.</string>
+    <!-- Long-press back kill application -->
+    <string name="app_killed_message">Đã đóng ứng dụng</string>
+    <!-- Settings Restart -->
+    <string name="settings_restart_title">Yêu cầu khởi động lại ứng dụng Cài đặt</string>
+    <string name="settings_restart_message">Để tất cả các thay đổi có hiệu lực, cần phải khởi động lại ứng dụng Cài đặt. Khởi động lại ứng dụng Cài đặt ngay bây giờ?</string>
+    <!-- System Reboot -->
+    <string name="system_restart_title">Yêu cầu khởi động lại hệ thống</string>
+    <string name="system_restart_message">Để tất cả các thay đổi có hiệu lực, cần phải khởi động lại hệ thống. Thực hiện khởi động lại hệ thống ngay bây giờ?</string>
+    <!-- Launcher Restart -->
+    <string name="launcher_restart_title">Yêu cầu khởi động lại trình khởi chạy</string>
+    <string name="launcher_restart_message">Để tất cả các thay đổi có hiệu lực, cần phải khởi động lại Trình khởi chạy. Khởi động lại Trình khởi chạy ngay bây giờ?</string>
+</resources>

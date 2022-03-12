@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2023 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Скопировать URL журнала ошибки</string>
+    <string name="url_copy_success">Ссылка скопирована успешно</string>
+    <string name="url_copy_failed">Произошла ошибка во время загрузки лога на Hastebin</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Требуется перезагрузка SystemUI</string>
+    <string name="systemui_restart_message">Чтобы все изменения вступили в силу, требуется перезагрузка SystemUI. Перезапустить его прямо сейчас?</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Автоматический</string>
+    <string name="live_display_auto_summary">Автоматическая подстройка цветовой температуры экрана после заката и восхода солнца</string>
+    <string name="live_display_off">Выкл</string>
+    <string name="live_display_off_summary">Отключить все настройки</string>
+    <string name="live_display_day">День</string>
+    <string name="live_display_day_summary">Использовать только дневные настройки</string>
+    <string name="live_display_night">Ночь</string>
+    <string name="live_display_night_summary">Использовать только ночные настройки</string>
+    <string name="live_display_outdoor">Улица (яркое солнце)</string>
+    <string name="live_display_outdoor_summary">Использовать только уличные настройки</string>
+    <string name="live_display_hint">Функция LiveDisplay поможет снизить зрительное напряжение и улучшить сон. Нажмите здесь, чтобы попробовать!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay выкл.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: автоматический.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: дневной режим.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: ночной режим.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: режим улицы.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay выключен.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay переключен в автоматический режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay переключен в дневной режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay переключен на ночной режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay переключен на уличный режим.</string>
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">Рекавери</string>
+    <string name="reboot_to_recovery_message">Перезагрузка в рекавери</string>
+    <string name="reboot_to_bootloader_title">Загрузчик</string>
+    <string name="reboot_to_bootloader_message">Перезагрузка в загрузчик</string>
+    <string name="reboot_title">Перезагрузка</string>
+    <string name="reboot_message">Перезагрузка системы</string>
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">Управление зарядкой</string>
+    <string name="charging_control_notification_title">Управление зарядкой</string>
+    <string name="charging_control_notification_cancel_once">Отмена</string>
+    <string name="charging_control_notification_content_limit">Батарея будет заряжена до %1$d%%</string>
+    <string name="charging_control_notification_content_limit_reached">Батарея заряжена до %1$d%%</string>
+    <string name="charging_control_notification_content_target">Батарея будет полностью заряжена в %1$s</string>
+    <string name="charging_control_notification_content_target_reached">Батарея заряжена</string>
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Спящий режим</string>
+    <string name="sleep_mode_notification_title">Спящий режим включен</string>
+    <string name="sleep_mode_notification_content">Нажмите, чтобы выключить спящий режим</string>
+    <string name="sleep_mode_enabled_toast">Спящий режим включен</string>
+    <string name="sleep_mode_disabled_toast">Спящий режим выключен</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Звуковой сигнал для звонков и уведомлений</string>
+    <!-- Lock gesture -->
+    <string name="gesture_locked_warning">Проведите еще раз, чтобы разблокировать жесты</string>
+    <!-- Title & summary of notification letting users know that battery saver is now on [CHAR_LIMIT=80] -->
+    <string name="battery_saver_on_notification_title">Экономия заряда включена</string>
+    <string name="battery_saver_on_notification_summary">По расписанию. Нажмите для просмотра настроек.</string>
+    <!-- Long-press back kill application -->
+    <string name="app_killed_message">Приложение закрыто</string>
+    <!-- Settings Restart -->
+    <string name="settings_restart_title">Требуется перезапуск настроек</string>
+    <string name="settings_restart_message">Чтобы все изменения вступили в силу, требуется перезапуск настроек. Перезапустить настройки сейчас?</string>
+    <!-- System Reboot -->
+    <string name="system_restart_title">Требуется перезагрузка системы</string>
+    <string name="system_restart_message">Чтобы все изменения вступили в силу, требуется перезагрузка системного интерфейса. Перезагрузить сейчас?</string>
+    <!-- Launcher Restart -->
+    <string name="launcher_restart_title">Требуется перезапуск лаунчера</string>
+    <string name="launcher_restart_message">Чтобы все изменения вступили в силу, требуется перезагрузка лаунчера. Перезапустить лаунчер сейчас?</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Нажмите и удерживайте кнопку питания, чтобы разблокировать</string>
+    <string name="pocket_view_title">Режим «В кармане» включен</string>
+    <string name="pocket_view_title_cancel">Для использования вашего телефона:</string>
+    <string name="pocket_view_top_tag_cancel">Пожалуйста, не закрывайте синюю область телефона и очищайте её от грязи и пыли.</string>
+    <string name="pocket_view_top_tag_cancel2">Зажмите кнопку питания для принудительного выхода из режима «В кармане».</string>
+    <string name="pocket_view_top_tag_number1">1.\u0020</string>
+    <string name="pocket_view_top_tag_number2">2.\u0020</string>
+    <!-- App lock -->
+    <string name="unlock_application">Разблокировать <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+</resources>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2023 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Copia l\'URL del log di crash</string>
+    <string name="url_copy_success">URL copiato con successo</string>
+    <string name="url_copy_failed">Si è verificato un errore durante il caricamento del log su dogbin</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Riavvio della SystemUI richiesto</string>
+    <string name="systemui_restart_message">Per rendere effettive tutte le modifiche, è necessario un riavvio della SystemUI. Riavviare la SystemUI ora?</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Automatico</string>
+    <string name="live_display_auto_summary">Regola automaticamente la temperatura del colore dello schermo dopo il tramonto e l\'alba</string>
+    <string name="live_display_off">Spento</string>
+    <string name="live_display_off_summary">Disattiva tutte le regolazioni</string>
+    <string name="live_display_day">Giorno</string>
+    <string name="live_display_day_summary">Utilizza solo l\'impostazione giorno</string>
+    <string name="live_display_night">Notte</string>
+    <string name="live_display_night_summary">Utilizza solo l\'impostazione notte</string>
+    <string name="live_display_outdoor">All\'aperto (luce del sole)</string>
+    <string name="live_display_outdoor_summary">Utilizza solo le impostazioni all\'aperto</string>
+    <string name="live_display_hint">LiveDisplay può aiutare a ridurre l\'affaticamento degli occhi e aiuta a dormire la notte. Clicca qui per provarlo!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay spento.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: modalità automatica.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: modalità giorno.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: modalità notte.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: modalità all\'aperto.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay disattivato.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay impostato in modalità automatica.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay impostato in modalità giorno.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay impostato in modalità notte.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay impostato in modalità all\'aperto.</string>
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Riavvio in recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Riavvio in bootloader</string>
+    <string name="reboot_title">Riavvia</string>
+    <string name="reboot_message">Riavvio del sistema</string>
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">Controllo della ricarica</string>
+    <string name="charging_control_notification_title">Controllo della ricarica</string>
+    <string name="charging_control_notification_cancel_once">Annulla</string>
+    <string name="charging_control_notification_content_limit">La batteria sarà completamente carica entro %1$d%%</string>
+    <string name="charging_control_notification_content_limit_reached">La batteria è carica al %1$d%%</string>
+    <string name="charging_control_notification_content_target">La batteria sarà completamente carica alle %1$s</string>
+    <string name="charging_control_notification_content_target_reached">La batteria è carica</string>
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Modalità sonno</string>
+    <string name="sleep_mode_notification_title">Modalità sonno attivata</string>
+    <string name="sleep_mode_notification_content">Tocca per disattivare la modalità sonno</string>
+    <string name="sleep_mode_enabled_toast">Modalità sonno attivata</string>
+    <string name="sleep_mode_disabled_toast">Modalità sonno disattivata</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">La suoneria sarà attiva per chiamate e notifiche</string>
+    <!-- Lock gesture -->
+    <string name="gesture_locked_warning">Scorri di nuovo per sbloccare i gesti</string>
+    <!-- Title & summary of notification letting users know that battery saver is now on [CHAR_LIMIT=80] -->
+    <string name="battery_saver_on_notification_title">Risparmio batteria attivato</string>
+    <string name="battery_saver_on_notification_summary">Da programmazione. Premi per rivedere le impostazioni.</string>
+    <!-- Long-press back kill application -->
+    <string name="app_killed_message">Applicazione terminata</string>
+    <!-- Settings Restart -->
+    <string name="settings_restart_title">Riavvio delle impostazioni richiesto</string>
+    <string name="settings_restart_message">Per rendere effettive tutte le modifiche, è necessario un riavvio delle impostazioni. Riavviare le impostazioni ora?</string>
+    <!-- System Reboot -->
+    <string name="system_restart_title">Riavvio del sistema richiesto</string>
+    <string name="system_restart_message">Per rendere effettive tutte le modifiche, è necessario un riavvio del sistema. Riavviarlo ora?</string>
+    <!-- Launcher Restart -->
+    <string name="launcher_restart_title">Riavvio del launcher richiesto</string>
+    <string name="launcher_restart_message">Per rendere effettive tutte le modifiche, è necessario un riavvio del launcher. Riavviare il launcher ora?</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Premi e tieni premuto il pulsante di accensione per sbloccare</string>
+    <string name="pocket_view_title">Modalità tasca attiva</string>
+    <string name="pocket_view_title_cancel">Per risvegliare il telefono:</string>
+    <string name="pocket_view_top_tag_cancel">Non coprire l\'area colorata in blu del telefono e rimuovi sporco o polvere.</string>
+    <string name="pocket_view_top_tag_cancel2">Tieni premuto il pulsante di accensione per forzare l\'uscita dalla modalità tasca.</string>
+    <string name="pocket_view_top_tag_number1">1.\u0020</string>
+    <string name="pocket_view_top_tag_number2">2.\u0020</string>
+    <!-- App lock -->
+    <string name="unlock_application">Sblocca <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2023 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">کپی کردن آدرس گزارش خرابی</string>
+    <string name="url_copy_success">آدرس با موفقیت کپی شد</string>
+    <string name="url_copy_failed">هنگام بارگزاری گزارش در Pasty خطایی روی داد</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">رابط کاربری نیازمندِ راه‌اندازی مجدد است</string>
+    <string name="systemui_restart_message">اِعمال همه تغییرات ، به راه‌اندازی مجدد رابط کاربری نیاز دارد. رابط کاربری راه اندازی مجدد شود?</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">خودکار</string>
+    <string name="live_display_auto_summary">تنظیم خودکار شدت رنگ صفحه نمایش پس از طلوع و غروب آفتاب</string>
+    <string name="live_display_off">خاموش</string>
+    <string name="live_display_off_summary">غیر فعال کردن تمامی تغییرات</string>
+    <string name="live_display_day">روز</string>
+    <string name="live_display_day_summary">فقط استفاده از تنظیمات روز</string>
+    <string name="live_display_night">شب</string>
+    <string name="live_display_night_summary">فقط از تنظیمات شب استفاده کنید</string>
+    <string name="live_display_outdoor">فضای باز (آفتاب شدید)</string>
+    <string name="live_display_outdoor_summary">تنها استفاده از تنظیمات فضای باز</string>
+    <string name="live_display_hint">صفحه پویا می تواند خستگی چشم را کاهش داده و به خواب شما کمک کند. کلیک کنید و آن را امتحان کنید!</string>
+    <string name="accessibility_quick_settings_live_display_off">نمایش پویا خاموش.</string>
+    <string name="accessibility_quick_settings_live_display_auto">صفحه پویا: حالت خودکار.</string>
+    <string name="accessibility_quick_settings_live_display_day">صفحه پویا: حالت روز.</string>
+    <string name="accessibility_quick_settings_live_display_night">صفحه پویا: حالت شب.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">صفحه پویا: حالت فضای باز.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">صفحه پویا خاموش شده.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">صفحه پویا به حالت خودکار تغییر کرد.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">صفحه پویا به حالت روز تغییر کرد.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">صفحه پویا به حالت شب تغییر کرد.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">صفحه پویا به حالت فضای باز تغییر کرد.</string>
+    <!-- Advanced reboot -->
+    <string name="reboot_title">راه‌اندازی مجدد</string>
+    <string name="reboot_message">راه‌اندازی مجدد سیستم</string>
+</resources>

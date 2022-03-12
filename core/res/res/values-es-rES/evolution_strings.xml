@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2023 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Copiar URL del registro de errores</string>
+    <string name="url_copy_success">URL copiada satisfactoriamente</string>
+    <string name="url_copy_failed">Se ha producido un error al cargar el registro en Pasty</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Se requiere reinicio de SystemUI</string>
+    <string name="systemui_restart_message">Para que todos los cambios surtan efecto, se requiere un reinicio de SystemUI. ¿Reiniciar SystemUI ahora?</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Automático</string>
+    <string name="live_display_auto_summary">Ajustar automáticamente la temperatura del color de la pantalla entre anochecer y amanecer</string>
+    <string name="live_display_off">Desactivado</string>
+    <string name="live_display_off_summary">Desactivar todos los ajustes</string>
+    <string name="live_display_day">Día</string>
+    <string name="live_display_day_summary">Usar sólo ajustes de día</string>
+    <string name="live_display_night">Noche</string>
+    <string name="live_display_night_summary">Utilizar sólo los ajustes de noche</string>
+    <string name="live_display_outdoor">Exteriores (sol brillante)</string>
+    <string name="live_display_outdoor_summary">Usar sólo ajustes de exterior</string>
+    <string name="live_display_hint">LiveDisplay puede reducir la fatiga visual y ayudarte a dormir por la noche. ¡Toca aquí para probarlo!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay desactivado.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: modo automático.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: modo diurno.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: modo nocturno.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: modo exterior.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay desactivado.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay cambió a modo automático.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay cambió a modo diurno.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay cambió a modo nocturno.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay cambió a modo al aire libre.</string>
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Reiniciando al modo Recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Reiniciando al modo Bootloader</string>
+    <string name="reboot_title">Reiniciar</string>
+    <string name="reboot_message">Reiniciando sistema</string>
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">Control de carga</string>
+    <string name="charging_control_notification_title">Control de carga</string>
+    <string name="charging_control_notification_cancel_once">Cancelar</string>
+    <string name="charging_control_notification_content_limit">La batería se cargará a %1$d%%</string>
+    <string name="charging_control_notification_content_limit_reached">Batería cargada al %1$d%%</string>
+    <string name="charging_control_notification_content_target">La batería se cargará completamente en %1$s</string>
+    <string name="charging_control_notification_content_target_reached">Batería cargada</string>
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Modo 💤</string>
+    <string name="sleep_mode_notification_title">Modo 💤 activado</string>
+    <string name="sleep_mode_notification_content">Toca para desactivar modo 💤</string>
+    <string name="sleep_mode_enabled_toast">Modo 💤 habilitado</string>
+    <string name="sleep_mode_disabled_toast">Modo 💤 deshabilitado</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Las llamadas y notificaciones sonarán</string>
+    <!-- Lock gesture -->
+    <string name="gesture_locked_warning">Desliza nuevamente para desbloquear gestos</string>
+    <!-- Title & summary of notification letting users know that battery saver is now on [CHAR_LIMIT=80] -->
+    <string name="battery_saver_on_notification_title">Ahorro de batería activado</string>
+    <string name="battery_saver_on_notification_summary">Pulsa para revisar los ajustes de horario.</string>
+    <!-- Long-press back kill application -->
+    <string name="app_killed_message">Aplicación finalizada</string>
+    <!-- Settings Restart -->
+    <string name="settings_restart_title">Es necesario reiniciar Ajustes</string>
+    <string name="settings_restart_message">Para aplicar los cambios es necesario reiniciar la aplicación de ajustes. ¿Quieres reiniciar ahora?</string>
+    <!-- System Reboot -->
+    <string name="system_restart_title">Es necesario reiniciar el sistema</string>
+    <string name="system_restart_message">Para aplicar los cambios es necesario reiniciar el sistema. ¿Quieres reiniciar ahora?</string>
+    <!-- Launcher Restart -->
+    <string name="launcher_restart_title">Es necesario reiniciar el lanzador del sistema</string>
+    <string name="launcher_restart_message">Para aplicar los cambios es necesario reiniciar el lanzador del sistema. ¿Quieres reiniciar ahora?</string>
+</resources>
