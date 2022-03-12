@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2021 The Evolution X Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">Récupération</string>
+    <string name="reboot_to_recovery_message">Redémarrage en mode récupération</string>
+    <string name="reboot_to_bootloader_title">Amorçage</string>
+    <string name="reboot_to_bootloader_message">Redémarrage en mode Amorçage</string>
+    <string name="reboot_title">Redémarrer</string>
+    <string name="reboot_message">Redémarrage du système</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Vibreur activé pour les appels et les notifications</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Appuyez et maintenez le bouton marche/arrêt pour déverrouiller</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_view_title">Le mode poche est activé</string>
+    <string name="pocket_view_title_cancel">Pour utiliser votre téléphone :</string>
+    <string name="pocket_view_top_tag_cancel">Vérifiez si la zone bleue de votre téléphone est exempte d\'obstacles et nettoyez toute saleté ou poussière.</string>
+    <string name="pocket_view_top_tag_cancel2">Appuyez longuement sur le bouton d\'alimentation pour quitter le Mode poche.</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Redémarrage de l\'interface utilisateur requis</string>
+    <string name="systemui_restart_message">Pour que toutes les modifications prennent effet, un redémarrage de l\'interface utilisateur est nécessaire. Redémarrer l\'interface utilisateur maintenant ?</string>
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Copier l\'URL du rapport d\'erreur</string>
+    <string name="url_copy_success">URL copiée avec succès</string>
+    <string name="url_copy_failed">Une erreur est survenue pendant l\'envoi du rapport à hastebin</string>
+</resources>
