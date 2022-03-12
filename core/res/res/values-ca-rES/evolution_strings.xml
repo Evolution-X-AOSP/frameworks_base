@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2023 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Copia l\'URL del registre d\'errors</string>
+    <string name="url_copy_success">S\'ha copiat l\'URL correctament</string>
+    <string name="url_copy_failed">Hi ha hagut un error mentre es pujava el registre a Pasty</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Es requereix reiniciar el SystemUI</string>
+    <string name="systemui_restart_message">És necessari reiniciar el SystemUI per a aplicar tots els canvis. Vols reiniciar ara?</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Automàtic</string>
+    <string name="live_display_auto_summary">Ajusta automàticament la temperatura de color de la pantalla després de la posta de sol i de l\'alba</string>
+    <string name="live_display_off">Desactivat</string>
+    <string name="live_display_off_summary">Desactiva tots els ajustos</string>
+    <string name="live_display_day">Dia</string>
+    <string name="live_display_day_summary">Utilitza només la configuració diürna</string>
+    <string name="live_display_night">Nit</string>
+    <string name="live_display_night_summary">Utilitza només la configuració nocturna</string>
+    <string name="live_display_outdoor">Exterior (sol intens)</string>
+    <string name="live_display_outdoor_summary">Utilitza només la configuració d\'exterior</string>
+    <string name="live_display_hint">LiveDisplay pot ajudar-te a reduir la fatiga visual i a dormir a la nit. Fes clic aquí per a provar-ho!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay desactivat.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: mode automàtic.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: mode diürn.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: mode nocturn.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: mode exterior.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">S\'ha desactivat el LiveDisplay.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">S\'ha canviat el LiveDisplay al mode automàtic.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">S\'ha canviat el LiveDisplay al mode diürn.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">S\'ha canviat el LiveDisplay al mode nocturn.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">S\'ha canviat el LiveDisplay al mode exterior.</string>
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">Recuperació</string>
+    <string name="reboot_to_recovery_message">S\'està reiniciant al mode de recuperació</string>
+    <string name="reboot_to_bootloader_title">Gestor d\'arrancada</string>
+    <string name="reboot_to_bootloader_message">S\'està reiniciant al gestor d\'arrencada</string>
+    <string name="reboot_title">Reinicia</string>
+    <string name="reboot_message">S\'està reiniciant el sistema</string>
+</resources>
