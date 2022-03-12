@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2023 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">Kurtarma</string>
+    <string name="reboot_to_recovery_message">Kurtarma modunda yeniden başlatılıyor</string>
+    <string name="reboot_to_bootloader_title">Önyükleyici</string>
+    <string name="reboot_to_bootloader_message">Önyükleyici modunda yeniden başlatılıyor</string>
+    <string name="reboot_title">Yeniden başlat</string>
+    <string name="reboot_message">Sistem yeniden başlatılıyor</string>
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Çökme günlüğü URL\' sini kopyala</string>
+    <string name="url_copy_success">URL başarıyla kopyalandı</string>
+    <string name="url_copy_failed">Günlük hastebin\'e yüklenirken bir hata oluştu</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Sistem arayüzünün yeniden başlatılması gerekir</string>
+    <string name="systemui_restart_message">Tüm değişikliklerin etkili olması için sistem arayüzünün yeniden başlatılması gerekiyor. Sistem arayüzünü şimdi yeniden başlatmak ister misiniz?</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Kilidi açmak için güç tuşuna basılı tutun</string>
+    <string name="pocket_view_title">Cep modu açık</string>
+    <string name="pocket_view_title_cancel">Telefonunuzu etkinleştirmek için:</string>
+    <string name="pocket_view_top_tag_cancel">Telefonunuzun mavi alanında herhangi bir engel olup olmadığını kontrol edin ve herhangi bir kir veya toz varsa temizleyin.</string>
+    <string name="pocket_view_top_tag_cancel2">Cep modunu zorla kapatmak için güç tuşuna basılı tutun.</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Otomatik</string>
+    <string name="live_display_auto_summary">Güneşin doğuşu ve batışından sonra ekran renk sıcaklığını otomatik ayarla</string>
+    <string name="live_display_off">Kapalı</string>
+    <string name="live_display_off_summary">Tüm ayarlamaları devre dışı bırak</string>
+    <string name="live_display_day">Gündüz</string>
+    <string name="live_display_day_summary">Sadece gündüz ayarlarını kullan</string>
+    <string name="live_display_night">Gece</string>
+    <string name="live_display_night_summary">Sadece gece ayarlarını kullan</string>
+    <string name="live_display_outdoor">Dış mekan (parlak güneş)</string>
+    <string name="live_display_outdoor_summary">Sadece dış mekan ayarlarını kullan</string>
+    <string name="live_display_hint">LiveDisplay, göz yorgunluğunuzu azaltmanıza ve gece uyumanıza yardımcı olabilir. Denemek için buraya dokunun!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay kapalı.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: otomatik mod.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: gündüz modu.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: gece modu.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: dış mekan modu.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay kapatıldı.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay otomatik moda geçti.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay gündüz moduna geçti.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay gece moduna geçti.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay açık alan moduna geçti.</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Çağrılar ve bildirimler için zil sesi</string>
+    <!-- App lock -->
+    <string name="unlock_application">Kilidi aç <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">Hareketsizlik nedeniyle yüz kilidi devre dışı bırakıldı</string>
+    <!-- Lock gesture -->
+    <string name="gesture_locked_warning">Hareket kilidini açmak için tekrar kaydırın</string>
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Uyku modu</string>
+    <string name="sleep_mode_notification_title">Uyku modu etkin</string>
+    <string name="sleep_mode_notification_content">Uyku modunu kapatmak için dokunun</string>
+    <string name="sleep_mode_enabled_toast">Uyku modu açıldı</string>
+    <string name="sleep_mode_disabled_toast">Uyku modu kapatıldı</string>
+    <!-- Parallel space badge -->
+</resources>

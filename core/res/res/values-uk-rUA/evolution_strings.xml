@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2023 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">Режим відновлення</string>
+    <string name="reboot_to_recovery_message">Перевантажити у режим відновлення</string>
+    <string name="reboot_to_bootloader_title">Режим завантажувача</string>
+    <string name="reboot_to_bootloader_message">Перезавантажити у режим завантажувача</string>
+    <string name="reboot_title">Перезавантаження</string>
+    <string name="reboot_message">Перезавантаження системи</string>
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Копіювати URL лог збою</string>
+    <string name="url_copy_success">URL успішно скопійовано</string>
+    <string name="url_copy_failed">Помилка під час завантаження файла звіту до pasty</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Необхідне перезавантаження інтерфейсу системи</string>
+    <string name="systemui_restart_message">Для застосування змін потрібно перезаватажити інтерфейс системи. Перезавантажити зараз?</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Натисніть й утримуйте кнопку живлення, щоб розблокувати</string>
+    <string name="pocket_view_title">Режим \"У кишені\" увімкнено</string>
+    <string name="pocket_view_title_cancel">Щоб скористатися вашим телефоном:</string>
+    <string name="pocket_view_top_tag_cancel">Перевірте, чи синя зона на телефоні нічим не перекрита, а також очистіть її від будь-якого бруду.</string>
+    <string name="pocket_view_top_tag_cancel2">Утримуйте кнопку живлення, щоб примусово вийти з режиму \"У кишені\".</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Автоматично</string>
+    <string name="live_display_auto_summary">Автоматичне підлаштування температури кольору екрана після сходу та заходу сонця</string>
+    <string name="live_display_off">Вимкнено</string>
+    <string name="live_display_off_summary">Вимкнути всі налаштування</string>
+    <string name="live_display_day">День</string>
+    <string name="live_display_day_summary">Використовувати лише налаштування режиму \"День\"</string>
+    <string name="live_display_night">Ніч</string>
+    <string name="live_display_night_summary">Використовувати лише налаштування режиму \"Ніч\"</string>
+    <string name="live_display_outdoor">На вулиці (яскраве сонце)</string>
+    <string name="live_display_outdoor_summary">Використовувати тільки налаштування «На вулиці»</string>
+    <string name="live_display_hint">LiveDisplay допоможе зменшити навантаження на зір та покращить сон. Натисніть тут, щоб спробувати його!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay вимкнений.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: автоматичний режим.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: денний режим.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: нічний режим.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: режим на вулиці.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay вимкнено.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay змінився до автоматичного режиму.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay змінено до денного режиму.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay змінено до нічного режиму.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay змінено до режиму на вулиці.</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Звуковий сигнал для викликів і сповіщень увімкнено</string>
+    <!-- App lock -->
+    <string name="unlock_application">Розблокувати <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">Розблокування за обличчю вимкнено через неактивність</string>
+    <!-- Lock gesture -->
+    <string name="gesture_locked_warning">Проведіть ще раз, щоб розблокувати жести</string>
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Режим сну</string>
+    <string name="sleep_mode_notification_title">Увімкнено режим сну</string>
+    <string name="sleep_mode_notification_content">Торкніться, щоб вимкнути режим сну</string>
+    <string name="sleep_mode_enabled_toast">Увімкнено режим сну</string>
+    <string name="sleep_mode_disabled_toast">Вимкнено режим сну</string>
+    <!-- Parallel space badge -->
+</resources>

@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2023 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Screenshot delete action -->
+    <!-- Label for UI element which allows deleting the screenshot [CHAR LIMIT=30] -->
+    <string name="screenshot_delete_label">Sil</string>
+    <!-- Content description indicating that tapping the element will allow deleting the screenshot [CHAR LIMIT=NONE] -->
+    <string name="screenshot_delete_description">Ekran görüntüsünü sil</string>
+    <!-- Screen record delete action -->
+    <!-- Label for notification action to delete a screen recording file [CHAR LIMIT=35] -->
+    <string name="screenrecord_delete_label">Sil</string>
+    <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
+    <string name="screenrecord_delete_description">Ekran kaydı silindi</string>
+    <!-- Alert slider extras -->
+    <string name="volume_ringer_priority_only">Öncelik</string>
+    <string name="volume_ringer_alarms_only">Alarmlar</string>
+    <string name="volume_ringer_dnd">Rahatsız etmeyin</string>
+    <string name="tristate_flashlight">El feneri</string>
+    <string name="tristate_flashlight_on">Fener açık</string>
+    <string name="tristate_flashlight_off">Fener kapalı</string>
+    <string name="tristate_flashlight_blink">Feneri yakıp söndür</string>
+    <string name="tristate_brightness_bright">Maksimum parlaklık</string>
+    <string name="tristate_brightness_dark">Minimum parlaklık</string>
+    <string name="tristate_brightness_auto">Otomatik parlaklık</string>
+    <string name="tristate_rotation_auto">Otomatik döndür</string>
+    <string name="tristate_rotation_0">Dikey</string>
+    <string name="tristate_rotation_90">Yatay (90°)</string>
+    <string name="tristate_rotation_270">Yatay (270°)</string>
+    <string name="tristate_refresh_auto">Otomatik yenileme</string>
+    <string name="tristate_refresh_min">Min-yenileme</string>
+    <string name="tristate_refresh_max">Maks-yenileme</string>
+    <string name="tristate_extradim_off">Karartma kapalı</string>
+    <string name="tristate_extradim_min">Minimum karartma</string>
+    <string name="tristate_extradim_mid">Orta karartma</string>
+    <string name="tristate_extradim_max">Maksimum karartma</string>
+    <string name="tristate_nightlight_off">Gece Işığı kapalı</string>
+    <string name="tristate_nightlight_min">Minimum sıcaklık</string>
+    <string name="tristate_nightlight_mid">Orta sıcaklık</string>
+    <string name="tristate_nightlight_max">Maksimum sıcaklık</string>
+    <string name="tristate_colorspace_vivid">Canlı</string>
+    <string name="tristate_colorspace_natural">Doğal</string>
+    <string name="tristate_colorspace_cinematic">Sinematik</string>
+    <string name="tristate_colorspace_brilliant">Parlak</string>
+    <!-- Name of the nfc status bar icon. -->
+    <string name="status_bar_nfc">NFC</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <!-- Advanced Reboot -->
+    <string name="global_action_restart_advanced">Gelişmiş</string>
+    <string name="global_action_restart_recovery">Kurtarma</string>
+    <string name="global_action_restart_bootloader">Önyükleyici</string>
+    <string name="global_action_restart_ui">Sistem Arayüzü</string>
+    <!-- Custom QS tiles -->
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Kablosuz Güç Paylaşımı</string>
+    <string name="quick_settings_powershare_off_powersave_label">Kablosuz Güç Paylaşımı kapalı\nPil tasarrufu</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Kablosuz Güç Paylaşımı kapalı\nPil seviyesi çok düşük</string>
+    <string name="quick_settings_powershare_enabled_label">Kablosuz Güç Paylaşımı etkin</string>
+    <!-- Caffeine tile -->
+    <string name="quick_settings_caffeine_label">Kafein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kafein kapalı</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kafein açık</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Ortam ekranı</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ortam ekranı kapalı.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ortam ekranı açık.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ortam ekranı kapatıldı.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ortam ekranı açıldı.</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">USB internet paylaşımı</string>
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">Eşitleme</string>
+    <string name="accessibility_quick_settings_sync_off">Eşitleme kapalı</string>
+    <string name="accessibility_quick_settings_sync_on">Eşitleme açık</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Eşitleme kapatıldı</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Eşitleme açıldı</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Ses</string>
+    <string name="quick_settings_sound_ring">Zil sesi</string>
+    <string name="quick_settings_sound_vibrate">Titreşim</string>
+    <string name="quick_settings_sound_mute">Sessiz</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">Bildirim pencereleri</string>
+    <string name="accessibility_quick_settings_heads_up_off">Bildirim pencereleri kapalı.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Bildirim pencereleri açık.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Bildirim pencereleri kapatıldı.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Bildirim pencereleri açıldı.</string>
+    <!-- Poweroff/Reboot/Recovery QS tile -->
+    <string name="quick_settings_poweroff_label">Kapat</string>
+    <string name="quick_settings_reboot_label">Yeniden başlat</string>
+    <string name="quick_settings_reboot_recovery_label">Kurtarma</string>
+    <string name="quick_settings_reboot_bootloader_label">Önyükleyici</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Ses paneli</string>
+    <!-- SoundSearch Tile -->
+    <string name="quick_settings_sound_search">Ses araması</string>
+    <string name="quick_settings_sound_search_no_app">Üzgünüz, eğer bir ses arama uygulaması yoksa bu işe yaramayacaktır.</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">\u2026\'a bağlan</string>
+    <string name="vpn_credentials_hint">Lütfen <xliff:g id="name">%s</xliff:g> bağlanmak için kimlik bilgilerinizi girin</string>
+    <string name="vpn_credentials_username">Kullanıcı adı</string>
+    <string name="vpn_credentials_password">Şifre</string>
+    <string name="vpn_credentials_dialog_connect">Bağlan</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Okuma modu</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Okuma modu açık.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Okuma modu kapalı.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Okuma modu açıldı.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Okuma modu kapatıldı.</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">Titreşim önleme</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">Mobil veri kartını değiştir</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">Her zaman açık ekran</string>
+    <string name="quick_settings_aod_on_charge_label">Şarj olurken her zaman açık ekran</string>
+    <string name="quick_settings_aod_off_label">Her zaman açık ekran kapalı</string>
+    <string name="quick_settings_aod_off_powersave_label">Her zaman açık ekran kapalı\nPil tasarrufu</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Ekran görüntüsü silindi</string>
+    <!-- Status bar tuner -->
+    <string name="status_bar_items_title">Durum çubuğu simgeleri</string>
+    <string name="status_bar_call_strength">Sinyal kuveti</string>
+    <string name="status_bar_data_saver">Veri tasarrufu</string>
+    <string name="status_bar_vpn">VPN</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash şarj oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> kaldı)</string>
+    <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Dash şarj oluyor</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Warp Şarj Oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> kaldı)</string>
+    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="percentage">%s</xliff:g> • Warp Şarj Oluyor</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • WOOC Şarj Oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> kaldı)</string>
+    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="percentage">%s</xliff:g> • VOOC Şarj oluyor</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Turbo Şarj Oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> kaldı)</string>
+    <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Turbo Şarj Oluyor</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • SuperDart Şarj Oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> kaldı)</string>
+    <string name="keyguard_plugged_in_superdart_charging"><xliff:g id="percentage">%s</xliff:g> • SuperDart Şarj oluyor</string>
+    <!-- Screen record -->
+    <string name="screenrecord_stopdot_label">Durma noktasını göster\nTaşımak için uzun basın</string>
+    <string name="screenrecord_stopdot_summary">Taşımak için uzun basın</string>
+    <string name="screenrecord_lowquality_label">Daha küçük dosya boyutu için daha düşük kalite</string>
+    <string name="screenrecord_lowquality_summary">Daha küçük dosya boyutu için</string>
+    <string name="screenrecord_longer_timeout_switch_label">Daha büyük dosya boyutu sınırı\nKayıt boyutunu 15 GB ile sınırlayın</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Kayıt boyutunu 15 GB ile sınırlayın</string>
+    <string name="screenrecord_skip_time_label">Zamanlayıcıyı atla</string>
+    <string name="screenrecord_skip_time_summary">3 saniye beklemeyi kaldır</string>
+    <string name="screenrecord_hevc_switch_label">HEVC etkinleştir</string>
+    <string name="screenrecord_hevc_switch_summary">Daha verimli HEVC video kodlaması kullanın</string>
+    <!-- Kill foreground app -->
+    <string name="task_helper_app_killed">%1$s zorla durduruldu</string>
+    <string name="empty_app_killed">Uygulama</string>
+    <!-- Google Lens Screenshot string -->
+    <string name="lensss">Lens</string>
+    <string name="lens_unavailable">Google Lens yüklü değil</string>
+    <!-- Bluetooth dialog -->
+    <string name="turn_on_bluetooth">Bluetooth\'u kullan</string>
+    <string name="bluetooth_is_off">Bluetooth kapalı</string>
+    <string name="tap_a_device_to_connect">Bağlanmak için bir cihaz seçin</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">Yürüme modu etkinleştirildi</string>
+    <string name="onthego_notif_title">Yürüme modu etkin</string>
+    <string name="onthego_notif_stop">Durdur</string>
+    <string name="onthego_notif_options">Seçenekler</string>
+    <string name="onthego_notif_error">Yürüme modu başlatılamıyor</string>
+    <string name="onthego_notif_restart">Yürüme modunu yeniden başlat</string>
+    <string name="onthego_notif_camera_changed">Kamera modu değiştirildi</string>
+    <string name="onthego_transparency">Saydamlık</string>
+    <string name="onthego_front_camera">Ön kamerayı kullan</string>
+    <string name="onthego_service_toggle">Servisi otomatik olarak yeniden başlat</string>
+    <string name="onthego_channel_name">Temel</string>
+    <string name="global_action_onthego">Yürüme modu</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">Yürüme modu</string>
+    <!-- Screenshot Tile -->
+    <string name="screenshot_long_press">Kısmi ekran görüntüsü için basılı tutun</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Siz sabitlemeyi kaldırana kadar ekranı görünür durumda tutar. Sabitlemeyi kaldırmak için Geri tuşuna basılı tutun.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Bu ekrandaki sabitlemeyi kaldırmak için &amp; Geri tuşuna dokunun ve basılı tutun</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Bu işlem, siz sabitlemeyi kaldırana kadar ekranda görünür tutar. Sabitlemeyi kaldırmak için parmak izi sensörüne dokunun ve basılı tutun.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Bu ekranın sabitlemesini kaldırmak için parmak izi sensörüne dokunun ve basılı tutun</string>
+    <!-- VPN tethering QS tile -->
+    <string name="vpn_tethering_label">VPN bağlantısı</string>
+    <string name="vpn_tethering_changed_off">VPN bağlantısı kapatıldı.</string>
+    <string name="vpn_tethering_changed_on">VPN bağlantısı açıldı.</string>
+    <!-- Glove Mode Tile -->
+    <string name="quick_settings_glove_mode_label">Eldiven Modu</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">Pusula</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Başlatılıyor\u2026</string>
+    <string name="quick_settings_compass_N">K</string>
+    <string name="quick_settings_compass_NE">KD</string>
+    <string name="quick_settings_compass_E">D</string>
+    <string name="quick_settings_compass_SE">GD</string>
+    <string name="quick_settings_compass_S">G</string>
+    <string name="quick_settings_compass_SW">GB</string>
+    <string name="quick_settings_compass_W">B</string>
+    <string name="quick_settings_compass_NW">KB</string>
+    <!-- Advance location quick setting tile -->
+    <string name="accessibility_quick_settings_location_off">Konum bildirimi: kapalı.</string>
+    <string name="quick_settings_location_secondary_battery_saving">Pil Tasarrufu</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Konum bildirimi: pil tasarrufu modu.</string>
+    <string name="quick_settings_location_secondary_gps_only">Sadece sensörler</string>
+    <string name="accessibility_quick_settings_location_gps_only">Konum bildirimi: sadece sensörler modu.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Yüksek Doğruluk</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Konum bildirimi: yüksek doğruluk modu.</string>
+    <!-- Sleep Mode -->
+    <string name="quick_settings_sleep_mode_label">Uyku modu</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">DC Karartma</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Dil</string>
+    <string name="quick_settings_locale_more_locales_toast">Geçiş işlevselliğinin etkin olması için lütfen birden fazla dil ekleyin</string>
+    <!-- App picker -->
+    <string name="app_picker_dialog_title">Bir uygulama seç</string>
+    <string name="active_edge_app_select_title">Uygulama seç</string>
+    <string name="active_edge_activity_select_title">Etkinlik seç</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Akıllı Pikseller</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Otomatik olarak akıllı pikselleri etkinleştir</string>
+    <!-- Text to use when the number in a notification info is too large -->
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Sol imleç</string>
+    <string name="accessibility_dpad_right">İmleç sağa</string>
+    <!-- Preferred network tile -->
+    <string name="quick_settings_preferred_network_label">Tercih edilen ağ</string>
+    <string name="quick_settings_preferred_network_lte">4g / LTE</string>
+    <string name="quick_settings_preferred_network_nr">5g / NR</string>
+    <string name="quick_settings_preferred_network_unsupported">Desteklenmiyor</string>
+    <!-- Refresh Rate Tile -->
+    <string name="refresh_rate_tile_label">Yenileme hızı</string>
+    <string name="auto_mode_label">Otomatik</string>
+    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
+    <string name="clock">Saat</string>
+    <!-- Name of the HD calling status bar icon. -->
+    <string name="status_bar_hd_calling">HD arama (VoLTE/VoNR)</string>
+    <!-- Name of the VoWiFi status bar icon. -->
+    <string name="status_bar_vowifi">Wi-Fi arama (VoWiFi)</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Durmaya zorlansın mı?</string>
+    <string name="force_stop_dlg_text">Uygulamayı zorla durdurursanız, hatalı davranabilir.</string>
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">Yüz tanınıyor...</string>
+</resources>
