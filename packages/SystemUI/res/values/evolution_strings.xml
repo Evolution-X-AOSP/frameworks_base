@@ -84,8 +84,9 @@
     <!-- Statusbar tuner -->
     <string name="statusbar_items_title">Statusbar icons</string>
 
-    <!-- Name of the VPN status bar icon. -->
+    <!-- Name of status bar icons. -->
     <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_call_strength">Call strength</string>
 
     <!-- Heads Up QS Tile -->
     <string name="quick_settings_heads_up_label">Heads up</string>
