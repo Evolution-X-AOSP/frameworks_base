@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2019-2021 The Evolution X Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Label for UI element which allows deleting the screenshot [CHAR LIMIT=30] -->
+    <string name="screenshot_delete_label">Supprimer</string>
+    <!-- Content description indicating that tapping the element will allow deleting the screenshot [CHAR LIMIT=NONE] -->
+    <string name="screenshot_delete_description">Supprimer la capture d\'écran</string>
+    <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">Caféine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caféine désactivée</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caféine activé</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Affichage ambiant</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Affichage ambiant désactivé.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Affichage ambiant activé.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Affichage ambiant désactivé.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Affichage ambiant activé.</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">Partage de connexion via USB</string>
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">Synchronisation</string>
+    <string name="accessibility_quick_settings_sync_off">Synchronisation désactivée</string>
+    <string name="accessibility_quick_settings_sync_on">Synchronisation activée</string>
+    <string name="accessibility_quick_settings_sync_changed_off">La synchronisation est désactivée</string>
+    <string name="accessibility_quick_settings_sync_changed_on">La synchronisation a été activée</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Son</string>
+    <string name="quick_settings_sound_ring">Sonnerie</string>
+    <string name="quick_settings_sound_vibrate">Vibration</string>
+    <string name="quick_settings_sound_mute">Silence</string>
+    <!-- SystemUI Tuner -->
+    <string name="statusbar_items_title">Icône de la barre d\'état</string>
+    <string name="lockscreen_default">Par défaut</string>
+    <string name="lockscreen_hidden">Aucun</string>
+    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">Balayez l\'icône pour lancer l\'application</string>
+    <!-- Advanced Reboot -->
+    <string name="global_action_restart_advanced">Avancé</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">Interface utilisateur</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">Capture d\'écran</string>
+    <string name="quick_settings_region_screenshot_label">Capture d\'écran partielle</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">Notifications flottantes</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notifications flottantes désactivées.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notifications flottantes activées.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Notifications flottantes désactivées.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Notifications flottantes activées.</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Notifications flottantes désactivées pour 1 minute.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Notifications flottantes désactivées pour <xliff:g id="number">%2$d</xliff:g> minutes.</string>
+    <!-- Running service button -->
+    <string name="accessibility_quick_settings_running_services">Afficher les services en cours.</string>
+    <!-- CPUInfo tile -->
+    <string name="quick_settings_cpuinfo_label">Infos sur le processeur</string>
+    <string name="accessibility_quick_settings_cpuinfo_off">Désactiver Infos CPU</string>
+    <string name="accessibility_quick_settings_cpuinfo_on">Activer Infos CPU</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_off">Infos CPU désactivées</string>
+    <string name="accessibility_quick_settings_cpuinfo_changed_on">Infos CPU activées</string>
+    <!-- Poweroff/Reboot/Recovery QS tile -->
+    <string name="quick_settings_poweroff_label">Éteindre</string>
+    <string name="quick_settings_reboot_label">Redémarrer</string>
+    <string name="quick_settings_reboot_recovery_label">Récupération</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_on_charge_label">AOD lors de la charge</string>
+    <string name="quick_settings_aod_off_label">AOD désactivé</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD éteint\nÉconomiseur de batterie</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Forcer l\'arrêt ?</string>
+    <string name="force_stop_dlg_text">Si vous forcez l\'arrêt d\'une application, cela peut provoquer son dysfonctionnement.</string>
+    <string name="guts_force_close_app">Fermer l\'application</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">Changer de carte mémoire</string>
+    <string name="qs_data_switch_toast_0">Aucune carte SIM n\'est actuellement insérée</string>
+    <string name="qs_data_switch_toast_1">Une seule carte SIM est actuellement insérée</string>
+    <string name="qs_data_switch_changed_1">Changer la carte mémoire sur SIM 1.</string>
+    <string name="qs_data_switch_changed_2">Changer la carte mémoire sur SIM 2.</string>
+    <!-- Names of the status bar icons. -->
+    <string name="status_bar_call_strength">Force d\'appel</string>
+    <string name="status_bar_nfc">NFC</string>
+    <string name="status_bar_vpn">VPN</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">NFC</string>
+    <!-- Navbar -->
+    <string name="systemui_tuner_navbar_title">Disposition</string>
+    <string name="navigation_bar_format_title">Format de la barre de navigation</string>
+    <string name="navigation_bar_inverse_title">Permuter les boutons</string>
+    <string name="navigation_bar_inverse_summary">Permuter l\'ordre des boutons récents et retour</string>
+    <string name="navigation_bar_accessibility_dpad_left">Flèche gauche</string>
+    <string name="navigation_bar_accessibility_dpad_right">Flèche droite</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Panneau de volume</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">Boussole</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrés">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Initialisation\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Boussole désactivée</string>
+    <string name="accessibility_quick_settings_compass_on">Boussole activée</string>
+    <string name="accessibility_quick_settings_compass_changed_off">Boussole désactivée</string>
+    <string name="accessibility_quick_settings_compass_changed_on">Boussole activée</string>
+    <string name="quick_settings_compass_N">N</string>
+    <string name="quick_settings_compass_NE">NE</string>
+    <string name="quick_settings_compass_E">E</string>
+    <string name="quick_settings_compass_SE">SE</string>
+    <string name="quick_settings_compass_S">S</string>
+    <string name="quick_settings_compass_SW">SO</string>
+    <string name="quick_settings_compass_W">O</string>
+    <string name="quick_settings_compass_NW">NO</string>
+    <!-- FPS Info tile -->
+    <string name="quick_settings_fpsinfo_label">Infos FPS</string>
+    <string name="accessibility_quick_settings_fpsinfo_off">Infos FPS désactivé</string>
+    <string name="accessibility_quick_settings_fpsinfo_on">Infos FPS activé</string>
+    <!-- Screen record -->
+    <!-- Label for notification action to delete a screen recording file [CHAR LIMIT=35] -->
+    <string name="screenrecord_delete_label">Supprimer</string>
+    <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
+    <string name="screenrecord_delete_description">Enregistrement d\'écran supprimé</string>
+    <string name="screenrecord_stopdot_label">Afficher le point d\'arrêt\nAppui long pour le déplacer</string>
+    <string name="screenrecord_lowquality_label">Qualité inférieure pour une taille de fichier plus petite</string>
+    <string name="screenrecord_longer_timeout_switch_label">Limite de taille de fichier plus grande\nLimiter la taille d\'enregistrement à 15 Go</string>
+    <string name="task_helper_app_killed">%1$s s\'est arrêté</string>
+    <string name="empty_app_killed">Application</string>
+    <!-- AlertSlider -->
+    <string name="alert_slider_mode_priority_text">Priorité</string>
+    <string name="alert_slider_mode_dnd_text">NPD</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">Mode OTG activé</string>
+    <string name="onthego_notif_title">Le mode OTG est activé</string>
+    <string name="onthego_notif_stop">Stop</string>
+    <string name="onthego_notif_options">Paramètres</string>
+    <string name="onthego_notif_error">Impossible de démarrer le mode OTG</string>
+    <string name="onthego_notif_restart">Redémarrer OTG</string>
+    <string name="onthego_notif_camera_changed">Mode de caméra changé</string>
+    <string name="onthego_transparency">Transparence</string>
+    <string name="onthego_front_camera">Utiliser la caméra frontale</string>
+    <string name="onthego_service_toggle">Redémarrer automatiquement le service</string>
+    <string name="onthego_channel_name">Principal</string>
+    <string name="global_action_onthego">OTG</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">OTG</string>
+    <string name="accessibility_quick_settings_onthego_off">OTG off</string>
+    <string name="accessibility_quick_settings_onthego_on">OTG on</string>
+    <string name="app_picker_dialog_title">Sélectionner une application</string>
+    <string name="active_edge_app_select_title">Sélectionner une application</string>
+    <string name="active_edge_activity_select_title">Sélectionner une activité</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">Macro de jeu</string>
+    <string name="gaming_mode_tile_toast">Macros de jeu activées</string>
+    <string name="gaming_mode_tile_toast_disabled">Macros de jeu désactivées</string>
+    <string name="gaming_mode_dialog_title">Macro de jeu</string>
+    <string name="gaming_mode_dialog_message">Allez dans \'Paramètres &gt; Evolver &gt; Réglages Rapides &gt; Macro de jeu\' pour plus de détails et de paramètres</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">Les macros de jeu sont activées</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">Les macros de jeu sont désactivées</string>
+    <string name="gaming_mode_panel_headsup_title">Désactiver les notifications flottantes</string>
+    <string name="gaming_mode_panel_zen_title">Activer le mode Ne pas déranger</string>
+    <string name="gaming_mode_panel_navbar_title">Désactiver la barre de navigation</string>
+    <string name="gaming_mode_panel_hw_title">Désactiver les boutons physiques de navigation</string>
+    <string name="gaming_mode_panel_brightness_title">Désactiver la luminosité automatique</string>
+    <string name="gaming_mode_panel_media_title">Définir le volume multimédia</string>
+    <!-- Text to use when the number in a notification info is too large -->
+</resources>
