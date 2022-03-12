@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2023 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Neustart ins Recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Neustart in den Bootloader</string>
+    <string name="reboot_title">Neustart</string>
+    <string name="reboot_message">Starte Sytem neu</string>
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">URL des Absturzberichts kopieren</string>
+    <string name="url_copy_success">URL erfolgreich kopiert</string>
+    <string name="url_copy_failed">Beim Hochladen des Protokolls zu Pasty ist ein Fehler aufgetreten</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Neustart der SystemUI erforderlich</string>
+    <string name="systemui_restart_message">Um alle Änderungen anzuwenden, ist ein Neustart des SystemUI notwendig. SystemUI jetzt neu starten?</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Automatisch</string>
+    <string name="live_display_auto_summary">Farbtemperatur des Bildschirms automatisch nach Sonnenuntergang und Sonnenaufgang anpassen</string>
+    <string name="live_display_off">Aus</string>
+    <string name="live_display_off_summary">Alle Anpassungen deaktivieren</string>
+    <string name="live_display_day">Tag</string>
+    <string name="live_display_day_summary">Nur Tag-Einstellungen verwenden</string>
+    <string name="live_display_night">Nacht</string>
+    <string name="live_display_night_summary">Nur Nacht-Einstellungen verwenden</string>
+    <string name="live_display_outdoor">Im Freien (helle Sonne)</string>
+    <string name="live_display_outdoor_summary">Nur \"Im Freien\"-Einstellungen verwenden</string>
+    <string name="live_display_hint">LiveDisplay kann gegen eine Überanstrengung der Augen und beim Schlafen in der Nacht helfen. Klicken Sie hier, um es auszuprobieren!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay aus.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: Automatischer Modus.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: Tag-Modus.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: Nacht-Modus.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: \"Im Freien\"-Modus.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay ausgeschaltet.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay auf Auto-Modus geändert.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay auf Tag-Modus geändert.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay auf Nacht-Modus geändert.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay auf Outdoor-Modus geändert.</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Bei Anrufen und Benachrichtigungen klingeln</string>
+    <!-- App lock -->
+    <string name="unlock_application">Entsperren <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">Gesichtserkennung wegen Inaktivität deaktiviert</string>
+    <!-- Lock gesture -->
+    <string name="gesture_locked_warning">Erneut wischen, um Gesten freizuschalten</string>
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Schlafmodus</string>
+    <string name="sleep_mode_notification_title">Schlafmodus aktiviert</string>
+    <string name="sleep_mode_notification_content">Tippen, um Schlafmodus auszuschalten</string>
+    <string name="sleep_mode_enabled_toast">Schlafmodus eingeschaltet</string>
+    <string name="sleep_mode_disabled_toast">Schlafmodus ausgeschaltet</string>
+    <!-- Parallel space badge -->
+</resources>
