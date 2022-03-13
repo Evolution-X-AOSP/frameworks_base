@@ -13,6 +13,10 @@
     <!-- App lock -->
     <string name="unlock_application">Desbloquear <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
     <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">Recuperação</string>
+    <string name="reboot_to_recovery_message">Reiniciando...</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Reiniciando...</string>
     <string name="reboot_title">Reiniciar</string>
     <string name="reboot_message">Reiniciando...</string>
     <!-- Face unlock -->
