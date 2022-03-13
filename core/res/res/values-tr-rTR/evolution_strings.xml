@@ -13,6 +13,10 @@
     <!-- App lock -->
     <string name="unlock_application">Kilidi aç <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
     <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">Kurtarma</string>
+    <string name="reboot_to_recovery_message">Kurtarma modunda yeniden başlatılıyor</string>
+    <string name="reboot_to_bootloader_title">Önyükleyici</string>
+    <string name="reboot_to_bootloader_message">Önyükleyici modunda yeniden başlatılıyor</string>
     <string name="reboot_title">Yeniden başlat</string>
     <string name="reboot_message">Sistem yeniden başlatılıyor</string>
     <!-- Face unlock -->
