@@ -13,6 +13,10 @@
     <!-- App lock -->
     <string name="unlock_application">解锁 <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
     <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">恢复模式</string>
+    <string name="reboot_to_recovery_message">正在重启至恢复模式</string>
+    <string name="reboot_to_bootloader_title">引导模式</string>
+    <string name="reboot_to_bootloader_message">正在重启至引导模式</string>
     <string name="reboot_title">重启</string>
     <string name="reboot_message">正在重新启动</string>
     <!-- Face unlock -->
