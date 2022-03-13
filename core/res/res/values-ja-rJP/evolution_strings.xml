@@ -13,6 +13,10 @@
     <!-- App lock -->
     <string name="unlock_application"><xliff:g id="label" example="Telegram">%1$s</xliff:g>をロック解除</string>
     <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">リカバリー</string>
+    <string name="reboot_to_recovery_message">リカバリーへ再起動中...</string>
+    <string name="reboot_to_bootloader_title">ブートローダー</string>
+    <string name="reboot_to_bootloader_message">ブートローダーへ再起動中...</string>
     <string name="reboot_title">再起動</string>
     <string name="reboot_message">再起動しています…</string>
     <!-- Face unlock -->
