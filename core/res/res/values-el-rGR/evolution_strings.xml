@@ -13,6 +13,10 @@
     <!-- App lock -->
     <string name="unlock_application">Ξεκλείδωμα <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
     <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">Ανάκτηση</string>
+    <string name="reboot_to_recovery_message">Επανεκκίνηση σε ανάκτηση</string>
+    <string name="reboot_to_bootloader_title">Αρχικός εκκινητής/Bootloader</string>
+    <string name="reboot_to_bootloader_message">Επανεκκίνηση σε bootloader</string>
     <string name="reboot_title">Επανεκκίνηση</string>
     <string name="reboot_message">Επανεκκίνηση συστήματος</string>
     <!-- Face unlock -->
