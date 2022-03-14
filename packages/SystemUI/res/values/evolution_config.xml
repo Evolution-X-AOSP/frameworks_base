@@ -17,7 +17,7 @@
     <string name="config_udfpsHbmProviderComponent">com.android.systemui.biometrics.DummyUdfpsHbmProvider</string>
 
     <!-- Udfps vendor code -->
-    <integer name="config_udfpsVendorCode">0</integer>
+    <integer name="config_udfpsVendorCode">22</integer>
 
     <!-- Whether to pulse onFingerDown actions instead
         of waking the screen while the screen is off or in lpm. -->
