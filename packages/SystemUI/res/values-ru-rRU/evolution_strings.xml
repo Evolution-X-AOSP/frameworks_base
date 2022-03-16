@@ -9,11 +9,14 @@
     <string name="screenshot_delete_label">Удалить</string>
     <!-- Content description indicating that tapping the element will allow deleting the screenshot [CHAR LIMIT=NONE] -->
     <string name="screenshot_delete_description">Удалить скриншот</string>
-    <!-- Screen record delete action -->
+    <!-- Screen record -->
     <!-- Label for notification action to delete a screen recording file [CHAR LIMIT=35] -->
     <string name="screenrecord_delete_label">Удалить</string>
     <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
     <string name="screenrecord_delete_description">Запись экрана удалена</string>
+    <string name="screenrecord_stopdot_label">Показывать кнопку стоп\nУдерживайте для перемещения</string>
+    <string name="screenrecord_lowquality_label">Меньшее качество для меньшего размера файла</string>
+    <string name="screenrecord_longer_timeout_switch_label">Больший размер файла\nОграничение размера записи до 15 Гб</string>
     <!-- Alert slider extras -->
     <string name="volume_ringer_priority_only">Приоритет</string>
     <string name="volume_ringer_alarms_only">Будильники</string>
