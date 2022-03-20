@@ -18,7 +18,6 @@ package com.android.systemui.statusbar
 
 import android.content.Context
 import android.graphics.Bitmap
-import android.graphics.Canvas
 import android.graphics.Point
 import android.graphics.Rect
 import android.renderscript.Allocation
@@ -83,9 +82,6 @@ class MediaArtworkProcessor @Inject constructor() {
             } else {
                 outBitmap = inBitmap.copy(Bitmap.Config.ARGB_8888, true/*mutable*/)
             }
-            val swatch = MediaNotificationProcessor.findBackgroundSwatch(artwork)
-            val canvas = Canvas(outBitmap)
-            canvas.drawColor(ColorUtils.setAlphaComponent(swatch.rgb, COLOR_ALPHA/*mColorAlpha*/))
             return outBitmap
         } catch (ex: IllegalArgumentException) {
             Log.e(TAG, "error while processing artwork", ex)
