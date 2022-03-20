@@ -6489,6 +6489,12 @@ public final class Settings {
         public static final String QS_FOOTER_SHOW_EDIT = "qs_footer_show_edit";
 
         /**
+         * Show Running Services icon in QS Footer.
+         * @hide
+         */
+        public static final String QS_FOOTER_SHOW_SERVICES = "qs_footer_show_services";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
