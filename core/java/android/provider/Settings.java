@@ -5841,13 +5841,6 @@ public final class Settings {
         public static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
 
         /**
-         * Whether to hide clock when launcher is visible
-         * default: false
-         * @hide
-         */
-        public static final String STATUS_BAR_CLOCK_AUTO_HIDE = "status_bar_clock_auto_hide";
-
-        /**
          * boolean value. toggles using arrow key locations on nav bar
          * as left and right dpad keys
          * @hide
@@ -11094,12 +11087,6 @@ public final class Settings {
          * @hide
          */
         public static final String PULSE_ON_NEW_TRACKS = "pulse_on_new_tracks";
-
-        /**
-         * Whether to turn on black theme
-         * @hide
-         */
-        public static final String SYSTEM_BLACK_THEME = "system_black_theme";
 
         /**
          * Whether to show media art on lockscreen
