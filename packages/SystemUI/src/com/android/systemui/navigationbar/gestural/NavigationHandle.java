@@ -25,6 +25,7 @@ import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.ContextThemeWrapper;
+import android.provider.Settings;
 import android.view.View;
 
 import com.android.settingslib.Utils;
@@ -37,7 +38,7 @@ public class NavigationHandle extends View implements ButtonInterface {
     private @ColorInt final int mLightColor;
     private @ColorInt final int mDarkColor;
     private int mVerticalShift;
-    private final int mRadius;
+    private int mRadius;
     private final int mBottom;
     private boolean mRequiresInvalidate;
 
@@ -48,7 +49,6 @@ public class NavigationHandle extends View implements ButtonInterface {
     public NavigationHandle(Context context, AttributeSet attr) {
         super(context, attr);
         final Resources res = context.getResources();
-        mRadius = res.getDimensionPixelSize(R.dimen.navigation_handle_radius);
         mBottom = res.getDimensionPixelSize(R.dimen.navigation_handle_bottom);
 
         final int dualToneDarkTheme = Utils.getThemeAttr(context, R.attr.darkIconTheme);
@@ -75,9 +75,24 @@ public class NavigationHandle extends View implements ButtonInterface {
         super.onDraw(canvas);
 
         // Draw that bar
+        int radiusType = Settings.System.getInt(mContext.getContentResolver(),
+            Settings.System.GESTURE_NAVBAR_RADIUS, 0);
         int navHeight = getHeight();
-        int height = mRadius * 2;
         int width = getWidth();
+        final Resources res = mContext.getResources();
+        switch (radiusType) {
+            case 0:
+                mRadius = res.getDimensionPixelSize(R.dimen.navigation_handle_radius);
+                break;
+            case 1:
+                mRadius = res.getDimensionPixelSize(R.dimen.navigation_handle_radius_medium);
+                break;
+            case 2:
+                mRadius = res.getDimensionPixelSize(R.dimen.navigation_handle_radius_big);
+            case 3:
+                mRadius = res.getDimensionPixelSize(R.dimen.navigation_handle_radius_large);
+        }
+        int height = mRadius * 2;
         int y = (navHeight - mBottom - height + mVerticalShift);
         canvas.drawRoundRect(0, y, width, y + height, mRadius, mRadius, mPaint);
     }
