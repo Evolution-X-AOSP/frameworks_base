@@ -66,6 +66,7 @@ public class NavigationModeController implements Dumpable {
     public interface ModeChangedListener {
         void onNavigationModeChanged(int mode);
         default void onNavigationHandleWidthModeChanged(int mode) {}
+        default void onNavigationHandleRadiusModeChanged(int mode) {}
         default void onNavBarLayoutInverseChanged(boolean inverse) {}
         default void onSettingsChanged() {}
     }
@@ -174,6 +175,16 @@ public class NavigationModeController implements Dumpable {
 
         mSystemSettings = systemSettings;
         mSystemSettings.registerContentObserverForUser(
+            Settings.System.GESTURE_NAVBAR_RADIUS,
+            new ContentObserver(mainHandler) {
+                @Override
+                public void onChange(boolean selfChange) {
+                    mListeners.forEach(listener ->
+                        listener.onNavigationHandleRadiusModeChanged(
+                            getNavigationHandleRadiusMode()));
+                }
+            }, UserHandle.USER_ALL);
+        mSystemSettings.registerContentObserverForUser(
             Settings.System.NAVIGATION_BAR_INVERSE,
             new ContentObserver(mainHandler) {
                 @Override
@@ -244,6 +255,11 @@ public class NavigationModeController implements Dumpable {
 
     public int getNavigationHandleWidthMode() {
         return mSecureSettings.getIntForUser(Settings.Secure.GESTURE_NAVBAR_LENGTH_MODE,
+            0, UserHandle.USER_CURRENT);
+    }
+
+    public int getNavigationHandleRadiusMode() {
+        return mSystemSettings.getIntForUser(Settings.System.GESTURE_NAVBAR_RADIUS,
             0, UserHandle.USER_CURRENT);
     }
 
