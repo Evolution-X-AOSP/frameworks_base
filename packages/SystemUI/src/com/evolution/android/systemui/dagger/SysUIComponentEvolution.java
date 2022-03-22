@@ -7,7 +7,7 @@ import com.android.systemui.dagger.SystemUIBinder;
 import com.android.systemui.dagger.SysUIComponent;
 import com.android.systemui.dagger.SystemUIModule;
 
-import com.evolution.android.systemui.keyguard.KeyguardSliceProviderEvolution;
+import com.evolution.android.systemui.keyguard.EvolutionKeyguardSliceProvider;
 import com.evolution.android.systemui.smartspace.KeyguardSmartspaceController;
 
 import dagger.Subcomponent;
@@ -29,7 +29,7 @@ public interface SysUIComponentEvolution extends SysUIComponent {
     /**
      * Member injection into the supplied argument.
      */
-    void inject(KeyguardSliceProviderEvolution keyguardSliceProviderEvolution);
+    void inject(EvolutionKeyguardSliceProvider keyguardSliceProvider);
 
     @SysUISingleton
     KeyguardSmartspaceController createKeyguardSmartspaceController();
