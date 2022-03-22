@@ -33,6 +33,7 @@ import static com.android.systemui.keyguard.KeyguardIndicationRotateTextViewCont
 import static com.android.systemui.keyguard.KeyguardIndicationRotateTextViewController.INDICATION_TYPE_RESTING;
 import static com.android.systemui.keyguard.KeyguardIndicationRotateTextViewController.INDICATION_TYPE_TRUST;
 import static com.android.systemui.keyguard.KeyguardIndicationRotateTextViewController.INDICATION_TYPE_USER_LOCKED;
+import static com.android.systemui.keyguard.KeyguardIndicationRotateTextViewController.INDICATION_TYPE_FACE_RECOGNITION_STARTED;
 import static com.android.systemui.keyguard.ScreenLifecycle.SCREEN_ON;
 import static com.android.systemui.plugins.FalsingManager.LOW_PENALTY;
 
@@ -123,6 +124,8 @@ public class KeyguardIndicationController {
     private static final int MSG_HIDE_TRANSIENT = 1;
     private static final int MSG_SHOW_ACTION_TO_UNLOCK = 2;
     private static final int MSG_HIDE_BIOMETRIC_MESSAGE = 3;
+    private static final int MSG_SHOW_RECOGNIZING_FACE = 4;
+    private static final int MSG_HIDE_RECOGNIZING_FACE = 5;
     private static final long TRANSIENT_BIOMETRIC_ERROR_TIMEOUT = 1300;
 
     private final Context mContext;
@@ -179,6 +182,8 @@ public class KeyguardIndicationController {
     private String mMessageToShowOnScreenOn;
     private final Set<Integer> mCoExFaceHelpMsgIdsToShow;
     private boolean mInited;
+    private boolean mFaceDetectionRunning;
+    private boolean mFaceDetectionIndicationShowing;
 
     private KeyguardUpdateMonitorCallback mUpdateMonitorCallback;
 
@@ -200,7 +205,20 @@ public class KeyguardIndicationController {
                 hideBiometricMessageDelayed(BaseKeyguardCallback.HIDE_DELAY_MS);
                 mMessageToShowOnScreenOn = null;
             }
+            updateFaceRecognition(false);
         }
+
+        @Override
+        public void onScreenTurnedOff() {
+            if (mFaceDetectionRunning || mFaceDetectionIndicationShowing) {
+                mFaceDetectionRunning = false;
+                mFaceDetectionIndicationShowing = false;
+                mMessageToShowOnScreenOn = null;
+                mRotateTextViewController.hideIndication(INDICATION_TYPE_FACE_RECOGNITION_STARTED);
+                updateDeviceEntryIndication(false);
+            }
+        }
+
     };
 
     /**
@@ -264,6 +282,14 @@ public class KeyguardIndicationController {
                     hideTransientIndication();
                 } else if (msg.what == MSG_SHOW_ACTION_TO_UNLOCK) {
                     showActionToUnlock();
+                } else if (msg.what == MSG_SHOW_RECOGNIZING_FACE){
+                    mMessageToShowOnScreenOn = null;
+                    hideTransientIndication();
+                } else if (msg.what == MSG_HIDE_RECOGNIZING_FACE){
+                    mMessageToShowOnScreenOn = null;
+                    mFaceDetectionIndicationShowing = false;
+                    mRotateTextViewController.hideIndication(INDICATION_TYPE_FACE_RECOGNITION_STARTED);
+                    updateDeviceEntryIndication(false);
                 } else if (msg.what == MSG_HIDE_BIOMETRIC_MESSAGE) {
                     hideBiometricMessage();
                 }
@@ -356,6 +382,15 @@ public class KeyguardIndicationController {
     }
 
     private void updateLockScreenIndications(boolean animate, int userId) {
+	if (mFaceDetectionIndicationShowing && mFaceDetectionRunning){
+            return;
+        }
+        updateFaceRecognition(true);
+        if (mFaceDetectionRunning){
+            mFaceDetectionIndicationShowing = true;
+            return;
+        }
+
         // update transient messages:
         updateBiometricMessage();
         updateTransient();
@@ -371,6 +406,23 @@ public class KeyguardIndicationController {
         updateLockScreenLogoutView();
         updateLockScreenRestingMsg();
     }
+
+    private void updateFaceRecognition(boolean hide){
+         if (mFaceDetectionRunning) {
+             mFaceDetectionIndicationShowing = true;
+             mRotateTextViewController.updateIndication(
+                     INDICATION_TYPE_FACE_RECOGNITION_STARTED,
+                     new KeyguardIndication.Builder()
+                             .setMessage(mContext.getResources().getText(
+                                     R.string.face_unlock_recognizing))
+                             .setTextColor(mInitialTextColorState)
+                             .build(),
+                     true, true);
+         } else if (hide){
+             mFaceDetectionIndicationShowing = false;
+             mRotateTextViewController.hideIndication(INDICATION_TYPE_FACE_RECOGNITION_STARTED);
+         }
+     }
 
     private void updateOrganizedOwnedDevice() {
         // avoid calling this method since it has an IPC
@@ -1012,6 +1064,13 @@ public class KeyguardIndicationController {
         }
 
         @Override
+        public void onKeyguardBouncerStateChanged(boolean bouncer) {
+            if (!bouncer) {
+                updateFaceRecognition(false);
+            }
+        }
+        
+        @Override
         public void onRefreshBatteryInfo(BatteryStatus status) {
             boolean isChargingOrFull = status.status == BatteryManager.BATTERY_STATUS_CHARGING
                     || status.isCharged();
@@ -1182,11 +1241,17 @@ public class KeyguardIndicationController {
         @Override
         public void onBiometricRunningStateChanged(boolean running,
                 BiometricSourceType biometricSourceType) {
-            if (running && biometricSourceType == BiometricSourceType.FACE) {
-                // Let's hide any previous messages when authentication starts, otherwise
-                // multiple auth attempts would overlap.
-                hideBiometricMessage();
-                mMessageToShowOnScreenOn = null;
+            if (biometricSourceType == BiometricSourceType.FACE) {
+                 mFaceDetectionRunning = running;
+                 if (running) {
+                     mHandler.removeMessages(MSG_HIDE_RECOGNIZING_FACE);
+                     mHandler.removeMessages(MSG_SHOW_RECOGNIZING_FACE);
+                     mHandler.sendEmptyMessageDelayed(MSG_SHOW_RECOGNIZING_FACE, 100);
+                 }else{
+                     mHandler.removeMessages(MSG_SHOW_RECOGNIZING_FACE);
+                     mHandler.removeMessages(MSG_HIDE_RECOGNIZING_FACE);
+                     mHandler.sendEmptyMessageDelayed(MSG_HIDE_RECOGNIZING_FACE, 100);
+                 }
             }
         }
 
