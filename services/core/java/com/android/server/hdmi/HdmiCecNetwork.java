@@ -668,7 +668,7 @@ public class HdmiCecNetwork {
         return mCecSwitches;
     }
 
-    void removeDevicesConnectedToPort(int portId) {
+    void removeCecSwitches(int portId) {
         Iterator<Integer> it = mCecSwitches.iterator();
         while (it.hasNext()) {
             int path = it.next();
@@ -677,6 +677,11 @@ public class HdmiCecNetwork {
                 it.remove();
             }
         }
+    }
+
+    void removeDevicesConnectedToPort(int portId) {
+        removeCecSwitches(portId);
+
         List<Integer> toRemove = new ArrayList<>();
         for (int i = 0; i < mDeviceInfos.size(); i++) {
             int key = mDeviceInfos.keyAt(i);
