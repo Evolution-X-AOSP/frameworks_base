@@ -140,4 +140,37 @@
     <string name="accessibility_quick_settings_fpsinfo_on">FPS bilgisi açık</string>
     <!-- FPS view text placeholder -->
     <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
+    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
+    <string name="clock">Saat</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">İmleç sola</string>
+    <string name="accessibility_dpad_right">İmleç sağa</string>
+    <!-- Kill foreground app -->
+    <string name="task_helper_app_killed">%1$s zorla durduruldu</string>
+    <string name="empty_app_killed">Uygulama</string>
+    <!-- Advanced nav gestures -->
+    <string name="app_picker_dialog_title">Bir uygulama seç</string>
+    <string name="active_edge_app_select_title">Uygulama seç</string>
+    <string name="active_edge_activity_select_title">Etkinlik seç</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">Pusula</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Başlatılıyor\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Pusula kapalı</string>
+    <string name="accessibility_quick_settings_compass_on">Pusula açık</string>
+    <string name="accessibility_quick_settings_compass_changed_off">Pusula kapatıldı</string>
+    <string name="accessibility_quick_settings_compass_changed_on">Pusula açıldı</string>
+    <string name="quick_settings_compass_N">K</string>
+    <string name="quick_settings_compass_NE">KD</string>
+    <string name="quick_settings_compass_E">D</string>
+    <string name="quick_settings_compass_SE">GD</string>
+    <string name="quick_settings_compass_S">G</string>
+    <string name="quick_settings_compass_SW">GB</string>
+    <string name="quick_settings_compass_W">B</string>
+    <string name="quick_settings_compass_NW">KB</string>
+    <!-- CPUInfo tile -->
+    <string name="quick_settings_cpuinfo_label">İşlemci bilgisi</string>
+    <!-- SoundSearch Tile -->
+    <string name="quick_settings_sound_search">Sesli arama</string>
+    <string name="quick_settings_sound_search_no_app">Üzgünüz, eğer bir sesli arama uygulaması yoksa bu işe yaramayacaktır.</string>
 </resources>
