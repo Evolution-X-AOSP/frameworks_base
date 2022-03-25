@@ -21,4 +21,7 @@
     <string name="reboot_message">Memulai ulang sistem</string>
     <!-- Face unlock -->
     <string name="face_unlock_disabled_idle">Face unlock dinonaktifkan karena tidak aktif</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Diperlukan memulai ulang SistemUI</string>
+    <string name="systemui_restart_message">Untuk melihat semua perubahan, diperlukan memulai ulang SistemUI. Mulai ulang sekarang?</string>
 </resources>

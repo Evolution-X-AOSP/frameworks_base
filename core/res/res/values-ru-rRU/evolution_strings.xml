@@ -21,4 +21,7 @@
     <string name="reboot_message">Перезагрузка системы</string>
     <!-- Face unlock -->
     <string name="face_unlock_disabled_idle">Разблокировка по лицу отключена из-за бездействия</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Требуется перезагрузка SystemUI</string>
+    <string name="systemui_restart_message">Чтобы все изменения вступили в силу, требуется перезагрузка SystemUI. Перезапустить его прямо сейчас?</string>
 </resources>

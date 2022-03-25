@@ -21,4 +21,7 @@
     <string name="reboot_message">Επανεκκίνηση συστήματος</string>
     <!-- Face unlock -->
     <string name="face_unlock_disabled_idle">Το ξεκλείδωμα με αναγνώριση προσώπου απενεργοποιήθηκε, λόγω αδράνειας</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Απαιτείται επανεκκίνηση του SystemUI</string>
+    <string name="systemui_restart_message">Για να τεθούν σε ισχύ όλες οι αλλαγές, απαιτείται επανεκκίνηση του SystemUI. Επανεκκίνηση του SystemUI τώρα;</string>
 </resources>

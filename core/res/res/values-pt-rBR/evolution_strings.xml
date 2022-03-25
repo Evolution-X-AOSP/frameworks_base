@@ -21,4 +21,7 @@
     <string name="reboot_message">Reiniciando...</string>
     <!-- Face unlock -->
     <string name="face_unlock_disabled_idle">Desbloqueio facial desativado devido à inatividade</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">É necessário reiniciar a Interface do Sistema</string>
+    <string name="systemui_restart_message">Para que todas as alterações tenham efeito, é necessário reiniciar a interface do sistema. Deseja reiniciar a interface do sistema agora?</string>
 </resources>

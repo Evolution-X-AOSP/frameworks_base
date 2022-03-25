@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2021 The Evolution X Project
+     Copyright (C) 2019-2022 Evolution X 
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,8 +15,23 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="status_deep_sleep">(Tiefschlaf: %1$d%2$s)</string>
     <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
     <string name="screen_zoom_summary_smaller">Kleiner</string>
     <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
     <string name="screen_zoom_summary_smallest">Am kleinsten</string>
+    <!-- Bluetooth codecs -->
+    <string name="bluetooth_a2dp_codec_system">Systemauswahl verwenden (Standard)</string>
+    <!-- Message for telling the user the kind of BT device being displayed. [CHAR LIMIT=30] -->
+    <string name="bluetooth_talkback_group">Gerätegruppe</string>
+    <!-- Bluetooth settings.  The user-visible string that is used whenever
+     referring to BC profile. -->
+    <string name="bluetooth_profile_bc">BC Profil</string>
+    <!-- Bluetooth settings.  Connection options screen.
+    The summary for the profile checkbox preference when BC is connected. -->
+    <string name="bluetooth_bc_profile_summary_connected">Mit BA-Server verbunden</string>
+    <!-- Bluetooth settings.  Connection options screen.
+    The summary for the BC checkbox preference that describes how checking it
+    will set the BC profile as preferred. -->
+    <string name="bluetooth_bc_profile_summary_use_for">Für BA verwenden</string>
 </resources>
