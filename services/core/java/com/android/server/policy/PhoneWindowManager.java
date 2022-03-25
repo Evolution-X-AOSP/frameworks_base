@@ -711,8 +711,12 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private static final int MSG_LAUNCH_ASSIST = 23;
     private static final int MSG_RINGER_TOGGLE_CHORD = 24;
     private static final int MSG_DISPATCH_VOLKEY_WITH_WAKE_LOCK = 25;
+    private static final int MSG_QUICK_MUTE = 26;
 
     private LineageHardwareManager mLineageHardware;
+
+    private boolean mQuickMute;
+    private int mQuickMuteDelay;
 
     private class PolicyHandler extends Handler {
         @Override
@@ -801,6 +805,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     dispatchMediaKeyWithWakeLockToAudioService(
                             KeyEvent.changeAction(event, KeyEvent.ACTION_UP));
                     break;
+                case MSG_QUICK_MUTE:
+                    maybePerformQuickMute();
+                    break;
             }
         }
     }
@@ -887,6 +894,12 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.VOLUME_ROCKER_WAKE), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.VOLUME_BUTTON_QUICK_MUTE), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.VOLUME_BUTTON_QUICK_MUTE_DELAY), false, this,
                     UserHandle.USER_ALL);
             updateSettings();
         }
@@ -2700,6 +2713,12 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             // volume rocker wake
             mVolumeRockerWake = Settings.System.getIntForUser(resolver,
                     Settings.System.VOLUME_ROCKER_WAKE, 0, UserHandle.USER_CURRENT) != 0;
+            mQuickMute = Settings.System.getIntForUser(resolver,
+                    Settings.System.VOLUME_BUTTON_QUICK_MUTE, 0,
+                    UserHandle.USER_CURRENT) != 0;
+            mQuickMuteDelay = Settings.System.getIntForUser(resolver,
+                    Settings.System.VOLUME_BUTTON_QUICK_MUTE_DELAY, 800,
+                    UserHandle.USER_CURRENT);
 
             // Configure wake gesture.
             boolean wakeGestureEnabledSetting = Settings.Secure.getIntForUser(resolver,
@@ -4263,6 +4282,16 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                                 newEvent, AudioManager.USE_DEFAULT_STREAM_TYPE, true);
                     }
                     break;
+                } else if (mQuickMute) {
+                    if (down) {
+                        if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
+                            Message msg = mHandler.obtainMessage(MSG_QUICK_MUTE);
+                            msg.setAsynchronous(true);
+                            mHandler.sendMessageDelayed(msg, mQuickMuteDelay);
+                        }
+                    } else {
+                        mHandler.removeMessages(MSG_QUICK_MUTE);
+                    }
                 }
                 break;
             }
@@ -6555,4 +6584,28 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
     }
 
+    private void maybePerformQuickMute() {
+        // never mute in-call volume
+        int audioMode = AudioManager.MODE_NORMAL;
+        try {
+            audioMode = getAudioService().getMode();
+        } catch (Exception e) {
+            Log.e(TAG, "Error getting AudioService in maybePerformQuickMute.", e);
+        }
+        TelecomManager telecomManager = getTelecommService();
+        boolean isInCall = (telecomManager != null && telecomManager.isInCall()) ||
+                audioMode == AudioManager.MODE_IN_COMMUNICATION;
+        if (isInCall) return;
+
+        // making sure there are no more volume down presses queued
+        mHandler.removeMessages(MSG_SYSTEM_KEY_PRESS);
+
+        // muting current stream
+        final AudioManager am = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
+        if (am == null) {
+            Log.w(TAG, "maybePerformQuickMute: couldn't get AudioManager reference");
+            return;
+        }
+        am.adjustVolume(AudioManager.ADJUST_MUTE, AudioManager.FLAG_SHOW_UI);
+    }
 }
