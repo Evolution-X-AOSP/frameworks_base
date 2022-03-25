@@ -5,7 +5,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Compass directions for the compass tile -->
-    <string-array name="cardinal_directions">
+    <string-array name="cardinal_directions" translatable="false">
         <item>@string/quick_settings_compass_N</item>  <!-- North -->
         <item>@string/quick_settings_compass_NE</item> <!-- North east -->
         <item>@string/quick_settings_compass_E</item>  <!-- East -->
