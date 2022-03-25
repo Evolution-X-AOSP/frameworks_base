@@ -116,5 +116,7 @@ public class SystemSettings {
         Settings.System.ENABLE_FLOATING_ROTATION_BUTTON,
         Settings.System.QS_FOOTER_TEXT_SHOW,
         Settings.System.QS_FOOTER_TEXT_STRING,
+        Settings.System.VOLUME_BUTTON_QUICK_MUTE,
+        Settings.System.VOLUME_BUTTON_QUICK_MUTE_DELAY,
     };
 }

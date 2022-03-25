@@ -6729,6 +6729,20 @@ public final class Settings {
         public static final String SEEK_BAR_BATTERY_CHARGE_LEVEL_SOUND = "battery_level_charge_seek_bar";
 
         /**
+         * Whether to enable quick mute
+         * @hide
+         */
+        @Readable
+        public static final String VOLUME_BUTTON_QUICK_MUTE = "volume_button_quick_mute";
+
+        /**
+         * Quick mute activation delay in ms
+         * @hide
+         */
+        @Readable
+        public static final String VOLUME_BUTTON_QUICK_MUTE_DELAY = "volume_button_quick_mute_delay";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
