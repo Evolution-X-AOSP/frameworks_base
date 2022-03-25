@@ -140,4 +140,37 @@
     <string name="accessibility_quick_settings_fpsinfo_on">开启 FPS 信息</string>
     <!-- FPS view text placeholder -->
     <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
+    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
+    <string name="clock">时钟</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">光标左移</string>
+    <string name="accessibility_dpad_right">光标右移</string>
+    <!-- Kill foreground app -->
+    <string name="task_helper_app_killed">%1$s 已停止运行</string>
+    <string name="empty_app_killed">应用</string>
+    <!-- Advanced nav gestures -->
+    <string name="app_picker_dialog_title">选择应用</string>
+    <string name="active_edge_app_select_title">选择应用</string>
+    <string name="active_edge_activity_select_title">选择活动</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">指南针</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">正在初始化\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">关闭指南针</string>
+    <string name="accessibility_quick_settings_compass_on">开启指南针</string>
+    <string name="accessibility_quick_settings_compass_changed_off">指南针已关闭</string>
+    <string name="accessibility_quick_settings_compass_changed_on">指南针已开启</string>
+    <string name="quick_settings_compass_N">北</string>
+    <string name="quick_settings_compass_NE">东北</string>
+    <string name="quick_settings_compass_E">东</string>
+    <string name="quick_settings_compass_SE">东南</string>
+    <string name="quick_settings_compass_S">南</string>
+    <string name="quick_settings_compass_SW">西南</string>
+    <string name="quick_settings_compass_W">西</string>
+    <string name="quick_settings_compass_NW">西北</string>
+    <!-- CPUInfo tile -->
+    <string name="quick_settings_cpuinfo_label">CPU 信息</string>
+    <!-- SoundSearch Tile -->
+    <string name="quick_settings_sound_search">声音搜索</string>
+    <string name="quick_settings_sound_search_no_app">抱歉，您没有语音搜索应用。</string>
 </resources>
