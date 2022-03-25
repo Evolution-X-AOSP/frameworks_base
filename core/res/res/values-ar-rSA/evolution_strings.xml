@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2022 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">نسخ رابط سجل الأعطال</string>
+    <string name="url_copy_success">تم نسخ الرابط بنجاح</string>
+    <string name="url_copy_failed">حدث خطأ أثناء رفع السجل</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">يرن الهاتف عند تلقي المكالمات والإشعارات</string>
+    <!-- App lock -->
+    <string name="unlock_application">فتح <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">الاسترداد</string>
+    <string name="reboot_to_recovery_message">إعادة التشغيل إلى وضع الإسترداد</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">اعادة التشغيل للـBootloader</string>
+    <string name="reboot_title">إعادة التشغيل</string>
+    <string name="reboot_message">يتم إعادة تشغيل النظام</string>
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">تم تعطيل \"فتح القُفْل بالوجه\" بسبب عدم النشاط</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">مطلوب إعادة تشغيل واجهة النظام</string>
+    <string name="systemui_restart_message">لتكون كافة التغييرات نافذة المفعول، مطلوب إعادة تشغيل واجهة النظام. هل تريد إعادة تشغيل واجهة النظام الآن؟</string>
+</resources>
