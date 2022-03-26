@@ -88,8 +88,9 @@
     <string name="statusbar_items_title">Statusbar icons</string>
 
     <!-- Name of status bar icons. -->
-    <string name="status_bar_vpn">VPN</string>
     <string name="status_bar_call_strength">Call strength</string>
+    <string name="status_bar_data_saver">Data saver</string>
+    <string name="status_bar_vpn">VPN</string>
 
     <!-- Heads Up QS Tile -->
     <string name="quick_settings_heads_up_label">Heads up</string>
