@@ -8,6 +8,7 @@
     <string name="clock">Clock</string>
 
     <!-- Statusbar Icons -->
+    <string name="status_bar_data_saver">Data saver</string>
     <string name="status_bar_nfc">NFC</string>
     <string name="status_bar_vpn">VPN</string>
 
