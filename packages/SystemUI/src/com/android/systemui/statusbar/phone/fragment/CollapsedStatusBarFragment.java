@@ -349,13 +349,9 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
                 mStatusBarFragmentComponent.getHeadsUpAppearanceController().shouldBeVisible();
         if (headsUpVisible) {
             View clockView = mClockController.getClock();
-            if (clockView == null) {
+            boolean isRightClock = clockView.getId() == R.id.clock_right;
+            if (!isRightClock) {
                 state |= DISABLE_CLOCK;
-            } else {
-                boolean isRightClock = clockView.getId() == R.id.clock_right;
-                if (!isRightClock) {
-                    state |= DISABLE_CLOCK;
-                }
             }
         }
 
