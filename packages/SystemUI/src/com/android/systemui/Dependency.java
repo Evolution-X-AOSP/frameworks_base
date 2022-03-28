@@ -40,7 +40,6 @@ import com.android.systemui.accessibility.AccessibilityButtonTargetsObserver;
 import com.android.systemui.accessibility.floatingmenu.AccessibilityFloatingMenuController;
 import com.android.systemui.appops.AppOpsController;
 import com.android.systemui.assist.AssistManager;
-import com.android.systemui.biometrics.AuthController;
 import com.android.systemui.broadcast.BroadcastDispatcher;
 import com.android.systemui.colorextraction.SysuiColorExtractor;
 import com.android.systemui.dagger.SysUISingleton;
@@ -375,7 +374,6 @@ public class Dependency {
     @Inject Lazy<AmbientState> mAmbientStateLazy;
     @Inject Lazy<GroupMembershipManager> mGroupMembershipManagerLazy;
     @Inject Lazy<GroupExpansionManager> mGroupExpansionManagerLazy;
-    @Inject Lazy<AuthController> mAuthController;
     @Inject Lazy<TaskHelper> mTaskHelper;
     @Inject Lazy<PulseController> mPulseController;
 
@@ -601,8 +599,6 @@ public class Dependency {
         mProviders.put(GroupMembershipManager.class, mGroupMembershipManagerLazy::get);
         mProviders.put(GroupExpansionManager.class, mGroupExpansionManagerLazy::get);
         mProviders.put(PulseController.class, mPulseController::get);
-
-        mProviders.put(AuthController.class, mAuthController::get);
 
         Dependency.setInstance(this);
     }

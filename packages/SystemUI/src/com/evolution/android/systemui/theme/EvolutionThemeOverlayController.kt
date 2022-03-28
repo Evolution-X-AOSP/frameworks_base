@@ -27,6 +27,7 @@ import android.provider.Settings
 import android.util.Log
 import android.util.TypedValue
 
+import com.android.systemui.Dependency
 import com.android.systemui.broadcast.BroadcastDispatcher
 import com.android.systemui.dagger.SysUISingleton
 import com.android.systemui.dagger.qualifiers.Background
@@ -69,12 +70,11 @@ class EvolutionThemeOverlayController @Inject constructor(
     secureSettings: SecureSettings,
     wallpaperManager: WallpaperManager,
     userManager: UserManager,
+    dumpManager: DumpManager,
     deviceProvisionedController: DeviceProvisionedController,
     userTracker: UserTracker,
-    dumpManager: DumpManager,
     featureFlags: FeatureFlags,
     wakefulnessLifecycle: WakefulnessLifecycle,
-    private val tunerService: TunerService,
 ) : ThemeOverlayController(
     context,
     broadcastDispatcher,
@@ -85,9 +85,9 @@ class EvolutionThemeOverlayController @Inject constructor(
     secureSettings,
     wallpaperManager,
     userManager,
+    dumpManager,
     deviceProvisionedController,
     userTracker,
-    dumpManager,
     featureFlags,
     wakefulnessLifecycle,
 ), Tunable {
@@ -101,8 +101,9 @@ class EvolutionThemeOverlayController @Inject constructor(
     private var linearLightness: Boolean = false
     private var customColor: Boolean = false
 
+    private val mTunerService: TunerService = Dependency.get(TunerService::class.java)
     override fun start() {
-        tunerService.addTunable(this, PREF_COLOR_OVERRIDE, PREF_WHITE_LUMINANCE,
+        mTunerService.addTunable(this, PREF_COLOR_OVERRIDE, PREF_WHITE_LUMINANCE,
                 PREF_CHROMA_FACTOR, PREF_ACCURATE_SHADES, PREF_LINEAR_LIGHTNESS,
                 PREF_CUSTOM_COLOR, SYSTEM_BLACK_THEME)
         super.start()
