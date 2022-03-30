@@ -82,12 +82,10 @@ android_library {
     },
     resource_dirs: [
         "res",
-        "res-ambientmusic",
         "res-hwkeys",
         "res-keyguard",
         "res-pixel",
         "res-product",
-        "res-smartspace",
     ],
     static_libs: [
         "WindowManager-Shell",
@@ -127,9 +125,6 @@ android_library {
         "faceunlock_framework",
         "colorkt",
         "themelib",
-        "ambientmusic-google",
-        "backgesture-google",
-        "smartspace-google",
         "tensorflowlite_java",
         "SystemUIGoogle-lib",
         "android.frameworks.stats-V1-java",
