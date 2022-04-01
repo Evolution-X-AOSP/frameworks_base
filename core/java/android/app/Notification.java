@@ -6354,7 +6354,7 @@ public class Notification implements Parcelable
             if (emphasizedMode) {
                 // change the background bgColor
                 CharSequence title = action.title;
-                int buttonFillColor = getColors(p).getSecondaryAccentColor();
+                int buttonFillColor = getStandardActionColor(p);
                 if (tombstone) {
                     buttonFillColor = setAlphaComponentByFloatDimen(mContext,
                             ContrastColorUtil.resolveSecondaryColor(
