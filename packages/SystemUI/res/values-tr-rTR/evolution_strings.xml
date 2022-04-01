@@ -74,8 +74,9 @@
     <!-- Statusbar tuner -->
     <string name="statusbar_items_title">Durum çubuğu simgesi</string>
     <!-- Name of status bar icons. -->
-    <string name="status_bar_vpn">VPN</string>
     <string name="status_bar_call_strength">Arama güçlendirme</string>
+    <string name="status_bar_data_saver">Veri tasarrufu</string>
+    <string name="status_bar_vpn">VPN</string>
     <!-- Heads Up QS Tile -->
     <string name="quick_settings_heads_up_label">Bildirim pencereleri</string>
     <string name="accessibility_quick_settings_heads_up_off">Bildirim pencereleri kapalı.</string>
