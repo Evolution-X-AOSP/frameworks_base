@@ -74,8 +74,9 @@
     <!-- Statusbar tuner -->
     <string name="statusbar_items_title">状态栏图标</string>
     <!-- Name of status bar icons. -->
-    <string name="status_bar_vpn">VPN</string>
     <string name="status_bar_call_strength">通话强度</string>
+    <string name="status_bar_data_saver">流量节省程序</string>
+    <string name="status_bar_vpn">VPN</string>
     <!-- Heads Up QS Tile -->
     <string name="quick_settings_heads_up_label">弹出通知</string>
     <string name="accessibility_quick_settings_heads_up_off">关闭浮动通知</string>
