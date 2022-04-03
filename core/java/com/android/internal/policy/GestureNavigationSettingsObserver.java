@@ -156,9 +156,6 @@ public class GestureNavigationSettingsObserver extends ContentObserver {
                 runnable -> mMainHandler.post(runnable),
                 mOnPropertiesChangedListener);
         r.registerContentObserver(
-                Settings.System.getUriFor(Settings.System.BACK_GESTURE_HAPTIC),
-                false, this, UserHandle.USER_ALL);
-        r.registerContentObserver(
                 Settings.System.getUriFor(Settings.System.NAVIGATION_BAR_IME_SPACE),
                 false, this, UserHandle.USER_ALL);
         r.registerContentObserver(
@@ -264,14 +261,5 @@ public class GestureNavigationSettingsObserver extends ContentObserver {
         return Settings.System.getIntForUser(mContext.getContentResolver(),
             Settings.System.RIGHT_VERTICAL_BACK_SWIPE_ACTION, 0,
             UserHandle.USER_CURRENT);
-    }
-
-    public boolean getEdgeHaptic() {
-        return (Settings.System.getIntForUser(
-                   mContext.getContentResolver(), Settings.System.BACK_GESTURE_HAPTIC, 1,
-                   UserHandle.USER_CURRENT) == 1 &&
-               Settings.System.getIntForUser(
-                   mContext.getContentResolver(), Settings.System.HAPTIC_FEEDBACK_ENABLED, 0,
-                   UserHandle.USER_CURRENT) == 1);
     }
 }

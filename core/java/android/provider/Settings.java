@@ -6208,12 +6208,6 @@ public final class Settings {
         public static final String BLUETOOTH_SHOW_BATTERY = "bluetooth_show_battery";
 
         /**
-         * Whether or not to vibrate when back gesture is used
-         * @hide
-         */
-        public static final String BACK_GESTURE_HAPTIC = "back_gesture_haptic";
-
-        /**
          * Whether to enable PULSE Edge lights
          * @hide
          */
@@ -6561,7 +6555,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL);
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL_IGNORE_DND);
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL_RATE);
-            PRIVATE_SETTINGS.add(BACK_GESTURE_HAPTIC);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_COLOR);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_POSITION);
