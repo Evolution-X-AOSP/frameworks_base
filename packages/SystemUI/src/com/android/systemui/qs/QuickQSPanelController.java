@@ -36,6 +36,8 @@ import com.android.systemui.settings.brightness.BrightnessSliderController;
 import com.android.systemui.statusbar.policy.BrightnessMirrorController;
 import com.android.systemui.tuner.TunerService;
 
+import com.android.internal.util.evolution.EvolutionUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,7 +50,8 @@ public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel> 
 
     private final QSPanel.OnConfigurationChangedListener mOnConfigurationChangedListener =
             newConfig -> {
-                int newMaxTiles = getResources().getInteger(R.integer.quick_qs_panel_max_tiles);
+                int newMaxTiles = getResources().getInteger(R.integer.quick_qs_panel_max_columns);
+                newMaxTiles = EvolutionUtils.getQuickQSColumnsCount(getContext(), newMaxTiles);
                 if (newMaxTiles != mView.getNumQuickTiles()) {
                     setMaxTiles(newMaxTiles);
                 }

@@ -72,4 +72,8 @@
     <bool name="flag_smartspace">true</bool>
     <string name="config_systemUIFactoryComponent">org.pixelexperience.systemui.SystemUIGoogleFactory</string>
     <string name="config_systemUIVendorServiceComponent">org.pixelexperience.systemui.GoogleServices</string>
+     
+    <bool name="qs_tile_vertical_layout">false</bool>
+
+    <integer name="quick_qs_panel_max_columns">4</integer>
 </resources>

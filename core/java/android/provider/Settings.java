@@ -4846,6 +4846,21 @@ public final class Settings {
          * @hide
          */
         public static final String SCREEN_OFF_ANIMATION = "screen_off_animation";
+	    
+        /**
+         * @hide
+         */
+        public static final String QS_LAYOUT_COLUMNS_LANDSCAPE = "qs_layout_columns_landscape";
+
+        /**
+         * @hide
+         */
+        public static final String QS_LAYOUT_COLUMNS = "qs_layout_columns";
+
+        /**
+         * @hide
+         */
+        public static final String QS_TILE_VERTICAL_LAYOUT = "qs_tile_vertical_layout";
 
         /**
          * Whether the setup wizard has been run before (on first boot), or if
@@ -6499,6 +6514,9 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_POSITION);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_STYLE);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_COLOR_ACCENT);
+            PRIVATE_SETTINGS.add(QS_LAYOUT_COLUMNS_LANDSCAPE);
+            PRIVATE_SETTINGS.add(QS_LAYOUT_COLUMNS);
+            PRIVATE_SETTINGS.add(QS_TILE_VERTICAL_LAYOUT);
         }
 
         /**
