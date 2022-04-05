@@ -519,7 +519,14 @@ public class EvolutionUtils {
     }
 
     public static int getQuickQSColumnsCount(Context context, int resourceCount) {
-        return getQSColumnsCount(context, resourceCount);
+        final int QUICK_QS_COLUMNS_MIN = 2;
+        final Resources res = context.getResources();
+        int value = QUICK_QS_COLUMNS_MIN;
+            value = Settings.System.getIntForUser(
+                    context.getContentResolver(), "quick_qs_layout_columns",
+                    resourceCount, UserHandle.USER_CURRENT);
+      
+        return Math.max(QUICK_QS_COLUMNS_MIN, value);
     }
 
     public static boolean getQSTileVerticalLayout(Context context, int defaultValue) {

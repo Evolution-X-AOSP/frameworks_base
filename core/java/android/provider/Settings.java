@@ -4856,7 +4856,10 @@ public final class Settings {
          * @hide
          */
         public static final String QS_LAYOUT_COLUMNS = "qs_layout_columns";
-
+        /**
+         * @hide
+         */
+        public static final String QUICK_QS_LAYOUT_COLUMNS= "quick_qs_layout_columns";
         /**
          * @hide
          */
@@ -6516,6 +6519,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_COLOR_ACCENT);
             PRIVATE_SETTINGS.add(QS_LAYOUT_COLUMNS_LANDSCAPE);
             PRIVATE_SETTINGS.add(QS_LAYOUT_COLUMNS);
+	    PRIVATE_SETTINGS.add(QUICK_QS_LAYOUT_COLUMNS);
             PRIVATE_SETTINGS.add(QS_TILE_VERTICAL_LAYOUT);
         }
 

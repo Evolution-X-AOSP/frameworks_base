@@ -194,6 +194,9 @@ public abstract class QSPanelControllerBase<T extends QSPanel> extends ViewContr
                 Settings.System.QS_TILE_VERTICAL_LAYOUT),
                 false, mSettingsObserver, UserHandle.USER_ALL);
         getContext().getContentResolver().registerContentObserver(Settings.Secure.getUriFor(
+                Settings.System.QUICK_QS_LAYOUT_COLUMNS),
+                false, mSettingsObserver, UserHandle.USER_ALL);
+        getContext().getContentResolver().registerContentObserver(Settings.Secure.getUriFor(
                 Settings.System.QS_LAYOUT_COLUMNS),
                 false, mSettingsObserver, UserHandle.USER_ALL);
         getContext().getContentResolver().registerContentObserver(Settings.Secure.getUriFor(

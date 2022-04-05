@@ -180,6 +180,9 @@ public class QSCustomizerController extends ViewController<QSCustomizer> {
 
         mSettingsObserver = new SettingsObserver(new Handler());
         getContext().getContentResolver().registerContentObserver(Settings.Secure.getUriFor(
+                Settings.System.QUICK_QS_LAYOUT_COLUMNS),
+                false, mSettingsObserver, UserHandle.USER_ALL);
+        getContext().getContentResolver().registerContentObserver(Settings.Secure.getUriFor(
                 Settings.System.QS_LAYOUT_COLUMNS),
                 false, mSettingsObserver, UserHandle.USER_ALL);
         getContext().getContentResolver().registerContentObserver(Settings.Secure.getUriFor(
