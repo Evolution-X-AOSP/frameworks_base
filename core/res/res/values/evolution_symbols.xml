@@ -90,4 +90,7 @@
 
     <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
     <java-symbol type="bool" name="config_cleanupUnusedFingerprints" />
+
+    <!-- Whether to allow network traffic on statusbar -->
+    <java-symbol type="bool" name="config_supportsNetworkTrafficOnStatusBar" />
 </resources>
