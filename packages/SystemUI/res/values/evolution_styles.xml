@@ -3,7 +3,7 @@
      Copyright (C) 2019-2022 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
-<resources>
+<resources xmlns:androidprv="http://schemas.android.com/apk/prv/res/android">
     <!-- Tri-state UI -->
     <style name="qs_theme" parent="Theme.SystemUI.QuickSettings">
         <item name="android:windowIsFloating">true</item>
@@ -25,5 +25,9 @@
     <style name="TextAppearance.Notifications.reTicker" parent="@*android:style/TextAppearance.StatusBar.Icon">
         <item name="android:textSize">14dp</item>
         <item name="android:fontFamily">@*android:string/config_bodyFontFamily</item>
+    </style>
+
+    <style name="Theme.DeviceDefault.SystemUI" parent="@*android:Theme.DeviceDefault.SystemUI">
+        <item name="colorSurfaceHeader">?androidprv:attr/colorSurfaceHeader</item>
     </style>
 </resources>
