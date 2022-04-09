@@ -66,8 +66,7 @@ public class PixelPropsUtils {
             "com.android.chrome",
             "com.android.vending",
             "com.breel.wallpapers20",
-            "com.nhs.online.nhsonline",
-            "com.snapchat.android"
+            "com.nhs.online.nhsonline"
     };
 
     private static final String[] streamingPackagesToChange = {
@@ -101,7 +100,6 @@ public class PixelPropsUtils {
             "com.riotgames.league.wildrifttw",
             "com.riotgames.league.wildriftvn",
             "com.netease.lztgglobal",
-            "com.epicgames.portal"
     };
 
     private static final String[] packagesToChangeMI11 = {

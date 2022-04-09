@@ -46,9 +46,6 @@
     <!-- Switch USB controller on Asus ROG devices-->
     <java-symbol type="bool" name="config_switchUsbController" />
 
-    <!-- Whether to disable Night Light on Udfps keyguard -->
-    <java-symbol type="bool" name="config_udfpsDisableNightLight" />
-
     <!-- App error dialog -->
     <java-symbol type="id" name="aerr_copy" />
     <java-symbol type="string" name="url_copy_success" />
@@ -59,12 +56,6 @@
 
     <!-- Cycle through ringer modes -->
     <java-symbol type="string" name="volume_dialog_ringer_guidance_normal" />
-
-    <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
-    <java-symbol type="string" name="config_oemFastChargerStatusPath" />
-
-    <!-- Expected value from fast charging status file -->
-    <java-symbol type="string" name="config_oemFastChargerStatusValue" />
 
     <!-- App lock -->
     <java-symbol type="string" name="unlock_application" />
