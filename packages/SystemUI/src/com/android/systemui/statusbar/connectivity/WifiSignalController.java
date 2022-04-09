@@ -136,7 +136,7 @@ public class WifiSignalController extends SignalController<WifiState, IconGroup>
         IconState statusIcon =
                 new IconState(sbVisible, getCurrentIconIdForCarrierWifi(), contentDescription);
         int typeIcon = sbVisible ? icons.dataType : 0;
-        int qsTypeIcon = 0;
+        int qsTypeIcon = icons.dataType;
         IconState qsIcon = null;
         if (sbVisible) {
             qsTypeIcon = icons.dataType;
