@@ -5386,12 +5386,6 @@ public final class Settings {
         public static final String VOLUME_ROCKER_WAKE = "volume_rocker_wake";
 
         /**
-         * Whether to take partial screenshot with volume down + power click.
-         * @hide
-         */
-        public static final String CLICK_PARTIAL_SCREENSHOT = "click_partial_screenshot";
-
-        /**
          * Whether to launch default music player when headset plugged in
          * @hide
          */
@@ -5510,13 +5504,6 @@ public final class Settings {
          * @hide
          */
         public static final String POWERMENU_DEVICECONTROLS = "powermenu_devicecontrols";
-
-        /**
-         * Whether to hide navbar pill and keyboard space.
-         * Default 0.
-         * @hide
-         */
-        public static final String FULLSCREEN_GESTURES = "fullscreen_gestures";
 
         /**
          * Show the pending notification counts as overlays on the status bar
@@ -5677,12 +5664,6 @@ public final class Settings {
 
         /** @hide */
         public static final String BACK_GESTURE_HEIGHT = "back_gesture_height";
-
-        /**
-         * Whether to show charging animation
-         * @hide
-         */
-        public static final String CHARGING_ANIMATION = "charging_animation";
 
         /**
          * Whether to show the kill app button in notification guts
