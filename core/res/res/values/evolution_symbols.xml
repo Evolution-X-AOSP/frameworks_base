@@ -46,9 +46,6 @@
     <!-- Switch USB controller on Asus ROG devices-->
     <java-symbol type="bool" name="config_switchUsbController" />
 
-    <!-- Whether to disable Night Light on Udfps keyguard -->
-    <java-symbol type="bool" name="config_udfpsDisableNightLight" />
-
     <!-- App error dialog -->
     <java-symbol type="id" name="aerr_copy" />
     <java-symbol type="string" name="url_copy_success" />
