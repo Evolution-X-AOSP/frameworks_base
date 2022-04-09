@@ -894,6 +894,9 @@ final class DefaultPermissionGrantPolicy {
         grantPermissionsToPackage(pm, "com.google.android.googlequicksearchbox", userId,
                 false /* ignoreSystemPackage */, true /*whitelistRestrictedPermissions*/,
                 PHONE_PERMISSIONS);
+
+        // Evolution X Papers
+        grantSystemFixedPermissionsToSystemPackage(pm, "org.evolutionx.papers", userId, STORAGE_PERMISSIONS);
     }
 
     private String getDefaultSystemHandlerActivityPackageForCategory(PackageManagerWrapper pm,
