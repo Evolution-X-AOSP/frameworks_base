@@ -28,6 +28,7 @@ import com.android.systemui.qs.tiles.FPSInfoTile
 import com.android.systemui.qs.tiles.HeadsUpTile
 import com.android.systemui.qs.tiles.LocaleTile
 import com.android.systemui.qs.tiles.PowerShareTile
+import com.android.systemui.qs.tiles.PreferredNetworkTile
 import com.android.systemui.qs.tiles.ReadingModeTile
 import com.android.systemui.qs.tiles.SleepModeTile
 import com.android.systemui.qs.tiles.SmartPixelsTile
@@ -85,6 +86,12 @@ interface EvolutionXModule {
     @IntoMap
     @StringKey(FPSInfoTile.TILE_SPEC)
     fun FPSInfoTile(fpsInfoTile: FPSInfoTile): QSTileImpl<*>
+
+    /** Inject PreferredNetworkTile into tileMap in QSModule */
+    @Binds
+    @IntoMap
+    @StringKey(PreferredNetworkTile.TILE_SPEC)
+    fun bindPreferredNetworkTile(preferredNetworkTile: PreferredNetworkTile): QSTileImpl<*>
 
     /** Inject SleepModeTile into tileMap in QSModule */
     @Binds  
