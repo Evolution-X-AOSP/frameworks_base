@@ -31,6 +31,7 @@ import com.android.systemui.qs.tiles.LiveDisplayTile
 import com.android.systemui.qs.tiles.LocaleTile
 import com.android.systemui.qs.tiles.OnTheGoTile
 import com.android.systemui.qs.tiles.PowerShareTile
+import com.android.systemui.qs.tiles.PreferredNetworkTile
 import com.android.systemui.qs.tiles.ReadingModeTile
 import com.android.systemui.qs.tiles.RebootTile
 import com.android.systemui.qs.tiles.ScreenshotTile
@@ -135,6 +136,12 @@ interface EvolutionModule {
     @IntoMap
     @StringKey(PowerShareTile.TILE_SPEC)
     fun bindPowerShareTile(powerShareTile: PowerShareTile): QSTileImpl<*>
+
+    /** Inject PreferredNetworkTile into tileMap in QSModule */
+    @Binds
+    @IntoMap
+    @StringKey(PreferredNetworkTile.TILE_SPEC)
+    fun bindPreferredNetworkTile(preferredNetworkTile: PreferredNetworkTile): QSTileImpl<*>
 
     /** Inject ReadingModeTile into tileMap in QSModule */
     @Binds
