@@ -59,6 +59,7 @@ import com.android.systemui.qs.tiles.OnTheGoTile;
 import com.android.systemui.qs.tiles.OneHandedModeTile;
 import com.android.systemui.qs.tiles.QRCodeScannerTile;
 import com.android.systemui.qs.tiles.PowerShareTile;
+import com.android.systemui.qs.tiles.PreferredNetworkTile;
 import com.android.systemui.qs.tiles.QuickAccessWalletTile;
 import com.android.systemui.qs.tiles.RebootTile;
 import com.android.systemui.qs.tiles.ReduceBrightColorsTile;
@@ -142,6 +143,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<CPUInfoTile> mCPUInfoTileProvider;
     private final Provider<ScreenshotTile> mScreenshotTileProvider;
     private final Provider<VPNTetheringTile> mVPNTetheringTileProvider;
+    private final Provider<PreferredNetworkTile> mPreferredNetworkTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
     private final Provider<CustomTile.Builder> mCustomTileBuilderProvider;
@@ -201,7 +203,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<OnTheGoTile> onTheGoTileProvider,
             Provider<CPUInfoTile> cpuInfoTileProvider,
             Provider<ScreenshotTile> screenshotTileProvider,
-            Provider<VPNTetheringTile> vpnTetheringTileProvider) {
+            Provider<VPNTetheringTile> vpnTetheringTileProvider,
+            Provider<PreferredNetworkTile> preferredNetworkTileProvider) {
         mQsHostLazy = qsHostLazy;
         mCustomTileBuilderProvider = customTileBuilderProvider;
 
@@ -257,6 +260,7 @@ public class QSFactoryImpl implements QSFactory {
         mCPUInfoTileProvider = cpuInfoTileProvider;
         mScreenshotTileProvider = screenshotTileProvider;
         mVPNTetheringTileProvider = vpnTetheringTileProvider;
+        mPreferredNetworkTileProvider = preferredNetworkTileProvider;
     }
 
     /** Creates a tile with a type based on {@code tileSpec} */
@@ -377,6 +381,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mScreenshotTileProvider.get();
             case "vpn_tethering":
                 return mVPNTetheringTileProvider.get();
+            case "preferred_network":
+                return mPreferredNetworkTileProvider.get();
         }
         // Custom tiles
         if (tileSpec.startsWith(CustomTile.PREFIX)) {
