@@ -174,4 +174,19 @@
     <!-- SoundSearch Tile -->
     <string name="quick_settings_sound_search">Sesli arama</string>
     <string name="quick_settings_sound_search_no_app">Üzgünüz, eğer bir sesli arama uygulaması yoksa bu işe yaramayacaktır.</string>
+    <!-- Mono QS Tile -->
+    <string name="quick_settings_monotoggle_tile">Ses modu</string>
+    <string name="quick_settings_monotoggle_tile_mono">Mono ses</string>
+    <string name="quick_settings_monotoggle_tile_stereo">Stereo ses</string>
+    <!-- Data usage info in QS footer -->
+    <string name="usage_data">bugün kullanılan</string>
+    <string name="usage_data_default_suffix">Veri</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">\u2026\'a bağlan</string>
+    <string name="vpn_credentials_hint">Lütfen <xliff:g id="name">%s</xliff:g> bağlanmak için kimlik bilgilerinizi girin</string>
+    <string name="vpn_credentials_username">Kullanıcı adı</string>
+    <string name="vpn_credentials_password">Şifre</string>
+    <string name="vpn_credentials_dialog_connect">Bağlan</string>
 </resources>
