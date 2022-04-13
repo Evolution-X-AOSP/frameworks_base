@@ -7,7 +7,7 @@
     <!-- Button that copies the url to the log of a crashed application -->
     <string name="aerr_copy">Copiar URL del registro de errores</string>
     <string name="url_copy_success">URL copiada satisfactoriamente</string>
-    <string name="url_copy_failed">Se ha producido un error al cargar el registro en hastebin</string>
+    <string name="url_copy_failed">Se ha producido un error al cargar el registro en Pasty</string>
     <!-- Cycle through ringer modes -->
     <string name="volume_dialog_ringer_guidance_normal">Las llamadas y las notificaciones sonarán</string>
     <!-- App lock -->
@@ -21,4 +21,7 @@
     <string name="reboot_message">Reiniciando sistema</string>
     <!-- Face unlock -->
     <string name="face_unlock_disabled_idle">Desbloqueo facial desactivado debido a inactividad</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Se requiere reinicio de SystemUI</string>
+    <string name="systemui_restart_message">Para que todos los cambios surtan efecto, se requiere un reinicio de SystemUI. ¿Reiniciar SystemUI ahora?</string>
 </resources>
