@@ -34,4 +34,20 @@
     The summary for the BC checkbox preference that describes how checking it
     will set the BC profile as preferred. -->
     <string name="bluetooth_bc_profile_summary_use_for">استخدم للبلوتث</string>
+    <!-- Label for estimated remaining duration of dash battery charging -->
+    <string name="power_remaining_dash_charging_duration_only">شحن سريع (<xliff:g id="time">%1$s</xliff:g> left حتى الامتلاء)</string>
+    <!-- Battery use screen.  Battery status shown in chart label when charging from a dash source.  -->
+    <string name="battery_info_status_dash_charging">الشحن السريع</string>
+    <!-- Label for estimated remaining duration of warp battery charging -->
+    <string name="power_remaining_warp_charging_duration_only">شحن سريع (<xliff:g id="time">%1$s</xliff:g> left حتى الامتلاء)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
+    <string name="battery_info_status_warp_charging">الشحن السريع</string>
+    <!-- Label for estimated remaining duration of vooc battery charging -->
+    <string name="power_remaining_vooc_charging_duration_only">شحن VOC (<xliff:g id="time">%1$s</xliff:g> متبقية حتى الامتلاء)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a VOOC source.  -->
+    <string name="battery_info_status_vooc_charging">شحن VOC</string>
+    <!-- Label for estimated remaining duration of TurboPower battery charging -->
+    <string name="power_remaining_turbo_charging_duration_only">شحن توربو (<xliff:g id="time">%1$s</xliff:g> متبقية حتى الامتلاء)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
+    <string name="battery_info_status_turbo_charging">شحن توربو</string>
 </resources>
