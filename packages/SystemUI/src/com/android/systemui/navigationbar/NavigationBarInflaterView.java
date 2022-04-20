@@ -57,6 +57,7 @@ import com.android.systemui.tuner.TunerService;
 import java.io.PrintWriter;
 import java.lang.ref.WeakReference;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class NavigationBarInflaterView extends FrameLayout implements TunerService.Tunable {
     private static final String TAG = "NavBarInflater";
@@ -144,7 +145,7 @@ public class NavigationBarInflaterView extends FrameLayout implements TunerServi
 
     private boolean mInverseLayout;
     private boolean mCompactLayout;
-    private boolean mIsHintEnabled;
+    private static AtomicReference<Boolean> mIsHintEnabledRef;
     private int mHomeHandleWidthMode = 0;
 
     private boolean mIsAttachedToWindow;
@@ -157,6 +158,7 @@ public class NavigationBarInflaterView extends FrameLayout implements TunerServi
         mNavBarMode = Dependency.get(NavigationModeController.class).addListener(mListener);
         mCompactLayout = Settings.System.getInt(context.getContentResolver(),
                                 Settings.System.NAV_BAR_COMPACT_LAYOUT, 0) != 0;
+        mIsHintEnabledRef = new AtomicReference<>(true);
     }
 
     @VisibleForTesting
@@ -197,7 +199,7 @@ public class NavigationBarInflaterView extends FrameLayout implements TunerServi
                 defaultResource == R.string.config_navBarLayoutQuickstep) && mCompactLayout){
             return "left;back,home,recent;right";
         }
-        if (!mIsHintEnabled && defaultResource == R.string.config_navBarLayoutHandle) {
+        if (!mIsHintEnabledRef.get() && defaultResource == R.string.config_navBarLayoutHandle) {
             return getContext().getString(defaultResource).replace(HOME_HANDLE, "");
         }
         return getContext().getString(defaultResource);
@@ -235,7 +237,8 @@ public class NavigationBarInflaterView extends FrameLayout implements TunerServi
             mInverseLayout = TunerService.parseIntegerSwitch(newValue, false);
             updateLayoutInversion();
         } else if (KEY_NAVIGATION_HINT.equals(key)) {
-            mIsHintEnabled = TunerService.parseIntegerSwitch(newValue, true);
+            Boolean mIsHintEnabledOld = mIsHintEnabledRef.get();
+            mIsHintEnabledRef.compareAndSet(mIsHintEnabledOld, TunerService.parseIntegerSwitch(newValue, true));
             updateHint();
             mContext.getMainExecutor().execute(() -> {
                 onLikelyDefaultLayoutChange();
@@ -348,7 +351,7 @@ public class NavigationBarInflaterView extends FrameLayout implements TunerServi
     private void updateHint() {
         final IOverlayManager iom = IOverlayManager.Stub.asInterface(
                 ServiceManager.getService(Context.OVERLAY_SERVICE));
-        final boolean state = mNavBarMode == NAV_BAR_MODE_GESTURAL && !mIsHintEnabled;
+        final boolean state = mNavBarMode == NAV_BAR_MODE_GESTURAL && !mIsHintEnabledRef.get();
         final int userId = ActivityManager.getCurrentUser();
         try {
             iom.setEnabled(OVERLAY_NAVIGATION_HIDE_HINT, state, userId);
