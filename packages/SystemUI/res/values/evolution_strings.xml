@@ -89,9 +89,6 @@
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Screenshot deleted</string>
 
-    <!-- Statusbar tuner -->
-    <string name="statusbar_items_title">Statusbar icons</string>
-
     <!-- Name of status bar icons. -->
     <string name="status_bar_call_strength">Call strength</string>
     <string name="status_bar_data_saver">Data saver</string>

@@ -476,7 +476,7 @@
         </activity-alias>
 
         <activity android:name=".tuner.StatusbarItemsActivity"
-                  android:label="@string/statusbar_items_title"
+                  android:label="@string/status_bar"
                   android:theme="@style/Theme.SubSettingsBase"
                   android:process=":tuner"
                   android:parentActivityName="com.evolution.settings.fragments.StatusbarSettings"
