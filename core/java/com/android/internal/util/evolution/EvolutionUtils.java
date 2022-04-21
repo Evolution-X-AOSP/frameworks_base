@@ -50,7 +50,6 @@ import android.hardware.camera2.CameraManager;
 import android.hardware.input.InputManager;
 import android.hardware.fingerprint.FingerprintManager;
 import android.hardware.SensorPrivacyManager;
-import android.location.LocationManager;
 import android.media.AudioManager;
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -488,7 +487,6 @@ public class EvolutionUtils {
         private NotificationManager mNotificationManager;
         private WifiManager mWifiManager;
         private SensorPrivacyManager mSensorPrivacyManager;
-        private LocationManager mLocationManager;
         private BluetoothAdapter mBluetoothAdapter;
         private int mSubscriptionId;
         private Toast mToast;
@@ -496,9 +494,9 @@ public class EvolutionUtils {
         private boolean mSleepModeEnabled;
 
         private static boolean mWifiState;
-        private static boolean mLocationState;
         private static boolean mCellularState;
         private static boolean mBluetoothState;
+        private static int mLocationState;
         private static int mRingerState;
         private static int mZenState;
 
@@ -512,7 +510,6 @@ public class EvolutionUtils {
             mAudioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
             mNotificationManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
             mWifiManager = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
-            mLocationManager = (LocationManager) mContext.getSystemService(Context.LOCATION_SERVICE);
             mSensorPrivacyManager = (SensorPrivacyManager) mContext.getSystemService(Context.SENSOR_PRIVACY_SERVICE);
             mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
             mSubscriptionId = SubscriptionManager.INVALID_SUBSCRIPTION_ID;
@@ -567,25 +564,14 @@ public class EvolutionUtils {
             }
         }
 
-        private boolean isLocationEnabled() {
-            if (mLocationManager == null) {
-                mLocationManager = (LocationManager) mContext.getSystemService(Context.LOCATION_SERVICE);
-            }
-            try {
-                return mLocationManager.isLocationEnabledForUser(UserHandle.of(ActivityManager.getCurrentUser()));
-            } catch (Exception e) {
-                return false;
-            }
+        private int getLocationMode() {
+            return Settings.Secure.getIntForUser(mContext.getContentResolver(),
+                    Settings.Secure.LOCATION_MODE, Settings.Secure.LOCATION_MODE_OFF, UserHandle.USER_CURRENT);
         }
 
-        private void setLocationEnabled(boolean enable) {
-            if (mLocationManager == null) {
-                mLocationManager = (LocationManager) mContext.getSystemService(Context.LOCATION_SERVICE);
-            }
-            try {
-                mLocationManager.setLocationEnabledForUser(enable, UserHandle.of(ActivityManager.getCurrentUser()));
-            } catch (Exception e) {
-            }
+        private void setLocationMode(int mode) {
+            Settings.Secure.putIntForUser(mContext.getContentResolver(),
+                    Settings.Secure.LOCATION_MODE, mode, UserHandle.USER_CURRENT);
         }
 
         private boolean isBluetoothEnabled() {
@@ -704,8 +690,8 @@ public class EvolutionUtils {
             final boolean disableLocation = Settings.Secure.getIntForUser(mContext.getContentResolver(),
                     Settings.Secure.SLEEP_MODE_LOCATION_TOGGLE, 1, UserHandle.USER_CURRENT) == 1;
             if (disableLocation) {
-                mLocationState = isLocationEnabled();
-                setLocationEnabled(false);
+                mLocationState = getLocationMode();
+                setLocationMode(Settings.Secure.LOCATION_MODE_OFF);
             }
 
             // Disable Sensors
@@ -764,8 +750,8 @@ public class EvolutionUtils {
             // Enable Location
             final boolean disableLocation = Settings.Secure.getIntForUser(mContext.getContentResolver(),
                     Settings.Secure.SLEEP_MODE_LOCATION_TOGGLE, 1, UserHandle.USER_CURRENT) == 1;
-            if (disableLocation && mLocationState != isLocationEnabled()) {
-                setLocationEnabled(mLocationState);
+            if (disableLocation && mLocationState != getLocationMode()) {
+                setLocationMode(mLocationState);
             }
 
             // Enable Sensors
