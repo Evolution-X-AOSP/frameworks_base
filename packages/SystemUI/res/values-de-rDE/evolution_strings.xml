@@ -1,25 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2022 The Evolution X Project
-
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-
-          http://www.apache.org/licenses/LICENSE-2.0
-
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
+     Copyright (C) 2019-2022 Evolution X
+     SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Screenshot delete action -->
     <!-- Label for UI element which allows deleting the screenshot [CHAR LIMIT=30] -->
     <string name="screenshot_delete_label">Löschen</string>
     <!-- Content description indicating that tapping the element will allow deleting the screenshot [CHAR LIMIT=NONE] -->
     <string name="screenshot_delete_description">Bildschirmaufnahme löschen</string>
-    <!-- Caffeine QS Tile -->
+    <!-- Screen record -->
+    <!-- Label for notification action to delete a screen recording file [CHAR LIMIT=35] -->
+    <string name="screenrecord_delete_label">Löschen</string>
+    <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
+    <string name="screenrecord_delete_description">Bildschirmaufnahme gelöscht</string>
+    <string name="screenrecord_stopdot_label">Stopp-Punkt anzeigen\nZum Verschieben lang drücken</string>
+    <string name="screenrecord_lowquality_label">Niedrigere Qualität für geringere Dateigrößen</string>
+    <string name="screenrecord_longer_timeout_switch_label">Größere Dateigröße\nBegrenzung der Aufnahmegröße auf 15 GB</string>
+    <!-- Alert slider extras -->
+    <string name="volume_ringer_priority_only">Priorität</string>
+    <string name="volume_ringer_alarms_only">Wecker</string>
+    <string name="volume_ringer_dnd">Bitte nicht stören</string>
+    <string name="tristate_flashlight">Taschenlampe</string>
+    <string name="tristate_flashlight_on">Taschenlampe an</string>
+    <string name="tristate_flashlight_off">Taschenlampe aus</string>
+    <string name="tristate_flashlight_blink">Taschenlampe blinken</string>
+    <string name="tristate_brightness_bright">Maximale Helligkeit</string>
+    <string name="tristate_brightness_dark">Minimale Helligkeit</string>
+    <string name="tristate_brightness_auto">Automatische Helligkeit</string>
+    <string name="tristate_rotation_auto">Automatisch drehen</string>
+    <string name="tristate_rotation_0">Hochformat</string>
+    <string name="tristate_rotation_90">Querformat (90°)</string>
+    <string name="tristate_rotation_270">Querformat (270°)</string>
+    <!-- Custom QS tiles -->
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Drahtloses PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Drahtloses PowerShare aus\nEnergiesparmodus</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Drahtloses PowerShare aus\nAkkustand zu niedrig</string>
+    <string name="quick_settings_powershare_enabled_label">Drahtloses PowerShare ist aktiviert</string>
+    <!-- Name of the nfc status bar icon. -->
+    <string name="status_bar_nfc">NFC</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <!-- Caffeine tile -->
     <string name="quick_settings_caffeine_label">Caffeine</string>
     <string name="accessibility_quick_settings_caffeine_off">Caffeine aus</string>
     <string name="accessibility_quick_settings_caffeine_on">Caffeine an</string>
@@ -42,97 +65,37 @@
     <string name="quick_settings_sound_ring">Klingeln</string>
     <string name="quick_settings_sound_vibrate">Vibrieren</string>
     <string name="quick_settings_sound_mute">Stumm</string>
-    <!-- SystemUI Tuner -->
-    <string name="statusbar_items_title">Statusleisten-Symbol</string>
-    <string name="lockscreen_default">Standard</string>
-    <string name="lockscreen_hidden">Keine Auswahl</string>
-    <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Zum Starten vom Symbol wischen</string>
-    <!-- Advanced Reboot -->
-    <string name="global_action_restart_advanced">Erweitert</string>
-    <string name="global_action_restart_recovery">Recovery</string>
-    <string name="global_action_restart_bootloader">Bootloader</string>
-    <string name="global_action_restart_ui">SystemUI</string>
-    <string name="global_action_onthego">On-The-Go</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_full_screenshot_label">Vollständig</string>
     <string name="quick_settings_screenshot_label">Screenshot</string>
     <string name="quick_settings_region_screenshot_label">Bildschirmbereich aufnehmen</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Bildschirmfoto gelöscht</string>
+    <!-- Statusbar tuner -->
+    <string name="statusbar_items_title">Statusleisten-Symbol</string>
+    <!-- Name of status bar icons. -->
+    <string name="status_bar_call_strength">Rufstärke</string>
+    <string name="status_bar_data_saver">Datensparmodus</string>
+    <string name="status_bar_vpn">VPN</string>
     <!-- Heads Up QS Tile -->
     <string name="quick_settings_heads_up_label">Heads-Up</string>
     <string name="accessibility_quick_settings_heads_up_off">Pop-up-Benachrichtigungen aus.</string>
     <string name="accessibility_quick_settings_heads_up_on">Pop-Up Benachrichtigungen ein.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Pop-Up-Benachrichtigungen ausgeschaltet.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Pop-Up-Benachrichtigungen eingeschaltet.</string>
-    <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s </xliff:g> - Heads-Up Benachrichtigungen sind für 1 Minute deaktiviert.</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s </xliff:g> - Heads-Up Benachrichtigungen sind für <xliff:g id="number">%2$d </xliff:g> Minuten deaktiviert.</string>
-    <!-- Running service button -->
-    <string name="accessibility_quick_settings_running_services">Laufende Dienste anzeigen.</string>
-    <!-- CPU Info tile -->
-    <string name="quick_settings_cpuinfo_label">CPU-Informationen</string>
+    <!-- Gaming mode -->
+    <string name="gaming_mode_not_enabled">Spielemodus ist in den Einstellungen deaktiviert</string>
+    <string name="quick_settings_gaming_mode_label">Spielemodus</string>
     <!-- Poweroff/Reboot/Recovery QS tile -->
     <string name="quick_settings_poweroff_label">Ausschalten</string>
     <string name="quick_settings_reboot_label">Neustart</string>
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
-    <!-- AOD QS tile -->
-    <string name="quick_settings_aod_label">Always-On-Display</string>
-    <string name="quick_settings_aod_on_charge_label">AOD beim Laden</string>
-    <string name="quick_settings_aod_off_label">AOD aus</string>
-    <string name="quick_settings_aod_off_powersave_label">AOD aus\n Energiesparmodus</string>
-    <!-- Kill button in notification guts -->
-    <string name="force_stop_dlg_title">Beenden erzwingen?</string>
-    <string name="force_stop_dlg_text">Das erzwungene Beenden einer App kann zu unerwünschtem Verhalten führen.</string>
-    <string name="guts_force_close_app">App schließen</string>
-    <!-- DataSwitch Tile -->
-    <string name="qs_data_switch_label">Daten SIM-Karte wechseln</string>
-    <string name="qs_data_switch_changed_1">Daten SIM-Karte zu SIM 1 wechseln.</string>
-    <string name="qs_data_switch_changed_2">Daten SIM-Karte zu SIM 2 wechseln.</string>
-    <!-- Names of the status bar icons. -->
-    <string name="status_bar_call_strength">Rufstärke</string>
-    <string name="status_bar_nfc">NFC</string>
-    <string name="status_bar_vpn">VPN</string>
-    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
-    <string name="accessibility_status_bar_nfc">Nfc</string>
-    <!-- Navbar -->
-    <string name="systemui_tuner_navbar_title">Anordnung</string>
-    <string name="navigation_bar_format_title">Format der Navigationsleiste</string>
-    <string name="navigation_bar_inverse_title">Tasten tauschen</string>
-    <string name="navigation_bar_inverse_summary">Anordnung der Tasten für Anwendungsverlauf und Zurück tauschen</string>
-    <string name="navigation_bar_accessibility_dpad_left">Zeiger links</string>
-    <string name="navigation_bar_accessibility_dpad_right">Zeiger rechts</string>
-    <!-- Volume panel QS tile -->
-    <string name="quick_settings_volume_panel_label">Lautstärkeregler</string>
-    <!-- Compass QS Tile -->
-    <string name="quick_settings_compass_label">Kompass</string>
-    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
-    <string name="quick_settings_compass_init">Initialisiere\u2026</string>
-    <string name="accessibility_quick_settings_compass_off">Kompass aus</string>
-    <string name="accessibility_quick_settings_compass_on">Kompass an</string>
-    <string name="accessibility_quick_settings_compass_changed_off">Kompass ausgeschaltet</string>
-    <string name="accessibility_quick_settings_compass_changed_on">Kompass eingeschaltet</string>
-    <string name="quick_settings_compass_N">N</string>
-    <string name="quick_settings_compass_NE">NO</string>
-    <string name="quick_settings_compass_E">O</string>
-    <string name="quick_settings_compass_SE">SO</string>
-    <string name="quick_settings_compass_S">S</string>
-    <string name="quick_settings_compass_SW">SW</string>
-    <string name="quick_settings_compass_W">W</string>
-    <string name="quick_settings_compass_NW">NW</string>
-    <!-- FPS Info tile -->
-    <string name="quick_settings_fpsinfo_label">FPS-Informationen</string>
-    <string name="accessibility_quick_settings_fpsinfo_off">FPS-Informationen aus</string>
-    <string name="accessibility_quick_settings_fpsinfo_on">FPS-Informationen ein</string>
-    <!-- Screen record -->
-    <!-- Label for notification action to delete a screen recording file [CHAR LIMIT=35] -->
-    <string name="screenrecord_delete_label">Löschen</string>
-    <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
-    <string name="screenrecord_delete_description">Bildschirmaufnahme gelöscht</string>
-    <string name="screenrecord_stopdot_label">Stopp-Punkt anzeigen\nZum Verschieben lang drücken</string>
-    <string name="screenrecord_lowquality_label">Niedrigere Qualität für geringere Dateigrößen</string>
-    <string name="screenrecord_longer_timeout_switch_label">Größere Dateigröße\nBegrenzung der Aufnahmegröße auf 15 GB</string>
-    <string name="task_helper_app_killed">%1$s erzwungen beendet</string>
-    <string name="empty_app_killed">Anwendung</string>
+    <!-- Advanced Reboot -->
+    <string name="global_action_restart_advanced">Erweitert</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">SystemUI</string>
+    <string name="global_action_onthego">On-The-Go</string>
     <!-- On The Go -->
     <string name="onthego_notification_ticker">On-The-Go aktiviert</string>
     <string name="onthego_notification_title">On-The-Go ist aktiv</string>
@@ -151,35 +114,82 @@
     <string name="accessibility_quick_settings_onthego_on">On-The-Go an</string>
     <string name="accessibility_quick_settings_onthego_changed_off">On-The-Go ausgeschaltet</string>
     <string name="accessibility_quick_settings_onthego_changed_on">On-The-Go eingeschaltet</string>
-    <!-- Screen pinning dialog description. (for devices without navbar) -->
-    <string name="screen_pinning_description_no_navbar">Der Bildschirm wird solange angezeigt, bis die Fixierung aufgehoben wurde. Drücke &amp; halte dafür die Zurück-Taste.</string>
-    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
-    <string name="screen_pinning_toast_no_navbar">Um den Bildschirm zu lösen, drücke &amp; halte die Zurück-Taste</string>
-    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
-    <string name="screen_pinning_description_no_navbar_fpsensor">Der Bildschirm wird solange angezeigt, bis die Fixierung aufgehoben wurde. Berühre &amp; halte den Fingerabdrucksensor, wenn die Fixierung aufgehoben werden soll.</string>
-    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
-    <string name="screen_pinning_toast_no_navbar_fpsensor">Um die Fixierung dieses Bildschirms aufzuheben, drücke &amp; halte den Fingerabdrucksensor</string>
-    <!-- Text to use when the number in a notification info is too large -->
-    <!-- Gaming mode -->
-    <string name="gaming_mode_not_enabled">Spielemodus ist in den Einstellungen deaktiviert</string>
-    <string name="quick_settings_gaming_mode_label">Spielemodus</string>
+    <!-- The Evolver Tile -->
+    <string name="quick_settings_evolver_label">Evolver</string>
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">Erkenne Gesicht...</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Beenden erzwingen?</string>
+    <string name="force_stop_dlg_text">Das erzwungene Beenden einer App kann zu unerwünschtem Verhalten führen.</string>
+    <string name="guts_force_close_app">App schließen</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Lautstärkeregler</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">Always-On-Display</string>
+    <string name="quick_settings_aod_on_charge_label">AOD beim Laden</string>
+    <string name="quick_settings_aod_off_label">AOD aus</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD aus\n Energiesparmodus</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">Daten SIM-Karte wechseln</string>
+    <string name="qs_data_switch_toast_0">Derzeit ist keine SIM-Karte eingelegt</string>
+    <string name="qs_data_switch_toast_1">Derzeit ist nur eine SIM-Karte eingelegt</string>
+    <string name="qs_data_switch_changed_1">Daten SIM-Karte zu SIM 1 wechseln.</string>
+    <string name="qs_data_switch_changed_2">Daten SIM-Karte zu SIM 2 wechseln.</string>
+    <!-- FPS Info tile -->
+    <string name="quick_settings_fpsinfo_label">FPS-Informationen</string>
+    <string name="accessibility_quick_settings_fpsinfo_off">FPS-Informationen aus</string>
+    <string name="accessibility_quick_settings_fpsinfo_on">FPS-Informationen ein</string>
     <!-- FPS view text placeholder -->
     <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
-    <!-- Alert slider extras -->
-    <string name="volume_ringer_priority_only">Priorität</string>
-    <string name="volume_ringer_alarms_only">Wecker</string>
-    <string name="volume_ringer_dnd">Bitte nicht stören</string>
-    <string name="tristate_flashlight">Taschenlampe</string>
-    <string name="tristate_flashlight_on">Taschenlampe an</string>
-    <string name="tristate_flashlight_off">Taschenlampe aus</string>
-    <string name="tristate_flashlight_blink">Taschenlampe blinken</string>
-    <string name="tristate_brightness_bright">Maximale Helligkeit</string>
-    <string name="tristate_brightness_dark">Minimale Helligkeit</string>
-    <string name="tristate_brightness_auto">Automatische Helligkeit</string>
-    <string name="tristate_rotation_auto">Automatisch drehen</string>
-    <string name="tristate_rotation_0">Hochformat</string>
-    <string name="tristate_rotation_90">Querformat (90°)</string>
-    <string name="tristate_rotation_270">Querformat (270°)</string>
-    <!-- Screenshot Delete Toast -->
-    <string name="delete_screenshot_toast">Bildschirmfoto gelöscht</string>
+    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
+    <string name="clock">Uhr</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Zeiger links</string>
+    <string name="accessibility_dpad_right">Zeiger rechts</string>
+    <!-- Kill foreground app -->
+    <string name="task_helper_app_killed">%1$s erzwungen beendet</string>
+    <string name="empty_app_killed">Anwendung</string>
+    <!-- Advanced nav gestures -->
+    <string name="app_picker_dialog_title">Eine Anwendung auswählen</string>
+    <string name="active_edge_app_select_title">Anwendung auswählen</string>
+    <string name="active_edge_activity_select_title">Aktivität auswählen</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">Kompass</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Initialisiere\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Kompass aus</string>
+    <string name="accessibility_quick_settings_compass_on">Kompass an</string>
+    <string name="accessibility_quick_settings_compass_changed_off">Kompass ausgeschaltet</string>
+    <string name="accessibility_quick_settings_compass_changed_on">Kompass eingeschaltet</string>
+    <string name="quick_settings_compass_N">N</string>
+    <string name="quick_settings_compass_NE">NO</string>
+    <string name="quick_settings_compass_E">O</string>
+    <string name="quick_settings_compass_SE">SO</string>
+    <string name="quick_settings_compass_S">S</string>
+    <string name="quick_settings_compass_SW">SW</string>
+    <string name="quick_settings_compass_W">W</string>
+    <string name="quick_settings_compass_NW">NW</string>
+    <!-- CPUInfo tile -->
+    <string name="quick_settings_cpuinfo_label">CPU-Informationen</string>
+    <!-- SoundSearch Tile -->
+    <string name="quick_settings_sound_search">Soundsuche</string>
+    <string name="quick_settings_sound_search_no_app">Leider funktioniert das nicht, wenn Sie keine App für die Soundsuche haben.</string>
+    <!-- Mono QS Tile -->
+    <string name="quick_settings_monotoggle_tile">Audio-Modus</string>
+    <string name="quick_settings_monotoggle_tile_mono">Mono-Audio</string>
+    <string name="quick_settings_monotoggle_tile_stereo">Stereo-Audio</string>
+    <!-- Data usage info in QS footer -->
+    <string name="usage_data">heute verwendet</string>
+    <string name="usage_data_default_suffix">Daten</string>
+    <string name="usage_wifi_default_suffix">WLAN</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Verbinden mit\u2026</string>
+    <string name="vpn_credentials_hint">Bitte geben Sie Ihre Zugangsdaten ein, um sich mit <xliff:g id="name">%s</xliff:g> zu verbinden</string>
+    <string name="vpn_credentials_username">Benutzername</string>
+    <string name="vpn_credentials_password">Passwort</string>
+    <string name="vpn_credentials_dialog_connect">Verbinden</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s </xliff:g> - Heads-Up Benachrichtigungen sind für 1 Minute deaktiviert.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s </xliff:g> - Heads-Up Benachrichtigungen sind für <xliff:g id="number">%2$d </xliff:g> Minuten deaktiviert.</string>
 </resources>
