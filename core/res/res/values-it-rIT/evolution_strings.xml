@@ -21,4 +21,7 @@
     <string name="reboot_message">Riavvio del sistema</string>
     <!-- Face unlock -->
     <string name="face_unlock_disabled_idle">Sblocco con il viso disabilitato per inattività</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Riavvio della SystemUI richiesto</string>
+    <string name="systemui_restart_message">Per rendere effettive tutte le modifiche, è necessario un riavvio della SystemUI. Riavviare la SystemUI ora?</string>
 </resources>
