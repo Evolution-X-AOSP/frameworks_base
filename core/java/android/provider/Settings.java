@@ -6323,6 +6323,12 @@ public final class Settings {
         public static final String BLOCK_ALERT = "block_alert";
 
         /**
+         * Whether to pulse alert slider notifications
+         * @hide
+         */
+        public static final String ALERT_SLIDER_PULSE = "alert_slider_pulse";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
