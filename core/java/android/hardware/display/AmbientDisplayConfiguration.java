@@ -75,6 +75,7 @@ public class AmbientDisplayConfiguration {
         return pulseOnNotificationEnabled(user)
                 || pulseOnLongPressEnabled(user)
                 || alwaysOnEnabled(user)
+                || isAlertSliderPulseEnabled(user)
                 || wakeLockScreenGestureEnabled(user)
                 || wakeDisplayGestureEnabled(user)
                 || pickupGestureEnabled(user)
@@ -94,6 +95,11 @@ public class AmbientDisplayConfiguration {
     public boolean pulseOnNotificationAvailable() {
         return mContext.getResources().getBoolean(R.bool.config_pulseOnNotificationsAvailable)
                 && ambientDisplayAvailable();
+    }
+
+    /** @hide */
+    public boolean isAlertSliderPulseEnabled(int user) {
+        return boolSettingDefaultOn(Settings.System.ALERT_SLIDER_PULSE, user);
     }
 
     /** @hide */

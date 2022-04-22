@@ -37,6 +37,7 @@ import android.media.AudioManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.UserHandle;
 import android.os.Looper;
 import android.os.Message;
 import android.provider.Settings;
@@ -56,9 +57,12 @@ import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.tristate.TriStateUiController;
 import com.android.systemui.tristate.TriStateUiController.UserActivityListener;
+import com.android.systemui.tuner.TunerService;
+import com.android.systemui.plugins.statusbar.StatusBarStateController;
 import com.android.systemui.plugins.VolumeDialogController;
 import com.android.systemui.plugins.VolumeDialogController.Callbacks;
 import com.android.systemui.plugins.VolumeDialogController.State;
+import com.android.systemui.statusbar.phone.DozeParameters;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.tuner.TunerService;
 
@@ -67,6 +71,10 @@ public class TriStateUiControllerImpl implements TriStateUiController,
 
 
     private static String TAG = "TriStateUiControllerImpl";
+    private static String TAG_PULSE = "TriStateUiControllerImpl:Pulse";
+
+    public static final String ALERT_SLIDER_PULSE =
+            "system:" + Settings.System.ALERT_SLIDER_PULSE;
 
     public static final String ALERT_SLIDER_NOTIFICATIONS =
             "system:" + Settings.System.ALERT_SLIDER_NOTIFICATIONS;
@@ -114,7 +122,12 @@ public class TriStateUiControllerImpl implements TriStateUiController,
     private static final long DIALOG_DELAY = 300;
 
     private Context mContext;
+    private StatusBarStateController mStatusBarStateController;
     private final VolumeDialogController mVolumeDialogController;
+    private boolean mAlertSliderPulse;
+    private static final String PULSE_ACTION = "com.android.systemui.doze.pulse";
+    private DozeParameters mDozeParameters;
+    protected boolean mDozing;
     private final Callbacks mVolumeDialogCallback = new Callbacks() {
         @Override
         public void onShowRequested(int reason, boolean keyguardLocked, int lockTaskModeState) { }
@@ -223,6 +236,7 @@ public class TriStateUiControllerImpl implements TriStateUiController,
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case MSG_DIALOG_SHOW:
+                    alertPulse();
                     mUiController.handleShow();
                     return;
                 case MSG_DIALOG_DISMISS:
@@ -264,6 +278,7 @@ public class TriStateUiControllerImpl implements TriStateUiController,
 
         final TunerService tunerService = Dependency.get(TunerService.class);
         tunerService.addTunable(this, ALERT_SLIDER_NOTIFICATIONS);
+        tunerService.addTunable(this, ALERT_SLIDER_PULSE);
     }
 
     @Override
@@ -273,6 +288,11 @@ public class TriStateUiControllerImpl implements TriStateUiController,
                 mAlertSliderNotification
                         = TunerService.parseIntegerSwitch(newValue, true);
                 mHandler.sendEmptyMessage(MSG_DIALOG_DISMISS);
+                break;
+            case ALERT_SLIDER_PULSE:
+                boolean showAlertSliderPulse =
+                        TunerService.parseIntegerSwitch(newValue, false);
+                setAlertSliderPulse(showAlertSliderPulse);
                 break;
             default:
                 break;
@@ -652,5 +672,20 @@ public class TriStateUiControllerImpl implements TriStateUiController,
         int colorAccent = ta.getColor(0, 0);
         ta.recycle();
         return colorAccent;
+    }
+
+    public void setAlertSliderPulse(boolean enabled) {
+        mAlertSliderPulse = enabled;
+    }
+
+    public void alertPulse() {
+        boolean isAODDisabled = Settings.Secure.getIntForUser(mContext.getContentResolver(),
+                Settings.Secure.DOZE_ALWAYS_ON, 0,
+                UserHandle.USER_CURRENT) != 1;
+        // if AoD is disabled and we get a new slider event, trigger an ambient pulse event
+        if (mAlertSliderPulse && isAODDisabled) {
+            mContext.sendBroadcastAsUser(new Intent(PULSE_ACTION),
+                new UserHandle(UserHandle.USER_CURRENT));
+        }
     }
 }
