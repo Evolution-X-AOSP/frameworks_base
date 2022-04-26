@@ -1123,45 +1123,43 @@ public class EdgeBackGestureHandler implements PluginListener<NavigationEdgeBack
             case 0: // No action
             default:
                 break;
-            case 1:
-                break;
-            case 2: // Voice search
+            case 1: // Voice search
                 ActionUtils.launchVoiceSearch(mContext);
                 break;
-            case 3: // Camera
+            case 2: // Camera
                 ActionUtils.launchCamera(mContext);
                 break;
-            case 4: // Flashlight
+            case 3: // Flashlight
                 ActionUtils.toggleCameraFlash();
                 break;
-            case 5: // Application
+            case 4: // Application
                 launchApp(mContext, mIsOnLeftEdge, isVertical);
                 break;
-            case 6: // Volume panel
+            case 5: // Volume panel
                 ActionUtils.toggleVolumePanel(mContext);
                 break;
-            case 7: // Screen off
+            case 6: // Screen off
                 ActionUtils.switchScreenOff(mContext);
                 break;
-            case 8: // Screenshot
+            case 7: // Screenshot
                 ActionUtils.takeScreenshot(true);
                 break;
-            case 9: // Notification panel
+            case 8: // Notification panel
                 ActionUtils.toggleNotifications();
                 break;
-            case 10: // QS panel
+            case 9: // QS panel
                 ActionUtils.toggleQsPanel();
                 break;
-            case 11: // Clear notifications
+            case 10: // Clear notifications
                 ActionUtils.clearAllNotifications();
                 break;
-            case 12: // Ringer modes
+            case 11: // Ringer modes
                 ActionUtils.toggleRingerModes(mContext);
                 break;
-            case 13: // Kill app
+            case 12: // Kill app
                 EvolutionUtils.killForegroundApp();
                 break;
-            case 14: // Switch recent app
+            case 13: // Switch recent app
                 ActionUtils.switchToLastApp(mContext);
                 break;
         }
