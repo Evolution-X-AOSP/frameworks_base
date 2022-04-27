@@ -345,5 +345,7 @@ public class SystemSettingsValidators {
                         return true;
                     }
                 });
+        VALIDATORS.put(System.QS_TILE_LABEL_HIDE, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.QS_TILE_VERTICAL_LAYOUT, BOOLEAN_VALIDATOR);
     }
 }
