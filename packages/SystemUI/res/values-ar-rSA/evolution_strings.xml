@@ -39,9 +39,7 @@
     <string name="quick_settings_powershare_off_low_battery_label">إيقاف\n مشاركة الشحن لاسلكياً عندما يكون مستوى البطارية منخفضة جداً</string>
     <string name="quick_settings_powershare_enabled_label">مشاركة الشحن لاسلكياً مفعلة</string>
     <!-- Name of the nfc status bar icon. -->
-    <string name="status_bar_nfc">‏الاتصالات قصيرة المدى (NFC)</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
-    <string name="accessibility_status_bar_nfc">‏الاتصالات قصيرة المدى</string>
     <!-- Caffeine tile -->
     <string name="quick_settings_caffeine_label">الإستراحة</string>
     <string name="accessibility_quick_settings_caffeine_off">ايقاف النشط</string>
@@ -76,7 +74,6 @@
     <!-- Name of status bar icons. -->
     <string name="status_bar_call_strength">قوة المكالمة</string>
     <string name="status_bar_data_saver">موفر البيانات</string>
-    <string name="status_bar_vpn">شبكة افتراضية خاصة</string>
     <!-- Heads Up QS Tile -->
     <string name="quick_settings_heads_up_label">التنبيهات العلوية</string>
     <string name="accessibility_quick_settings_heads_up_off">إيقاف الإشعارات العلوية.</string>
@@ -92,10 +89,6 @@
     <string name="quick_settings_reboot_recovery_label">الاسترداد</string>
     <!-- Advanced Reboot -->
     <string name="global_action_restart_advanced">خيارات متقدمة</string>
-    <string name="global_action_restart_recovery">الاسترداد</string>
-    <string name="global_action_restart_bootloader">Bootloader</string>
-    <string name="global_action_restart_ui">واجهة النظام</string>
-    <string name="global_action_onthego">OTG</string>
     <!-- On The Go -->
     <string name="onthego_notification_ticker">OTG يعمل</string>
     <string name="onthego_notification_title">OTG مغعل</string>
