@@ -39,9 +39,7 @@
     <string name="quick_settings_powershare_off_low_battery_label">Kablosuz Güç Paylaşımı\nPil seviyesi çok düşük</string>
     <string name="quick_settings_powershare_enabled_label">Kablosuz Güç Paylaşımı etkin</string>
     <!-- Name of the nfc status bar icon. -->
-    <string name="status_bar_nfc">NFC</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
-    <string name="accessibility_status_bar_nfc">Nfc</string>
     <!-- Caffeine tile -->
     <string name="quick_settings_caffeine_label">Kafein</string>
     <string name="accessibility_quick_settings_caffeine_off">Kafein kapalı</string>
@@ -76,7 +74,6 @@
     <!-- Name of status bar icons. -->
     <string name="status_bar_call_strength">Arama güçlendirme</string>
     <string name="status_bar_data_saver">Veri tasarrufu</string>
-    <string name="status_bar_vpn">VPN</string>
     <!-- Heads Up QS Tile -->
     <string name="quick_settings_heads_up_label">Bildirim pencereleri</string>
     <string name="accessibility_quick_settings_heads_up_off">Bildirim pencereleri kapalı.</string>
@@ -92,10 +89,6 @@
     <string name="quick_settings_reboot_recovery_label">Kurtarma</string>
     <!-- Advanced Reboot -->
     <string name="global_action_restart_advanced">Gelişmiş</string>
-    <string name="global_action_restart_recovery">Kurtarma</string>
-    <string name="global_action_restart_bootloader">Önyükleyici</string>
-    <string name="global_action_restart_ui">Sistem Arayüzü</string>
-    <string name="global_action_onthego">Yürüme modu</string>
     <!-- On The Go -->
     <string name="onthego_notification_ticker">Yürüme modu etkinleştirildi</string>
     <string name="onthego_notification_title">Yürüme modu etkin</string>
@@ -189,4 +182,7 @@
     <string name="vpn_credentials_username">Kullanıcı adı</string>
     <string name="vpn_credentials_password">Şifre</string>
     <string name="vpn_credentials_dialog_connect">Bağlan</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Bildirim pencereleri 1 dakika kadar erteleniyor.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Bildirim pencereleri <xliff:g id="number">%2$d</xliff:g> dakika erteleniyor.</string>
 </resources>
