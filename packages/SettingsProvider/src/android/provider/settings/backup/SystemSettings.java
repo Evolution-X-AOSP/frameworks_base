@@ -119,6 +119,8 @@ public class SystemSettings {
         Settings.System.CUSTOM_NOTIFICATION_VIBRATION_PATTERN,
         Settings.System.STATUS_BAR_NOTIF_COUNT,
         Settings.System.HEADS_UP_NOTIFICATIONS_THRESHOLD,
-        Settings.System.QS_PANEL_STYLE
+        Settings.System.QS_PANEL_STYLE,
+	Settings.System.QS_TILE_LABEL_HIDE,
+        Settings.System.QS_TILE_VERTICAL_LAYOUT,
     };
 }
