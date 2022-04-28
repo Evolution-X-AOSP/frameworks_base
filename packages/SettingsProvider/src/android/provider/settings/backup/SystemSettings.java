@@ -122,5 +122,7 @@ public class SystemSettings {
         Settings.System.QS_PANEL_STYLE,
 	Settings.System.QS_TILE_LABEL_HIDE,
         Settings.System.QS_TILE_VERTICAL_LAYOUT,
+        Settings.System.QS_LAYOUT,
+        Settings.System.QQS_LAYOUT,
     };
 }

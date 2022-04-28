@@ -866,5 +866,33 @@ public class EvolutionUtils {
                    Settings.System.QS_TILE_VERTICAL_LAYOUT,
                    0, UserHandle.USER_CURRENT) == 1;
         }
+
+        public static boolean updateLayout(Context context) {
+            final IOverlayManager overlayManager = IOverlayManager.Stub.asInterface(ServiceManager.getService(
+                    Context.OVERLAY_SERVICE));
+            final int layout_qs = Settings.System.getIntForUser(context.getContentResolver(),
+                    Settings.System.QS_LAYOUT,
+                    42, UserHandle.USER_CURRENT);
+            final int layout_qqs = Settings.System.getIntForUser(context.getContentResolver(),
+                    Settings.System.QQS_LAYOUT,
+                    22, UserHandle.USER_CURRENT);
+            final int row_qs = layout_qs / 10;
+            final int col_qs = layout_qs % 10;
+            final int row_qqs = layout_qqs / 10;
+            for (int i = 0; i < 2; ++i) {
+                String pkgName;
+                if (i == 0) {
+                    pkgName = String.format("com.xtended.qs.portrait.layout_%sx%s", Integer.toString(row_qs), Integer.toString(col_qs));
+                } else {
+                    pkgName = String.format("com.xtended.qqs.portrait.layout_%sx%s", Integer.toString(row_qqs), Integer.toString(col_qs));
+                }
+                try {
+                    overlayManager.setEnabledExclusiveInCategory(pkgName, UserHandle.USER_CURRENT);
+                } catch (RemoteException re) {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }
