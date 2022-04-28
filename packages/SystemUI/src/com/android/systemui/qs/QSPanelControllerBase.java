@@ -192,8 +192,8 @@ public abstract class QSPanelControllerBase<T extends QSPanel> extends ViewContr
 
     @Override
     protected void onViewAttached() {
-        registerObserver(Settings.System.QS_TILE_LABEL_HIDE, UserHandle.USER_CURRENT);
-        registerObserver(Settings.System.QS_TILE_VERTICAL_LAYOUT, UserHandle.USER_CURRENT);
+        registerObserver(Settings.System.QS_TILE_LABEL_HIDE);
+        registerObserver(Settings.System.QS_TILE_VERTICAL_LAYOUT);
         mQsTileRevealController = createTileRevealController();
         if (mQsTileRevealController != null) {
             mQsTileRevealController.setExpansion(mRevealExpansion);
@@ -210,9 +210,9 @@ public abstract class QSPanelControllerBase<T extends QSPanel> extends ViewContr
         mDumpManager.registerDumpable(mView.getDumpableTag(), this);
     }
 
-    private void registerObserver(String key, int user) {
+    protected void registerObserver(String key) {
         mSystemSettings.registerContentObserverForUser(
-            key, mSettingsObserver, user);
+            key, mSettingsObserver, UserHandle.USER_ALL);
     }
 
     @Override
