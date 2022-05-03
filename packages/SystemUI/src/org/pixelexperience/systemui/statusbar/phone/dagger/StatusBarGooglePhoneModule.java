@@ -232,6 +232,7 @@ public interface StatusBarGooglePhoneModule {
             StatusBarTouchableRegionManager statusBarTouchableRegionManager,
             NotificationIconAreaController notificationIconAreaController,
             BrightnessSliderController.Factory brightnessSliderFactory,
+            WiredChargingRippleController chargingRippleAnimationController,
             WallpaperController wallpaperController,
             OngoingCallController ongoingCallController,
             SystemStatusAnimationScheduler animationScheduler,
@@ -255,7 +256,6 @@ public interface StatusBarGooglePhoneModule {
             WallpaperNotifier wallpaperNotifier,
             Optional<ReverseChargingViewController> reverseChargingViewController,
             Lazy<Optional<NotificationVoiceReplyClient>> notificationVoiceReplyClient,
-            WiredChargingRippleController wiredChargingRippleController,
             TaskHelper taskHelper) {
         return new StatusBarGoogle(
                 context, notificationsController, fragmentService, lightBarController, autoHideController,
@@ -276,12 +276,12 @@ public interface StatusBarGooglePhoneModule {
                 viewMediatorCallback, initController, timeTickHandler, pluginDependencyProvider, keyguardDismissUtil,
                 extensionController, userInfoControllerImpl, operatorNameViewControllerFactory, phoneStatusBarPolicy,
                 keyguardIndicationController, demoModeController, notificationShadeDepthControllerLazy,
-                statusBarTouchableRegionManager, notificationIconAreaController, brightnessSliderFactory, wallpaperController,
-                ongoingCallController, animationScheduler, locationPublisher, statusBarIconController,
+                statusBarTouchableRegionManager, notificationIconAreaController, brightnessSliderFactory, chargingRippleAnimationController,
+                wallpaperController, ongoingCallController, animationScheduler, locationPublisher, statusBarIconController,
                 statusBarHideIconsForBouncerManager, lockscreenShadeTransitionController, featureFlags,
                 keyguardUnlockAnimationController, mainHandler, delayableExecutor, messageRouter, wallpaperManager,
                 unlockedScreenOffAnimationController, startingSurfaceOptional, tunerService, dumpManager, activityLaunchAnimator,
                 burnInProtectionController, smartSpaceController, wallpaperNotifier, reverseChargingViewController,
-                notificationVoiceReplyClient, wiredChargingRippleController, taskHelper);
+                notificationVoiceReplyClient, taskHelper);
     }
 }

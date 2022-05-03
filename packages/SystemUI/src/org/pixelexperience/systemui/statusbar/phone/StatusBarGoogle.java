@@ -273,6 +273,7 @@ public class StatusBarGoogle extends StatusBar {
                            StatusBarTouchableRegionManager statusBarTouchableRegionManager,
                            NotificationIconAreaController notificationIconAreaController,
                            BrightnessSliderController.Factory brightnessSliderFactory,
+                           WiredChargingRippleController chargingRippleAnimationController,
                            WallpaperController wallpaperController,
                            OngoingCallController ongoingCallController,
                            SystemStatusAnimationScheduler animationScheduler,
@@ -296,7 +297,6 @@ public class StatusBarGoogle extends StatusBar {
                            WallpaperNotifier wallpaperNotifier,
                            Optional<ReverseChargingViewController> reverseChargingViewController,
                            Lazy<Optional<NotificationVoiceReplyClient>> notificationVoiceReplyClient,
-                           WiredChargingRippleController wiredChargingRippleController,
                            TaskHelper taskHelper) {
         super(context, notificationsController, fragmentService, lightBarController, autoHideController,
                 statusBarWindowController, keyguardUpdateMonitor, statusBarSignalPolicy, pulseExpansionHandler,
@@ -316,12 +316,12 @@ public class StatusBarGoogle extends StatusBar {
                 viewMediatorCallback, initController, timeTickHandler, pluginDependencyProvider, keyguardDismissUtil,
                 extensionController, userInfoControllerImpl, operatorNameViewControllerFactory, phoneStatusBarPolicy,
                 keyguardIndicationController, demoModeController, notificationShadeDepthControllerLazy,
-                statusBarTouchableRegionManager, notificationIconAreaController, brightnessSliderFactory, wallpaperController,
-                ongoingCallController, animationScheduler, locationPublisher, statusBarIconController,
+                statusBarTouchableRegionManager, notificationIconAreaController, brightnessSliderFactory, chargingRippleAnimationController,
+                wallpaperController, ongoingCallController, animationScheduler, locationPublisher, statusBarIconController,
                 statusBarHideIconsForBouncerManager, lockscreenShadeTransitionController, featureFlags,
                 keyguardUnlockAnimationController, mainHandler, delayableExecutor, messageRouter, wallpaperManager,
                 unlockedScreenOffAnimationController, startingSurfaceOptional, tunerService, dumpManager, activityLaunchAnimator,
-                burnInProtectionController, wiredChargingRippleController, taskHelper);
+                burnInProtectionController, taskHelper);
         mSmartSpaceController = smartSpaceController;
         mWallpaperNotifier = wallpaperNotifier;
         mReverseChargingViewController = reverseChargingViewController;
