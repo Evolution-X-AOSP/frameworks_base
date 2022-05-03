@@ -17,6 +17,7 @@
  */
 package com.android.internal.util.evolution;
 
+import android.app.Application;
 import android.os.Build;
 import android.os.SystemProperties;
 import android.util.Log;
@@ -141,13 +142,12 @@ public class PixelPropsUtils {
             "sargo"
     };
 
-    private static ArrayList<String> allProps = new ArrayList<>(Arrays.asList("BRAND", "MANUFACTURER", "DEVICE", "PRODUCT", "MODEL", "FINGERPRINT"));
-
     private static volatile boolean sIsGms = false;
 
     static {
         propsToKeep = new HashMap<>();
         propsToKeep.put("com.google.android.settings.intelligence", new ArrayList<>(Collections.singletonList("FINGERPRINT")));
+        propsToKeep.put("com.google.android.gms", new ArrayList<String>(Arrays.asList("MODEL")));
         propsToChange = new HashMap<>();
         propsToChangePixel6 = new HashMap<>();
         propsToChangePixel6.put("BRAND", "google");
@@ -186,21 +186,35 @@ public class PixelPropsUtils {
         propsToChangeMI11.put("MODEL", "M2102K1G");
     }
 
-    public static void setProps(String packageName) {
+    public static void setProps(Application app) {
+        String packageName = app.getPackageName();
         if (packageName == null) {
             return;
         }
-        if (packageName.equals(PACKAGE_GMS)) {
+        if (Arrays.asList(packagesToKeep).contains(packageName)) {
+            return;
+        }
+        if (Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE))) {
+            if (packageName.equals(PACKAGE_GMS) && app.getProcessName().equals("com.google.android.gms.unstable")) {
+                setPropValue("MODEL", SystemProperties.get("ro.product.model") + " ");
+                setPropValue("PRODUCT", SystemProperties.get(DEVICE));
+                sIsGms = true;
+            }
+            return;
+        }
+        if (packageName.equals(PACKAGE_GMS) && app.getProcessName().equals("com.google.android.gms.unstable")) {
+            setPropValue("MODEL", "Pixel 5" + " ");
             sIsGms = true;
         }
-        boolean isPixelDevice = Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE));
-        if (!isPixelDevice &&
-            (packageName.startsWith("com.google.") && !Arrays.asList(packagesToKeep).contains(packageName))) {
+        if (packageName.startsWith("com.google.")) {
+
+            boolean isPixelDevice = Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE));
 
             if (Arrays.asList(streamingPackagesToChange).contains(packageName)) {
                 if (SystemProperties.getBoolean("persist.sys.pixelprops.streaming", true)) {
                     propsToChange.putAll(propsToChangePixel6);
                 } else {
+                    if (isPixelDevice) return;
                     propsToChange.putAll(propsToChangePixel5);
                 }
             }
@@ -208,9 +222,11 @@ public class PixelPropsUtils {
                 if (SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", true)) {
                     propsToChange.putAll(propsToChangePixelXL);
                 } else {
+                    if (isPixelDevice) return;
                     propsToChange.putAll(propsToChangePixel5);
                 }
             } else {
+                if (isPixelDevice) return;
                 if ((Arrays.asList(packagesToChangePixel6).contains(packageName))
                         || Arrays.asList(extraPackagesToChange).contains(packageName)) {
                     propsToChange.putAll(propsToChangePixel6);
@@ -231,6 +247,10 @@ public class PixelPropsUtils {
                 }
                 if (DEBUG) Log.d(TAG, "Defining " + key + " prop for: " + packageName);
                 setPropValue(key, value);
+            }
+            // Set proper indexing fingerprint
+            if (packageName.equals("com.google.android.settings.intelligence")) {
+                setPropValue("FINGERPRINT", Build.VERSION.INCREMENTAL);
             }
         } else {
 
@@ -267,15 +287,6 @@ public class PixelPropsUtils {
                 }
             }
         }
-        if (isPixelDevice){
-            if (packageName.equals("com.google.android.gms")){
-                setPropValue("MODEL", Build.MODEL + " ");
-            }
-        }
-        // Set proper indexing fingerprint
-        if (packageName.equals("com.google.android.settings.intelligence")) {
-            setPropValue("FINGERPRINT", Build.VERSION.INCREMENTAL);
-        }
     }
 
     private static void setPropValue(String key, Object value) {
@@ -295,7 +306,7 @@ public class PixelPropsUtils {
                 .anyMatch(elem -> elem.getClassName().contains("DroidGuard"));
     }
 
-    public static void onEngineGetCertificate() {
+    public static void onEngineGetCertificateChain() {
         // Check stack for SafetyNet
         if (sIsGms && isCallerSafetyNet()) {
             throw new UnsupportedOperationException();
