@@ -69,6 +69,7 @@ class PrivacyItemController @Inject constructor(
         val LOCATION_WHITELIST_PKG = arrayOf(
             "com.android.bluetooth",
             "com.android.networkstack.tethering",
+            "com.android.phone",
             "com.android.systemui",
             "com.google.android.settings.intelligence",
         )
