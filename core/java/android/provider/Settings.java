@@ -5326,12 +5326,6 @@ public final class Settings {
         public static final String VOLBTN_MUSIC_CONTROLS = "volbtn_music_controls";
 
         /**
-         * Three Finger Gesture from Oppo
-         * @hide
-         */
-        public static final String THREE_FINGER_GESTURE = "three_finger_gesture";
-
-        /**
          * Whether the phone vibrates on call connect
          * @hide
          */
@@ -6510,6 +6504,12 @@ public final class Settings {
         public static final String LIVE_DISPLAY_HINTED = "live_display_hinted";
 
         /**
+         * Swipe to screenshot
+         * @hide
+         */
+        public static final String SWIPE_TO_SCREENSHOT = "swipe_to_screenshot";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -6677,6 +6677,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_ADJUSTMENT);
             PRIVATE_SETTINGS.add(DISPLAY_PICTURE_ADJUSTMENT);
             PRIVATE_SETTINGS.add(LIVE_DISPLAY_HINTED);
+            PRIVATE_SETTINGS.add(SWIPE_TO_SCREENSHOT);
         }
 
         /**

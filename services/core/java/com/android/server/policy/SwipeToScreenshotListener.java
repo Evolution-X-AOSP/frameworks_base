@@ -1,6 +1,5 @@
 /*
  * Copyright (C) 2019 The PixelExperience Project
- * Copyright (C) 2022 AOSP-Krypton Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,23 +24,23 @@ import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.WindowManagerPolicyConstants.PointerEventListener;
 
-public final class SwipeToScreenshotListener implements PointerEventListener {
+public class SwipeToScreenshotListener implements PointerEventListener {
     private static final String TAG = "SwipeToScreenshotListener";
-
-    private static final int STATE_NONE = 0;
-    private static final int STATE_DETECTING = 1;
-    private static final int STATE_DETECTED_FALSE = 2;
-    private static final int STATE_DETECTED_TRUE = 3;
-    private static final int STATE_NO_DETECT = 4;
-
-    private final Context mContext;
-    private final float[] mInitMotionY;
-    private final int[] mPointerIds;
-    private final int mThreeGestureThreshold;
-    private final int mThreshold;
+    private static final int THREE_GESTURE_STATE_NONE = 0;
+    private static final int THREE_GESTURE_STATE_DETECTING = 1;
+    private static final int THREE_GESTURE_STATE_DETECTED_FALSE = 2;
+    private static final int THREE_GESTURE_STATE_DETECTED_TRUE = 3;
+    private static final int THREE_GESTURE_STATE_NO_DETECT = 4;
+    private boolean mBootCompleted;
+    private Context mContext;
+    private boolean mDeviceProvisioned = false;
+    private float[] mInitMotionY;
+    private int[] mPointerIds;
+    private int mThreeGestureState = THREE_GESTURE_STATE_NONE;
+    private int mThreeGestureThreshold;
+    private int mThreshold;
     private final Callbacks mCallbacks;
-    private DisplayMetrics mDisplayMetrics;
-    private int mThreeGestureState = STATE_NONE;
+    DisplayMetrics mDisplayMetrics;
 
     public SwipeToScreenshotListener(Context context, Callbacks callbacks) {
         mPointerIds = new int[3];
@@ -55,22 +54,31 @@ public final class SwipeToScreenshotListener implements PointerEventListener {
 
     @Override
     public void onPointerEvent(MotionEvent event) {
+        if (!mBootCompleted) {
+            mBootCompleted = SystemProperties.getBoolean("sys.boot_completed", false);
+            return;
+        }
+        if (!mDeviceProvisioned) {
+            mDeviceProvisioned = Settings.Global.getInt(mContext.getContentResolver(),
+                Settings.Global.DEVICE_PROVISIONED, 0) != 0;
+            return;
+        }
         if (event.getAction() == 0) {
-            changeThreeGestureState(STATE_NONE);
-        } else if (mThreeGestureState == STATE_NONE && event.getPointerCount() == 3) {
+            changeThreeGestureState(THREE_GESTURE_STATE_NONE);
+        } else if (mThreeGestureState == THREE_GESTURE_STATE_NONE && event.getPointerCount() == 3) {
             if (checkIsStartThreeGesture(event)) {
-                changeThreeGestureState(STATE_DETECTING);
+                changeThreeGestureState(THREE_GESTURE_STATE_DETECTING);
                 for (int i = 0; i < 3; i++) {
                     mPointerIds[i] = event.getPointerId(i);
                     mInitMotionY[i] = event.getY(i);
                 }
             } else {
-                changeThreeGestureState(STATE_NO_DETECT);
+                changeThreeGestureState(THREE_GESTURE_STATE_NO_DETECT);
             }
         }
-        if (mThreeGestureState == STATE_DETECTING) {
+        if (mThreeGestureState == THREE_GESTURE_STATE_DETECTING) {
             if (event.getPointerCount() != 3) {
-                changeThreeGestureState(STATE_DETECTED_FALSE);
+                changeThreeGestureState(THREE_GESTURE_STATE_DETECTED_FALSE);
                 return;
             }
             if (event.getActionMasked() == MotionEvent.ACTION_MOVE) {
@@ -79,7 +87,7 @@ public final class SwipeToScreenshotListener implements PointerEventListener {
                 while (i < 3) {
                     int index = event.findPointerIndex(mPointerIds[i]);
                     if (index < 0 || index >= 3) {
-                        changeThreeGestureState(STATE_DETECTED_FALSE);
+                        changeThreeGestureState(THREE_GESTURE_STATE_DETECTED_FALSE);
                         return;
                     } else {
                         distance += event.getY(index) - mInitMotionY[i];
@@ -87,7 +95,7 @@ public final class SwipeToScreenshotListener implements PointerEventListener {
                     }
                 }
                 if (distance >= ((float) mThreeGestureThreshold)) {
-                    changeThreeGestureState(STATE_DETECTED_TRUE);
+                    changeThreeGestureState(THREE_GESTURE_STATE_DETECTED_TRUE);
                     mCallbacks.onSwipeThreeFinger();
                 }
             }
@@ -95,14 +103,15 @@ public final class SwipeToScreenshotListener implements PointerEventListener {
     }
 
     private void changeThreeGestureState(int state) {
-        if (mThreeGestureState == state) return;
-        mThreeGestureState = state;
-        final boolean shouldEnableProp = mThreeGestureState == STATE_DETECTED_TRUE ||
-            mThreeGestureState == STATE_DETECTING;
-        try {
-            SystemProperties.set("sys.android.screenshot", String.valueOf(shouldEnableProp));
-        } catch(Exception e) {
-            Log.e(TAG, "Exception while setting prop", e);
+        if (mThreeGestureState != state){
+            mThreeGestureState = state;
+            boolean shouldEnableProp = mThreeGestureState == THREE_GESTURE_STATE_DETECTED_TRUE ||
+                mThreeGestureState == THREE_GESTURE_STATE_DETECTING;
+            try {
+                SystemProperties.set("sys.android.screenshot", shouldEnableProp ? "true" : "false");
+            } catch(Exception e) {
+                Log.e(TAG, "Exception when setprop", e);
+            }
         }
     }
 
