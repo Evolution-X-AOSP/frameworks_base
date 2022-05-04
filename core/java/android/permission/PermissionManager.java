@@ -145,9 +145,9 @@ public final class PermissionManager {
 
     private List<SplitPermissionInfo> mSplitPermissionInfos;
 
-    private static String[] mLocationProviderPkgNames;
-    private static String[] mLocationExtraPkgNames;
-    private static String[] mExemptedPkgNames;
+    private static String[] sLocationProviderPkgNames;
+    private static String[] sLocationExtraPkgNames;
+    private static String[] sExemptedPkgNames;
 
     /**
      * Creates a new instance.
@@ -163,13 +163,6 @@ public final class PermissionManager {
         mPermissionManager = IPermissionManager.Stub.asInterface(ServiceManager.getServiceOrThrow(
                 "permissionmgr"));
         mLegacyPermissionManager = context.getSystemService(LegacyPermissionManager.class);
-
-        mLocationProviderPkgNames = context.getResources().getStringArray(
-                R.array.config_locationProviderPackageNames);
-        mLocationExtraPkgNames = context.getResources().getStringArray(
-                R.array.config_locationExtraPackageNames);
-        mExemptedPkgNames = context.getResources().getStringArray(
-                R.array.config_indicatorExemptedPackageNames);
     }
 
     /**
@@ -957,17 +950,17 @@ public final class PermissionManager {
                 pkgNames.add(exemptedPackage);
             }
         }
-        for (String pkgName: mLocationProviderPkgNames) {
+        for (String pkgName: sLocationProviderPkgNames) {
             if (pkgName != null) {
                 pkgNames.add(pkgName);
             }
         }
-        for (String pkgName: mLocationExtraPkgNames) {
+        for (String pkgName: sLocationExtraPkgNames) {
             if (pkgName != null) {
                 pkgNames.add(pkgName);
             }
         }
-        for (String pkgName: mExemptedPkgNames) {
+        for (String pkgName: sExemptedPkgNames) {
             if (pkgName != null) {
                 pkgNames.add(pkgName);
             }
@@ -987,6 +980,12 @@ public final class PermissionManager {
             for (int i = 0; i < EXEMPTED_ROLES.length; i++) {
                 INDICATOR_EXEMPTED_PACKAGES[i] = context.getString(EXEMPTED_ROLES[i]);
             }
+            sLocationProviderPkgNames = context.getResources().getStringArray(
+                    R.array.config_locationProviderPackageNames);
+            sLocationExtraPkgNames = context.getResources().getStringArray(
+                    R.array.config_locationExtraPackageNames);
+            sExemptedPkgNames = context.getResources().getStringArray(
+                    R.array.config_indicatorExemptedPackageNames);
         }
     }
     /**
