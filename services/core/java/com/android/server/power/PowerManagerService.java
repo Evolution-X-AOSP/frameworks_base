@@ -1454,7 +1454,9 @@ public final class PowerManagerService extends SystemService
         }
         // depends on AOD_NOTIFICATION_PULSE_ACTIVATED - so MUST be afterwards
         // no need to call us again
-        mAlwaysOnEnabled = mAmbientDisplayConfiguration.alwaysOnEnabled(UserHandle.USER_CURRENT);
+        mAlwaysOnEnabled = mAmbientDisplayConfiguration.alwaysOnEnabledSetting(UserHandle.USER_CURRENT)
+            || (mAmbientDisplayConfiguration.alwaysOnChargingEnabledSetting(
+                    UserHandle.USER_CURRENT) && mIsPowered);
 
         if (mSupportsDoubleTapWakeConfig) {
             boolean doubleTapWakeEnabled = Settings.Secure.getIntForUser(resolver,
