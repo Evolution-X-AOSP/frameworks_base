@@ -222,10 +222,13 @@ public class AmbientDisplayConfiguration {
         return alwaysOnEnabled && alwaysOnAvailable() && !accessibilityInversionEnabled(user);
     }
 
+    public boolean alwaysOnChargingEnabledSetting(int user) {
+        return Settings.System.getIntForUser(mContext.getContentResolver(),
+            Settings.System.DOZE_ON_CHARGE, 0, user) == 1;
+    }
+
     public boolean alwaysOnChargingEnabled(int user) {
-        final boolean dozeOnChargeEnabled = Settings.System.getIntForUser(
-                mContext.getContentResolver(), Settings.System.DOZE_ON_CHARGE, 0, user) == 1;
-        if (dozeOnChargeEnabled) {
+        if (alwaysOnChargingEnabledSetting(user)) {
             final Intent intent = mContext.registerReceiver(null, sIntentFilter);
             if (intent != null) {
                 return intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, 0) != 0;
