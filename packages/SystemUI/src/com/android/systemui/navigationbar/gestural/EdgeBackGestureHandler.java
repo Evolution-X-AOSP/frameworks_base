@@ -66,6 +66,7 @@ import android.view.WindowManager;
 import android.view.WindowMetrics;
 
 import com.android.internal.util.evolution.EvolutionUtils;
+import com.android.internal.util.hwkeys.ActionHandler;
 import com.android.internal.util.hwkeys.ActionUtils;
 import com.android.internal.config.sysui.SystemUiDeviceConfigFlags;
 import com.android.internal.policy.GestureNavigationSettingsObserver;
@@ -1071,6 +1072,9 @@ public class EdgeBackGestureHandler extends CurrentUserTracker
                 break;
             case 18: // Hush Mute
                 ActionUtils.triggerHushMute(mContext);
+                break;
+            case 19: // Recent apps
+                ActionHandler.toggleRecentApps();
                 break;
         }
     }
