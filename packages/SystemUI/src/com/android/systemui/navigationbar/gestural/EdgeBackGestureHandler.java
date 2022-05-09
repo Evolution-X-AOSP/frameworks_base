@@ -68,6 +68,7 @@ import android.window.BackEvent;
 import com.android.internal.config.sysui.SystemUiDeviceConfigFlags;
 import com.android.internal.policy.GestureNavigationSettingsObserver;
 import com.android.internal.util.evolution.EvolutionUtils;
+import com.android.internal.util.hwkeys.ActionHandler;
 import com.android.internal.util.hwkeys.ActionUtils;
 import com.android.systemui.R;
 import com.android.systemui.Dependency;
@@ -1176,6 +1177,9 @@ public class EdgeBackGestureHandler implements PluginListener<NavigationEdgeBack
                 break;
             case 18: // Hush Mute
                 ActionUtils.triggerHushMute(mContext);
+                break;
+            case 19: // Recent apps
+                ActionHandler.toggleRecentApps();
                 break;
         }
     }
