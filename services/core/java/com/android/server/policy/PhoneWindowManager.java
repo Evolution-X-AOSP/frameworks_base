@@ -2875,25 +2875,25 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     + repeatCount + " keyguardOn=" + keyguardOn + " canceled=" + canceled);
         }
 
-        // we only handle events from hardware key devices that originate from
-        // real button
-        // pushes. We ignore virtual key events as well since it didn't come
-        // from a hard key or
-        // it's the key handler synthesizing a back or menu key event for
-        // dispatch
-        // if keyguard is showing and secure, don't intercept and let aosp keycode
-        // implementation handle event
-        if (mKeyHandler != null && !keyguardOn && !virtualKey) {
-            boolean handled = mKeyHandler.handleKeyEvent(mKeyguardCandidate, keyCode, repeatCount, down, canceled,
-                    longPress, keyguardOn);
-            if (handled)
-                return -1;
-        }
-
         if (mKeyCombinationManager.isKeyConsumed(event)) {
             return key_consumed;
         }
 
+        // we only handle events from hardware key devices that originate from real button
+        // pushes. We ignore virtual key events as well since it didn't come from a hard key or
+        // it's the key handler synthesizing a back or menu key event for dispatch
+        // if keyguard is showing and secure, don't intercept and let aosp keycode
+        // implementation handle event
+        if (mKeyHandler != null && !keyguardOn && !virtualKey) {
+            boolean handled = mKeyHandler.handleKeyEvent(focusedToken, keyCode, repeatCount, down, canceled,
+                    longPress, keyguardOn);
+            if (handled)
+                return key_consumed;
+        }
+
+        // If we think we might have a combination key chord on the way
+        // but we're not sure, then tell the dispatcher to wait a little while and
+        // try again later before dispatching.
         if ((flags & KeyEvent.FLAG_FALLBACK) == 0) {
             final long now = SystemClock.uptimeMillis();
             final long interceptTimeout = mKeyCombinationManager.getKeyInterceptTimeout(keyCode);
@@ -5749,6 +5749,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 mHandler.removeCallbacks(mScreenshotRunnable);
                 mScreenshotRunnable.setScreenshotType(TAKE_SCREENSHOT_SELECTED_REGION);
                 mHandler.post(mScreenshotRunnable);
+            } else if (ActionHandler.INTENT_SHOW_POWER_MENU.equals(action)) {
+                showGlobalActions();
             }
         }
     }
