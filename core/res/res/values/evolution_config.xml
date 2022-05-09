@@ -177,6 +177,18 @@
     <!-- Should we filter any display modes which are unmapped? -->
     <bool name="config_filterDisplayModes">false</bool>
 
+    <!-- Whether device has dash charging support -->
+    <bool name="config_hasDashCharger">false</bool>
+
+    <!-- Whether device has warp charging support -->
+    <bool name="config_hasWarpCharger">false</bool>
+
+    <!-- Whether device has VOOC charging support -->
+    <bool name="config_hasVoocCharger">false</bool>
+
+    <!-- Whether device has turbo power charging support -->
+    <bool name="config_hasTurboPowerCharger">false</bool>
+
     <!-- Paths to fast charging status file to detect whether an oem fast charger is active -->
     <string-array name="config_oemFastChargerStatusPaths" translatable="false">
     </string-array>

@@ -186,15 +186,19 @@ public final class BatteryService extends SystemService {
     private boolean mBatteryLevelLow;
 
     private boolean mDashCharger;
+    private boolean mHasDashCharger;
     private boolean mLastDashCharger;
 
     private boolean mWarpCharger;
+    private boolean mHasWarpCharger;
     private boolean mLastWarpCharger;
 
     private boolean mVoocCharger;
+    private boolean mHasVoocCharger;
     private boolean mLastVoocCharger;
 
     private boolean mTurboPower;
+    private boolean mHasTurboPower;
     private boolean mLastTurboPower;
 
     private boolean mOemFastCharger;
@@ -258,6 +262,14 @@ public final class BatteryService extends SystemService {
 
         mHasLed = context.getResources().getBoolean(
                 com.android.internal.R.bool.config_hasNotificationLed);
+        mHasDashCharger = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_hasDashCharger);
+        mHasWarpCharger = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_hasWarpCharger);
+        mHasVoocCharger = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_hasVoocCharger);
+        mHasTurboPower = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_hasTurboPowerCharger);
 
         mCriticalBatteryLevel = mContext.getResources().getInteger(
                 com.android.internal.R.integer.config_criticalBatteryWarningLevel);
@@ -703,10 +715,10 @@ public final class BatteryService extends SystemService {
         shutdownIfNoPowerLocked();
         shutdownIfOverTempLocked();
 
-        mDashCharger = isDashCharger();
-        mWarpCharger = isWarpCharger();
-        mVoocCharger = isVoocCharger();
-        mTurboPower = isTurboPower();
+        mDashCharger = mHasDashCharger && isDashCharger();
+        mWarpCharger = mHasWarpCharger && isWarpCharger();
+        mVoocCharger = mHasVoocCharger && isVoocCharger();
+        mTurboPower = mHasTurboPower && isTurboPower();
         mOemFastCharger = isOemFastCharger();
 
         if (force || (mHealthInfo.batteryStatus != mLastBatteryStatus ||
