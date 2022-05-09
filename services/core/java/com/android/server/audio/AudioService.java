@@ -377,6 +377,7 @@ public class AudioService extends IAudioService.Stub
     private static final int MSG_FOLD_UPDATE = 49;
     private static final int MSG_RESET_SPATIALIZER = 50;
     private static final int MSG_NO_LOG_FOR_PLAYER_I = 51;
+    private static final int MSG_PERSIST_LAST_SPEAKER_MEDIA_VOLUME = 52;
 
     // start of messages handled under wakelock
     //   these messages can only be queued, i.e. sent with queueMsgUnderWakeLock(),
@@ -949,6 +950,10 @@ public class AudioService extends IAudioService.Stub
 
     @GuardedBy("mSettingsLock")
     private boolean mRttEnabled = false;
+
+    private static final String RINGER_MUTE_SPEAKER_CALLER = "RingerMuteSpeakerMedia";
+    private boolean mRingerMuteSpeakerMedia;
+    private int mSavedSpeakerMediaIndex;
 
     ///////////////////////////////////////////////////////////////////////////
     // Construction
@@ -2260,6 +2265,13 @@ public class AudioService extends IAudioService.Stub
         }
     }
 
+    private void updateRingerMuteSpeakerMedia(ContentResolver cr) {
+        mRingerMuteSpeakerMedia =
+            Settings.Global.getInt(cr, Settings.Global.RINGER_MUTE_SPEAKER_MEDIA, 0) == 1;
+        mSavedSpeakerMediaIndex =
+            Settings.Global.getInt(cr, Settings.Global.SAVED_SPEAKER_MEDIA_VOLUME, -1);
+    }
+
     private void sendEncodedSurroundMode(ContentResolver cr, String eventSource)
     {
         final int encodedSurroundMode = mSettings.getGlobalInt(
@@ -2650,6 +2662,8 @@ public class AudioService extends IAudioService.Stub
         updateMasterMono(cr);
 
         updateMasterBalance(cr);
+
+        updateRingerMuteSpeakerMedia(cr);
 
         // Each stream will read its own persisted settings
 
@@ -5100,6 +5114,18 @@ public class AudioService extends IAudioService.Stub
                 mRingerAndZenModeMutedStreams |= (1 << streamType);
             }
         }
+        if (mRingerMuteSpeakerMedia) {
+            if (ringerModeMute) {
+                // Set volume to 0 instead of muting because we won't want to
+                // affect other devices under same type
+                setStreamVolumeInt(AudioSystem.STREAM_MUSIC, 0,
+                    AudioSystem.DEVICE_OUT_SPEAKER, false, RINGER_MUTE_SPEAKER_CALLER, true);
+            } else if (mSavedSpeakerMediaIndex >= 0) {
+                // Restore previous media volume if valid
+                setStreamVolumeInt(AudioSystem.STREAM_MUSIC, mSavedSpeakerMediaIndex,
+                    AudioSystem.DEVICE_OUT_SPEAKER, false, RINGER_MUTE_SPEAKER_CALLER, true);
+            }            
+        }
     }
 
     private boolean isAlarm(int streamType) {
@@ -5124,6 +5150,17 @@ public class AudioService extends IAudioService.Stub
         final boolean change;
         synchronized(mSettingsLock) {
             change = mRingerMode != ringerMode;
+            // Save current media volume if previous ringer mode is normal
+            if (mRingerMuteSpeakerMedia && change
+                    && mRingerMode == AudioManager.RINGER_MODE_NORMAL) {
+                mSavedSpeakerMediaIndex =
+                    mStreamStates[AudioSystem.STREAM_MUSIC]
+                        .getIndex(AudioSystem.DEVICE_OUT_SPEAKER);
+                if (persist) {
+                    sendMsg(mAudioHandler, MSG_PERSIST_LAST_SPEAKER_MEDIA_VOLUME,
+                            SENDMSG_REPLACE, mSavedSpeakerMediaIndex, 0, null, PERSIST_DELAY);
+                }
+            }
             mRingerMode = ringerMode;
             muteRingerModeStreams();
         }
@@ -7924,6 +7961,16 @@ public class AudioService extends IAudioService.Stub
                     mIndexMap.put(device, index);
 
                     changed = oldIndex != index;
+                    if (mRingerMuteSpeakerMedia && !RINGER_MUTE_SPEAKER_CALLER.equals(caller)
+                            && mSavedSpeakerMediaIndex >= 0
+                            && mStreamType == AudioSystem.STREAM_MUSIC
+                            && device == AudioSystem.DEVICE_OUT_SPEAKER
+                            && changed) {
+                        // Invalidate saved media volume if it is changed by someone else
+                        mSavedSpeakerMediaIndex = -1;
+                        sendMsg(mAudioHandler, MSG_PERSIST_LAST_SPEAKER_MEDIA_VOLUME,
+                            SENDMSG_REPLACE, mSavedSpeakerMediaIndex, 0, null, PERSIST_DELAY);
+                    }
                     // Apply change to all streams using this one as alias if:
                     // - the index actually changed OR
                     // - there is no volume index stored for this device on alias stream.
@@ -8370,6 +8417,11 @@ public class AudioService extends IAudioService.Stub
             mSettings.putGlobalInt(mContentResolver, Settings.Global.MODE_RINGER, ringerMode);
         }
 
+        private void persistLastSpeakerMediaVolume(int index) {
+            Settings.Global.putInt(mContentResolver,
+                    Settings.Global.SAVED_SPEAKER_MEDIA_VOLUME, index);
+        }
+
         private void onPersistSafeVolumeState(int state) {
             mSettings.putGlobalInt(mContentResolver,
                     Settings.Global.AUDIO_SAFE_VOLUME_STATE,
@@ -8654,6 +8706,10 @@ public class AudioService extends IAudioService.Stub
                 case MSG_NO_LOG_FOR_PLAYER_I:
                     mPlaybackMonitor.ignorePlayerIId(msg.arg1);
                     break;
+
+                case MSG_PERSIST_LAST_SPEAKER_MEDIA_VOLUME:
+                    persistLastSpeakerMediaVolume(msg.arg1);
+                    break;
             }
         }
     }
@@ -8687,6 +8743,9 @@ public class AudioService extends IAudioService.Stub
 
             mContentResolver.registerContentObserver(Settings.Secure.getUriFor(
                     Settings.Secure.VOICE_INTERACTION_SERVICE), false, this);
+
+            mContentResolver.registerContentObserver(Settings.Global.getUriFor(
+                    Settings.Global.RINGER_MUTE_SPEAKER_MEDIA), false, this);
         }
 
         @Override
@@ -8707,6 +8766,7 @@ public class AudioService extends IAudioService.Stub
                 readDockAudioSettings(mContentResolver);
                 updateMasterMono(mContentResolver);
                 updateMasterBalance(mContentResolver);
+                updateRingerMuteSpeakerMedia(mContentResolver);
                 updateEncodedSurroundOutput();
                 sendEnabledSurroundFormats(mContentResolver, mSurroundModeChanged);
                 updateAssistantUIdLocked(/* forceUpdate= */ false);
