@@ -19,6 +19,7 @@ package com.android.systemui
 import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Color
+import android.graphics.Typeface
 import android.graphics.PixelFormat
 import android.os.Binder
 import android.os.IBinder
@@ -110,8 +111,11 @@ class FPSInfoService @Inject constructor(
 
         fpsInfoView = TextView(this).apply {
             text = getString(R.string.fps_text_placeholder, 0)
-            setBackgroundColor(ColorUtils.setAlphaComponent(Color.BLACK, BACKGROUND_ALPHA))
-            setTextColor(Color.WHITE)
+            val customBG = resources.getDrawable(R.drawable.fpsinfo_bg)
+            background = customBG
+            val accentColor = resources.getColor(android.R.color.system_accent1_50)
+            setTextColor(accentColor)
+            typeface = Typeface.DEFAULT_BOLD
             val padding = resources.getDimensionPixelSize(R.dimen.fps_info_text_padding)
             setPadding(padding, padding, padding, padding)
         }
