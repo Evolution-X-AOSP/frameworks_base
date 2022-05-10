@@ -264,7 +264,9 @@ bool DrawFrameTask::syncFrameState(TreeInfo& info) {
     mContext->unpinImages();
 
     for (size_t i = 0; i < mLayers.size() && mLayers.size() > 0; i++) {
-        mLayers[i]->apply();
+        if (mLayers[i]) {
+            mLayers[i]->apply();
+        }
     }
     mLayers.clear();
     mContext->setContentDrawBounds(mContentDrawBounds);
