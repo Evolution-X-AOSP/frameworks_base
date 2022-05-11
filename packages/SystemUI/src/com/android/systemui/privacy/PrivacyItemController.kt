@@ -66,19 +66,6 @@ class PrivacyItemController @Inject constructor(
 
     @VisibleForTesting
     internal companion object {
-        val LOCATION_WHITELIST_PKG = arrayOf(
-            "com.android.bluetooth",
-            "com.android.networkstack.tethering",
-            "com.android.phone",
-            "com.android.systemui",
-            "com.google.android.gms.location.history",
-            "com.google.android.googlequicksearchbox",
-            "com.google.android.settings.intelligence",
-            "com.mediatek.ims",
-        )
-        val CAMERA_WHITELIST_PKG = arrayOf(
-            "org.pixelexperience.faceunlock",
-        )
         val OPS_MIC_CAMERA = intArrayOf(AppOpsManager.OP_CAMERA,
                 AppOpsManager.OP_PHONE_CALL_CAMERA, AppOpsManager.OP_RECORD_AUDIO,
                 AppOpsManager.OP_PHONE_CALL_MICROPHONE)
@@ -162,12 +149,10 @@ class PrivacyItemController @Inject constructor(
             active: Boolean
         ) {
             // Check if we care about this code right now
-            if (code in OPS_LOCATION && (!locationAvailable
-                    || packageName in LOCATION_WHITELIST_PKG)) {
+            if (code in OPS_LOCATION && !locationAvailable) {
                 return
             }
-            if (code in OPS_MIC_CAMERA && (!micCameraAvailable
-                    || packageName in CAMERA_WHITELIST_PKG)) {
+            if (code in OPS_MIC_CAMERA && !micCameraAvailable) {
                 return
             }
             val userId = UserHandle.getUserId(uid)
@@ -343,12 +328,11 @@ class PrivacyItemController @Inject constructor(
             AppOpsManager.OP_RECORD_AUDIO -> PrivacyType.TYPE_MICROPHONE
             else -> return null
         }
-        if (type == PrivacyType.TYPE_LOCATION && (!locationAvailable
-                || appOpItem.packageName in LOCATION_WHITELIST_PKG)) {
+        if (type == PrivacyType.TYPE_LOCATION && !locationAvailable) {
             return null
         }
         if ((type == PrivacyType.TYPE_CAMERA ||  type == PrivacyType.TYPE_MICROPHONE)
-                && (!micCameraAvailable || appOpItem.packageName in CAMERA_WHITELIST_PKG)) {
+                && !micCameraAvailable) {
             return null
         }
         val app = PrivacyApplication(appOpItem.packageName, appOpItem.uid)
