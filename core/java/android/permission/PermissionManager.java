@@ -231,6 +231,7 @@ public final class PermissionManager {
 
     private static String[] sLocationProviderPkgNames;
     private static String[] sLocationExtraPkgNames;
+    private static String[] sExemptedPkgNames;
 
     /**
      * Creates a new instance.
@@ -1190,6 +1191,11 @@ public final class PermissionManager {
                 pkgNames.add(pkgName);
             }
         }
+        for (String pkgName: sExemptedPkgNames) {
+            if (pkgName != null) {
+                pkgNames.add(pkgName);
+            }
+        }
         return pkgNames;
     }
 
@@ -1209,6 +1215,8 @@ public final class PermissionManager {
                     R.array.config_locationProviderPackageNames);
             sLocationExtraPkgNames = context.getResources().getStringArray(
                     R.array.config_locationExtraPackageNames);
+            sExemptedPkgNames = context.getResources().getStringArray(
+                    R.array.config_indicatorExemptedPackageNames);
         }
     }
     /**
