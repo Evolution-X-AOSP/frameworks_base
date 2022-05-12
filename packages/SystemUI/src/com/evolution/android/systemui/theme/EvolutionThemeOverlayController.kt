@@ -108,7 +108,8 @@ class EvolutionThemeOverlayController @Inject constructor(
                 PREF_CUSTOM_COLOR, SYSTEM_BLACK_THEME,
                 Settings.Secure.UI_NIGHT_MODE,
                 Settings.Secure.UI_NIGHT_MODE_OVERRIDE_ON,
-                Settings.Secure.UI_NIGHT_MODE_OVERRIDE_OFF)
+                Settings.Secure.UI_NIGHT_MODE_OVERRIDE_OFF,
+                Settings.Secure.QS_BLACK_BACKGROUND_IN_DARK_THEME)
         super.start()
     }
 

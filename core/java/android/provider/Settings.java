@@ -11994,6 +11994,12 @@ public final class Settings {
         public static final String SWAP_CAPACITIVE_KEYS = "swap_capacitive_keys";
 
         /**
+         * Force black QS panel background in dark theme
+         * @hide
+         */
+        public static final String QS_BLACK_BACKGROUND_IN_DARK_THEME = "qs_black_background_in_dark_theme";
+
+        /**
          * These entries are considered common between the personal and the managed profile,
          * since the managed profile doesn't get to change them.
          */

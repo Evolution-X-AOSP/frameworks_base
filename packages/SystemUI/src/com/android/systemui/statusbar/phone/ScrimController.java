@@ -26,6 +26,7 @@ import android.app.AlarmManager;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Trace;
+import android.provider.Settings;
 import android.util.Log;
 import android.util.MathUtils;
 import android.util.Pair;
@@ -1219,6 +1220,11 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, Dump
         int surfaceBackground = Utils.getColorAttr(mScrimBehind.getContext(),
                 R.attr.colorSurfaceHeader).getDefaultColor();
         int accent = Utils.getColorAccent(mScrimBehind.getContext()).getDefaultColor();
+
+        if (mScrimBehind.getContext().getResources().getConfiguration().isNightModeActive() &&
+            Settings.Secure.getInt(mScrimBehind.getContext().getContentResolver(),
+                Settings.Secure.QS_BLACK_BACKGROUND_IN_DARK_THEME, 0) != 0)
+            surfaceBackground = Color.BLACK;
 
         mColors.setMainColor(background);
         mColors.setSecondaryColor(accent);
