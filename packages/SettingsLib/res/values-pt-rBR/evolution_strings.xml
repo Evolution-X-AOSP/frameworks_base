@@ -34,4 +34,20 @@
     The summary for the BC checkbox preference that describes how checking it
     will set the BC profile as preferred. -->
     <string name="bluetooth_bc_profile_summary_use_for">Usar para BA</string>
+    <!-- Label for estimated remaining duration of dash battery charging -->
+    <string name="power_remaining_dash_charging_duration_only">Carregamento Dash (<xliff:g id="time">%1$s</xliff:g> restante para completar a carga)</string>
+    <!-- Battery use screen.  Battery status shown in chart label when charging from a dash source.  -->
+    <string name="battery_info_status_dash_charging">Carregamento Dash</string>
+    <!-- Label for estimated remaining duration of warp battery charging -->
+    <string name="power_remaining_warp_charging_duration_only">Carregamento Warp (<xliff:g id="tempo">%1$s</xliff:g> restante para completar a carga)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
+    <string name="battery_info_status_warp_charging">Carregamento Warp</string>
+    <!-- Label for estimated remaining duration of vooc battery charging -->
+    <string name="power_remaining_vooc_charging_duration_only">Carregamento VOOC (<xliff:g id="time">%1$s</xliff:g> restante para completar a carga)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a VOOC source.  -->
+    <string name="battery_info_status_vooc_charging">Carregamento VOOC</string>
+    <!-- Label for estimated remaining duration of TurboPower battery charging -->
+    <string name="power_remaining_turbo_charging_duration_only">Carregamento Turbo (<xliff:g id="time">%1$s</xliff:g> restante para completar a carga)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
+    <string name="battery_info_status_turbo_charging">Carregamento Turbo</string>
 </resources>
