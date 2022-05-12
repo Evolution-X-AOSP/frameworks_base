@@ -120,7 +120,7 @@
     <string name="face_unlock_recognizing">Reconhecendo...</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Forçar fechamento?</string>
-    <string name="force_stop_dlg_text">Se você forçar a parada de um aplicativo, ele poderá apresentar falhas.</string>
+    <string name="force_stop_dlg_text">Se você forçar o fechamento de um app, ele pode apresentar mau funcionamento.</string>
     <string name="guts_force_close_app">Fechar aplicativo</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Painel de volume</string>
@@ -147,7 +147,7 @@
     <string name="accessibility_dpad_left">Cursor à esquerda</string>
     <string name="accessibility_dpad_right">Cursor à direita</string>
     <!-- Kill foreground app -->
-    <string name="task_helper_app_killed">%1$s força parada</string>
+    <string name="task_helper_app_killed">%1$s encerrado</string>
     <string name="empty_app_killed">Aplicativo</string>
     <!-- Advanced nav gestures -->
     <string name="app_picker_dialog_title">Selecione um app</string>
@@ -192,4 +192,27 @@
     <!-- Heads up snooze toast -->
     <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - As notificações flutuantes foram silenciadas por 1 minuto.</string>
     <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - As notificações flutuantes foram silenciadas por <xliff:g id="number">%2$d</xliff:g> minutos.</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Modo leitura</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Modo leitura ligado.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Modo leitura desligado.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">O modo leitura foi ligado.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">O modo leitura foi desligado.</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">Anti cintilação</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento Dash (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até concluir)</string>
+    <string name="keyguard_plugged_in_dash_charging"><xliff:g id="porcentagem">%s</xliff:g> • Carregamento Dash</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento Warp (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até concluir)</string>
+    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="percentage">%s</xliff:g> • Carregamento Warp</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento VOOC (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até concluir)</string>
+    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="percentage">%s</xliff:g> • Carregamento VOOC</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento Turbo (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até concluir)</string>
+    <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Carregamento Turbo</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with an oem fast power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_oem_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento Rápido (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até concluir)</string>
+    <string name="keyguard_plugged_in_oem_charging"><xliff:g id="percentage">%s</xliff:g> • Carregamento Rápido</string>
 </resources>
