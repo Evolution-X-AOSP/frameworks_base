@@ -5374,12 +5374,6 @@ public final class Settings {
         public static final String VOLUME_ROCKER_WAKE = "volume_rocker_wake";
 
         /**
-         * Whether to take partial screenshot with volume down + power click.
-         * @hide
-         */
-        public static final String CLICK_PARTIAL_SCREENSHOT = "click_partial_screenshot";
-
-        /**
          * Whether to launch default music player when headset plugged in
          * @hide
          */
