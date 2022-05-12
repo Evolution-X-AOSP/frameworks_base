@@ -192,4 +192,27 @@
     <!-- Heads up snooze toast -->
     <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s </xliff:g> - Heads-Up Benachrichtigungen sind für 1 Minute deaktiviert.</string>
     <string name="heads_up_snooze_message"><xliff:g id="string">%1$s </xliff:g> - Heads-Up Benachrichtigungen sind für <xliff:g id="number">%2$d </xliff:g> Minuten deaktiviert.</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Lesemodus</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Lesemodus an.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Lesemodus aus.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Lesemodus eingeschaltet.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Lesemodus ausgeschaltet.</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">Anti-Flimmern</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Schnellladen (<xliff:g id="charging_time_left" example="4 Stunden und 2 Minuten">%1$s</xliff:g> bis voll)</string>
+    <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Schnellladen</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Warp-Ladevorgang (<xliff:g id="charging_time_left" example="4 Stunden und 2 Minuten">%1$s</xliff:g> bis zur vollständigen Aufladung)</string>
+    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="percentage">%s</xliff:g> • Warp-Ladevorgang</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Warp-Ladevorgang (<xliff:g id="charging_time_left" example="4 Stunden und 2 Minuten">%1$s</xliff:g> bis zur vollständigen Aufladung)</string>
+    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="percentage">%s</xliff:g> • VOOC-Ladevorgang</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Schnellladen (<xliff:g id="charging_time_left" example="4 Stunden und 2 Minuten">%1$s</xliff:g> bis voll)</string>
+    <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Schnellladen</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with an oem fast power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_oem_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Schnellladen (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> bis zur vollständigen Aufladung)</string>
+    <string name="keyguard_plugged_in_oem_charging"><xliff:g id="percentage">%s</xliff:g> • Schnellladen</string>
 </resources>
