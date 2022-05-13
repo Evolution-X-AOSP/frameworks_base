@@ -67,12 +67,15 @@
     <string-array name="config_appLockAllowedSystemApps" translatable="false">
         <item>com.android.chrome</item>
         <item>com.android.vending</item>
+        <item>com.google.android.apps.docs</item>
         <item>com.google.android.apps.messaging</item>
         <item>com.google.android.apps.nbu.files</item>
         <item>com.google.android.apps.photos</item>
         <item>com.google.android.apps.recorder</item>
         <item>com.google.android.contacts</item>
+        <item>com.google.android.dialer</item>
         <item>com.google.android.gm</item>
+        <item>com.google.android.keep</item>
         <item>com.google.android.youtube</item>
     </string-array>
 
