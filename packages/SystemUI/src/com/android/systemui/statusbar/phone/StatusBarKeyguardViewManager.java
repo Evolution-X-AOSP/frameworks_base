@@ -74,6 +74,8 @@ import com.android.systemui.unfold.FoldAodAnimationController;
 import com.android.systemui.unfold.SysUIUnfoldComponent;
 
 import java.io.PrintWriter;
+import java.lang.StackTraceElement;
+import java.lang.Thread;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Optional;
@@ -129,9 +131,18 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
         @Override
         public void onFullyShown() {
             mBouncerAnimating = false;
+            boolean shouldWakeup = true;
+            for (StackTraceElement e : Thread.currentThread().getStackTrace()) {
+                if ("handleShow".equals(e.getMethodName())) {
+                    shouldWakeup = false;
+                    break;
+                }
+            }
             updateStates();
-            mCentralSurfaces.wakeUpIfDozing(SystemClock.uptimeMillis(),
-                    mCentralSurfaces.getBouncerContainer(), "BOUNCER_VISIBLE");
+            if (shouldWakeup) {
+                mCentralSurfaces.wakeUpIfDozing(SystemClock.uptimeMillis(),
+                        mCentralSurfaces.getBouncerContainer(), "BOUNCER_VISIBLE");
+            }
         }
 
         @Override
