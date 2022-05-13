@@ -119,21 +119,21 @@ public class PixelPropsUtils {
     };
 
     private static final String[] packagesToChangeOP8P = {
-            "com.tencent.ig",
-            "com.pubg.imobile",
-            "com.pubg.krmobile",
-            "com.vng.pubgmobile",
-            "com.rekoo.pubgm",
-            "com.tencent.tmgp.pubgmhd",
             "com.riotgames.league.wildrift",
             "com.riotgames.league.wildrifttw",
             "com.riotgames.league.wildriftvn",
-            "com.netease.lztgglobal",
+            "com.netease.lztgglobal"
     };
 
     private static final String[] packagesToChangeMI11 = {
             "com.mobile.legends",
-            "com.tencent.tmgp.sgame"
+            "com.pubg.imobile",
+            "com.pubg.krmobile",
+            "com.rekoo.pubgm",
+            "com.tencent.ig",
+            "com.tencent.tmgp.pubgmhd",
+            "com.tencent.tmgp.sgame",
+            "com.vng.pubgmobile"
     };
 
     // Codenames of devices using Star spoofing for apps
