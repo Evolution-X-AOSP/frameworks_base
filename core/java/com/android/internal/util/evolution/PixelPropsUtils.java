@@ -120,20 +120,20 @@ public class PixelPropsUtils {
     };
 
     private static final String[] packagesToChangeOP8P = {
+            "com.riotgames.league.wildrift",
+            "com.riotgames.league.wildrifttw",
+            "com.riotgames.league.wildriftvn",
+            "com.netease.lztgglobal"
+    };
+
+    private static final String[] packagesToChangeMI11 = {
+            "com.mobile.legends",
             "com.tencent.ig",
             "com.pubg.imobile",
             "com.pubg.krmobile",
             "com.vng.pubgmobile",
             "com.rekoo.pubgm",
             "com.tencent.tmgp.pubgmhd",
-            "com.riotgames.league.wildrift",
-            "com.riotgames.league.wildrifttw",
-            "com.riotgames.league.wildriftvn",
-            "com.netease.lztgglobal",
-    };
-
-    private static final String[] packagesToChangeMI11 = {
-            "com.mobile.legends",
             "com.tencent.tmgp.sgame"
     };
 
