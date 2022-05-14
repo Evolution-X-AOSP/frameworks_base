@@ -23,6 +23,7 @@ import static com.android.systemui.shared.system.QuickStepContract.SYSUI_STATE_O
 import static com.android.systemui.shared.system.QuickStepContract.SYSUI_STATE_SCREEN_PINNING;
 import static com.android.systemui.shared.system.QuickStepContract.SYSUI_STATE_SEARCH_DISABLED;
 import static com.android.systemui.shared.system.QuickStepContract.isGesturalMode;
+import static com.android.systemui.shared.system.QuickStepContract.isSwipeUpMode;
 import static com.android.systemui.shared.system.QuickStepContract.isLegacyMode;
 import static com.android.systemui.statusbar.phone.BarTransitions.MODE_OPAQUE;
 import static com.android.systemui.util.Utils.isGesturalModeOnDefaultDisplay;
@@ -173,6 +174,7 @@ public class NavigationBarView extends FrameLayout implements
     private NotificationPanelViewController mPanelView;
     private RotationContextButton mRotationContextButton;
     private FloatingRotationButton mFloatingRotationButton;
+    private FloatingRotationButton mFloatingRotationButtonNavbar;
     private RotationButtonController mRotationButtonController;
     private NavigationBarOverlayController mNavBarOverlayController;
 
@@ -344,6 +346,16 @@ public class NavigationBarView extends FrameLayout implements
                 R.layout.rotate_suggestion,
                 R.id.rotate_suggestion,
                 R.dimen.floating_rotation_button_min_margin,
+                R.dimen.rounded_corner_content_padding,
+                R.dimen.floating_rotation_button_taskbar_left_margin,
+                R.dimen.floating_rotation_button_taskbar_bottom_margin,
+                R.dimen.floating_rotation_button_diameter,
+                R.dimen.key_button_ripple_max_width);
+        mFloatingRotationButtonNavbar = new FloatingRotationButton(mContext,
+                R.string.accessibility_rotate_button,
+                R.layout.rotate_suggestion,
+                R.id.rotate_suggestion,
+                R.dimen.floating_rotation_button_min_margin_navbar,
                 R.dimen.rounded_corner_content_padding,
                 R.dimen.floating_rotation_button_taskbar_left_margin,
                 R.dimen.floating_rotation_button_taskbar_bottom_margin,
@@ -535,6 +547,9 @@ public class NavigationBarView extends FrameLayout implements
     }
 
     public FloatingRotationButton getFloatingRotationButton() {
+        if (isSwipeUpMode(mNavBarMode)){
+            return mFloatingRotationButtonNavbar;
+        }
         return mFloatingRotationButton;
     }
 
@@ -622,6 +637,11 @@ public class NavigationBarView extends FrameLayout implements
             mContextualButtonGroup.removeButton(R.id.rotate_suggestion);
             mButtonDispatchers.remove(R.id.rotate_suggestion);
             mRotationButtonController.setRotationButton(mFloatingRotationButton,
+                    mRotationButtonListener);
+        } else if (isSwipeUpMode(mNavBarMode)) {
+            mContextualButtonGroup.removeButton(R.id.rotate_suggestion);
+            mButtonDispatchers.remove(R.id.rotate_suggestion);
+            mRotationButtonController.setRotationButton(mFloatingRotationButtonNavbar,
                     mRotationButtonListener);
         } else if (mContextualButtonGroup.getContextButton(R.id.rotate_suggestion) == null) {
             mContextualButtonGroup.addButton(mRotationContextButton);
@@ -1142,6 +1162,9 @@ public class NavigationBarView extends FrameLayout implements
         if (includeFloatingButtons && mFloatingRotationButton.isVisible()) {
             // Note: this button is floating so the nearest region doesn't apply
             updateButtonLocation(mFloatingRotationButton.getCurrentView(), inScreenSpace);
+        } else if (includeFloatingButtons && mFloatingRotationButtonNavbar.isVisible()) {
+            // Note: this button is floating so the nearest region doesn't apply
+            updateButtonLocation(mFloatingRotationButtonNavbar.getCurrentView(), inScreenSpace);
         } else {
             updateButtonLocation(getRotateSuggestionButton(), inScreenSpace, useNearestRegion);
         }
@@ -1316,6 +1339,7 @@ public class NavigationBarView extends FrameLayout implements
         mTmpLastConfiguration.updateFrom(mConfiguration);
         final int changes = mConfiguration.updateFrom(newConfig);
         mFloatingRotationButton.onConfigurationChanged(changes);
+        mFloatingRotationButtonNavbar.onConfigurationChanged(changes);
 
         boolean uiCarModeChanged = updateCarMode();
         updateIcons(mTmpLastConfiguration);
@@ -1406,6 +1430,7 @@ public class NavigationBarView extends FrameLayout implements
         }
         if (mRotationButtonController != null) {
             mFloatingRotationButton.hide();
+            mFloatingRotationButtonNavbar.hide();
             mRotationButtonController.unregisterListeners();
         }
 
