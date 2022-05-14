@@ -124,7 +124,8 @@ public class PixelPropsUtils {
             "com.riotgames.league.wildrift",
             "com.riotgames.league.wildrifttw",
             "com.riotgames.league.wildriftvn",
-            "com.netease.lztgglobal"
+            "com.netease.lztgglobal",
+            "com.epicgames.fortnite"
     };
 
     private static final String[] packagesToChangeMI11 = {
