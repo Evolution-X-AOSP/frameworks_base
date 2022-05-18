@@ -43,10 +43,8 @@ import com.android.systemui.qs.tiles.DataSaverTile;
 import com.android.systemui.qs.tiles.DataSwitchTile;
 import com.android.systemui.qs.tiles.DeviceControlsTile;
 import com.android.systemui.qs.tiles.DndTile;
-import com.android.systemui.qs.tiles.EvolverTile;
 import com.android.systemui.qs.tiles.FPSInfoTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
-import com.android.systemui.qs.tiles.GamingModeTile;
 import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.InternetTile;
@@ -122,10 +120,8 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<SoundTile> mSoundTileProvider;
     private final Provider<ScreenshotTile> mScreenshotTileProvider;
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
-    private final Provider<GamingModeTile> mGamingModeTileProvider;
     private final Provider<RebootTile> mRebootTileProvider;
     private final Provider<OnTheGoTile> mOnTheGoTileProvider;
-    private final Provider<EvolverTile> mEvolverTileProvider;
     private final Provider<VolumeTile> mVolumeTileProvider;
     private final Provider<AODTile> mAODTileProvider;
     private final Provider<DataSwitchTile> mDataSwitchTileProvider;
@@ -181,10 +177,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<SoundTile> soundTileProvider,
             Provider<ScreenshotTile> screenshotTileProvider,
             Provider<HeadsUpTile> headsUpTileProvider,
-            Provider<GamingModeTile> gamingModeTileProvider,
             Provider<RebootTile> rebootTileProvider,
             Provider<OnTheGoTile> onTheGoTileProvider,
-            Provider<EvolverTile> evolverTileProvider,
             Provider<VolumeTile> volumeTileProvider,
             Provider<AODTile> aodTileProvider,
             Provider<DataSwitchTile> dataSwitchTileProvider,
@@ -235,10 +229,8 @@ public class QSFactoryImpl implements QSFactory {
         mSoundTileProvider = soundTileProvider;
         mScreenshotTileProvider = screenshotTileProvider;
         mHeadsUpTileProvider = headsUpTileProvider;
-        mGamingModeTileProvider = gamingModeTileProvider;
         mRebootTileProvider = rebootTileProvider;
         mOnTheGoTileProvider = onTheGoTileProvider;
-        mEvolverTileProvider = evolverTileProvider;
         mVolumeTileProvider = volumeTileProvider;
         mAODTileProvider = aodTileProvider;
         mDataSwitchTileProvider = dataSwitchTileProvider;
@@ -334,14 +326,10 @@ public class QSFactoryImpl implements QSFactory {
                 return mScreenshotTileProvider.get();
             case "heads_up":
                 return mHeadsUpTileProvider.get();
-            case "gamingmode":
-                return mGamingModeTileProvider.get();
             case "reboot":
                 return mRebootTileProvider.get();
             case "onthego":
                 return mOnTheGoTileProvider.get();
-            case "evolver":
-                return mEvolverTileProvider.get();
             case "volume_panel":
                 return mVolumeTileProvider.get();
             case "aod":

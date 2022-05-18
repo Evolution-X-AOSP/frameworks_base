@@ -59,9 +59,6 @@
     <!-- Switch USB controller on Asus ROG devices-->
     <bool name="config_switchUsbController">false</bool>
 
-    <!-- Whether device supports gaming mode profiles -->
-    <bool name="config_gamingmode_performance">false</bool>
-
     <!-- List of system apps that are allowed to be locked with app lock.
          Use with extreme caution. -->
     <string-array name="config_appLockAllowedSystemApps" translatable="false">
