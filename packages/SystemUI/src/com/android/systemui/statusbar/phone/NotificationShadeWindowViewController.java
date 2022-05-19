@@ -111,16 +111,10 @@ public class NotificationShadeWindowViewController {
     private final PanelExpansionStateManager mPanelExpansionStateManager;
     private final StatusBarWindowController mStatusBarWindowController;
 
-    private ImageView mAutoBrightnessIcon;
-    private boolean mShowAutoBrightnessButton;
-
     // Used for determining view / touch intersection
     private int[] mTempLocation = new int[2];
     private RectF mTempRect = new RectF();
     private boolean mIsTrackingBarGesture = false;
-
-    private static final String QS_SHOW_AUTO_BRIGHTNESS =
-            Settings.Secure.QS_SHOW_AUTO_BRIGHTNESS;
 
     @Inject
     public NotificationShadeWindowViewController(
@@ -177,8 +171,13 @@ public class NotificationShadeWindowViewController {
 
         // This view is not part of the newly inflated expanded status bar.
         mBrightnessMirror = mView.findViewById(R.id.brightness_mirror_container);
-        mAutoBrightnessIcon = (ImageView)
-                mBrightnessMirror.findViewById(R.id.brightness_icon);
+        ImageView icon = mBrightnessMirror.findViewById(R.id.brightness_icon);
+        if (icon != null) {
+            boolean show = Settings.Secure.getInt(
+                    mView.getContext().getContentResolver(),
+                    Settings.Secure.QS_SHOW_AUTO_BRIGHTNESS_BUTTON, 1) == 1;
+            icon.setVisibility(show ? View.VISIBLE : View.GONE);
+        }
     }
 
     /**
@@ -202,21 +201,11 @@ public class NotificationShadeWindowViewController {
                     break;
                 case Settings.Secure.DOZE_TAP_SCREEN_GESTURE:
                     mSingleTapEnabled = configuration.tapGestureEnabled(UserHandle.USER_CURRENT);
-                    break;
-                case QS_SHOW_AUTO_BRIGHTNESS:
-                    mShowAutoBrightnessButton =
-                            TunerService.parseIntegerSwitch(newValue, true);
-                    if (mAutoBrightnessIcon != null) {
-                        mAutoBrightnessIcon.setVisibility(
-                                mShowAutoBrightnessButton ? View.VISIBLE : View.GONE);
-                    }
-                    break;
             }
         };
         mTunerService.addTunable(tunable,
                 Settings.Secure.DOZE_DOUBLE_TAP_GESTURE,
-                Settings.Secure.DOZE_TAP_SCREEN_GESTURE,
-                QS_SHOW_AUTO_BRIGHTNESS);
+                Settings.Secure.DOZE_TAP_SCREEN_GESTURE);
 
         GestureDetector.SimpleOnGestureListener gestureListener =
                 new GestureDetector.SimpleOnGestureListener() {
@@ -460,10 +449,11 @@ public class NotificationShadeWindowViewController {
             public void onChildViewAdded(View parent, View child) {
                 if (child.getId() == R.id.brightness_mirror_container) {
                     mBrightnessMirror = child;
-                    mAutoBrightnessIcon = (ImageView)
-                            child.findViewById(R.id.brightness_icon);
-                    mAutoBrightnessIcon.setVisibility(mShowAutoBrightnessButton
-                            ? View.VISIBLE : View.GONE);
+                    ImageView icon = child.findViewById(R.id.brightness_icon);
+                    boolean show = Settings.Secure.getInt(
+                            mView.getContext().getContentResolver(),
+                            Settings.Secure.QS_SHOW_AUTO_BRIGHTNESS_BUTTON, 1) == 1;
+                    icon.setVisibility(show ? View.VISIBLE : View.GONE);
                 }
             }
 
