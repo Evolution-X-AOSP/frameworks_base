@@ -174,6 +174,13 @@ class FooterActionsController @Inject constructor(
                 true /* dismissShade */, animationController)
     }
 
+    private fun startEvolverActivity() {
+        val intent = Intent()
+        intent.setClassName("com.android.settings",
+                "com.android.settings.Settings\$EvolutionSettingsActivity")
+        activityStarter.startActivity(intent, true /* dismissShade */)
+    }
+
     private fun startRunningServicesActivity() {
         val intent = Intent()
         intent.setClassName("com.android.settings",
@@ -184,6 +191,10 @@ class FooterActionsController @Inject constructor(
     @VisibleForTesting
     public override fun onViewAttached() {
         settingsButton.setOnClickListener(onClickListener)
+        settingsButton.setOnLongClickListener(View.OnLongClickListener() {
+            startEvolverActivity();
+            true
+        })
         runningServicesButton.setOnClickListener(onClickListener)
         editButton.setOnClickListener(View.OnClickListener { view: View? ->
             if (falsingManager.isFalseTap(FalsingManager.LOW_PENALTY)) {
