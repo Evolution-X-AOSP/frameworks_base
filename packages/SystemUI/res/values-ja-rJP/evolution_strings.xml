@@ -83,9 +83,6 @@
     <string name="accessibility_quick_settings_heads_up_on">Heads Up ON</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Heads Up を OFF にしました</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Heads Up を ON にしました</string>
-    <!-- Gaming mode -->
-    <string name="gaming_mode_not_enabled">ゲームモードが設定で無効になっています</string>
-    <string name="quick_settings_gaming_mode_label">ゲームモード</string>
     <!-- Poweroff/Reboot/Recovery QS tile -->
     <string name="quick_settings_poweroff_label">電源を切る</string>
     <string name="quick_settings_reboot_label">再起動</string>
@@ -114,8 +111,6 @@
     <string name="accessibility_quick_settings_onthego_on">On-The-Go ON</string>
     <string name="accessibility_quick_settings_onthego_changed_off">On-The-Go を OFF にしました</string>
     <string name="accessibility_quick_settings_onthego_changed_on">On-The-Go を ON にしました</string>
-    <!-- The Evolver Tile -->
-    <string name="quick_settings_evolver_label">The Evolver</string>
     <!-- Face Unlock -->
     <string name="face_unlock_recognizing">顔を認識中...</string>
     <!-- Kill button in notification guts -->
