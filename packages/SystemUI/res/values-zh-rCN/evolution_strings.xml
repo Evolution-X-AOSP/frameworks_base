@@ -83,9 +83,6 @@
     <string name="accessibility_quick_settings_heads_up_on">开启浮动通知</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">浮动通知已关闭</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">浮动通知已开启</string>
-    <!-- Gaming mode -->
-    <string name="gaming_mode_not_enabled">游戏模式在设置中被禁用</string>
-    <string name="quick_settings_gaming_mode_label">游戏模式</string>
     <!-- Poweroff/Reboot/Recovery QS tile -->
     <string name="quick_settings_poweroff_label">关机</string>
     <string name="quick_settings_reboot_label">重启</string>
@@ -114,8 +111,6 @@
     <string name="accessibility_quick_settings_onthego_on">行走模式开启</string>
     <string name="accessibility_quick_settings_onthego_changed_off">行走模式已关闭</string>
     <string name="accessibility_quick_settings_onthego_changed_on">行走模式已打开</string>
-    <!-- The Evolver Tile -->
-    <string name="quick_settings_evolver_label">进化者</string>
     <!-- Face Unlock -->
     <string name="face_unlock_recognizing">正在识别面部...</string>
     <!-- Kill button in notification guts -->

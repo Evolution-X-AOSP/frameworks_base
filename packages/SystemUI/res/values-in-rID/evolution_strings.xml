@@ -83,9 +83,6 @@
     <string name="accessibility_quick_settings_heads_up_on">Notifikasi mengambang aktif.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Notifikasi mengambang dinonaktifkan.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Notifikasi mengambang diaktifkan.</string>
-    <!-- Gaming mode -->
-    <string name="gaming_mode_not_enabled">Mode Permainan dinonaktifkan di setelan</string>
-    <string name="quick_settings_gaming_mode_label">Mode Permainan</string>
     <!-- Poweroff/Reboot/Recovery QS tile -->
     <string name="quick_settings_poweroff_label">Matikan daya</string>
     <string name="quick_settings_reboot_label">Muat Ulang</string>
@@ -114,8 +111,6 @@
     <string name="accessibility_quick_settings_onthego_on">On-The-Go aktif</string>
     <string name="accessibility_quick_settings_onthego_changed_off">On-The-Go dinonaktifkan</string>
     <string name="accessibility_quick_settings_onthego_changed_on">On-The-Go diaktifkan</string>
-    <!-- The Evolver Tile -->
-    <string name="quick_settings_evolver_label">The Evolver</string>
     <!-- Face Unlock -->
     <string name="face_unlock_recognizing">Mengenali wajah...</string>
     <!-- Kill button in notification guts -->

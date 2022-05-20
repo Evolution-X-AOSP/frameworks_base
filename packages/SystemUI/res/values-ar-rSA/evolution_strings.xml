@@ -83,9 +83,6 @@
     <string name="accessibility_quick_settings_heads_up_on">تشغيل التنبيهات العلوية.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">تم إيقاف التنبيهات العلوية.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">تم تشغيل التنبيهات العلوية.</string>
-    <!-- Gaming mode -->
-    <string name="gaming_mode_not_enabled">وضع الألعاب معطل في الإعدادات</string>
-    <string name="quick_settings_gaming_mode_label">وضع الألعاب</string>
     <!-- Poweroff/Reboot/Recovery QS tile -->
     <string name="quick_settings_poweroff_label">إيقاف التشغيل</string>
     <string name="quick_settings_reboot_label">إعادة التشغيل</string>
@@ -114,8 +111,6 @@
     <string name="accessibility_quick_settings_onthego_on">تشغيل On-The-Go</string>
     <string name="accessibility_quick_settings_onthego_changed_off">تم إيقاف تشغيل On-The-Go</string>
     <string name="accessibility_quick_settings_onthego_changed_on">تم تشغيل On-The-Go</string>
-    <!-- The Evolver Tile -->
-    <string name="quick_settings_evolver_label">The Evolver</string>
     <!-- Face Unlock -->
     <string name="face_unlock_recognizing">التعرف على الوجه...</string>
     <!-- Kill button in notification guts -->
