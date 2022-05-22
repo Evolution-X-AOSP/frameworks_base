@@ -205,4 +205,3 @@
         <attr name="textViewId" format="reference" />
     </declare-styleable>
 </resources>
-
