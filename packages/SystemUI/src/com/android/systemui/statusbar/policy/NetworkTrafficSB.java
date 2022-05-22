@@ -43,6 +43,7 @@ public class NetworkTrafficSB extends NetworkTraffic implements DarkReceiver, St
      */
     public NetworkTrafficSB(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        TAG = "NetworkTrafficSB";
     }
 
     @Override

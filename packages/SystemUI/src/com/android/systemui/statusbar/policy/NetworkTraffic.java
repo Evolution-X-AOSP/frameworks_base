@@ -24,6 +24,7 @@ import android.text.SpannableString;
 import android.text.style.RelativeSizeSpan;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -37,6 +38,8 @@ import java.text.DecimalFormat;
 */
 public class NetworkTraffic extends TextView {
 
+    protected String TAG = "NetworkTraffic";
+    private static final boolean DEBUG = false;
     private static final int KB = 1024;
     private static final int MB = KB * KB;
     private static final int GB = MB * KB;
@@ -53,12 +56,16 @@ public class NetworkTraffic extends TextView {
     private int mRefreshInterval = 1;
     private int mIndicatorMode = 0;
 
+    private boolean mIsScreenOn = true;
     protected boolean mVisible = true;
     private ConnectivityManager mConnectivityManager;
 
     private Handler mTrafficHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
+            if (DEBUG)
+                Log.i(TAG, "handleMessage " + msg.what);
+
             long timeDelta = SystemClock.elapsedRealtime() - lastUpdateTime;
 
             if (timeDelta < mRefreshInterval * 1000 * .95) {
@@ -232,6 +239,8 @@ public class NetworkTraffic extends TextView {
             mAttached = true;
             IntentFilter filter = new IntentFilter();
             filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+            filter.addAction(Intent.ACTION_SCREEN_OFF);
+            filter.addAction(Intent.ACTION_SCREEN_ON);
             mContext.registerReceiver(mIntentReceiver, filter, null, getHandler());
         }
         update();
@@ -303,6 +312,12 @@ public class NetworkTraffic extends TextView {
             if (action == null) return;
             if (action.equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
                 update();
+            } else if (action.equals(Intent.ACTION_SCREEN_ON)) {
+                mIsScreenOn = true;
+                update();
+            } else if (action.equals(Intent.ACTION_SCREEN_OFF)) {
+                mIsScreenOn = false;
+                update();
             }
         }
     };
@@ -313,7 +328,7 @@ public class NetworkTraffic extends TextView {
     }
 
     protected void update() {
-        if (mIsEnabled) {
+        if (mIsEnabled && mIsScreenOn) {
             if (mAttached) {
                 totalRxBytes = TrafficStats.getTotalRxBytes();
                 lastUpdateTime = SystemClock.elapsedRealtime();
