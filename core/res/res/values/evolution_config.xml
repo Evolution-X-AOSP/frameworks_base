@@ -262,4 +262,7 @@
 
     <!-- Whether the device supports Smart Pixels -->
     <bool name="config_supportSmartPixels">false</bool>
+
+    <!-- Screen off delay -->
+    <integer name="config_screen_off_delay">0</integer>
 </resources>
