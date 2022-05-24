@@ -46,4 +46,10 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisPlay 已切换为日间模式</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay 已切换为夜间模式</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay 已切换为户外模式</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">长按电源键来解锁</string>
+    <string name="pocket_view_title">口袋模式已开启</string>
+    <string name="pocket_view_title_cancel">使用您的手机：</string>
+    <string name="pocket_view_top_tag_cancel">不要覆盖您手机的蓝色区域，并保持清洁</string>
+    <string name="pocket_view_top_tag_cancel2">长按电源按钮强制退出口袋模式</string>
 </resources>

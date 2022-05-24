@@ -46,4 +46,10 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay cambió a modo diurno.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay cambió a modo nocturno.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay cambió a modo al aire libre.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Pulsar y mantener el botón de encendido para desbloquear</string>
+    <string name="pocket_view_title">Modo bolsillo activado</string>
+    <string name="pocket_view_title_cancel">Para activar su teléfono:</string>
+    <string name="pocket_view_top_tag_cancel">No cubra la zona azul de su teléfono, y elimine cualquier suciedad o polvo.</string>
+    <string name="pocket_view_top_tag_cancel2">Mantenga pulsado el botón encendido para forzar el apagado del modo bolsillo.</string>
 </resources>
