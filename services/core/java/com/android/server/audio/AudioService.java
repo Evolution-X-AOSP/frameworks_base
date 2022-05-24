@@ -5073,6 +5073,7 @@ public class AudioService extends IAudioService.Stub
         final int ringerMode = mRingerMode; // Read ringer mode as reading primitives is atomic
         final boolean ringerModeMute = ringerMode == AudioManager.RINGER_MODE_VIBRATE
                 || ringerMode == AudioManager.RINGER_MODE_SILENT;
+        final boolean ringerModeSilent = ringerMode == AudioManager.RINGER_MODE_SILENT;
         final boolean shouldRingSco = ringerMode == AudioManager.RINGER_MODE_VIBRATE
                 && mDeviceBroker.isBluetoothScoActive();
         // Ask audio policy engine to force use Bluetooth SCO channel if needed
@@ -5122,7 +5123,7 @@ public class AudioService extends IAudioService.Stub
             }
         }
         if (mRingerMuteSpeakerMedia) {
-            if (ringerModeMute) {
+            if (ringerModeSilent) {
                 // Set volume to 0 instead of muting because we won't want to
                 // affect other devices under same type
                 setStreamVolumeInt(AudioSystem.STREAM_MUSIC, 0,
@@ -5159,7 +5160,8 @@ public class AudioService extends IAudioService.Stub
             change = mRingerMode != ringerMode;
             // Save current media volume if previous ringer mode is normal
             if (mRingerMuteSpeakerMedia && change
-                    && mRingerMode == AudioManager.RINGER_MODE_NORMAL) {
+                    && (mRingerMode == AudioManager.RINGER_MODE_NORMAL ||
+                        mRingerMode == AudioManager.RINGER_MODE_VIBRATE)) {
                 mSavedSpeakerMediaIndex =
                     mStreamStates[AudioSystem.STREAM_MUSIC]
                         .getIndex(AudioSystem.DEVICE_OUT_SPEAKER);
