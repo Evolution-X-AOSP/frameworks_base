@@ -1,4 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<vector xmlns:android="http://schemas.android.com/apk/res/android" android:height="14dp" android:width="14dp" android:viewportWidth="14" android:viewportHeight="14">
-    <path android:fillColor="#ffffff" android:pathData="M2.2,7.655L2.2,11.9991L4.2819,12L4.2819,13.2L1,13.2L1,7.655L2.2,7.655ZM8.2,7.655L8.2,8.855L6.9,8.8548L6.9,13.2L5.7,13.2L5.7,8.8548L4.4,8.855L4.4,7.655L8.2,7.655ZM12.7761,7.655L12.7761,8.855L10.2,8.855L10.2,9.85L12.7761,9.85L12.7761,11.05L10.2,11.05L10.2,12L12.7761,12L12.7761,13.2L9,13.2L9,7.655L12.7761,7.655ZM10.5033,0.1258C11.996,0.9908 13,2.6056 13,4.455C13,5.3664 12.7561,6.2209 12.3301,6.9567L11.4637,6.4571C11.8047,5.8683 12,5.1844 12,4.455C12,2.9761 11.1974,1.6846 10.004,0.9924L10.5033,0.1258ZM8,2.455C9.1046,2.455 10,3.3504 10,4.455C10,5.5595 9.1046,6.455 8,6.455C6.8954,6.455 6,5.5595 6,4.455C6,3.3504 6.8954,2.455 8,2.455ZM2.3,1.455L3.85,4.978L5.4,1.455L6.7,1.455L4.5,6.455L3.2,6.455L1,1.455L2.3,1.455ZM9.7547,1.4259C10.7983,2.0318 11.5,3.1614 11.5,4.455C11.5,5.094 11.3287,5.693 11.0296,6.2087L10.1634,5.7087C10.3774,5.3401 10.5,4.9119 10.5,4.455C10.5,3.5313 9.999,2.7246 9.254,2.2917L9.7547,1.4259ZM8,3.455C7.4477,3.455 7,3.9027 7,4.455C7,5.0073 7.4477,5.455 8,5.455C8.5523,5.455 9,5.0073 9,4.455C9,3.9027 8.5523,3.455 8,3.455Z" android:strokeColor="#00000000" android:strokeWidth="1" android:fillType="evenOdd"/>
+<!--
+ Copyright (c) 2017, The Linux Foundation. All rights reserved.
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are
+ met:
+        * Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+        * Redistributions in binary form must reproduce the above
+        copyright notice, this list of conditions and the following
+        disclaimer in the documentation and/or other materials provided
+        with the distribution.
+        * Neither the name of The Linux Foundation nor the names of its
+        contributors may be used to endorse or promote products derived
+        from this software without specific prior written permission.
+ THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+ WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+ ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+ BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+ BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:height="24dp"
+        android:width="30.5dp"
+        android:viewportWidth="30.57"
+        android:viewportHeight="24.0">
+
+    <path
+        android:fillColor="#ffffffff"
+        android:pathData="M10.62,13.14 A0.42,0.42,0,0,0,10.23,13.36 A1.29,1.29,0,0,0,10.23,14.47 A0.45,0.45,0,0,0,11.01,14.47 A1.29,1.29,0,0,0,11.01,13.36 A0.42,0.42,0,0,0,10.62,13.14 Z" />
+    <path
+        android:fillColor="#ffffffff"
+        android:pathData="M28.54,5.6 L2.06,5.6 A1.11,1.11,0,0,0,0.95,6.71 L0.95,18.24 A1.11,1.11,0,0,0,2.06,19.35 L28.54,19.35 A1.11,1.11,0,0,0,29.65,18.24 L29.65,6.71 A1.11,1.11,0,0,0,28.54,5.6 Z M5.31,15.6 L3.43,9.84 L4.94,9.84 L6.18,14.05 L7.42,9.84 L8.82,9.84 L6.94,15.59 L5.31,15.59 Z M12.19,14.85 A1.46,1.46,0,0,1,11.56,15.43 A2.11,2.11,0,0,1,10.61,15.63 A2.13,2.13,0,0,1,9.66,15.43 A1.45,1.45,0,0,1,9,14.83 A2,2,0,0,1,9,13 A1.45,1.45,0,0,1,9.63,12.42 A2.13,2.13,0,0,1,10.58,12.22 A2.11,2.11,0,0,1,11.53,12.42 A1.46,1.46,0,0,1,12.16,13 A2,2,0,0,1,12.2,14.83 Z M13.1,12.85 A0.4,0.4,0,0,1,12.57,12.65 A1.76,1.76,0,0,0,11.23,11.77 A0.4,0.4,0,0,1,10.87,11.33 A0.4,0.4,0,0,1,11.31,10.97 A2.57,2.57,0,0,1,13.31,12.32 A0.4,0.4,0,0,1,13.1,12.8 Z M14.29,11.93 A0.5,0.5,0,0,1,13.62,11.7 A2.66,2.66,0,0,0,11.51,10.37 A0.5,0.5,0,0,1,11.56,9.37 A3.66,3.66,0,0,1,14.56,11.26 A0.5,0.5,0,0,1,14.29,11.88 Z M18.56,15.6 L14.9,15.6 L14.9,9.81 L16.33,9.81 L16.33,14.39 L18.55,14.39 L18.55,15.55 Z M22.56,10.98 L21,10.98 L21,15.6 L19.58,15.6 L19.58,10.94 L18,10.94 L18,9.81 L22.54,9.81 L22.54,10.94 Z M27.16,15.6 L23.16,15.6 L23.16,9.81 L27.03,9.81 L27.03,10.92 L24.64,10.92 L24.64,12 L26.91,12 L26.91,13.13 L24.64,13.13 L24.64,14.4 L27.17,14.4 L27.17,15.55 Z" />
 </vector>
