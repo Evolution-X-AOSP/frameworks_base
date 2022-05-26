@@ -16,7 +16,7 @@
     <string name="screenrecord_delete_description">屏幕录制已删除</string>
     <string name="screenrecord_stopdot_label">显示停止点\n长按移动它</string>
     <string name="screenrecord_lowquality_label">使用较低画质以节省存储空间</string>
-    <string name="screenrecord_longer_timeout_switch_label">文件大小限制\n将录制大小限制为 15 GB</string>
+    <string name="screenrecord_longer_timeout_switch_label">文件大小限制\n将录制大小限制为 15GB</string>
     <!-- Alert slider extras -->
     <string name="volume_ringer_priority_only">优先</string>
     <string name="volume_ringer_alarms_only">警报</string>
@@ -210,4 +210,11 @@
     <!-- Indication on the keyguard that is shown when the device is charging with an oem fast power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_oem_power_time"><xliff:g id="percentage">%2$s</xliff:g> • 快速充电中 (预计<xliff:g id="charging_time_left">%1$s</xliff:g> 后充满)</string>
     <string name="keyguard_plugged_in_oem_charging"><xliff:g id="percentage">%s</xliff:g> • 快速充电中</string>
+    <!-- Refresh Rate Tile -->
+    <string name="refresh_rate_tile_label">刷新率</string>
+    <string name="refresh_rate_auto_mode_placeholder">        自动(<xliff:g id="min_refresh_rate" example="60">%1$d</xliff:g> - <xliff:g id="max_refresh_rate" example="60">%2$d</xliff:g> Hz)
+    </string>
+    <string name="refresh_rate_forced_mode_placeholder"><xliff:g id="refresh_rate" example="60">%1$d</xliff:g> Hz</string>
+    <!-- Google Lens Screenshot string -->
+    <string name="lensss">镜头</string>
 </resources>

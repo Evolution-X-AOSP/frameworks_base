@@ -210,4 +210,11 @@
     <!-- Indication on the keyguard that is shown when the device is charging with an oem fast power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_oem_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Pengisian Daya Cepat (<xliff:g id="charging_time_left" example="4 jam 2 menit">%1$s</xliff:g> hingga penuh)</string>
     <string name="keyguard_plugged_in_oem_charging"><xliff:g id="percentage">%s</xliff:g> • Pengisian Daya Cepat</string>
+    <!-- Refresh Rate Tile -->
+    <string name="refresh_rate_tile_label">Kecepatan refresh</string>
+    <string name="refresh_rate_auto_mode_placeholder">        Otomatis (<xliff:g id="min_refresh_rate" example="60">%1$d</xliff:g> - <xliff:g id="max_refresh_rate" example="60">%2$d</xliff:g> Hz)
+    </string>
+    <string name="refresh_rate_forced_mode_placeholder"><xliff:g id="refresh_rate" example="60">%1$d</xliff:g> Hz</string>
+    <!-- Google Lens Screenshot string -->
+    <string name="lensss">Lens</string>
 </resources>

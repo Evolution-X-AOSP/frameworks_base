@@ -210,4 +210,11 @@
     <!-- Indication on the keyguard that is shown when the device is charging with an oem fast power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_oem_power_time"><xliff:g id="percentage">%2$s</xliff:g> • الشحن السريع (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> حتى الامتلاء)</string>
     <string name="keyguard_plugged_in_oem_charging"><xliff:g id="Percentage">%s</xliff:g> • شحن سريع</string>
+    <!-- Refresh Rate Tile -->
+    <string name="refresh_rate_tile_label">معدل التحديث</string>
+    <string name="refresh_rate_auto_mode_placeholder">        تلقائي (<xliff:g id="min_refresh_rate" example="60">%1$d</xliff:g> - <xliff:g id="max_refresh_rate" example="60">%2$d</xliff:g> هرتز)
+    </string>
+    <string name="refresh_rate_forced_mode_placeholder"><xliff:g id="refresh_rate" example="60">%1$d</xliff:g> هرتز</string>
+    <!-- Google Lens Screenshot string -->
+    <string name="lensss">عدسة</string>
 </resources>
