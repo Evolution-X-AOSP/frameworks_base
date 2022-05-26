@@ -46,4 +46,10 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay gündüz moduna geçti.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay gece moduna geçti.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay açık alan moduna geçti.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Kilidi açmak için güç tuşuna basılı tutun</string>
+    <string name="pocket_view_title">Cep modu açık</string>
+    <string name="pocket_view_title_cancel">Telefonunuzu kullanmak için:</string>
+    <string name="pocket_view_top_tag_cancel">Telefonunuzun mavi alanında herhangi bir engel olup olmadığını kontrol edin ve herhangi bir kir veya toz varsa temizleyin.</string>
+    <string name="pocket_view_top_tag_cancel2">Cep modundan çıkmak için güç düğmesine basılı tutun.</string>
 </resources>
