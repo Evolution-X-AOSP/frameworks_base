@@ -6053,38 +6053,6 @@ public final class Settings {
         public static final String STATUS_BAR_CLOCK_AUTO_HIDE_SDURATION = "status_bar_clock_auto_hide_sduration";
 
         /**
-         * Statusbar logo
-         * @hide
-         */
-        public static final String STATUS_BAR_LOGO = "status_bar_logo";
-
-        /**
-         * Statusbar logo color setting
-         * @hide
-         */
-        public static final String STATUS_BAR_LOGO_COLOR = "status_bar_logo_color";
-
-        /**
-         * Position of Status bar logo
-         * 0 - Left (default)
-         * 1 - Right
-         * @hide
-         */
-        public static final String STATUS_BAR_LOGO_POSITION = "status_bar_logo_position";
-
-        /**
-         * Statusbar logo custom style
-         * @hide
-         */
-        public static final String STATUS_BAR_LOGO_STYLE = "status_bar_logo_style";
-
-        /**
-         * Statusbar logo accent color setting
-         * @hide
-         */
-        public static final String STATUS_BAR_LOGO_COLOR_ACCENT = "status_bar_logo_color_accent";
-
-        /**
          * Whether auto brightness is applied one shot when screen is turned on.
          * Default 0
          * @hide
@@ -6745,11 +6713,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL_IGNORE_DND);
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL_RATE);
             PRIVATE_SETTINGS.add(BACK_GESTURE_HAPTIC);
-            PRIVATE_SETTINGS.add(STATUS_BAR_LOGO);
-            PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_COLOR);
-            PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_POSITION);
-            PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_STYLE);
-            PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_COLOR_ACCENT);
             PRIVATE_SETTINGS.add(BATTERY_LEVEL_COLORS);
             PRIVATE_SETTINGS.add(TOUCHSCREEN_GESTURE_HAPTIC_FEEDBACK);
             PRIVATE_SETTINGS.add(HIGH_TOUCH_POLLING_RATE_ENABLE);

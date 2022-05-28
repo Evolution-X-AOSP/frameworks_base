@@ -132,10 +132,6 @@
     <!-- Whether to allow process with media UID to access CameraServiceProxy -->
     <bool name="config_allowMediaUidForCameraServiceProxy">false</bool>
 
-    <!-- These are system packages exempted from privacy indicator -->
-    <string-array name="config_indicatorExemptedPackageNames" translatable="false">
-    </string-array>
-
     <!-- Default values for LiveDisplay -->
     <bool name="config_enableLiveDisplay">true</bool>
     <integer name="config_dayColorTemperature">6500</integer>
@@ -168,9 +164,6 @@
 
     <!-- Should we filter any display modes which are unmapped? -->
     <bool name="config_filterDisplayModes">false</bool>
-
-    <!-- Default state for LiveDisplay -->
-    <bool name="config_liveDisplayAvailable">true</bool>
 
     <!-- Whether device has dash charging support -->
     <bool name="config_hasDashCharger">false</bool>
