@@ -1326,6 +1326,24 @@ public class AudioService extends IAudioService.Stub
         mContext.registerReceiverAsUser(mReceiver, UserHandle.ALL, intentFilter, null, null,
                 Context.RECEIVER_EXPORTED);
 
+
+        IntentFilter btFilter = new IntentFilter();
+        btFilter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
+        btFilter.addAction(BluetoothAdapter.ACTION_CONNECTION_STATE_CHANGED);
+        btFilter.addAction(BluetoothAdapter.ACTION_LOCAL_NAME_CHANGED);
+        mContext.registerReceiver(new BroadcastReceiver() {
+            BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+            final int ringerMode = mRingerMode; // Read ringer mode as reading primitives is atomic
+            final boolean ringerModeSilent = ringerMode == AudioManager.RINGER_MODE_SILENT;
+
+            @Override
+            public void onReceive(Context broadcastContext, Intent intent) {
+                if (ringerModeSilent && mRingerMuteSpeakerMedia && bluetoothAdapter != null && bluetoothAdapter.getConnectionState() == BluetoothAdapter.STATE_DISCONNECTED) {
+                    setStreamVolumeInt(AudioSystem.STREAM_MUSIC, 0,
+                        AudioSystem.DEVICE_OUT_SPEAKER, false, RINGER_MUTE_SPEAKER_CALLER, true);
+                }
+            }
+        }, btFilter);
     }
 
     public void systemReady() {
@@ -5051,6 +5069,27 @@ public class AudioService extends IAudioService.Stub
         broadcastRingerMode(AudioManager.RINGER_MODE_CHANGED_ACTION, ringerMode);
     }
 
+    private static boolean isBtOnAndConnected() {
+        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        return bluetoothAdapter != null && bluetoothAdapter.isEnabled()
+                && ((bluetoothAdapter.getProfileConnectionState(BluetoothProfile.A2DP)
+                == BluetoothProfile.STATE_CONNECTED)
+                || (bluetoothAdapter.getProfileConnectionState(BluetoothProfile.HEADSET)
+                == BluetoothProfile.STATE_CONNECTED));
+    }
+
+    private boolean areHeadphonesPluggedIn(){
+        AudioManager audioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
+        AudioDeviceInfo[] audioDevices = audioManager.getDevices(AudioManager.GET_DEVICES_ALL);
+        for(AudioDeviceInfo deviceInfo : audioDevices){
+            if(deviceInfo.getType()==AudioDeviceInfo.TYPE_WIRED_HEADPHONES
+                    || deviceInfo.getType()==AudioDeviceInfo.TYPE_WIRED_HEADSET){
+                return true;
+            }
+        }
+        return false;
+    }
+
     @GuardedBy("mSettingsLock")
     private void muteRingerModeStreams() {
         // Mute stream if not previously muted by ringer mode and (ringer mode
@@ -5116,12 +5155,12 @@ public class AudioService extends IAudioService.Stub
             }
         }
         if (mRingerMuteSpeakerMedia) {
-            if (ringerModeSilent) {
+            if (ringerModeSilent && !isBtOnAndConnected() && !areHeadphonesPluggedIn()) {
                 // Set volume to 0 instead of muting because we won't want to
                 // affect other devices under same type
                 setStreamVolumeInt(AudioSystem.STREAM_MUSIC, 0,
                     AudioSystem.DEVICE_OUT_SPEAKER, false, RINGER_MUTE_SPEAKER_CALLER, true);
-            } else if (mSavedSpeakerMediaIndex >= 0) {
+            } else if (mSavedSpeakerMediaIndex >= 0 && !isBtOnAndConnected() && !areHeadphonesPluggedIn()) {
                 // Restore previous media volume if valid
                 setStreamVolumeInt(AudioSystem.STREAM_MUSIC, mSavedSpeakerMediaIndex,
                     AudioSystem.DEVICE_OUT_SPEAKER, false, RINGER_MUTE_SPEAKER_CALLER, true);
@@ -8772,6 +8811,19 @@ public class AudioService extends IAudioService.Stub
                 updateEncodedSurroundOutput();
                 sendEnabledSurroundFormats(mContentResolver, mSurroundModeChanged);
                 updateAssistantUIdLocked(/* forceUpdate= */ false);
+
+                boolean ringerMuteMedia = Settings.Global.getInt(mContentResolver,
+                        Settings.Global.RINGER_MUTE_SPEAKER_MEDIA, 1) == 1;
+                final int ringerMode = mRingerMode; // Read ringer mode as reading primitives is atomic
+                final boolean ringerModeSilent = ringerMode == AudioManager.RINGER_MODE_SILENT;
+                if (ringerMuteMedia && ringerModeSilent && !isBtOnAndConnected()) {
+                    setStreamVolumeInt(AudioSystem.STREAM_MUSIC, 0,
+                        AudioSystem.DEVICE_OUT_SPEAKER, false, RINGER_MUTE_SPEAKER_CALLER, true);
+                } else if (!ringerMuteMedia && ringerModeSilent && mSavedSpeakerMediaIndex >= 0) {
+                    // Restore previous media volume if valid
+                    setStreamVolumeInt(AudioSystem.STREAM_MUSIC, mSavedSpeakerMediaIndex,
+                        AudioSystem.DEVICE_OUT_SPEAKER, false, RINGER_MUTE_SPEAKER_CALLER, true);
+                }
             }
         }
 
