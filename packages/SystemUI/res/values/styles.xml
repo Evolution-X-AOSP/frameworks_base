@@ -545,25 +545,25 @@
 
     <!-- Media controls always have light background -->
     <style name="MediaPlayer" parent="@*android:style/Theme.DeviceDefault.Light">
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
-        <item name="android:backgroundTint">@android:color/system_accent2_50</item>
+        <item name="android:textColor">@*android:color/white</item>
+        <item name="android:backgroundTint">@android:color/system_accent1_600</item>
     </style>
 
     <style name="MediaPlayer.ProgressBar" parent="@android:style/Widget.ProgressBar.Horizontal">
-        <item name="android:thumbTint">?android:attr/textColorPrimary</item>
-        <item name="android:progressTint">?android:attr/textColorPrimary</item>
-        <item name="android:progressBackgroundTint">?android:attr/textColorTertiary</item>
+        <item name="android:thumbTint">@*android:color/white</item>
+        <item name="android:progressTint">@*android:color/white</item>
+        <item name="android:progressBackgroundTint">@*android:color/system_neutral1_100</item>
         <item name="android:clickable">true</item>
         <item name="android:splitTrack">false</item>
     </style>
 
     <style name="MediaPlayer.Subtitle" parent="MediaPlayer">
-        <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:textColor">@*android:color/white</item>
     </style>
 
     <style name="MediaPlayer.Action" parent="@android:style/Widget.Material.Button.Borderless.Small">
         <item name="android:background">@drawable/qs_media_light_source</item>
-        <item name="android:tint">?android:attr/textColorPrimary</item>
+        <item name="android:tint">@*android:color/white</item>
         <item name="android:stateListAnimator">@anim/media_button_state_list_animator</item>
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingStart">12dp</item>
@@ -574,7 +574,7 @@
 
     <style name="MediaPlayer.OutlineButton">
         <item name="android:background">@drawable/qs_media_button_background</item>
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textColor">@*android:color/white</item>
         <item name="android:backgroundTint">@color/media_player_outline_button_bg</item>
         <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
         <item name="android:layout_gravity">center</item>
@@ -583,8 +583,8 @@
 
     <style name="MediaPlayer.SolidButton">
         <item name="android:backgroundTint">@color/media_player_solid_button_bg</item>
-        <item name="android:tint">?android:attr/colorPrimary</item>
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:tint">@*android:color/white</item>
+        <item name="android:textColor">@*android:color/white</item>
     </style>
 
     <style name="MediaPlayer.AppIcon">

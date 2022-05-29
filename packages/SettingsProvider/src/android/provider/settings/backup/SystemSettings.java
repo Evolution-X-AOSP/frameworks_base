@@ -94,7 +94,6 @@ public class SystemSettings {
         Settings.System.FLASHLIGHT_ON_CALL_IGNORE_DND,
         Settings.System.FLASHLIGHT_ON_CALL_RATE,
         Settings.System.NOTIFICATION_HEADERS,
-        Settings.System.ARTWORK_MEDIA_BACKGROUND,
         Settings.System.ARTWORK_MEDIA_BACKGROUND_ALPHA,
         Settings.System.NOTIFICATION_PULSE,
         Settings.System.AOD_NOTIFICATION_PULSE,

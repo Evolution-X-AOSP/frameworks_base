@@ -19,7 +19,7 @@
     <item android:id="@android:id/background">
         <shape android:shape="rectangle">
             <stroke
-                android:color="?android:attr/textColorPrimary"
+                android:color="@*android:color/white"
                 android:width="1dp" />
             <corners android:radius="24dp"/>
             <padding
