@@ -5,5 +5,12 @@
 -->
 <resources>
     <!-- QQS Brightness slider -->
-    <dimen name="quick_qs_brightness_margin_top">24dp</dimen>
+    <dimen name="qqs_top_brightness_margin_top">4dp</dimen>
+    <dimen name="qqs_top_brightness_margin_bottom">12dp</dimen>
+    <dimen name="qqs_bottom_brightness_margin_top">12dp</dimen>
+
+    <!-- QS Brightness slider -->
+    <dimen name="qs_top_brightness_margin_top">8dp</dimen>
+    <dimen name="qs_top_brightness_margin_bottom">10dp</dimen>
+    <dimen name="qs_bottom_brightness_margin_top">10dp</dimen>
 </resources>
