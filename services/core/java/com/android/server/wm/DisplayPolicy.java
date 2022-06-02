@@ -1724,6 +1724,12 @@ public class DisplayPolicy {
      */
     public void onConfigurationChanged() {
         final Resources res = getCurrentUserResources();
+
+        final InsetsPolicy policy = mDisplayContent.getInsetsPolicy();
+        if (policy != null) {
+            policy.updateLockedStatus();
+        }
+
         mNavBarOpacityMode = res.getInteger(R.integer.config_navBarOpacityMode);
         mLeftGestureInset = mGestureNavigationSettingsObserver.getLeftSensitivity(res);
         mRightGestureInset = mGestureNavigationSettingsObserver.getRightSensitivity(res);
@@ -2170,7 +2176,7 @@ public class DisplayPolicy {
         if (controlTarget.canShowTransient()) {
             // Show transient bars if they are hidden; restore position if they are visible.
             mDisplayContent.getInsetsPolicy().showTransient(SHOW_TYPES_FOR_SWIPE,
-                    isGestureOnSystemBar);
+                    isGestureOnSystemBar, swipeTarget == mStatusBar);
             controlTarget.showInsets(restorePositionTypes, false /* fromIme */,
                     null /* statsToken */);
         } else {
@@ -2900,5 +2906,9 @@ public class DisplayPolicy {
      */
     boolean shouldAttachNavBarToAppDuringTransition() {
         return mShouldAttachNavBarToAppDuringTransition && mNavigationBar != null;
+    }
+
+    public Context getUiContext() {
+        return mUiContext;
     }
 }
