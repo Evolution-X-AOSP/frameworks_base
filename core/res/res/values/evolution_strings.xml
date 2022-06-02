@@ -63,4 +63,7 @@
 
     <!-- Cycle through ringer modes -->
     <string name="volume_dialog_ringer_guidance_normal">Calls and notifications will ring</string>
+
+    <!-- Lock gesture -->
+    <string name="gesture_locked_warning">Swipe again to unlock gestures</string>
 </resources>
