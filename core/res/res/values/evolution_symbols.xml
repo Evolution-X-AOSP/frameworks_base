@@ -270,4 +270,7 @@
     <!-- Hide IME space -->
     <java-symbol type="dimen" name="navigation_bar_frame_height_hide_ime" />
     <java-symbol type="dimen" name="navigation_bar_frame_height_landscape_hide_ime" />
+
+    <!-- Lock gesture -->
+    <java-symbol type="string" name="gesture_locked_warning" />
 </resources>
