@@ -127,7 +127,7 @@ public class KeyguardClockSwitch extends RelativeLayout {
 
     public void onThemeChanged() {
         String font = mContext.getString(com.android.internal.R.string.config_headlineFontFamily);
-        Typeface tf = font.equals("google-sans")
+        Typeface tf = font.equals("google-sans") || font.equals("harmonyos-sans")
                 ? mContext.getResources().getFont(R.font.clock)
                 : Typeface.create(font, Typeface.NORMAL);
         mClockView.setTypeface(tf);
