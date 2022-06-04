@@ -233,16 +233,18 @@ public class ToastPresenter {
                 horizontalMargin, verticalMargin, removeWindowAnimations);
 
         ImageView appIcon = (ImageView) mView.findViewById(android.R.id.icon);
-        if ((Settings.System.getInt(mContext.getContentResolver(), Settings.System.TOAST_ICON, 0) == 1)) {
-            if (appIcon != null) {
+        if (appIcon != null) {
+            if ((Settings.System.getInt(mContext.getContentResolver(), Settings.System.TOAST_ICON, 0) != 0)) {
                 PackageManager pm = mContext.getPackageManager();
                 Drawable icon = null;
                 try {
                     icon = pm.getApplicationIcon(mPackageName);
                 } catch (PackageManager.NameNotFoundException e) {
-                    // nothing to do
+                    appIcon.setVisibility(View.GONE);
                 }
                 appIcon.setImageDrawable(icon);
+            } else {
+                appIcon.setVisibility(View.GONE);
             }
         }
 
