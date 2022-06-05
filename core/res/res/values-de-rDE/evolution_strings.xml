@@ -46,4 +46,10 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay auf Tag-Modus geändert.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay auf Nacht-Modus geändert.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay auf Outdoor-Modus geändert.</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Drücke und halte die Power-Taste zum Entsperren</string>
+    <string name="pocket_view_title">Taschenmodus ist an</string>
+    <string name="pocket_view_title_cancel">Um Ihr Telefon zu verwenden:</string>
+    <string name="pocket_view_top_tag_cancel">Überprüfen Sie, ob der blaue Bereich Ihres Telefons von jeglichen Hindernissen befreit ist und entfernen Sie jeden Schmutz oder Staub.</string>
+    <string name="pocket_view_top_tag_cancel2">Langes Drücken der Ein-/Aus Taste, um den Taschenmodus zu beenden.</string>
 </resources>
