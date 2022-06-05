@@ -46,4 +46,10 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay を昼モードに変更しました</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay を夜モードに変更しました</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay を屋外モードに変更しました</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">電源ボタンを押し続けてロック解除</string>
+    <string name="pocket_view_title">ポケットモードは ON です</string>
+    <string name="pocket_view_title_cancel">携帯電話の有効化:</string>
+    <string name="pocket_view_top_tag_cancel">携帯電話の青い部分を覆わず、汚れやほこりを落として下さい。</string>
+    <string name="pocket_view_top_tag_cancel2">電源ボタンを長押ししてポケットモードを強制終了します。</string>
 </resources>
