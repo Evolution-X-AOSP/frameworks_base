@@ -51,5 +51,5 @@
     <string name="pocket_view_title">Cep modu açık</string>
     <string name="pocket_view_title_cancel">Telefonunuzu kullanmak için:</string>
     <string name="pocket_view_top_tag_cancel">Telefonunuzun mavi alanında herhangi bir engel olup olmadığını kontrol edin ve herhangi bir kir veya toz varsa temizleyin.</string>
-    <string name="pocket_view_top_tag_cancel2">Cep modundan çıkmak için güç düğmesine basılı tutun.</string>
+    <string name="pocket_view_top_tag_cancel2">Cep modunu zorla kapatmak için güç tuşuna basılı tutun.</string>
 </resources>
