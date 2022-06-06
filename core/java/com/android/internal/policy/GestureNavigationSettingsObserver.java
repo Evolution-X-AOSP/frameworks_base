@@ -159,9 +159,6 @@ public class GestureNavigationSettingsObserver extends ContentObserver {
                 Settings.System.getUriFor(Settings.System.BACK_GESTURE_HAPTIC),
                 false, this, UserHandle.USER_ALL);
         r.registerContentObserver(
-                Settings.System.getUriFor(Settings.System.NAVIGATION_BAR_IME_SPACE),
-                false, this, UserHandle.USER_ALL);
-        r.registerContentObserver(
                 Settings.System.getUriFor(Settings.System.LONG_BACK_SWIPE_TIMEOUT),
                 false, this, UserHandle.USER_ALL);
         r.registerContentObserver(

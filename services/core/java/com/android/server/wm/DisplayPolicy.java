@@ -2255,12 +2255,10 @@ public class DisplayPolicy {
         // Height of the navigation bar frame when presented horizontally at bottom
         mNavigationBarFrameHeightForRotationDefault[portraitRotation] =
         mNavigationBarFrameHeightForRotationDefault[upsideDownRotation] =
-                getShowIMESpace() || !isGesturalMode() ? res.getDimensionPixelSize(R.dimen.navigation_bar_frame_height) :
-                        res.getDimensionPixelSize(R.dimen.navigation_bar_frame_height_hide_ime);
+                res.getDimensionPixelSize(R.dimen.navigation_bar_frame_height);
         mNavigationBarFrameHeightForRotationDefault[landscapeRotation] =
         mNavigationBarFrameHeightForRotationDefault[seascapeRotation] =
-                getShowIMESpace() || !isGesturalMode() ? res.getDimensionPixelSize(R.dimen.navigation_bar_frame_height_landscape) :
-                        res.getDimensionPixelSize(R.dimen.navigation_bar_frame_height_landscape_hide_ime);
+                res.getDimensionPixelSize(R.dimen.navigation_bar_frame_height_landscape);
 
         // Width of the navigation bar when presented vertically along one side
         mNavigationBarWidthForRotationDefault[portraitRotation] =
@@ -3415,15 +3413,5 @@ public class DisplayPolicy {
      */
     boolean shouldAttachNavBarToAppDuringTransition() {
         return mShouldAttachNavBarToAppDuringTransition && mNavigationBar != null;
-    }
-
-    private boolean getShowIMESpace() {
-        return Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.NAVIGATION_BAR_IME_SPACE, 1, UserHandle.USER_CURRENT) == 1;
-    }
-
-    private boolean isGesturalMode() {
-        return Settings.Secure.getIntForUser(mContext.getContentResolver(),
-                Settings.Secure.NAVIGATION_MODE, 2, UserHandle.USER_CURRENT) == 2;
     }
 }

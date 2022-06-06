@@ -6272,12 +6272,6 @@ public final class Settings {
         public static final String HIDE_LOCKSCREEN_STATUS_BAR = "hide_lockscreen_status_bar";
 
         /**
-         * Whether to show IME space
-         * @hide
-         */
-        public static final String NAVIGATION_BAR_IME_SPACE = "navigation_bar_ime_space";
-
-        /**
          * Applications list where heasdup should't show
          *
          * @hide
