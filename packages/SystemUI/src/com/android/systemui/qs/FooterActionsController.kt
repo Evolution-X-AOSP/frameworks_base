@@ -144,6 +144,25 @@ class FooterActionsController @Inject constructor(
         }
     }
 
+    private val onLongClickListener = View.OnLongClickListener { v ->
+        // Don't do anything until views are unhidden. Don't do anything if the tap looks
+        // suspicious.
+        if (!buttonsVisible() || falsingManager.isFalseTap(FalsingManager.LOW_PENALTY)) {
+            return@OnLongClickListener false
+        }
+
+        if (v === settingsButton) {
+            if (!deviceProvisionedController.isCurrentUserSetup) {
+                // If user isn't setup just unlock the device and dump them back at SUW.
+                activityStarter.postQSRunnableDismissingKeyguard {}
+                return@OnLongClickListener false
+            }
+            startEvolverActivity()
+            return@OnLongClickListener true
+        }
+        return@OnLongClickListener false
+    }
+
     private fun buttonsVisible(): Boolean {
         return when (buttonsVisibleState) {
             EXPANDED -> expanded
@@ -178,7 +197,12 @@ class FooterActionsController @Inject constructor(
         val intent = Intent()
         intent.setClassName("com.android.settings",
                 "com.android.settings.Settings\$EvolutionSettingsActivity")
-        activityStarter.startActivity(intent, true /* dismissShade */)
+        val animationController = settingsButtonContainer?.let {
+            ActivityLaunchAnimator.Controller.fromView(
+                    it,
+                    InteractionJankMonitor.CUJ_SHADE_APP_LAUNCH_FROM_SETTINGS_BUTTON)
+            }
+        activityStarter.startActivity(intent, true /* dismissShade */, animationController)
     }
 
     private fun startRunningServicesActivity() {
@@ -191,10 +215,7 @@ class FooterActionsController @Inject constructor(
     @VisibleForTesting
     public override fun onViewAttached() {
         settingsButton.setOnClickListener(onClickListener)
-        settingsButton.setOnLongClickListener(View.OnLongClickListener() {
-            startEvolverActivity();
-            true
-        })
+        settingsButton.setOnLongClickListener(onLongClickListener)
         runningServicesButton.setOnClickListener(onClickListener)
         editButton.setOnClickListener(View.OnClickListener { view: View? ->
             if (falsingManager.isFalseTap(FalsingManager.LOW_PENALTY)) {
