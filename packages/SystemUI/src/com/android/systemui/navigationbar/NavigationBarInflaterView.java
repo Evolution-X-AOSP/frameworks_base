@@ -18,12 +18,15 @@ package com.android.systemui.navigationbar;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_3BUTTON;
+import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_GESTURAL;
+import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_GESTURAL_OVERLAY;
 
 import android.annotation.Nullable;
 import android.app.ActivityManager;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.om.IOverlayManager;
+import android.content.om.OverlayInfo;
 import android.content.res.Configuration;
 import android.database.ContentObserver;
 import android.graphics.drawable.Icon;
@@ -98,6 +101,9 @@ public class NavigationBarInflaterView extends FrameLayout
 
     private static final String OVERLAY_NAVIGATION_FULL_SCREEN = "com.evolution.overlay.immnav.gestural";
 
+    private static final String KEY_NAVIGATION_SPACE =
+            "system:" + Settings.System.NAVIGATION_BAR_IME_SPACE;
+
     protected LayoutInflater mLayoutInflater;
     protected LayoutInflater mLandscapeInflater;
 
@@ -120,6 +126,8 @@ public class NavigationBarInflaterView extends FrameLayout
     private int mHomeHandleWidthMode = 1;
     private boolean mNavBarLayoutInverse = false;
     private boolean mCompactLayout;
+
+    private boolean mIsAttachedToWindow;
 
     private CustomSettingsObserver mCustomSettingsObserver;
     public NavigationBarInflaterView(Context context, AttributeSet attrs) {
@@ -202,6 +210,8 @@ public class NavigationBarInflaterView extends FrameLayout
         mCustomSettingsObserver.observe();
         super.onAttachedToWindow();
         Dependency.get(TunerService.class).addTunable(this, NAV_BAR_COMPACT);
+        Dependency.get(TunerService.class).addTunable(this, KEY_NAVIGATION_SPACE);
+        mIsAttachedToWindow = true;
     }
 
     @Override
@@ -232,6 +242,28 @@ public class NavigationBarInflaterView extends FrameLayout
                 mCompactLayout = compactLayout;
                 setNavigationBarLayout(getDefaultLayout());
             }
+        } else if (mIsAttachedToWindow &&
+                mNavBarMode == NAV_BAR_MODE_GESTURAL && KEY_NAVIGATION_SPACE.equals(key)) {
+            int state = TunerService.parseInteger(newValue, 0);
+            String overlay = NAV_BAR_MODE_GESTURAL_OVERLAY;
+            switch (state) {
+                case 1:  // narrow
+                    overlay += "_narrow_back";
+                    break;
+                case 2:  // hidden
+                    overlay += "_wide_back";
+            }
+
+            try {
+                int userId = ActivityManager.getCurrentUser();
+                IOverlayManager om = IOverlayManager.Stub.asInterface(
+                        ServiceManager.getService(Context.OVERLAY_SERVICE));
+                OverlayInfo info = om.getOverlayInfo(overlay, userId);
+
+                if (info != null && !info.isEnabled())
+                    om.setEnabledExclusiveInCategory(overlay, userId);
+            } catch (Exception e) {
+            }
         }
         if (QuickStepContract.isGesturalMode(mNavBarMode)) {
             setNavigationBarLayout(newValue);
@@ -240,6 +272,7 @@ public class NavigationBarInflaterView extends FrameLayout
 
     @Override
     protected void onDetachedFromWindow() {
+        mIsAttachedToWindow = false;
         mCustomSettingsObserver.stop();
         Dependency.get(NavigationModeController.class).removeListener(this);
         super.onDetachedFromWindow();
