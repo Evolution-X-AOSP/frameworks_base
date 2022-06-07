@@ -122,6 +122,7 @@ public class SystemSettings {
         Settings.System.QS_LAYOUT,
         Settings.System.QQS_LAYOUT,
         Settings.System.MEDIA_ARTWORK_BLUR_ENABLED,
-        Settings.System.MEDIA_ARTWORK_BLUR_RADIUS
+        Settings.System.MEDIA_ARTWORK_BLUR_RADIUS,
+        Settings.System.NAVIGATION_BAR_IME_SPACE,
     };
 }
