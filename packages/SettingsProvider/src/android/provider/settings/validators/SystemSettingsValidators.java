@@ -281,5 +281,6 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.TORCH_LONG_PRESS_POWER_GESTURE, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.TORCH_LONG_PRESS_POWER_TIMEOUT, new InclusiveIntegerRangeValidator(0, 3600));
         VALIDATORS.put(System.DOUBLE_TAP_SLEEP_GESTURE, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.NAVIGATION_BAR_IME_SPACE, ANY_INTEGER_VALIDATOR);
     }
 }
