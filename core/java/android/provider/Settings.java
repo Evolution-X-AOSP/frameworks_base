@@ -6453,10 +6453,12 @@ public final class Settings {
         public static final String NAVIGATION_BAR_HINT = "navigation_bar_hint";
 
         /**
-         * boolean value. toggles narrow navigation bar in gestural nav mode
+         * Gesture navbar IME space.
+         * Supported modes: 0 for normal length, 1 for narrow and 2 for hidden.
+         * Default 0.
          * @hide
          */
-        public static final String NAVIGATION_BAR_GESTURAL_NARROW = "navigation_bar_gestural_narrow";
+        public static final String NAVIGATION_BAR_IME_SPACE = "navigation_bar_ime_space";
 
         /**
          * Defines the screen-off animation to display
