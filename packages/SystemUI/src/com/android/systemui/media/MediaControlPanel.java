@@ -137,6 +137,7 @@ public class MediaControlPanel {
     private SystemClock mSystemClock;
     private final MediaArtworkProcessor mMediaArtworkProcessor;
     private int mAlbumArtRadius;
+    private boolean mBackgroundArtwork;
     private int mBackgroundAlpha;
 
     /**
@@ -232,7 +233,8 @@ public class MediaControlPanel {
         mSeekBarViewModel.setListening(listening);
     }
 
-    public void updateBgArtworkParams(int backgroundAlpha) {
+    public void updateBgArtworkParams(boolean backgroundArtwork, int backgroundAlpha) {
+        mBackgroundArtwork = backgroundArtwork;
         mBackgroundAlpha = backgroundAlpha;
     }
 
@@ -360,6 +362,7 @@ public class MediaControlPanel {
         ImageView albumView = mPlayerViewHolder.getAlbumView();
         boolean hasArtwork = data.getArtwork() != null;
         if (hasArtwork) {
+            if (mBackgroundArtwork) {
                 BitmapDrawable drawable = (BitmapDrawable) data.getArtwork().loadDrawable(mContext);
                 final ImageView backgroundImage = mPlayerViewHolder.getPlayer()
                     .findViewById(R.id.bg_album_art);
@@ -376,6 +379,11 @@ public class MediaControlPanel {
                             backgroundImage.getHeight(), mAlbumArtRadius);
                     }
                 });
+            } else {
+                Drawable artwork = scaleDrawable(data.getArtwork());
+                albumView.setPadding(0, 0, 0, 0);
+                albumView.setImageDrawable(artwork);
+            }
         } else {
             Drawable deviceIcon;
             if (data.getDevice() != null && data.getDevice().getIcon() != null) {
@@ -388,7 +396,7 @@ public class MediaControlPanel {
             albumView.setImageDrawable(deviceIcon);
         }
 
-        boolean useBgAlbumArt = hasArtwork;
+        boolean useBgAlbumArt = hasArtwork && mBackgroundArtwork;
         setVisibleAndAlpha(collapsedSet, R.id.bg_album_art, useBgAlbumArt);
         setVisibleAndAlpha(expandedSet, R.id.bg_album_art, useBgAlbumArt);
         setVisibleAndAlpha(collapsedSet, R.id.album_art, !useBgAlbumArt);
@@ -396,6 +404,14 @@ public class MediaControlPanel {
 
         // App icon
         ImageView appIconView = mPlayerViewHolder.getAppIcon();
+        if (!mBackgroundArtwork) {
+            setVisibleAndAlpha(collapsedSet, R.id.icon, true);
+            appIconView.clearColorFilter();
+            if (data.getAppIcon() != null && !data.getResumption()) {
+                appIconView.setImageIcon(data.getAppIcon());
+                int color = mContext.getColor(android.R.color.system_accent2_900);
+                appIconView.setColorFilter(color);
+            } else {
                 appIconView.setColorFilter(getGrayscaleFilter());
                 try {
                     Drawable icon = mContext.getPackageManager().getApplicationIcon(
@@ -405,6 +421,8 @@ public class MediaControlPanel {
                     Log.w(TAG, "Cannot find icon for package " + data.getPackageName(), e);
                     appIconView.setImageResource(R.drawable.ic_music_note);
                 }
+            }
+        }
 
         // Song name
         TextView titleText = mPlayerViewHolder.getTitleText();

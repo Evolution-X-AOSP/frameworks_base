@@ -10,6 +10,7 @@ import android.net.Uri
 import android.os.Handler
 import android.os.UserHandle
 import android.provider.Settings
+import android.provider.Settings.System.ARTWORK_MEDIA_BACKGROUND
 import android.provider.Settings.System.ARTWORK_MEDIA_BACKGROUND_ALPHA
 import android.util.Log
 import android.util.MathUtils
@@ -179,6 +180,7 @@ class MediaCarouselController @Inject constructor(
     lateinit var updateUserVisibility: () -> Unit
 
     private val settingsObserver = SettingsObserver()
+    private var backgroundArtwork = false
     private var backgroundAlpha = 255
 
     init {
@@ -441,14 +443,14 @@ class MediaCarouselController @Inject constructor(
             val lp = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT)
             newPlayer.playerViewHolder?.player?.setLayoutParams(lp)
-            newPlayer.updateBgArtworkParams(backgroundAlpha)
+            newPlayer.updateBgArtworkParams(backgroundArtwork, backgroundAlpha)
             newPlayer.bindPlayer(dataCopy, key)
             newPlayer.setListening(currentlyExpanded)
             MediaPlayerData.addMediaPlayer(key, dataCopy, newPlayer, systemClock, isSsReactivated)
             updatePlayerToState(newPlayer, noAnimation = true)
             reorderAllPlayers(curVisibleMediaKey)
         } else {
-            existingPlayer.updateBgArtworkParams(backgroundAlpha)
+            existingPlayer.updateBgArtworkParams(backgroundArtwork, backgroundAlpha)
             existingPlayer.bindPlayer(dataCopy, key)
             MediaPlayerData.addMediaPlayer(key, dataCopy, existingPlayer, systemClock,
                     isSsReactivated)
@@ -894,9 +896,13 @@ class MediaCarouselController @Inject constructor(
 
     private inner class SettingsObserver: ContentObserver(handler) {
         fun observe() {
+            backgroundArtwork = systemSettings.getIntForUser(ARTWORK_MEDIA_BACKGROUND,
+                0, UserHandle.USER_CURRENT) == 1
             backgroundAlpha = systemSettings.getIntForUser(ARTWORK_MEDIA_BACKGROUND_ALPHA,
                 255, UserHandle.USER_CURRENT)
 
+            systemSettings.registerContentObserverForUser(
+                ARTWORK_MEDIA_BACKGROUND, this, UserHandle.USER_ALL)
             systemSettings.registerContentObserverForUser(
                 ARTWORK_MEDIA_BACKGROUND_ALPHA, this, UserHandle.USER_ALL)
         }
@@ -907,6 +913,9 @@ class MediaCarouselController @Inject constructor(
 
         override fun onChange(selfChange: Boolean, uri: Uri) {
             when (uri.lastPathSegment) {
+                ARTWORK_MEDIA_BACKGROUND ->
+                    backgroundArtwork = systemSettings.getIntForUser(ARTWORK_MEDIA_BACKGROUND,
+                        0, UserHandle.USER_CURRENT) == 1
                 ARTWORK_MEDIA_BACKGROUND_ALPHA ->
                     backgroundAlpha = systemSettings.getIntForUser(ARTWORK_MEDIA_BACKGROUND_ALPHA,
                         255, UserHandle.USER_CURRENT)
