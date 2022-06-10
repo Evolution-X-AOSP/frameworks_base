@@ -15,8 +15,13 @@
     <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
     <string name="screenrecord_delete_description">Grabación de pantalla eliminada</string>
     <string name="screenrecord_stopdot_label">Mostrar punto para detener grabación\nPulsación larga para moverlo</string>
+    <string name="screenrecord_stopdot_summary">Mantenga pulsado para moverlo</string>
     <string name="screenrecord_lowquality_label">Menor calidad para un tamaño de archivo menor</string>
+    <string name="screenrecord_lowquality_summary">Para tamaño de archivo más pequeño</string>
     <string name="screenrecord_longer_timeout_switch_label">Mayor límite de tamaño de archivo\nLimitar tamaño de grabación a 15GB</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Limitar tamaño de grabación a 15GB</string>
+    <string name="screenrecord_skip_time_label">Ignorar temporizador</string>
+    <string name="screenrecord_skip_time_summary">Eliminar espera de 3 segundos</string>
     <!-- Alert slider extras -->
     <string name="volume_ringer_priority_only">Prioridad</string>
     <string name="volume_ringer_alarms_only">Alarmas</string>
@@ -83,9 +88,6 @@
     <string name="accessibility_quick_settings_heads_up_on">Notificaciones emergentes activadas.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Las notificaciones emergentes se han desactivado.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Las notificaciones emergentes se han activado.</string>
-    <!-- Gaming mode -->
-    <string name="gaming_mode_not_enabled">El Modo Juego está desactivado en los ajustes</string>
-    <string name="quick_settings_gaming_mode_label">Modo Juego</string>
     <!-- Poweroff/Reboot/Recovery QS tile -->
     <string name="quick_settings_poweroff_label">Apagar</string>
     <string name="quick_settings_reboot_label">Reiniciar</string>
@@ -114,8 +116,6 @@
     <string name="accessibility_quick_settings_onthego_on">On-The-Go activado</string>
     <string name="accessibility_quick_settings_onthego_changed_off">On-The-Go desactivado</string>
     <string name="accessibility_quick_settings_onthego_changed_on">On-The-Go activado</string>
-    <!-- The Evolver Tile -->
-    <string name="quick_settings_evolver_label">El Evolucionador</string>
     <!-- Face Unlock -->
     <string name="face_unlock_recognizing">Reconociendo cara...</string>
     <!-- Kill button in notification guts -->
@@ -192,4 +192,33 @@
     <!-- Heads up snooze toast -->
     <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Notificaciones flotantes pospuestas por 1 minuto.</string>
     <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Las notificaciones flotantes están aplazadas durante <xliff:g id="number">%2$d</xliff:g> minutos.</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Modo lectura</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Modo lectura activado.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Modo lectura desactivado.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">El modo lectura se ha activado.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Modo de lectura desactivado.</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">Antiparpadeo</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carga rápida Dash (<xliff:g id="charging_time_left" example="4 horas y 2 minutos">%1$s</xliff:g> para completar)</string>
+    <string name="keyguard_plugged_in_dash_charging"><xliff:g id="porcentaje">%s</xliff:g> • Carga rápida</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="porcentaje">%2$s</xliff:g> • Carga Warp (<xliff:g id="charging_time_left" ejemplo="4 horas y 2 minutos">%1$s</xliff:g> hasta llenar)</string>
+    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="percentage">%s</xliff:g> • Carga warp</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carga VOOC (<xliff:g id="charging_time_left" example="4 horas y 2 minutos">%1$s</xliff:g> hasta llenar)</string>
+    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="percentage">%s</xliff:g> • Carga de VOOC</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Carga Turbo (<xliff:g id="charging_time_left" ejemplo="4 horas y 2 minutos">%1$s</xliff:g> hasta llenar)</string>
+    <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="porcentaje">%s</xliff:g> • Carga turbo</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with an oem fast power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_oem_power_time"><xliff:g id="porcentaje">%2$s</xliff:g> • Carga rápida (<xliff:g id="charging_time_left" ejemplo="4 horas y 2 minutos">%1$s</xliff:g> hasta llenar)</string>
+    <string name="keyguard_plugged_in_oem_charging"><xliff:g id="percentage">%s</xliff:g> • Carga rápida</string>
+    <!-- Refresh Rate Tile -->
+    <string name="refresh_rate_tile_label">Tasa de refresco</string>
+    <string name="refresh_rate_auto_mode_placeholder">Automático (<xliff:g id="min_refresh_rate" ejemplo="60">%1$d</xliff:g> - <xliff:g id="max_refresh_rate" ejemplo="60">%2$d</xliff:g>Hz)    </string>
+    <string name="refresh_rate_forced_mode_placeholder"><xliff:g id="refresh_rate" ejemplo="60">%1$d</xliff:g> Hz</string>
+    <!-- Google Lens Screenshot string -->
+    <string name="lensss">Lente</string>
 </resources>

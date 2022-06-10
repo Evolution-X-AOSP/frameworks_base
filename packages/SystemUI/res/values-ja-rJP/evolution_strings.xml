@@ -15,8 +15,13 @@
     <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
     <string name="screenrecord_delete_description">画面録画を削除しました</string>
     <string name="screenrecord_stopdot_label">停止ドット\n長押しして移動</string>
+    <string name="screenrecord_stopdot_summary">長押しで移動</string>
     <string name="screenrecord_lowquality_label">低品質にしてファイルサイズ縮小</string>
+    <string name="screenrecord_lowquality_summary">ファイルサイズを小さくする</string>
     <string name="screenrecord_longer_timeout_switch_label">ファイルサイズ制限です\n録画サイズを15GBに制限します</string>
+    <string name="screenrecord_longer_timeout_switch_summary">録画サイズを15GBに制限する</string>
+    <string name="screenrecord_skip_time_label">タイマーをスキップ</string>
+    <string name="screenrecord_skip_time_summary">3秒間の待機を削除する</string>
     <!-- Alert slider extras -->
     <string name="volume_ringer_priority_only">優先</string>
     <string name="volume_ringer_alarms_only">アラーム</string>
@@ -210,4 +215,11 @@
     <!-- Indication on the keyguard that is shown when the device is charging with an oem fast power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_oem_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Fast Charging (充電完了まで残り<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g>)</string>
     <string name="keyguard_plugged_in_oem_charging"><xliff:g id="percentage">%s</xliff:g> • Fast Charging</string>
+    <!-- Refresh Rate Tile -->
+    <string name="refresh_rate_tile_label">リフレッシュレート</string>
+    <string name="refresh_rate_auto_mode_placeholder">        自動 (<xliff:g id="min_refresh_rate" example="60">%1$d</xliff:g> - <xliff:g id="max_refresh_rate" example="60">%2$d</xliff:g> Hz)
+    </string>
+    <string name="refresh_rate_forced_mode_placeholder"><xliff:g id="refresh_rate" example="60">%1$d</xliff:g> Hz</string>
+    <!-- Google Lens Screenshot string -->
+    <string name="lensss">レンズ</string>
 </resources>
