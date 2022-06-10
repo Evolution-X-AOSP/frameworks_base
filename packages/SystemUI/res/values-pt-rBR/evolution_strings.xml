@@ -14,9 +14,14 @@
     <string name="screenrecord_delete_label">Excluir</string>
     <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
     <string name="screenrecord_delete_description">Gravação de tela excluída</string>
-    <string name="screenrecord_stopdot_label">Mostrar ponto de parada\nPressionamento longo para movê-lo</string>
-    <string name="screenrecord_lowquality_label">Qualidade inferior para arquivo menor</string>
-    <string name="screenrecord_longer_timeout_switch_label">Limite maior para arquivo\nLimitar o tamanho de gravação para 15Gb</string>
+    <string name="screenrecord_stopdot_label">Mostrar ponto de parada</string>
+    <string name="screenrecord_stopdot_summary">Pressione e segure para movê-lo</string>
+    <string name="screenrecord_lowquality_label">Qualidade mais baixa</string>
+    <string name="screenrecord_lowquality_summary">Para gerar arquivos menores</string>
+    <string name="screenrecord_longer_timeout_switch_label">Arquivos maiores</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Limitar o tamanho de gravação para 15 GB</string>
+    <string name="screenrecord_skip_time_label">Início rápido</string>
+    <string name="screenrecord_skip_time_summary">Remover espera de 3 segundos</string>
     <!-- Alert slider extras -->
     <string name="volume_ringer_priority_only">Prioridade</string>
     <string name="volume_ringer_alarms_only">Alarmes</string>
