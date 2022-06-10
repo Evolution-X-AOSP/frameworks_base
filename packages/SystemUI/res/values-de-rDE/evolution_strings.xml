@@ -15,8 +15,13 @@
     <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
     <string name="screenrecord_delete_description">Bildschirmaufnahme gelöscht</string>
     <string name="screenrecord_stopdot_label">Stopp-Punkt anzeigen\nZum Verschieben lang drücken</string>
+    <string name="screenrecord_stopdot_summary">Gedrückt halten zum Verschieben</string>
     <string name="screenrecord_lowquality_label">Niedrigere Qualität für geringere Dateigrößen</string>
+    <string name="screenrecord_lowquality_summary">Zum Verringern der Dateigröße</string>
     <string name="screenrecord_longer_timeout_switch_label">Größere Dateigröße\nBegrenzung der Aufnahmegröße auf 15 GB</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Größe der Aufnahme auf 15 GB begrenzen</string>
+    <string name="screenrecord_skip_time_label">Timer überspringen</string>
+    <string name="screenrecord_skip_time_summary">Dreisekündige Wartezeit deaktivieren</string>
     <!-- Alert slider extras -->
     <string name="volume_ringer_priority_only">Priorität</string>
     <string name="volume_ringer_alarms_only">Wecker</string>
@@ -210,4 +215,11 @@
     <!-- Indication on the keyguard that is shown when the device is charging with an oem fast power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_oem_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Schnellladen (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> bis zur vollständigen Aufladung)</string>
     <string name="keyguard_plugged_in_oem_charging"><xliff:g id="percentage">%s</xliff:g> • Schnellladen</string>
+    <!-- Refresh Rate Tile -->
+    <string name="refresh_rate_tile_label">Bildwiederholrate</string>
+    <string name="refresh_rate_auto_mode_placeholder">        Auto (<xliff:g id="min_refresh_rate" example="60">%1$d</xliff:g> - <xliff:g id="max_refresh_rate" example="60">%2$d</xliff:g> Hz)
+    </string>
+    <string name="refresh_rate_forced_mode_placeholder"><xliff:g id="refresh_rate" example="60">%1$d</xliff:g> Hz</string>
+    <!-- Google Lens Screenshot string -->
+    <string name="lensss">Lens</string>
 </resources>
