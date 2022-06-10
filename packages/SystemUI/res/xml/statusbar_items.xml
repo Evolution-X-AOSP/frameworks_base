@@ -43,12 +43,8 @@
             android:title="@string/quick_settings_dnd_label" />
 
         <com.android.systemui.tuner.StatusBarSwitch
-            android:key="mute"
-            android:title="@string/volume_ringer_status_silent" />
-
-        <com.android.systemui.tuner.StatusBarSwitch
             android:key="volume"
-            android:title="@string/volume_ringer_status_vibrate" />
+            android:title="@*android:string/volume_unknown" />
 
         <com.android.systemui.tuner.StatusBarSwitch
             android:key="wifi"
