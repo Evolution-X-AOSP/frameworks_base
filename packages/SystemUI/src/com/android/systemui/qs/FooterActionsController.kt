@@ -16,8 +16,12 @@
 
 package com.android.systemui.qs
 
+import android.content.Context
 import android.content.Intent
 import android.os.UserManager
+import android.os.VibrationEffect
+import android.os.VibrationEffect.EFFECT_CLICK
+import android.os.Vibrator
 import android.provider.Settings
 import android.view.View
 import android.widget.Toast
@@ -53,6 +57,7 @@ import javax.inject.Named
  */
 class FooterActionsController @Inject constructor(
     view: FooterActionsView,
+    private val context: Context,
     private val qsPanelController: QSPanelController,
     private val activityStarter: ActivityStarter,
     private val userManager: UserManager,
@@ -75,6 +80,7 @@ class FooterActionsController @Inject constructor(
 
     var expanded = false
 
+    private val vibrator = context.getSystemService(Vibrator::class.java)
     private val settingsButton: SettingsButton = view.findViewById(R.id.settings_button)
     private val settingsButtonContainer: View? = view.findViewById(R.id.settings_button_container)
     private val editButton: View = view.findViewById(android.R.id.edit)
@@ -203,6 +209,7 @@ class FooterActionsController @Inject constructor(
                     InteractionJankMonitor.CUJ_SHADE_APP_LAUNCH_FROM_SETTINGS_BUTTON)
             }
         activityStarter.startActivity(intent, true /* dismissShade */, animationController)
+        vibrator.vibrate(VibrationEffect.createPredefined(EFFECT_CLICK))
     }
 
     private fun startRunningServicesActivity() {

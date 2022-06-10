@@ -16,6 +16,7 @@
 
 package com.android.systemui.qs
 
+import android.content.Context
 import android.os.UserManager
 import com.android.internal.logging.MetricsLogger
 import com.android.internal.logging.UiEventLogger
@@ -32,6 +33,7 @@ import javax.inject.Inject
 import javax.inject.Named
 
 class FooterActionsControllerBuilder @Inject constructor(
+    private val context: Context, 
     private val qsPanelController: QSPanelController,
     private val activityStarter: ActivityStarter,
     private val userManager: UserManager,
@@ -59,7 +61,7 @@ class FooterActionsControllerBuilder @Inject constructor(
     }
 
     fun build(): FooterActionsController {
-        return FooterActionsController(view, qsPanelController, activityStarter, userManager,
+        return FooterActionsController(view, context, qsPanelController, activityStarter, userManager,
                 userInfoController, multiUserSwitchControllerFactory.create(view),
                 deviceProvisionedController, falsingManager, metricsLogger, tunerService,
                 globalActionsDialog, uiEventLogger, showPMLiteButton, buttonsVisibleState)
