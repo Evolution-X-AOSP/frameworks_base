@@ -15,8 +15,13 @@
     <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
     <string name="screenrecord_delete_description">屏幕录制已删除</string>
     <string name="screenrecord_stopdot_label">显示停止点\n长按移动它</string>
+    <string name="screenrecord_stopdot_summary">长按移动它</string>
     <string name="screenrecord_lowquality_label">使用较低画质以节省存储空间</string>
+    <string name="screenrecord_lowquality_summary">压缩录屏文件</string>
     <string name="screenrecord_longer_timeout_switch_label">文件大小限制\n将录制大小限制为 15GB</string>
+    <string name="screenrecord_longer_timeout_switch_summary">限制录屏文件大小为 15GB</string>
+    <string name="screenrecord_skip_time_label">跳过倒计时</string>
+    <string name="screenrecord_skip_time_summary">移除 3 秒等待</string>
     <!-- Alert slider extras -->
     <string name="volume_ringer_priority_only">优先</string>
     <string name="volume_ringer_alarms_only">警报</string>
