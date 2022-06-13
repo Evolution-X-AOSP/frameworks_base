@@ -52,11 +52,6 @@ class FPSInfoService @Inject constructor(
     @Main private val handler: Handler,
 ) : Service() {
 
-    private lateinit var coroutineScope: CoroutineScope
-
-    private lateinit var windowManager: WindowManager
-    private lateinit var fpsInfoView: TextView
-    private lateinit var configuration: Configuration
     private val layoutParams = WindowManager.LayoutParams(
         WindowManager.LayoutParams.WRAP_CONTENT,
         WindowManager.LayoutParams.WRAP_CONTENT,
@@ -70,11 +65,7 @@ class FPSInfoService @Inject constructor(
         gravity = Gravity.TOP or Gravity.START
     }
 
-    private lateinit var fpsInfoNode: RandomAccessFile
-
-    private var fpsReadJob: Job? = null
-
-    private val wakefulnessObserver = object: WakefulnessLifecycle.Observer {
+    private val wakefulnessObserver = object : WakefulnessLifecycle.Observer {
         override fun onStartedGoingToSleep() {
             logD("onStartedGoingToSleep")
             stopReadingInternal()
@@ -86,12 +77,22 @@ class FPSInfoService @Inject constructor(
         }
     }
 
-    private var fpsReadInterval = FPS_MEASURE_INTERVAL_DEFAULT
+    private lateinit var binder: IBinder
+    private lateinit var coroutineScope: CoroutineScope
+    private lateinit var windowManager: WindowManager
+    private lateinit var fpsInfoView: TextView
+    private lateinit var fpsInfoNode: RandomAccessFile
 
-    private var binder: IBinder? = null
+    private var fpsReadJob: Job? = null
 
-    var isReading = false
-        private set
+    private var registeredWakefulnessLifecycleObserver = false
+
+    private val topInset: Int
+        get() = windowManager.currentWindowMetrics.windowInsets
+            .getInsets(WindowInsets.Type.statusBars()).top
+
+    val isReading: Boolean
+        get() = fpsReadJob?.isActive == true
 
     override fun onCreate() {
         super.onCreate()
@@ -100,8 +101,7 @@ class FPSInfoService @Inject constructor(
         coroutineScope = CoroutineScope(Dispatchers.IO)
 
         windowManager = getSystemService(WindowManager::class.java)
-        configuration = resources.configuration
-        layoutParams.y = getTopInset()
+        layoutParams.y = topInset
 
         handler.post {
             fpsInfoView = TextView(this).apply {
@@ -124,35 +124,31 @@ class FPSInfoService @Inject constructor(
         } else {
             fpsInfoNode = result.getOrThrow()
         }
-        fpsReadInterval = resources.getInteger(R.integer.config_fpsReadInterval).toLong()
-        wakefulnessLifecycle.addObserver(wakefulnessObserver)
     }
 
-    override fun onBind(intent: Intent?): IBinder? = binder
+    override fun onBind(intent: Intent?): IBinder = binder
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         logD("onConfigurationChanged")
-        layoutParams.y = getTopInset()
+        layoutParams.y = topInset
         if (fpsInfoView.parent != null) {
             handler.post {
                 windowManager.updateViewLayout(fpsInfoView, layoutParams)
             }
         }
-        configuration = newConfig
     }
 
-    private fun getTopInset(): Int = windowManager.currentWindowMetrics
-        .windowInsets.getInsets(WindowInsets.Type.statusBars()).top
-
     fun startReading() {
-        logD("startReading, isReading = $isReading")
-        if (isReading) return
-        isReading = true
+        if (!registeredWakefulnessLifecycleObserver) {
+            wakefulnessLifecycle.addObserver(wakefulnessObserver)
+            registeredWakefulnessLifecycleObserver = true
+        }
         startReadingInternal()
     }
 
     private fun startReadingInternal() {
-        if (!isReading || fpsReadJob != null) return
+        logD("startReadingInternal, isReading = $isReading")
+        if (isReading) return
         if (fpsInfoView.parent == null) {
             handler.post {
                 windowManager.addView(fpsInfoView, layoutParams)
@@ -164,23 +160,24 @@ class FPSInfoService @Inject constructor(
                 handler.post {
                     fpsInfoView.text = getString(R.string.fps_text_placeholder, fps)
                 }
-                delay(fpsReadInterval)
+                delay(FPS_MEASURE_INTERVAL)
             } while (isActive)
         }
     }
 
     fun stopReading() {
-        logD("stopReading, isReading = $isReading")
-        if (!isReading) return
-        isReading = false
         stopReadingInternal()
+        if (registeredWakefulnessLifecycleObserver) {
+            wakefulnessLifecycle.removeObserver(wakefulnessObserver)
+            registeredWakefulnessLifecycleObserver = false
+        }
     }
 
     private fun stopReadingInternal() {
-        if (fpsReadJob != null) {
-            fpsReadJob?.cancel()
-            fpsReadJob = null
-        }
+        logD("stopReadingInternal, isReading = $isReading")
+        if (!isReading) return
+        fpsReadJob?.cancel()
+        fpsReadJob = null
         if (fpsInfoView.parent != null) {
             handler.post {
                 windowManager.removeViewImmediate(fpsInfoView)
@@ -188,24 +185,17 @@ class FPSInfoService @Inject constructor(
         }
     }
 
-    private fun measureFps(): Int {
-        val result = runCatching {
+    private fun measureFps(): Int = runCatching {
             fpsInfoNode.seek(0L)
             fpsRegex.find(fpsInfoNode.readLine())?.value?.toInt() ?: 0
-        }
-        return if (result.isFailure) {
-            Log.e(TAG, "Failed to parse fps, ${result.exceptionOrNull()?.message}")
+        }.getOrElse {
+            Log.e(TAG, "Failed to parse fps, ${it.message}")
             0
-        } else {
-            result.getOrThrow()
         }
-    }
 
     override fun onDestroy() {
         logD("onDestroy")
-        isReading = false
         stopReading()
-        wakefulnessLifecycle.removeObserver(wakefulnessObserver)
         coroutineScope.cancel()
         super.onDestroy()
     }
@@ -217,15 +207,16 @@ class FPSInfoService @Inject constructor(
 
     private companion object {
         private const val TAG = "FPSInfoService"
-        private const val DEBUG = false
-        private const val FPS_MEASURE_INTERVAL_DEFAULT = 1000L
-
-        private const val BACKGROUND_ALPHA = 120
-
-        private val fpsRegex = Regex("[0-9]+")
+        private val DEBUG = Log.isLoggable(TAG, Log.DEBUG)
 
         private fun logD(msg: String) {
             if (DEBUG) Log.d(TAG, msg)
         }
+
+        private const val FPS_MEASURE_INTERVAL = 1000L
+
+        private const val BACKGROUND_ALPHA = 120
+
+        private val fpsRegex = Regex("[0-9]+")
     }
 }
