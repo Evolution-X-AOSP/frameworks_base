@@ -58,7 +58,7 @@ class FPSInfoTile @Inject constructor(
     statusBarStateController: StatusBarStateController,
     activityStarter: ActivityStarter,
     qsLogger: QSLogger,
-): QSTileImpl<BooleanState>(
+) : QSTileImpl<BooleanState>(
     host,
     backgroundLooper,
     mainHandler,
@@ -88,21 +88,26 @@ class FPSInfoTile @Inject constructor(
 
     init {
         val fpsInfoSysNode = mContext.resources.getString(R.string.config_fpsInfoSysNode)
-        available = fpsInfoSysNode != null && (File(fpsInfoSysNode).isFile)
+        available = if (fpsInfoSysNode != null) {
+            val nodeFile = File(fpsInfoSysNode)
+            logD("file exists = ${nodeFile.isFile}, can read = ${nodeFile.canRead()}")
+            nodeFile.isFile && nodeFile.canRead()
+        } else {
+            false
+        }
         logD("fpsInfoSysNode = $fpsInfoSysNode, available = $available")
     }
 
-    override fun isAvailable(): Boolean = available
+    override fun isAvailable() = available
 
     override fun newTileState() = BooleanState()
 
     override protected fun handleInitialize() {
         logD("handleInitialize")
-        if (!serviceBound) {
-            val intent = Intent(mContext, FPSInfoService::class.java)
-            serviceBound = mContext.bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE)
-            logD("serviceBound = $serviceBound")
-        }
+        if (serviceBound) return
+        val intent = Intent(mContext, FPSInfoService::class.java)
+        serviceBound = mContext.bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE)
+        logD("serviceBound = $serviceBound")
     }
 
     override protected fun handleDestroy() {
@@ -158,7 +163,7 @@ class FPSInfoTile @Inject constructor(
 
     companion object {
         private const val TAG = "FPSInfoTile"
-        private const val DEBUG = false
+        private val DEBUG = Log.isLoggable(TAG, Log.DEBUG)
 
         private fun logD(msg: String) {
             if (DEBUG) Log.d(TAG, msg)
