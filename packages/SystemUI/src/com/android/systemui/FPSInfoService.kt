@@ -89,7 +89,7 @@ class FPSInfoService @Inject constructor(
 
     private val topInset: Int
         get() = windowManager.currentWindowMetrics.windowInsets
-            .getInsets(WindowInsets.Type.statusBars()).top
+            .getInsetsIgnoringVisibility(WindowInsets.Type.statusBars()).top
 
     val isReading: Boolean
         get() = fpsReadJob?.isActive == true
