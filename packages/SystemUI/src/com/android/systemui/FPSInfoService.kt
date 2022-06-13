@@ -14,13 +14,15 @@
  * limitations under the License.
  */
 
-package com.android.systemui
+package com.android.systemui.qs.tiles
 
+import android.app.Service
 import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Color
 import android.graphics.PixelFormat
 import android.os.Binder
+import android.os.Handler
 import android.os.IBinder
 import android.util.Log
 import android.view.Gravity
@@ -29,34 +31,32 @@ import android.view.WindowManager
 import android.widget.TextView
 
 import androidx.core.graphics.ColorUtils
-import androidx.lifecycle.LifecycleService
-import androidx.lifecycle.lifecycleScope
 
 import com.android.systemui.R
+import com.android.systemui.dagger.qualifiers.Main
 import com.android.systemui.keyguard.WakefulnessLifecycle
 
 import java.io.RandomAccessFile
 
 import javax.inject.Inject
 
-import kotlin.math.roundToInt
-
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class FPSInfoService @Inject constructor(
-    private val wakefulnessLifecycle: WakefulnessLifecycle
-) : LifecycleService() {
+    private val wakefulnessLifecycle: WakefulnessLifecycle,
+    @Main private val handler: Handler,
+) : Service() {
 
     private val layoutParams = WindowManager.LayoutParams(
         WindowManager.LayoutParams.WRAP_CONTENT,
         WindowManager.LayoutParams.WRAP_CONTENT,
-        WindowManager.LayoutParams.TYPE_DISPLAY_OVERLAY,
+        WindowManager.LayoutParams.TYPE_SECURE_SYSTEM_OVERLAY,
         WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or
                 WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL or
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE or
@@ -78,11 +78,8 @@ class FPSInfoService @Inject constructor(
         }
     }
 
-    private val topInset: Int
-        get() = windowManager.currentWindowMetrics.windowInsets
-            .getInsetsIgnoringVisibility(WindowInsets.Type.statusBars()).top
-
-    private lateinit var binder: ServiceBinder
+    private lateinit var binder: IBinder
+    private lateinit var coroutineScope: CoroutineScope
     private lateinit var windowManager: WindowManager
     private lateinit var fpsInfoView: TextView
     private lateinit var fpsInfoNode: RandomAccessFile
@@ -91,6 +88,10 @@ class FPSInfoService @Inject constructor(
 
     private var registeredWakefulnessLifecycleObserver = false
 
+    private val topInset: Int
+        get() = windowManager.currentWindowMetrics.windowInsets
+            .getInsets(WindowInsets.Type.statusBars()).top
+
     val isReading: Boolean
         get() = fpsReadJob?.isActive == true
 
@@ -98,6 +99,7 @@ class FPSInfoService @Inject constructor(
         super.onCreate()
         logD("onCreate")
         binder = ServiceBinder()
+        coroutineScope = CoroutineScope(Dispatchers.IO)
 
         windowManager = getSystemService(WindowManager::class.java)
         layoutParams.y = topInset
@@ -111,27 +113,27 @@ class FPSInfoService @Inject constructor(
         }
 
         val nodePath = getString(R.string.config_fpsInfoSysNode)
-        runCatching {
+        val result = runCatching {
             RandomAccessFile(nodePath, "r")
-        }.onFailure {
-            Log.e(TAG, "Unable to open $nodePath", it)
+        }
+        if (result.isFailure) {
+            Log.e(TAG, "Unable to open $nodePath, ${result.exceptionOrNull()?.message}")
             stopSelf()
-        }.onSuccess {
-            fpsInfoNode = it
+            return
+        } else {
+            fpsInfoNode = result.getOrThrow()
         }
     }
 
-    override fun onBind(intent: Intent): IBinder {
-        super.onBind(intent)
-        return binder
-    }
+    override fun onBind(intent: Intent?): IBinder = binder
 
     override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
         logD("onConfigurationChanged")
         layoutParams.y = topInset
         if (fpsInfoView.parent != null) {
-            windowManager.updateViewLayout(fpsInfoView, layoutParams)
+            handler.post {
+                windowManager.updateViewLayout(fpsInfoView, layoutParams)
+            }
         }
     }
 
@@ -146,12 +148,17 @@ class FPSInfoService @Inject constructor(
     private fun startReadingInternal() {
         logD("startReadingInternal, isReading = $isReading")
         if (isReading) return
-        fpsReadJob = lifecycleScope.launch {
-            if (fpsInfoView.parent == null) {
+        if (fpsInfoView.parent == null) {
+            handler.post {
                 windowManager.addView(fpsInfoView, layoutParams)
             }
+        }
+        fpsReadJob = coroutineScope.launch {
             do {
-                fpsInfoView.text = getString(R.string.fps_text_placeholder, measureFps())
+                val fps = measureFps()
+                handler.post {
+                    fpsInfoView.text = getString(R.string.fps_text_placeholder, fps)
+                }
                 delay(FPS_MEASURE_INTERVAL)
             } while (isActive)
         }
@@ -170,26 +177,25 @@ class FPSInfoService @Inject constructor(
         if (!isReading) return
         fpsReadJob?.cancel()
         fpsReadJob = null
-        lifecycleScope.launch {
-            if (fpsInfoView.parent != null) {
+        if (fpsInfoView.parent != null) {
+            handler.post {
                 windowManager.removeViewImmediate(fpsInfoView)
             }
         }
     }
 
-    private suspend fun measureFps(): Int = withContext(Dispatchers.IO) {
-        runCatching {
+    private fun measureFps(): Int = runCatching {
             fpsInfoNode.seek(0L)
-            FpsRegex.find(fpsInfoNode.readLine())?.value?.toFloat()?.roundToInt() ?: 0
+            fpsRegex.find(fpsInfoNode.readLine())?.value?.toInt() ?: 0
         }.getOrElse {
             Log.e(TAG, "Failed to parse fps, ${it.message}")
             0
         }
-    }
 
     override fun onDestroy() {
         logD("onDestroy")
         stopReading()
+        coroutineScope.cancel()
         super.onDestroy()
     }
 
@@ -210,6 +216,6 @@ class FPSInfoService @Inject constructor(
 
         private const val BACKGROUND_ALPHA = 120
 
-        private val FpsRegex = "[0-9]+".toRegex()
+        private val fpsRegex = Regex("[0-9]+")
     }
 }
