@@ -20,24 +20,17 @@ import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 import android.app.Activity;
-import android.database.ContentObserver;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Looper;
-import android.os.UserHandle;
-import android.provider.Settings;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.broadcast.BroadcastDispatcher;
 import com.android.systemui.dagger.qualifiers.Background;
@@ -52,33 +45,6 @@ public class BrightnessDialog extends Activity {
     private final BroadcastDispatcher mBroadcastDispatcher;
     private final Handler mBackgroundHandler;
 
-    private ImageView mAutoBrightnessIcon;
-
-    private final CustomSettingsObserver mCustomSettingsObserver = new CustomSettingsObserver();
-    private class CustomSettingsObserver extends ContentObserver {
-        CustomSettingsObserver() {
-            super(new Handler(Looper.getMainLooper()));
-        }
-
-        void observe() {
-            getContentResolver().registerContentObserver(Settings.Secure.getUriFor(
-                    Settings.Secure.QS_SHOW_AUTO_BRIGHTNESS_BUTTON),
-                    false, this, UserHandle.USER_ALL);
-        }
-
-        void stop() {
-            getContentResolver().unregisterContentObserver(this);
-        }
-
-        @Override
-        public void onChange(boolean selfChange, Uri uri) {
-            if (mAutoBrightnessIcon == null) return;
-            boolean show = Settings.Secure.getInt(getContentResolver(),
-                    Settings.Secure.QS_SHOW_AUTO_BRIGHTNESS_BUTTON, 1) == 1;
-            mAutoBrightnessIcon.setVisibility(show ? View.VISIBLE : View.GONE);
-        }
-    }
-
     @Inject
     public BrightnessDialog(
             BroadcastDispatcher broadcastDispatcher,
@@ -88,6 +54,7 @@ public class BrightnessDialog extends Activity {
         mToggleSliderFactory = factory;
         mBackgroundHandler = bgHandler;
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,12 +81,8 @@ public class BrightnessDialog extends Activity {
         controller.init();
         frame.addView(controller.getRootView(), MATCH_PARENT, WRAP_CONTENT);
 
-        mAutoBrightnessIcon = controller.getIconView();
-        boolean show = Settings.Secure.getInt(getContentResolver(),
-                Settings.Secure.QS_SHOW_AUTO_BRIGHTNESS_BUTTON, 1) == 1;
-        mAutoBrightnessIcon.setVisibility(show ? View.VISIBLE : View.GONE);
-        mBrightnessController = new BrightnessController(this, mAutoBrightnessIcon,
-                controller, mBroadcastDispatcher, mBackgroundHandler);
+        mBrightnessController = new BrightnessController(
+                this, controller, mBroadcastDispatcher, mBackgroundHandler);
     }
 
     @Override
@@ -127,7 +90,6 @@ public class BrightnessDialog extends Activity {
         super.onStart();
         mBrightnessController.registerCallbacks();
         MetricsLogger.visible(this, MetricsEvent.BRIGHTNESS_DIALOG);
-        mCustomSettingsObserver.observe();
     }
 
     @Override
@@ -135,7 +97,6 @@ public class BrightnessDialog extends Activity {
         super.onStop();
         MetricsLogger.hidden(this, MetricsEvent.BRIGHTNESS_DIALOG);
         mBrightnessController.unregisterCallbacks();
-        mCustomSettingsObserver.stop();
     }
 
     @Override
@@ -145,6 +106,7 @@ public class BrightnessDialog extends Activity {
                 || keyCode == KeyEvent.KEYCODE_VOLUME_MUTE) {
             finish();
         }
+
         return super.onKeyDown(keyCode, event);
     }
 }
