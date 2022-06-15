@@ -27,24 +27,4 @@
         <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_adaptive">aptX™ Adaptive</xliff:g> audio</item>
         <item><xliff:g id="qualcomm">Qualcomm®</xliff:g> <xliff:g id="aptx_twsp">aptX™ TWS+</xliff:g> audio</item>
     </string-array>
-
-    <!-- Custom Battery Levels  -->
-    <array name="custom_batterymeter_color_levels">
-        <item>15</item>
-        <item>25</item>
-        <item>40</item>
-        <item>55</item>
-        <item>70</item>
-        <item>85</item>
-        <item>100</item>
-    </array>
-    <array name="custom_batterymeter_color_values">
-        <item>?android:attr/colorError</item>
-        <item>@color/battery_25</item>
-        <item>@color/battery_40</item>
-        <item>@color/battery_55</item>
-        <item>@color/battery_70</item>
-        <item>@color/battery_85</item>
-        <item>@color/battery_full</item>
-    </array>
 </resources>

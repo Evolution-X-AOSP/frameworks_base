@@ -5226,8 +5226,7 @@ public final class Settings {
         /**
          * Setting to determine whether or not to show the battery percentage in the status bar.
          *    0 - Don't show percentage
-         *    1 - Show percentage inside
-         *    2 - Show percentage only
+         *    1 - Show percentage
          * @hide
          */
         @Readable
@@ -5623,13 +5622,6 @@ public final class Settings {
          */
         public static final String NOTIFICATION_GUTS_KILL_APP_BUTTON =
                 "notification_guts_kill_app_button";
-
-        /**
-         * Whether to show battery estimates in QS
-         * @hide
-         */
-        @Readable
-        public static final String QS_SHOW_BATTERY_ESTIMATE = "qs_show_battery_estimate";
 
         /**
          * Whether to enable the ripple animation on fingerprint unlock
@@ -6316,12 +6308,6 @@ public final class Settings {
         public static final String NOTIFICATION_MATERIAL_DISMISS_STYLE = "notification_material_dismiss_style";
 
         /**
-         * Toggle between stock and color coded battery icon
-         * @hide
-         */
-        public static final String BATTERY_LEVEL_COLORS = "battery_level_colors";
-
-        /**
          * @hide
          */
         public static final String NOTIFICATION_MATERIAL_DISMISS_BGSTYLE = "notification_material_dismiss_bgstyle";
@@ -6771,7 +6757,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL_IGNORE_DND);
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL_RATE);
             PRIVATE_SETTINGS.add(BACK_GESTURE_HAPTIC);
-            PRIVATE_SETTINGS.add(BATTERY_LEVEL_COLORS);
             PRIVATE_SETTINGS.add(TOUCHSCREEN_GESTURE_HAPTIC_FEEDBACK);
             PRIVATE_SETTINGS.add(HIGH_TOUCH_POLLING_RATE_ENABLE);
             PRIVATE_SETTINGS.add(HIGH_TOUCH_SENSITIVITY_ENABLE);
@@ -11521,17 +11506,6 @@ public final class Settings {
          */
         @Readable
         public static final String PEOPLE_STRIP = "people_strip";
-
-        /**
-         * Display style of the status bar battery information
-         * 0: Display the battery an icon in portrait mode
-         * 1: Display the battery as a circle
-         * 2: Display the battery as a dotted circle
-         * 3: Display the battery as a text
-         * default: 0
-         * @hide
-         */
-        public static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
 
         /**
          * Toggle to control adding a timestamp to screenshot EXIF

@@ -25,10 +25,7 @@ import android.graphics.Path
 import android.graphics.PixelFormat
 import android.graphics.Rect
 import android.graphics.RectF
-import android.graphics.Typeface
 import android.graphics.drawable.Drawable
-import android.provider.Settings.System
-import android.os.UserHandle
 import android.util.PathParser
 import android.util.TypedValue
 
@@ -109,12 +106,6 @@ open class ThemedBatteryDrawable(private val context: Context, frameColor: Int) 
             postInvalidate()
         }
 
-    var showPercent = false
-        set(value) {
-            field = value
-            postInvalidate()
-        }
-
     private val fillColorStrokePaint = Paint(Paint.ANTI_ALIAS_FLAG).also { p ->
         p.color = frameColor
         p.alpha = 255
@@ -143,15 +134,6 @@ open class ThemedBatteryDrawable(private val context: Context, frameColor: Int) 
         p.style = Paint.Style.FILL_AND_STROKE
     }
 
-    private val chargePaint = Paint(Paint.ANTI_ALIAS_FLAG).also { p ->
-        p.color = Utils.getColorStateListDefaultColor(context, R.color.batterymeter_bolt_color)
-        p.alpha = 255
-        p.isDither = true
-        p.strokeWidth = 0f
-        p.style = Paint.Style.FILL_AND_STROKE
-        p.blendMode = BlendMode.SRC
-    }
-
     private val errorPaint = Paint(Paint.ANTI_ALIAS_FLAG).also { p ->
         p.color = Utils.getColorStateListDefaultColor(context, R.color.batterymeter_plus_color)
         p.alpha = 255
@@ -170,32 +152,14 @@ open class ThemedBatteryDrawable(private val context: Context, frameColor: Int) 
         p.style = Paint.Style.FILL_AND_STROKE
     }
 
-    private val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).also { p ->
-        p.typeface = Typeface.create("sans-serif-condensed", Typeface.BOLD)
-        p.textAlign = Paint.Align.CENTER
-    }
-
     init {
         val density = context.resources.displayMetrics.density
         intrinsicHeight = (Companion.HEIGHT * density).toInt()
         intrinsicWidth = (Companion.WIDTH * density).toInt()
 
-        val setCustomBatteryLevelTint = System.getIntForUser(
-            context.getContentResolver(),
-            System.BATTERY_LEVEL_COLORS, 0, UserHandle.USER_CURRENT
-        ) === 1
-        
         val res = context.resources
-        val levels = if(setCustomBatteryLevelTint)
-            res.obtainTypedArray(R.array.custom_batterymeter_color_levels)
-        else
-            res.obtainTypedArray(R.array.batterymeter_color_levels)
-        
-        val colors = if(setCustomBatteryLevelTint) 
-            res.obtainTypedArray(R.array.custom_batterymeter_color_values)
-        else
-            res.obtainTypedArray(R.array.batterymeter_color_values)
-            
+        val levels = res.obtainTypedArray(R.array.batterymeter_color_levels)
+        val colors = res.obtainTypedArray(R.array.batterymeter_color_values)
         val N = levels.length()
         colorLevels = IntArray(2 * N)
         for (i in 0 until N) {
@@ -242,7 +206,7 @@ open class ThemedBatteryDrawable(private val context: Context, frameColor: Int) 
             // Clip out the bolt shape
             unifiedPath.op(scaledBolt, Path.Op.DIFFERENCE)
             if (!invertFillIcon) {
-                c.drawPath(scaledBolt, chargePaint)
+                c.drawPath(scaledBolt, fillPaint)
             }
         }
 
@@ -275,7 +239,7 @@ open class ThemedBatteryDrawable(private val context: Context, frameColor: Int) 
         if (charging) {
             c.clipOutPath(scaledBolt)
             if (invertFillIcon) {
-                c.drawPath(scaledBolt, chargePaint)
+                c.drawPath(scaledBolt, fillColorStrokePaint)
             } else {
                 c.drawPath(scaledBolt, fillColorStrokeProtection)
             }
@@ -283,30 +247,9 @@ open class ThemedBatteryDrawable(private val context: Context, frameColor: Int) 
             // If power save is enabled draw the perimeter path with colorError
             c.drawPath(scaledErrorPerimeter, errorPaint)
             // And draw the plus sign on top of the fill
-            if (!showPercent) {
-                c.drawPath(scaledPlus, errorPaint)
-            }
+            c.drawPath(scaledPlus, errorPaint)
         }
         c.restore()
-
-        if (!charging && batteryLevel < 100 && showPercent) {
-            textPaint.textSize = bounds.height() * 0.38f
-            val textHeight = -textPaint.fontMetrics.ascent
-            val pctX = bounds.width() * 0.5f
-            val pctY = (bounds.height() + textHeight) * 0.5f
-
-            textPaint.color = fillColor
-            c.drawText(batteryLevel.toString(), pctX, pctY, textPaint)
-
-            textPaint.color = fillColor.toInt().inv() or 0xFF000000.toInt()
-            c.save()
-            c.clipRect(fillRect.left,
-                    fillRect.top + (fillRect.height() * (1 - fillFraction)),
-                    fillRect.right,
-                    fillRect.bottom)
-            c.drawText(batteryLevel.toString(), pctX, pctY, textPaint)
-            c.restore()
-        }
     }
 
     private fun batteryColorForLevel(level: Int): Int {

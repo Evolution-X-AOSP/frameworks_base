@@ -16,13 +16,6 @@ package com.android.systemui.qs;
 
 import static android.app.StatusBarManager.DISABLE2_QUICK_SETTINGS;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
-import static com.android.systemui.battery.BatteryMeterView.BATTERY_STYLE_CIRCLE;
-import static com.android.systemui.battery.BatteryMeterView.BATTERY_STYLE_DOTTED_CIRCLE;
-import static com.android.systemui.battery.BatteryMeterView.BATTERY_STYLE_FULL_CIRCLE;
-import static com.android.systemui.battery.BatteryMeterView.BATTERY_STYLE_BIG_CIRCLE;
-import static com.android.systemui.battery.BatteryMeterView.BATTERY_STYLE_BIG_DOTTED_CIRCLE;
-import static com.android.systemui.battery.BatteryMeterView.BATTERY_STYLE_RLANDSCAPE;
-import static com.android.systemui.battery.BatteryMeterView.BATTERY_STYLE_LANDSCAPE;
 
 import android.content.Context;
 import android.content.Intent;
@@ -190,7 +183,6 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
         // QS will always show the estimate, and BatteryMeterView handles the case where
         // it's unavailable or charging
         mBatteryRemainingIcon.setPercentShowMode(BatteryMeterView.MODE_ESTIMATE);
-        setBatteryClickable(true);
 
         mIconsAlphaAnimatorFixed = new TouchAnimator.Builder()
                 .addFloat(mIconContainer, "alpha", 0, 1)
@@ -269,9 +261,6 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
             builder.appendPath(Long.toString(System.currentTimeMillis()));
             Intent todayIntent = new Intent(Intent.ACTION_VIEW, builder.build());
             mActivityStarter.postStartActivityDismissingKeyguard(todayIntent, 0);
-        } else if (v == mBatteryRemainingIcon) {
-            mActivityStarter.postStartActivityDismissingKeyguard(new Intent(
-                    Intent.ACTION_POWER_USAGE_SUMMARY),0);
         }
     }
 
@@ -354,16 +343,6 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
             mNetworkTraffic.setTintColor(textColor);
             if (mTintedIconManager != null) {
                 mTintedIconManager.setTint(textColor);
-            }
-            if (mBatteryRemainingIcon.getBatteryStyle() == BATTERY_STYLE_CIRCLE
-                || mBatteryRemainingIcon.getBatteryStyle() == BATTERY_STYLE_DOTTED_CIRCLE
-                || mBatteryRemainingIcon.getBatteryStyle() == BATTERY_STYLE_FULL_CIRCLE
-                || mBatteryRemainingIcon.getBatteryStyle() == BATTERY_STYLE_BIG_CIRCLE
-                || mBatteryRemainingIcon.getBatteryStyle() == BATTERY_STYLE_BIG_DOTTED_CIRCLE
-                || mBatteryRemainingIcon.getBatteryStyle() == BATTERY_STYLE_RLANDSCAPE
-                || mBatteryRemainingIcon.getBatteryStyle() == BATTERY_STYLE_LANDSCAPE) {
-                textColorSecondary = Utils.getColorAttrDefaultColor(mContext,
-                        android.R.attr.textColorHint);
             }
             mBatteryRemainingIcon.updateColors(mTextColorPrimary, textColorSecondary,
                     mTextColorPrimary);
@@ -474,9 +453,8 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
             mIconsAlphaAnimator = null;
             mIconContainer.setAlpha(1);
             mBatteryRemainingIcon.setAlpha(1);
-            mBatteryRemainingIcon.setClickable(true);
         }
-        setBatteryClickable(mExpanded || !visibility);
+
     }
 
     /** */
@@ -485,7 +463,6 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
         mExpanded = expanded;
         quickQSPanelController.setExpanded(expanded);
         updateEverything();
-        setBatteryClickable(mExpanded || mPrivacyChip.getVisibility() != View.VISIBLE);
     }
 
     /**
@@ -660,11 +637,6 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
     public void setExpandedScrollAmount(int scrollY) {
         mStatusIconsView.setScrollY(scrollY);
         mDatePrivacyView.setScrollY(scrollY);
-    }
-
-    private void setBatteryClickable(boolean clickable) {
-        mBatteryRemainingIcon.setOnClickListener(clickable ? this : null);
-        mBatteryRemainingIcon.setClickable(clickable);
     }
 
     @Override
