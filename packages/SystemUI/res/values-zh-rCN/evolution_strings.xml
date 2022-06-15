@@ -222,4 +222,7 @@
     <string name="refresh_rate_forced_mode_placeholder"><xliff:g id="refresh_rate" example="60">%1$d</xliff:g> Hz</string>
     <!-- Google Lens Screenshot string -->
     <string name="lensss">镜头</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">智能像素</string>
+    <string name="quick_settings_smart_pixels_on_power_save">自动启用智能像素</string>
 </resources>
