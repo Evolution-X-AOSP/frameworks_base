@@ -221,4 +221,7 @@
     <string name="refresh_rate_forced_mode_placeholder"><xliff:g id="refresh_rate" example="60">%1$d</xliff:g> Гц</string>
     <!-- Google Lens Screenshot string -->
     <string name="lensss">Об\'єктив</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Розумні пікселі</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Автоматичне увімкнення розумних пікселів</string>
 </resources>
