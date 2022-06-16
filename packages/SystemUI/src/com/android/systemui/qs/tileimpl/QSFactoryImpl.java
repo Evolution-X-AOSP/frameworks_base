@@ -75,6 +75,7 @@ import com.android.systemui.qs.tiles.UiModeNightTile;
 import com.android.systemui.qs.tiles.UsbTetherTile;
 import com.android.systemui.qs.tiles.VolumeTile;
 import com.android.systemui.qs.tiles.VpnTile;
+import com.android.systemui.qs.tiles.VPNTetheringTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
 import com.android.systemui.util.leak.GarbageMonitor;
@@ -140,6 +141,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<OnTheGoTile> mOnTheGoTileProvider;
     private final Provider<CPUInfoTile> mCPUInfoTileProvider;
     private final Provider<ScreenshotTile> mScreenshotTileProvider;
+    private final Provider<VPNTetheringTile> mVPNTetheringTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
     private final Provider<CustomTile.Builder> mCustomTileBuilderProvider;
@@ -198,7 +200,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<FPSInfoTile> fpsInfoTileProvider,
             Provider<OnTheGoTile> onTheGoTileProvider,
             Provider<CPUInfoTile> cpuInfoTileProvider,
-            Provider<ScreenshotTile> screenshotTileProvider) {
+            Provider<ScreenshotTile> screenshotTileProvider,
+            Provider<VPNTetheringTile> vpnTetheringTileProvider) {
         mQsHostLazy = qsHostLazy;
         mCustomTileBuilderProvider = customTileBuilderProvider;
 
@@ -253,6 +256,7 @@ public class QSFactoryImpl implements QSFactory {
         mOnTheGoTileProvider = onTheGoTileProvider;
         mCPUInfoTileProvider = cpuInfoTileProvider;
         mScreenshotTileProvider = screenshotTileProvider;
+        mVPNTetheringTileProvider = vpnTetheringTileProvider;
     }
 
     /** Creates a tile with a type based on {@code tileSpec} */
@@ -371,6 +375,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mCPUInfoTileProvider.get();
             case "screenshot":
                 return mScreenshotTileProvider.get();
+            case "vpn_tethering":
+                return mVPNTetheringTileProvider.get();
         }
 
         // Custom tiles
