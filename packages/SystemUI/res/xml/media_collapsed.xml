@@ -36,8 +36,10 @@
         android:translationY="@dimen/qs_media_icon_offset"
         android:translationX="@dimen/qs_media_icon_offset"
         android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@id/album_art"
-        app:layout_constraintBottom_toBottomOf="@id/album_art"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="9dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/media_seamless"
         />
 
     <Constraint
