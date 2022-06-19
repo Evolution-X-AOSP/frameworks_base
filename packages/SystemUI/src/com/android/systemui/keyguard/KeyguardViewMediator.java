@@ -117,6 +117,7 @@ import com.android.internal.policy.IKeyguardStateCallback;
 import com.android.internal.policy.ScreenDecorationsUtils;
 import com.android.internal.statusbar.IStatusBarService;
 import com.android.internal.util.LatencyTracker;
+import com.android.internal.util.evolution.udfps.CustomUdfpsUtils;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.keyguard.KeyguardConstants;
 import com.android.keyguard.KeyguardDisplayManager;
@@ -1670,7 +1671,10 @@ public class KeyguardViewMediator implements CoreStartable, Dumpable,
         // explicitly DO NOT want to call
         // mKeyguardViewControllerLazy.get().setKeyguardGoingAwayState(false)
         // here, since that will mess with the device lock state.
-        mUpdateMonitor.dispatchKeyguardGoingAway(false);
+        boolean isUdfps = deviceHasUdfps();
+        if (!isUdfps) {
+            mUpdateMonitor.dispatchKeyguardGoingAway(false);
+        }
 
         notifyStartedGoingToSleep();
     }
@@ -3884,5 +3888,9 @@ public class KeyguardViewMediator implements CoreStartable, Dumpable,
                 wrapped.onAnimationStart(transit, apps, wallpapers, nonApps, finishedCallback);
             }
         };
+    }
+
+    private boolean deviceHasUdfps() {
+        return CustomUdfpsUtils.hasUdfpsSupport(mContext);
     }
 }
