@@ -121,5 +121,6 @@ public class SystemSettings {
         Settings.System.STATUS_BAR_NOTIF_COUNT,
         Settings.System.HEADS_UP_NOTIFICATIONS_THRESHOLD,
         Settings.System.KEYGUARD_QUICK_TOGGLES,
+        Settings.System.QS_PANEL_STYLE
     };
 }

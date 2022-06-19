@@ -14,4 +14,6 @@
     <color name="parallel_badge_7">#7200b6</color>
     <color name="parallel_badge_8">#006f72</color>
     <color name="parallel_badge_9">#eed315</color>
+
+    <color name="qs_translucent_brightness_bg">#33FFFFFF</color>
 </resources>
