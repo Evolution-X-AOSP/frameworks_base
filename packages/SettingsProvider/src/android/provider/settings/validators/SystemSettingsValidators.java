@@ -309,5 +309,6 @@ public class SystemSettingsValidators {
                         return true;
                     }
                 });
+        VALIDATORS.put(System.QS_PANEL_STYLE, NON_NEGATIVE_INTEGER_VALIDATOR);
     }
 }
