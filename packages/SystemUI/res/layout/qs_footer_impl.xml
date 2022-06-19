@@ -37,19 +37,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_gravity="center_vertical">
+            android:layout_gravity="center_vertical"
+            android:paddingHorizontal="@dimen/qs_tile_margin_horizontal">
 
             <TextView
                 android:id="@+id/build"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:paddingStart="@dimen/qs_tile_margin_horizontal"
                 android:paddingEnd="4dp"
                 android:layout_weight="1"
-                android:clickable="true"
                 android:ellipsize="marquee"
-                android:focusable="true"
-                android:gravity="start|center_vertical"
+                android:gravity="center_vertical"
                 android:singleLine="true"
                 android:textAppearance="@style/TextAppearance.QS.Status.Build"
                 android:visibility="gone" />
@@ -67,6 +65,12 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:visibility="gone" />
+
+            <View
+                android:id="@+id/spacer"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
 
         </LinearLayout>
 
