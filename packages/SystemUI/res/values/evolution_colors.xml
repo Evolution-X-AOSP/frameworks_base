@@ -11,4 +11,6 @@
     <!-- Keyguard buttons (udfps, affordance etc.) -->
     <color name="keyguard_button_fg_color">@android:color/white</color>
     <color name="keyguard_button_bg_color">#80000000</color>
+
+    <color name="qs_ripple_color">@android:color/system_accent1_400</color>
 </resources>
