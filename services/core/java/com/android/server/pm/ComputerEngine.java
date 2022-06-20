@@ -5132,7 +5132,7 @@ public class ComputerEngine implements Computer {
             }
         }
 
-        if (!packageName.equals("com.aurora.store") && installerPackageName != null) {
+        if ("com.aurora.store".equals(installerPackageName)) {
             installerPackageName = "com.android.vending";
         }
 
