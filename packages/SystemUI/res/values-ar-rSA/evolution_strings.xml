@@ -15,8 +15,13 @@
     <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
     <string name="screenrecord_delete_description">تم حذف تسجيل الشاشة</string>
     <string name="screenrecord_stopdot_label">إظهار نقطة التوقف\nاضغط مطولاً لتحريكها</string>
+    <string name="screenrecord_stopdot_summary">اضغط مطوﻻ لتحريكها</string>
     <string name="screenrecord_lowquality_label">جودة أقل لحجم ملف أصغر</string>
+    <string name="screenrecord_lowquality_summary">لحجم ملف أصغر</string>
     <string name="screenrecord_longer_timeout_switch_label">الحد الأقصى لحجم الملف\nحد حجم التسجيل إلى 15جيجابايت</string>
+    <string name="screenrecord_longer_timeout_switch_summary">الحد من حجم التسجيل إلى 15 جيجابايت</string>
+    <string name="screenrecord_skip_time_label">تخطي المؤقت</string>
+    <string name="screenrecord_skip_time_summary">إزالة 3 ثانية انتظار</string>
     <!-- Alert slider extras -->
     <string name="volume_ringer_priority_only">أولوية</string>
     <string name="volume_ringer_alarms_only">التنبيهات</string>
@@ -217,4 +222,7 @@
     <string name="refresh_rate_forced_mode_placeholder"><xliff:g id="refresh_rate" example="60">%1$d</xliff:g> هرتز</string>
     <!-- Google Lens Screenshot string -->
     <string name="lensss">عدسة</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">بكسل ذكي</string>
+    <string name="quick_settings_smart_pixels_on_power_save">تمكين الدقة الذكية تلقائياً</string>
 </resources>
