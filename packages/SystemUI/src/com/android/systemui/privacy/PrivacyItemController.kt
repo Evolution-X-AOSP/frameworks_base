@@ -331,8 +331,8 @@ class PrivacyItemController @Inject constructor(
         if (type == PrivacyType.TYPE_LOCATION && !locationAvailable) {
             return null
         }
-        if ((type == PrivacyType.TYPE_CAMERA ||  type == PrivacyType.TYPE_MICROPHONE)
-                && !micCameraAvailable) {
+        if ((type == PrivacyType.TYPE_CAMERA || type == PrivacyType.TYPE_MICROPHONE)
+                 && !micCameraAvailable) {
             return null
         }
         val app = PrivacyApplication(appOpItem.packageName, appOpItem.uid)
