@@ -1655,7 +1655,9 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
                     mDialog.dismiss();
                     tryToRemoveCaptionsTooltip();
                     mExpanded = false;
-                    mExpandRows.setExpanded(mExpanded);
+                    if (mExpandRows != null) {
+                        mExpandRows.setExpanded(mExpanded);
+                    }
                     mAnimatingRows = 0;
                     mDefaultRow = null;
                     mIsAnimatingDismiss = false;
