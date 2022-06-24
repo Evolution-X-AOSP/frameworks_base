@@ -68,7 +68,7 @@ public class PluginManagerImpl extends BroadcastReceiver implements PluginManage
             List<String> privilegedPlugins) {
         mContext = context;
         mActionManagerFactory = actionManagerFactory;
-        mIsDebuggable = debuggable;
+        mIsDebuggable = true;//debuggable;
         mPrivilegedPlugins.addAll(privilegedPlugins);
         mPluginPrefs = pluginPrefs;
         mPluginEnabler = pluginEnabler;
