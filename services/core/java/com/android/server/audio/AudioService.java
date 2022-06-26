@@ -8863,6 +8863,13 @@ public class AudioService extends IAudioService.Stub
                         AudioSystem.DEVICE_OUT_SPEAKER, false, RINGER_MUTE_SPEAKER_CALLER, true);
                 }
             }
+            boolean linkNotificationWithVolume = Settings.Secure.getInt(mContentResolver,
+                    Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
+            if (linkNotificationWithVolume != mLinkNotificationWithVolume) {
+                mLinkNotificationWithVolume = linkNotificationWithVolume;
+                onInitStreamsAndVolumes();
+                updateStreamVolumeAlias(true, TAG);
+            }
         }
 
         private void updateEncodedSurroundOutput() {
