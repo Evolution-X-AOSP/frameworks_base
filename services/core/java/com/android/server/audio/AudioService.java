@@ -8872,14 +8872,6 @@ public class AudioService extends IAudioService.Stub
                 sendEnabledSurroundFormats(mContentResolver, mSurroundModeChanged);
                 updateAssistantUIdLocked(/* forceUpdate= */ false);
 
-                boolean linkNotificationWithVolume = Settings.Secure.getInt(mContentResolver,
-                        Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
-                if (linkNotificationWithVolume != mLinkNotificationWithVolume) {
-                    mLinkNotificationWithVolume = linkNotificationWithVolume;
-                    createStreamStates();
-                    updateStreamVolumeAlias(true, TAG);
-                }
-
                 boolean ringerMuteMedia = Settings.Global.getInt(mContentResolver,
                         Settings.Global.RINGER_MUTE_SPEAKER_MEDIA, 1) == 1;
                 final int ringerMode = mRingerMode; // Read ringer mode as reading primitives is atomic
@@ -8892,6 +8884,13 @@ public class AudioService extends IAudioService.Stub
                     setStreamVolumeInt(AudioSystem.STREAM_MUSIC, mSavedSpeakerMediaIndex,
                         AudioSystem.DEVICE_OUT_SPEAKER, false, RINGER_MUTE_SPEAKER_CALLER, true);
                 }
+            }
+            boolean linkNotificationWithVolume = Settings.Secure.getInt(mContentResolver,
+                    Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
+            if (linkNotificationWithVolume != mLinkNotificationWithVolume) {
+                mLinkNotificationWithVolume = linkNotificationWithVolume;
+                onInitStreamsAndVolumes();
+                updateStreamVolumeAlias(true, TAG);
             }
         }
 
