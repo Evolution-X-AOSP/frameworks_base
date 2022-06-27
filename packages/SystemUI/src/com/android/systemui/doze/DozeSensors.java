@@ -209,7 +209,8 @@ public class DozeSensors {
                         true /* configured */,
                         DozeLog.REASON_SENSOR_DOUBLE_TAP,
                         dozeParameters.doubleTapReportsTouchCoordinates(),
-                        true /* touchscreen */
+                        true /* touchscreen */,
+                        !dozeParameters.doubleTapNeedsProximityCheck() /* performsProxCheck */
                 ),
                 new TriggerSensor(
                         findSensors(config.tapSensorTypeMapping()),
@@ -235,6 +236,7 @@ public class DozeSensors {
                         true /* touchscreen */,
                         false /* ignoresSetting */,
                         dozeParameters.longPressUsesProx() /* requiresProx */,
+                        !dozeParameters.longPressNeedsProximityCheck() /* performsProxCheck */,
                         true /* immediatelyReRegister */,
                         false /* requiresAod */
                 ),
@@ -248,6 +250,7 @@ public class DozeSensors {
                         true /* touchscreen */,
                         false /* ignoresSetting */,
                         dozeParameters.longPressUsesProx(),
+                        !dozeParameters.longPressNeedsProximityCheck() /* performsProxCheck */,
                         false /* immediatelyReRegister */,
                         !mScreenOffUdfpsEnabled /* requiresAod */
                 ),
