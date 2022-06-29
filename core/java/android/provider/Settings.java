@@ -6431,6 +6431,12 @@ public final class Settings {
         public static final String ENABLE_TASKBAR = "enable_taskbar";
 
         /**
+         * Whether to enable fingerprint wake-and-unlock.
+         * @hide
+         */
+        public static final String FINGERPRINT_WAKE_UNLOCK = "fingerprint_wake_unlock";
+
+        /**
          * boolean value. toggles compact layout in navigation bar
          * @hide
          */
