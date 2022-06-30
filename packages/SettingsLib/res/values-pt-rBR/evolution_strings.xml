@@ -50,4 +50,5 @@
     <string name="power_remaining_turbo_charging_duration_only">Carregamento Turbo (<xliff:g id="time">%1$s</xliff:g> restante para completar a carga)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
     <string name="battery_info_status_turbo_charging">Carregamento Turbo</string>
+    <!-- NR Types -->
 </resources>
