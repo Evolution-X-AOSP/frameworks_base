@@ -50,4 +50,5 @@
     <string name="power_remaining_turbo_charging_duration_only">Turbo зарядка (<xliff:g id="time">%1$s</xliff:g> осталось до полной зарядки)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
     <string name="battery_info_status_turbo_charging">Turbo зарядка</string>
+    <!-- NR Types -->
 </resources>
