@@ -5505,12 +5505,6 @@ public final class Settings {
         public static final String ARTWORK_MEDIA_BACKGROUND_BLUR_RADIUS = "artwork_media_background_blur_radius";
 
         /**
-         * Adjust fade filter percent for background media
-         * @hide
-         */
-        public static final String ARTWORK_MEDIA_BACKGROUND_FADE_PERCENT = "artwork_media_background_fade_percent";
-
-        /**
          * Adjust alpha for background media
          * @hide
          */
@@ -6104,12 +6098,6 @@ public final class Settings {
          * @hide
          */
         public static final String LOCKSCREEN_ALBUMART_FILTER = "lockscreen_albumart_filter";
-
-        /**
-         * Adjust media artwork wallpaper blur level on lockscreen
-         * @hide
-         */
-        public static final String LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
 
         /**
          * Enable/disable Bluetooth Battery bar

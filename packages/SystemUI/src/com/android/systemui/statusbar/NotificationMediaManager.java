@@ -36,7 +36,6 @@ import android.media.session.MediaSession;
 import android.media.session.PlaybackState;
 import android.os.AsyncTask;
 import android.os.Trace;
-import android.os.UserHandle;
 import android.provider.Settings;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.NotificationStats;
@@ -139,8 +138,6 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
     private LockscreenWallpaper mLockscreenWallpaper;
 
     private final DelayableExecutor mMainExecutor;
-
-    private float mLockscreenMediaBlur;
 
     private final Context mContext;
     private final ArrayList<MediaListener> mMediaListeners;
@@ -894,21 +891,7 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
     };
 
     private Bitmap processArtwork(Bitmap artwork) {
-        switch (mAlbumArtFilter) {
-            case 0:
-            default:
-                return mMediaArtworkProcessor.processArtwork(mContext, artwork, mLockscreenMediaBlur);
-            case 1:
-                return Bitmap.createBitmap(ImageHelper.toGrayscale(artwork));
-            case 2:
-                return Bitmap.createBitmap(ImageHelper.getColoredBitmap(new BitmapDrawable(mBackdropBack.getResources(), artwork), mContext.getResources().getColor(R.color.accent_device_default_light)));
-        }
-    }
-
-    public void setLockScreenMediaBlurLevel() {
-        mLockscreenMediaBlur = (float) Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.LOCKSCREEN_MEDIA_BLUR, 25,
-                UserHandle.USER_CURRENT);
+        return mMediaArtworkProcessor.processArtwork(mContext, artwork);
     }
 
     @MainThread
