@@ -81,4 +81,7 @@
 
     <!-- Update battery info every second when device is charging -->
     <bool name="config_alternateFastchargeInfoUpdate">false</bool>
+
+    <!-- Charging info current divider, if needed -->
+    <integer name="config_battCurrentDivider" translatable="false">1000</integer>
 </resources>
