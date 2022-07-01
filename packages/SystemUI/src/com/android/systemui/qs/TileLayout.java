@@ -138,7 +138,7 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
         return true;
     }
 
-    private boolean updateColumns() {
+    public boolean updateColumns() {
         int oldColumns = mColumns;
     	boolean isPortrait = getResources().getConfiguration().orientation
                 == Configuration.ORIENTATION_PORTRAIT;
