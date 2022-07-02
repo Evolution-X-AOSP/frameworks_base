@@ -153,8 +153,8 @@ public class QSPanel extends LinearLayout implements Tunable {
                 R.dimen.qs_tile_margin_vertical);
 	mMaxColumnsPortrait = Math.max(2, getResources().getInteger(R.integer.quick_qs_panel_num_columns));
 	mMaxColumnsPortrait = OmniUtils.getQuickQSColumnsPortrait(context, mMaxColumnsPortrait);
-	mMaxColumnsLandscape = Math.max(2, getResources().getInteger(R.integer.quick_qs_panel_num_columns_landscape));
-	mMaxColumnsLandscape = OmniUtils.getQuickQSColumnsPortrait(context, mMaxColumnsLandscape);
+	mMaxColumnsLandscape = Math.max(4, getResources().getInteger(R.integer.quick_qs_panel_num_columns_landscape));
+	mMaxColumnsLandscape = OmniUtils.getQuickQSColumnsLandscape(context, mMaxColumnsLandscape);
         mContext = context;
 
         setOrientation(VERTICAL);
@@ -454,6 +454,14 @@ public class QSPanel extends LinearLayout implements Tunable {
         super.onConfigurationChanged(newConfig);
         mOnConfigurationChangedListeners.forEach(
                 listener -> listener.onConfigurationChange(newConfig));
+	if (mTileLayout != null) {
+            boolean isLandscape = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE;
+            if (isLandscape) {
+               mTileLayout.setMaxColumns(mTileLayout.getResourceColumnsLand());
+            } else {
+               mTileLayout.setMaxColumns(mTileLayout.getResourceColumnsPortrait());
+            }
+        }
     }
 
     @Override
