@@ -74,6 +74,9 @@ LOCAL_REQUIRED_MODULES := \
     IconPackPUISettingsOverlay \
     IconPackPUISystemUIOverlay \
     IconPackPUIThemePickerOverlay \
+    IconPackXperiaAndroidOverlay \
+    IconPackXperiaSettingsOverlay \
+    IconPackXperiaSystemUIOverlay \
     IconShapeCloudyOverlay \
     IconShapeCylinderOverlay \
     IconShapeFlowerOverlay \
