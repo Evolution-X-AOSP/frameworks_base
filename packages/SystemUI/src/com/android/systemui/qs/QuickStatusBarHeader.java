@@ -187,6 +187,7 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
         // Tint for the battery icons are handled in setupHost()
         mBatteryRemainingIcon = findViewById(R.id.batteryRemainingIcon);
         mBatteryRemainingIcon.setOnClickListener(this);
+        mBatteryRemainingIcon.mQS = true;
 
         mNetworkTraffic = findViewById(R.id.networkTraffic);
 
