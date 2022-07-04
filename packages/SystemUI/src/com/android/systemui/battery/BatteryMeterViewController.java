@@ -65,11 +65,13 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
         public void onTuningChanged(String key, String newValue) {
             switch (key) {
                 case STATUS_BAR_BATTERY_STYLE:
+                    if (mView.mQS) break;
                     int batteryStyle = TunerService.parseInteger(newValue,
                             BatteryMeterView.BATTERY_STYLE_PORTRAIT);
                     mView.setBatteryStyle(batteryStyle);
                     break;
                 case STATUS_BAR_SHOW_BATTERY_PERCENT:
+                    if (mView.mQS) break;
                     int showBatteryPercent =
                             TunerService.parseInteger(newValue, 0);
                     mView.setBatteryPercent(showBatteryPercent);
