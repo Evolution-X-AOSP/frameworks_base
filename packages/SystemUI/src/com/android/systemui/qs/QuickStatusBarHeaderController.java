@@ -201,7 +201,9 @@ class QuickStatusBarHeaderController extends ViewController<QuickStatusBarHeader
 
         @Override
         public void onDemoModeStarted() {
-            mClockView.onDemoModeStarted();
+            if (mClockView != null) {
+                mClockView.onDemoModeStarted();
+            }
         }
 
         @Override
