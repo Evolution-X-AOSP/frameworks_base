@@ -546,7 +546,7 @@
     <!-- Media controls always have light background -->
     <style name="MediaPlayer" parent="@*android:style/Theme.DeviceDefault.Light">
         <item name="android:textColor">@*android:color/white</item>
-        <item name="android:backgroundTint">@android:color/system_accent1_600</item>
+        <item name="android:backgroundTint">@android:color/system_accent1_400</item>
     </style>
 
     <style name="MediaPlayer.ProgressBar" parent="@android:style/Widget.ProgressBar.Horizontal">
