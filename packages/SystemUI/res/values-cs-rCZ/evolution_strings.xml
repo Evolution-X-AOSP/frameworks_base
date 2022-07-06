@@ -76,8 +76,6 @@
     <string name="quick_settings_region_screenshot_label">Částečný</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Snímek obrazovky odstraněn</string>
-    <!-- Statusbar tuner -->
-    <string name="statusbar_items_title">Ikony na stavovém řádku</string>
     <!-- Name of status bar icons. -->
     <string name="status_bar_call_strength">Síla signálu hovoru</string>
     <string name="status_bar_data_saver">Spořič dat</string>

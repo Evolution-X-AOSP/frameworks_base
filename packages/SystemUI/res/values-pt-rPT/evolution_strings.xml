@@ -76,8 +76,6 @@
     <string name="quick_settings_region_screenshot_label">Parcial</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Captura de ecrã eliminada</string>
-    <!-- Statusbar tuner -->
-    <string name="statusbar_items_title">Ícones da barra de estado</string>
     <!-- Name of status bar icons. -->
     <string name="status_bar_call_strength">Intensidade do sinal de chamada</string>
     <string name="status_bar_data_saver">Poupança de dados</string>

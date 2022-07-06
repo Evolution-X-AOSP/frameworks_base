@@ -76,8 +76,6 @@
     <string name="quick_settings_region_screenshot_label">صورة جزئية للشاشة</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">تم حذف لقطة الشاشة</string>
-    <!-- Statusbar tuner -->
-    <string name="statusbar_items_title">أيقونات شريط الحالة</string>
     <!-- Name of status bar icons. -->
     <string name="status_bar_call_strength">قوة المكالمة</string>
     <string name="status_bar_data_saver">موفر البيانات</string>
