@@ -228,6 +228,7 @@
 
     <!-- Google Lens Screenshot string -->
     <string name="lensss">Lens</string>
+    <string name="lens_unavailable">Google Lens is not installed</string>
 
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Smart Pixels</string>
