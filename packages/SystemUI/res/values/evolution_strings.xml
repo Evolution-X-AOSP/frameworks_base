@@ -100,6 +100,7 @@
 
     <!-- Google lens screenshot notification -->
     <string name="lens">Lens</string>
+    <string name="lens_unavailable">Google Lens is not installed</string>
 
     <!-- Alert slide extras -->
     <string name="volume_ringer_priority_only">Priority</string>
