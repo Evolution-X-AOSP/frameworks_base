@@ -76,8 +76,6 @@
     <string name="quick_settings_region_screenshot_label">部分</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">屏幕截图已删除</string>
-    <!-- Statusbar tuner -->
-    <string name="statusbar_items_title">状态栏图标</string>
     <!-- Name of status bar icons. -->
     <string name="status_bar_call_strength">通话强度</string>
     <string name="status_bar_data_saver">流量节省程序</string>
