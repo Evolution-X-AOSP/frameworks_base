@@ -76,8 +76,6 @@
     <string name="quick_settings_region_screenshot_label">Một phần</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Đã xóa ảnh chụp màn hình</string>
-    <!-- Statusbar tuner -->
-    <string name="statusbar_items_title">Biểu tượng thanh trạng thái</string>
     <!-- Name of status bar icons. -->
     <string name="status_bar_call_strength">Cường độ cuộc gọi</string>
     <string name="status_bar_data_saver">Trình tiết kiệm dữ liệu</string>
