@@ -222,4 +222,11 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Smart Pixels</string>
     <string name="quick_settings_smart_pixels_on_power_save">Automaticky povolit Smart Pixels</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">Hudba</string>
+    <string name="quick_settings_music_play">Přehrát</string>
+    <string name="quick_settings_music_pause">Pozastavit</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Jazyk</string>
+    <string name="quick_settings_locale_more_locales_toast">Chcete-li povolit funkci přepínání, nastavte více jazyků</string>
 </resources>
