@@ -223,4 +223,11 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">スマートピクセル</string>
     <string name="quick_settings_smart_pixels_on_power_save">自動有効</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">音楽</string>
+    <string name="quick_settings_music_play">再生</string>
+    <string name="quick_settings_music_pause">一時停止</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">言語</string>
+    <string name="quick_settings_locale_more_locales_toast">切り替え機能を有効にするには複数の言語を設定して下さい</string>
 </resources>
