@@ -265,6 +265,12 @@ applications that come with the platform
         <permission name="android.permission.PACKAGE_USAGE_STATS"/>
     </privapp-permissions>
 
+    <privapp-permissions package="com.android.providers.settings">
+        <permission name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
+        <permission name="android.permission.WRITE_DEVICE_CONFIG"/>
+        <permission name="android.permission.READ_DEVICE_CONFIG"/>
+    </privapp-permissions>
+
     <privapp-permissions package="com.android.providers.telephony">
         <permission name="android.permission.INTERACT_ACROSS_USERS"/>
         <permission name="android.permission.MODIFY_PHONE_STATE"/>
