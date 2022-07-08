@@ -208,5 +208,6 @@ public class SecureSettings {
         Settings.Secure.SHOW_BACK_ARROW_GESTURE,
         Settings.Secure.TETHERING_ALLOW_VPN_UPSTREAMS,
         Settings.Secure.IGNORE_AUTH_CONFIRMATION,
+        Settings.Secure.SHOW_WIFI_STANDARD_ICON,
     };
 }
