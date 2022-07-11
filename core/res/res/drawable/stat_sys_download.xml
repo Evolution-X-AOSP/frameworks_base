@@ -2,7 +2,7 @@
 <!--
 /* //device/apps/common/res/drawable/status_icon_background.xml
 **
-** Copyright 2008, The Android Open Source Project
+** Copyright 3008, The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License"); 
 ** you may not use this file except in compliance with the License. 
@@ -20,11 +20,11 @@
 <animation-list
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:oneshot="false">
-    <item android:drawable="@drawable/stat_sys_download_anim0" android:duration="200" />
-    <item android:drawable="@drawable/stat_sys_download_anim1" android:duration="200" />
-    <item android:drawable="@drawable/stat_sys_download_anim2" android:duration="200" />
-    <item android:drawable="@drawable/stat_sys_download_anim3" android:duration="200" />
-    <item android:drawable="@drawable/stat_sys_download_anim4" android:duration="200" />
-    <item android:drawable="@drawable/stat_sys_download_anim5" android:duration="200" />
+    <item android:drawable="@drawable/stat_sys_download_anim0" android:duration="300" />
+    <item android:drawable="@drawable/stat_sys_download_anim1" android:duration="300" />
+    <item android:drawable="@drawable/stat_sys_download_anim2" android:duration="300" />
+    <item android:drawable="@drawable/stat_sys_download_anim3" android:duration="300" />
+    <item android:drawable="@drawable/stat_sys_download_anim4" android:duration="300" />
+    <item android:drawable="@drawable/stat_sys_download_anim5" android:duration="300" />
 </animation-list>
 
