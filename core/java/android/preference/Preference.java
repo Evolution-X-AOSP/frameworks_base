@@ -1575,14 +1575,6 @@ public class Preference implements Comparable<Preference> {
         mDefaultValue = defaultValue;
     }
 
-    /**
-     * Returns whether the preference can be found in persistent storage
-     * @hide
-     */
-    protected boolean isPersisted() {
-        return getSharedPreferences().contains(mKey);
-    }
-
     private void dispatchSetInitialValue() {
         if (getPreferenceDataStore() != null) {
             onSetInitialValue(true, mDefaultValue);
@@ -1591,7 +1583,7 @@ public class Preference implements Comparable<Preference> {
 
         // By now, we know if we are persistent.
         final boolean shouldPersist = shouldPersist();
-        if (!shouldPersist || !isPersisted()) {
+        if (!shouldPersist || !getSharedPreferences().contains(mKey)) {
             if (mDefaultValue != null) {
                 onSetInitialValue(false, mDefaultValue);
             }
