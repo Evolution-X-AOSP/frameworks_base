@@ -44,11 +44,8 @@ import com.android.systemui.dagger.qualifiers.Background;
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.FalsingManager;
-import com.android.systemui.plugins.qs.DetailAdapter;
 import com.android.systemui.plugins.qs.QSTile.BooleanState;
 import com.android.systemui.plugins.statusbar.StatusBarStateController;
-import com.android.systemui.qs.QSDetailItems;
-import com.android.systemui.qs.QSDetailItems.Item;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.logging.QSLogger;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
@@ -73,7 +70,6 @@ public class CastTile extends QSTileImpl<BooleanState> {
             new Intent(Settings.ACTION_CAST_SETTINGS);
 
     private final CastController mController;
-    private final CastDetailAdapter mDetailAdapter;
     private final KeyguardStateController mKeyguard;
     private final NetworkController mNetworkController;
     private final DialogLaunchAnimator mDialogLaunchAnimator;
@@ -101,7 +97,6 @@ public class CastTile extends QSTileImpl<BooleanState> {
         super(host, backgroundLooper, mainHandler, falsingManager, metricsLogger,
                 statusBarStateController, activityStarter, qsLogger);
         mController = castController;
-        mDetailAdapter = new CastDetailAdapter();
         mKeyguard = keyguardStateController;
         mNetworkController = networkController;
         mDialogLaunchAnimator = dialogLaunchAnimator;
@@ -112,14 +107,8 @@ public class CastTile extends QSTileImpl<BooleanState> {
     }
 
     @Override
-    public DetailAdapter getDetailAdapter() {
-        return mDetailAdapter;
-    }
-
-    @Override
     public BooleanState newTileState() {
         BooleanState state = new BooleanState();
-        state.handlesLongClick = false;
         return state;
     }
 
@@ -140,12 +129,7 @@ public class CastTile extends QSTileImpl<BooleanState> {
 
     @Override
     public Intent getLongClickIntent() {
-        return new Intent(Settings.ACTION_CAST_SETTINGS);
-    }
-
-    @Override
-    protected void handleLongClick(@Nullable View view) {
-        handleClick(view);
+        return CAST_SETTINGS;
     }
 
     @Override
@@ -191,11 +175,6 @@ public class CastTile extends QSTileImpl<BooleanState> {
         return activeDevices;
     }
 
-    @Override
-    public void showDetail(boolean show) {
-        showDetail(null /* view */);
-    }
-
     private void showDetail(@Nullable View view) {
         mUiHandler.post(() -> {
             mDialog = MediaRouteDialogPresenter.createDialog(mContext, ROUTE_TYPE_REMOTE_DISPLAY,
@@ -203,7 +182,7 @@ public class CastTile extends QSTileImpl<BooleanState> {
                         mDialogLaunchAnimator.disableAllCurrentDialogsExitAnimations();
                         mDialog.dismiss();
                         mActivityStarter
-                                .postStartActivityDismissingKeyguard(getLongClickIntent(), 0);
+                                .postStartActivityDismissingKeyguard(CAST_SETTINGS, 0);
                     });
             SystemUIDialog.setShowForAllUsers(mDialog, true);
             SystemUIDialog.registerDismissListener(mDialog);
@@ -268,7 +247,6 @@ public class CastTile extends QSTileImpl<BooleanState> {
             state.forceExpandIcon = false;
         }
         state.stateDescription = state.stateDescription + ", " + state.secondaryLabel;
-        mDetailAdapter.updateItems(devices);
     }
 
     @Override
@@ -337,119 +315,4 @@ public class CastTile extends QSTileImpl<BooleanState> {
             refreshState();
         }
     };
-
-    private final class CastDetailAdapter implements DetailAdapter, QSDetailItems.Callback {
-        private final LinkedHashMap<String, CastDevice> mVisibleOrder = new LinkedHashMap<>();
-
-        private QSDetailItems mItems;
-
-        @Override
-        public CharSequence getTitle() {
-            return mContext.getString(R.string.quick_settings_cast_title);
-        }
-
-        @Override
-        public Boolean getToggleState() {
-            return null;
-        }
-
-        @Override
-        public Intent getSettingsIntent() {
-            return CAST_SETTINGS;
-        }
-
-        @Override
-        public void setToggleState(boolean state) {
-            // noop
-        }
-
-        @Override
-        public int getMetricsCategory() {
-            return MetricsEvent.QS_CAST_DETAILS;
-        }
-
-        @Override
-        public View createDetailView(Context context, View convertView, ViewGroup parent) {
-            mItems = QSDetailItems.convertOrInflate(context, convertView, parent);
-            mItems.setTagSuffix("Cast");
-            if (convertView == null) {
-                if (DEBUG) Log.d(TAG, "addOnAttachStateChangeListener");
-                mItems.addOnAttachStateChangeListener(new OnAttachStateChangeListener() {
-                    @Override
-                    public void onViewAttachedToWindow(View v) {
-                        if (DEBUG) Log.d(TAG, "onViewAttachedToWindow");
-                    }
-
-                    @Override
-                    public void onViewDetachedFromWindow(View v) {
-                        if (DEBUG) Log.d(TAG, "onViewDetachedFromWindow");
-                        mVisibleOrder.clear();
-                    }
-                });
-            }
-            mItems.setEmptyState(R.drawable.ic_qs_cast_detail_empty,
-                    R.string.quick_settings_cast_detail_empty_text);
-            mItems.setCallback(this);
-            updateItems(mController.getCastDevices());
-            mController.setDiscovering(true);
-            return mItems;
-        }
-
-        private void updateItems(List<CastDevice> devices) {
-            if (mItems == null) return;
-            Item[] items = null;
-            if (devices != null && !devices.isEmpty()) {
-                // if we are connected, simply show that device
-                for (CastDevice device : devices) {
-                    if (device.state == CastDevice.STATE_CONNECTED) {
-                        final Item item = new Item();
-                        item.iconResId = R.drawable.ic_cast_connected;
-                        item.line1 = getDeviceName(device);
-                        item.line2 = mContext.getString(R.string.quick_settings_connected);
-                        item.tag = device;
-                        item.canDisconnect = true;
-                        items = new Item[] { item };
-                        break;
-                    }
-                }
-                // otherwise list all available devices, and don't move them around
-                if (items == null) {
-                    for (CastDevice device : devices) {
-                        mVisibleOrder.put(device.id, device);
-                    }
-                    items = new Item[devices.size()];
-                    int i = 0;
-                    for (String id : mVisibleOrder.keySet()) {
-                        final CastDevice device = mVisibleOrder.get(id);
-                        if (!devices.contains(device)) continue;
-                        final Item item = new Item();
-                        item.iconResId = R.drawable.ic_cast;
-                        item.line1 = getDeviceName(device);
-                        if (device.state == CastDevice.STATE_CONNECTING) {
-                            item.line2 = mContext.getString(R.string.quick_settings_connecting);
-                        }
-                        item.tag = device;
-                        items[i++] = item;
-                    }
-                }
-            }
-            mItems.setItems(items);
-        }
-
-        @Override
-        public void onDetailItemClick(Item item) {
-            if (item == null || item.tag == null) return;
-            MetricsLogger.action(mContext, MetricsEvent.QS_CAST_SELECT);
-            final CastDevice device = (CastDevice) item.tag;
-            mController.startCasting(device);
-        }
-
-        @Override
-        public void onDetailItemDisconnect(Item item) {
-            if (item == null || item.tag == null) return;
-            MetricsLogger.action(mContext, MetricsEvent.QS_CAST_DISCONNECT);
-            final CastDevice device = (CastDevice) item.tag;
-            mController.stopCasting(device);
-        }
-    }
 }
