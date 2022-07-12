@@ -124,12 +124,12 @@ public class TileAdapter extends RecyclerView.Adapter<Holder> implements TileSta
         mMinNumTiles = context.getResources().getInteger(R.integer.quick_settings_min_num_tiles);
         mNumColumns = context.getResources().getInteger(NUM_COLUMNS_ID);
         //mAccessibilityDelegate = new TileAdapterDelegate();
-    	boolean isPortrait = context.getResources().getConfiguration().orientation
-                == Configuration.ORIENTATION_PORTRAIT;
-	if (isPortrait) {
-        mNumColumns = OmniUtils.getQSColumnsPortrait(mContext, mNumColumns);
-        } else {
+    	boolean isLandscape = context.getResources().getConfiguration().orientation
+                == Configuration.ORIENTATION_LANDSCAPE;
+	if (isLandscape) {
         mNumColumns = OmniUtils.getQSColumnsLandscape(mContext, mNumColumns);
+        } else {
+        mNumColumns = OmniUtils.getQSColumnsPortrait(mContext, mNumColumns);
         }
         mSizeLookup.setSpanIndexCacheEnabled(true);
     }
@@ -151,12 +151,12 @@ public class TileAdapter extends RecyclerView.Adapter<Holder> implements TileSta
      */
     public boolean updateNumColumns() {
         int numColumns = mContext.getResources().getInteger(NUM_COLUMNS_ID);
-    	boolean isPortrait = mContext.getResources().getConfiguration().orientation
+    	boolean isLandscape = mContext.getResources().getConfiguration().orientation
                 == Configuration.ORIENTATION_PORTRAIT;
-	if (isPortrait) {
-        mNumColumns = OmniUtils.getQSColumnsPortrait(mContext, mNumColumns);
-        } else {
+	if (isLandscape) {
         mNumColumns = OmniUtils.getQSColumnsLandscape(mContext, mNumColumns);
+        } else {
+        mNumColumns = OmniUtils.getQSColumnsPortrait(mContext, mNumColumns);
         }
         if (numColumns != mNumColumns) {
             mNumColumns = numColumns;
