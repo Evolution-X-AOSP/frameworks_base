@@ -314,7 +314,7 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
     }
     
     public int getResourceColumnsLand() {
-        int resourceColumnsLand = Math.max(4, getResources().getInteger(R.integer.quick_settings_num_columns_landscape));
+        int resourceColumnsLand = Math.max(5, getResources().getInteger(R.integer.quick_settings_num_columns_landscape));
         return OmniUtils.getQSColumnsLandscape(mContext, resourceColumnsLand);
     }
 

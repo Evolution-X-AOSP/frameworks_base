@@ -48,7 +48,7 @@ public class QuickQSPanel extends QSPanel implements TunerService.Tunable {
     public int mMaxColumnsPortrait = 6;
     public int mMaxColumnsLandscape = 6;
     // Tile Columns when media player is visible
-    public int mMaxColumnsMediaPlayer = 4;
+    public int mMaxColumnsMediaPlayer = 5;
 
     private boolean mDisabledByPolicy;
     private int mMaxTiles;
@@ -66,7 +66,7 @@ public class QuickQSPanel extends QSPanel implements TunerService.Tunable {
        }
 	mMaxColumnsPortrait = Math.max(2, getResources().getInteger(R.integer.quick_qs_panel_num_columns));
 	mMaxColumnsPortrait = OmniUtils.getQuickQSColumnsPortrait(mContext, mMaxColumnsPortrait);
-	mMaxColumnsLandscape = Math.max(4, getResources().getInteger(R.integer.quick_qs_panel_num_columns_landscape));
+	mMaxColumnsLandscape = Math.max(5, getResources().getInteger(R.integer.quick_qs_panel_num_columns_landscape));
 	mMaxColumnsLandscape = OmniUtils.getQuickQSColumnsLandscape(mContext, mMaxColumnsLandscape);
         mMaxColumnsMediaPlayer = getResources().getInteger(R.integer.quick_qs_panel_num_columns_media);
     }
@@ -352,7 +352,7 @@ public class QuickQSPanel extends QSPanel implements TunerService.Tunable {
     
         @Override
     	public int getResourceColumnsLand() {
-        	int resourceColumnsLand = Math.max(4, getResources().getInteger(R.integer.quick_settings_num_columns_landscape));
+        	int resourceColumnsLand = Math.max(5, getResources().getInteger(R.integer.quick_settings_num_columns_landscape));
         	return OmniUtils.getQuickQSColumnsLandscape(mContext, resourceColumnsLand);
     	}
 
