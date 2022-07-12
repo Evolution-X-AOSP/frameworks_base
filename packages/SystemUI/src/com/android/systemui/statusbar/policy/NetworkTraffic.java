@@ -379,7 +379,7 @@ public class NetworkTraffic extends TextView {
     }
 
     protected void setSpacingAndFonts() {
-        String txtFont = getResources().getString(com.android.internal.R.string.config_headlineFontFamily);
+        String txtFont = getResources().getString(R.string.config_bodyFontFamily);
         setTypeface(Typeface.create(txtFont, Typeface.BOLD));
         setLineSpacing(0.85f, 0.85f);
     }
