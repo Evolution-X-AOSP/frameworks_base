@@ -26,8 +26,10 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
+import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.Outline;
 import android.graphics.drawable.BitmapDrawable;
@@ -139,11 +141,7 @@ public class MediaControlPanel {
     private SystemClock mSystemClock;
     private final MediaArtworkProcessor mMediaArtworkProcessor;
     private int mAlbumArtRadius;
-    private boolean mBackgroundArtwork;
-    private boolean mBackgroundBlur;
-    private float mBlurRadius;
-    private int mFadeLevel;
-    private int mBackgroundAlpha;
+    private ArtworkSettings mArtworkSettings = new ArtworkSettings();
 
     /**
      * Initialize a new control panel
@@ -238,13 +236,8 @@ public class MediaControlPanel {
         mSeekBarViewModel.setListening(listening);
     }
 
-    public void updateBgArtworkParams(boolean backgroundArtwork, boolean backgroundBlur,
-            float blurRadius, int fadeLevel, int backgroundAlpha) {
-        mBackgroundArtwork = backgroundArtwork;
-        mBackgroundBlur = backgroundBlur;
-        mBlurRadius = blurRadius;
-        mFadeLevel = fadeLevel;
-        mBackgroundAlpha = backgroundAlpha;
+    protected void updateArtworkSettings(ArtworkSettings artworkSettings) {
+        mArtworkSettings = artworkSettings;
     }
 
     /**
@@ -371,18 +364,25 @@ public class MediaControlPanel {
         ImageView albumView = mPlayerViewHolder.getAlbumView();
         boolean hasArtwork = data.getArtwork() != null;
         if (hasArtwork) {
-            if (mBackgroundArtwork) {
-                BitmapDrawable drawable = (BitmapDrawable) data.getArtwork().loadDrawable(mContext);
-                final ImageView backgroundImage = mPlayerViewHolder.getPlayer()
-                    .findViewById(R.id.bg_album_art);
-                if (mBackgroundBlur) {
-                    backgroundImage.setRenderEffect(RenderEffect.createBlurEffect(mBlurRadius, mBlurRadius, Shader.TileMode.MIRROR));
+            if (mArtworkSettings.getEnabled()) {
+                final BitmapDrawable drawable = (BitmapDrawable) data.getArtwork().loadDrawable(mContext);
+                final ImageView backgroundImage = mPlayerViewHolder.getPlayer().findViewById(R.id.bg_album_art);
+                if (mArtworkSettings.getBlurEnabled()) {
+                    backgroundImage.setRenderEffect(
+                        RenderEffect.createBlurEffect(
+                            mArtworkSettings.getBlurRadius(),
+                            mArtworkSettings.getBlurRadius(),
+                            Shader.TileMode.MIRROR
+                        )
+                    );
                 }
-                int fadeFilter = ColorUtils.setAlphaComponent(mBackgroundColor, mFadeLevel * 255 / 100);
-                fadeFilter = ColorUtils.blendARGB(fadeFilter, android.graphics.Color.BLACK, Math.min(mFadeLevel / 100f, 0.5f));
-                backgroundImage.setColorFilter(fadeFilter, android.graphics.PorterDuff.Mode.SRC_ATOP);
+                final int fadeFilter = ColorUtils.blendARGB(
+                    Color.TRANSPARENT,
+                    Color.BLACK,
+                    mArtworkSettings.getFadeLevel() / 100f
+                );
+                backgroundImage.setColorFilter(fadeFilter, PorterDuff.Mode.SRC_ATOP);
                 backgroundImage.setImageDrawable(drawable);
-                backgroundImage.setImageAlpha(mBackgroundAlpha);
                 backgroundImage.setClipToOutline(true);
                 backgroundImage.setOutlineProvider(new ViewOutlineProvider() {
                     @Override
@@ -408,7 +408,7 @@ public class MediaControlPanel {
             albumView.setImageDrawable(deviceIcon);
         }
 
-        boolean useBgAlbumArt = hasArtwork && mBackgroundArtwork;
+        boolean useBgAlbumArt = hasArtwork && mArtworkSettings.getEnabled();
         setVisibleAndAlpha(collapsedSet, R.id.bg_album_art, useBgAlbumArt);
         setVisibleAndAlpha(expandedSet, R.id.bg_album_art, useBgAlbumArt);
         setVisibleAndAlpha(collapsedSet, R.id.album_art, !useBgAlbumArt);

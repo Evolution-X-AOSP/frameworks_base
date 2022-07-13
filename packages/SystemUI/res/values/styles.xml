@@ -587,9 +587,7 @@
         <item name="android:textColor">@*android:color/white</item>
     </style>
 
-    <style name="MediaPlayer.AppIcon">
-        <item name="android:padding">0dp</item>
-    </style>
+    <style name="MediaPlayer.AppIcon" />
 
     <style name="MediaPlayer.Album">
         <item name="android:backgroundTint">@color/media_player_album_bg</item>

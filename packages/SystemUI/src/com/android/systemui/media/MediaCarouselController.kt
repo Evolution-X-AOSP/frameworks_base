@@ -8,13 +8,13 @@ import android.provider.Settings.ACTION_MEDIA_CONTROLS_SETTINGS
 import android.database.ContentObserver
 import android.net.Uri
 import android.os.Handler
-import android.os.UserHandle
+import android.os.UserHandle.USER_ALL
+import android.os.UserHandle.USER_CURRENT
 import android.provider.Settings
-import android.provider.Settings.System.ARTWORK_MEDIA_BACKGROUND
-import android.provider.Settings.System.ARTWORK_MEDIA_BACKGROUND_ALPHA
-import android.provider.Settings.System.ARTWORK_MEDIA_BACKGROUND_BLUR_RADIUS
-import android.provider.Settings.System.ARTWORK_MEDIA_BACKGROUND_FADE_PERCENT
-import android.provider.Settings.System.ARTWORK_MEDIA_BACKGROUND_ENABLE_BLUR
+import android.provider.Settings.System.MEDIA_ARTWORK_BLUR_ENABLED
+import android.provider.Settings.System.MEDIA_ARTWORK_BLUR_RADIUS
+import android.provider.Settings.System.MEDIA_ARTWORK_ENABLED
+import android.provider.Settings.System.MEDIA_ARTWORK_FADE_PERCENT
 import android.util.Log
 import android.util.MathUtils
 import android.view.LayoutInflater
@@ -28,6 +28,7 @@ import com.android.systemui.Dumpable
 import com.android.systemui.R
 import com.android.systemui.classifier.FalsingCollector
 import com.android.systemui.dagger.SysUISingleton
+import com.android.systemui.dagger.qualifiers.Background
 import com.android.systemui.dagger.qualifiers.Main
 import com.android.systemui.dump.DumpManager
 import com.android.systemui.plugins.ActivityStarter
@@ -67,8 +68,9 @@ class MediaCarouselController @Inject constructor(
     falsingCollector: FalsingCollector,
     falsingManager: FalsingManager,
     dumpManager: DumpManager,
-    @Main private val handler: Handler,
-    private val systemSettings: SystemSettings,
+    @Main private val mainHandler: Handler,
+    @Background bgHandler: Handler,
+    systemSettings: SystemSettings,
 ) : Dumpable {
     /**
      * The current width of the carousel
@@ -182,12 +184,8 @@ class MediaCarouselController @Inject constructor(
      */
     lateinit var updateUserVisibility: () -> Unit
 
-    private val settingsObserver = SettingsObserver()
-    private var backgroundArtwork = false
-    private var backgroundBlur = false
-    private var blurRadius = 1f
-    private var fadeLevel = 30
-    private var backgroundAlpha = 255
+    private val settingsObserver = SettingsObserver(bgHandler, systemSettings)
+    private var artworkSettings = ArtworkSettings()
 
     init {
         dumpManager.registerDumpable(TAG, this)
@@ -449,16 +447,14 @@ class MediaCarouselController @Inject constructor(
             val lp = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT)
             newPlayer.playerViewHolder?.player?.setLayoutParams(lp)
-            newPlayer.updateBgArtworkParams(backgroundArtwork, backgroundBlur,
-                blurRadius, fadeLevel, backgroundAlpha)
+            newPlayer.updateArtworkSettings(artworkSettings)
             newPlayer.bindPlayer(dataCopy, key)
             newPlayer.setListening(currentlyExpanded)
             MediaPlayerData.addMediaPlayer(key, dataCopy, newPlayer, systemClock, isSsReactivated)
             updatePlayerToState(newPlayer, noAnimation = true)
             reorderAllPlayers(curVisibleMediaKey)
         } else {
-            existingPlayer.updateBgArtworkParams(backgroundArtwork, backgroundBlur,
-                blurRadius, fadeLevel, backgroundAlpha)
+            existingPlayer.updateArtworkSettings(artworkSettings)
             existingPlayer.bindPlayer(dataCopy, key)
             MediaPlayerData.addMediaPlayer(key, dataCopy, existingPlayer, systemClock,
                     isSsReactivated)
@@ -902,54 +898,62 @@ class MediaCarouselController @Inject constructor(
         }
     }
 
-    private inner class SettingsObserver: ContentObserver(handler) {
+    private inner class SettingsObserver(
+        private val handler: Handler,
+        private val systemSettings: SystemSettings
+    ) : ContentObserver(handler) {
+
         fun observe() {
-            backgroundArtwork = systemSettings.getIntForUser(ARTWORK_MEDIA_BACKGROUND,
-                0, UserHandle.USER_CURRENT) == 1
-            backgroundBlur = systemSettings.getIntForUser(ARTWORK_MEDIA_BACKGROUND_ENABLE_BLUR,
-                0, UserHandle.USER_CURRENT) == 1
-            blurRadius = systemSettings.getFloatForUser(ARTWORK_MEDIA_BACKGROUND_BLUR_RADIUS,
-                1f, UserHandle.USER_CURRENT)
-            fadeLevel = systemSettings.getIntForUser(ARTWORK_MEDIA_BACKGROUND_FADE_PERCENT,
-                30, UserHandle.USER_CURRENT)
-            backgroundAlpha = systemSettings.getIntForUser(ARTWORK_MEDIA_BACKGROUND_ALPHA,
-                255, UserHandle.USER_CURRENT)
+            handler.post {
+                val newSettings = ArtworkSettings(
+                    enabled = systemSettings.getIntForUser(
+                        MEDIA_ARTWORK_ENABLED, 0, USER_CURRENT) == 1,
+                    blurEnabled = systemSettings.getIntForUser(
+                        MEDIA_ARTWORK_BLUR_ENABLED, 0, USER_CURRENT) == 1,
+                    blurRadius = systemSettings.getFloatForUser(
+                        MEDIA_ARTWORK_BLUR_RADIUS, 1f, USER_CURRENT),
+                    fadeLevel = systemSettings.getIntForUser(
+                        MEDIA_ARTWORK_FADE_PERCENT, 30, USER_CURRENT)
+                )
+                mainHandler.post {
+                    artworkSettings = newSettings
+                }
+            }
 
             systemSettings.registerContentObserverForUser(
-                ARTWORK_MEDIA_BACKGROUND, this, UserHandle.USER_ALL)
+                MEDIA_ARTWORK_ENABLED, this, USER_ALL)
             systemSettings.registerContentObserverForUser(
-                ARTWORK_MEDIA_BACKGROUND_ENABLE_BLUR, this, UserHandle.USER_ALL)
+                MEDIA_ARTWORK_BLUR_ENABLED, this, USER_ALL)
             systemSettings.registerContentObserverForUser(
-                ARTWORK_MEDIA_BACKGROUND_BLUR_RADIUS, this, UserHandle.USER_ALL)
+                MEDIA_ARTWORK_BLUR_RADIUS, this, USER_ALL)
             systemSettings.registerContentObserverForUser(
-                ARTWORK_MEDIA_BACKGROUND_FADE_PERCENT, this, UserHandle.USER_ALL)
-            systemSettings.registerContentObserverForUser(
-                ARTWORK_MEDIA_BACKGROUND_ALPHA, this, UserHandle.USER_ALL)
-        }
-
-        fun unobserve() {
-            systemSettings.unregisterContentObserver(this);
+                MEDIA_ARTWORK_FADE_PERCENT, this, USER_ALL)
         }
 
         override fun onChange(selfChange: Boolean, uri: Uri) {
-            when (uri.lastPathSegment) {
-                ARTWORK_MEDIA_BACKGROUND ->
-                    backgroundArtwork = systemSettings.getIntForUser(ARTWORK_MEDIA_BACKGROUND,
-                        0, UserHandle.USER_CURRENT) == 1
-                ARTWORK_MEDIA_BACKGROUND_ENABLE_BLUR ->
-                    backgroundBlur = systemSettings.getIntForUser(ARTWORK_MEDIA_BACKGROUND_ENABLE_BLUR,
-                        0, UserHandle.USER_CURRENT) == 1
-                ARTWORK_MEDIA_BACKGROUND_BLUR_RADIUS ->
-                    blurRadius = systemSettings.getFloatForUser(ARTWORK_MEDIA_BACKGROUND_BLUR_RADIUS,
-                        1f, UserHandle.USER_CURRENT)
-                ARTWORK_MEDIA_BACKGROUND_FADE_PERCENT ->
-                    fadeLevel = systemSettings.getIntForUser(ARTWORK_MEDIA_BACKGROUND_FADE_PERCENT,
-                        30, UserHandle.USER_CURRENT)
-                ARTWORK_MEDIA_BACKGROUND_ALPHA ->
-                    backgroundAlpha = systemSettings.getIntForUser(ARTWORK_MEDIA_BACKGROUND_ALPHA,
-                        255, UserHandle.USER_CURRENT)
+            val newSettings = when (uri.lastPathSegment) {
+                MEDIA_ARTWORK_ENABLED -> artworkSettings.copy(
+                    enabled = systemSettings.getIntForUser(
+                        MEDIA_ARTWORK_ENABLED, 0, USER_CURRENT) == 1
+                )
+                MEDIA_ARTWORK_BLUR_ENABLED -> artworkSettings.copy(
+                    blurEnabled = systemSettings.getIntForUser(
+                        MEDIA_ARTWORK_BLUR_ENABLED, 0, USER_CURRENT) == 1
+                )
+                MEDIA_ARTWORK_BLUR_RADIUS -> artworkSettings.copy(
+                    blurRadius = systemSettings.getFloatForUser(
+                        MEDIA_ARTWORK_BLUR_RADIUS, 1f, USER_CURRENT)
+                )
+                MEDIA_ARTWORK_FADE_PERCENT -> artworkSettings.copy(
+                    fadeLevel = systemSettings.getIntForUser(
+                        MEDIA_ARTWORK_FADE_PERCENT, 30, USER_CURRENT)
+                )
+                else -> return
             }
-            recreatePlayers()
+            mainHandler.post {
+                artworkSettings = newSettings
+                recreatePlayers()
+            }
         }
     }
 
@@ -1102,3 +1106,10 @@ internal object MediaPlayerData {
         it.isSsReactivated
     } ?: false
 }
+
+data class ArtworkSettings @JvmOverloads constructor(
+    val enabled: Boolean = false,
+    val blurEnabled: Boolean = false,
+    val blurRadius: Float = 1f,
+    val fadeLevel: Int = 30
+)

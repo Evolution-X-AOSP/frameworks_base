@@ -5487,34 +5487,32 @@ public final class Settings {
         public static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
 
         /**
-         * Enable and disable Artwork on background media notification
+         * Whether or not artwork should be shown as media notification background.
+         * Default 0.
          * @hide
          */
-        public static final String ARTWORK_MEDIA_BACKGROUND = "artwork_media_background";
+        public static final String MEDIA_ARTWORK_ENABLED = "media_artwork_enabled";
 
         /**
-         * Whether to enable artwork blur
+         * Whether or not to enable artwork blur.
+         * Default 0.
          * @hide
          */
-        public static final String ARTWORK_MEDIA_BACKGROUND_ENABLE_BLUR = "artwork_media_background_enable_blur";
+        public static final String MEDIA_ARTWORK_BLUR_ENABLED = "media_artwork_blur_enabled";
 
         /**
-         * Adjust blur radius for background media
+         * Blur radius of artwork.
+         * Default 1.0 .
          * @hide
          */
-        public static final String ARTWORK_MEDIA_BACKGROUND_BLUR_RADIUS = "artwork_media_background_blur_radius";
+        public static final String MEDIA_ARTWORK_BLUR_RADIUS = "media_artwork_blur_radius";
 
         /**
-         * Adjust fade filter percent for background media
+         * Fade filter level of artwork.
+         * Default 30.
          * @hide
          */
-        public static final String ARTWORK_MEDIA_BACKGROUND_FADE_PERCENT = "artwork_media_background_fade_percent";
-
-        /**
-         * Adjust alpha for background media
-         * @hide
-         */
-        public static final String ARTWORK_MEDIA_BACKGROUND_ALPHA = "artwork_media_background_alpha";
+        public static final String MEDIA_ARTWORK_FADE_PERCENT = "media_artwork_fade_percent";
 
         /**
          * The alpha value of the On-The-Go overlay.
@@ -5530,12 +5528,6 @@ public final class Settings {
          */
         public static final String ON_THE_GO_SERVICE_RESTART = "on_the_go_service_restart";
 
-	/**
-         * Home wake button
-         * @hide
-         */
-        public static final String HOME_WAKE_BUTTON = "home_wake_button";
-
         /**
          * The camera instance to use.
          * 0 = Rear Camera
@@ -5544,6 +5536,12 @@ public final class Settings {
          * @hide
          */
         public static final String ON_THE_GO_CAMERA = "on_the_go_camera";
+
+	/**
+         * Home wake button
+         * @hide
+         */
+        public static final String HOME_WAKE_BUTTON = "home_wake_button";
 
         /**
          * Disable power menu on secure lock screens
