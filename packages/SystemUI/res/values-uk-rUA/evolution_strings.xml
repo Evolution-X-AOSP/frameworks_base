@@ -222,4 +222,11 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Розумні пікселі</string>
     <string name="quick_settings_smart_pixels_on_power_save">Автоматичне увімкнення розумних пікселів</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">Музика</string>
+    <string name="quick_settings_music_play">Грати</string>
+    <string name="quick_settings_music_pause">Призуп.</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Мова</string>
+    <string name="quick_settings_locale_more_locales_toast">Будь ласка, налаштуйте кілька мов, щоб увімкнути функцію перемикання</string>
 </resources>

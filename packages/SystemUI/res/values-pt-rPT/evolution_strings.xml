@@ -222,4 +222,11 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Píxeis Inteligentes</string>
     <string name="quick_settings_smart_pixels_on_power_save">Ativação automática dos Píxeis Inteligentes</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">Música</string>
+    <string name="quick_settings_music_play">Reproduzir</string>
+    <string name="quick_settings_music_pause">Pausar</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Idioma</string>
+    <string name="quick_settings_locale_more_locales_toast">Configure vários idiomas para ativar a funcionalidade de troca</string>
 </resources>
