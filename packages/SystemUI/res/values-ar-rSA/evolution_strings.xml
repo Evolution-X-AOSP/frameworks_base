@@ -223,4 +223,11 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">بكسل ذكي</string>
     <string name="quick_settings_smart_pixels_on_power_save">تمكين الدقة الذكية تلقائياً</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">موسيقى</string>
+    <string name="quick_settings_music_play">تشغيل</string>
+    <string name="quick_settings_music_pause">إيقاف مؤقت</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">اللغة</string>
+    <string name="quick_settings_locale_more_locales_toast">الرجاء إعداد اللغات المتعددة لتمكين وظيفة مفتاح التبديل</string>
 </resources>
