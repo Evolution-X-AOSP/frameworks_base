@@ -221,4 +221,11 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Điểm ảnh thông minh</string>
     <string name="quick_settings_smart_pixels_on_power_save">Tự động bật điểm ảnh thông minh</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">Nhạc</string>
+    <string name="quick_settings_music_play">Phát</string>
+    <string name="quick_settings_music_pause">Dừng</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Ngôn ngữ</string>
+    <string name="quick_settings_locale_more_locales_toast">Vui lòng thiết lập nhiều ngôn ngữ để kích hoạt chức năng chuyển đổi</string>
 </resources>
