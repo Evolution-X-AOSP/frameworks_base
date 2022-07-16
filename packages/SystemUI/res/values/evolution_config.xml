@@ -94,4 +94,7 @@
 
     <!-- Charging info current divider, if needed -->
     <integer name="config_currentInfoDivider" translatable="false">1000</integer>
+
+    <!-- Preferred max refresh rate at AOD & Ambient Display, if supported by the display. -->
+    <integer name="config_aodMaxRefreshRate">-1</integer>
 </resources>
