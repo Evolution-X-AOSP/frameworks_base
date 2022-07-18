@@ -193,9 +193,7 @@ public class PixelPropsUtils {
         propsToChangeMI11.put("MODEL", "M2102K1G");
     }
 
-    public static void setProps(Application app) {
-        final String packageName = app.getPackageName();
-        final String processName = app.getProcessName();
+    public static void setProps(String packageName) {
         if (packageName == null) {
             return;
         }
@@ -237,14 +235,18 @@ public class PixelPropsUtils {
                 if (DEBUG) Log.d(TAG, "Defining " + key + " prop for: " + packageName);
                 setPropValue(key, value);
             }
-            if (packageName.equals(PACKAGE_GMS) &&
-                    processName.equals(PACKAGE_GMS + ".unstable")) {
-                sIsGms = true;
+            if (packageName.equals(PACKAGE_GMS)) {
+                final String processName = Application.getProcessName();
+                if (processName.equals("com.google.android.gms.unstable")) {
+                    sIsGms = true;
+                }
             }
             if (isPixelDevice) {
-                if (packageName.equals(PACKAGE_GMS) &&
-                        processName.equals(PACKAGE_GMS + ".unstable")) {
-                    setPropValue("MODEL", Build.MODEL + " ");
+                if (packageName.equals(PACKAGE_GMS)) {
+                    final String processName = Application.getProcessName();
+                    if (processName.equals("com.google.android.gms.unstable")) {
+                        setPropValue("MODEL", Build.MODEL + " ");
+                    }
                 }
             }
             // Set proper indexing fingerprint
