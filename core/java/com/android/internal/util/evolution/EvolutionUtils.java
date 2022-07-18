@@ -46,11 +46,13 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.DisplayCutout;
 import android.view.DisplayInfo;
 import android.view.InputDevice;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
+import android.view.Surface;
 
 import com.android.internal.R;
 import com.android.internal.statusbar.IStatusBarService;
@@ -277,12 +279,34 @@ public class EvolutionUtils {
         }
     }
 
-    // Check if device has a notch
-    public static boolean hasNotch(Context context) {
-        String displayCutout = context.getResources().getString(R.string.config_mainBuiltInDisplayCutout);
-        boolean maskDisplayCutout = context.getResources().getBoolean(R.bool.config_maskMainBuiltInDisplayCutout);
-        boolean displayCutoutExists = (!TextUtils.isEmpty(displayCutout) && !maskDisplayCutout);
-        return displayCutoutExists;
+    /* returns whether the device has a centered display cutout or not. */
+    public static boolean hasCenteredCutout(Context context) {
+        Display display = context.getDisplay();
+        DisplayCutout cutout = display.getCutout();
+        if (cutout != null) {
+            Point realSize = new Point();
+            display.getRealSize(realSize);
+
+            switch (display.getRotation()) {
+                case Surface.ROTATION_0: {
+                    Rect rect = cutout.getBoundingRectTop();
+                    return !(rect.left <= 0 || rect.right >= realSize.x);
+                }
+                case Surface.ROTATION_90: {
+                    Rect rect = cutout.getBoundingRectLeft();
+                    return !(rect.top <= 0 || rect.bottom >= realSize.y);
+                }
+                case Surface.ROTATION_180: {
+                    Rect rect = cutout.getBoundingRectBottom();
+                    return !(rect.left <= 0 || rect.right >= realSize.x);
+                }
+                case Surface.ROTATION_270: {
+                    Rect rect = cutout.getBoundingRectRight();
+                    return !(rect.top <= 0 || rect.bottom >= realSize.y);
+                }
+            }
+        }
+        return false;
     }
 
     /**
