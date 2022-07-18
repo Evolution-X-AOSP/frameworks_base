@@ -21,7 +21,6 @@ import static com.android.systemui.statusbar.StatusBarState.SHADE;
 import android.app.ActivityManager;
 import android.app.NotificationManager;
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.ContentObserver;
@@ -75,9 +74,6 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
     private final BatteryController mBatteryController;
     private final ContentObserver mHeadsUpObserver;
     private HeadsUpManager mHeadsUpManager;
-    private boolean mLessBoringHeadsUp;
-    private TelecomManager mTm;
-    private Context mContext;
 
     ActivityManager mAm;
     private ArrayList<String> mStoplist = new ArrayList<String>();
@@ -85,6 +81,10 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
 
     @VisibleForTesting
     protected boolean mUseHeadsUp = false;
+
+    private boolean mLessBoringHeadsUp = false;
+    private TelecomManager mTm;
+    private Context mContext;
 
     @Inject
     public NotificationInterruptStateProviderImpl(
@@ -98,6 +98,8 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
             StatusBarStateController statusBarStateController,
             HeadsUpManager headsUpManager,
             @Main Handler mainHandler) {
+        mContext = context;
+        mTm = (TelecomManager) context.getSystemService(Context.TELECOM_SERVICE);
         mContentResolver = contentResolver;
         mPowerManager = powerManager;
         mDreamManager = dreamManager;
@@ -105,8 +107,6 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
         mAmbientDisplayConfiguration = ambientDisplayConfiguration;
         mNotificationFilter = notificationFilter;
         mStatusBarStateController = statusBarStateController;
-        mContext = context;
-        mTm = (TelecomManager) context.getSystemService(Context.TELECOM_SERVICE);
         mHeadsUpManager = headsUpManager;
         mAm = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
         setHeadsUpStoplist();
@@ -128,9 +128,6 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
                         mHeadsUpManager.releaseAllImmediately();
                     }
                 }
-                mLessBoringHeadsUp = Settings.System.getIntForUser(mContentResolver,
-                        Settings.System.LESS_BORING_HEADS_UP, 0,
-                        UserHandle.USER_CURRENT) == 1;
             }
         };
 
@@ -141,10 +138,6 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
                     mHeadsUpObserver);
             mContentResolver.registerContentObserver(
                     Settings.Global.getUriFor(SETTING_HEADS_UP_TICKER), true,
-                    mHeadsUpObserver);
-            mContentResolver.registerContentObserver(
-                    Settings.System.getUriFor(Settings.System.LESS_BORING_HEADS_UP),
-                    true,
                     mHeadsUpObserver);
         }
         mHeadsUpObserver.onChange(true); // set up
@@ -232,15 +225,18 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
             return false;
         }
 
+        if (shouldSkipHeadsUp(sbn)) {
+            if (DEBUG_HEADS_UP) {
+                Log.d(TAG, "No alerting: boring apps");
+            }
+            return false;
+        }
+
         if (!canAlertCommon(entry)) {
             return false;
         }
 
         if (!canAlertAwakeCommon(entry)) {
-            return false;
-        }
-
-        if (shouldSkipHeadsUp(sbn)) {
             return false;
         }
 
@@ -292,35 +288,13 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
         for (int i = 0; i < mSuppressors.size(); i++) {
             if (mSuppressors.get(i).suppressAwakeHeadsUp(entry)) {
                 if (DEBUG_HEADS_UP) {
-                     Log.d(TAG, "No heads up: aborted by suppressor: "
+                    Log.d(TAG, "No heads up: aborted by suppressor: "
                             + mSuppressors.get(i).getName() + " sbnKey=" + sbn.getKey());
                 }
                 return false;
             }
         }
         return true;
-    }
-
-    private void setUseLessBoringHeadsUp(boolean lessBoring) {
-        mLessBoringHeadsUp = lessBoring;
-    }
-
-    public boolean shouldSkipHeadsUp(StatusBarNotification sbn) {
-        boolean isImportantHeadsUp = false;
-        String notificationPackageName = sbn.getPackageName();
-        isImportantHeadsUp = notificationPackageName.equals(getDefaultDialerPackage(mTm))
-                || notificationPackageName.equals(getDefaultSmsPackage(mContext))
-                || notificationPackageName.contains("clock");
-        return !mStatusBarStateController.isDozing() && mLessBoringHeadsUp && !isImportantHeadsUp;
-    }
-
-    private static String getDefaultSmsPackage(Context ctx) {
-        return Sms.getDefaultSmsPackage(ctx);
-        // for reference, there's also a new RoleManager api with getDefaultSmsPackage(context, userid) 
-    }
-
-    private static String getDefaultDialerPackage(TelecomManager tm) {
-        return tm != null ? tm.getDefaultDialerPackage() : "";
     }
 
     private boolean isPackageInStoplist(String packageName) {
@@ -407,6 +381,30 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
             return false;
         }
         return true;
+    }
+
+    @Override
+    public void setUseLessBoringHeadsUp(boolean lessBoring) {
+        mLessBoringHeadsUp = lessBoring;
+    }
+
+    public boolean shouldSkipHeadsUp(StatusBarNotification sbn) {
+        String notificationPackageName = sbn.getPackageName();
+
+        boolean isLessBoring = notificationPackageName.equals(getDefaultDialerPackage(mTm))
+                || notificationPackageName.equals(getDefaultSmsPackage(mContext))
+                || notificationPackageName.toLowerCase().contains("clock");
+
+        return !mStatusBarStateController.isDozing() && mLessBoringHeadsUp && !isLessBoring;
+    }
+
+    private static String getDefaultSmsPackage(Context ctx) {
+        // for reference, there's also a new RoleManager api with getDefaultSmsPackage(context, userid) 
+        return Sms.getDefaultSmsPackage(ctx);
+    }
+
+    private static String getDefaultDialerPackage(TelecomManager tm) {
+        return tm != null ? tm.getDefaultDialerPackage() : "";
     }
 
     /**

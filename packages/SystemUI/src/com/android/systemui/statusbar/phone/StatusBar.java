@@ -309,6 +309,8 @@ public class StatusBar extends SystemUI implements
             "system:" + Settings.System.NOTIFICATION_MATERIAL_DISMISS_STYLE;
     private static final String NOTIFICATION_MATERIAL_DISMISS_BGSTYLE =
             "system:" + Settings.System.NOTIFICATION_MATERIAL_DISMISS_BGSTYLE;
+    private static final String LESS_BORING_HEADS_UP =
+            "system:" + Settings.System.LESS_BORING_HEADS_UP;
 
     private static final String BANNER_ACTION_CANCEL =
             "com.android.systemui.statusbar.banner_action_cancel";
@@ -1036,6 +1038,9 @@ public class StatusBar extends SystemUI implements
         mTunerService.addTunable(this, NOTIFICATION_MATERIAL_DISMISS);
         mTunerService.addTunable(this, NOTIFICATION_MATERIAL_DISMISS_STYLE);
         mTunerService.addTunable(this, NOTIFICATION_MATERIAL_DISMISS_BGSTYLE);
+        mTunerService.addTunable(this, LESS_BORING_HEADS_UP);
+
+        mDisplayManager = mContext.getSystemService(DisplayManager.class);
 
         mWindowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
         mDreamManager = IDreamManager.Stub.asInterface(
@@ -1083,8 +1088,6 @@ public class StatusBar extends SystemUI implements
         } else if (DEBUG) {
             Log.v(TAG, "start(): no wallpaper service ");
         }
-
-        mDisplayManager = mContext.getSystemService(DisplayManager.class);
 
         mSbSettingsObserver.observe();
         mSbSettingsObserver.update();
@@ -4656,6 +4659,11 @@ public class StatusBar extends SystemUI implements
                 mClearAllBgStyle =
                         TunerService.parseInteger(newValue, 0);
                 updateDismissAllButton();
+                break;
+            case LESS_BORING_HEADS_UP:
+                boolean lessBoringHeadsUp =
+                        TunerService.parseIntegerSwitch(newValue, false);
+                mNotificationInterruptStateProvider.setUseLessBoringHeadsUp(lessBoringHeadsUp);
                 break;
             default:
                 break;
