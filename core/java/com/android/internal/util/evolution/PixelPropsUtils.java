@@ -32,7 +32,6 @@ import java.util.Map;
 public class PixelPropsUtils {
 
     public static final String PACKAGE_GMS = "com.google.android.gms";
-    public static final String PACKAGE_NETFLIX = "com.netflix.mediaclient";
     public static final String PACKAGE_SETTINGS_SERVICES = "com.google.android.settings.intelligence";
     private static final String DEVICE = "org.evolution.device";
     private static final String TAG = PixelPropsUtils.class.getSimpleName();
@@ -94,13 +93,6 @@ public class PixelPropsUtils {
             "com.google.ar.core"
     };
 
-    private static final String[] streamingPackagesToChange = {
-            "com.amazon.avod.thirdpartyclient",
-            "com.disney.disneyplus",
-            PACKAGE_NETFLIX,
-            "in.startv.hotstar"
-    };
-
     private static final String[] packagesToChangeROG1 = {
             "com.dts.freefireth",
             "com.dts.freefiremax",
@@ -131,11 +123,6 @@ public class PixelPropsUtils {
             "com.ea.gp.apexlegendsmobilefps",
             "com.mobile.legends",
             "com.tencent.tmgp.sgame"
-    };
-
-    // Codenames of devices using Star spoofing for apps
-    private static final String[] starSpoofedCodenames = {
-            "venus"
     };
 
     // Codenames for currently supported Pixels by Google
@@ -254,21 +241,7 @@ public class PixelPropsUtils {
                 setPropValue("FINGERPRINT", Build.VERSION.INCREMENTAL);
             }
         } else {
-            boolean isStarSpoofedDevice = Arrays.asList(starSpoofedCodenames).contains(SystemProperties.get(DEVICE));
 
-            if (SystemProperties.getBoolean("persist.sys.pixelprops.streaming", true)) {
-                if (Arrays.asList(streamingPackagesToChange).contains(packageName)) {
-                    propsToChange.putAll(propsToChangePixel6);
-                }
-            }
-            if (packageName.equals(PACKAGE_NETFLIX) && (isStarSpoofedDevice)) {
-                if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
-                for (Map.Entry<String, Object> prop : propsToChangeMI11.entrySet()) {
-                    String key = prop.getKey();
-                    Object value = prop.getValue();
-                    setPropValue(key, value);
-                }
-            }
             if (!SystemProperties.getBoolean("persist.sys.pixelprops.games", false))
                 return;
 
