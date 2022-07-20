@@ -208,6 +208,7 @@ android_library {
         "motion_tool_lib",
         "notification_flags_lib",
         "vendor.lineage.powershare-V1.0-java",
+        "bcsmartspace-google",
     ],
     libs: [
         "keepanno-annotations",
