@@ -127,9 +127,9 @@ public class TileAdapter extends RecyclerView.Adapter<Holder> implements TileSta
     	boolean isLandscape = context.getResources().getConfiguration().orientation
                 == Configuration.ORIENTATION_LANDSCAPE;
 	if (isLandscape) {
-        mNumColumns = OmniUtils.getQSColumnsLandscape(mContext, mNumColumns);
+        mNumColumns = OmniUtils.getQSColumnsLandscape(context, mNumColumns);
         } else {
-        mNumColumns = OmniUtils.getQSColumnsPortrait(mContext, mNumColumns);
+        mNumColumns = OmniUtils.getQSColumnsPortrait(context, mNumColumns);
         }
         mSizeLookup.setSpanIndexCacheEnabled(true);
     }
