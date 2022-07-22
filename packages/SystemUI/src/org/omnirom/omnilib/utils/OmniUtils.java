@@ -54,7 +54,7 @@ public class OmniUtils {
     }
     
     public static int getQSColumnsLandscape(Context context, int resourceCount) {
-        final int QS_COLUMNS_MIN = 5;
+        final int QS_COLUMNS_MIN = 3;
         int value = QS_COLUMNS_MIN;
             value = Settings.System.getIntForUser(
                     context.getContentResolver(), "qs_layout_columns_landscape",
