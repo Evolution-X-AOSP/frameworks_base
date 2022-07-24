@@ -122,15 +122,8 @@ public class TileAdapter extends RecyclerView.Adapter<Holder> implements TileSta
         mDecoration = new TileItemDecoration(context);
         mMarginDecoration = new MarginTileDecoration();
         mMinNumTiles = context.getResources().getInteger(R.integer.quick_settings_min_num_tiles);
-        mNumColumns = context.getResources().getInteger(NUM_COLUMNS_ID);
+        mNumColumns = 3;
         //mAccessibilityDelegate = new TileAdapterDelegate();
-    	boolean isLandscape = context.getResources().getConfiguration().orientation
-                == Configuration.ORIENTATION_LANDSCAPE;
-	if (isLandscape) {
-        mNumColumns = OmniUtils.getQSColumnsLandscape(context, mNumColumns);
-        } else {
-        mNumColumns = OmniUtils.getQSColumnsPortrait(context, mNumColumns);
-        }
         mSizeLookup.setSpanIndexCacheEnabled(true);
     }
 
@@ -150,20 +143,7 @@ public class TileAdapter extends RecyclerView.Adapter<Holder> implements TileSta
      * @return {@code true} if the number of columns changed, {@code false} otherwise
      */
     public boolean updateNumColumns() {
-        int numColumns = mContext.getResources().getInteger(NUM_COLUMNS_ID);
-    	boolean isLandscape = mContext.getResources().getConfiguration().orientation
-                == Configuration.ORIENTATION_PORTRAIT;
-	if (isLandscape) {
-        mNumColumns = OmniUtils.getQSColumnsLandscape(mContext, mNumColumns);
-        } else {
-        mNumColumns = OmniUtils.getQSColumnsPortrait(mContext, mNumColumns);
-        }
-        if (numColumns != mNumColumns) {
-            mNumColumns = numColumns;
-            return true;
-        } else {
             return false;
-        }
     }
 
     public int getNumColumns() {
@@ -668,7 +648,7 @@ public class TileAdapter extends RecyclerView.Adapter<Holder> implements TileSta
         public int getSpanSize(int position) {
             final int type = getItemViewType(position);
             if (type == TYPE_EDIT || type == TYPE_DIVIDER || type == TYPE_HEADER) {
-                return mNumColumns;
+                return 3;
             } else {
                 return 1;
             }
