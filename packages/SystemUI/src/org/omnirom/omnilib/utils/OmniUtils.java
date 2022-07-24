@@ -52,22 +52,9 @@ public class OmniUtils {
                     resourceCount, UserHandle.USER_CURRENT);
         return Math.max(QS_COLUMNS_MIN, value);
     }
-    
-    public static int getQSColumnsLandscape(Context context, int resourceCount) {
-        final int QS_COLUMNS_MIN = 3;
-        int value = QS_COLUMNS_MIN;
-            value = Settings.System.getIntForUser(
-                    context.getContentResolver(), "qs_layout_columns_landscape",
-                    resourceCount, UserHandle.USER_CURRENT);
-        return Math.max(QS_COLUMNS_MIN, value);
-    }
 
     public static int getQuickQSColumnsPortrait(Context context, int resourceCount) {
         return getQSColumnsPortrait(context, resourceCount);
-    }
-
-    public static int getQuickQSColumnsLandscape(Context context, int resourceCount) {
-        return getQSColumnsLandscape(context, resourceCount);
     }
     
     public static boolean getQSTileLabelHide(Context context) {

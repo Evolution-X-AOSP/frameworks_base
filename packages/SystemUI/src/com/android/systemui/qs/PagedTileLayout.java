@@ -498,13 +498,6 @@ public class PagedTileLayout extends ViewPager implements QSTileLayout {
         TileLayout currentPage = mPages.get(getCurrentPageNumber());
         return currentPage.getResourceColumnsPortrait();
     }
-    
-    @Override
-    public int getResourceColumnsLand() {
-        if (mPages.size() == 0) return TileLayout.NO_MAX_COLUMNS;
-        TileLayout currentPage = mPages.get(getCurrentPageNumber());
-        return currentPage.getResourceColumnsLand();
-    }
 
     @Override
     public void updateSettings() {

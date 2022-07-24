@@ -57,7 +57,7 @@ public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel> 
                 if (isPortrait) {
                 newMaxTiles = OmniUtils.getQuickQSColumnsPortrait(getContext(), newMaxTiles);
                 } else {
-                newMaxTiles = OmniUtils.getQuickQSColumnsLandscape(getContext(), newMaxTiles);
+                newMaxTiles = 5;
                 }
                 if (newMaxTiles != mView.getNumQuickTiles()) {
                     setMaxTiles(newMaxTiles);

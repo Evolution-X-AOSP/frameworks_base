@@ -1054,7 +1054,7 @@ public class NotificationStackScrollLayout extends ViewGroup implements Dumpable
         if (res.getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
         mQsTileColumns = OmniUtils.getQSColumnsPortrait(mContext, mQsTileColumns);
         } else {
-        mQsTileColumns = OmniUtils.getQSColumnsLandscape(mContext, mQsTileColumns);
+        mQsTileColumns = 5;
         }
         mSkinnyNotifsInLandscape = res.getBoolean(R.bool.config_skinnyNotifsInLandscape);
         mSidePaddings = mMinimumPaddings;  // Updated in onMeasure by updateSidePadding()
