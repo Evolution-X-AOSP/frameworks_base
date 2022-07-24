@@ -174,8 +174,6 @@ public abstract class QSPanelControllerBase<T extends QSPanel> extends ViewContr
         Dependency.get(OmniSettingsService.class).addIntObserver(this,
                 Settings.System.OMNI_QS_LAYOUT_COLUMNS);
         Dependency.get(OmniSettingsService.class).addIntObserver(this,
-                Settings.System.OMNI_QS_LAYOUT_COLUMNS_LANDSCAPE);
-        Dependency.get(OmniSettingsService.class).addIntObserver(this,
                 Settings.System.OMNI_QS_TILE_LABEL_HIDE);
     }
 
