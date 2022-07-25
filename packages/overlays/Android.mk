@@ -87,6 +87,7 @@ LOCAL_REQUIRED_MODULES := \
     NavigationBarModeGesturalOverlayWideBack \
     NavigationBarModeGesturalOverlayExtraWideBack \
     NotchBarKillerOverlay \
+    NotchBarKillerLeftrOverlay \
     preinstalled-packages-platform-overlays.xml
 
 include $(BUILD_PHONY_PACKAGE)
