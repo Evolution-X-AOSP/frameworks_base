@@ -44,25 +44,9 @@ import dagger.Provides;
 public class SensorModule {
     @Provides
     @PrimaryProxSensor
-    static ThresholdSensor providePrimaryProximitySensor(
-            SensorManager sensorManager,
-            ThresholdSensorImpl.Builder thresholdSensorBuilder
-    ) {
-        try {
-            return thresholdSensorBuilder
-                    .setSensorDelay(SensorManager.SENSOR_DELAY_NORMAL)
-                    .setSensorResourceId(R.string.proximity_sensor_type, true)
-                    .setThresholdResourceId(R.dimen.proximity_sensor_threshold)
-                    .setThresholdLatchResourceId(R.dimen.proximity_sensor_threshold_latch)
-                    .build();
-        } catch (IllegalStateException e) {
-            Sensor defaultSensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY,
-                    true);
-            return thresholdSensorBuilder
-                    .setSensor(defaultSensor)
-                    .setThresholdValue(defaultSensor != null ? defaultSensor.getMaximumRange() : 0)
-                    .build();
-        }
+    static ThresholdSensor providePrimaryProxSensor(SensorManager sensorManager,
+            ThresholdSensorImpl.Builder thresholdSensorBuilder) {
+        return thresholdSensorBuilder.setSensor(null).setThresholdValue(0).build();
     }
 
     @Provides
