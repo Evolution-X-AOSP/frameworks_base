@@ -19,7 +19,6 @@ package com.android.systemui.keyguard.dagger;
 import android.annotation.Nullable;
 import android.app.trust.TrustManager;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.os.PowerManager;
 
 import com.android.internal.widget.LockPatternUtils;
@@ -129,17 +128,13 @@ public class KeyguardModule {
 
     @SysUISingleton
     @Provides
-    @Nullable
     static KeyguardLiftController provideKeyguardLiftController(
             Context context,
             StatusBarStateController statusBarStateController,
             AsyncSensorManager asyncSensorManager,
             KeyguardUpdateMonitor keyguardUpdateMonitor,
             DumpManager dumpManager) {
-        if (!context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_FACE)) {
-            return null;
-        }
         return new KeyguardLiftController(statusBarStateController, asyncSensorManager,
-                keyguardUpdateMonitor, dumpManager);
+                keyguardUpdateMonitor, dumpManager, context);
     }
 }
