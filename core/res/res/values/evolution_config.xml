@@ -181,6 +181,9 @@
     <string-array name="config_oemFastChargerStatusPaths" translatable="false">
     </string-array>
 
+    <!-- Paths to OP warp charging status file -->
+    <string name="config_opWarpChargerStatusPaths" translatable="false"></string>
+
     <!-- Defines the sysfs attribute path used by pocket bridge
          to communicate pocket state to the pocket judge kernel driver. -->
     <string name="config_pocketBridgeSysfsInpocket"></string>
