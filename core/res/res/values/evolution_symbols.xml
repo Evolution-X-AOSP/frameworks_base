@@ -83,6 +83,9 @@
     <java-symbol type="string" name="config_SmartChargingSuspendValue" />
     <java-symbol type="string" name="config_SmartChargingResumeValue" />
 
+    <!-- Paths to OP warp charging status file -->
+    <java-symbol type="string" name="config_opWarpChargerStatusPaths" />
+
     <!-- Pocket Lock -->
     <java-symbol type="layout" name="pocket_lock_view" />
 
