@@ -696,6 +696,11 @@ public class NotificationEntryManager implements
             return;
         }
 
+        // update ticker only, LyricController will handle it
+        if ((notification.getNotification().flags & Notification.FLAG_ONLY_UPDATE_TICKER) != 0) {
+            return;
+        }
+
         // Notification is updated so it is essentially re-added and thus alive again.  Don't need
         // to keep its lifetime extended.
         cancelLifetimeExtension(entry);
