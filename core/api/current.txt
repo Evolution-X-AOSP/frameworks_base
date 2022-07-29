@@ -5974,6 +5974,8 @@ package android.app {
     field public static final int FLAG_NO_CLEAR = 32; // 0x20
     field public static final int FLAG_ONGOING_EVENT = 2; // 0x2
     field public static final int FLAG_ONLY_ALERT_ONCE = 8; // 0x8
+    field public static final int FLAG_ALWAYS_SHOW_TICKER = 16777216; // 0x1000000
+    field public static final int FLAG_ONLY_UPDATE_TICKER = 33554432; // 0x2000000
     field @Deprecated public static final int FLAG_SHOW_LIGHTS = 1; // 0x1
     field public static final int FOREGROUND_SERVICE_DEFAULT = 0; // 0x0
     field public static final int FOREGROUND_SERVICE_DEFERRED = 2; // 0x2
