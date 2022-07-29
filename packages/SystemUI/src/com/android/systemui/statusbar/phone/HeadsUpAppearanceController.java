@@ -106,6 +106,8 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
     private boolean mAnimationsEnabled = true;
     private final KeyguardStateController mKeyguardStateController;
 
+    private LyricViewController mLyricViewController;
+
     @VisibleForTesting
     @Inject
     public HeadsUpAppearanceController(
@@ -232,6 +234,10 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
         }
     }
 
+    public void setLyricViewController(LyricViewController controller) {
+        mLyricViewController = controller;
+    }
+
     private void setShown(boolean isShown) {
         if (mShown != isShown) {
             View clockView = mClockController.getClock();
@@ -246,6 +252,9 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
                     hide(clockView, View.INVISIBLE);
                 }
                 mOperatorNameViewOptional.ifPresent(view -> hide(view, View.INVISIBLE));
+                if (mLyricViewController != null) {
+                    mLyricViewController.hideLyricView(mAnimationsEnabled);
+                }
             } else {
                 if (isClock) {
                     show(clockView);
@@ -254,6 +263,9 @@ public class HeadsUpAppearanceController extends ViewController<HeadsUpStatusBar
                 hide(mView, View.GONE, () -> {
                     updateParentClipping(true /* shouldClip */);
                 });
+                if (mLyricViewController != null) {
+                    mLyricViewController.showLyricView(mAnimationsEnabled);
+                }
             }
             // Show the status bar icons when the view gets shown / hidden
             if (mStatusBarStateController.getState() != StatusBarState.SHADE) {
