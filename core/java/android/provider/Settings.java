@@ -3617,6 +3617,9 @@ public final class Settings {
             MOVED_TO_SECURE.add(Secure.INSTALL_NON_MARKET_APPS);
 
             MOVED_TO_SECURE.add(Secure.VOLUME_LINK_NOTIFICATION);
+
+            // Status bar lyric
+            MOVED_TO_SECURE.add(Secure.STATUS_BAR_SHOW_LYRIC);
         }
 
         @UnsupportedAppUsage(maxTargetSdk = Build.VERSION_CODES.R, trackingBug = 170729553)
@@ -12295,6 +12298,18 @@ public final class Settings {
          * @hide
          */
         public static final String DOZE_ON_CHARGE = "doze_on_charge";
+
+        /**
+         * Show lyric in status bar when playing music
+         * <ul>
+         *    <li> 0 = disabled </li>
+         *    <li> 1 = enabled </li>
+         * </ul>
+         *
+         * @hide
+         */
+        @Readable
+        public static final String STATUS_BAR_SHOW_LYRIC = "status_bar_show_lyric";
 
         /**
          * These entries are considered common between the personal and the managed profile,

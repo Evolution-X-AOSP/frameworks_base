@@ -703,6 +703,10 @@ public class Notification implements Parcelable
      */
     public static final int FLAG_BUBBLE = 0x00001000;
 
+    public static final int FLAG_ALWAYS_SHOW_TICKER = 0x01000000;
+
+    public static final int FLAG_ONLY_UPDATE_TICKER = 0x02000000;
+
     private static final List<Class<? extends Style>> PLATFORM_STYLE_CLASSES = Arrays.asList(
             BigTextStyle.class, BigPictureStyle.class, InboxStyle.class, MediaStyle.class,
             DecoratedCustomViewStyle.class, DecoratedMediaCustomViewStyle.class,
