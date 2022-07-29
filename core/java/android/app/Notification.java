@@ -744,6 +744,10 @@ public class Notification implements Parcelable
      */
     @TestApi
     public static final int FLAG_USER_INITIATED_JOB = 0x00008000;
+    
+    public static final int FLAG_ALWAYS_SHOW_TICKER = 0x01000000;
+
+    public static final int FLAG_ONLY_UPDATE_TICKER = 0x02000000;
 
     /**
      * Bit to be bitwise-ored into the {@link #flags} field that should be
