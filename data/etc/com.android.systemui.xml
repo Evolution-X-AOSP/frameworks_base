@@ -85,5 +85,7 @@
         <permission name="android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS" />
         <permission name="android.permission.FORCE_STOP_PACKAGES" />
         <permission name="android.permission.CHANGE_CONFIGURATION" />
+        <permission name="lineageos.permission.HARDWARE_ABSTRACTION_ACCESS" />
+        <permission name="lineageos.permission.MANAGE_LIVEDISPLAY" />
     </privapp-permissions>
 </permissions>
