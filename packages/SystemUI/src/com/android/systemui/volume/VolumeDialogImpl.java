@@ -2302,7 +2302,7 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
         }
         final ColorStateList colorTint = useActiveColoring
                 ? Utils.getColorAccent(mContext)
-                : Utils.getColorAttr(mContext, com.android.internal.R.attr.colorAccentSecondary);
+                : Utils.getColorAttr(mContext, com.android.internal.R.attr.colorAccentPrimary);
         final int alpha = useActiveColoring
                 ? Color.alpha(colorTint.getDefaultColor())
                 : getAlphaAttr(android.R.attr.secondaryContentAlpha);
