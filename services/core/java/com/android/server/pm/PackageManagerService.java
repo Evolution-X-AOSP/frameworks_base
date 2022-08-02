@@ -22300,9 +22300,10 @@ public class PackageManagerService extends IPackageManager.Stub
             mPermissionManager.onPackageInstalled(pkg,
                     PermissionManagerServiceInternal.PackageInstalledParams.DEFAULT,
                     UserHandle.USER_ALL);
+            final boolean sync = "com.android.systemui".equals(pkg.getPackageName());
             for (final int userId : allUserHandles) {
                 if (applyUserRestrictions) {
-                    mSettings.writePermissionStateForUserLPr(userId, false);
+                    mSettings.writePermissionStateForUserLPr(userId, sync);
                 }
             }
 
