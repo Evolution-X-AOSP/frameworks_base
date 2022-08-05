@@ -20,7 +20,7 @@
     <string name="screenrecord_lowquality_summary">Для меньшего размера</string>
     <string name="screenrecord_longer_timeout_switch_label">Больший размер файла\nОграничение размера записи до 15 Гб</string>
     <string name="screenrecord_longer_timeout_switch_summary">Ограничить размер записи до 15 ГБ</string>
-    <string name="screenrecord_skip_time_label">Таймер отключения</string>
+    <string name="screenrecord_skip_time_label">Пропустить таймер</string>
     <string name="screenrecord_skip_time_summary">Убрать 3 секунды ожидания</string>
     <!-- Alert slider extras -->
     <string name="volume_ringer_priority_only">Приоритет</string>
@@ -69,7 +69,7 @@
     <string name="quick_settings_sound_label">Звук</string>
     <string name="quick_settings_sound_ring">Рингтон</string>
     <string name="quick_settings_sound_vibrate">Вибрация</string>
-    <string name="quick_settings_sound_mute">Заглушить</string>
+    <string name="quick_settings_sound_mute">Не беспокоить</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_full_screenshot_label">Полноэкранный</string>
     <string name="quick_settings_screenshot_label">Снимок экрана</string>
