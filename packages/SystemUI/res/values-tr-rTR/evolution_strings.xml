@@ -41,7 +41,7 @@
     <!-- PowerShare QS tile -->
     <string name="quick_settings_powershare_label">Kablosuz Güç Paylaşımı</string>
     <string name="quick_settings_powershare_off_powersave_label">Kablosuz Güç Paylaşımı kapalı\nPil tasarrufu</string>
-    <string name="quick_settings_powershare_off_low_battery_label">Kablosuz Güç Paylaşımı\nPil seviyesi çok düşük</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Kablosuz Güç Paylaşımı kapalı\nPil seviyesi çok düşük</string>
     <string name="quick_settings_powershare_enabled_label">Kablosuz Güç Paylaşımı etkin</string>
     <!-- Name of the nfc status bar icon. -->
     <string name="status_bar_nfc">NFC</string>
@@ -77,7 +77,7 @@
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Ekran görüntüsü silindi</string>
     <!-- Name of status bar icons. -->
-    <string name="status_bar_call_strength">Arama güçlendirme</string>
+    <string name="status_bar_call_strength">Sinyal kuveti</string>
     <string name="status_bar_data_saver">Veri tasarrufu</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- Heads Up QS Tile -->
@@ -104,10 +104,10 @@
     <string name="onthego_notification_error">Yürüme modu başlatılamıyor</string>
     <string name="onthego_notification_restart">Yürüme modunu yeniden başlat</string>
     <string name="onthego_notification_camera_changed">Kamera modu değiştirildi</string>
-    <string name="onthego_transparency">Saydamlık</string>
+    <string name="onthego_transparency">Yürüyüş Modu Şeffaflığı</string>
     <string name="onthego_front_camera">Ön kamerayı kullan</string>
     <string name="onthego_service_toggle">Servisi otomatik olarak yeniden başlat</string>
-    <string name="onthego_channel_name">Ana grup</string>
+    <string name="onthego_channel_name">Yürüme modu</string>
     <!-- OnTheGo Tile -->
     <string name="quick_settings_onthego_label">Yürüme modu</string>
     <string name="accessibility_quick_settings_onthego_off">Yürüme modu kapalı</string>
@@ -142,7 +142,7 @@
     <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
     <string name="clock">Saat</string>
     <!-- Navigation bar dpad -->
-    <string name="accessibility_dpad_left">İmleç sola</string>
+    <string name="accessibility_dpad_left">Sol imleç</string>
     <string name="accessibility_dpad_right">İmleç sağa</string>
     <!-- Kill foreground app -->
     <string name="task_helper_app_killed">%1$s zorla durduruldu</string>
@@ -170,8 +170,8 @@
     <!-- CPUInfo tile -->
     <string name="quick_settings_cpuinfo_label">İşlemci bilgisi</string>
     <!-- SoundSearch Tile -->
-    <string name="quick_settings_sound_search">Sesli arama</string>
-    <string name="quick_settings_sound_search_no_app">Üzgünüz, eğer bir sesli arama uygulaması yoksa bu işe yaramayacaktır.</string>
+    <string name="quick_settings_sound_search">Ses araması</string>
+    <string name="quick_settings_sound_search_no_app">Üzgünüz, eğer bir ses arama uygulaması yoksa bu işe yaramayacaktır.</string>
     <!-- Mono QS Tile -->
     <string name="quick_settings_monotoggle_tile">Ses modu</string>
     <string name="quick_settings_monotoggle_tile_mono">Mono ses</string>
@@ -179,7 +179,7 @@
     <!-- Data usage info in QS footer -->
     <string name="usage_data">bugün kullanılan</string>
     <string name="usage_data_default_suffix">Veri</string>
-    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <string name="usage_wifi_default_suffix">Kablosuz ağ</string>
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">\u2026\'a bağlan</string>
@@ -197,7 +197,7 @@
     <string name="accessibility_quick_settings_reading_mode_changed_on">Okuma modu açıldı.</string>
     <string name="accessibility_quick_settings_reading_mode_changed_off">Okuma modu kapatıldı.</string>
     <!-- Anti flicker QS tile -->
-    <string name="quick_settings_anti_flicker">Titreme önleme</string>
+    <string name="quick_settings_anti_flicker">Titreşim önleme</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash şarj oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> kaldı)</string>
     <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Dash şarj oluyor</string>
@@ -223,4 +223,11 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Akıllı Pikseller</string>
     <string name="quick_settings_smart_pixels_on_power_save">Otomatik olarak akıllı pikselleri etkinleştir</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">Müzik</string>
+    <string name="quick_settings_music_play">Oynat</string>
+    <string name="quick_settings_music_pause">Duraklat</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Dil</string>
+    <string name="quick_settings_locale_more_locales_toast">Geçiş işlevselliğinin etkin olması için lütfen birden fazla dil ekleyin</string>
 </resources>
