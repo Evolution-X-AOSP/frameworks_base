@@ -845,7 +845,7 @@ public class QSPanel extends LinearLayout implements Tunable {
             	boolean isLandscape = mContext.getResources().getConfiguration().orientation
                 == Configuration.ORIENTATION_LANDSCAPE;
                 // even though there is already an exisiting horizontal check, lets make sure that 2 rows is only forced on portrait
-                if (!isLandscape && mTileLayout.getResourceColumnsPortrait() == 2) {
+                if (!isLandscape && mTileLayout.getResourceColumnsPortrait() <= 3) {
                     mTileLayout.setMinRows(horizontal ? 2 : 1);
                 } else {
                    mTileLayout.setMinRows(horizontal ? 1 : 1);
