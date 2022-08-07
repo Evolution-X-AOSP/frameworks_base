@@ -122,7 +122,7 @@ public class TileAdapter extends RecyclerView.Adapter<Holder> implements TileSta
         mDecoration = new TileItemDecoration(context);
         mMarginDecoration = new MarginTileDecoration();
         mMinNumTiles = context.getResources().getInteger(R.integer.quick_settings_min_num_tiles);
-        mNumColumns = 3;
+        mNumColumns = 2;
         //mAccessibilityDelegate = new TileAdapterDelegate();
         mSizeLookup.setSpanIndexCacheEnabled(true);
     }
@@ -648,7 +648,7 @@ public class TileAdapter extends RecyclerView.Adapter<Holder> implements TileSta
         public int getSpanSize(int position) {
             final int type = getItemViewType(position);
             if (type == TYPE_EDIT || type == TYPE_DIVIDER || type == TYPE_HEADER) {
-                return 3;
+		return mNumColumns;
             } else {
                 return 1;
             }
