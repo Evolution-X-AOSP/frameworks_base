@@ -12135,12 +12135,6 @@ public final class Settings {
                 "device_state_rotation_lock";
 
         /**
-         * Whether to show Wi-Fi standard icon
-         * @hide
-         */
-        public static final String SHOW_WIFI_STANDARD_ICON = "show_wifi_standard_icon";
-
-        /**
          * Gesture navbar length mode.
          * Supported modes: 0 for normal length, 1 for medium and 2 for long.
          * Default 0.
@@ -12239,13 +12233,6 @@ public final class Settings {
          * @hide
          */
         public static final String SWAP_CAPACITIVE_KEYS = "swap_capacitive_keys";
-
-        /**
-         * Control whether FLAG_SECURE is ignored for all windows.
-         * @hide
-         */
-        @Readable
-        public static final String WINDOW_IGNORE_SECURE = "window_ignore_secure";
 
         /**
          * Whether to show the brightness slider in quick settings panel.
@@ -18370,12 +18357,6 @@ public final class Settings {
          * @hide
          */
         public static final String RESTRICTED_NETWORKING_MODE = "restricted_networking_mode";
-
-        /**
-         * Control whether application downgrade is allowed.
-         * @hide
-         */
-        public static final String PM_DOWNGRADE_ALLOWED = "pm_downgrade_allowed";
 
         /**
          * Enable blocking wakelock
