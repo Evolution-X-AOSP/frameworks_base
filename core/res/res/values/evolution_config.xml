@@ -214,7 +214,7 @@
     </string-array>
 
     <!-- Whether devices suports in-display fingerprint when screen is off -->
-    <bool name="config_supportsScreenOffUdfps">true</bool>
+    <bool name="config_supportsScreenOffUdfps">false</bool>
 
     <!-- Any package that has one of the package names defined below will be prevented
          from using specific sensors in order to stop battery drain -->
