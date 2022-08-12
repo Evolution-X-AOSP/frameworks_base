@@ -129,7 +129,7 @@ public abstract class LyricViewController implements
                 stopLyric();
                 return;
             }
-            if (!isCurrentNotification ||
+            if (!isCurrentNotification || !mStarted ||
                     notification.extras.getBoolean(EXTRA_TICKER_ICON_SWITCH, false)) {
                 int iconId = notification.extras.getInt(EXTRA_TICKER_ICON, -1);
                 Drawable icon = iconId == -1 ? notification.getSmallIcon().loadDrawable(mContext) :
@@ -138,8 +138,8 @@ public abstract class LyricViewController implements
                                     iconId, notification.iconLevel, 0, null));
                 mIconSwitcher.setImageDrawable(icon);
                 updateIconTint();
-                startLyric();
             }
+            startLyric();
             mTextSwitcher.setText(notification.tickerText);
         }
     }
