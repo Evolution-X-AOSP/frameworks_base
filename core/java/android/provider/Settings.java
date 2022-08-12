@@ -3617,6 +3617,9 @@ public final class Settings {
             MOVED_TO_SECURE.add(Secure.INSTALL_NON_MARKET_APPS);
 
             MOVED_TO_SECURE.add(Secure.VOLUME_LINK_NOTIFICATION);
+
+            // Status bar lyric
+            MOVED_TO_SECURE.add(Secure.STATUS_BAR_SHOW_LYRIC);
         }
 
         @UnsupportedAppUsage(maxTargetSdk = Build.VERSION_CODES.R, trackingBug = 170729553)
