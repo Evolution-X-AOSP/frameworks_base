@@ -230,4 +230,5 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">اللغة</string>
     <string name="quick_settings_locale_more_locales_toast">الرجاء إعداد اللغات المتعددة لتمكين وظيفة مفتاح التبديل</string>
+    <!-- Text to use when the number in a notification info is too large -->
 </resources>
