@@ -229,4 +229,5 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Язык</string>
     <string name="quick_settings_locale_more_locales_toast">Пожалуйста, настройте несколько языков, чтобы активировать функцию</string>
+    <!-- Text to use when the number in a notification info is too large -->
 </resources>
