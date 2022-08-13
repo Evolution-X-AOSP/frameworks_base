@@ -230,4 +230,5 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Sprache</string>
     <string name="quick_settings_locale_more_locales_toast">Bitte fügen Sie mehr als eine Sprache hinzu, um die Umschaltfunktion zu aktivieren</string>
+    <!-- Text to use when the number in a notification info is too large -->
 </resources>
