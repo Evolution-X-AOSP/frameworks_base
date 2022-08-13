@@ -230,4 +230,5 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">语言</string>
     <string name="quick_settings_locale_more_locales_toast">请配置多种语言以启用切换功能</string>
+    <!-- Text to use when the number in a notification info is too large -->
 </resources>
