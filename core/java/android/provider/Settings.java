@@ -6104,6 +6104,12 @@ public final class Settings {
         public static final String LOCKSCREEN_ALBUMART_FILTER = "lockscreen_albumart_filter";
 
         /**
+         * lockscreen album art blur level
+         * @hide
+         */
+        public static final String LS_MEDIA_FILTER_BLUR_RADIUS = "ls_media_filter_blur_radius";
+
+        /**
          * Enable/disable Bluetooth Battery bar
          * @hide
          */
