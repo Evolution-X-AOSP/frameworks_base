@@ -303,5 +303,6 @@ public class SystemSettingsValidators {
                         return true;
                     }
                 });
+        VALIDATORS.put(System.MAX_VISIBLE_NOTIFICATION_ICONS, NON_NEGATIVE_INTEGER_VALIDATOR);
     }
 }
