@@ -6812,6 +6812,12 @@ public final class Settings {
         public static final String MEDIA_ARTWORK_BLUR_RADIUS = "media_artwork_blur_radius";
 
         /**
+         * lockscreen album art blur level
+         * @hide
+         */
+        public static final String LS_MEDIA_FILTER_BLUR_RADIUS = "ls_media_filter_blur_radius";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
