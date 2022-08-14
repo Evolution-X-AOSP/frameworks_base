@@ -722,11 +722,11 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
                     break;
                 case 3:
                     artworkDrawable = new BitmapDrawable(mBackdropBack.getResources(),
-                        ImageHelper.getBlurredImage(mContext, bmp, 7.0f));
+                        ImageHelper.getBlurredImage(mContext, bmp, 10.0f));
                     break;
                 case 4:
                     artworkDrawable = new BitmapDrawable(mBackdropBack.getResources(),
-                        ImageHelper.getGrayscaleBlurredImage(mContext, bmp, 7.0f));
+                        ImageHelper.getGrayscaleBlurredImage(mContext, bmp, 10.0f));
                     break;
             }
         }
