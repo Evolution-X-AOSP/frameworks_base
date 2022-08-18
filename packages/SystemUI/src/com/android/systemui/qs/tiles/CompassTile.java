@@ -64,6 +64,7 @@ public class CompassTile extends QSTileImpl<BooleanState> implements SensorEvent
 
     private ImageView mImage;
     private boolean mListeningSensors;
+    private Handler mHandler;
 
     @Inject
     public CompassTile(QSHost host,
@@ -77,6 +78,7 @@ public class CompassTile extends QSTileImpl<BooleanState> implements SensorEvent
     ) {
         super(host, backgroundLooper, mainHandler, falsingManager, metricsLogger,
                 statusBarStateController, activityStarter, qsLogger);
+        mHandler = mainHandler;
         mSensorManager = (SensorManager) mContext.getSystemService(Context.SENSOR_SERVICE);
         mAccelerationSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mGeomagneticFieldSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
@@ -141,7 +143,7 @@ public class CompassTile extends QSTileImpl<BooleanState> implements SensorEvent
 
     @Override
     protected void handleUpdateState(BooleanState state, Object arg) {
-        Float degrees = arg == null ? 0 :(float) arg;
+        final Float degrees = arg == null ? 0 : (Float) arg;
 
         state.value = mActive;
         state.icon = ResourceIcon.get(R.drawable.ic_qs_compass);
@@ -150,23 +152,28 @@ public class CompassTile extends QSTileImpl<BooleanState> implements SensorEvent
             state.state = Tile.STATE_ACTIVE;
             if (arg != null) {
                 state.label = formatValueWithCardinalDirection(degrees);
-
-                float target = 360 - degrees;
-                float relative = target - mImage.getRotation();
-                if (relative > 180) relative -= 360;
-
-                mImage.setRotation(mImage.getRotation() + relative / 2);
-
+                mHandler.post(() -> {
+                    if (mImage == null)
+                        return;
+                    float target = 360 - degrees;
+                    float relative = target - mImage.getRotation();
+                    if (relative > 180) relative -= 360;
+                    mImage.setRotation(mImage.getRotation() + relative / 2);
+                });
             } else {
                 state.label = mContext.getString(R.string.quick_settings_compass_init);
-                mImage.setRotation(0);
+                mHandler.post(() -> {
+                    if (mImage != null)
+                        mImage.setRotation(0);
+                });
             }
         } else {
             state.label = mContext.getString(R.string.quick_settings_compass_label);
             state.state = Tile.STATE_INACTIVE;
-            if (mImage != null) {
-                mImage.setRotation(0);
-            }
+            mHandler.post(() -> {
+                if (mImage != null)
+                    mImage.setRotation(0);
+            });
         }
     }
 
