@@ -43,7 +43,7 @@ import com.android.systemui.plugins.statusbar.StatusBarStateController;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.logging.QSLogger;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
-import com.android.systemui.qs.SecureSetting;
+import com.android.systemui.qs.SettingObserver;
 import com.android.systemui.settings.UserTracker;
 import com.android.systemui.util.settings.SecureSettings;
 
@@ -55,7 +55,7 @@ import javax.inject.Inject;
 public class AmbientDisplayTile extends QSTileImpl<BooleanState> {
 
     private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_ambient_display);
-    private final SecureSetting mSetting;
+    private final SettingObserver mSetting;
 
     @Inject
     public AmbientDisplayTile(
@@ -73,7 +73,7 @@ public class AmbientDisplayTile extends QSTileImpl<BooleanState> {
         super(host, backgroundLooper, mainHandler, falsingManager, metricsLogger,
                 statusBarStateController, activityStarter, qsLogger);
 
-        mSetting = new SecureSetting(secureSettings, mHandler, Secure.DOZE_ENABLED,
+        mSetting = new SettingObserver(secureSettings, mHandler, Secure.DOZE_ENABLED,
                 userTracker.getUserId(), 1) {
             @Override
             protected void handleValueChanged(int value, boolean observedChange) {
@@ -150,16 +150,5 @@ public class AmbientDisplayTile extends QSTileImpl<BooleanState> {
     @Override
     public int getMetricsCategory() {
         return MetricsEvent.EVO_QS_TILES;
-    }
-
-    @Override
-    protected String composeChangeAnnouncement() {
-        if (mState.value) {
-            return mContext.getString(
-                    R.string.accessibility_quick_settings_ambient_display_changed_on);
-        } else {
-            return mContext.getString(
-                    R.string.accessibility_quick_settings_ambient_display_changed_off);
-        }
     }
 }
