@@ -401,7 +401,7 @@ public class ScreenshotController {
         mVibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
         mCameraManager = (CameraManager) mContext.getSystemService(Context.CAMERA_SERVICE);
         mCameraManager.registerAvailabilityCallback(mCamCallback,
-                new Handler(Looper.getMainLooper()));
+                timeoutHandler);
 
         mCopyBroadcastReceiver = new BroadcastReceiver() {
             @Override
