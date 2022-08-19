@@ -110,15 +110,6 @@ public class SyncTile extends QSTileImpl<BooleanState> {
     }
 
     @Override
-    protected String composeChangeAnnouncement() {
-        if (mState.value) {
-            return mContext.getString(R.string.accessibility_quick_settings_sync_changed_on);
-        } else {
-            return mContext.getString(R.string.accessibility_quick_settings_sync_changed_off);
-        }
-    }
-
-    @Override
     public void handleSetListening(boolean listening) {
         if (mListening == listening) return;
         mListening = listening;
