@@ -198,6 +198,7 @@ import com.android.server.utils.PriorityDump;
 import com.android.server.wm.WindowManagerInternal;
 
 import com.google.android.collect.Sets;
+import ink.kaleidoscope.server.ParallelSpaceManagerService;
 
 import java.io.FileDescriptor;
 import java.io.IOException;
@@ -2099,6 +2100,10 @@ public final class InputMethodManagerService extends IInputMethodManager.Stub
         if (userId == mSettings.getCurrentUserId()) {
             return true;
         }
+        if (ParallelSpaceManagerService.convertToParallelOwnerIfPossible(userId)
+                == mSettings.getCurrentUserId()) {
+            return true;
+        }
 
         // Caveat: A process which has INTERACT_ACROSS_USERS_FULL gets results for the
         // foreground user, not for the user of that process. Accordingly InputMethodManagerService
@@ -3924,7 +3929,9 @@ public final class InputMethodManagerService extends IInputMethodManager.Stub
                     return InputBindResult.INVALID_USER;
                 }
             } else {
-                userId = callingUserId;
+                // For parallel users, always use IM from owners.
+                userId = ParallelSpaceManagerService
+                            .convertToParallelOwnerIfPossible(callingUserId);
             }
             final InputBindResult result;
             synchronized (ImfLock.class) {
