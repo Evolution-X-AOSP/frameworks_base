@@ -225,6 +225,8 @@ import com.android.server.wm.WindowManagerService;
 
 import dalvik.system.VMRuntime;
 
+import ink.kaleidoscope.server.ParallelSpaceManagerService;
+
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.IOException;
@@ -413,6 +415,8 @@ public final class SystemServer implements Dumpable {
             "com.android.server.compat.overrides.AppCompatOverridesService$Lifecycle";
     private static final String SLEEP_MODE_SERVICE_CLASS =
             "com.android.server.power.SleepModeService";
+    private static final String PARALLEL_SPACE_SERVICE_CLASS =
+            "ink.kaleidoscope.server.ParallelSpaceManagerService";
 
     private static final String ROLE_SERVICE_CLASS = "com.android.role.RoleService";
     private static final String GAME_MANAGER_SERVICE_CLASS =
@@ -2844,6 +2848,10 @@ public final class SystemServer implements Dumpable {
 
         t.traceBegin("SleepModeService");
         mSystemServiceManager.startService(SLEEP_MODE_SERVICE_CLASS);
+        t.traceEnd();
+
+        t.traceBegin("StartParallelSpaceManagerService");
+        mSystemServiceManager.startService(PARALLEL_SPACE_SERVICE_CLASS);
         t.traceEnd();
 
         // These are needed to propagate to the runnable below.
