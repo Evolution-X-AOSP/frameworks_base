@@ -57,7 +57,6 @@ public class TunerActivity extends CollapsingToolbarBaseActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
-        setTheme(R.style.Theme_AppCompat_DayNight);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         setContentView(R.layout.tuner_activity);
