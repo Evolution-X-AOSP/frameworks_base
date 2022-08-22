@@ -271,7 +271,7 @@ public class MobileSignalController extends SignalController<MobileState, Mobile
                 new ArrayList<Integer>(ImsFeature.STATE_LOG_MAP.keySet()),
                 new FeatureConnector.Listener<ImsManager> () {
                     @Override
-                    public void connectionReady(ImsManager manager)
+                    public void connectionReady(ImsManager manager, int subId)
                             throws ImsException {
                         Log.d(mTag, "ImsManager: connection ready.");
                         mImsManager = manager;
