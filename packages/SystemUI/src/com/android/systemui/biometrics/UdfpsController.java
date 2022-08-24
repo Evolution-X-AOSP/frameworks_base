@@ -30,12 +30,14 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.ContentObserver;
 import android.graphics.Point;
+import android.hardware.display.AmbientDisplayConfiguration;
 import android.hardware.biometrics.BiometricFingerprintConstants;
 import android.hardware.display.ColorDisplayManager;
 import android.hardware.display.DisplayManager;
 import android.hardware.fingerprint.FingerprintManager;
 import android.hardware.fingerprint.IUdfpsOverlayController;
 import android.hardware.fingerprint.IUdfpsOverlayControllerCallback;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.PowerManager;
 import android.os.Process;
@@ -76,6 +78,7 @@ import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
 import com.android.systemui.util.concurrency.DelayableExecutor;
 import com.android.systemui.util.concurrency.Execution;
+import com.android.systemui.util.settings.SecureSettings;
 import com.android.systemui.util.time.SystemClock;
 
 import com.android.systemui.R;
@@ -175,6 +178,9 @@ public class UdfpsController implements DozeReceiver {
     private boolean mAttemptedToDismissKeyguard;
     private final Set<Callback> mCallbacks = new HashSet<>();
     private final int mUdfpsVendorCode;
+
+    private final AmbientDisplayConfiguration mAmbientDisplayConfiguration;
+    private final SecureSettings mSecureSettings;
     private boolean mScreenOffUdfpsEnabled;
 
     private boolean mDisableNightMode;
@@ -272,14 +278,18 @@ public class UdfpsController implements DozeReceiver {
 
         @Override
         public void onAcquiredVendor(int sensorId, int vendorCode) {
-            if (vendorCode == mUdfpsVendorCode && mStatusBarStateController.isDozing()
-                    && (mScreenOffUdfpsEnabled || mScreenOn)) {
-                if (mContext.getResources().getBoolean(R.bool.config_pulseOnFingerDown)) {
-                    mContext.sendBroadcastAsUser(
-                            new Intent(PULSE_ACTION), new UserHandle(UserHandle.USER_CURRENT));
-                } else {
-                    mPowerManager.wakeUp(mSystemClock.uptimeMillis(),
-                            PowerManager.WAKE_REASON_GESTURE, TAG);
+            final boolean isAodEnabled = mAmbientDisplayConfiguration.alwaysOnEnabled(UserHandle.USER_CURRENT);
+            final boolean isShowingAmbientDisplay = mStatusBarStateController.isDozing() && mScreenOn;
+            if ((mScreenOffUdfpsEnabled && !mScreenOn) || (isAodEnabled && isShowingAmbientDisplay)) {
+                if (vendorCode == mUdfpsVendorCode) {
+                    if (mContext.getResources().getBoolean(R.bool.config_pulseOnFingerDown)) {
+                        mContext.sendBroadcastAsUser(
+                                new Intent(PULSE_ACTION), new UserHandle(UserHandle.USER_CURRENT));
+                    } else {
+                        mPowerManager.wakeUp(mSystemClock.uptimeMillis(),
+                                PowerManager.WAKE_REASON_GESTURE, TAG);
+                    }
+                    onAodInterrupt(0, 0, 0, 0);
                 }
             }
         }
@@ -644,6 +654,7 @@ public class UdfpsController implements DozeReceiver {
             @NonNull LatencyTracker latencyTracker,
             @NonNull ActivityLaunchAnimator activityLaunchAnimator,
             @NonNull Optional<AlternateUdfpsTouchProvider> aternateTouchProvider,
+            @NonNull SecureSettings secureSettings,
             @BiometricsBackground Executor biometricsExecutor) {
         mContext = context;
         mExecution = execution;
@@ -699,20 +710,26 @@ public class UdfpsController implements DozeReceiver {
         udfpsHapticsSimulator.setUdfpsController(this);
         udfpsShell.setUdfpsOverlayController(mUdfpsOverlayController);
         mDisableNightMode = UdfpsUtils.hasUdfpsSupport(mContext);
-
         mUdfpsVendorCode = context.getResources().getInteger(R.integer.config_udfpsVendorCode);
-        context.getContentResolver().registerContentObserver(
-                Settings.Secure.getUriFor(Settings.Secure.SCREEN_OFF_UDFPS_ENABLED), false,
-                new ContentObserver(mainHandler) {
-                    @Override
-                    public void onChange(boolean selfChange) {
-                        mScreenOffUdfpsEnabled =
-                                Settings.Secure.getIntForUser(mContext.getContentResolver(),
-                                        Settings.Secure.SCREEN_OFF_UDFPS_ENABLED, 0,
-                                        KeyguardUpdateMonitor.getCurrentUser())
-                                != 0;
+        mAmbientDisplayConfiguration = new AmbientDisplayConfiguration(mContext);
+        mSecureSettings = secureSettings;
+        updateScreenOffUdfpsState();
+        mSecureSettings.registerContentObserver(Settings.Secure.SCREEN_OFF_UDFPS_ENABLED,
+            new ContentObserver(mainHandler) {
+                @Override
+                public void onChange(boolean selfChange, Uri uri) {
+                    if (uri.getLastPathSegment().equals(Settings.Secure.SCREEN_OFF_UDFPS_ENABLED)) {
+                        updateScreenOffUdfpsState();
                     }
-                });
+                }
+            }
+        );
+    }
+
+    private void updateScreenOffUdfpsState() {
+        boolean isSupported = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_supportsScreenOffUdfps);
+        mScreenOffUdfpsEnabled = isSupported && mSecureSettings.getInt(Settings.Secure.SCREEN_OFF_UDFPS_ENABLED, 0) == 1;
     }
 
     private void disableNightMode() {
