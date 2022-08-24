@@ -14385,7 +14385,6 @@ public class TelephonyManager {
     @NonNull
     @RequiresFeature(PackageManager.FEATURE_TELEPHONY_CALLING)
     public Map<Integer, List<EmergencyNumber>> getEmergencyNumberList() {
-        Map<Integer, List<EmergencyNumber>> emergencyNumberList = new HashMap<>();
         try {
             ITelephony telephony = getITelephony();
             if (telephony != null) {
@@ -14398,7 +14397,7 @@ public class TelephonyManager {
             Log.e(TAG, "getEmergencyNumberList RemoteException", ex);
             ex.rethrowAsRuntimeException();
         }
-        return emergencyNumberList;
+        return Collections.emptyMap();
     }
 
     /**
