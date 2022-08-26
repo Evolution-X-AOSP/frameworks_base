@@ -4020,6 +4020,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     + " policyFlags=" + Integer.toHexString(policyFlags));
         }
 
+        final int scanCode = event.getScanCode();
+		boolean blockAlert = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.BLOCK_ALERT, 0, UserHandle.USER_CURRENT) == 1;
         // Pre-basic policy based on interactive and pocket lock state.
         if (mIsDeviceInPocket && (!interactive || mPocketLockShowing)) {
             if (keyCode != KeyEvent.KEYCODE_POWER &&
@@ -4032,8 +4035,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 keyCode != KeyEvent.KEYCODE_MEDIA_STOP &&
                 keyCode != KeyEvent.KEYCODE_MEDIA_NEXT &&
                 keyCode != KeyEvent.KEYCODE_MEDIA_PREVIOUS &&
-                keyCode != KeyEvent.KEYCODE_VOLUME_MUTE) {
-                return 0;
+                keyCode != KeyEvent.KEYCODE_VOLUME_MUTE &&
+                (blockAlert || scanCode != 61)) {
+                    return 0;
             }
         }
 
