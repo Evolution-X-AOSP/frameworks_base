@@ -16997,6 +16997,12 @@ public final class Settings {
         public static final String SAVED_SPEAKER_MEDIA_VOLUME = "saved_speaker_media_volume";
 
         /**
+         * Set Smart Pauses timeout to 0 while using the silent to mute media feature.
+         * @hide
+         */
+        public static final String MUTE_SP = "mute_sp";
+
+        /**
          * Global settings that shouldn't be persisted.
          *
          * @hide
