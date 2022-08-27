@@ -663,6 +663,8 @@ public class AudioService extends IAudioService.Stub
             AudioSystem.DEVICE_OUT_HDMI_EARC
     ));
 
+    private static int mSmartValue;
+
     // Devices where the framework sends a full scale audio signal, and controls the volume of
     // the external audio system separately.
     Map<Integer, AbsoluteVolumeDeviceInfo> mAbsoluteVolumeDeviceInfoMap = new ArrayMap<>();
@@ -5090,6 +5092,21 @@ public class AudioService extends IAudioService.Stub
         return false;
     }
 
+    private int getSPvalue() {
+        try {
+            return Settings.System.getInt(mContentResolver, Settings.System.ADAPTIVE_PLAYBACK_TIMEOUT, 0);
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
+    private void setSPValue(int value) {
+        try {
+            Settings.System.putInt(mContentResolver, Settings.System.ADAPTIVE_PLAYBACK_TIMEOUT, value);
+        } catch (Exception e) {
+        }
+    }
+
     @GuardedBy("mSettingsLock")
     private void muteRingerModeStreams() {
         // Mute stream if not previously muted by ringer mode and (ringer mode
@@ -5108,6 +5125,8 @@ public class AudioService extends IAudioService.Stub
         final boolean ringerModeSilent = ringerMode == AudioManager.RINGER_MODE_SILENT;
         final boolean shouldRingSco = ringerMode == AudioManager.RINGER_MODE_VIBRATE
                 && mDeviceBroker.isBluetoothScoActive();
+        boolean smartPause = Settings.System.getInt(mContentResolver, Settings.System.ADAPTIVE_PLAYBACK_ENABLED, 0) == 1;
+        boolean muteSP = Settings.Global.getInt(mContentResolver, Settings.Global.MUTE_SP, 0) == 1;
         // Ask audio policy engine to force use Bluetooth SCO channel if needed
         final String eventSource = "muteRingerModeStreams() from u/pid:" + Binder.getCallingUid()
                 + "/" + Binder.getCallingPid();
@@ -5160,10 +5179,18 @@ public class AudioService extends IAudioService.Stub
                 // affect other devices under same type
                 setStreamVolumeInt(AudioSystem.STREAM_MUSIC, 0,
                     AudioSystem.DEVICE_OUT_SPEAKER, false, RINGER_MUTE_SPEAKER_CALLER, true);
+                if (smartPause && muteSP) {
+                    mSmartValue = getSPvalue();
+                    setSPValue(0);
+                }
             } else if (mSavedSpeakerMediaIndex >= 0 && !isBtOnAndConnected() && !areHeadphonesPluggedIn()) {
                 // Restore previous media volume if valid
                 setStreamVolumeInt(AudioSystem.STREAM_MUSIC, mSavedSpeakerMediaIndex,
                     AudioSystem.DEVICE_OUT_SPEAKER, false, RINGER_MUTE_SPEAKER_CALLER, true);
+                if (smartPause && muteSP) {
+                    if (mSmartValue != getSPvalue())
+                    setSPValue(mSmartValue);
+                }
             }            
         }
     }
