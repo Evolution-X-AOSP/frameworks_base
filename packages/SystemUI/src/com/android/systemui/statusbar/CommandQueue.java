@@ -1272,7 +1272,9 @@ public class CommandQueue extends IStatusBar.Stub implements
     @Override
     public void toggleCameraFlash() {
         synchronized (mLock) {
-            mHandler.removeMessages(MSG_TOGGLE_CAMERA_FLASH);
+            if (mHandler.hasMessages(MSG_TOGGLE_CAMERA_FLASH)) {
+                mHandler.removeMessages(MSG_TOGGLE_CAMERA_FLASH);
+            }
             mHandler.sendEmptyMessage(MSG_TOGGLE_CAMERA_FLASH);
         }
     }
@@ -1724,9 +1726,7 @@ public class CommandQueue extends IStatusBar.Stub implements
                     }
                     break;
                 case MSG_TOGGLE_CAMERA_FLASH:
-                    for (int i = 0; i < mCallbacks.size(); i++) {
-                        mCallbacks.get(i).toggleCameraFlash();
-                    }
+                    mCallbacks.forEach(cb -> cb.toggleCameraFlash());
                     break;
             }
         }
