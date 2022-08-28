@@ -90,6 +90,7 @@ import static com.android.server.wm.WindowManagerPolicyProto.ROTATION_MODE;
 import static com.android.server.wm.WindowManagerPolicyProto.SCREEN_ON_FULLY;
 import static com.android.server.wm.WindowManagerPolicyProto.WINDOW_MANAGER_DRAW_COMPLETE;
 
+import android.Manifest;
 import android.accessibilityservice.AccessibilityServiceInfo;
 import android.annotation.Nullable;
 import android.app.ActivityManager;
@@ -6115,6 +6116,19 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     @Override
     public void sendCustomAction(Intent intent) {
         String action = intent.getAction();
+        if (action != null) {
+            if (EvolutionUtils.INTENT_SCREENSHOT.equals(action)) {
+                mContext.enforceCallingOrSelfPermission(Manifest.permission.ACCESS_SURFACE_FLINGER,
+                        TAG + "sendCustomAction permission denied");
+                            interceptScreenshotChord(TAKE_SCREENSHOT_FULLSCREEN,
+                                    SCREENSHOT_KEY_CHORD, getScreenshotChordLongPressDelay());
+            } else if (EvolutionUtils.INTENT_REGION_SCREENSHOT.equals(action)) {
+                mContext.enforceCallingOrSelfPermission(Manifest.permission.ACCESS_SURFACE_FLINGER,
+                        TAG + "sendCustomAction permission denied");
+                            interceptScreenshotChord(TAKE_SCREENSHOT_SELECTED_REGION,
+                                    SCREENSHOT_KEY_CHORD, getScreenshotChordLongPressDelay());
+            }
+        }
     }
 
     @Override
