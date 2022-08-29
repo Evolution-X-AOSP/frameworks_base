@@ -35,6 +35,11 @@ import android.os.UserHandle;
 import android.provider.Settings;
 import android.telephony.SubscriptionManager;
 import android.util.SparseArray;
+import android.content.ContentResolver;
+import android.database.ContentObserver;
+import android.os.Handler;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -126,6 +131,30 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private final Executor mMainExecutor;
 
     private List<String> mBlockedIcons = new ArrayList<>();
+
+    private boolean mShowSBClockBg = true;
+
+    private final Handler mHandler = new Handler();
+
+    private class SettingsObserver extends ContentObserver {
+       SettingsObserver(Handler handler) {
+           super(handler);
+       }
+
+       void observe() {
+         mContentResolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUSBAR_CLOCK_CHIP),
+                    false, this, UserHandle.USER_ALL);
+       }
+
+       @Override
+       public void onChange(boolean selfChange) {
+           updateSettings(true);
+       }
+    }
+
+    private SettingsObserver mSettingsObserver;
+    private ContentResolver mContentResolver;
 
     private SignalCallback mSignalCallback = new SignalCallback() {
         @Override
@@ -229,6 +258,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
                     savedInstanceState.getSparseParcelableArray(EXTRA_PANEL_STATE));
         }
         mDarkIconManager = new DarkIconManager(view.findViewById(R.id.statusIcons), mFeatureFlags);
+        mContentResolver = getContext().getContentResolver();
+        mSettingsObserver = new SettingsObserver(mHandler);
         mDarkIconManager.setShouldLog(true);
         updateBlockedIcons();
         mStatusBarIconController.addIconGroup(mDarkIconManager);
@@ -244,6 +275,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
                 new StatusBarSystemEventAnimator(mSystemIconArea, getResources());
         mCarrierConfigTracker.addCallback(mCarrierConfigCallback);
         mCarrierConfigTracker.addDefaultDataSubscriptionChangedListener(mDefaultDataListener);
+        mSettingsObserver.observe();
+        updateSettings(false);
     }
 
     @VisibleForTesting
@@ -670,4 +703,18 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
                     updateStatusBarLocation(left, right);
                 }
             };
+
+    public void updateSettings(boolean animate) {
+        mShowSBClockBg = Settings.System.getIntForUser(mContentResolver,
+                Settings.System.STATUSBAR_CLOCK_CHIP, 0,
+                UserHandle.USER_CURRENT) == 1;
+
+        if (mShowSBClockBg) {
+            mClockView.setBackgroundResource(R.drawable.sb_date_bg);
+            mClockView.setPadding(10,5,10,5);
+        } else {
+            mClockView.setBackgroundResource(0);
+            mClockView.setPadding(0,0,0,0);
+        }
+    }
 }
