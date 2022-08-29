@@ -16971,6 +16971,12 @@ public final class Settings {
         public static final String MUTE_SP = "mute_sp";
 
         /**
+         * Pulse Volume Panel when media gets un/muted using the silent to mute media feature.
+         * @hide
+         */
+        public static final String PULSE_PANEL = "pulse_panel";
+
+        /**
          * Global settings that shouldn't be persisted.
          *
          * @hide
