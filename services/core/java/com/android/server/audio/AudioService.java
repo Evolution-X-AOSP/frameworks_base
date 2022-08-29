@@ -4927,6 +4927,7 @@ public class AudioService extends IAudioService.Stub
                 && mDeviceBroker.isBluetoothScoActive();
         boolean smartPause = Settings.System.getInt(mContentResolver, Settings.System.ADAPTIVE_PLAYBACK_ENABLED, 0) == 1;
         boolean muteSP = Settings.Global.getInt(mContentResolver, Settings.Global.MUTE_SP, 0) == 1;
+        boolean pulsePanel = Settings.Global.getInt(mContentResolver, Settings.Global.PULSE_PANEL, 0) == 1;
         // Ask audio policy engine to force use Bluetooth SCO channel if needed
         final String eventSource = "muteRingerModeStreams() from u/pid:" + Binder.getCallingUid()
                 + "/" + Binder.getCallingPid();
@@ -4983,6 +4984,10 @@ public class AudioService extends IAudioService.Stub
                     mSmartValue = getSPvalue();
                     setSPValue(0);
                 }
+                if (pulsePanel && mSystemReady) {
+                    AudioManager am = mContext.getSystemService(AudioManager.class);
+                    am.adjustVolume(AudioManager.ADJUST_SAME, AudioManager.FLAG_SHOW_UI);   
+                }
             } else if (mSavedSpeakerMediaIndex >= 0 && !isBtOnAndConnected() && !areHeadphonesPluggedIn()) {
                 // Restore previous media volume if valid
                 setStreamVolumeInt(AudioSystem.STREAM_MUSIC, mSavedSpeakerMediaIndex,
@@ -4990,6 +4995,10 @@ public class AudioService extends IAudioService.Stub
                 if (smartPause && muteSP) {
                     if (mSmartValue != getSPvalue())
                     setSPValue(mSmartValue);
+                }
+                if (pulsePanel && mSystemReady) {
+                    AudioManager am = mContext.getSystemService(AudioManager.class);
+                    am.adjustVolume(AudioManager.ADJUST_SAME, AudioManager.FLAG_SHOW_UI);   
                 }
             }            
         }
