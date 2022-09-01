@@ -105,11 +105,6 @@
     <string name="vpn_credentials_password">Password</string>
     <string name="vpn_credentials_dialog_connect">Connect</string>
 
-    <!-- Music tile -->
-    <string name="quick_settings_music_label">Music</string>
-    <string name="quick_settings_music_play">Play</string>
-    <string name="quick_settings_music_pause">Pause</string>
-
     <!-- Reader mode QS tile -->
     <string name="quick_settings_reading_mode">Reading mode</string>
     <string name="accessibility_quick_settings_reading_mode_on">Reading mode on.</string>

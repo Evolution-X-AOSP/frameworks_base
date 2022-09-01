@@ -5897,12 +5897,6 @@ public final class Settings {
         public static final String DISPLAY_SETTINGS_WALLPAPER_ZOOM = "display_settings_wallpaper_zoom";
 
         /**
-         * Whether to display music track title within the music qs tile
-         * @hide
-         */
-        public static final String MUSIC_TILE_TITLE = "music_tile_title";
-
-        /**
          * Color temperature of the display during the day
          * @hide
          */
@@ -6183,7 +6177,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_STYLE);
             PRIVATE_SETTINGS.add(NAV_BAR_COMPACT_LAYOUT);
             PRIVATE_SETTINGS.add(POCKET_JUDGE);
-            PRIVATE_SETTINGS.add(MUSIC_TILE_TITLE);
             PRIVATE_SETTINGS.add(HIGH_TOUCH_POLLING_RATE_ENABLE);
             PRIVATE_SETTINGS.add(HIGH_TOUCH_SENSITIVITY_ENABLE);
             PRIVATE_SETTINGS.add(INCREASING_RING);
