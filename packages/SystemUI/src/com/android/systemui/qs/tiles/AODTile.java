@@ -16,11 +16,12 @@
 
 package com.android.systemui.qs.tiles;
 
-import android.content.ComponentName;
 import android.content.Intent;
 import android.database.ContentObserver;
+import android.hardware.display.AmbientDisplayConfiguration;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.service.quicksettings.Tile;
 import android.view.View;
@@ -47,20 +48,29 @@ import javax.inject.Inject;
 public final class AODTile extends QSTileImpl<State> implements
         BatteryController.BatteryStateChangeCallback {
 
-    private boolean mListening;
-    private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_aod);
+    private static final Intent LS_DISPLAY_SETTINGS = new Intent("android.settings.LOCK_SCREEN_SETTINGS");
+    private static final Icon sIcon = ResourceIcon.get(R.drawable.ic_qs_aod);
+
     private final SecureSettings mSecureSettings;
-
     private final ContentObserver mObserver;
-
     private final BatteryController mBatteryController;
+    private final AmbientDisplayConfiguration mConfig;
 
-    private static final Intent LS_DISPLAY_SETTINGS = new Intent().setComponent(
-        new ComponentName(
-            "com.android.settings",
-            "com.android.settings.Settings$LockScreenSettingsActivity"
-        )
-    );
+    private boolean mListening;
+
+    private enum DozeState {
+        OFF(0, 0),
+        ALWAYS_ON_CHARGE(0, 1),
+        ALWAYS_ON(1, 0);
+
+        final int dozeAlwaysOnValue;
+        final int dozeOnChargeValue;
+
+        DozeState(int dozeAlwaysOnValue, int dozeOnChargeValue) {
+            this.dozeAlwaysOnValue = dozeAlwaysOnValue;
+            this.dozeOnChargeValue = dozeOnChargeValue;
+        }
+    };
 
     @Inject
     public AODTile(
@@ -78,14 +88,20 @@ public final class AODTile extends QSTileImpl<State> implements
         super(host, backgroundLooper, mainHandler, falsingManager, metricsLogger,
                 statusBarStateController, activityStarter, qsLogger);
         mSecureSettings = secureSettings;
-        mObserver = new ContentObserver(mainHandler) {
+        mBatteryController = batteryController;
+        mObserver = new ContentObserver(mHandler) {
             @Override
             public void onChange(boolean selfChange) {
                 refreshState();
             }
         };
-        mBatteryController = batteryController;
-        batteryController.observe(getLifecycle(), this);
+        mConfig = new AmbientDisplayConfiguration(mContext);
+    }
+
+    @Override
+    protected void handleInitialize() {
+        super.handleInitialize();
+        mBatteryController.observe(getLifecycle(), this);
     }
 
     @Override
@@ -93,36 +109,53 @@ public final class AODTile extends QSTileImpl<State> implements
         refreshState();
     }
 
-    private int getAodState() {
-        int aodState = mSecureSettings.getInt(Settings.Secure.DOZE_ALWAYS_ON, 0);
-        if (aodState == 0) {
-            aodState = mSecureSettings.getInt(Settings.Secure.DOZE_ON_CHARGE, 0) == 1 ? 2 : 0;
+    private DozeState getDozeState() {
+        final boolean alwaysOn = mSecureSettings.getIntForUser(
+            Settings.Secure.DOZE_ALWAYS_ON, 0, UserHandle.USER_CURRENT) == 1;
+        if (alwaysOn) return DozeState.ALWAYS_ON;
+        final boolean alwaysOnCharge = mSecureSettings.getIntForUser(
+            Settings.Secure.DOZE_ON_CHARGE, 0, UserHandle.USER_CURRENT) == 1;
+        if (alwaysOnCharge) {
+            return DozeState.ALWAYS_ON_CHARGE;
+        } else {
+            return DozeState.OFF;
         }
-        return aodState;
     }
 
     @Override
     public boolean isAvailable() {
-        return mContext.getResources().getBoolean(
-                com.android.internal.R.bool.config_dozeAlwaysOnDisplayAvailable);
+        return mConfig.alwaysOnAvailable();
     }
 
     @Override
     public State newTileState() {
-        return new State();
+        final State state = new State();
+        state.icon = sIcon;
+        return state;
     }
 
     @Override
     public void handleClick(@Nullable View view) {
-        int aodState = getAodState();
-        if (aodState < 2) {
-            aodState++;
-        } else {
-            aodState = 0;
+        final DozeState newState;
+        switch (getDozeState()) {
+            case OFF:
+                newState = DozeState.ALWAYS_ON_CHARGE;
+                break;
+            case ALWAYS_ON_CHARGE:
+                newState = DozeState.ALWAYS_ON;
+                break;
+            case ALWAYS_ON:
+                newState = DozeState.OFF;
+                break;
+            default:
+                newState = DozeState.OFF;
         }
-        mSecureSettings.putInt(Settings.Secure.DOZE_ALWAYS_ON, aodState == 2 ? 0 : aodState);
-        mSecureSettings.putInt(Settings.System.DOZE_ON_CHARGE, aodState == 2 ? 1 : 0);
-        refreshState();
+        mSecureSettings.putIntForUser(
+            Settings.Secure.DOZE_ALWAYS_ON, newState.dozeAlwaysOnValue,
+            UserHandle.USER_CURRENT);
+        mSecureSettings.putIntForUser(
+            Settings.Secure.DOZE_ON_CHARGE, newState.dozeOnChargeValue,
+            UserHandle.USER_CURRENT);
     }
 
     @Override
@@ -135,11 +168,11 @@ public final class AODTile extends QSTileImpl<State> implements
         if (mBatteryController.isAodPowerSave()) {
             return mContext.getString(R.string.quick_settings_aod_off_powersave_label);
         }
-        switch (getAodState()) {
-            case 1:
-                return mContext.getString(R.string.quick_settings_aod_label);
-            case 2:
+        switch (getDozeState()) {
+            case ALWAYS_ON_CHARGE:
                 return mContext.getString(R.string.quick_settings_aod_on_charge_label);
+            case ALWAYS_ON:
+                return mContext.getString(R.string.quick_settings_aod_label);
             default:
                 return mContext.getString(R.string.quick_settings_aod_off_label);
         }
@@ -147,12 +180,11 @@ public final class AODTile extends QSTileImpl<State> implements
 
     @Override
     protected void handleUpdateState(State state, Object arg) {
-        state.icon = mIcon;
         state.label = getTileLabel();
         if (mBatteryController.isAodPowerSave()) {
             state.state = Tile.STATE_UNAVAILABLE;
         } else {
-            state.state = getAodState() == 0 ? Tile.STATE_INACTIVE : Tile.STATE_ACTIVE;
+            state.state = getDozeState() == DozeState.OFF ? Tile.STATE_INACTIVE : Tile.STATE_ACTIVE;
         }
     }
 
@@ -163,13 +195,15 @@ public final class AODTile extends QSTileImpl<State> implements
 
     @Override
     public void handleSetListening(boolean listening) {
-        if (mListening != listening) {
-            mListening = listening;
-            if (listening) {
-                mSecureSettings.registerContentObserver(Settings.Secure.DOZE_ALWAYS_ON, mObserver);
-            } else {
-                mSecureSettings.unregisterContentObserver(mObserver);
-            }
+        if (mListening == listening) return;
+        mListening = listening;
+        if (mListening) {
+            mSecureSettings.registerContentObserverForUser(
+                Settings.Secure.DOZE_ALWAYS_ON, mObserver, UserHandle.USER_ALL);
+            mSecureSettings.registerContentObserverForUser(
+                Settings.Secure.DOZE_ON_CHARGE, mObserver, UserHandle.USER_ALL);
+        } else {
+            mSecureSettings.unregisterContentObserver(mObserver);
         }
     }
 }
