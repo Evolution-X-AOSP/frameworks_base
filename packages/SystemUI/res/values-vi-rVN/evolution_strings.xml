@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2022 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Screenshot delete action -->
+    <!-- Label for UI element which allows deleting the screenshot [CHAR LIMIT=30] -->
+    <string name="screenshot_delete_label">Xoá</string>
+    <!-- Content description indicating that tapping the element will allow deleting the screenshot [CHAR LIMIT=NONE] -->
+    <string name="screenshot_delete_description">Xóa ảnh chụp màn hình</string>
+    <!-- Screen record delete action -->
+    <!-- Label for notification action to delete a screen recording file [CHAR LIMIT=35] -->
+    <string name="screenrecord_delete_label">Xoá</string>
+    <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
+    <string name="screenrecord_delete_description">Đã xóa ghi màn hình</string>
+    <!-- Alert slider extras -->
+    <string name="volume_ringer_priority_only">Độ ưu tiên</string>
+    <string name="volume_ringer_alarms_only">Báo thức</string>
+    <string name="volume_ringer_dnd">Không làm phiền</string>
+    <string name="tristate_flashlight">Đèn pin</string>
+    <string name="tristate_flashlight_on">Bật đèn pin</string>
+    <string name="tristate_flashlight_off">Tắt đèn pin</string>
+    <string name="tristate_flashlight_blink">Đèn pin nhấp nháy</string>
+    <string name="tristate_brightness_bright">Độ sáng tối đa</string>
+    <string name="tristate_brightness_dark">Độ sáng tối thiểu</string>
+    <string name="tristate_brightness_auto">Độ sáng tự động</string>
+    <string name="tristate_rotation_auto">Tự động xoay</string>
+    <string name="tristate_rotation_0">Dọc</string>
+    <string name="tristate_rotation_90">Ngang (90°)</string>
+    <string name="tristate_rotation_270">Ngang (270°)</string>
+    <!-- Name of the nfc status bar icon. -->
+    <string name="status_bar_nfc">NFC</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <!-- Advanced Reboot -->
+    <string name="global_action_restart_advanced">Nâng cao</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">Giao diện người dùng</string>
+    <!-- Custom QS tiles -->
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Sạc không dây</string>
+    <string name="quick_settings_powershare_off_powersave_label">Sạc không dây tắt\nTiết kiệm pin</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Sạc không dây tắt\nPin quá yếu</string>
+    <string name="quick_settings_powershare_enabled_label">Sạc không dây đã bật</string>
+    <!-- Caffeine tile -->
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine tắt</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine bật</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Màn hình xem nhanh</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Màn hình xem nhanh tắt.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Màn hình xem nhanh bật.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Màn hình xem nhanh đã tắt.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Màn hình xem nhanh đã bật.</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">Chia sẻ kết nối qua USB</string>
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">Đồng bộ</string>
+    <string name="accessibility_quick_settings_sync_off">Đồng bộ hóa tắt</string>
+    <string name="accessibility_quick_settings_sync_on">Đồng bộ hóa bật</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Đồng bộ hóa đã tắt</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Đồng bộ hóa đã bật</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Âm thanh</string>
+    <string name="quick_settings_sound_ring">Chuông</string>
+    <string name="quick_settings_sound_vibrate">Rung</string>
+    <string name="quick_settings_sound_mute">Ngắt tiếng</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">Thông báo nổi</string>
+    <string name="accessibility_quick_settings_heads_up_off">Tắt thông báo nổi.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Bật thông báo nổi.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Thông báo nổi đã tắt.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Thông báo nổi đã bật.</string>
+    <!-- Poweroff/Reboot/Recovery QS tile -->
+    <string name="quick_settings_poweroff_label">Tắt nguồn</string>
+    <string name="quick_settings_reboot_label">Khởi động lại</string>
+    <string name="quick_settings_reboot_recovery_label">Chế độ phục hồi</string>
+    <string name="quick_settings_reboot_bootloader_label">Bootloader</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Bảng điều chỉnh âm lượng</string>
+    <!-- SoundSearch Tile -->
+    <string name="quick_settings_sound_search">Tìm kiếm nhạc</string>
+    <string name="quick_settings_sound_search_no_app">Rất tiếc, nhưng tính năng này không hoạt động nếu bạn không có ứng dụng Tìm kiếm nhạc.</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Kết nối với\u2026</string>
+    <string name="vpn_credentials_hint">Vui lòng nhập thông tin đăng nhập của bạn để kết nối với <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Tên người dùng</string>
+    <string name="vpn_credentials_password">Mật khẩu</string>
+    <string name="vpn_credentials_dialog_connect">Kết nối</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Chế độ đọc</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Chế độ đọc bật.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Tắt chế độ đọc sách.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Chế độ đọc sách đã bật.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Chế độ đọc đã tắt.</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">Chống nhấp nháy</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">Chuyển đổi Sim dữ liệu</string>
+    <string name="qs_data_switch_toast_0">Hiện tại không có thẻ SIM nào được gắn</string>
+    <string name="qs_data_switch_toast_1">Hiện tại chỉ có 1 thẻ SIM được gắn</string>
+    <string name="qs_data_switch_text_1">SIM 1</string>
+    <string name="qs_data_switch_text_2">SIM 2</string>
+    <string name="qs_data_switch_changed_1">Đã chuyển sang SIM 1 cho dữ liệu.</string>
+    <string name="qs_data_switch_changed_2">Đã chuyển sang SIM 2 cho dữ liệu.</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">Màn hình luôn sáng</string>
+    <string name="quick_settings_aod_off_powersave_label">Màn hình luôn bật tắt\nTiết kiệm pin</string>
+    <!-- Advance location quick setting tile -->
+    <string name="accessibility_quick_settings_location_off">Báo cáo vị trí: tắt.</string>
+    <string name="quick_settings_location_secondary_battery_saving">Tiết kiệm pin</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Báo cáo vị trí: tiết kiệm pin.</string>
+    <string name="quick_settings_location_secondary_gps_only">Chỉ cảm biến</string>
+    <string name="accessibility_quick_settings_location_gps_only">Báo cáo vị trí: chế độ chỉ cảm biến.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Chính xác cao</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Báo cáo vị trí: chế độ chính xác cao.</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Đã xóa ảnh chụp màn hình</string>
+    <!-- Status bar tuner -->
+    <string name="status_bar_items_title">Biểu tượng thanh trạng thái</string>
+    <string name="status_bar_call_strength">Cường độ cuộc gọi</string>
+    <string name="status_bar_data_saver">Trình tiết kiệm dữ liệu</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
+    <string name="status_bar_vpn">VPN</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Buộc dừng?</string>
+    <string name="force_stop_dlg_text">Nếu bạn buộc dừng ứng dụng, nó có thể hoạt động không ổn định.</string>
+    <string name="guts_force_close_app">Đóng ứng dụng</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Sạc nhanh Dash (<xliff:g id="charging_time_left" example="4 giờ và 2 phút">%1$s</xliff:g> đến khi đầy)</string>
+    <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Đang sạc nhanh</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Sạc nhanh Warp (<xliff:g id="charging_time_left" example="4 giờ và 2 phút">%1$s</xliff:g> nữa sẽ đầy)</string>
+    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="Percentage">%s</xliff:g> • Sạc thần tốc</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Sạc nhanh VOOC (<xliff:g id="charging_time_left" example="4 giờ và 2 phút">%1$s</xliff:g> nữa sẽ đầy)</string>
+    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="Percentage">%s</xliff:g> • Sạc nhanh VOOC</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Sạc nhanh (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> cho đến khi đầy)</string>
+    <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Sạc nhanh</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with an oem fast power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_oem_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Sạc nhanh Dash (<xliff:g id="charging_time_left" example="4 giờ và 2 phút">%1$s</xliff:g> đến khi đầy)</string>
+    <string name="keyguard_plugged_in_oem_charging"><xliff:g id="percentage">%s</xliff:g> • Đang sạc nhanh</string>
+    <!-- Data usage info in QS footer -->
+    <string name="usage_data">đã dùng hôm nay</string>
+    <string name="usage_data_default_suffix">Dữ liệu</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+</resources>

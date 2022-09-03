@@ -1,37 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2022 Evolution X 
-
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-
-          http://www.apache.org/licenses/LICENSE-2.0
-
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
+     Copyright (C) 2019-2022 Evolution X
+     SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="status_deep_sleep">(Tidur nyenyak: %1$d%2$s)</string>
-    <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
-    <string name="screen_zoom_summary_smaller">Lebih kecil</string>
-    <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
-    <string name="screen_zoom_summary_smallest">Paling kecil</string>
-    <!-- Bluetooth codecs -->
-    <string name="bluetooth_a2dp_codec_system">Gunakan Pemilihan Sistem (Default)</string>
-    <!-- Message for telling the user the kind of BT device being displayed. [CHAR LIMIT=30] -->
-    <string name="bluetooth_talkback_group">Perangkat Grup</string>
-    <!-- Bluetooth settings.  The user-visible string that is used whenever
-     referring to BC profile. -->
-    <string name="bluetooth_profile_bc">Profil BC</string>
-    <!-- Bluetooth settings.  Connection options screen.
-    The summary for the profile checkbox preference when BC is connected. -->
-    <string name="bluetooth_bc_profile_summary_connected">Tersambung ke server BA</string>
-    <!-- Bluetooth settings.  Connection options screen.
-    The summary for the BC checkbox preference that describes how checking it
-    will set the BC profile as preferred. -->
-    <string name="bluetooth_bc_profile_summary_use_for">Digunakan untuk BA</string>
+    <!-- Label for estimated remaining duration of dash battery charging -->
+    <string name="power_remaining_dash_charging_duration_only">Pengisian Cepat (<xliff:g id="time">%1$s</xliff:g> tersisa sampai penuh)</string>
+    <!-- Battery use screen.  Battery status shown in chart label when charging from a dash source.  -->
+    <string name="battery_info_status_dash_charging">Pengisian Cepat</string>
+    <!-- Label for estimated remaining duration of warp battery charging -->
+    <string name="power_remaining_warp_charging_duration_only">Pengisian Warp (<xliff:g id="time">%1$s</xliff:g> tersisa sampai penuh)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
+    <string name="battery_info_status_warp_charging">Pengisian Warp</string>
+    <!-- Label for estimated remaining duration of vooc battery charging -->
+    <string name="power_remaining_vooc_charging_duration_only">Pengisian VOOC (<xliff:g id="time">%1$s</xliff:g> tersisa sampai penuh)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a VOOC source.  -->
+    <string name="battery_info_status_vooc_charging">Pengisian VOOC</string>
+    <!-- Label for estimated remaining duration of TurboPower battery charging -->
+    <string name="power_remaining_turbo_charging_duration_only">Pengisian Turbo (<xliff:g id="time">%1$s</xliff:g> tersisa sampai penuh)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
+    <string name="battery_info_status_turbo_charging">Pengisian Turbo</string>
 </resources>
