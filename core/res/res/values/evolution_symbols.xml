@@ -159,4 +159,7 @@
 
     <!-- These are system packages exempted from privacy indicator -->
     <java-symbol type="array" name="config_indicatorExemptedPackageNames" />
+
+    <!-- Cycle through ringer modes -->
+    <java-symbol type="string" name="volume_dialog_ringer_guidance_normal" />
 </resources>
