@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2022 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Advanced reboot -->
+    <string name="reboot_title">Reštartovať</string>
+    <string name="reboot_message">Reštartovanie systému...</string>
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Kopírovať URL adresu záznamu o chybe.</string>
+    <string name="url_copy_success">URL úspešne skopírované</string>
+    <string name="url_copy_failed">Pri nahrávaní protokolu o zlyhaní došlo k chybe</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Vyžaduje sa reštart SystemUI</string>
+    <string name="systemui_restart_message">Aby sa všetky zmeny prejavili je potrebné reštartovať SystemUI. Reštartovať teraz?</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Podržte tlačidlo napájania na odomknutie</string>
+    <string name="pocket_view_title">Režim vo vrecku je zapnutý</string>
+    <string name="pocket_view_title_cancel">Pre použitie vášho telefónu:</string>
+    <string name="pocket_view_top_tag_cancel">Skontrolujte, či sa v modrej oblasti telefónu nenachádzajú žiadne prekážky, a očistite ju od nečistôt a prachu.</string>
+    <string name="pocket_view_top_tag_cancel2">Dlhým stlačením tlačidla napájania vynútite ukončenie režimu vo vrecku.</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Automatický</string>
+    <string name="live_display_auto_summary">Automaticky upraviť teplotu farieb obrazovky po západe a východe slnka</string>
+    <string name="live_display_off">Vypnúť</string>
+    <string name="live_display_off_summary">Zakázať všetky úpravy</string>
+    <string name="live_display_day">Deň</string>
+    <string name="live_display_day_summary">Použiť iba nastavenia pre deň</string>
+    <string name="live_display_night">Noc</string>
+    <string name="live_display_night_summary">Používať iba nastavenia pre noc</string>
+    <string name="live_display_outdoor">Vonku (slnečno)</string>
+    <string name="live_display_outdoor_summary">Použiť iba nastavenia vonku</string>
+    <string name="live_display_hint">LiveDisplay môže pomôcť znížiť únavu očí a pomôže vám spať v noci. Ťuknite sem a vyskúšajte túto funkciu!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay vyp.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: automatický režim.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: denný režim.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: nočný režim.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: režim vonku.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay vypnutý.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay sa zmenil na automatický režim.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay bol zmenený na denný režim.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay bol zmenený na nočný režim.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay bol zmenený na režim vonku.</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Hovory a upozornenia budú zvoniť</string>
+    <!-- App lock -->
+    <string name="unlock_application">Odomknúť <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+</resources>
