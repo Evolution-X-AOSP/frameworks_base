@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2021 The Evolution X Project
-
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-
-          http://www.apache.org/licenses/LICENSE-2.0
-
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
+     Copyright (C) 2019-2022 Evolution X
+     SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced reboot -->
@@ -22,20 +11,39 @@
     <string name="reboot_to_bootloader_message">正在重新啟動至Bootloader</string>
     <string name="reboot_title">重新開機</string>
     <string name="reboot_message">正在重新啟動系統</string>
-    <!-- Cycle through ringer modes -->
-    <string name="volume_dialog_ringer_guidance_normal">來電和通知會響起</string>
-    <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">長按電源按鈕以解鎖</string>
-    <!-- Pocket Lock -->
-    <string name="pocket_view_title">口袋防誤觸模式已開啟</string>
-    <string name="pocket_view_title_cancel">繼續使用你的裝置：</string>
-    <string name="pocket_view_top_tag_cancel">檢查手機的藍色區域是否被遮擋，並清除所有污垢或灰塵。</string>
-    <string name="pocket_view_top_tag_cancel2">長按電源鍵強制退出口袋防誤觸模式</string>
-    <!-- SystemUI Restart -->
-    <string name="systemui_restart_title">需要重新啟動系統介面</string>
-    <string name="systemui_restart_message">要使所有更改生效，需要重新啟動系統介面。 現在重新啟動系統介面？</string>
     <!-- Button that copies the url to the log of a crashed application -->
     <string name="aerr_copy">複製錯誤紀錄連結</string>
     <string name="url_copy_success">連接已成功複製</string>
     <string name="url_copy_failed">上傳錯誤記錄至 Dogbin 時發生錯誤</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">需要重新啟動系統介面</string>
+    <string name="systemui_restart_message">要使所有更改生效，需要重新啟動系統介面。 現在重新啟動系統介面？</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">長按電源按鈕以解鎖</string>
+    <string name="pocket_view_title">口袋防誤觸模式已開啟</string>
+    <string name="pocket_view_title_cancel">繼續使用你的裝置：</string>
+    <string name="pocket_view_top_tag_cancel">檢查手機的藍色區域是否被遮擋，並清除所有污垢或灰塵。</string>
+    <string name="pocket_view_top_tag_cancel2">長按電源鍵強制退出口袋防誤觸模式</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">自動</string>
+    <string name="live_display_auto_summary">在日落和日出後自動調節螢幕色調</string>
+    <string name="live_display_off">關閉</string>
+    <string name="live_display_off_summary">停用所有調整</string>
+    <string name="live_display_day">日間</string>
+    <string name="live_display_day_summary">僅使用日間設定</string>
+    <string name="live_display_night">夜間</string>
+    <string name="live_display_night_summary">僅使用夜間設定</string>
+    <string name="live_display_outdoor">戶外 (強光)</string>
+    <string name="live_display_outdoor_summary">僅使用戶外設定</string>
+    <string name="live_display_hint">LiveDisplay 可以幫助減少眼睛疲勞及睡前使用造成的不適。按一下此處來試試！</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay 關閉。</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay︰自動模式。</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay︰日間模式。</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay：夜間模式。</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay：戶外模式。</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay 已關閉。</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay 已變更為自動模式。</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay 已變更為日間模式。</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay 已變更為夜間模式。</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay 已變更為戶外模式。</string>
 </resources>
