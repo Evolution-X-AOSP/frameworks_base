@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2021 The Evolution X Project
-
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-
-          http://www.apache.org/licenses/LICENSE-2.0
-
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
+     Copyright (C) 2019-2022 Evolution X
+     SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced reboot -->
@@ -22,17 +11,41 @@
     <string name="reboot_to_bootloader_message">Reiniciar para bootloader</string>
     <string name="reboot_title">Reiniciar</string>
     <string name="reboot_message">A reiniciar o sistema</string>
-    <!-- Cycle through ringer modes -->
-    <string name="volume_dialog_ringer_guidance_normal">As chamadas e as notificações vão tocar</string>
+    <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Copiar o URL do registo da falha</string>
+    <string name="url_copy_success">URL copiado com sucesso</string>
+    <string name="url_copy_failed">Ocorreu um erro ao enviar o registo para o Pasty</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">É necessário reiniciar a UI do sistema</string>
+    <string name="systemui_restart_message">Para que todas as alterações tenham efeito, é necessário reiniciar a Ui do sistema. Reiniciar agora?</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Pressione e mantenha pressionado o botão Ligar/Desligar para desbloquear</string>
-    <!-- Pocket Lock -->
     <string name="pocket_view_title">Modo Bolso ligado</string>
     <string name="pocket_view_title_cancel">Para utilizar o seu telefone:</string>
     <string name="pocket_view_top_tag_cancel">Não cubra a área azul do seu telefone e limpe qualquer terra ou poeira.</string>
     <string name="pocket_view_top_tag_cancel2">Premir e segurar o botão ligar/desligar para forçar a saída do Modo Bolso.</string>
-    <!-- SystemUI Restart -->
-    <string name="systemui_restart_title">É necessário reiniciar a UI do sistema</string>
-    <string name="systemui_restart_message">Para que todas as alterações tenham efeito, é necessário reiniciar a Ui do sistema. Reiniciar agora?</string>
-    <!-- AlertSlider modes -->
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Automático</string>
+    <string name="live_display_auto_summary">Ajustar automaticamente a temperatura de cor do ecrã após o nascer e pôr do sol</string>
+    <string name="live_display_off">Desligado</string>
+    <string name="live_display_off_summary">Desativar todos os ajustes</string>
+    <string name="live_display_day">Dia</string>
+    <string name="live_display_day_summary">Usar apenas as definições diurnas</string>
+    <string name="live_display_night">Noite</string>
+    <string name="live_display_night_summary">Usar apenas as definições noturnas</string>
+    <string name="live_display_outdoor">Exterior (sol forte)</string>
+    <string name="live_display_outdoor_summary">Usar apenas as definições de exterior</string>
+    <string name="live_display_hint">O LiveDisplay ajuda a reduzir a fadiga ocular e a dormir melhor à noite. Toque aqui para experimentar!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay desligado.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: modo automático.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: modo dia.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: modo noite.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: modo exterior.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">O LiveDisplay foi desligado.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay alterado para modo automático.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay alterado para modo dia.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay alterado para modo noite.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay alterado para modo exterior.</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">As chamadas e as notificações vão tocar</string>
 </resources>
