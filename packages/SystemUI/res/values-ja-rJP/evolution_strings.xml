@@ -150,4 +150,13 @@
     <string name="usage_wifi_default_suffix">Wi-Fi</string>
     <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
     <string name="clock">時計</string>
+    <!-- Screen record -->
+    <string name="screenrecord_stopdot_label">停止ドット\n長押しして移動</string>
+    <string name="screenrecord_stopdot_summary">長押しで移動</string>
+    <string name="screenrecord_lowquality_label">低品質にしてファイルサイズ縮小</string>
+    <string name="screenrecord_lowquality_summary">ファイルサイズを小さくする</string>
+    <string name="screenrecord_longer_timeout_switch_label">ファイルサイズ制限です\n録画サイズを15GBに制限します</string>
+    <string name="screenrecord_longer_timeout_switch_summary">録画サイズを15GBに制限する</string>
+    <string name="screenrecord_skip_time_label">タイマーをスキップ</string>
+    <string name="screenrecord_skip_time_summary">3秒間の待機を削除する</string>
 </resources>
