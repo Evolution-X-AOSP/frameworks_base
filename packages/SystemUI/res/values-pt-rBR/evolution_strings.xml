@@ -150,4 +150,13 @@
     <string name="usage_wifi_default_suffix">Wi-Fi</string>
     <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
     <string name="clock">Relógio</string>
+    <!-- Screen record -->
+    <string name="screenrecord_stopdot_label">Mostrar ponto de parada</string>
+    <string name="screenrecord_stopdot_summary">Pressione e segure para movê-lo</string>
+    <string name="screenrecord_lowquality_label">Qualidade mais baixa</string>
+    <string name="screenrecord_lowquality_summary">Para gerar arquivos menores</string>
+    <string name="screenrecord_longer_timeout_switch_label">Arquivos maiores</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Limitar o tamanho de gravação para 15 GB</string>
+    <string name="screenrecord_skip_time_label">Início rápido</string>
+    <string name="screenrecord_skip_time_summary">Remover espera de 3 segundos</string>
 </resources>
