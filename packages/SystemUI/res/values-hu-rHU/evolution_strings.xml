@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2022 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Screenshot delete action -->
+    <!-- Label for UI element which allows deleting the screenshot [CHAR LIMIT=30] -->
+    <string name="screenshot_delete_label">Törlés</string>
+    <!-- Content description indicating that tapping the element will allow deleting the screenshot [CHAR LIMIT=NONE] -->
+    <string name="screenshot_delete_description">Képernyőkép-törlés</string>
+    <!-- Screen record delete action -->
+    <!-- Label for notification action to delete a screen recording file [CHAR LIMIT=35] -->
+    <string name="screenrecord_delete_label">Törlés</string>
+    <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
+    <string name="screenrecord_delete_description">A képernyőfelvétel törölve</string>
+    <!-- Alert slider extras -->
+    <string name="volume_ringer_priority_only">Fontosak</string>
+    <string name="volume_ringer_alarms_only">Ébresztések</string>
+    <string name="volume_ringer_dnd">Ne zavarjanak</string>
+    <string name="tristate_flashlight">Zseblámpa</string>
+    <string name="tristate_flashlight_on">Zseblámpa be</string>
+    <string name="tristate_flashlight_off">Zseblámpa ki</string>
+    <string name="tristate_flashlight_blink">Zseblámpa villog</string>
+    <string name="tristate_brightness_bright">Teljes fényerő</string>
+    <string name="tristate_brightness_dark">Alacsony fényerő</string>
+    <string name="tristate_brightness_auto">Automatikus fényerő</string>
+    <string name="tristate_rotation_auto">Automatikus elforgatás</string>
+    <string name="tristate_rotation_0">Álló (Portré)</string>
+    <string name="tristate_rotation_90">Fekvő (90°)</string>
+    <string name="tristate_rotation_270">Fekvő (270°)</string>
+    <!-- Name of the nfc status bar icon. -->
+    <string name="status_bar_nfc">NFC</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <!-- Advanced Reboot -->
+    <string name="global_action_restart_advanced">Speciális</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">Rendszerfelület</string>
+    <!-- Custom QS tiles -->
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Vezetéknélküli Energiamegosztás</string>
+    <string name="quick_settings_powershare_off_powersave_label">Vezetéknélküli Energiamegosztás ki\nAkkumulátorkímélő</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Vezetéknélküli Energiamegosztás ki\nAlacsony akkuszint</string>
+    <string name="quick_settings_powershare_enabled_label">A Vezetéknélküli Energiamegosztás engedélyezett</string>
+    <!-- Caffeine tile -->
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine ki</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine be</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Környezeti kijelző</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Környezeti kijelző ki.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Környezeti kijelző be.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Környezeti kijelző kikapcsolva.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Környezeti kijelző bekapcsolva.</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">USB-megosztás</string>
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">Szinkronizálás</string>
+    <string name="accessibility_quick_settings_sync_off">Szinkronizálás ki</string>
+    <string name="accessibility_quick_settings_sync_on">Szinkronizálás be</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Szinkronizálás kikapcsolva</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Szinkronizálás bekapcsolva</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Hang</string>
+    <string name="quick_settings_sound_ring">Csengés</string>
+    <string name="quick_settings_sound_vibrate">Rezgés</string>
+    <string name="quick_settings_sound_mute">Némítás</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">Lebegő értesítés</string>
+    <string name="accessibility_quick_settings_heads_up_off">Lebegő értesítés ki.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Lebegő értesítés be.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Lebegő értesítések kikapcsolva.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Lebegő értesítések bekapcsolva.</string>
+    <!-- Poweroff/Reboot/Recovery QS tile -->
+    <string name="quick_settings_poweroff_label">Kikapcsolás</string>
+    <string name="quick_settings_reboot_label">Újraindítás</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <string name="quick_settings_reboot_bootloader_label">Bootloader</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Hangerőszabályzó</string>
+    <!-- SoundSearch Tile -->
+    <string name="quick_settings_sound_search">Zenekeresés</string>
+    <string name="quick_settings_sound_search_no_app">Sajnáljuk, de ez nem működhet, ha nincs alkalmazás telepítve a zenekereséshez.</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Csatlakozás a következőhöz\u2026</string>
+    <string name="vpn_credentials_hint">Kérjük, adja meg a hitelesítőadatait, hogy csatlakozhasson a következőhöz: <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Felhasználónév</string>
+    <string name="vpn_credentials_password">Jelszó</string>
+    <string name="vpn_credentials_dialog_connect">Csatlakozás</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Olvasómód</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Olvasómód be.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Olvasómód ki.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Olvasómód bekapcsolva.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Olvasómód kikapcsolva.</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">Vibrálásmentesítés</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">SIM-kártyaváltás</string>
+    <string name="qs_data_switch_toast_0">Jelenleg nincs SIM-kártya behelyezve</string>
+    <string name="qs_data_switch_toast_1">Jelenleg csak egy SIM-kártya van behelyezve</string>
+    <string name="qs_data_switch_text_1">SIM 1</string>
+    <string name="qs_data_switch_text_2">SIM 2</string>
+    <string name="qs_data_switch_changed_1">Átváltott SIM 1 adatforgalomra.</string>
+    <string name="qs_data_switch_changed_2">Átváltott SIM 2 adatforgalomra.</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">Mindig bekapcsolva (AOD)</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD ki\nAkkukímélő</string>
+    <!-- Advance location quick setting tile -->
+    <string name="accessibility_quick_settings_location_off">Helymeghatározás: ki.</string>
+    <string name="quick_settings_location_secondary_battery_saving">Akkumulátorkímélő</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Helyjelentés: akkukímélő mód.</string>
+    <string name="quick_settings_location_secondary_gps_only">Csak szenzorokkal</string>
+    <string name="accessibility_quick_settings_location_gps_only">Helyjelentéss: csak GPS használatával.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Nagy pontosságú</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Helyjelentés: Tökéletes pontossággal.</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">A képernyőkép törölve</string>
+    <!-- Status bar tuner -->
+    <string name="status_bar_items_title">Az állapotsor ikonjai</string>
+    <string name="status_bar_call_strength">Jelerősség</string>
+    <string name="status_bar_data_saver">Adatforgalom-csökkentő</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
+    <string name="status_bar_vpn">VPN</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Kényszeríti a leállítást?</string>
+    <string name="force_stop_dlg_text">Ha egy alkalmazást leállásra kényszerít, lehetséges, hogy az hibásan fog működni.</string>
+    <string name="guts_force_close_app">Kényszerített leállítás</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash-töltés (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> a teljes töltésig)</string>
+    <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Dash-töltés</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> Lánctöltés (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> a teljes töltöttségig)</string>
+    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="percentage">%s</xliff:g> • Lánctöltés</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • VOOC-Töltés (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> a teljes feltöltésig)</string>
+    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="percentage">%s</xliff:g>• VOOC-Töltés</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Turbó töltés (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> a teljes töltöttségig)</string>
+    <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Turbó töltés</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with an oem fast power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_oem_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Gyorstöltés (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> a teljes feltöltésig)</string>
+    <string name="keyguard_plugged_in_oem_charging"><xliff:g id="percentage">%s</xliff:g> • Gyorstöltés</string>
+    <!-- Data usage info in QS footer -->
+    <string name="usage_data">ma használva</string>
+    <string name="usage_data_default_suffix">Adat</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
+    <string name="clock">Óra</string>
+    <!-- Screen record -->
+    <string name="screenrecord_stopdot_label">Megállítógomb-megjelenítés</string>
+    <string name="screenrecord_stopdot_summary">Eltávolítás hosszannyomással</string>
+    <string name="screenrecord_lowquality_label">Gyengébb minőség</string>
+    <string name="screenrecord_lowquality_summary">...hogy kisebbek legyenek a fájlok</string>
+    <string name="screenrecord_longer_timeout_switch_label">A fájlméret felső határa</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Max.15GB felvételi fájlméret</string>
+    <string name="screenrecord_skip_time_label">Időzités elhagyása</string>
+    <string name="screenrecord_skip_time_summary">A 3 mp-s késleltetés elhagyása</string>
+</resources>
