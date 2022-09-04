@@ -45,7 +45,6 @@ public class QSFooterView extends FrameLayout {
     private TextView mBuildText;
     private View mEditLayout;
     private View mEditButton;
-    private View mSpace;
 
     @Nullable
     protected TouchAnimator mFooterAnimator;
@@ -80,7 +79,6 @@ public class QSFooterView extends FrameLayout {
         mBuildText = findViewById(R.id.build);
         mEditButton = findViewById(android.R.id.edit);
         mEditLayout = findViewById(R.id.edit_layout);
-        mSpace = findViewById(R.id.spacer);
 
         updateResources();
         setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_YES);
@@ -200,13 +198,11 @@ public class QSFooterView extends FrameLayout {
 
         if (mExpanded && mShouldShowBuildText) {
             mBuildText.setVisibility(View.VISIBLE);
-            mSpace.setVisibility(View.GONE);
             mEditButton.setVisibility(mShowEditIcon ? View.VISIBLE : View.GONE);
             mEditLayout.setVisibility(mShowEditIcon ? View.VISIBLE : View.GONE);
             setBuildText();
         } else {
             mBuildText.setVisibility(View.GONE);
-            mSpace.setVisibility(View.INVISIBLE);
             mEditButton.setVisibility(mShowEditIcon ? View.VISIBLE : View.INVISIBLE);
             mEditLayout.setVisibility(mShowEditIcon ? View.VISIBLE : View.INVISIBLE);
         }
