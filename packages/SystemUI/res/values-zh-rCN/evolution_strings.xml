@@ -102,7 +102,7 @@
     <string name="qs_data_switch_label">更改数据卡</string>
     <string name="qs_data_switch_toast_0">当前没有插入 SIM 卡</string>
     <string name="qs_data_switch_toast_1">当前仅插入一张 SIM 卡</string>
-    <string name="qs_data_switch_text_1">SIM卡 1</string>
+    <string name="qs_data_switch_text_1">SIM 卡 1</string>
     <string name="qs_data_switch_text_2">SIM 卡 2</string>
     <string name="qs_data_switch_changed_1">设置卡 1 为数据卡</string>
     <string name="qs_data_switch_changed_2">设置卡 2 为数据卡</string>
@@ -144,4 +144,8 @@
     <!-- Indication on the keyguard that is shown when the device is charging with an oem fast power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_oem_power_time"><xliff:g id="percentage">%2$s</xliff:g> • 快速充电中 (预计<xliff:g id="charging_time_left">%1$s</xliff:g> 后充满)</string>
     <string name="keyguard_plugged_in_oem_charging"><xliff:g id="percentage">%s</xliff:g> • 快速充电中</string>
+    <!-- Data usage info in QS footer -->
+    <string name="usage_data">今日使用</string>
+    <string name="usage_data_default_suffix">数据</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
 </resources>
