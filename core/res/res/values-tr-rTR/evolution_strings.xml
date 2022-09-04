@@ -46,4 +46,6 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay gündüz moduna geçti.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay gece moduna geçti.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay açık alan moduna geçti.</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Çağrılar ve bildirimler için zil sesi</string>
 </resources>
