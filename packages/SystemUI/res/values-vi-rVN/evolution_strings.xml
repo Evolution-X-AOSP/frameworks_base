@@ -148,4 +148,6 @@
     <string name="usage_data">đã dùng hôm nay</string>
     <string name="usage_data_default_suffix">Dữ liệu</string>
     <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
+    <string name="clock">Đồng hồ</string>
 </resources>
