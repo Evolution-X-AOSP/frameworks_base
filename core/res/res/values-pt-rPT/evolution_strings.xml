@@ -46,4 +46,6 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay alterado para modo dia.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay alterado para modo noite.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay alterado para modo exterior.</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">As chamadas e as notificações vão tocar</string>
 </resources>
