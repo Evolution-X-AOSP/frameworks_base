@@ -88,13 +88,12 @@
                 <com.android.systemui.statusbar.policy.Clock
                     android:id="@+id/clock"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:textAppearance="@style/TextAppearance.StatusBar.Clock"
                     android:singleLine="true"
                     android:paddingStart="@dimen/status_bar_left_clock_starting_padding"
                     android:paddingEnd="@dimen/status_bar_left_clock_end_padding"
                     android:gravity="center_vertical|start"
-                    android:layout_gravity="center_vertical"
                 />
 
                 <include layout="@layout/ongoing_call_chip" />

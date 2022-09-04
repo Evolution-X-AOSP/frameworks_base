@@ -15,9 +15,7 @@
  */
 package com.android.systemui.battery;
 
-import static android.provider.Settings.Global.BATTERY_ESTIMATES_LAST_UPDATE_TIME;
 import static android.provider.Settings.System.SHOW_BATTERY_PERCENT;
-import static android.provider.Settings.System.QS_SHOW_BATTERY_ESTIMATE;
 
 import android.app.ActivityManager;
 import android.content.ContentResolver;
@@ -129,7 +127,6 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
 
         registerShowBatteryPercentObserver(ActivityManager.getCurrentUser());
         registerGlobalBatteryUpdateObserver();
-        registerUserSettingsObservers();
         mCurrentUserTracker.startTracking();
 
         mView.updateShowPercent();
@@ -187,13 +184,6 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
                 mSettingObserver);
     }
 
-    private void registerUserSettingsObservers() {
-        mContentResolver.registerContentObserver(
-                Settings.System.getUriFor(QS_SHOW_BATTERY_ESTIMATE),
-                false,
-                mSettingObserver);
-    }
-
     private final class SettingObserver extends ContentObserver {
         public SettingObserver(Handler handler) {
             super(handler);
@@ -202,17 +192,11 @@ public class BatteryMeterViewController extends ViewController<BatteryMeterView>
         @Override
         public void onChange(boolean selfChange, Uri uri) {
             super.onChange(selfChange, uri);
-            switch (uri.getLastPathSegment()) {
-                case BATTERY_ESTIMATES_LAST_UPDATE_TIME:
-                    // update the text for sure if the estimate in the cache was updated
-                    mView.updatePercentText();
-                    break;
-                case SHOW_BATTERY_PERCENT:
-                    mView.updateShowPercent();
-                    break;
-                case QS_SHOW_BATTERY_ESTIMATE:
-                    mView.updatePercentView();
-                    break;
+            mView.updateShowPercent();
+            if (TextUtils.equals(uri.getLastPathSegment(),
+                    Settings.Global.BATTERY_ESTIMATES_LAST_UPDATE_TIME)) {
+                // update the text for sure if the estimate in the cache was updated
+                mView.updatePercentText();
             }
         }
     }

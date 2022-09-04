@@ -5994,14 +5994,6 @@ public final class Settings {
         public static final String TORCH_POWER_BUTTON_GESTURE = "torch_power_button_gesture";
 
         /**
-         * Statusbar clock background
-         * 0 - hide accented chip
-         * 1 - show accented chip (default)
-         * @hide
-         */
-        public static final String STATUSBAR_CLOCK_CHIP = "statusbar_clock_chip";
-
-        /**
          * Whether the phone ringtone should be played in an increasing manner
          * 0 = 0ff, 1 = on
          * @hide
@@ -6019,13 +6011,6 @@ public final class Settings {
          * @hide
          */
         public static final String INCREASING_RING_RAMP_UP_TIME = "increasing_ring_ramp_up_time";
-
-        /**
-         * Whether to show battery estimates in QS
-         * @hide
-         */
-        @Readable
-        public static final String QS_SHOW_BATTERY_ESTIMATE = "qs_show_battery_estimate";
 
         /**
          * Whether the battery light should be enabled (if hardware supports it)
