@@ -110,7 +110,7 @@
     <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_off_powersave_label">AOD desligado\nEconomia de bateria</string>
     <!-- Advance location quick setting tile -->
-    <string name="accessibility_quick_settings_location_off">Registro de localização desativado.</string>
+    <string name="accessibility_quick_settings_location_off">Localização: desativado.</string>
     <string name="quick_settings_location_secondary_battery_saving">Economia de bateria</string>
     <string name="accessibility_quick_settings_location_battery_saving">Localização: economia de bateria.</string>
     <string name="quick_settings_location_secondary_gps_only">Somente sensores</string>
