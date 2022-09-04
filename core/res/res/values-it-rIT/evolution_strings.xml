@@ -46,4 +46,6 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay impostato in modalità giorno.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay impostato in modalità notte.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay impostato in modalità all\'aperto.</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">La vibrazione sarà attiva per chiamate e notifiche</string>
 </resources>
