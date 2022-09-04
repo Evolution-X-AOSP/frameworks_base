@@ -150,4 +150,13 @@
     <string name="usage_wifi_default_suffix">Wi-Fi</string>
     <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
     <string name="clock">Jam</string>
+    <!-- Screen record -->
+    <string name="screenrecord_stopdot_label">Tampilkan titik berhenti</string>
+    <string name="screenrecord_stopdot_summary">Tekan lama untuk memindahkannya</string>
+    <string name="screenrecord_lowquality_label">Kualitas rendah</string>
+    <string name="screenrecord_lowquality_summary">Untuk ukuran file yang lebih kecil</string>
+    <string name="screenrecord_longer_timeout_switch_label">Batas ukuran file lebih besar</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Batasi ukuran perekaman hingga 15 GB</string>
+    <string name="screenrecord_skip_time_label">Lewati penghitung waktu</string>
+    <string name="screenrecord_skip_time_summary">Hapus 3 detik menunggu</string>
 </resources>
