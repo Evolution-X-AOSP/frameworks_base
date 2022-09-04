@@ -44,4 +44,6 @@
     <string name="accessibility_quick_settings_live_display_changed_day">S\'ha canviat el LiveDisplay al mode diürn.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">S\'ha canviat el LiveDisplay al mode nocturn.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">S\'ha canviat el LiveDisplay al mode exterior.</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Sonaran trucades i notificacions</string>
 </resources>
