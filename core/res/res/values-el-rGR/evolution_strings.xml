@@ -46,4 +46,6 @@
     <string name="accessibility_quick_settings_live_display_changed_day">Το LiveDisplay άλλαξε σε λειτουργία ημέρας.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">Το LiveDisplay άλλαξε σε λειτουγία νύχτας.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">Το LiveDisplay άλλαξε σε λειτουργία εξωτερικού χώρου.</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Οι κλήσεις και οι ειδοποιήσεις θα ηχούν</string>
 </resources>
