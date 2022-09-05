@@ -207,4 +207,7 @@
 
     <!-- Screen off delay -->
     <java-symbol type="integer" name="config_screen_off_delay" />
+
+    <!-- Location indicator -->
+    <java-symbol type="drawable" name="stat_sys_location" />
 </resources>
