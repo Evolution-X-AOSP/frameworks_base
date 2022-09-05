@@ -165,6 +165,8 @@ public class QSCustomizerController extends ViewController<QSCustomizer>
 
         Dependency.get(OmniSettingsService.class).addIntObserver(this,
                 Settings.System.OMNI_QS_LAYOUT_COLUMNS);
+        Dependency.get(OmniSettingsService.class).addIntObserver(this,
+                Settings.System.OMNI_QS_LAYOUT_COLUMNS_LANDSCAPE);
     }
 
     @Override

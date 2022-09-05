@@ -44,19 +44,26 @@ public class OmniUtils {
 
     public static final String OMNILIB_PACKAGE_NAME = "org.omnirom.omnilib";
 
-    public static int getQSColumnsPortrait(Context context, int resourceCount) {
+    public static int getQSColumnsCount(Context context, int resourceCount) {
         final int QS_COLUMNS_MIN = 2;
+        final Resources res = context.getResources();
         int value = QS_COLUMNS_MIN;
+        if (res.getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             value = Settings.System.getIntForUser(
                     context.getContentResolver(), "qs_layout_columns",
                     resourceCount, UserHandle.USER_CURRENT);
+        } else {
+            value = Settings.System.getIntForUser(
+                    context.getContentResolver(), "qs_layout_columns_landscape",
+                    resourceCount, UserHandle.USER_CURRENT);
+        }
         return Math.max(QS_COLUMNS_MIN, value);
     }
 
-    public static int getQuickQSColumnsPortrait(Context context, int resourceCount) {
-        return getQSColumnsPortrait(context, resourceCount);
+    public static int getQuickQSColumnsCount(Context context, int resourceCount) {
+        return getQSColumnsCount(context, resourceCount);
     }
-    
+
     public static boolean getQSTileLabelHide(Context context) {
         return Settings.System.getIntForUser(context.getContentResolver(),
                 Settings.System.OMNI_QS_TILE_LABEL_HIDE,

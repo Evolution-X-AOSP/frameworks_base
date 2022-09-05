@@ -82,13 +82,10 @@
 
     <bool name="qs_tile_vertical_layout">false</bool>
 
-    <!-- The number of columns in the QuickQSPanel -->
-    <integer name="quick_qs_panel_num_columns">4</integer>
-    <integer name="quick_qs_panel_num_columns_landscape">5</integer>
-    <integer name="quick_qs_panel_num_columns_media">3</integer>
-
-    <!--The number of columns in the QSPanel -->
-    <integer name="qs_panel_num_columns">5</integer>
+    <!-- hack - we want a way to access the landscape default resource config -->
+    <!-- obviously whenever the default is changed or anyone wants
+    to use a different default in his device tree he must be aware of that -->
+    <integer name="quick_settings_num_columns_landscape">4</integer>
 
     <!-- If not empty, sets the AVC codec profile level used for the internal screen recorder.
          Possible values: 3, 3.1, 3.2, 4, 4.1, 4.2

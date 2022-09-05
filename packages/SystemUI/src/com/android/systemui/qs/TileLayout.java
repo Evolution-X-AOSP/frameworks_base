@@ -4,7 +4,6 @@ import static com.android.systemui.util.Utils.useQsMediaPlayer;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.content.res.Configuration;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.AttributeSet;
@@ -138,15 +137,9 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
         return true;
     }
 
-    public boolean updateColumns() {
+    private boolean updateColumns() {
         int oldColumns = mColumns;
-    	boolean isPortrait = getResources().getConfiguration().orientation
-                == Configuration.ORIENTATION_PORTRAIT;
-	if (isPortrait) {
-        mColumns = Math.min(getResourceColumnsPortrait(), mMaxColumns);
-        } else {
-        mColumns = Math.min(5, mMaxColumns);
-        }
+        mColumns = Math.min(getResourceColumns(), mMaxColumns);
         return oldColumns != mColumns;
     }
 
@@ -308,20 +301,14 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
         }
     }
 
-    public int getResourceColumnsPortrait() {
+    public int getResourceColumns() {
         int resourceColumns = Math.max(2, getResources().getInteger(R.integer.quick_settings_num_columns));
-        return OmniUtils.getQSColumnsPortrait(mContext, resourceColumns);
+        return OmniUtils.getQSColumnsCount(mContext, resourceColumns);
     }
 
     @Override
     public void updateSettings() {
-    	boolean isPortrait = getResources().getConfiguration().orientation
-                == Configuration.ORIENTATION_PORTRAIT;
-	if (isPortrait) {
-        setMaxColumns(getResourceColumnsPortrait());
-        } else {
-        setMaxColumns(5);
-        }
+        setMaxColumns(getResourceColumns());
         requestLayout();
     }
 }

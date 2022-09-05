@@ -59,7 +59,6 @@ import com.android.systemui.settings.brightness.BrightnessSliderController;
 import com.android.systemui.statusbar.policy.BrightnessMirrorController;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.tuner.TunerService.Tunable;
-import org.omnirom.omnilib.utils.OmniUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -126,10 +125,7 @@ public class QSPanel extends LinearLayout implements Tunable {
     private PageIndicator mFooterPageIndicator;
     private int mContentMarginStart;
     private int mContentMarginEnd;
-    private int mMaxColumnsPortrait;
-    private int mMaxColumnsLandscape;
-    private int mMaxColumnsMediaPlayer;
-    protected boolean mUsingHorizontalLayout;
+    private boolean mUsingHorizontalLayout;
 
     private Record mDetailRecord;
 
@@ -160,10 +156,6 @@ public class QSPanel extends LinearLayout implements Tunable {
 
         mIsAutomaticBrightnessAvailable = getResources().getBoolean(
                 com.android.internal.R.bool.config_automatic_brightness_available);
-        mMaxColumnsPortrait = Math.max(2, getResources().getInteger(R.integer.quick_qs_panel_num_columns));
-        mMaxColumnsPortrait = OmniUtils.getQSColumnsPortrait(mContext, mMaxColumnsPortrait);
-        mMaxColumnsLandscape = getResources().getInteger(R.integer.quick_qs_panel_num_columns_landscape);
-        mMaxColumnsMediaPlayer = getResources().getInteger(R.integer.quick_qs_panel_num_columns_media);
 
         TunerService tunerService = Dependency.get(TunerService.class);
         mTop = tunerService.getValue(QS_BRIGHTNESS_SLIDER_POSITION, 0) == 0;
@@ -455,21 +447,6 @@ public class QSPanel extends LinearLayout implements Tunable {
         super.onConfigurationChanged(newConfig);
         mOnConfigurationChangedListeners.forEach(
                 listener -> listener.onConfigurationChange(newConfig));
-	if (mTileLayout != null) {
-           updateColumns();
-       }
-    }
-
-    public void updateColumns() {
-	boolean isLandscape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
-	
-        int mColumnsMediaPlayer = mUsingHorizontalLayout ? 
-            mMaxColumnsMediaPlayer : 
-            mMaxColumnsLandscape;
-
-        mTileLayout.setMaxColumns(isLandscape ? 
-            mColumnsMediaPlayer : 
-            mMaxColumnsPortrait);
     }
 
     @Override
@@ -842,15 +819,8 @@ public class QSPanel extends LinearLayout implements Tunable {
             }
             reAttachMediaHost(mediaHostView, horizontal);
             if (needsDynamicRowsAndColumns()) {
-            	boolean isLandscape = mContext.getResources().getConfiguration().orientation
-                == Configuration.ORIENTATION_LANDSCAPE;
-                // even though there is already an exisiting horizontal check, lets make sure that 2 rows is only forced on portrait
-                if (!isLandscape && mTileLayout.getResourceColumnsPortrait() <= 3) {
-                    mTileLayout.setMinRows(horizontal ? 2 : 1);
-                } else {
-                   mTileLayout.setMinRows(horizontal ? 1 : 1);
-                }
-                updateColumns();
+                mTileLayout.setMinRows(horizontal ? 2 : 1);
+                mTileLayout.setMaxColumns(horizontal ? mTileLayout.getResourceColumns() / 2 : mTileLayout.getResourceColumns());
             }
             updateMargins(mediaHostView);
             if (mHorizontalLinearLayout == null) return;
@@ -955,7 +925,7 @@ public class QSPanel extends LinearLayout implements Tunable {
 
         int getNumVisibleTiles();
 
-        int getResourceColumnsPortrait();
+        int getResourceColumns();
 
         void updateSettings();
     }
