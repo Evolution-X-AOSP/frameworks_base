@@ -30,8 +30,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PixelPropsUtils {
-    public static final String PACKAGE_GMS = "com.google.android.gms";
-    public static final String PACKAGE_SETTINGS_SERVICES = "com.google.android.settings.intelligence";
+    private static final String PACKAGE_GMS = "com.google.android.gms";
+    private static final String PACKAGE_FINSKY = "com.android.vending";
+    private static final String PACKAGE_SETTINGS_SERVICES = "com.google.android.settings.intelligence";
+    private static final String PROCESS_UNSTABLE = "com.google.android.gms.unstable";
 
     private static final String DEVICE = "org.evolution.device";
     private static final String TAG = PixelPropsUtils.class.getSimpleName();
@@ -44,11 +46,11 @@ public class PixelPropsUtils {
     private static final Map<String, Object> propsToChangeROG1;
     private static final Map<String, Object> propsToChangeXP5;
     private static final Map<String, Object> propsToChangeOP8P;
+    private static final Map<String, Object> propsToChangeOP9P;
     private static final Map<String, Object> propsToChangeMI11;
     private static final Map<String, ArrayList<String>> propsToKeep;
 
     private static final String[] packagesToChangePixel6Pro = {
-            PACKAGE_GMS,
             "com.google.android.inputmethod.latin",
             "com.samsung.accessory",
             "com.samsung.accessory.fridaymgr",
@@ -64,7 +66,7 @@ public class PixelPropsUtils {
 
     private static final String[] extraPackagesToChange = {
             "com.android.chrome",
-            "com.android.vending",
+            PACKAGE_FINSKY,
             "com.breel.wallpapers20",
             "com.nhs.online.nhsonline"
     };
@@ -117,8 +119,14 @@ public class PixelPropsUtils {
             "com.netease.lztgglobal"
     };
 
+    private static final String[] packagesToChangeOP9P = {
+            "com.epicgames.fortnite",
+            "com.epicgames.portal"
+    };
+
     private static final String[] packagesToChangeMI11 = {
             "com.ea.gp.apexlegendsmobilefps",
+            "com.levelinfinite.hotta.gp",
             "com.mobile.legends",
             "com.tencent.tmgp.sgame"
     };
@@ -173,6 +181,12 @@ public class PixelPropsUtils {
         propsToChangeOP8P = new HashMap<>();
         propsToChangeOP8P.put("MODEL", "IN2020");
         propsToChangeOP8P.put("MANUFACTURER", "OnePlus");
+        propsToChangeOP9P = new HashMap<>();
+        propsToChangeOP9P.put("BRAND", "OnePlus");
+        propsToChangeOP9P.put("MANUFACTURER", "OnePlus");
+        propsToChangeOP9P.put("DEVICE", "OnePlus9Pro");
+        propsToChangeOP9P.put("PRODUCT", "OnePlus9Pro_EEA");
+        propsToChangeOP9P.put("MODEL", "LE2123");
         propsToChangeMI11 = new HashMap<>();
         propsToChangeMI11.put("BRAND", "Xiaomi");
         propsToChangeMI11.put("MANUFACTURER", "Xiaomi");
@@ -193,6 +207,12 @@ public class PixelPropsUtils {
                     propsToChange.putAll(propsToChangePixelXL);
                 } else {
                     propsToChange.putAll(propsToChangePixel5);
+                }
+            } else if (packageName.equals(PACKAGE_GMS)) {
+                final String processName = Application.getProcessName();
+                if (processName.equals("com.google.android.gms.unstable")) {
+                    sIsGms = true;
+                    spoofBuildGms();
                 }
             } else {
                 if ((Arrays.asList(packagesToChangePixel6Pro).contains(packageName))
@@ -215,20 +235,6 @@ public class PixelPropsUtils {
                 if (DEBUG)
                     Log.d(TAG, "Defining " + key + " prop for: " + packageName);
                 setPropValue(key, value);
-            }
-            if (packageName.equals(PACKAGE_GMS)) {
-                final String processName = Application.getProcessName();
-                if (processName.equals("com.google.android.gms.unstable")) {
-                    sIsGms = true;
-                }
-            }
-            if (isPixelDevice) {
-                if (packageName.equals(PACKAGE_GMS)) {
-                    final String processName = Application.getProcessName();
-                    if (processName.equals("com.google.android.gms.unstable")) {
-                        setPropValue("MODEL", Build.MODEL + " ");
-                    }
-                }
             }
             // Set proper indexing fingerprint
             if (packageName.equals(PACKAGE_SETTINGS_SERVICES)) {
@@ -261,6 +267,14 @@ public class PixelPropsUtils {
                     Object value = prop.getValue();
                     setPropValue(key, value);
                 }
+            } else if (Arrays.asList(packagesToChangeOP9P).contains(packageName)) {
+                if (DEBUG)
+                    Log.d(TAG, "Defining props for: " + packageName);
+                for (Map.Entry<String, Object> prop : propsToChangeOP9P.entrySet()) {
+                    String key = prop.getKey();
+                    Object value = prop.getValue();
+                    setPropValue(key, value);
+                }
             } else if (Arrays.asList(packagesToChangeMI11).contains(packageName)) {
                 if (DEBUG)
                     Log.d(TAG, "Defining props for: " + packageName);
@@ -284,6 +298,12 @@ public class PixelPropsUtils {
         } catch (NoSuchFieldException | IllegalAccessException e) {
             Log.e(TAG, "Failed to set prop " + key, e);
         }
+    }
+
+    private static void spoofBuildGms() {
+        // Alter model name to avoid hardware attestation enforcement
+        setPropValue("MODEL", "angler");
+        setPropValue("FINGERPRINT", "google/angler/angler:6.0/MDB08L/2343525:user/release-keys");
     }
 
     private static boolean isCallerSafetyNet() {
