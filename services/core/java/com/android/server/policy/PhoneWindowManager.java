@@ -2742,7 +2742,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     Settings.System.TORCH_POWER_BUTTON_GESTURE,
                             0, UserHandle.USER_CURRENT);
             mVolBtnMusicControls = Settings.System.getIntForUser(resolver,
-                    Settings.System.VOLBTN_MUSIC_CONTROLS, 0,
+                    Settings.System.VOLBTN_MUSIC_CONTROLS, 1,
                     UserHandle.USER_CURRENT) == 1;
         }
         if (updateRotation) {
