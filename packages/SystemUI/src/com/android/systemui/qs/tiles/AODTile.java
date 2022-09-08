@@ -1,6 +1,5 @@
 /*
  * Copyright (C) 2018 The OmniROM Project
- *               2020-2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,6 +16,7 @@
 
 package com.android.systemui.qs.tiles;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
@@ -26,8 +26,8 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
-import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.logging.MetricsLogger;
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.systemui.R;
 import com.android.systemui.dagger.qualifiers.Background;
 import com.android.systemui.dagger.qualifiers.Main;
@@ -36,88 +36,51 @@ import com.android.systemui.plugins.FalsingManager;
 import com.android.systemui.plugins.qs.QSTile.BooleanState;
 import com.android.systemui.plugins.statusbar.StatusBarStateController;
 import com.android.systemui.qs.QSHost;
-import com.android.systemui.qs.SettingObserver;
 import com.android.systemui.qs.logging.QSLogger;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
-import com.android.systemui.statusbar.policy.BatteryController;
-import com.android.systemui.util.settings.SecureSettings;
 
 import javax.inject.Inject;
 
-public class AODTile extends QSTileImpl<BooleanState> implements
-        BatteryController.BatteryStateChangeCallback {
-
+public final class AODTile extends QSTileImpl<BooleanState> {
+    private boolean mAodDisabled;
     private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_aod);
-    private final BatteryController mBatteryController;
-
-    private final SettingObserver mSetting;
 
     @Inject
     public AODTile(
-            QSHost host,
-            @Background Looper backgroundLooper,
-            @Main Handler mainHandler,
-            FalsingManager falsingManager,
-            MetricsLogger metricsLogger,
-            StatusBarStateController statusBarStateController,
-            ActivityStarter activityStarter,
-            QSLogger qsLogger,
-            SecureSettings secureSettings,
-            BatteryController batteryController
+        QSHost host,
+        @Background Looper backgroundLooper,
+        @Main Handler mainHandler,
+        FalsingManager falsingManager,
+        MetricsLogger metricsLogger,
+        StatusBarStateController statusBarStateController,
+        ActivityStarter activityStarter,
+        QSLogger qsLogger
     ) {
         super(host, backgroundLooper, mainHandler, falsingManager, metricsLogger,
                 statusBarStateController, activityStarter, qsLogger);
-
-        mSetting = new SettingObserver(secureSettings, mHandler, Settings.Secure.DOZE_ALWAYS_ON) {
-            @Override
-            protected void handleValueChanged(int value, boolean observedChange) {
-                handleRefreshState(value);
-            }
-        };
-
-        mBatteryController = batteryController;
-        batteryController.observe(getLifecycle(), this);
-    }
-
-    @Override
-    public void onPowerSaveChanged(boolean isPowerSave) {
-        refreshState();
-    }
-
-    @Override
-    protected void handleDestroy() {
-        super.handleDestroy();
-        mSetting.setListening(false);
+        mAodDisabled = Settings.Secure.getInt(mContext.getContentResolver(),
+                Settings.Secure.DOZE_ALWAYS_ON, 1) == 0;
     }
 
     @Override
     public boolean isAvailable() {
-        return mContext.getResources().getBoolean(
-                com.android.internal.R.bool.config_dozeAlwaysOnDisplayAvailable);
+        //final boolean deviceKeys = mContext.getResources().getBoolean(
+        //        com.android.internal.R.bool.config_showNavigationBar);
+        return true;
     }
 
     @Override
     public BooleanState newTileState() {
-        BooleanState state = new BooleanState();
-        state.handlesLongClick = false;
-        return state;
+        return new BooleanState();
     }
 
     @Override
-    public void handleSetListening(boolean listening) {
-        super.handleSetListening(listening);
-        mSetting.setListening(listening);
-    }
-
-    @Override
-    protected void handleUserSwitch(int newUserId) {
-        mSetting.setUserId(newUserId);
-        handleRefreshState(mSetting.getValue());
-    }
-
-    @Override
-    protected void handleClick(@Nullable View view) {
-        mSetting.setValue(mState.value ? 0 : 1);
+    public void handleClick(@Nullable View view) {
+        mAodDisabled = !mAodDisabled;
+        Settings.Secure.putInt(mContext.getContentResolver(),
+                Settings.Secure.DOZE_ALWAYS_ON,
+                mAodDisabled ? 0 : 1);
+        refreshState();
     }
 
     @Override
@@ -127,32 +90,32 @@ public class AODTile extends QSTileImpl<BooleanState> implements
 
     @Override
     public CharSequence getTileLabel() {
-        if (mBatteryController.isAodPowerSave()) {
-            return mContext.getString(R.string.quick_settings_aod_off_powersave_label);
-        }
         return mContext.getString(R.string.quick_settings_aod_label);
     }
 
     @Override
     protected void handleUpdateState(BooleanState state, Object arg) {
-        final int value = arg instanceof Integer ? (Integer) arg : mSetting.getValue();
-        final boolean enable = value != 0;
         if (state.slash == null) {
             state.slash = new SlashState();
         }
         state.icon = mIcon;
-        state.value = enable;
+        state.value = mAodDisabled;
         state.slash.isSlashed = state.value;
         state.label = mContext.getString(R.string.quick_settings_aod_label);
-        if (mBatteryController.isAodPowerSave()) {
-            state.state = Tile.STATE_UNAVAILABLE;
+        if (mAodDisabled) {
+            state.state = Tile.STATE_INACTIVE;
         } else {
-            state.state = enable ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE;
+            state.state = Tile.STATE_ACTIVE;
         }
     }
 
     @Override
     public int getMetricsCategory() {
         return MetricsEvent.EVO_QS_TILES;
+    }
+
+    @Override
+    public void handleSetListening(boolean listening) {
+        // Do nothing
     }
 }
