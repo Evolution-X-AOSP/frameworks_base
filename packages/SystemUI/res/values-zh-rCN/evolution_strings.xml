@@ -108,6 +108,8 @@
     <string name="qs_data_switch_changed_2">设置卡 2 为数据卡</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">始终显示</string>
+    <string name="quick_settings_aod_on_charge_label">充电时息屏显示</string>
+    <string name="quick_settings_aod_off_label">关闭息屏显示</string>
     <string name="quick_settings_aod_off_powersave_label">关闭息屏显示\n节省电量</string>
     <!-- Advance location quick setting tile -->
     <string name="accessibility_quick_settings_location_off">位置报告：关闭。</string>
@@ -117,6 +119,15 @@
     <string name="accessibility_quick_settings_location_gps_only">位置报告：仅传感器模式。</string>
     <string name="quick_settings_location_secondary_high_accuracy">高精准度</string>
     <string name="accessibility_quick_settings_location_high_accuracy">位置报告：高精准度模式。</string>
+    <!-- Refresh Rate Tile -->
+    <string name="refresh_rate_tile_label">刷新率</string>
+    <string name="refresh_rate_auto_mode_placeholder">        自动(<xliff:g id="min_refresh_rate" example="60">%1$d</xliff:g> - <xliff:g id="max_refresh_rate" example="60">%2$d</xliff:g> Hz)
+    </string>
+    <string name="refresh_rate_forced_mode_placeholder"><xliff:g id="refresh_rate" example="60">%1$d</xliff:g> Hz</string>
+    <!-- FPS Info tile -->
+    <string name="quick_settings_fpsinfo_label">FPS 信息</string>
+    <string name="accessibility_quick_settings_fpsinfo_off">关闭 FPS 信息</string>
+    <string name="accessibility_quick_settings_fpsinfo_on">开启 FPS 信息</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">屏幕截图已删除</string>
     <!-- Status bar tuner -->
@@ -159,4 +170,6 @@
     <string name="screenrecord_longer_timeout_switch_summary">限制录屏文件大小为 15GB</string>
     <string name="screenrecord_skip_time_label">跳过倒计时</string>
     <string name="screenrecord_skip_time_summary">移除 3 秒等待</string>
+    <!-- FPS view text placeholder -->
+    <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
 </resources>
