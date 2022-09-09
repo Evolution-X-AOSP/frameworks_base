@@ -140,6 +140,7 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
 
     private int mBatteryStyle = BATTERY_STYLE_PORTRAIT;
     private int mShowBatteryPercent;
+    private int mTextChargingSymbol;
     private boolean mBatteryPercentCharging;
 
     private DualToneHandler mDualToneHandler;
@@ -272,6 +273,12 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
     protected void setBatteryPercentCharging(boolean batteryPercentCharging) {
         if (batteryPercentCharging == mBatteryPercentCharging) return;
         mBatteryPercentCharging = batteryPercentCharging;
+        updatePercentView();
+    }
+
+    public void updateTextChargingSymbol(int textChargingSymbol) {
+        if (textChargingSymbol == mTextChargingSymbol) return;
+        mTextChargingSymbol = textChargingSymbol;
         updatePercentView();
     }
 
@@ -445,11 +452,6 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
         } else {
             updateContentDescription();
         }
-    }
-
-    private void setPercentTextAtCurrentLevel() {
-        String text = NumberFormat.getPercentInstance().format(mLevel / 100f);
-
         mEstimateText = null;
 
         if (mBatteryEstimateFetcher != null && mShowPercentMode == MODE_ESTIMATE && !isCharging()) {
@@ -464,27 +466,64 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
                         mBatteryPercentView.setText(estimate);
                     }
                 } else {
-                    if (!TextUtils.equals(mBatteryPercentView.getText(), text)) {
-                       mBatteryPercentView.setText(text);
-                    }
+                    setPercentTextAtCurrentLevel();
                 }
             });
-        } else {
-            // Use the high voltage symbol ⚡ (u26A1 unicode) but prevent the system
-            // to load its emoji colored variant with the uFE0E flag
-            String bolt = "\u26A1";
-            CharSequence mChargeIndicator = isCharging() && (mBatteryStyle == BATTERY_STYLE_HIDDEN ||
-                    mBatteryStyle == BATTERY_STYLE_TEXT) ? (bolt + " ") : "";
-            String percentText = mChargeIndicator + text;
-            // Setting text actually triggers a layout pass (because the text view is set to
-            // wrap_content width and TextView always relayouts for this). Avoid needless
-            // relayout if the text didn't actually change.
-            if (!TextUtils.equals(mBatteryPercentView.getText(), percentText)) {
-                mBatteryPercentView.setText(percentText);
-            }
         }
 
         updateContentDescription();
+    }
+
+    private void setPercentTextAtCurrentLevel() {
+        if (mBatteryPercentView == null) {
+              return;
+        }
+
+        String text = NumberFormat.getPercentInstance().format(mLevel / 100f);
+
+        if (mCharging && (mBatteryPercentView != null && (mBatteryStyle == BATTERY_STYLE_TEXT
+            || mBatteryStyle == BATTERY_STYLE_HIDDEN)) && mTextChargingSymbol > 0) {
+            switch (mTextChargingSymbol) {
+                case 1:
+                default:
+                    text = "⚡ " + text;
+                   break;
+                case 2:
+                    text = "~ " + text;
+                    break;
+                case 3:
+                    text = "➕ " + text;
+                    break;
+                case 4:
+                    text = "☀️ " + text;
+                    break;
+                case 5:
+                    text = "₹ " + text;
+                    break;
+                case 6:
+                    text = "💲 " + text;
+                    break;
+                case 7:
+                    text = "€ " + text;
+                    break;
+                case 8:
+                    text = "¢ " + text;
+                    break;
+                case 9:
+                    text = "️⏳ " + text;
+                    break;
+                case 10:
+                    text = "️🚀 " + text;
+                    break;
+                case 11:
+                    text = "️🍼 " + text;
+                    break;
+                case 12:
+                    text = "️🦩 " + text;
+                    break;
+            }
+        }
+        mBatteryPercentView.setText(text);
     }
 
     private void updateContentDescription() {
