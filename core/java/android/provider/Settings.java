@@ -6077,10 +6077,11 @@ public final class Settings {
         public static final String HARDWARE_KEYS_DISABLE = "hardware_keys_disable";
 
         /**
-         * Whether or not volume button music controls should be enabled to seek media tracks
+         * Whether volume button music control is enabled.
+         * Default 0.
          * @hide
          */
-        public static final String VOLBTN_MUSIC_CONTROLS = "volbtn_music_controls";
+        public static final String VOLUME_BUTTON_MUSIC_CONTROL = "volume_button_music_control";
 
         /**
          * Whether to show the battery info on the lockscreen while charging
