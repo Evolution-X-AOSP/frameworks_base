@@ -52,8 +52,8 @@
     <string name="quick_settings_ambient_display_label">Ambient display</string>
     <string name="accessibility_quick_settings_ambient_display_off">Ambient Display spento.</string>
     <string name="accessibility_quick_settings_ambient_display_on">Ambient Display acceso.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display disattivato.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display attivato.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display disattivato.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient Display attivato.</string>
     <!-- USB tethering QS tile -->
     <string name="quick_settings_usb_tether_label">Tethering USB</string>
     <!-- Sync QS Tile -->
