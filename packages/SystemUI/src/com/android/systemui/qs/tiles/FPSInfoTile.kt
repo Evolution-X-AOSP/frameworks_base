@@ -74,14 +74,18 @@ class FPSInfoTile @Inject constructor(
     private var serviceBound = false
     private var fpsInfoService: FPSInfoService? = null
 
-    private val serviceConnection = object: ServiceConnection {
+    private val serviceConnection = object : ServiceConnection {
         override fun onServiceConnected(name: ComponentName, service: IBinder?) {
-            logD("onServiceConnected")
+            logD {
+                "onServiceConnected"
+            }
             fpsInfoService = (service as? FPSInfoService.ServiceBinder)?.service
         }
 
         override fun onServiceDisconnected(name: ComponentName?) {
-            logD("onServiceDisconnected")
+            logD {
+                "onServiceDisconnected"
+            }
             fpsInfoService = null
         }
     }
@@ -90,12 +94,16 @@ class FPSInfoTile @Inject constructor(
         val fpsInfoSysNode = mContext.resources.getString(R.string.config_fpsInfoSysNode)
         available = if (fpsInfoSysNode != null) {
             val nodeFile = File(fpsInfoSysNode)
-            logD("file exists = ${nodeFile.isFile}, can read = ${nodeFile.canRead()}")
+            logD {
+                "file exists = ${nodeFile.isFile}, can read = ${nodeFile.canRead()}"
+            }
             nodeFile.isFile && nodeFile.canRead()
         } else {
             false
         }
-        logD("fpsInfoSysNode = $fpsInfoSysNode, available = $available")
+        logD {
+            "fpsInfoSysNode = $fpsInfoSysNode, available = $available"
+        }
     }
 
     override fun isAvailable() = available
@@ -103,17 +111,25 @@ class FPSInfoTile @Inject constructor(
     override fun newTileState() = BooleanState()
 
     override protected fun handleInitialize() {
-        logD("handleInitialize")
+        logD {
+            "handleInitialize"
+        }
         if (serviceBound) return
         val intent = Intent(mContext, FPSInfoService::class.java)
         serviceBound = mContext.bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE)
-        logD("serviceBound = $serviceBound")
+        logD {
+            "serviceBound = $serviceBound"
+        }
     }
 
     override protected fun handleDestroy() {
-        logD("handleDestroy")
+        logD {
+            "handleDestroy"
+        }
         if (serviceBound) {
-            logD("unbinding")
+            logD {
+                "unbinding"
+            }
             mContext.unbindService(serviceConnection)
             fpsInfoService = null
             serviceBound = false
@@ -129,13 +145,19 @@ class FPSInfoTile @Inject constructor(
     override fun getMetricsCategory(): Int = MetricsEvent.EVO_QS_TILES
 
     private fun toggleState() {
-        logD("toggleState")
+        logD {
+            "toggleState"
+        }
         fpsInfoService?.let {
             if (it.isReading) {
-                logD("stopReading")
+                logD {
+                    "stopReading"
+                }
                 it.stopReading()
             } else {
-                logD("startReading")
+                logD {
+                    "startReading"
+                }
                 it.startReading()
             }
         }
@@ -149,7 +171,9 @@ class FPSInfoTile @Inject constructor(
     override protected fun handleUpdateState(state: BooleanState, arg: Any?) {
         state.label = mContext.getString(R.string.quick_settings_fpsinfo_label)
         state.icon = ResourceIcon.get(R.drawable.ic_qs_fps_info)
-        logD("handleUpdateState, isReading = ${fpsInfoService?.isReading}")
+        logD {
+            "handleUpdateState, isReading = ${fpsInfoService?.isReading}"
+        }
 	    if (fpsInfoService?.isReading == true) {
             state.contentDescription =  mContext.getString(
                     R.string.accessibility_quick_settings_fpsinfo_on)
@@ -162,11 +186,11 @@ class FPSInfoTile @Inject constructor(
     }
 
     companion object {
-        private const val TAG = "FPSInfoTile"
+        private val TAG = FPSInfoTile::class.simpleName
         private val DEBUG = Log.isLoggable(TAG, Log.DEBUG)
 
-        private fun logD(msg: String) {
-            if (DEBUG) Log.d(TAG, msg)
+        private inline fun logD(crossinline msg: () -> String) {
+            if (DEBUG) Log.d(TAG, msg())
         }
     }
 }
