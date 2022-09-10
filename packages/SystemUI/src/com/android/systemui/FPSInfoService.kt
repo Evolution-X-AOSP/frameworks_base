@@ -68,12 +68,16 @@ class FPSInfoService @Inject constructor(
 
     private val wakefulnessObserver = object : WakefulnessLifecycle.Observer {
         override fun onStartedGoingToSleep() {
-            logD("onStartedGoingToSleep")
+            logD {
+                "onStartedGoingToSleep"
+            }
             stopReadingInternal()
         }
 
         override fun onFinishedWakingUp() {
-            logD("onFinishedWakingUp")
+            logD {
+                "onFinishedWakingUp"
+            }
             startReadingInternal()
         }
     }
@@ -96,7 +100,9 @@ class FPSInfoService @Inject constructor(
 
     override fun onCreate() {
         super.onCreate()
-        logD("onCreate")
+        logD {
+            "onCreate"
+        }
         binder = ServiceBinder()
 
         windowManager = getSystemService(WindowManager::class.java)
@@ -128,7 +134,9 @@ class FPSInfoService @Inject constructor(
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        logD("onConfigurationChanged")
+        logD {
+            "onConfigurationChanged"
+        }
         layoutParams.y = topInset
         if (fpsInfoView.parent != null) {
             windowManager.updateViewLayout(fpsInfoView, layoutParams)
@@ -144,7 +152,9 @@ class FPSInfoService @Inject constructor(
     }
 
     private fun startReadingInternal() {
-        logD("startReadingInternal, isReading = $isReading")
+        logD {
+            "startReadingInternal, isReading = $isReading"
+        }
         if (isReading) return
         fpsReadJob = lifecycleScope.launch {
             if (fpsInfoView.parent == null) {
@@ -166,7 +176,9 @@ class FPSInfoService @Inject constructor(
     }
 
     private fun stopReadingInternal() {
-        logD("stopReadingInternal, isReading = $isReading")
+        logD {
+            "stopReadingInternal, isReading = $isReading"
+        }
         if (!isReading) return
         fpsReadJob?.cancel()
         fpsReadJob = null
@@ -188,7 +200,9 @@ class FPSInfoService @Inject constructor(
     }
 
     override fun onDestroy() {
-        logD("onDestroy")
+        logD {
+            "onDestroy"
+        }
         stopReading()
         super.onDestroy()
     }
@@ -199,17 +213,17 @@ class FPSInfoService @Inject constructor(
     }
 
     private companion object {
-        private const val TAG = "FPSInfoService"
-        private val DEBUG = Log.isLoggable(TAG, Log.DEBUG)
-
-        private fun logD(msg: String) {
-            if (DEBUG) Log.d(TAG, msg)
-        }
-
         private const val FPS_MEASURE_INTERVAL = 1000L
 
         private const val BACKGROUND_ALPHA = 120
 
         private val FpsRegex = "[0-9]+".toRegex()
+
+        private val TAG = FPSInfoService::class.simpleName
+        private val DEBUG = Log.isLoggable(TAG, Log.DEBUG)
+
+        private inline fun logD(crossinline msg: () -> String) {
+            if (DEBUG) Log.d(TAG, msg())
+        }
     }
 }
