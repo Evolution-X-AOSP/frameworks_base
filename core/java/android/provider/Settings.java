@@ -6302,13 +6302,6 @@ public final class Settings {
         public static final String GAMESPACE_SUPPRESS_FULLSCREEN_INTENT = "gamespace_suppress_fullscreen_intent";
 
         /**
-         * Whether to play haptic feedback on udfps finger down event.
-         * Default 1
-         * @hide
-         */
-        public static final String ENABLE_UDFPS_START_HAPTIC_FEEDBACK = "enable_udfps_start_haptic_feedback";
-
-        /**
          * Whether edge light is enabled.
          * Default 0
          * @hide
@@ -16818,12 +16811,6 @@ public final class Settings {
          * @hide
          */
         public static final String ONE_HANDED_KEYGUARD_SIDE = "one_handed_keyguard_side";
-
-        /**
-         * Google Hybrid Battery Warnings
-         * @hide
-         */
-        public static final String HYBRID_SYSUI_BATTERY_WARNING_FLAGS = "hybrid_sysui_battery_warning_flags";
 
         /**
          * The amount of time in milliseconds before wifi is turned off
