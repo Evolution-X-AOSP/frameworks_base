@@ -88,6 +88,7 @@ import android.os.ResultReceiver;
 import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.os.Trace;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.text.InputType;
 import android.text.Layout;
@@ -489,6 +490,17 @@ public class InputMethodService extends AbstractInputMethodService {
     private static final int BACK_DISPOSITION_MAX = BACK_DISPOSITION_ADJUST_NOTHING;
 
     /**
+     * Volume key cursor control
+     */
+    int mVolumeKeyCursorControl = 0;
+    /** @hide */
+    public static final int VOLUME_CURSOR_OFF = 0;
+    /** @hide */
+    public static final int VOLUME_CURSOR_ON = 1;
+    /** @hide */
+    public static final int VOLUME_CURSOR_ON_REVERSE = 2;
+
+    /**
      * Timeout after which hidden IME surface will be removed from memory
      * TODO(b/230762351): reset timeout to 5000ms and invalidate cache when IME insets change.
      */
@@ -625,10 +637,6 @@ public class InputMethodService extends AbstractInputMethodService {
      * {@link InputMethodImpl#hideSoftInput}, after which it is set {@code null} until next call.
      */
     private IBinder mCurHideInputToken;
-    int mVolumeKeyCursorControl;
-    private static final int VOLUME_CURSOR_OFF = 0;
-    private static final int VOLUME_CURSOR_ON = 1;
-    private static final int VOLUME_CURSOR_ON_REVERSE = 2;
 
     final ViewTreeObserver.OnComputeInternalInsetsListener mInsetsComputer = info -> {
         onComputeInsets(mTmpInsets);
@@ -3053,8 +3061,9 @@ public class InputMethodService extends AbstractInputMethodService {
             return false;
         }
         if (event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_UP) {
-            mVolumeKeyCursorControl = Settings.System.getInt(getContentResolver(),
-                    Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0);
+            mVolumeKeyCursorControl = Settings.System.getIntForUser(getContentResolver(),
+                    Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0,
+                    UserHandle.USER_CURRENT_OR_SELF);
             if (isInputViewShown() && (mVolumeKeyCursorControl != VOLUME_CURSOR_OFF)) {
                 sendDownUpKeyEvents((mVolumeKeyCursorControl == VOLUME_CURSOR_ON_REVERSE)
                         ? KeyEvent.KEYCODE_DPAD_RIGHT : KeyEvent.KEYCODE_DPAD_LEFT);
@@ -3063,8 +3072,9 @@ public class InputMethodService extends AbstractInputMethodService {
             return false;
         }
         if (event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_DOWN) {
-            mVolumeKeyCursorControl = Settings.System.getInt(getContentResolver(),
-                    Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0);
+            mVolumeKeyCursorControl = Settings.System.getIntForUser(getContentResolver(),
+                    Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0,
+                    UserHandle.USER_CURRENT_OR_SELF);
             if (isInputViewShown() && (mVolumeKeyCursorControl != VOLUME_CURSOR_OFF)) {
                 sendDownUpKeyEvents((mVolumeKeyCursorControl == VOLUME_CURSOR_ON_REVERSE)
                         ? KeyEvent.KEYCODE_DPAD_LEFT : KeyEvent.KEYCODE_DPAD_RIGHT);
@@ -3122,10 +3132,11 @@ public class InputMethodService extends AbstractInputMethodService {
                 return handleBack(true);
             }
         }
-        if (event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_UP
-                 || keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
-            mVolumeKeyCursorControl = Settings.System.getInt(getContentResolver(),
-                    Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0);
+        if (event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_UP ||
+                    keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
+            mVolumeKeyCursorControl = Settings.System.getIntForUser(getContentResolver(),
+                    Settings.System.VOLUME_KEY_CURSOR_CONTROL, 0,
+                    UserHandle.USER_CURRENT_OR_SELF);
             if (isInputViewShown() && (mVolumeKeyCursorControl != VOLUME_CURSOR_OFF)) {
                 return true;
             }

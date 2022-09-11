@@ -283,5 +283,6 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.EDGE_LIGHT_CUSTOM_COLOR, NON_EMPTY_HEX_COLOR_VALIDATOR);
         VALIDATORS.put(System.VOLUME_BUTTON_MUSIC_CONTROL, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.SENSOR_BLOCK, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.VOLUME_KEY_CURSOR_CONTROL, new InclusiveIntegerRangeValidator(0, 2));
     }
 }
