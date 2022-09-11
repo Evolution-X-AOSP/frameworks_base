@@ -112,5 +112,6 @@ public class SystemSettings {
         Settings.System.BLOCK_ALERT,
         Settings.System.VOLUME_BUTTON_MUSIC_CONTROL,
         Settings.System.SENSOR_BLOCK,
+        Settings.System.VOLUME_KEY_CURSOR_CONTROL,
     };
 }
