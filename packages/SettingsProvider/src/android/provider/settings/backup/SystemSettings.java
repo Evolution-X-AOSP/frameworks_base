@@ -103,7 +103,6 @@ public class SystemSettings {
         Settings.System.STATUS_BAR_LOGO_STYLE,
         Settings.System.TORCH_POWER_BUTTON_GESTURE,
         Settings.System.LOCKSCREEN_BATTERY_INFO,
-        Settings.System.ENABLE_UDFPS_START_HAPTIC_FEEDBACK,
         Settings.System.EDGE_LIGHT_ENABLED,
         Settings.System.EDGE_LIGHT_ALWAYS_TRIGGER_ON_PULSE,
         Settings.System.EDGE_LIGHT_REPEAT_ANIMATION,
