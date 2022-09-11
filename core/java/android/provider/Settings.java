@@ -6226,37 +6226,6 @@ public final class Settings {
         public static final String STATUS_BAR_BATTERY_TEXT_CHARGING = "status_bar_battery_text_charging";
 
         /**
-         * QS battery style
-         * @hide
-         */
-        public static final String QS_BATTERY_STYLE = "qs_battery_style";
-
-        /**
-         * QS battery location
-         * 0: QS Panel
-         * 1: Quick Statusbar
-         * @hide
-         */
-        public static final String QS_BATTERY_LOCATION = "qs_battery_location";
-
-        /**
-         * QS battery %
-         * 0: Hide the battery percentage
-         * 1: Display the battery percentage inside the icon
-         * 2: Display the battery percentage next to the icon
-         * @hide
-         */
-        public static final String QS_SHOW_BATTERY_PERCENT = "qs_show_battery_percent";
-
-        /**
-         * QS battery estimate
-         * 0: Hide the battery estimate
-         * 1: Display the battery estimate
-         * @hide
-         */
-        public static final String QS_SHOW_BATTERY_ESTIMATE = "qs_show_battery_estimate";
-
-        /**
          * Quick Settings Smart Pulldown
          * @hide
          */
@@ -6300,13 +6269,6 @@ public final class Settings {
          */
         @Readable
         public static final String GAMESPACE_SUPPRESS_FULLSCREEN_INTENT = "gamespace_suppress_fullscreen_intent";
-
-        /**
-         * Whether to play haptic feedback on udfps finger down event.
-         * Default 1
-         * @hide
-         */
-        public static final String ENABLE_UDFPS_START_HAPTIC_FEEDBACK = "enable_udfps_start_haptic_feedback";
 
         /**
          * Whether edge light is enabled.
