@@ -26,27 +26,26 @@ import com.android.settingslib.fuelgauge.Estimate
 import com.android.settingslib.utils.PowerUtil
 import com.android.systemui.dagger.SysUISingleton
 import com.android.systemui.power.EnhancedEstimates
+import java.lang.Exception
+import java.lang.IllegalArgumentException
 import java.time.Duration
 import javax.inject.Inject
 
 @SysUISingleton
-class EnhancedEstimatesImpl @Inject constructor(private val mContext: Context) :
-    EnhancedEstimates {
-    private val mParser: KeyValueListParser = KeyValueListParser(',')
+class EnhancedEstimatesImpl @Inject constructor(
+    private val mContext: Context
+) : EnhancedEstimates {
+    val mParser: KeyValueListParser = KeyValueListParser(',')
 
     override fun isHybridNotificationEnabled(): Boolean {
-        val isHybridEnabled: Boolean
-        isHybridEnabled = try {
+        val isHybridEnabled: Boolean = try {
             if (!mContext.packageManager.getPackageInfo(
-                    TURBO_PACKAGE_NAME,
+                    "com.google.android.apps.turbo",
                     PackageManager.MATCH_DISABLED_COMPONENTS
                 ).applicationInfo.enabled
-            ) {
-                false
-            } else {
-                updateFlags()
-                mParser.getBoolean("hybrid_enabled", true)
-            }
+            ) return false
+            updateFlags()
+            mParser.getBoolean("hybrid_enabled", true)
         } catch (ex: PackageManager.NameNotFoundException) {
             false
         }
@@ -54,73 +53,55 @@ class EnhancedEstimatesImpl @Inject constructor(private val mContext: Context) :
     }
 
     override fun getEstimate(): Estimate {
-        var query: Cursor? = null
-        try {
-            query = mContext.contentResolver.query(
-                Uri.Builder()
-                    .scheme("content")
-                    .authority("com.google.android.apps.turbo.estimated_time_remaining")
-                    .appendPath("time_remaining")
-                    .build(), null, null, null, null
-            )
-        } catch (ex: Exception) {
-            Log.d(
-                TAG,
-                "Something went wrong when getting an estimate from Turbo",
-                ex
-            )
-        }
-        if (query == null || !query.moveToFirst()) {
-            query?.close()
-            return Estimate(-1, false, -1)
-        }
-        var isBasedOnUsage = true
-        if (query.getColumnIndex("is_based_on_usage") != -1 && query.getInt(
-                query.getColumnIndex(
-                    "is_based_on_usage"
+            var query: Cursor? = null
+            try {
+                query = mContext.contentResolver.query(
+                    Uri.Builder()
+                        .scheme("content")
+                        .authority("com.google.android.apps.turbo.estimated_time_remaining")
+                        .appendPath("time_remaining")
+                        .build(),
+                    null, null, null, null
                 )
-            ) == 0
-        ) isBasedOnUsage = false
-        var averageDischargeTime: Long = -1
-        val columnIndex = query.getColumnIndex("average_battery_life")
-        if (columnIndex != -1) {
-            val averageBatteryLife = query.getLong(columnIndex)
-            if (averageBatteryLife != -1L) {
-                var threshold = Duration.ofMinutes(15).toMillis()
-                if (Duration.ofMillis(averageBatteryLife)
-                        .compareTo(Duration.ofDays(1)) >= 0
-                ) threshold = Duration.ofHours(1).toMillis()
-                averageDischargeTime =
-                    PowerUtil.roundTimeToNearestThreshold(averageBatteryLife, threshold)
+            } catch (ex: Exception) {
+                Log.d(TAG, "Something went wrong when getting an estimate from Turbo", ex)
             }
-        }
-        val estimate = Estimate(
-            query.getLong(
-                query.getColumnIndex(
-                    "battery_estimate"
+            if (query != null && query.moveToFirst()) {
+                var averageDischargeTime: Long = -1
+                val isBasedOnUsage = (query.getColumnIndex("is_based_on_usage") == -1
+                        || query.getInt(query.getColumnIndex("is_based_on_usage")) != 0)
+                val columnIndex = query.getColumnIndex("average_battery_life")
+                if (columnIndex != -1) {
+                    val averageBatteryLife = query.getLong(columnIndex)
+                    if (averageBatteryLife != -1L) {
+                        var threshold = Duration.ofMinutes(15L).toMillis()
+                        if (Duration.ofMillis(averageBatteryLife) >= Duration.ofDays(1L)) {
+                            threshold = Duration.ofHours(1L).toMillis()
+                        }
+                        averageDischargeTime =
+                            PowerUtil.roundTimeToNearestThreshold(averageBatteryLife, threshold)
+                        val estimate = Estimate(
+                            query.getLong(query.getColumnIndex("battery_estimate")),
+                            isBasedOnUsage,
+                            averageDischargeTime
+                        )
+                        query.close()
+                        return estimate
+                    }
+                }
+                val estimate = Estimate(
+                    query.getLong(query.getColumnIndex("battery_estimate")),
+                    isBasedOnUsage,
+                    averageDischargeTime
                 )
-            ), isBasedOnUsage, averageDischargeTime
-        )
-        query.close()
-        return estimate
+                query.close()
+                return estimate
+            }
+        query?.close()
+        return Estimate(-1L, false, -1L)
     }
 
-    override fun getLowWarningThreshold(): Long {
-        updateFlags()
-        return mParser.getLong("low_threshold", Duration.ofHours(3).toMillis())
-    }
-
-    override fun getSevereWarningThreshold(): Long {
-        updateFlags()
-        return mParser.getLong("severe_threshold", Duration.ofHours(1).toMillis())
-    }
-
-    override fun getLowWarningEnabled(): Boolean {
-        updateFlags()
-        return mParser.getBoolean("low_warning_enabled", false)
-    }
-
-    protected fun updateFlags() {
+    private fun updateFlags() {
         try {
             mParser.setString(
                 Settings.Global.getString(
@@ -133,8 +114,22 @@ class EnhancedEstimatesImpl @Inject constructor(private val mContext: Context) :
         }
     }
 
+    override fun getLowWarningEnabled(): Boolean {
+        updateFlags()
+        return mParser.getBoolean("low_warning_enabled", false)
+    }
+
+    override fun getLowWarningThreshold(): Long {
+        updateFlags()
+        return mParser.getLong("low_threshold", Duration.ofHours(3L).toMillis())
+    }
+
+    override fun getSevereWarningThreshold(): Long {
+        updateFlags()
+        return mParser.getLong("severe_threshold", Duration.ofHours(1L).toMillis())
+    }
+
     companion object {
         const val TAG = "EnhancedEstimates"
-        private const val TURBO_PACKAGE_NAME = "com.google.android.apps.turbo"
     }
 }
