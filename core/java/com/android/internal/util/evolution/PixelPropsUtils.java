@@ -51,7 +51,7 @@ public class PixelPropsUtils {
     private static final Map<String, ArrayList<String>> propsToKeep;
 
     private static final String[] packagesToChangePixel6Pro = {
-            "com.google.android.inputmethod.latin"
+            "com.google.android.apps.subscriptions.red"
     };
 
     private static final String[] extraPackagesToChange = {
