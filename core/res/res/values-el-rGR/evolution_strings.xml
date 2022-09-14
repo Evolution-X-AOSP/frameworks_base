@@ -20,7 +20,7 @@
     <string name="systemui_restart_message">Για να τεθούν σε ισχύ όλες οι αλλαγές, απαιτείται επανεκκίνηση του SystemUI. Επανεκκίνηση του SystemUI τώρα;</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Κρατήστε πατημένο το κουμπί ενεργοποίησης για να ξεκλειδώσετε</string>
-    <string name="pocket_view_title">Η λειτουργία τσέπης είναι ενεργοποιημένη</string>
+    <string name="pocket_view_title">Η λειτουργία τσέπης είναι ενεργή</string>
     <string name="pocket_view_title_cancel">Για να χρησιμοποιήσετε το τηλέφωνό σας:</string>
     <string name="pocket_view_top_tag_cancel">Ελέγξτε εάν η μπλε περιοχή του τηλεφώνου σας είναι ελεύθερη από τυχόν εμπόδια, και καθαρίστε τυχόν βρωμιά ή σκόνη.</string>
     <string name="pocket_view_top_tag_cancel2">Πατήστε παρατεταμένα το κουμπί τροφοδοσίας για εξαναγκασμό τερματισμού λειτουργίας τσέπης.</string>
