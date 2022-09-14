@@ -7,6 +7,8 @@
     <!-- Advanced reboot -->
     <string name="reboot_to_recovery_title">Recuperació</string>
     <string name="reboot_to_recovery_message">S\'està reiniciant al mode de recuperació</string>
+    <string name="reboot_to_bootloader_title">Gestor d\'arrancada</string>
+    <string name="reboot_to_bootloader_message">S\'està reiniciant al gestor d\'arrencada</string>
     <string name="reboot_title">Reinicia</string>
     <string name="reboot_message">S\'està reiniciant el sistema</string>
     <!-- Button that copies the url to the log of a crashed application -->
