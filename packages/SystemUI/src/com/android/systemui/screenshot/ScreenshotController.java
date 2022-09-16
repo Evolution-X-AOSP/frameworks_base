@@ -987,18 +987,18 @@ public class ScreenshotController {
 
         // We want to play the shutter sound when it's either forced or
         // when we use normal ringer mode
-        if (playSound && Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.SCREENSHOT_SHUTTER_SOUND, 1, UserHandle.USER_CURRENT) == 1) {
-            playShutterSound();
+        if (!playSound) {
+            return;
         }
-    }
 
-    private void playShutterSound() {
         mCameraSound.addListener(() -> {
             try {
                 MediaPlayer player = mCameraSound.get();
                 if (player != null) {
-                    player.start();
+                    if (Settings.System.getIntForUser(mContext.getContentResolver(),
+                            Settings.System.SCREENSHOT_SHUTTER_SOUND, 1, UserHandle.USER_CURRENT) == 1) {
+                        player.start();
+                    }
                 }
             } catch (InterruptedException | ExecutionException e) {
             }
