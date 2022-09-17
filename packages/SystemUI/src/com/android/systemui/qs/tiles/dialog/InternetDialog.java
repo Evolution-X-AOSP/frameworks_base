@@ -297,6 +297,7 @@ public class InternetDialog extends SystemUIDialog implements
             Log.d(TAG, "onStop");
         }
         mMobileNetworkLayout.setOnClickListener(null);
+        mMobileNetworkLayout.setOnLongClickListener(null);
         mHotspotLayout.setOnClickListener(null);
         mHotspotToggle.setOnCheckedChangeListener(null);
         mConnectedWifListLayout.setOnClickListener(null);
@@ -372,6 +373,10 @@ public class InternetDialog extends SystemUIDialog implements
                 showTurnOffAutoDataSwitchDialog(autoSwitchNonDdsSubId);
             }
             mInternetDialogController.connectCarrierNetwork();
+        });
+        mMobileNetworkLayout.setOnLongClickListener(v -> {
+                mInternetDialogController.launchMobileNetworkSetting(v);
+                return true;
         });
         mMobileDataToggle.setOnClickListener(v -> {
             boolean isChecked = mMobileDataToggle.isChecked();
