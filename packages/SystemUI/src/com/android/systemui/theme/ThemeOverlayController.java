@@ -440,10 +440,6 @@ public class ThemeOverlayController extends CoreStartable implements Dumpable {
                 },
                 UserHandle.USER_ALL);
 
-        if (!mIsMonetEnabled) {
-            return;
-        }
-
         mUserTracker.addCallback(mUserTrackerCallback, mMainExecutor);
 
         mDeviceProvisionedController.addCallback(mDeviceProvisionedListener);
