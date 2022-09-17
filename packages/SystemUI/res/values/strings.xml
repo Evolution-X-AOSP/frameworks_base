@@ -687,6 +687,11 @@
         =1 {# device}
         other {# devices}
     }</string>
+    <!-- QuickSettings: InternetDialog: Summary for how many devices are connected to the hotspot [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_internet_hotspot_summary_num_devices">{count, plural,
+        =1 {# device connected}
+        other {# devices connected}
+    }</string>
     <!-- QuickSettings: Notifications [CHAR LIMIT=NONE] -->
     <!-- QuickSettings: Flashlight [CHAR LIMIT=NONE] -->
     <string name="quick_settings_flashlight_label">Flashlight</string>
