@@ -41,9 +41,11 @@ import android.os.UserHandle;
 import android.os.Looper;
 import android.os.Message;
 import android.provider.Settings;
+import android.util.DisplayUtils;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.view.Display;
+import android.view.DisplayInfo;
 import android.view.OrientationEventListener;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -377,6 +379,14 @@ public class TriStateUiControllerImpl implements TriStateUiController,
 
     private void updateTriStateLayout() {
         if (mContext != null) {
+            DisplayInfo displayInfo = new DisplayInfo();
+            mContext.getDisplay().getDisplayInfo(displayInfo);
+            final Display.Mode maxDisplayMode =
+                    DisplayUtils.getMaximumResolutionDisplayMode(displayInfo.supportedModes);
+            final float scaleFactor = DisplayUtils.getPhysicalPixelDisplaySizeRatio(
+                    maxDisplayMode.getPhysicalWidth(), maxDisplayMode.getPhysicalHeight(),
+                    displayInfo.getNaturalWidth(), displayInfo.getNaturalHeight());
+
             int iconId = 0;
             int textId = 0;
             int bg = 0;
@@ -596,8 +606,8 @@ public class TriStateUiControllerImpl implements TriStateUiController,
                 }
                 positionY = res.getDimensionPixelSize(R.dimen.tri_state_dialog_padding);
                 mWindowLayoutParams.gravity = gravity;
-                mWindowLayoutParams.y = positionY2 - positionY;
-                mWindowLayoutParams.x = positionX - positionY;
+                mWindowLayoutParams.y = (int) ((positionY2 - positionY) * scaleFactor);
+                mWindowLayoutParams.x = (int) ((positionX - positionY) * scaleFactor);
                 mWindow.setAttributes(mWindowLayoutParams);
                 mHandler.sendEmptyMessageDelayed(MSG_RESET_SCHEDULE, DIALOG_TIMEOUT);
             }
