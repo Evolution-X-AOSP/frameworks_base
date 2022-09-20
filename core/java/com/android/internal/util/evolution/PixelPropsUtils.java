@@ -223,7 +223,7 @@ public class PixelPropsUtils {
             }
             // Set proper indexing fingerprint
             if (packageName.equals(PACKAGE_SETTINGS_SERVICES)) {
-                setPropValue("FINGERPRINT", Build.VERSION.INCREMENTAL);
+                setPropValue("FINGERPRINT", String.valueOf(Build.TIME));
             }
         } else {
             if (!SystemProperties.getBoolean("persist.sys.pixelprops.games", false))
