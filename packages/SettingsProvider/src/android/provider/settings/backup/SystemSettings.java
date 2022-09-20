@@ -112,6 +112,5 @@ public class SystemSettings {
         Settings.System.VOLUME_BUTTON_MUSIC_CONTROL,
         Settings.System.SENSOR_BLOCK,
         Settings.System.VOLUME_KEY_CURSOR_CONTROL,
-        Settings.System.QS_SHOW_BATTERY_ESTIMATE,
     };
 }
