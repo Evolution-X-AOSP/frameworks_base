@@ -88,6 +88,12 @@ public class ThemeOverlayApplier implements Dumpable {
 
     static final String TIMESTAMP_FIELD = "_applied_timestamp";
 
+    static final String CUSTOM_THEME_BLACK = "com.android.system.theme.black";
+
+    static final String CUSTOM_THEME_CLEAR = "com.android.system.theme.clear";
+
+    static final String CUSTOM_THEME_VIVID = "com.android.system.theme.vivid";
+
     @VisibleForTesting
     static final String OVERLAY_CATEGORY_FONT = "android.theme.customization.font";
     @VisibleForTesting
@@ -149,6 +155,14 @@ public class ThemeOverlayApplier implements Dumpable {
             OVERLAY_CATEGORY_ICON_SYSUI,
             OVERLAY_CATEGORY_NAVBAR);
 
+    /* Categories for all available custom themes */
+    @VisibleForTesting
+    static final List<String> CUSTOM_THEME_CATEGORIES = Lists.newArrayList(
+            "",
+            CUSTOM_THEME_BLACK,
+	    CUSTOM_THEME_CLEAR,
+            CUSTOM_THEME_VIVID);
+
     /* Allowed overlay categories for each target package. */
     private final Map<String, Set<String>> mTargetPackageToCategories = new ArrayMap<>();
     /* Target package for each overlay category. */
@@ -157,7 +171,7 @@ public class ThemeOverlayApplier implements Dumpable {
     private final Executor mBgExecutor;
     private final String mLauncherPackage;
     private final String mThemePickerPackage;
-    private boolean mIsBlackTheme;
+    private boolean mIsCustomTheme;
 
     @Inject
     public ThemeOverlayApplier(OverlayManager overlayManager,
@@ -263,15 +277,24 @@ public class ThemeOverlayApplier implements Dumpable {
         });
     }
 
-    public void setIsBlackTheme(boolean black) {
-        mIsBlackTheme = black;
+    public void setIsCustomTheme(boolean custom) {
+        mIsCustomTheme = custom;
     }
 
-    public void applyBlackTheme(boolean enable) {
+    public void applyCustomTheme(int custom_theme, boolean enable) {
+        // Disbale all overlays that have not been specified in the user setting.
+        // The enable will be false for a custom theme if night mode is not on or if
+        // it's default
+        // This will make sure that the default theme is applied when night mode is off
+        // or if default mode is slected
+        Log.d(TAG, "applyCustomTheme: " + String.valueOf(custom_theme) + " enable: " + (enable ? "Yes" : "No"));
         mBgExecutor.execute(() -> {
             try {
-                mOverlayManager.setEnabled("com.android.system.theme.black",
-                        enable, UserHandle.SYSTEM);
+                for (int i = 1; i < CUSTOM_THEME_CATEGORIES.size(); i++) {
+                    mOverlayManager.setEnabled(CUSTOM_THEME_CATEGORIES.get(i),
+                        (i == custom_theme) ? enable : false,
+                        UserHandle.SYSTEM);
+                }
             } catch (SecurityException | IllegalStateException e) {
                 Log.e(TAG, "setEnabled failed", e);
             }
@@ -293,7 +316,7 @@ public class ThemeOverlayApplier implements Dumpable {
         }
 
         if (OVERLAY_CATEGORY_SYSTEM_PALETTE.equals(category)) {
-            enabled = enabled && !mIsBlackTheme;
+            enabled = enabled && !mIsCustomTheme;
         }
 
         OverlayInfo overlayInfo = mOverlayManager.getOverlayInfo(identifier,
