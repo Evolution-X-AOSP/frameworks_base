@@ -776,7 +776,7 @@ public class UdfpsController implements DozeReceiver {
     public void playStartHaptic() {
         boolean vibrate = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.UDFPS_HAPTIC_FEEDBACK, 1) == 1;
-        if (vibrate && mAccessibilityManager.isTouchExplorationEnabled()) {
+        if (vibrate) {
             mVibrator.vibrate(
                     Process.myUid(),
                     mContext.getOpPackageName(),
