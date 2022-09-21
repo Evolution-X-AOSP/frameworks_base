@@ -164,6 +164,11 @@
         <item name="android:textColor">?attr/onSurfaceVariant</item>
     </style>
 
+    <style name="TextAppearance.QS.TileLabel.DataUsage">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@*android:string/config_bodyFontFamily</item>
+    </style>
+    
     <style name="TextAppearance.DeviceManagementDialog.Title" parent="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle"/>
 
     <style name="TextAppearance.AuthCredential">
