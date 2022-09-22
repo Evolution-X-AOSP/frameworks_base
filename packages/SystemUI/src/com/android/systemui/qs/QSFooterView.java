@@ -100,7 +100,7 @@ public class QSFooterView extends FrameLayout {
             mBuildText.setText((text == null || text.isEmpty()) ? "Evolution X" : text);
             mBuildText.setVisibility(View.VISIBLE);
         } else {
-            mBuildText.setVisibility(View.GONE);
+            mBuildText.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -198,11 +198,11 @@ public class QSFooterView extends FrameLayout {
 
         if (mExpanded && mShouldShowBuildText) {
             mBuildText.setVisibility(View.VISIBLE);
-            mEditButton.setVisibility(mShowEditIcon ? View.VISIBLE : View.GONE);
-            mEditLayout.setVisibility(mShowEditIcon ? View.VISIBLE : View.GONE);
+            mEditButton.setVisibility(mShowEditIcon ? View.VISIBLE : View.INVISIBLE);
+            mEditLayout.setVisibility(mShowEditIcon ? View.VISIBLE : View.INVISIBLE);
             setBuildText();
         } else {
-            mBuildText.setVisibility(View.GONE);
+            mBuildText.setVisibility(View.INVISIBLE);
             mEditButton.setVisibility(mShowEditIcon ? View.VISIBLE : View.INVISIBLE);
             mEditLayout.setVisibility(mShowEditIcon ? View.VISIBLE : View.INVISIBLE);
         }
