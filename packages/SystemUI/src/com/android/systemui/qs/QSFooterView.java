@@ -221,8 +221,8 @@ public class QSFooterView extends FrameLayout {
 
         if (mExpanded && mShouldShowDataUsage) {
             mUsageText.setVisibility(View.VISIBLE);
-            mEditButton.setVisibility(mShowEditIcon ? View.VISIBLE : View.GONE);
-            mEditLayout.setVisibility(mShowEditIcon ? View.VISIBLE : View.GONE);
+            mEditButton.setVisibility(mShowEditIcon ? View.VISIBLE : View.INVISIBLE);
+            mEditLayout.setVisibility(mShowEditIcon ? View.VISIBLE : View.INVISIBLE);
             setUsageText();
         } else {
             mUsageText.setVisibility(View.INVISIBLE);
