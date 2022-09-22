@@ -100,7 +100,7 @@ public class QSFooterView extends FrameLayout {
             mBuildText.setText((text == null || text.isEmpty()) ? "Evolution X" : text);
             mBuildText.setVisibility(View.VISIBLE);
         } else {
-            mBuildText.setVisibility(View.GONE);
+            mBuildText.setVisibility(View.INVISIBLE);
         }
     }
 
