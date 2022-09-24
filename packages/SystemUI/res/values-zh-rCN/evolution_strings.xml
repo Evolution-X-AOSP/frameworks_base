@@ -167,7 +167,4 @@
     <string name="screenrecord_longer_timeout_switch_summary">限制录屏文件大小为 15GB</string>
     <string name="screenrecord_skip_time_label">跳过倒计时</string>
     <string name="screenrecord_skip_time_summary">移除 3 秒等待</string>
-    <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> • 禁用浮动通知一分钟</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - 浮动通知暂停<xliff:g id="number">%2$d</xliff:g>分钟</string>
 </resources>
