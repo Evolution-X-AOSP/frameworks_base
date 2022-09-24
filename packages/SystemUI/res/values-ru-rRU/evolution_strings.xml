@@ -166,7 +166,4 @@
     <string name="screenrecord_longer_timeout_switch_summary">Ограничить размер записи до 15 ГБ</string>
     <string name="screenrecord_skip_time_label">Пропустить таймер</string>
     <string name="screenrecord_skip_time_summary">Убрать 3 секунды ожидания</string>
-    <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Всплывающие уведомления выключены на 1 минуту.</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> — Всплывающие уведомления выключены на <xliff:g id="number">%2$d</xliff:g> минут(ы).</string>
 </resources>
