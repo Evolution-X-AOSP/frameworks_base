@@ -167,7 +167,4 @@
     <string name="screenrecord_longer_timeout_switch_summary">Kayıt boyutunu 15 GB ile sınırlayın</string>
     <string name="screenrecord_skip_time_label">Zamanlayıcıyı atla</string>
     <string name="screenrecord_skip_time_summary">3 saniye beklemeyi kaldır</string>
-    <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Bildirim pencereleri 1 dakika kadar erteleniyor.</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Bildirim pencereleri <xliff:g id="number">%2$d</xliff:g> dakika erteleniyor.</string>
 </resources>
