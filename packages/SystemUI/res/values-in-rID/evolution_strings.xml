@@ -167,7 +167,4 @@
     <string name="screenrecord_longer_timeout_switch_summary">Batasi ukuran perekaman hingga 15 GB</string>
     <string name="screenrecord_skip_time_label">Lewati penghitung waktu</string>
     <string name="screenrecord_skip_time_summary">Hapus 3 detik menunggu</string>
-    <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Notifikasi mengambang ditunda selama 1 menit.</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Notifikasi mengambang ditunda selama <xliff:g id="number">%2$d</xliff:g> menit.</string>
 </resources>
