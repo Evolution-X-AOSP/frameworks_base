@@ -167,7 +167,4 @@
     <string name="screenrecord_longer_timeout_switch_summary">Max.15GB felvételi fájlméret</string>
     <string name="screenrecord_skip_time_label">Időzités elhagyása</string>
     <string name="screenrecord_skip_time_summary">A 3 mp-s késleltetés elhagyása</string>
-    <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - lebegő értesítései 1 percig elhalasztásra kerülnek.</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - lebegő értesítései <xliff:g id="number">%2$d</xliff:g> percig elhalasztásra kerülnek.</string>
 </resources>
