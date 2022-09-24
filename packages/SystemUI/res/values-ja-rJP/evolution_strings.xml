@@ -167,7 +167,4 @@
     <string name="screenrecord_longer_timeout_switch_summary">録画サイズを15GBに制限する</string>
     <string name="screenrecord_skip_time_label">タイマーをスキップ</string>
     <string name="screenrecord_skip_time_summary">3秒間の待機を削除する</string>
-    <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - 通知の表示は1分間一時停止します</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - 通知の表示は<xliff:g id="number">%2$d</xliff:g>分間停止します</string>
 </resources>
