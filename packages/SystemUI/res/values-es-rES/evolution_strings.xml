@@ -151,9 +151,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Carga Turbo (<xliff:g id="charging_time_left" ejemplo="4 horas y 2 minutos">%1$s</xliff:g> hasta llenar)</string>
     <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="porcentaje">%s</xliff:g> • Carga turbo</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with an oem fast power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_oem_power_time"><xliff:g id="porcentaje">%2$s</xliff:g> • Carga rápida (<xliff:g id="charging_time_left" ejemplo="4 horas y 2 minutos">%1$s</xliff:g> hasta llenar)</string>
-    <string name="keyguard_plugged_in_oem_charging"><xliff:g id="percentage">%s</xliff:g> • Carga rápida</string>
     <!-- Data usage info in QS footer -->
     <string name="usage_data">usado hoy</string>
     <string name="usage_data_default_suffix">Datos</string>
