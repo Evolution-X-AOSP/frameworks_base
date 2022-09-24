@@ -116,10 +116,6 @@
     <!-- Whether device has turbo power charging support -->
     <bool name="config_hasTurboPowerCharger">false</bool>
 
-    <!-- Paths to fast charging status file to detect whether an oem fast charger is active -->
-    <string-array name="config_oemFastChargerStatusPaths" translatable="false">
-    </string-array>
-
     <!-- Default values for LiveDisplay -->
     <bool name="config_enableLiveDisplay">true</bool>
     <integer name="config_dayColorTemperature">6500</integer>
