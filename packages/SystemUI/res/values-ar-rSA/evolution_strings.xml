@@ -167,7 +167,4 @@
     <string name="screenrecord_longer_timeout_switch_summary">الحد من حجم التسجيل إلى 15 جيجابايت</string>
     <string name="screenrecord_skip_time_label">تخطي المؤقت</string>
     <string name="screenrecord_skip_time_summary">إزالة 3 ثانية انتظار</string>
-    <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - التنبيهات الخاطفة معطلة لدقيقة واحدة.</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> • التنبيهات الخاطفة معطلة لـ <xliff:g id="number">%2$d</xliff:g> دقائق.</string>
 </resources>
