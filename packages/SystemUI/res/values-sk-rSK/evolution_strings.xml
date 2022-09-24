@@ -146,9 +146,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time"><xliff:g id="percent">%2$s</xliff:g> • Turbo Nabíjanie (<xliff:g id="charging_time_left" príklad="4 hodiny a 2 minúty">%1$s</xliff:g> do nabitia)</string>
     <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Turbo nabíjanie</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with an oem fast power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_oem_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Rýchle nabíjanie (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> do plného nabitia)</string>
-    <string name="keyguard_plugged_in_oem_charging">Rýchle nabíjanie</string>
     <!-- Data usage info in QS footer -->
     <string name="usage_data">Využité dnes</string>
     <string name="usage_data_default_suffix">Dáta</string>
@@ -164,7 +161,4 @@
     <string name="screenrecord_longer_timeout_switch_summary">Obmedziť veľkosť nahrávania na 15 GB</string>
     <string name="screenrecord_skip_time_label">Preskočiť časovač</string>
     <string name="screenrecord_skip_time_summary">Odstrániť 3 sekundy čakania</string>
-    <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> • Plávajúce upozornenia sú odložené na 1 minútu.</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s </xliff:g> - Plávajúce oznámenia sú odložené po dobu<xliff:g id="number">%2$d </xliff:g> minut.</string>
 </resources>

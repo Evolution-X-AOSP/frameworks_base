@@ -152,9 +152,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Pengisian Turbo (<xliff:g id="charging_time_left" example="4 jam 2 menit">%1$s</xliff:g> hingga penuh)</string>
     <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Pengisian Turbo</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with an oem fast power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_oem_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Pengisian Daya Cepat (<xliff:g id="charging_time_left" example="4 jam 2 menit">%1$s</xliff:g> hingga penuh)</string>
-    <string name="keyguard_plugged_in_oem_charging"><xliff:g id="percentage">%s</xliff:g> • Pengisian Daya Cepat</string>
     <!-- Data usage info in QS footer -->
     <string name="usage_data">digunakan hari ini</string>
     <string name="usage_data_default_suffix">Data</string>
@@ -170,7 +167,4 @@
     <string name="screenrecord_longer_timeout_switch_summary">Batasi ukuran perekaman hingga 15 GB</string>
     <string name="screenrecord_skip_time_label">Lewati penghitung waktu</string>
     <string name="screenrecord_skip_time_summary">Hapus 3 detik menunggu</string>
-    <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Notifikasi mengambang ditunda selama 1 menit.</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Notifikasi mengambang ditunda selama <xliff:g id="number">%2$d</xliff:g> menit.</string>
 </resources>

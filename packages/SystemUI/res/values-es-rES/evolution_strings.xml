@@ -151,9 +151,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Carga Turbo (<xliff:g id="charging_time_left" ejemplo="4 horas y 2 minutos">%1$s</xliff:g> hasta llenar)</string>
     <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="porcentaje">%s</xliff:g> • Carga turbo</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with an oem fast power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_oem_power_time"><xliff:g id="porcentaje">%2$s</xliff:g> • Carga rápida (<xliff:g id="charging_time_left" ejemplo="4 horas y 2 minutos">%1$s</xliff:g> hasta llenar)</string>
-    <string name="keyguard_plugged_in_oem_charging"><xliff:g id="percentage">%s</xliff:g> • Carga rápida</string>
     <!-- Data usage info in QS footer -->
     <string name="usage_data">usado hoy</string>
     <string name="usage_data_default_suffix">Datos</string>
@@ -169,7 +166,4 @@
     <string name="screenrecord_longer_timeout_switch_summary">Limitar tamaño de grabación a 15GB</string>
     <string name="screenrecord_skip_time_label">Ignorar temporizador</string>
     <string name="screenrecord_skip_time_summary">Eliminar espera de 3 segundos</string>
-    <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Notificaciones flotantes pospuestas por 1 minuto.</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Las notificaciones flotantes están aplazadas durante <xliff:g id="number">%2$d</xliff:g> minutos.</string>
 </resources>

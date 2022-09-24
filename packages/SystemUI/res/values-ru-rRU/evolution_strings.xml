@@ -151,9 +151,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Turbo зарядка • Осталось <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g></string>
     <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Turbo зарядка</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with an oem fast power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_oem_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Быстрая зарядка • Осталось <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g></string>
-    <string name="keyguard_plugged_in_oem_charging"><xliff:g id="percentage">%s</xliff:g> • Быстрая зарядка</string>
     <!-- Data usage info in QS footer -->
     <string name="usage_data">использовано сегодня</string>
     <string name="usage_data_default_suffix">Данные</string>
@@ -169,7 +166,4 @@
     <string name="screenrecord_longer_timeout_switch_summary">Ограничить размер записи до 15 ГБ</string>
     <string name="screenrecord_skip_time_label">Пропустить таймер</string>
     <string name="screenrecord_skip_time_summary">Убрать 3 секунды ожидания</string>
-    <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Всплывающие уведомления выключены на 1 минуту.</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> — Всплывающие уведомления выключены на <xliff:g id="number">%2$d</xliff:g> минут(ы).</string>
 </resources>

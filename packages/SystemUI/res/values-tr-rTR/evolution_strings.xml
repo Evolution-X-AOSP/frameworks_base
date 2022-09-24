@@ -152,9 +152,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Turbo Şarj Oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> kaldı)</string>
     <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Turbo Şarj Oluyor</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with an oem fast power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_oem_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Hızlı Şarj oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> kaldı)</string>
-    <string name="keyguard_plugged_in_oem_charging"><xliff:g id="percentage">%s</xliff:g> • Hızlı Şarj oluyor</string>
     <!-- Data usage info in QS footer -->
     <string name="usage_data">bugün kullanılan</string>
     <string name="usage_data_default_suffix">Veri</string>
@@ -170,7 +167,4 @@
     <string name="screenrecord_longer_timeout_switch_summary">Kayıt boyutunu 15 GB ile sınırlayın</string>
     <string name="screenrecord_skip_time_label">Zamanlayıcıyı atla</string>
     <string name="screenrecord_skip_time_summary">3 saniye beklemeyi kaldır</string>
-    <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Bildirim pencereleri 1 dakika kadar erteleniyor.</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Bildirim pencereleri <xliff:g id="number">%2$d</xliff:g> dakika erteleniyor.</string>
 </resources>

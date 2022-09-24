@@ -152,9 +152,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • شحن توربو (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> حتى يكتمل)</string>
     <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • شحن توربو</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with an oem fast power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_oem_power_time"><xliff:g id="percentage">%2$s</xliff:g> • الشحن السريع (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> حتى الامتلاء)</string>
-    <string name="keyguard_plugged_in_oem_charging"><xliff:g id="Percentage">%s</xliff:g> • شحن سريع</string>
     <!-- Data usage info in QS footer -->
     <string name="usage_data">المستخدمة اليوم</string>
     <string name="usage_data_default_suffix">البيانات</string>
@@ -170,7 +167,4 @@
     <string name="screenrecord_longer_timeout_switch_summary">الحد من حجم التسجيل إلى 15 جيجابايت</string>
     <string name="screenrecord_skip_time_label">تخطي المؤقت</string>
     <string name="screenrecord_skip_time_summary">إزالة 3 ثانية انتظار</string>
-    <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - التنبيهات الخاطفة معطلة لدقيقة واحدة.</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> • التنبيهات الخاطفة معطلة لـ <xliff:g id="number">%2$d</xliff:g> دقائق.</string>
 </resources>
