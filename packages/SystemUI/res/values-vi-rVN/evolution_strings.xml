@@ -166,4 +166,6 @@
     <string name="screenrecord_longer_timeout_switch_summary">Giới hạn kích cỡ quay hình tối đa 15 GB</string>
     <string name="screenrecord_skip_time_label">Bỏ qua bộ đếm</string>
     <string name="screenrecord_skip_time_summary">Loại bỏ 3 giây chờ</string>
+    <!-- FPS view text placeholder -->
+    <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
 </resources>

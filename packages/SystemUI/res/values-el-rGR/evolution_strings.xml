@@ -169,4 +169,6 @@
     <string name="screenrecord_longer_timeout_switch_summary">Περιορίστε το μέγεθος εγγραφής στα 15 GB</string>
     <string name="screenrecord_skip_time_label">Παράλειψη χρονομέτρου</string>
     <string name="screenrecord_skip_time_summary">Αφαιρέστε την αναμονή 3 δευτερολέπτων</string>
+    <!-- FPS view text placeholder -->
+    <string name="fps_text_placeholder">FPS: <xliff:g id="fps" παράδειγμα="90">%1$d</xliff:g></string>
 </resources>

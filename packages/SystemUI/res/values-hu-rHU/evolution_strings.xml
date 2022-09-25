@@ -167,4 +167,6 @@
     <string name="screenrecord_longer_timeout_switch_summary">Max.15GB felvételi fájlméret</string>
     <string name="screenrecord_skip_time_label">Időzités elhagyása</string>
     <string name="screenrecord_skip_time_summary">A 3 mp-s késleltetés elhagyása</string>
+    <!-- FPS view text placeholder -->
+    <string name="fps_text_placeholder"><xliff:g id="fps" example="90">%1$d</xliff:g> FPS</string>
 </resources>
