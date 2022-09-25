@@ -170,4 +170,6 @@
     <!-- Navigation bar dpad -->
     <string name="accessibility_dpad_left">Kursor kiri</string>
     <string name="accessibility_dpad_right">Kursor kanan</string>
+    <!-- FPS view text placeholder -->
+    <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
 </resources>
