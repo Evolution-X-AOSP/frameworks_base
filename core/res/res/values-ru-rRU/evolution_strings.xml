@@ -48,4 +48,6 @@
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay переключен на уличный режим.</string>
     <!-- Cycle through ringer modes -->
     <string name="volume_dialog_ringer_guidance_normal">Звуковой сигнал для звонков и уведомлений</string>
+    <!-- App lock -->
+    <string name="unlock_application">Разблокировать <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
 </resources>
