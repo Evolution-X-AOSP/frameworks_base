@@ -167,4 +167,7 @@
     <string name="screenrecord_longer_timeout_switch_summary">Max.15GB felvételi fájlméret</string>
     <string name="screenrecord_skip_time_label">Időzités elhagyása</string>
     <string name="screenrecord_skip_time_summary">A 3 mp-s késleltetés elhagyása</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Kurzor balra</string>
+    <string name="accessibility_dpad_right">Kurzor jobbra</string>
 </resources>
