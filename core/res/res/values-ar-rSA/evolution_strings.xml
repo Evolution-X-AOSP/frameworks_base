@@ -48,4 +48,6 @@
     <string name="accessibility_quick_settings_live_display_changed_outdoor">تم تغيير LiveDisplay إلى وضع الأماكن المفتوحة.</string>
     <!-- Cycle through ringer modes -->
     <string name="volume_dialog_ringer_guidance_normal">يرن الهاتف عند تلقي المكالمات والإشعارات</string>
+    <!-- App lock -->
+    <string name="unlock_application">فتح <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
 </resources>
