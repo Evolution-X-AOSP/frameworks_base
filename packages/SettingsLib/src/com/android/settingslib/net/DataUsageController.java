@@ -27,7 +27,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkPolicy;
 import android.net.NetworkPolicyManager;
 import android.net.NetworkTemplate;
-import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
@@ -42,6 +41,7 @@ import com.android.internal.util.ArrayUtils;
 import java.time.ZonedDateTime;
 import java.util.Iterator;
 import java.util.Locale;
+import java.util.Set;
 
 public class DataUsageController {
 
@@ -112,15 +112,27 @@ public class DataUsageController {
     }
 
     public DataUsageInfo getWifiDataUsageInfo() {
-        NetworkTemplate template = new NetworkTemplate.Builder(NetworkTemplate.MATCH_WIFI).build();
-
-        return getDataUsageInfo(template);
+        return getWifiDataUsageInfo(false);
     }
 
-    public DataUsageInfo getWifiDailyDataUsageInfo() {
-        NetworkTemplate template = new NetworkTemplate.Builder(NetworkTemplate.MATCH_WIFI).build();
+    public DataUsageInfo getWifiDataUsageInfo(boolean currentNetwork) {
+        return getDataUsageInfo(getWifiNetworkTemplate(currentNetwork));
+    }
 
-        return getDailyDataUsageInfo(template);
+    public DataUsageInfo getWifiDailyDataUsageInfo(boolean currentNetwork) {
+        return getDailyDataUsageInfo(getWifiNetworkTemplate(currentNetwork));
+    }
+
+    public NetworkTemplate getWifiNetworkTemplate(boolean currentNetwork) {
+        final NetworkTemplate.Builder builder =
+                new NetworkTemplate.Builder(NetworkTemplate.MATCH_WIFI);
+        if (currentNetwork) {
+            final String networkKey = mWifiManager.getConnectionInfo().getNetworkKey();
+            if (networkKey != null) {
+                builder.setWifiNetworkKeys(Set.of(networkKey));
+            }
+        }
+        return builder.build();
     }
 
     public DataUsageInfo getDataUsageInfo(NetworkTemplate template) {
