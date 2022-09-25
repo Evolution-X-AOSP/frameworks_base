@@ -167,4 +167,7 @@
     <string name="screenrecord_longer_timeout_switch_summary">録画サイズを15GBに制限する</string>
     <string name="screenrecord_skip_time_label">タイマーをスキップ</string>
     <string name="screenrecord_skip_time_summary">3秒間の待機を削除する</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">カーソルを左</string>
+    <string name="accessibility_dpad_right">カーソルを右</string>
 </resources>
