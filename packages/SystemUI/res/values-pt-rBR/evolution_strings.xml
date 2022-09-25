@@ -167,4 +167,7 @@
     <string name="screenrecord_longer_timeout_switch_summary">Limitar o tamanho de gravação para 15 GB</string>
     <string name="screenrecord_skip_time_label">Início rápido</string>
     <string name="screenrecord_skip_time_summary">Remover espera de 3 segundos</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Cursor à esquerda</string>
+    <string name="accessibility_dpad_right">Cursor à direita</string>
 </resources>
