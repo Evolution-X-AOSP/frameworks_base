@@ -166,4 +166,7 @@
     <string name="screenrecord_longer_timeout_switch_summary">Ограничить размер записи до 15 ГБ</string>
     <string name="screenrecord_skip_time_label">Пропустить таймер</string>
     <string name="screenrecord_skip_time_summary">Убрать 3 секунды ожидания</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Курсор влево</string>
+    <string name="accessibility_dpad_right">Курсор вправо</string>
 </resources>
