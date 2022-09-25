@@ -161,4 +161,7 @@
     <string name="screenrecord_longer_timeout_switch_summary">Obmedziť veľkosť nahrávania na 15 GB</string>
     <string name="screenrecord_skip_time_label">Preskočiť časovač</string>
     <string name="screenrecord_skip_time_summary">Odstrániť 3 sekundy čakania</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Kurzor vľavo</string>
+    <string name="accessibility_dpad_right">Kurzor vpravo</string>
 </resources>

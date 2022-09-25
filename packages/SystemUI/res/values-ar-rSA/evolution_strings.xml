@@ -167,4 +167,7 @@
     <string name="screenrecord_longer_timeout_switch_summary">الحد من حجم التسجيل إلى 15 جيجابايت</string>
     <string name="screenrecord_skip_time_label">تخطي المؤقت</string>
     <string name="screenrecord_skip_time_summary">إزالة 3 ثانية انتظار</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">المؤشر إلى اليسار</string>
+    <string name="accessibility_dpad_right">المؤشر الى اليمين</string>
 </resources>

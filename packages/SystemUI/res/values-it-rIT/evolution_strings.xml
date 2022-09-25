@@ -167,4 +167,7 @@
     <string name="screenrecord_longer_timeout_switch_summary">Limita la dimensione della registrazione a 15GB</string>
     <string name="screenrecord_skip_time_label">Salta timer</string>
     <string name="screenrecord_skip_time_summary">Rimuovi attesa di 3 secondi</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Cursore a sinistra</string>
+    <string name="accessibility_dpad_right">Cursore a destra</string>
 </resources>

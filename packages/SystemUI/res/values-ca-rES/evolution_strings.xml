@@ -167,4 +167,7 @@
     <string name="screenrecord_longer_timeout_switch_summary">Limita l\'enregistrament a 15 GB</string>
     <string name="screenrecord_skip_time_label">Ignora el temporitzador</string>
     <string name="screenrecord_skip_time_summary">Elimina l\'espera de 3 segons</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Cursor esquerre</string>
+    <string name="accessibility_dpad_right">Cursor dret</string>
 </resources>

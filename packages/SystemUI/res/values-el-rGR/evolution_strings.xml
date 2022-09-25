@@ -169,4 +169,7 @@
     <string name="screenrecord_longer_timeout_switch_summary">Περιορίστε το μέγεθος εγγραφής στα 15 GB</string>
     <string name="screenrecord_skip_time_label">Παράλειψη χρονομέτρου</string>
     <string name="screenrecord_skip_time_summary">Αφαιρέστε την αναμονή 3 δευτερολέπτων</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Κέρσορας αριστερά</string>
+    <string name="accessibility_dpad_right">Κέρσορας δεξιά</string>
 </resources>
