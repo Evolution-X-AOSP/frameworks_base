@@ -33,6 +33,8 @@ public class PixelPropsUtils {
     private static final String PACKAGE_GMS = "com.google.android.gms";
     private static final String PACKAGE_FINSKY = "com.android.vending";
     private static final String PACKAGE_SETTINGS_SERVICES = "com.google.android.settings.intelligence";
+    private static final String PACKAGE_VELVET = "com.google.android.quicksearchbox";
+    private static final String PACKAGE_WALLPAPERS = "com.google.android.apps.wallpaper";
     private static final String SAMSUNG = "com.samsung.android.";
 
     private static final String DEVICE = "org.evolution.device";
@@ -51,6 +53,8 @@ public class PixelPropsUtils {
     private static final Map<String, ArrayList<String>> propsToKeep;
 
     private static final String[] packagesToChangePixel6Pro = {
+            PACKAGE_VELVET,
+            PACKAGE_WALLPAPERS,
             "com.google.android.apps.subscriptions.red",
             "com.google.android.inputmethod.latin"
     };
