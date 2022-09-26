@@ -17057,12 +17057,6 @@ public final class Settings {
         public static final String PULSE_PANEL = "pulse_panel";
 
         /**
-         * Google Hybrid Battery Warnings
-         * @hide
-         */
-        public static final String HYBRID_SYSUI_BATTERY_WARNING_FLAGS = "hybrid_sysui_battery_warning_flags";
-
-        /**
          * Global settings that shouldn't be persisted.
          *
          * @hide
