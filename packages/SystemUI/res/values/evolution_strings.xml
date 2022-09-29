@@ -183,4 +183,8 @@
     <string name="screenrecord_skip_time_summary">Remove 3 second wait</string>
     <string name="screenrecord_hevc_switch_label">Enable HEVC</string>
     <string name="screenrecord_hevc_switch_summary">Use more efficient HEVC video encoding</string>
+
+    <!-- Kill foreground app -->
+    <string name="task_helper_app_killed">%1$s force stopped</string>
+    <string name="empty_app_killed">App</string>
 </resources>
