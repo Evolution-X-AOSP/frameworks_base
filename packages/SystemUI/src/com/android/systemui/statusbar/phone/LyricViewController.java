@@ -42,6 +42,8 @@ import com.android.systemui.plugins.DarkIconDispatcher;
 import com.android.systemui.statusbar.NotificationListener;
 import com.android.systemui.statusbar.StatusBarIconView;
 
+import java.util.ArrayList;
+
 public abstract class LyricViewController implements
     DarkIconDispatcher.DarkReceiver,
     NotificationListener.NotificationHandler {
@@ -206,8 +208,8 @@ public abstract class LyricViewController implements
     }
 
     @Override
-    public void onDarkChanged(Rect area, float darkIntensity, int tint) {
-        int tintColor = DarkIconDispatcher.getTint(area, mLyricContainer, tint);
+    public void onDarkChanged(ArrayList<Rect> areas, float darkIntensity, int tint) {
+        int tintColor = DarkIconDispatcher.getTint(areas, mLyricContainer, tint);
 
         ((TextView) mTextSwitcher.getCurrentView()).setTextColor(tintColor);
         ((TextView) mTextSwitcher.getNextView()).setTextColor(tintColor);
