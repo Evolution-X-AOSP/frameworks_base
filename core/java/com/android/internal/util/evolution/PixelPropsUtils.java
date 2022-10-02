@@ -198,8 +198,6 @@ public class PixelPropsUtils {
             if (packageName.equals("com.google.android.apps.photos")) {
                 if (SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", true)) {
                     propsToChange.putAll(propsToChangePixelXL);
-                } else {
-                    propsToChange.putAll(propsToChangePixel5);
                 }
             } else {
                 if ((Arrays.asList(packagesToChangePixel6Pro).contains(packageName))
