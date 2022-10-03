@@ -31,6 +31,9 @@
     <string name="tristate_rotation_0">Portrait</string>
     <string name="tristate_rotation_90">Landscape (90°)</string>
     <string name="tristate_rotation_270">Landscape (270°)</string>
+    <string name="tristate_refresh_auto">Auto-refresh</string>
+    <string name="tristate_refresh_min">Min-refresh</string>
+    <string name="tristate_refresh_max">Max-refresh</string>
 
     <!-- Name of the nfc status bar icon. -->
     <string name="status_bar_nfc">NFC</string>
