@@ -27,6 +27,9 @@ import com.android.systemui.plugins.qs.QSTile;
 import com.android.systemui.plugins.qs.QSTileView;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.external.CustomTile;
+import com.android.systemui.qs.tileimpl.QSFactoryImpl;
+import com.android.systemui.qs.tileimpl.QSTileImpl;
+import com.android.systemui.qs.tileimpl.QSTileViewImpl;
 import com.android.systemui.qs.tiles.AirplaneModeTile;
 import com.android.systemui.qs.tiles.AlarmTile;
 import com.android.systemui.qs.tiles.AmbientDisplayTile;
@@ -47,7 +50,7 @@ import com.android.systemui.qs.tiles.DeviceControlsTile;
 import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.DreamTile;
 import com.android.systemui.qs.tiles.FPSInfoTile;
-import com.android.systemui.qs.tiles.FlashlightTile;
+import com.android.systemui.qs.tiles.FlashlightStrengthTile;
 import com.android.systemui.qs.tiles.GloveModeTile;
 import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
@@ -81,6 +84,8 @@ import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
 import com.android.systemui.util.leak.GarbageMonitor;
 
+import java.util.Arrays;
+
 import javax.inject.Inject;
 import javax.inject.Provider;
 
@@ -90,6 +95,8 @@ import dagger.Lazy;
 public class QSFactoryImpl implements QSFactory {
 
     private static final String TAG = "QSFactory";
+
+    private static final String[] SLIDER_TILES = { "flashlight" };
 
     private final Provider<WifiTile> mWifiTileProvider;
     private final Provider<InternetTile> mInternetTileProvider;
@@ -101,7 +108,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<AirplaneModeTile> mAirplaneModeTileProvider;
     private final Provider<WorkModeTile> mWorkModeTileProvider;
     private final Provider<RotationLockTile> mRotationLockTileProvider;
-    private final Provider<FlashlightTile> mFlashlightTileProvider;
+    private final Provider<FlashlightStrengthTile> mFlashlightTileProvider;
     private final Provider<LocationTile> mLocationTileProvider;
     private final Provider<CastTile> mCastTileProvider;
     private final Provider<HotspotTile> mHotspotTileProvider;
@@ -161,7 +168,7 @@ public class QSFactoryImpl implements QSFactory {
             Provider<AirplaneModeTile> airplaneModeTileProvider,
             Provider<WorkModeTile> workModeTileProvider,
             Provider<RotationLockTile> rotationLockTileProvider,
-            Provider<FlashlightTile> flashlightTileProvider,
+            Provider<FlashlightStrengthTile> flashlightTileProvider,
             Provider<LocationTile> locationTileProvider,
             Provider<CastTile> castTileProvider,
             Provider<HotspotTile> hotspotTileProvider,
@@ -217,7 +224,7 @@ public class QSFactoryImpl implements QSFactory {
         mAirplaneModeTileProvider = airplaneModeTileProvider;
         mWorkModeTileProvider = workModeTileProvider;
         mRotationLockTileProvider = rotationLockTileProvider;
-        mFlashlightTileProvider = flashlightTileProvider;
+        mFlashlightTileProvider = flashlightTileProvider::get;
         mLocationTileProvider = locationTileProvider;
         mCastTileProvider = castTileProvider;
         mHotspotTileProvider = hotspotTileProvider;
@@ -405,6 +412,10 @@ public class QSFactoryImpl implements QSFactory {
     @Override
     public QSTileView createTileView(Context context, QSTile tile, boolean collapsedView) {
         QSIconView icon = tile.createTileView(context);
+        if (Arrays.asList(SLIDER_TILES).contains(tile.getTileSpec())) {
+            TouchableQSTile touchableTile = (TouchableQSTile) tile;
+            return new SliderQSTileViewImpl(context, icon, collapsedView, touchableTile.getTouchListener(), touchableTile.getSettingsSystemKey());
+        }
         return new QSTileViewImpl(context, icon, collapsedView);
     }
 }
