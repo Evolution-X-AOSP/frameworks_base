@@ -23,7 +23,7 @@
     <string name="pocket_view_title">Zsebmód bekapcsolva</string>
     <string name="pocket_view_title_cancel">A telefon használatához:</string>
     <string name="pocket_view_top_tag_cancel">Ellenőrizze, hogy a kék területen nincs-e valami, és távolítsa el a szennyeződéseket és a port.</string>
-    <string name="pocket_view_top_tag_cancel2">A Bekapcsológomb hosszan nyomása azonnal kikapcsolja a zsebmódot.</string>
+    <string name="pocket_view_top_tag_cancel2">A Bekapcsológomb hosszannyomása azonnal kikapcsolja a zsebmódot.</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automatikus</string>
     <string name="live_display_auto_summary">Automatikusan beállítja a képernyő színhőmérsékletét naplemente és napkelte után</string>
