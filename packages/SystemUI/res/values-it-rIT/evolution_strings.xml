@@ -29,6 +29,9 @@
     <string name="tristate_rotation_0">Verticale</string>
     <string name="tristate_rotation_90">Orizzontale (90°)</string>
     <string name="tristate_rotation_270">Orizzontale (270°)</string>
+    <string name="tristate_refresh_auto">Aggiornamento automatico</string>
+    <string name="tristate_refresh_min">Aggiornamento minimo</string>
+    <string name="tristate_refresh_max">Aggiornamento massimo</string>
     <!-- Name of the nfc status bar icon. -->
     <string name="status_bar_nfc">NFC</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
@@ -152,10 +155,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Ricarica Turbo (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> fino al completamento)</string>
     <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Ricarica Turbo</string>
-    <!-- Data usage info in QS footer -->
-    <string name="usage_data">usati oggi</string>
-    <string name="usage_data_default_suffix">Dati</string>
-    <string name="usage_wifi_default_suffix">Wi-Fi</string>
     <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
     <string name="clock">Orologio</string>
     <!-- Screen record -->
@@ -167,6 +166,12 @@
     <string name="screenrecord_longer_timeout_switch_summary">Limita la dimensione della registrazione a 15GB</string>
     <string name="screenrecord_skip_time_label">Salta timer</string>
     <string name="screenrecord_skip_time_summary">Rimuovi attesa di 3 secondi</string>
+    <string name="screenrecord_hevc_switch_label">Abilita HEVC</string>
     <!-- FPS view text placeholder -->
     <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
+    <!-- Kill foreground app -->
+    <string name="task_helper_app_killed">%1$s arrestata forzatamente</string>
+    <string name="empty_app_killed">Applicazione</string>
+    <!-- Google Lens Screenshot string -->
+    <string name="lensss">Lens</string>
 </resources>
