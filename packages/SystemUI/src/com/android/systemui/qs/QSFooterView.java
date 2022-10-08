@@ -110,9 +110,13 @@ public class QSFooterView extends FrameLayout {
             info = mDataController.getDailyDataUsageInfo();
             suffix = mContext.getResources().getString(R.string.usage_data_default_suffix);
         }
-        mUsageText.setText(formatDataUsage(info.usageLevel) + " " +
-                mContext.getResources().getString(R.string.usage_data) +
-                " (" + suffix + ")");
+        if (info != null) {
+          mUsageText.setText(formatDataUsage(info.usageLevel) + " " +
+                  mContext.getResources().getString(R.string.usage_data) +
+                  " (" + suffix + ")");
+        } else {
+           mUsageText.setText(" ");
+	}
     }
 
     private CharSequence formatDataUsage(long byteValue) {
