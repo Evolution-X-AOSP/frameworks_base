@@ -29,6 +29,9 @@
     <string name="tristate_rotation_0">Álló (Portré)</string>
     <string name="tristate_rotation_90">Fekvő (90°)</string>
     <string name="tristate_rotation_270">Fekvő (270°)</string>
+    <string name="tristate_refresh_auto">Automatikus frissítés</string>
+    <string name="tristate_refresh_min">Minimális frissítés</string>
+    <string name="tristate_refresh_max">Maximális frissítés</string>
     <!-- Name of the nfc status bar icon. -->
     <string name="status_bar_nfc">NFC</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
@@ -152,10 +155,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Turbó töltés (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> a teljes töltöttségig)</string>
     <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Turbó töltés</string>
-    <!-- Data usage info in QS footer -->
-    <string name="usage_data">ma használva</string>
-    <string name="usage_data_default_suffix">Adat</string>
-    <string name="usage_wifi_default_suffix">Wi-Fi</string>
     <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
     <string name="clock">Óra</string>
     <!-- Screen record -->
@@ -167,6 +166,12 @@
     <string name="screenrecord_longer_timeout_switch_summary">Max.15GB felvételi fájlméret</string>
     <string name="screenrecord_skip_time_label">Időzités elhagyása</string>
     <string name="screenrecord_skip_time_summary">A 3 mp-s késleltetés elhagyása</string>
+    <string name="screenrecord_hevc_switch_label">HEVC-kodek</string>
     <!-- FPS view text placeholder -->
     <string name="fps_text_placeholder"><xliff:g id="fps" example="90">%1$d</xliff:g> FPS</string>
+    <!-- Kill foreground app -->
+    <string name="task_helper_app_killed">%1$s kényszerítve leállt</string>
+    <string name="empty_app_killed">Alkalmazás</string>
+    <!-- Google Lens Screenshot string -->
+    <string name="lensss">Lens</string>
 </resources>
