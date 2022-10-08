@@ -8,7 +8,7 @@
     <!-- Label for UI element which allows deleting the screenshot [CHAR LIMIT=30] -->
     <string name="screenshot_delete_label">Удалить</string>
     <!-- Content description indicating that tapping the element will allow deleting the screenshot [CHAR LIMIT=NONE] -->
-    <string name="screenshot_delete_description">Удалить скриншот</string>
+    <string name="screenshot_delete_description">Удалить снимок экрана</string>
     <!-- Screen record delete action -->
     <!-- Label for notification action to delete a screen recording file [CHAR LIMIT=35] -->
     <string name="screenrecord_delete_label">Удалить</string>
@@ -29,6 +29,9 @@
     <string name="tristate_rotation_0">Портрет</string>
     <string name="tristate_rotation_90">Ландшафт (90°)</string>
     <string name="tristate_rotation_270">Ландшафт (270°)</string>
+    <string name="tristate_refresh_auto">Автообновление</string>
+    <string name="tristate_refresh_min">Минимальное обновление</string>
+    <string name="tristate_refresh_max">Максимальное обновление</string>
     <!-- Name of the nfc status bar icon. -->
     <string name="status_bar_nfc">Модуль NFC</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
@@ -40,10 +43,10 @@
     <string name="global_action_restart_ui">Системный интерфейс</string>
     <!-- Custom QS tiles -->
     <!-- PowerShare QS tile -->
-    <string name="quick_settings_powershare_label">Беспроводной PowerShare</string>
-    <string name="quick_settings_powershare_off_powersave_label">PowerShare выключен\nЭкономия энергии</string>
-    <string name="quick_settings_powershare_off_low_battery_label">PowerShare выключен\nУровень заряда слишком низкий</string>
-    <string name="quick_settings_powershare_enabled_label">PowerShare включен</string>
+    <string name="quick_settings_powershare_label">Беспроводная зарядка</string>
+    <string name="quick_settings_powershare_off_powersave_label">Беспроводная зарядка выключена\nЭкономия энергии</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Беспроводная зарядка выключена\nУровень заряда слишком низкий</string>
+    <string name="quick_settings_powershare_enabled_label">Беспроводная зарядка включена</string>
     <!-- Caffeine tile -->
     <string name="quick_settings_caffeine_label">Запрет сна</string>
     <string name="accessibility_quick_settings_caffeine_off">Запрет сна отключен</string>
@@ -151,10 +154,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Turbo зарядка • Осталось <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g></string>
     <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Turbo зарядка</string>
-    <!-- Data usage info in QS footer -->
-    <string name="usage_data">использовано сегодня</string>
-    <string name="usage_data_default_suffix">Данные</string>
-    <string name="usage_wifi_default_suffix">Wi-Fi</string>
     <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
     <string name="clock">Часы</string>
     <!-- Screen record -->
@@ -166,6 +165,15 @@
     <string name="screenrecord_longer_timeout_switch_summary">Ограничить размер записи до 15 ГБ</string>
     <string name="screenrecord_skip_time_label">Пропустить таймер</string>
     <string name="screenrecord_skip_time_summary">Убрать 3 секунды ожидания</string>
+    <string name="screenrecord_hevc_switch_label">Включить HEVC</string>
     <!-- FPS view text placeholder -->
     <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
+    <!-- Kill foreground app -->
+    <string name="task_helper_app_killed">%1$s принудительно остановлено</string>
+    <string name="empty_app_killed">Приложение</string>
+    <!-- Google Lens Screenshot string -->
+    <string name="lensss">Объектив</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Умные пиксели</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Автовключение умных пикселей</string>
 </resources>

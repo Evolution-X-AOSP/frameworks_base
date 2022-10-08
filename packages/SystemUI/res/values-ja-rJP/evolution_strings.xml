@@ -29,6 +29,9 @@
     <string name="tristate_rotation_0">縦向き</string>
     <string name="tristate_rotation_90">横向き (90°)</string>
     <string name="tristate_rotation_270">横向き (270°)</string>
+    <string name="tristate_refresh_auto">自動リフレッシュレート</string>
+    <string name="tristate_refresh_min">最小リフレッシュレート</string>
+    <string name="tristate_refresh_max">最大リフレッシュレート</string>
     <!-- Name of the nfc status bar icon. -->
     <string name="status_bar_nfc">NFC</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
@@ -152,10 +155,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Turbo Charging (充電完了まで残り<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g>)</string>
     <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Turbo Charging</string>
-    <!-- Data usage info in QS footer -->
-    <string name="usage_data">今日の使用</string>
-    <string name="usage_data_default_suffix">データ</string>
-    <string name="usage_wifi_default_suffix">Wi-Fi</string>
     <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
     <string name="clock">時計</string>
     <!-- Screen record -->
@@ -167,6 +166,15 @@
     <string name="screenrecord_longer_timeout_switch_summary">録画サイズを15GBに制限する</string>
     <string name="screenrecord_skip_time_label">タイマーをスキップ</string>
     <string name="screenrecord_skip_time_summary">3秒間の待機を削除する</string>
+    <string name="screenrecord_hevc_switch_label">HEVC の有効化</string>
     <!-- FPS view text placeholder -->
     <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
+    <!-- Kill foreground app -->
+    <string name="task_helper_app_killed">%1$s を強制停止しました</string>
+    <string name="empty_app_killed">アプリ</string>
+    <!-- Google Lens Screenshot string -->
+    <string name="lensss">レンズ</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">スマートピクセル</string>
+    <string name="quick_settings_smart_pixels_on_power_save">自動有効</string>
 </resources>
