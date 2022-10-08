@@ -202,7 +202,7 @@
     <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
 
     <!-- Data usage info in QS footer -->
-    <string name="usage_data">used today</string>
+    <string name="usage_data">used</string>
     <string name="usage_data_default_suffix">Data</string>
     <string name="usage_wifi_default_suffix">Wi-Fi</string>
 </resources>
