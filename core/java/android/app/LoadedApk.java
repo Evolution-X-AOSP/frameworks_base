@@ -81,6 +81,7 @@ import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.Executor;
@@ -2101,7 +2102,11 @@ public final class LoadedApk {
             synchronized(this) {
                 for (int i=0; i<mActiveConnections.size(); i++) {
                     ServiceDispatcher.ConnectionInfo ci = mActiveConnections.valueAt(i);
-                    ci.binder.unlinkToDeath(ci.deathMonitor, 0);
+                    try {
+                        ci.binder.unlinkToDeath(ci.deathMonitor, 0);
+                    } catch (NoSuchElementException e) {
+                        Slog.e(TAG, "ci binder Unable to unlink to death");
+                    }
                 }
                 mActiveConnections.clear();
                 mForgotten = true;
@@ -2190,7 +2195,12 @@ public final class LoadedApk {
                 }
 
                 if (old != null) {
-                    old.binder.unlinkToDeath(old.deathMonitor, 0);
+                    try {
+                        old.binder.unlinkToDeath(old.deathMonitor, 0);
+                    } catch (NoSuchElementException e) {
+                        Slog.e(TAG, "old binder Unable to unlink to death");
+                    }
+
                 }
             }
 
