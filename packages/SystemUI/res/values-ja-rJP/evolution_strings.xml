@@ -174,4 +174,7 @@
     <string name="empty_app_killed">アプリ</string>
     <!-- Google Lens Screenshot string -->
     <string name="lensss">レンズ</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">スマートピクセル</string>
+    <string name="quick_settings_smart_pixels_on_power_save">自動有効</string>
 </resources>
