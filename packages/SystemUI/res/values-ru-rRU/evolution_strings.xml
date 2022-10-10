@@ -173,4 +173,7 @@
     <string name="empty_app_killed">Приложение</string>
     <!-- Google Lens Screenshot string -->
     <string name="lensss">Объектив</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Умные пиксели</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Автовключение умных пикселей</string>
 </resources>
