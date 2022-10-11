@@ -37,6 +37,7 @@ public class PixelPropsUtils {
     private static final String SAMSUNG = "com.samsung.android.";
 
     private static final String DEVICE = "org.evolution.device";
+    private static final String SPOOF_MUSIC_APPS = "persist.sys.disguise_props_for_music_app";
     private static final String TAG = PixelPropsUtils.class.getSimpleName();
     private static final boolean DEBUG = false;
     private static boolean isPixelDevice = false;
@@ -49,6 +50,7 @@ public class PixelPropsUtils {
     private static final Map<String, Object> propsToChangeOP8P;
     private static final Map<String, Object> propsToChangeOP9P;
     private static final Map<String, Object> propsToChangeMI11;
+    private static final Map<String, Object> propsToChangeMeizu;
     private static final Map<String, ArrayList<String>> propsToKeep;
 
     private static final String[] packagesToChangePixel6Pro = {
@@ -125,6 +127,16 @@ public class PixelPropsUtils {
             "com.tencent.tmgp.sgame"
     };
 
+    private static final String[] packagesToChangeMeizu = {
+            "com.netease.cloudmusic",
+            "com.tencent.qqmusic",
+            "com.kugou.android",
+            "com.kugou.android.lite",
+            "cmccwm.mobilemusic",
+            "cn.kuwo.player",
+            "com.meizu.media.music"
+    };
+
     // Codenames for currently supported Pixels by Google
     private static final String[] pixelCodenames = {
             "oriole",
@@ -185,6 +197,13 @@ public class PixelPropsUtils {
         propsToChangeMI11.put("DEVICE", "star");
         propsToChangeMI11.put("PRODUCT", "star");
         propsToChangeMI11.put("MODEL", "M2102K1G");
+        propsToChangeMeizu = new HashMap<>();
+        propsToChangeMeizu.put("BRAND", "meizu");
+        propsToChangeMeizu.put("MANUFACTURER", "Meizu");
+        propsToChangeMeizu.put("DEVICE", "m1892");
+        propsToChangeMeizu.put("DISPLAY", "Flyme");
+        propsToChangeMeizu.put("PRODUCT", "meizu_16thPlus_CN");
+        propsToChangeMeizu.put("MODEL", "meizu 16th Plus");
         isPixelDevice = Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE));
     }
 
@@ -229,6 +248,16 @@ public class PixelPropsUtils {
                 setPropValue("FINGERPRINT", String.valueOf(Build.TIME));
             }
         } else {
+            if ((SystemProperties.getBoolean(SPOOF_MUSIC_APPS, false)) &&
+                (Arrays.asList(packagesToChangeMeizu).contains(packageName))) {
+                if (DEBUG)
+                    Log.d(TAG, "Defining props for: " + packageName);
+                for (Map.Entry<String, Object> prop : propsToChangeMeizu.entrySet()) {
+                    String key = prop.getKey();
+                    Object value = prop.getValue();
+                    setPropValue(key, value);
+                }
+            }
             if (!SystemProperties.getBoolean("persist.sys.pixelprops.games", false))
                 return;
             if (Arrays.asList(packagesToChangeROG1).contains(packageName)) {
