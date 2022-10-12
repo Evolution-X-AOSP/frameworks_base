@@ -810,6 +810,7 @@ public final class PowerManagerService extends SystemService
 
     // Smart charging
     private boolean mSmartChargingEnabled;
+    private boolean mSmartChargingResetStats;
     private boolean mPowerInputSuspended = false;
     private int mSmartChargingLevel;
     private int mSmartChargingResumeLevel;
@@ -1389,6 +1390,9 @@ public final class PowerManagerService extends SystemService
                 Settings.System.SMART_CHARGING_RESUME_LEVEL),
                 false, mSettingsObserver, UserHandle.USER_ALL);
         resolver.registerContentObserver(Settings.System.getUriFor(
+                Settings.System.SMART_CHARGING_RESET_STATS),
+                false, mSettingsObserver, UserHandle.USER_ALL);
+        resolver.registerContentObserver(Settings.System.getUriFor(
                 Settings.System.FORCE_SHOW_NAVBAR),
                 false, mSettingsObserver, UserHandle.USER_ALL);
 
@@ -1552,14 +1556,16 @@ public final class PowerManagerService extends SystemService
                 Settings.System.FORCE_SHOW_NAVBAR,
                 0, UserHandle.USER_CURRENT) == 1;
 
-        mSmartChargingEnabled = Settings.System.getInt(resolver,
-                Settings.System.SMART_CHARGING, 0) == 1;
-        mSmartChargingLevel = Settings.System.getInt(resolver,
+        mSmartChargingEnabled = Settings.System.getIntForUser(resolver,
+                Settings.System.SMART_CHARGING, 0, UserHandle.USER_CURRENT) == 1;
+        mSmartChargingLevel = Settings.System.getIntForUser(resolver,
                 Settings.System.SMART_CHARGING_LEVEL,
-                mSmartChargingLevelDefaultConfig);
-        mSmartChargingResumeLevel = Settings.System.getInt(resolver,
+                mSmartChargingLevelDefaultConfig, UserHandle.USER_CURRENT);
+        mSmartChargingResumeLevel = Settings.System.getIntForUser(resolver,
                 Settings.System.SMART_CHARGING_RESUME_LEVEL,
-                mSmartChargingResumeLevelDefaultConfig);
+                mSmartChargingResumeLevelDefaultConfig, UserHandle.USER_CURRENT);
+        mSmartChargingResetStats = Settings.System.getIntForUser(resolver,
+                Settings.System.SMART_CHARGING_RESET_STATS, 0, UserHandle.USER_CURRENT) == 1;
 
         mDirty |= DIRTY_SETTINGS;
     }
@@ -2593,6 +2599,15 @@ public final class PowerManagerService extends SystemService
         }
 
         if (mSmartChargingEnabled && !mPowerInputSuspended && (mBatteryLevel >= mSmartChargingLevel)) {
+            Slog.i(TAG, "Smart charging reset stats: " + mSmartChargingResetStats);
+            if (mSmartChargingResetStats) {
+                try {
+                     mBatteryStats.resetStatistics();
+                } catch (RemoteException e) {
+                         Slog.e(TAG, "failed to reset battery statistics");
+                }
+            }
+
             try {
                 FileUtils.stringToFile(mPowerInputSuspendSysfsNode, mPowerInputSuspendValue);
                 mPowerInputSuspended = true;
