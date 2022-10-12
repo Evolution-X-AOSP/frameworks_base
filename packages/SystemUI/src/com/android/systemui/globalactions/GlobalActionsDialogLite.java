@@ -1135,7 +1135,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
     };
 
     private Action getTorchToggleAction() {
-        return new SinglePressAction(com.android.systemui.R.drawable.ic_lock_torch,
+        return new SinglePressAction(com.android.internal.R.drawable.ic_qs_flashlight,
                 com.android.systemui.R.string.quick_settings_flashlight_label) {
 
             public void onPress() {
