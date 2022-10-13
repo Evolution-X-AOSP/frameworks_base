@@ -5528,6 +5528,8 @@ public class AudioService extends IAudioService.Stub
         String settingsValue = Settings.Secure.getStringForUser(mContentResolver,
                 Settings.Secure.VOLUME_HUSH_GESTURE, UserHandle.USER_CURRENT);
         if (settingsValue == null) settingsValue = EVO_VOLUME_HUSH_OFF;
+        if (settingsValue.length() == 1)
+            return; // no migration to new settings done, assume off
         final List<String> silenceRingerSetting = Arrays.asList(settingsValue.split(",", 0));
         if (!mContext.getResources()
                 .getBoolean(com.android.internal.R.bool.config_volumeHushGestureEnabled))
@@ -5570,7 +5572,7 @@ public class AudioService extends IAudioService.Stub
         int toastText = 0;
         VibrationEffect effect = null;
 
-        switch(ringerMode) {
+        switch (ringerMode) {
             case AudioManager.RINGER_MODE_SILENT:
                 effect = VibrationEffect.get(VibrationEffect.EFFECT_DOUBLE_CLICK);
                 toastText = com.android.internal.R.string.volume_dialog_ringer_guidance_silent;
