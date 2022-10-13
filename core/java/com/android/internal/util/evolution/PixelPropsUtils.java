@@ -55,6 +55,7 @@ public class PixelPropsUtils {
 
     private static final String[] packagesToChangePixel7Pro = {
             PACKAGE_WALLPAPERS,
+            "com.google.android.apps.privacy.wildlife",
             "com.google.android.apps.subscriptions.red",
             "com.google.android.inputmethod.latin"
     };
