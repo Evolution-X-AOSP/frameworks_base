@@ -4222,7 +4222,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                         break;
                     }
                 }
-                if (mUseTvRouting || mHandleVolumeKeysInWM || !mVolBtnMusicControls) {
+                if (mUseTvRouting || mHandleVolumeKeysInWM) {
                     // Defer special key handlings to
                     // {@link interceptKeyBeforeDispatching()}.
                     result |= ACTION_PASS_TO_USER;
@@ -4728,9 +4728,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             Slog.e(TAG, "RemoteException when checking if dreaming", e);
         }
 
-        if (isDreaming && isVolumeKey(keyCode)) {
-            // We don't want the volume key events to be dispatched when the system is deaming in
-            // order to process them later
+        if (isDreaming && mVolBtnMusicControls && isVolumeKey(keyCode)) {
+            // If we're using long press to skip, we don't want the volume key events to be
+            // dispatched when the system is dreaming, in order to process them later
             return false;
         }
 
