@@ -47,7 +47,7 @@ class KeyguardZenAlarmViewController @Inject constructor(
         plugin.addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
             override fun onViewAttachedToWindow(v: View?) {
                 smartspaceViews.add(v as BcSmartspaceDataPlugin.SmartspaceView)
-                if (smartspaceViews.size === 1) {
+                if (smartspaceViews.size == 1) {
                     zenModeController.addCallback(zenModeCallback)
                     nextAlarmController.addCallback(nextAlarmCallback)
                 }
@@ -77,7 +77,7 @@ class KeyguardZenAlarmViewController @Inject constructor(
     }
 
     fun updateDnd() {
-        if (zenModeController.getZen() !== 0) {
+        if (zenModeController.getZen() != 0) {
             val string: String =
                 context.getResources().getString(R.string.accessibility_quick_settings_dnd)
             for (smartspaceView in smartspaceViews) {
