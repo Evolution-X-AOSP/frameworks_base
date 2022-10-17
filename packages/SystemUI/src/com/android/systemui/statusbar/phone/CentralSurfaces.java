@@ -397,8 +397,7 @@ public interface CentralSurfaces extends Dumpable, ActivityStarter, LifecycleOwn
 
     void keyguardGoingAway();
 
-    void setKeyguardFadingAway(long startTime, long delay, long fadeoutDuration,
-            boolean isBypassFading);
+    void setKeyguardFadingAway(long startTime, long delay, long fadeoutDuration);
 
     void finishKeyguardFadingAway();
 
@@ -565,8 +564,6 @@ public interface CentralSurfaces extends Dumpable, ActivityStarter, LifecycleOwn
     void setLaunchEmergencyActionOnFinishedGoingToSleep(boolean launch);
 
     void setLaunchEmergencyActionOnFinishedWaking(boolean launch);
-
-    void setTopHidesStatusBar(boolean hides);
 
     QSPanelController getQSPanelController();
 
