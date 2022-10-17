@@ -17,7 +17,6 @@ package com.android.systemui.qs.tiles
 
 import android.os.Handler
 import android.os.Looper
-import android.provider.Settings
 import android.view.View
 import com.android.systemui.plugins.qs.QSTile
 import com.android.systemui.qs.QSHost
@@ -42,14 +41,8 @@ internal abstract class SecureQSTile<TState : QSTile.State> protected constructo
 
     protected abstract fun handleClick(view: View?, keyguardShowing: Boolean)
 
-    private var disableOnLockscreen = true
-
-    fun setDisabledOnLockscreen(disable: Boolean) {
-        disableOnLockscreen = disable
-    }
-
     override fun handleClick(view: View?) {
-        handleClick(view, mKeyguard.isMethodSecure && mKeyguard.isShowing && disableOnLockscreen)
+        handleClick(view, mKeyguard.isMethodSecure && mKeyguard.isShowing)
     }
 
     protected fun checkKeyguard(view: View?, keyguardShowing: Boolean): Boolean {

@@ -12446,13 +12446,6 @@ public final class Settings {
         public static final String SHOW_WIFI_STANDARD_ICON = "show_wifi_standard_icon";
 
         /**
-         * Whether to disable secure qs tiles on lockscreen.
-         * Default 1
-         * @hide
-         */
-        public static final String DISABLE_SECURE_TILES_ON_LOCKSCREEN = "disable_secure_tiles_on_lockscreen";
-
-        /**
          * Show lyric in status bar when playing music
          * <ul>
          *    <li> 0 = disabled </li>
