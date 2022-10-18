@@ -92,7 +92,11 @@ public class ThemeOverlayApplier implements Dumpable {
 
     static final String CUSTOM_THEME_CLEAR = "com.android.system.theme.clear";
 
-    static final String CUSTOM_THEME_VIVID = "com.android.system.theme.vivid";
+    static final String CUSTOM_THEME_VIVID = "com.android.system.monet.vivid";
+
+    static final String CUSTOM_THEME_SNOWPAINT = "com.android.system.monet.snowpaintdrop";
+
+    static final String CUSTOM_THEME_ESPRESSO = "com.android.system.monet.expresso";
 
     @VisibleForTesting
     static final String OVERLAY_CATEGORY_FONT = "android.theme.customization.font";
@@ -160,8 +164,10 @@ public class ThemeOverlayApplier implements Dumpable {
     static final List<String> CUSTOM_THEME_CATEGORIES = Lists.newArrayList(
             "",
             CUSTOM_THEME_BLACK,
-	    CUSTOM_THEME_CLEAR,
-            CUSTOM_THEME_VIVID);
+            CUSTOM_THEME_CLEAR,
+            CUSTOM_THEME_VIVID,
+            CUSTOM_THEME_SNOWPAINT,
+            CUSTOM_THEME_ESPRESSO);
 
     /* Allowed overlay categories for each target package. */
     private final Map<String, Set<String>> mTargetPackageToCategories = new ArrayMap<>();
