@@ -177,4 +177,21 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Intelligens pixelek</string>
     <string name="quick_settings_smart_pixels_on_power_save">Intelligens pixelek automatikus engedélyezése</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">A Menet közben mód aktiválva</string>
+    <string name="onthego_notif_title">A Menet közben mód aktív</string>
+    <string name="onthego_notif_stop">Állj</string>
+    <string name="onthego_notif_options">Lehetőségek</string>
+    <string name="onthego_notif_error">Nem lehet elindítani a Menet közben módot</string>
+    <string name="onthego_notif_restart">A Menet közben mód újraindítása</string>
+    <string name="onthego_notif_camera_changed">Kameramód megváltoztatva</string>
+    <string name="onthego_transparency">Átlátszóság</string>
+    <string name="onthego_front_camera">Az előlapi kamera használata</string>
+    <string name="onthego_service_toggle">Szolgáltatás automatikus újraindítása</string>
+    <string name="onthego_channel_name">Elsődleges</string>
+    <string name="global_action_onthego">Menet közben (OnTheGo)</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">Menet közben (OnTheGo)</string>
+    <!-- CPUInfo tile -->
+    <string name="quick_settings_cpuinfo_label">CPU-adatok</string>
 </resources>

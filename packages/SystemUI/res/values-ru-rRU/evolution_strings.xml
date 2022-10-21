@@ -176,4 +176,21 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Умные пиксели</string>
     <string name="quick_settings_smart_pixels_on_power_save">Автовключение умных пикселей</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">Режим \"На ходу\" включён</string>
+    <string name="onthego_notif_title">Режим \"На ходу\" активен</string>
+    <string name="onthego_notif_stop">Стоп</string>
+    <string name="onthego_notif_options">Настройки</string>
+    <string name="onthego_notif_error">Невозможно запустить режим «На ходу»</string>
+    <string name="onthego_notif_restart">Перезапустить режим \"На ходу\"</string>
+    <string name="onthego_notif_camera_changed">Режим камеры изменен</string>
+    <string name="onthego_transparency">Прозрачность</string>
+    <string name="onthego_front_camera">Использовать переднюю камеру</string>
+    <string name="onthego_service_toggle">Автоматический перезапуск службы</string>
+    <string name="onthego_channel_name">Основной</string>
+    <string name="global_action_onthego">Режим \"На ходу\"</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">Режим \"На ходу\"</string>
+    <!-- CPUInfo tile -->
+    <string name="quick_settings_cpuinfo_label">Информация о CPU</string>
 </resources>
