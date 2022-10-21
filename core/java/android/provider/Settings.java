@@ -6612,12 +6612,6 @@ public final class Settings {
         public static final String FP_ERROR_VIBRATE = "fp_error_vibrate";
 
         /**
-         * Whether or not to vibrate when back gesture is used
-         * @hide
-         */
-        public static final String BACK_GESTURE_HAPTIC = "back_gesture_haptic";
-
-        /**
          * Whether to show floating rotation button
          * @hide
          */
@@ -6900,7 +6894,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(FORCE_FULLSCREEN_CUTOUT_APPS);
             PRIVATE_SETTINGS.add(HEADS_UP_STOPLIST_VALUES);
             PRIVATE_SETTINGS.add(HEADS_UP_BLACKLIST_VALUES);
-            PRIVATE_SETTINGS.add(BACK_GESTURE_HAPTIC);
             PRIVATE_SETTINGS.add(TRANSPARENT_POWER_MENU);
             PRIVATE_SETTINGS.add(TRANSPARENT_POWER_DIALOG_DIM);
         }

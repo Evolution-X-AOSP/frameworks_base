@@ -70,9 +70,6 @@ public class GestureNavigationSettingsObserver extends ContentObserver {
         r.registerContentObserver(
                 Settings.Secure.getUriFor(Settings.Secure.USER_SETUP_COMPLETE),
                 false, this, UserHandle.USER_ALL);
-        r.registerContentObserver(Settings.System.getUriFor(
-                Settings.System.BACK_GESTURE_HAPTIC),
-                false, this, UserHandle.USER_ALL);
         DeviceConfig.addOnPropertiesChangedListener(
                 DeviceConfig.NAMESPACE_SYSTEMUI,
                 runnable -> mMainHandler.post(runnable),
@@ -125,14 +122,5 @@ public class GestureNavigationSettingsObserver extends ContentObserver {
         final float scale = Settings.Secure.getFloatForUser(
                 mContext.getContentResolver(), side, 1.0f, UserHandle.USER_CURRENT);
         return (int) (inset * scale);
-    }
-
-    public boolean getEdgeHaptic() {
-        return (Settings.System.getIntForUser(
-                   mContext.getContentResolver(), Settings.System.BACK_GESTURE_HAPTIC, 1,
-                   UserHandle.USER_CURRENT) == 1 &&
-               Settings.System.getIntForUser(
-                   mContext.getContentResolver(), Settings.System.HAPTIC_FEEDBACK_ENABLED, 0,
-                   UserHandle.USER_CURRENT) == 1);
     }
 }
