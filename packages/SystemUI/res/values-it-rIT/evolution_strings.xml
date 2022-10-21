@@ -177,4 +177,21 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Smart Pixels</string>
     <string name="quick_settings_smart_pixels_on_power_save">Abilita automaticamente Smart Pixels</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">On-The-Go attivato</string>
+    <string name="onthego_notif_title">On-The-Go è attivo</string>
+    <string name="onthego_notif_stop">Stop</string>
+    <string name="onthego_notif_options">Opzioni</string>
+    <string name="onthego_notif_error">Impossibile avviare On-The-Go</string>
+    <string name="onthego_notif_restart">Riavvia On-The-Go</string>
+    <string name="onthego_notif_camera_changed">Modalità fotocamera modificata</string>
+    <string name="onthego_transparency">Trasparenza</string>
+    <string name="onthego_front_camera">Usa fotocamera anteriore</string>
+    <string name="onthego_service_toggle">Riavvia automaticamente il servizio</string>
+    <string name="onthego_channel_name">Principale</string>
+    <string name="global_action_onthego">Principale</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">On-The-Go</string>
+    <!-- CPUInfo tile -->
+    <string name="quick_settings_cpuinfo_label">Info CPU</string>
 </resources>
