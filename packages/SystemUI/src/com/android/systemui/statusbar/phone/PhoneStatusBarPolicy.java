@@ -101,6 +101,9 @@ public class PhoneStatusBarPolicy
     private static final String TAG = "PhoneStatusBarPolicy";
     private static final boolean DEBUG = Log.isLoggable(TAG, Log.DEBUG);
 
+    private static final String BLUETOOTH_SHOW_BATTERY =
+            "system:" + Settings.System.BLUETOOTH_SHOW_BATTERY;
+
     private final String mSlotCast;
     private final String mSlotHotspot;
     private final String mSlotBluetooth;
@@ -157,10 +160,8 @@ public class PhoneStatusBarPolicy
     private boolean mNfcVisible;
     private NfcAdapter mAdapter;
     private final Context mContext;
-    private boolean mShowBluetoothBattery;
 
-    private static final String BLUETOOTH_SHOW_BATTERY =
-            "system:" + Settings.System.BLUETOOTH_SHOW_BATTERY;
+    private boolean mShowBluetoothBattery;
 
     @Inject
     public PhoneStatusBarPolicy(Context context, StatusBarIconController iconController,
@@ -228,19 +229,6 @@ public class PhoneStatusBarPolicy
 
         Dependency.get(TunerService.class).addTunable(this,
                 BLUETOOTH_SHOW_BATTERY);
-    }
-
-    @Override
-    public void onTuningChanged(String key, String newValue) {
-        switch (key) {
-            case BLUETOOTH_SHOW_BATTERY:
-                mShowBluetoothBattery =
-                        TunerService.parseIntegerSwitch(newValue, true);
-                updateBluetooth();
-                break;
-            default:
-                break;
-        }
     }
 
     /** Initialize the object after construction. */
@@ -350,6 +338,19 @@ public class PhoneStatusBarPolicy
     @Override
     public void onZenChanged(int zen) {
         updateVolumeZen();
+    }
+
+    @Override
+    public void onTuningChanged(String key, String newValue) {
+        switch (key) {
+            case BLUETOOTH_SHOW_BATTERY:
+                mShowBluetoothBattery =
+                        TunerService.parseIntegerSwitch(newValue, true);
+                updateBluetooth();
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
@@ -466,40 +467,19 @@ public class PhoneStatusBarPolicy
     }
 
     private final void updateBluetooth() {
-        int iconId = R.drawable.stat_sys_data_bluetooth_connected;
         String contentDescription =
                 mResources.getString(R.string.accessibility_quick_settings_bluetooth_on);
         boolean bluetoothVisible = false;
+        int batteryLevel = -1;
         if (mBluetooth != null && mBluetooth.isBluetoothConnected()) {
-            int batteryLevel = mShowBluetoothBattery ? mBluetooth.getBatteryLevel() : -1;
-            if (batteryLevel == 100) {
-                iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_9;
-            } else if (batteryLevel >= 90) {
-                iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_8;
-            } else if (batteryLevel >= 80) {
-                iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_7;
-            } else if (batteryLevel >= 70) {
-                iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_6;
-            } else if (batteryLevel >= 60) {
-                iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_5;
-            } else if (batteryLevel >= 50) {
-                iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_4;
-            } else if (batteryLevel >= 40) {
-                iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_3;
-            } else if (batteryLevel >= 30) {
-                iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_2;
-            } else if (batteryLevel >= 20) {
-                iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_1;
-            } else if (batteryLevel >= 10) {
-                iconId = R.drawable.stat_sys_data_bluetooth_connected_battery_0;
-            }
+            bluetoothVisible = mBluetooth.isBluetoothEnabled();
+            batteryLevel = mShowBluetoothBattery ? mBluetooth.getBatteryLevel() : -1;
             contentDescription = mResources.getString(
                     R.string.accessibility_bluetooth_connected);
-            bluetoothVisible = mBluetooth.isBluetoothEnabled();
         }
 
-        mIconController.setIcon(mSlotBluetooth, iconId, contentDescription);
-        mIconController.setIconVisibility(mSlotBluetooth, bluetoothVisible);
+        mIconController.setBluetoothIcon(mSlotBluetooth,
+                new BluetoothIconState(bluetoothVisible, batteryLevel, contentDescription));
     }
 
     private final void updateTTY() {
@@ -778,5 +758,22 @@ public class PhoneStatusBarPolicy
         // Ensure this is on the main thread
         if (DEBUG) Log.d(TAG, "screenrecord: hiding icon");
         mHandler.post(() -> mIconController.setIconVisibility(mSlotScreenRecord, false));
+    }
+
+    public static class BluetoothIconState {
+        public boolean visible;
+        public int batteryLevel;
+        public String contentDescription;
+
+        public BluetoothIconState(boolean visible, int batteryLevel, String contentDescription) {
+            this.visible = visible;
+            this.batteryLevel = batteryLevel;
+            this.contentDescription = contentDescription;
+        }
+
+        @Override
+        public String toString() {
+            return "BluetoothIconState(visible=" + visible + " batteryLevel=" + batteryLevel + ")";
+        }
     }
 }
