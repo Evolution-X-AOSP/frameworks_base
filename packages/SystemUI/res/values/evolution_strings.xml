@@ -240,4 +240,7 @@
 
     <!-- CPUInfo tile -->
     <string name="quick_settings_cpuinfo_label">CPU Info</string>
+
+    <!-- Screenshot Tile -->
+    <string name="screenshot_long_press">Long press for partial screenshot</string>
 </resources>
