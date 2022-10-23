@@ -705,7 +705,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
 
         // make sure emergency affordance action is first, if needed
         if (Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.GLOBAL_ACTIONS_EMERGENCY, 0) == 1) {
+                Settings.System.GLOBAL_ACTIONS_EMERGENCY, 1) == 1) {
             addIfShouldShowAction(tempActions, new EmergencyAffordanceAction());
             addedKeys.add(GLOBAL_ACTION_KEY_EMERGENCY);
         }
@@ -742,12 +742,12 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
                 }
             } else if (GLOBAL_ACTION_KEY_SETTINGS.equals(actionKey)) {
                 if (Settings.System.getInt(mContext.getContentResolver(),
-                        Settings.System.GLOBAL_ACTIONS_SETTINGS, 0) != 0) {
+                        Settings.System.GLOBAL_ACTIONS_SETTINGS, 0) == 1) {
                     addIfShouldShowAction(tempActions, getSettingsAction());
                 }
             } else if (GLOBAL_ACTION_KEY_LOCKDOWN.equals(actionKey)) {
                 if (Settings.System.getInt(mContext.getContentResolver(),
-                        Settings.System.GLOBAL_ACTIONS_LOCKDOWN, 0) != 0) {
+                        Settings.System.GLOBAL_ACTIONS_LOCKDOWN, 1) == 1) {
                     addIfShouldShowAction(tempActions, new LockDownAction());
                 }
             } else if (GLOBAL_ACTION_KEY_VOICEASSIST.equals(actionKey)) {
@@ -790,7 +790,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
             } else if (GLOBAL_ACTION_KEY_EMERGENCY.equals(actionKey)) {
                 if (shouldDisplayEmergency()) {
                     if (Settings.System.getInt(mContext.getContentResolver(),
-                            Settings.System.GLOBAL_ACTIONS_EMERGENCY, 0) == 1) {
+                            Settings.System.GLOBAL_ACTIONS_EMERGENCY, 1) == 1) {
                         addIfShouldShowAction(tempActions, new EmergencyDialerAction());
                     }
                 }
