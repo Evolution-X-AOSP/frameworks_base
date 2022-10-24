@@ -95,8 +95,8 @@ public class ImageWallpaper extends WallpaperService {
 
     class GLEngine extends Engine implements DisplayListener, TunerService.Tunable {
 
-        private static final String DISPLAY_SETTINGS_WALLPAPER_ZOOM =
-            "system:" + Settings.System.DISPLAY_SETTINGS_WALLPAPER_ZOOM;
+        private static final String DISPLAY_SETTINGS_WALLPAPER_ZOOM = 
+                Settings.Secure.DISPLAY_SETTINGS_WALLPAPER_ZOOM;
         private boolean mWallpaperZoomEnabled = true;
 
         // Surface is rejected if size below a threshold on some devices (ie. 8px on elfin)

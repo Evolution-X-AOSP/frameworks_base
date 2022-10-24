@@ -5909,13 +5909,6 @@ public final class Settings {
         public static final String POCKET_JUDGE = "pocket_judge";
 
         /**
-         *  Toggle the wallpaper zoom effects
-         *  0 = 0ff, 1 = on
-         * @hide
-         */
-        public static final String DISPLAY_SETTINGS_WALLPAPER_ZOOM = "display_settings_wallpaper_zoom";
-
-        /**
          * Color temperature of the display during the day
          * @hide
          */
@@ -12369,6 +12362,13 @@ public final class Settings {
          */
         public static final String DEVICE_STATE_ROTATION_LOCK =
                 "device_state_rotation_lock";
+
+        /**
+         *  Toggle the wallpaper zoom effects
+         *  0 = 0ff, 1 = on
+         * @hide
+         */
+        public static final String DISPLAY_SETTINGS_WALLPAPER_ZOOM = "display_settings_wallpaper_zoom";
 
         /**
          * Control whether communal mode is allowed on this device.
