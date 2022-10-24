@@ -193,6 +193,9 @@ public abstract class LogoImage extends ImageView {
             case 19:
                 drawable = mContext.getResources().getDrawable(R.drawable.ic_xbox);
                 break;
+            default:
+                drawable = mContext.getResources().getDrawable(R.drawable.ic_evolution_logo);
+                break;
         }
 
         setImageDrawable(null);
