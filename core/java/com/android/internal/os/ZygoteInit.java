@@ -195,6 +195,13 @@ public class ZygoteInit {
         if (!SystemProperties.getBoolean("config.disable_renderscript", false)) {
             System.loadLibrary("compiler_rt");
         }
+
+        try {
+            System.loadLibrary("qti_performance");
+        } catch (UnsatisfiedLinkError e) {
+            Log.e(TAG, "Couldn't load qti_performance");
+        }
+
     }
 
     native private static void nativePreloadAppProcessHALs();

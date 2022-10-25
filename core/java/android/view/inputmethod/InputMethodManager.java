@@ -79,6 +79,7 @@ import android.os.UserHandle;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.text.style.SuggestionSpan;
+import android.util.BoostFramework;
 import android.util.Log;
 import android.util.Pair;
 import android.util.Pools.Pool;
@@ -298,6 +299,11 @@ public final class InputMethodManager {
      * @see InputMethodSubtype#getMode()
      */
     private static final String SUBTYPE_MODE_VOICE = "voice";
+
+    //Perf
+    static BoostFramework mPerfBoost = null;
+    static boolean IME_BOOST_ENABLED = false;
+    static boolean isImeBoostPropertyRead = false;
 
     /**
      * Provide this to {@link IInputMethodManagerGlobalInvoker#startInputOrWindowGainedFocus(int,

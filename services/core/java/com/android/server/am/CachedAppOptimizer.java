@@ -61,6 +61,7 @@ import android.os.PowerManagerInternal;
 import android.os.Process;
 import android.os.RemoteException;
 import android.os.SystemClock;
+import android.os.SystemProperties;
 import android.os.Trace;
 import android.provider.DeviceConfig;
 import android.provider.DeviceConfig.OnPropertiesChangedListener;
@@ -71,6 +72,7 @@ import android.util.EventLog;
 import android.util.IntArray;
 import android.util.Pair;
 import android.util.Slog;
+import android.util.BoostFramework;
 import android.util.SparseArray;
 
 import com.android.internal.annotations.GuardedBy;
@@ -98,6 +100,8 @@ public final class CachedAppOptimizer {
 
     // Flags stored in the DeviceConfig API.
     @VisibleForTesting static final String KEY_USE_COMPACTION = "use_compaction";
+    @VisibleForTesting static final String KEY_DEBUG_COMPACTION = "debug_compaction";
+    @VisibleForTesting static final String KEY_COMPACTION_PRIORITY = "compaction_priority";
     @VisibleForTesting static final String KEY_USE_FREEZER = "use_freezer";
     @VisibleForTesting static final String KEY_COMPACT_THROTTLE_1 = "compact_throttle_1";
     @VisibleForTesting static final String KEY_COMPACT_THROTTLE_2 = "compact_throttle_2";
@@ -362,7 +366,9 @@ public final class CachedAppOptimizer {
                 public void onPropertiesChanged(Properties properties) {
                     synchronized (mPhenotypeFlagLock) {
                         for (String name : properties.getKeyset()) {
-                            if (KEY_USE_COMPACTION.equals(name)) {
+                            if (KEY_USE_COMPACTION.equals(name) ||
+                                KEY_COMPACTION_PRIORITY.equals(name) ||
+                                KEY_DEBUG_COMPACTION.equals(name)) {
                                 updateUseCompaction();
                             } else if (KEY_COMPACT_THROTTLE_1.equals(name)
                                     || KEY_COMPACT_THROTTLE_2.equals(name)
@@ -455,9 +461,11 @@ public final class CachedAppOptimizer {
             DEFAULT_COMPACT_THROTTLE_MAX_OOM_ADJ;
     @GuardedBy("mPhenotypeFlagLock")
     private volatile boolean mUseCompaction = DEFAULT_USE_COMPACTION;
+    private volatile boolean mDebugCompaction = DEBUG_COMPACTION;
     private volatile boolean mUseFreezer = false; // set to DEFAULT in init()
     @GuardedBy("this")
     private int mFreezerDisableCount = 1; // Freezer is initially disabled, until enabled
+    public volatile int  mCompactionPriority = Process.THREAD_GROUP_BACKGROUND;
     private final Random mRandom = new Random();
     @GuardedBy("mPhenotypeFlagLock")
     @VisibleForTesting volatile float mCompactStatsdSampleRate = DEFAULT_STATSD_SAMPLE_RATE;
@@ -633,6 +641,7 @@ public final class CachedAppOptimizer {
 
     private final ProcessDependencies mProcessDependencies;
     private final ProcLocksReader mProcLocksReader;
+    public static BoostFramework mPerf = new BoostFramework();
 
     public CachedAppOptimizer(ActivityManagerService am) {
         this(am, null, new DefaultProcessDependencies());
@@ -644,7 +653,7 @@ public final class CachedAppOptimizer {
         mAm = am;
         mProcLock = am.mProcLock;
         mCachedAppOptimizerThread = new ServiceThread("CachedAppOptimizerThread",
-            Process.THREAD_GROUP_SYSTEM, true);
+            mCompactionPriority, true);
         mProcStateThrottle = new HashSet<>();
         mProcessDependencies = processDependencies;
         mTestCallback = callback;
@@ -678,6 +687,88 @@ public final class CachedAppOptimizer {
             updateMinOomAdjThrottle();
             updateMaxOomAdjThrottle();
         }
+        setAppCompactProperties();
+    }
+
+    private void setAppCompactProperties() {
+        boolean useCompaction =
+                    Boolean.valueOf(mPerf.perfGetProp("vendor.appcompact.enable_app_compact",
+                        "false"));
+        boolean debugCompaction =
+                    Boolean.valueOf(mPerf.perfGetProp("vendor.appcompact.debug_app_compact",
+                        "false"));
+        int threadPriority =
+                    Integer.valueOf(mPerf.perfGetProp("vendor.appcompact.thread_priority",
+                        String.valueOf(Process.THREAD_GROUP_BACKGROUND)));
+        // Let the user change the group back to THREAD_GROUP_SYSYTEM
+        // For any other value, set it to THREAD_GROUP_BACKGROUND
+        if (threadPriority != Process.THREAD_GROUP_SYSTEM)
+            threadPriority = Process.THREAD_GROUP_BACKGROUND;
+
+        int someCompactionType =
+                    Integer.valueOf(mPerf.perfGetProp("vendor.appcompact.some_compact_type",
+                        String.valueOf(COMPACT_ACTION_ANON_FLAG)));
+        int fullCompactionType =
+                    Integer.valueOf(mPerf.perfGetProp("vendor.appcompact.full_compact_type",
+                        String.valueOf(COMPACT_ACTION_ANON_FLAG)));
+        int compactThrottleSomeSome =
+                    Integer.valueOf(mPerf.perfGetProp("vendor.appcompact.compact_throttle_somesome",
+                        String.valueOf(DEFAULT_COMPACT_THROTTLE_1)));
+        int compactThrottleSomeFull =
+                    Integer.valueOf(mPerf.perfGetProp("vendor.appcompact.compact_throttle_somefull",
+                        String.valueOf(DEFAULT_COMPACT_THROTTLE_2)));
+        int compactThrottleFullSome =
+                    Integer.valueOf(mPerf.perfGetProp("vendor.appcompact.compact_throttle_fullsome",
+                        String.valueOf(DEFAULT_COMPACT_THROTTLE_3)));
+        int compactThrottleFullFull =
+                    Integer.valueOf(mPerf.perfGetProp("vendor.appcompact.compact_throttle_fullfull",
+                        String.valueOf(DEFAULT_COMPACT_THROTTLE_4)));
+        int compactThrottleBfgs =
+                    Integer.valueOf(mPerf.perfGetProp("vendor.appcompact.compact_throttle_bfgs",
+                        String.valueOf(DEFAULT_COMPACT_THROTTLE_5)));
+        int compactThrottlePersistent =
+                    Integer.valueOf(mPerf.perfGetProp("vendor.appcompact.compact_throttle_persistent",
+                        String.valueOf(DEFAULT_COMPACT_THROTTLE_6)));
+        int fullRssThrottleKB =
+                    Integer.valueOf(mPerf.perfGetProp("vendor.appcompact.rss_throttle_kb",
+                        String.valueOf(DEFAULT_COMPACT_FULL_RSS_THROTTLE_KB)));
+        int deltaRssThrottleKB =
+                    Integer.valueOf(mPerf.perfGetProp("vendor.appcompact.delta_rss_throttle_kb",
+                        String.valueOf(DEFAULT_COMPACT_FULL_DELTA_RSS_THROTTLE_KB)));
+
+        DeviceConfig.setProperty(
+                    DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_COMPACT_THROTTLE_1,
+                        String.valueOf(compactThrottleSomeSome), true);
+        DeviceConfig.setProperty(
+                    DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_COMPACT_THROTTLE_2,
+                        String.valueOf(compactThrottleSomeFull), true);
+        DeviceConfig.setProperty(
+                    DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_COMPACT_THROTTLE_3,
+                        String.valueOf(compactThrottleFullSome), true);
+        DeviceConfig.setProperty(
+                    DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_COMPACT_THROTTLE_4,
+                        String.valueOf(compactThrottleFullFull), true);
+        DeviceConfig.setProperty(
+                    DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_COMPACT_THROTTLE_5,
+                        String.valueOf(compactThrottleBfgs), true);
+        DeviceConfig.setProperty(
+                    DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_COMPACT_THROTTLE_6,
+                        String.valueOf(compactThrottlePersistent), true);
+        DeviceConfig.setProperty(
+                    DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_COMPACT_FULL_RSS_THROTTLE_KB,
+                        String.valueOf(fullRssThrottleKB), true);
+        DeviceConfig.setProperty(
+                    DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_COMPACT_FULL_DELTA_RSS_THROTTLE_KB,
+                        String.valueOf(deltaRssThrottleKB), true);
+        DeviceConfig.setProperty(
+                    DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_USE_COMPACTION,
+                        String.valueOf(useCompaction), true);
+        DeviceConfig.setProperty(
+                    DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_DEBUG_COMPACTION,
+                        String.valueOf(debugCompaction), true);
+        DeviceConfig.setProperty(
+                    DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_COMPACTION_PRIORITY,
+                        String.valueOf(threadPriority), true);
     }
 
     /**
@@ -712,6 +803,8 @@ public final class CachedAppOptimizer {
         pw.println("CachedAppOptimizer settings");
         synchronized (mPhenotypeFlagLock) {
             pw.println("  " + KEY_USE_COMPACTION + "=" + mUseCompaction);
+            pw.println("  " + KEY_DEBUG_COMPACTION + "=" + mDebugCompaction);
+            pw.println("  " + KEY_COMPACTION_PRIORITY  + "=" + mCompactionPriority);
             pw.println("  " + KEY_COMPACT_THROTTLE_1 + "=" + mCompactThrottleSomeSome);
             pw.println("  " + KEY_COMPACT_THROTTLE_2 + "=" + mCompactThrottleSomeFull);
             pw.println("  " + KEY_COMPACT_THROTTLE_3 + "=" + mCompactThrottleFullSome);
@@ -837,7 +930,7 @@ public final class CachedAppOptimizer {
 
         if (!app.mOptRecord.hasPendingCompact()) {
             final String processName = (app.processName != null ? app.processName : "");
-            if (DEBUG_COMPACTION) {
+            if (mDebugCompaction) {
                 Slog.d(TAG_AM,
                         "compactApp " + app.mOptRecord.getReqCompactSource().name() + " "
                                 + app.mOptRecord.getReqCompactProfile().name() + " " + processName);
@@ -850,7 +943,7 @@ public final class CachedAppOptimizer {
             return true;
         }
 
-        if (DEBUG_COMPACTION) {
+        if (mDebugCompaction) {
             Slog.d(TAG_AM,
                     " compactApp Skipped for " + app.processName + " pendingCompact= "
                             + app.mOptRecord.hasPendingCompact() + ". Requested compact profile: "
@@ -890,7 +983,7 @@ public final class CachedAppOptimizer {
 
     void compactAllSystem() {
         if (useCompaction()) {
-            if (DEBUG_COMPACTION) {
+            if (mDebugCompaction) {
                 Slog.d(TAG_AM, "compactAllSystem");
             }
             Trace.instantForTrack(
@@ -939,8 +1032,20 @@ public final class CachedAppOptimizer {
      */
     @GuardedBy("mPhenotypeFlagLock")
     private void updateUseCompaction() {
+        // If this property is null there must have been some unexpected reset
+        String useCompaction = DeviceConfig.getProperty(DeviceConfig.NAMESPACE_ACTIVITY_MANAGER, KEY_USE_COMPACTION);
+        if (useCompaction == null) {
+            setAppCompactProperties();
+        }
+
         mUseCompaction = DeviceConfig.getBoolean(DeviceConfig.NAMESPACE_ACTIVITY_MANAGER,
                     KEY_USE_COMPACTION, DEFAULT_USE_COMPACTION);
+
+        mDebugCompaction = DeviceConfig.getBoolean(DeviceConfig.NAMESPACE_ACTIVITY_MANAGER,
+                    KEY_DEBUG_COMPACTION, DEBUG_COMPACTION);
+
+        mCompactionPriority = DeviceConfig.getInt(DeviceConfig.NAMESPACE_ACTIVITY_MANAGER,
+                    KEY_COMPACTION_PRIORITY, Process.THREAD_GROUP_BACKGROUND);
 
         if (mUseCompaction && mCompactionHandler == null) {
             if (!mCachedAppOptimizerThread.isAlive()) {
@@ -948,10 +1053,10 @@ public final class CachedAppOptimizer {
             }
 
             mCompactionHandler = new MemCompactionHandler();
-
-            Process.setThreadGroupAndCpuset(mCachedAppOptimizerThread.getThreadId(),
-                    Process.THREAD_GROUP_SYSTEM);
         }
+
+        Process.setThreadGroupAndCpuset(mCachedAppOptimizerThread.getThreadId(),
+                mCompactionPriority);
     }
 
     /**
@@ -1132,7 +1237,8 @@ public final class CachedAppOptimizer {
                 }
 
                 Process.setThreadGroupAndCpuset(mCachedAppOptimizerThread.getThreadId(),
-                        Process.THREAD_GROUP_SYSTEM);
+                    mCompactionPriority);
+
             } else {
                 Slog.d(TAG_AM, "Freezer disabled");
                 enableFreezer(false);
@@ -1628,7 +1734,7 @@ public final class CachedAppOptimizer {
             } else {
                 mTotalCompactionsCancelled.put(cancelReason, 1);
             }
-            if (DEBUG_COMPACTION) {
+            if (mDebugCompaction) {
                 Slog.d(TAG_AM,
                         "Cancelled pending or running compactions for process: " +
                                 app.processName != null ? app.processName : "" +
@@ -1671,7 +1777,7 @@ public final class CachedAppOptimizer {
                 profile = CompactProfile.SOME;
 
                 ++mTotalCompactionDowngrades;
-                if (DEBUG_COMPACTION) {
+                if (mDebugCompaction) {
                     Slog.d(TAG_AM,
                             "Downgraded compaction to "+ profile +" due to low swap."
                                     + " Swap Free% " + swapFreePercent);
@@ -1769,11 +1875,14 @@ public final class CachedAppOptimizer {
 
         private boolean shouldOomAdjThrottleCompaction(ProcessRecord proc) {
             final String name = proc.processName;
+            final ProcessCachedOptimizerRecord opt = proc.mOptRecord;
+            CompactSource compactSource = opt.getReqCompactSource();
 
             // don't compact if the process has returned to perceptible
             // and this is only a cached/home/prev compaction
-            if (proc.mState.getSetAdj() <= ProcessList.PERCEPTIBLE_APP_ADJ) {
-                if (DEBUG_COMPACTION) {
+            if (compactSource == CompactSource.APP
+                    && proc.mState.getSetAdj() <= ProcessList.PERCEPTIBLE_APP_ADJ) {
+                if (mDebugCompaction) {
                     Slog.d(TAG_AM,
                             "Skipping compaction as process " + name + " is "
                                     + "now perceptible.");
@@ -1805,7 +1914,7 @@ public final class CachedAppOptimizer {
                                     && (start - lastCompactTime < mCompactThrottleSomeSome))
                                 || (lastCompactProfile == CompactProfile.FULL
                                         && (start - lastCompactTime < mCompactThrottleSomeFull))) {
-                            if (DEBUG_COMPACTION) {
+                            if (mDebugCompaction) {
                                 Slog.d(TAG_AM,
                                         "Skipping some compaction for " + name
                                                 + ": too soon. throttle=" + mCompactThrottleSomeSome
@@ -1819,7 +1928,7 @@ public final class CachedAppOptimizer {
                                     && (start - lastCompactTime < mCompactThrottleFullSome))
                                 || (lastCompactProfile == CompactProfile.FULL
                                         && (start - lastCompactTime < mCompactThrottleFullFull))) {
-                            if (DEBUG_COMPACTION) {
+                            if (mDebugCompaction) {
                                 Slog.d(TAG_AM,
                                         "Skipping full compaction for " + name
                                                 + ": too soon. throttle=" + mCompactThrottleFullSome
@@ -1837,7 +1946,7 @@ public final class CachedAppOptimizer {
 
         private boolean shouldThrottleMiscCompaction(ProcessRecord proc, int procState) {
             if (mProcStateThrottle.contains(procState)) {
-                if (DEBUG_COMPACTION) {
+                if (mDebugCompaction) {
                     final String name = proc.processName;
                     Slog.d(TAG_AM,
                             "Skipping full compaction for process " + name + "; proc state is "
@@ -1856,7 +1965,7 @@ public final class CachedAppOptimizer {
 
             if (rssBefore[RSS_TOTAL_INDEX] == 0 && rssBefore[RSS_FILE_INDEX] == 0
                     && rssBefore[RSS_ANON_INDEX] == 0 && rssBefore[RSS_SWAP_INDEX] == 0) {
-                if (DEBUG_COMPACTION) {
+                if (mDebugCompaction) {
                     Slog.d(TAG_AM,
                             "Skipping compaction for"
                                     + "process " + pid + " with no memory usage. Dead?");
@@ -1866,7 +1975,7 @@ public final class CachedAppOptimizer {
 
             if (profile == CompactProfile.FULL) {
                 if (mFullAnonRssThrottleKb > 0L && anonRssBefore < mFullAnonRssThrottleKb) {
-                    if (DEBUG_COMPACTION) {
+                    if (mDebugCompaction) {
                         Slog.d(TAG_AM,
                                 "Skipping full compaction for process " + name
                                         + "; anon RSS is too small: " + anonRssBefore + "KB.");
@@ -1880,7 +1989,7 @@ public final class CachedAppOptimizer {
                             + Math.abs(rssBefore[RSS_ANON_INDEX] - lastRss[RSS_ANON_INDEX])
                             + Math.abs(rssBefore[RSS_SWAP_INDEX] - lastRss[RSS_SWAP_INDEX]);
                     if (absDelta <= mFullDeltaRssThrottleKb) {
-                        if (DEBUG_COMPACTION) {
+                        if (mDebugCompaction) {
                             Slog.d(TAG_AM,
                                     "Skipping full compaction for process " + name
                                             + "; abs delta is too small: " + absDelta + "KB.");
@@ -1912,7 +2021,7 @@ public final class CachedAppOptimizer {
                     int oomAdjReason;
                     synchronized (mProcLock) {
                         if (mPendingCompactionProcesses.isEmpty()) {
-                            if (DEBUG_COMPACTION) {
+                            if (mDebugCompaction) {
                                 Slog.d(TAG_AM, "No processes pending compaction, bail out");
                             }
                             return;
@@ -1939,7 +2048,7 @@ public final class CachedAppOptimizer {
                     long[] rssBefore;
                     if (pid == 0) {
                         // not a real process, either one being launched or one being killed
-                        if (DEBUG_COMPACTION) {
+                        if (mDebugCompaction) {
                             Slog.d(TAG_AM, "Compaction failed, pid is 0");
                         }
                         ++perSourceStats.mProcCompactionsNoPidThrottled;
@@ -1972,7 +2081,7 @@ public final class CachedAppOptimizer {
                         }
                     } else {
                         rssBefore = mProcessDependencies.getRss(pid);
-                        if (DEBUG_COMPACTION) {
+                        if (mDebugCompaction) {
                             Slog.d(TAG_AM, "Forcing compaction for " + name);
                         }
                     }

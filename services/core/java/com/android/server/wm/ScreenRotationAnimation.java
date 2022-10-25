@@ -43,6 +43,7 @@ import android.hardware.HardwareBuffer;
 import android.os.IBinder;
 import android.os.PowerManager;
 import android.os.Trace;
+import android.util.BoostFramework;
 import android.util.Slog;
 import android.util.proto.ProtoOutputStream;
 import android.view.DisplayAddress;
@@ -94,6 +95,9 @@ import java.io.PrintWriter;
  */
 class ScreenRotationAnimation {
     private static final String TAG = TAG_WITH_CLASS_NAME ? "ScreenRotationAnimation" : TAG_WM;
+
+    private BoostFramework mPerf = null;
+    private boolean mIsPerfLockAcquired = false;
 
     private final Context mContext;
     private final DisplayContent mDisplayContent;
@@ -149,6 +153,8 @@ class ScreenRotationAnimation {
         PowerManager powerManager = (PowerManager)mContext.getSystemService(Context.POWER_SERVICE);
         mWakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "RotationAnimation");
         mWakeLock.setReferenceCounted(false);
+
+        mPerf = new BoostFramework();
 
         // Screenshot does NOT include rotation!
         final DisplayInfo displayInfo = displayContent.getDisplayInfo();
@@ -500,6 +506,10 @@ class ScreenRotationAnimation {
                     finalWidth, finalHeight);
             startAnimation(t, maxAnimationDuration, animationScale, finalWidth, finalHeight,
                     exitAnim, enterAnim);
+            if (mPerf != null && !mIsPerfLockAcquired) {
+                mPerf.perfHint(BoostFramework.VENDOR_HINT_ROTATION_ANIM_BOOST, null);
+                mIsPerfLockAcquired = true;
+            }
         }
         if (!mStarted) {
             return false;
@@ -565,6 +575,11 @@ class ScreenRotationAnimation {
         if (mRotateAlphaAnimation != null) {
             mRotateAlphaAnimation.cancel();
             mRotateAlphaAnimation = null;
+        }
+
+        if (mPerf != null && mIsPerfLockAcquired) {
+            mPerf.perfLockRelease();
+            mIsPerfLockAcquired = false;
         }
     }
 

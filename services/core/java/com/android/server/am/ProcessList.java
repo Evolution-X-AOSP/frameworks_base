@@ -113,6 +113,7 @@ import android.system.OsConstants;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.ArraySet;
+import android.util.BoostFramework;
 import android.util.DebugUtils;
 import android.util.EventLog;
 import android.util.LongSparseArray;
@@ -540,6 +541,11 @@ public final class ProcessList {
     private final int[] mZygoteSigChldMessage = new int[3];
 
     ActivityManagerGlobalLock mProcLock;
+
+    /**
+     * BoostFramework Object
+     */
+    public static BoostFramework mPerfServiceStartHint = new BoostFramework();
 
     private static final String PROPERTY_APPLY_SDK_SANDBOX_NEXT_RESTRICTIONS =
             "apply_sdk_sandbox_next_restrictions";
@@ -2454,6 +2460,16 @@ public final class ProcessList {
             if (bindMountAppStorageDirs) {
                 storageManagerInternal.prepareStorageDirs(userId, pkgDataInfoMap.keySet(),
                         app.processName);
+            }
+            if (mPerfServiceStartHint != null) {
+                if ((hostingRecord.getType() != null)
+                       && (hostingRecord.getType().equals(HostingRecord.HOSTING_TYPE_NEXT_ACTIVITY)
+                               || hostingRecord.getType().equals(HostingRecord.HOSTING_TYPE_NEXT_TOP_ACTIVITY))) {
+                                   //TODO: not acting on pre-activity
+                    if (startResult != null) {
+                        mPerfServiceStartHint.perfHint(BoostFramework.VENDOR_HINT_FIRST_LAUNCH_BOOST, app.processName, startResult.pid, BoostFramework.Launch.TYPE_START_PROC);
+                    }
+                }
             }
             checkSlow(startTime, "startProcess: returned from zygote!");
             return startResult;

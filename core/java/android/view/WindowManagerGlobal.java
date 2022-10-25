@@ -31,6 +31,7 @@ import android.os.ServiceManager;
 import android.os.SystemProperties;
 import android.util.AndroidRuntimeException;
 import android.util.ArraySet;
+import android.util.BoostFramework.ScrollOptimizer;
 import android.util.Log;
 import android.view.inputmethod.InputMethodManager;
 
@@ -368,10 +369,12 @@ public final class WindowManagerGlobal {
                 // The previous removeView() had not completed executing. Now it has.
             }
 
+            boolean isSubWindow = false;
             // If this is a panel window, then find the window it is being
             // attached to for future reference.
             if (wparams.type >= WindowManager.LayoutParams.FIRST_SUB_WINDOW &&
                     wparams.type <= WindowManager.LayoutParams.LAST_SUB_WINDOW) {
+                isSubWindow = true;
                 final int count = mViews.size();
                 for (int i = 0; i < count; i++) {
                     if (mRoots.get(i).mWindow.asBinder() == wparams.token) {
@@ -401,6 +404,19 @@ public final class WindowManagerGlobal {
             }
 
             view.setLayoutParams(wparams);
+
+            int visibleRootCount = 0;
+            if (!isSubWindow) {
+                for (int i = mRoots.size() - 1; i >= 0; --i) {
+                    View root_view = mRoots.get(i).getView();
+                    if (root_view != null && root_view.getVisibility() == View.VISIBLE) {
+                        visibleRootCount++;
+                    }
+                }
+            }
+            if (isSubWindow || visibleRootCount > 1) {
+                ScrollOptimizer.disableOptimizer(true);
+            }
 
             mViews.add(view);
             mRoots.add(root);
@@ -528,6 +544,18 @@ public final class WindowManagerGlobal {
                 final View view = mViews.remove(index);
                 mDyingViews.remove(view);
             }
+
+            int visibleRootCount = 0;
+            for (int i = mRoots.size() - 1; i >= 0; --i) {
+                View root_view = mRoots.get(i).getView();
+                if (root_view != null && root_view.getVisibility() == View.VISIBLE) {
+                    visibleRootCount++;
+                }
+            }
+            if (visibleRootCount == 1) {
+                ScrollOptimizer.disableOptimizer(false);
+            }
+
             allViewsRemoved = mRoots.isEmpty();
         }
 
