@@ -190,7 +190,6 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
         // Tint for the battery icons are handled in setupHost()
         mBatteryRemainingIcon = findViewById(R.id.batteryRemainingIcon);
         mBatteryRemainingIcon.mQS = true;
-        mBatteryRemainingIcon.setOnClickListener(this);
         mBatteryRemainingIcon.setOnLongClickListener(this);
 
         mBatteryIcon = findViewById(R.id.batteryIcon);
@@ -484,10 +483,12 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
             // Animates the icons and battery indicator from alpha 0 to 1, when the chip is visible
             mIconsAlphaAnimator = mIconsAlphaAnimatorFixed;
             mIconsAlphaAnimator.setPosition(mKeyguardExpansionFraction);
+            setBatteryRemainingOnClick(false);
         } else {
             mIconsAlphaAnimator = null;
             mIconContainer.setAlpha(1);
             mBatteryRemainingIcon.setAlpha(1);
+            setBatteryRemainingOnClick(true);
         }
 
     }
@@ -645,6 +646,9 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
 
     public void updateEverything() {
         post(() -> setClickable(!mExpanded));
+        if (mExpanded) {
+            setBatteryRemainingOnClick(true);
+        }
     }
 
     private void setContentMargins(View view, int marginStart, int marginEnd) {
@@ -735,6 +739,18 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
                 break;
             default:
                 break;
+        }
+    }
+
+    private void setBatteryRemainingOnClick(boolean enable) {
+        if (enable) {
+            mBatteryRemainingIcon.setOnClickListener(
+                    v -> mActivityStarter.postStartActivityDismissingKeyguard(
+                            new Intent(Intent.ACTION_POWER_USAGE_SUMMARY), 0));
+            mBatteryRemainingIcon.setClickable(true);
+        } else {
+            mBatteryRemainingIcon.setOnClickListener(null);
+            mBatteryRemainingIcon.setClickable(false);
         }
     }
 }
