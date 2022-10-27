@@ -86,4 +86,7 @@
     <!-- Lyric -->
     <dimen name="lyric_icon_margin_end">4dp</dimen>
     <dimen name="lyric_padding_end">4dp</dimen>
+
+    <!-- Bluetooth dialog -->
+    <dimen name="bluetooth_dialog_active_device_bottom_margin">4dp</dimen>
 </resources>
