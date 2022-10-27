@@ -6632,8 +6632,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             Log.e(TAG, "Error getting AudioService in maybePerformQuickMute.", e);
         }
         TelecomManager telecomManager = getTelecommService();
-        boolean isInCall = (telecomManager != null && telecomManager.isInCall()) ||
-                audioMode == AudioManager.MODE_IN_COMMUNICATION;
+        final boolean isInCall = (telecomManager != null && telecomManager.isInCall()) ||
+                audioMode != AudioManager.MODE_NORMAL;
         if (isInCall) return;
 
         // making sure there are no more volume down presses queued
@@ -6645,6 +6645,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             Log.w(TAG, "maybePerformQuickMute: couldn't get AudioManager reference");
             return;
         }
-        am.adjustVolume(AudioManager.ADJUST_MUTE, AudioManager.FLAG_SHOW_UI);
+        final int mediaStream = AudioManager.STREAM_MUSIC;
+        final int minVol = am.getStreamMinVolumeInt(mediaStream);
+        am.setStreamVolume(mediaStream, minVol, AudioManager.FLAG_SHOW_UI);
     }
 }
