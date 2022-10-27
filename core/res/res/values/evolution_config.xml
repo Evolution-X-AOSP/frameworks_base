@@ -98,9 +98,6 @@
     <string name="config_SmartChargingSuspendValue" translatable="false">0</string>
     <string name="config_SmartChargingResumeValue" translatable="false">1</string>
 
-    <!-- Paths to OP warp charging status file -->
-    <string name="config_opWarpChargerStatusPaths" translatable="false"></string>
-
     <!-- Defines the sysfs attribute path used by pocket bridge
          to communicate pocket state to the pocket judge kernel driver. -->
     <string name="config_pocketBridgeSysfsInpocket"></string>
@@ -114,9 +111,13 @@
 
     <!-- Whether device has dash charging support -->
     <bool name="config_hasDashCharger">false</bool>
+    <!-- Path to dash charging status file -->
+    <string name="config_DashChargerStatusPath" translatable="false">/sys/class/power_supply/battery/fastchg_status</string>
 
     <!-- Whether device has warp charging support -->
     <bool name="config_hasWarpCharger">false</bool>
+    <!-- Path to warp charging status file -->
+    <string name="config_WarpChargerStatusPath" translatable="false">/sys/class/power_supply/battery/fastchg_status</string>
 
     <!-- Whether device has VOOC charging support -->
     <bool name="config_hasVoocCharger">false</bool>

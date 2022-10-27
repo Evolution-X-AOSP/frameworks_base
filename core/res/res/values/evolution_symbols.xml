@@ -85,9 +85,6 @@
     <java-symbol type="string" name="config_SmartChargingSuspendValue" />
     <java-symbol type="string" name="config_SmartChargingResumeValue" />
 
-    <!-- Paths to OP warp charging status file -->
-    <java-symbol type="string" name="config_opWarpChargerStatusPaths" />
-
     <!-- Pocket Lock -->
     <java-symbol type="layout" name="pocket_lock_view" />
 
@@ -101,9 +98,13 @@
 
     <!-- Whether device has dash charging support -->
     <java-symbol type="bool" name="config_hasDashCharger" />
+    <!-- Path to dash charging status file -->
+    <java-symbol type="string" name="config_DashChargerStatusPath" />
 
     <!-- Whether device has warp charging support -->
     <java-symbol type="bool" name="config_hasWarpCharger" />
+    <!-- Paths to warp charging status file -->
+    <java-symbol type="string" name="config_WarpChargerStatusPath" />
 
     <!-- Whether device has VOOC charging support -->
     <java-symbol type="bool" name="config_hasVoocCharger" />
