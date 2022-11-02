@@ -36,4 +36,11 @@
 
     <!-- Name of a font family to use as regular font. For theming purpose. -->
     <string name="config_regularFontFamily" translatable="false">sans-serif-regular</string>
+
+    <!-- The list of package IDs that are allowed to use aux cameras.
+         NOTE: If this list is empty then all apps will be able to use aux cameras. -->
+    <string-array name="config_cameraAuxPackageAllowList" translatable="false" />
+
+    <!-- The list of package IDs that are not allowed to use aux cameras. -->
+    <string-array name="config_cameraAuxPackageExcludeList" translatable="false" />
 </resources>
