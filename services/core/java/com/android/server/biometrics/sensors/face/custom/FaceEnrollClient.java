@@ -26,13 +26,15 @@ import android.view.Surface;
 import com.android.internal.R;
 import com.android.internal.util.custom.faceunlock.IFaceService;
 import com.android.server.biometrics.Utils;
+import com.android.server.biometrics.log.BiometricContext;
+import com.android.server.biometrics.log.BiometricLogger;
 import com.android.server.biometrics.sensors.BiometricUtils;
 import com.android.server.biometrics.sensors.ClientMonitorCallbackConverter;
 import com.android.server.biometrics.sensors.EnrollClient;
-import com.android.server.biometrics.sensors.HalClientMonitor;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.function.Supplier;
 
 class FaceEnrollClient extends EnrollClient<IFaceService> {
     private static final String TAG = "FaceEnrollClient";
@@ -41,8 +43,12 @@ class FaceEnrollClient extends EnrollClient<IFaceService> {
     private final int[] mEnrollIgnoreListVendor = getContext().getResources().getIntArray(R.array.config_face_acquire_vendor_enroll_ignorelist);
     private final Surface mPreviewSurface;
 
-    FaceEnrollClient(Context context, HalClientMonitor.LazyDaemon<IFaceService> lazyDaemon, IBinder token, ClientMonitorCallbackConverter listener, int userId, byte[] hardwareAuthToken, String owner, BiometricUtils<Face> utils, int[] disabledFeatures, int timeoutSec, Surface previewSurface, int sensorId) {
-        super(context, lazyDaemon, token, listener, userId, hardwareAuthToken, owner, utils, timeoutSec, 4, sensorId, false);
+    FaceEnrollClient(Context context, Supplier<IFaceService> lazyDaemon, IBinder token,
+            ClientMonitorCallbackConverter listener, int userId, byte[] hardwareAuthToken, String owner,
+            BiometricUtils<Face> utils, int[] disabledFeatures, int timeoutSec, Surface previewSurface, int sensorId,
+            BiometricLogger logger, BiometricContext biometricContext) {
+        super(context, lazyDaemon, token, listener, userId, hardwareAuthToken, owner, utils, timeoutSec, sensorId,
+                false, logger, biometricContext);
         mDisabledFeatures = Arrays.copyOf(disabledFeatures, disabledFeatures.length);
         mPreviewSurface = previewSurface;
     }

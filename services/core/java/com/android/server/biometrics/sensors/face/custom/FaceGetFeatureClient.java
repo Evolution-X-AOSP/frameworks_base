@@ -21,8 +21,13 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Slog;
 
+import java.util.function.Supplier;
+
 import com.android.internal.util.custom.faceunlock.IFaceService;
+import com.android.server.biometrics.log.BiometricContext;
+import com.android.server.biometrics.log.BiometricLogger;
 import com.android.server.biometrics.sensors.BaseClientMonitor;
+import com.android.server.biometrics.sensors.ClientMonitorCallback;
 import com.android.server.biometrics.sensors.ClientMonitorCallbackConverter;
 import com.android.server.biometrics.sensors.HalClientMonitor;
 
@@ -32,8 +37,10 @@ public class FaceGetFeatureClient extends HalClientMonitor<IFaceService> {
     private final int mFeature;
     private boolean mValue;
 
-    FaceGetFeatureClient(Context context, HalClientMonitor.LazyDaemon<IFaceService> lazyDaemon, IBinder token, ClientMonitorCallbackConverter listener, int userId, String owner, int sensorId, int feature, int faceId) {
-        super(context, lazyDaemon, token, listener, userId, owner, 0, sensorId, 0, 0, 0);
+    FaceGetFeatureClient(Context context, Supplier<IFaceService> lazyDaemon, IBinder token,
+            ClientMonitorCallbackConverter listener, int userId, String owner, int sensorId, BiometricLogger logger,
+            BiometricContext biometricContext, int feature, int faceId) {
+        super(context, lazyDaemon, token, listener, userId, owner, 0, sensorId, logger, biometricContext);
         mFeature = feature;
         mFaceId = faceId;
     }
@@ -50,7 +57,7 @@ public class FaceGetFeatureClient extends HalClientMonitor<IFaceService> {
     }
 
     @Override
-    public void start(BaseClientMonitor.Callback callback) {
+    public void start(ClientMonitorCallback callback) {
         super.start(callback);
         startHalOperation();
     }
