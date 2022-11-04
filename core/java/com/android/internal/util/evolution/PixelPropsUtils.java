@@ -247,11 +247,8 @@ public class PixelPropsUtils {
         propsToChangeMeizu.put("MODEL", "meizu 16th Plus");
     }
 
-    public static void setProps(Context context) {
-        final String packageName = context.getPackageName();
-        final String processName = Application.getProcessName();
-
-        if (TextUtils.isEmpty(packageName) || processName == null) {
+    public static void setProps(String packageName) {
+        if (packageName == null || packageName.isEmpty()) {
             return;
         }
         if (Arrays.asList(packagesToKeep).contains(packageName)) {
@@ -297,6 +294,7 @@ public class PixelPropsUtils {
                 setPropValue(key, value);
             }
             if (packageName.equals("com.google.android.gms")) {
+                final String processName = Application.getProcessName();
                 if (processName.equals("com.google.android.gms.unstable")) {
                     sIsGms = true;
                     spoofBuildGms();
