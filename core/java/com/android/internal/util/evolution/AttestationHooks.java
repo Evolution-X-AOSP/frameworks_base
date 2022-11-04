@@ -21,6 +21,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Build.VERSION;
 import android.os.SystemProperties;
+import android.text.TextUtils;
 import android.util.Log;
 
 import java.lang.reflect.Field;
@@ -115,6 +116,11 @@ public final class AttestationHooks {
     public static void initApplicationBeforeOnCreate(Context context) {
         final String packageName = context.getPackageName();
         final String processName = Application.getProcessName();
+
+        if (TextUtils.isEmpty(packageName) || processName == null) {
+            return;
+        }
+
         if (packageName.equals(PACKAGE_GMS)) {
             if (processName.toLowerCase().contains("unstable")) {
                 sIsGms = true;
