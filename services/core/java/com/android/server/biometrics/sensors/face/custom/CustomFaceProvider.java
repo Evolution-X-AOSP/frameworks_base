@@ -163,7 +163,7 @@ public class CustomFaceProvider implements ServiceProvider {
     }
 
     public CustomFaceProvider(Context context, FaceSensorPropertiesInternal sensorProps, LockoutResetDispatcher lockoutResetDispatcher) {
-        this(context, sensorProps, lockoutResetDispatcher, new BiometricScheduler(TAG, 0, null));
+        this(context, sensorProps, lockoutResetDispatcher, new BiometricScheduler(context, TAG, 0, null));
     }
 
     synchronized IFaceService getDaemon() {
@@ -338,7 +338,7 @@ public class CustomFaceProvider implements ServiceProvider {
     }
 
     @Override
-    public void cancelEnrollment(int sensorId, IBinder token, long requestId) {
+    public void cancelEnrollment(int sensorId, @NonNull IBinder token, long requestId) {
         mHandler.post(() -> mScheduler.cancelEnrollment(token, requestId));
     }
 
