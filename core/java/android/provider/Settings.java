@@ -5810,12 +5810,6 @@ public final class Settings {
         public static final String LOCKSCREEN_ALBUMART_FILTER = "lockscreen_albumart_filter";
 
         /**
-         * Lockscreen album art blur level
-         * @hide
-         */
-        public static final String LS_MEDIA_FILTER_BLUR_RADIUS = "ls_media_filter_blur_radius";
-
-        /**
          * Whether to show QS panel footer warnings like for active VPN
          * @hide
          */
