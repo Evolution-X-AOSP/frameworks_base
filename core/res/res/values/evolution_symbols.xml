@@ -134,4 +134,51 @@
 
     <!-- Whether the device supports Smart Pixels -->
     <java-symbol type="bool" name="config_supportSmartPixels" />
+
+    <!-- More battery styles -->
+    <java-symbol type="string" name="config_batterymeterLandPerimeterPathBuddy" />
+    <java-symbol type="string" name="config_batterymeterLandFillMaskBuddy" />
+    <java-symbol type="string" name="config_batterymeterLandBoltPathBuddy" />
+    <java-symbol type="string" name="config_batterymeterLandPowersavePathBuddy" />
+    <java-symbol type="string" name="config_batterymeterLandErrorPerimeterPathBuddy" />
+    <java-symbol type="string" name="config_batterymeterLandPerimeterPathLine" />
+    <java-symbol type="string" name="config_batterymeterLandFillMaskLine" />
+    <java-symbol type="string" name="config_batterymeterLandBoltPathLine" />
+    <java-symbol type="string" name="config_batterymeterLandPowersavePathLine" />
+    <java-symbol type="string" name="config_batterymeterLandErrorPerimeterPathLine" />
+    <java-symbol type="string" name="config_batterymeterLandPerimeterPathMusku" />
+    <java-symbol type="string" name="config_batterymeterLandFillMaskMusku" />
+    <java-symbol type="string" name="config_batterymeterLandBoltPathMusku" />
+    <java-symbol type="string" name="config_batterymeterLandPowersavePathMusku" />
+    <java-symbol type="string" name="config_batterymeterLandErrorPerimeterPathMusku" />
+    <java-symbol type="string" name="config_batterymeterLandPerimeterPathSignal" />
+    <java-symbol type="string" name="config_batterymeterLandFillMaskSignal" />
+    <java-symbol type="string" name="config_batterymeterLandBoltPathSignal" />
+    <java-symbol type="string" name="config_batterymeterLandPowersavePathSignal" />
+    <java-symbol type="string" name="config_batterymeterLandErrorPerimeterPathSignal" />
+    <java-symbol type="string" name="config_batterymeterLandPerimeterPathPill" />
+    <java-symbol type="string" name="config_batterymeterLandFillMaskPill" />
+    <java-symbol type="string" name="config_batterymeterLandBoltPathPill" />
+    <java-symbol type="string" name="config_batterymeterLandPowersavePathPill" />
+    <java-symbol type="string" name="config_batterymeterLandErrorPerimeterPathPill" />
+    <java-symbol type="string" name="config_batterymeterRLandPerimeterPathStyleA" />
+    <java-symbol type="string" name="config_batterymeterRLandFillMaskStyleA" />
+    <java-symbol type="string" name="config_batterymeterRLandBoltPathStyleA" />
+    <java-symbol type="string" name="config_batterymeterRLandPowersavePathStyleA" />
+    <java-symbol type="string" name="config_batterymeterRLandErrorPerimeterPathStyleA" />
+    <java-symbol type="string" name="config_batterymeterLandPerimeterPathStyleA" />
+    <java-symbol type="string" name="config_batterymeterLandFillMaskStyleA" />
+    <java-symbol type="string" name="config_batterymeterLandBoltPathStyleA" />
+    <java-symbol type="string" name="config_batterymeterLandPowersavePathStyleA" />
+    <java-symbol type="string" name="config_batterymeterLandErrorPerimeterPathStyleA" />
+    <java-symbol type="string" name="config_batterymeterRLandPerimeterPathStyleB" />
+    <java-symbol type="string" name="config_batterymeterRLandFillMaskStyleB" />
+    <java-symbol type="string" name="config_batterymeterRLandBoltPathStyleB" />
+    <java-symbol type="string" name="config_batterymeterRLandPowersavePathStyleB" />
+    <java-symbol type="string" name="config_batterymeterRLandErrorPerimeterPathStyleB" />
+    <java-symbol type="string" name="config_batterymeterLandPerimeterPathStyleB" />
+    <java-symbol type="string" name="config_batterymeterLandFillMaskStyleB" />
+    <java-symbol type="string" name="config_batterymeterLandBoltPathStyleB" />
+    <java-symbol type="string" name="config_batterymeterLandPowersavePathStyleB" />
+    <java-symbol type="string" name="config_batterymeterLandErrorPerimeterPathStyleB" />
 </resources>
