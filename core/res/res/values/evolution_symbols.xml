@@ -260,9 +260,6 @@
     <!-- Whether device supports gestures on fingerprint sensor -->
     <java-symbol type="bool" name="config_supportsGesturesOnFingerprintSensor" />
 
-    <!-- Enable face auth only when swiping security view -->
-    <java-symbol type="bool" name="config_faceAuthOnlyOnSecurityView" />
-
     <!-- Camera -->
     <java-symbol type="array" name="config_cameraAuxPackageAllowList" />
     <java-symbol type="array" name="config_cameraAuxPackageExcludeList" />
