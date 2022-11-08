@@ -73,9 +73,17 @@
 
     <!-- Height of the landscape battery icon in the status bar. -->
     <dimen name="status_bar_battery_icon_height_landscape">10.5dp</dimen>
+    <dimen name="status_bar_battery_icon_height_landscape_signal">21.0dip</dimen>
+    <dimen name="status_bar_battery_icon_height_landscape_line">28.0dip</dimen>
+    <dimen name="status_bar_battery_icon_height_landscape_pill_musku">13dp</dimen>
+    <dimen name="status_bar_battery_icon_height_landscape_buddy">28.0dip</dimen>
 
     <!-- Width of the landscape battery icon in the status bar. -->
     <dimen name="status_bar_battery_icon_width_landscape">20dp</dimen>
+    <dimen name="status_bar_battery_icon_width_landscape_signal">16.0dip</dimen>
+    <dimen name="status_bar_battery_icon_width_landscape_line">22.0dip</dimen>
+    <dimen name="status_bar_battery_icon_width_landscape_pill_musku">13dp</dimen>
+    <dimen name="status_bar_battery_icon_width_landscape_buddy">22.0dip</dimen>
 
     <!-- Additional gesture navbar lengths -->
     <dimen name="navigation_home_handle_width_short">72dp</dimen>
