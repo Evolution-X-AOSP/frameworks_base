@@ -47,7 +47,9 @@
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay impostato in modalità notte.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay impostato in modalità all\'aperto.</string>
     <!-- Cycle through ringer modes -->
-    <string name="volume_dialog_ringer_guidance_normal">La vibrazione sarà attiva per chiamate e notifiche</string>
+    <string name="volume_dialog_ringer_guidance_normal">La suoneria sarà attiva per chiamate e notifiche</string>
     <!-- App lock -->
     <string name="unlock_application">Sblocca <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">Sblocco con il viso disabilitato per inattività</string>
 </resources>
