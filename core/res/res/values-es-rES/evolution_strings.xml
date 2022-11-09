@@ -50,4 +50,6 @@
     <string name="volume_dialog_ringer_guidance_normal">Las llamadas y las notificaciones sonarán</string>
     <!-- App lock -->
     <string name="unlock_application">Desbloquear <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">Desbloqueo facial desactivado debido a inactividad</string>
 </resources>
