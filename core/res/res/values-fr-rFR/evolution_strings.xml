@@ -50,4 +50,6 @@
     <string name="volume_dialog_ringer_guidance_normal">Vibreur activé pour les appels et les notifications</string>
     <!-- App lock -->
     <string name="unlock_application">Déverrouiller <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">Déverrouillage par reconnaissance faciale désactivé en raison de l\'inactivité</string>
 </resources>
