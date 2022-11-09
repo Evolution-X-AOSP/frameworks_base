@@ -32,6 +32,18 @@
     <string name="tristate_refresh_auto">Aggiornamento automatico</string>
     <string name="tristate_refresh_min">Aggiornamento minimo</string>
     <string name="tristate_refresh_max">Aggiornamento massimo</string>
+    <string name="tristate_extradim_off">Attenuazione spenta</string>
+    <string name="tristate_extradim_min">Attenuazione minima</string>
+    <string name="tristate_extradim_mid">Attenuazione media</string>
+    <string name="tristate_extradim_max">Attenuazione massima</string>
+    <string name="tristate_nightlight_off">Luminosità notturna spenta</string>
+    <string name="tristate_nightlight_min">Intensità minima</string>
+    <string name="tristate_nightlight_mid">Intensità media</string>
+    <string name="tristate_nightlight_max">Intensità massima</string>
+    <string name="tristate_colorspace_vivid">Vividi</string>
+    <string name="tristate_colorspace_natural">Naturali</string>
+    <string name="tristate_colorspace_cinematic">Cinematografici</string>
+    <string name="tristate_colorspace_brilliant">Brillanti</string>
     <!-- Name of the nfc status bar icon. -->
     <string name="status_bar_nfc">NFC</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
@@ -144,17 +156,20 @@
     <string name="force_stop_dlg_text">Se forzi l\'interruzione di un\'app, questa potrebbe funzionare in modo anomalo.</string>
     <string name="guts_force_close_app">Chiudi l\'app</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Ricarica Dash (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> fino al completamento)</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Ricarica Dash (<xliff:g id="charging_time_left" example="4 ore e 2 minuti">%1$s</xliff:g> al completamento)</string>
     <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Ricarica Dash</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Ricarica Warp (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> fino al completamento)</string>
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Ricarica Warp (<xliff:g id="charging_time_left" example="4 ore e 2 minuti">%1$s</xliff:g> al completamento)</string>
     <string name="keyguard_plugged_in_warp_charging"><xliff:g id="percentage">%s</xliff:g> • Ricarica Warp</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Ricarica VOOC (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> fino al completamento)</string>
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Ricarica VOOC (<xliff:g id="charging_time_left" example="4 ore e 2 minuti">%1$s</xliff:g> al completamento)</string>
     <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="percentage">%s</xliff:g> • Ricarica VOOC</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Ricarica Turbo (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> fino al completamento)</string>
+    <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Ricarica Turbo (<xliff:g id="charging_time_left" example="4 ore e 2 minuti">%1$s</xliff:g> al completamento)</string>
     <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Ricarica Turbo</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Ricarica SuperDart (<xliff:g id="charging_time_left" example="4 ore e 2 minuti">%1$s</xliff:g> al completamento)</string>
+    <string name="keyguard_plugged_in_superdart_charging"><xliff:g id="percentage">%s</xliff:g> • Ricarica SuperDart</string>
     <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
     <string name="clock">Orologio</string>
     <!-- Screen record -->
@@ -194,4 +209,24 @@
     <string name="quick_settings_onthego_label">On-The-Go</string>
     <!-- CPUInfo tile -->
     <string name="quick_settings_cpuinfo_label">Info CPU</string>
+    <!-- Screenshot Tile -->
+    <string name="screenshot_long_press">Pressione prolungata per screenshot parziale</string>
+    <!-- Bluetooth dialog -->
+    <string name="turn_on_bluetooth">Usa il Bluetooth</string>
+    <string name="bluetooth_is_off">Bluetooth spento</string>
+    <string name="tap_a_device_to_connect">Tocca un dispositivo per connetterti</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Questo lo tiene in vista finché non lo rimuovi. Tocca &amp; tieni premuto Indietro per rimuoverlo.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Per rimuovere questa schermata, tocca &amp; tieni premuto il tasto Indietro</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Questo lo tiene in vista finché non lo rimuovi. Tocca &amp; tieni premuto il sensore di impronte per rimuoverlo.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Per rimuovere questa schermata, tocca &amp; tieni premuto il sensore di impronte</string>
+    <!-- VPN tethering QS tile -->
+    <string name="vpn_tethering_label">Tethering VPN</string>
+    <string name="vpn_tethering_changed_off">Tethering VPN disattivato.</string>
+    <string name="vpn_tethering_changed_on">Tethering VPN attivato.</string>
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">Riconoscimento volto...</string>
 </resources>

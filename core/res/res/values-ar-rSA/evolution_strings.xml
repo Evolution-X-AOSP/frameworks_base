@@ -50,4 +50,6 @@
     <string name="volume_dialog_ringer_guidance_normal">يرن الهاتف عند تلقي المكالمات والإشعارات</string>
     <!-- App lock -->
     <string name="unlock_application">فتح <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">تم تعطيل \"فتح القُفْل بالوجه\" بسبب عدم النشاط</string>
 </resources>

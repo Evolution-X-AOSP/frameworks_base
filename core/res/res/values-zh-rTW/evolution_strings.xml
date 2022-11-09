@@ -50,4 +50,6 @@
     <string name="volume_dialog_ringer_guidance_normal">來電和通知會響起</string>
     <!-- App lock -->
     <string name="unlock_application">解鎖 <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">因為無活動，人臉解鎖已停用</string>
 </resources>

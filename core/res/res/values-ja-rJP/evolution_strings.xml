@@ -50,4 +50,6 @@
     <string name="volume_dialog_ringer_guidance_normal">通話と通知を着信します</string>
     <!-- App lock -->
     <string name="unlock_application"><xliff:g id="label" example="Telegram">%1$s</xliff:g>をロック解除</string>
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">顔認証によるロック解除は無効中です</string>
 </resources>

@@ -32,6 +32,18 @@
     <string name="tristate_refresh_auto">Automatikus frissítés</string>
     <string name="tristate_refresh_min">Minimális frissítés</string>
     <string name="tristate_refresh_max">Maximális frissítés</string>
+    <string name="tristate_extradim_off">Dim kikapcs</string>
+    <string name="tristate_extradim_min">Minimum-Dim</string>
+    <string name="tristate_extradim_mid">Közepes-Dim</string>
+    <string name="tristate_extradim_max">Maximum-Dim</string>
+    <string name="tristate_nightlight_off">Éjszakai fény kikapcs</string>
+    <string name="tristate_nightlight_min">Minimum-Fényhőmérséklet</string>
+    <string name="tristate_nightlight_mid">Közepes-Fényhőmérséklet</string>
+    <string name="tristate_nightlight_max">Maximum-Fényhőmérséklet</string>
+    <string name="tristate_colorspace_vivid">Vivid</string>
+    <string name="tristate_colorspace_natural">Természetes</string>
+    <string name="tristate_colorspace_cinematic">Mozivászon</string>
+    <string name="tristate_colorspace_brilliant">Ragyogó</string>
     <!-- Name of the nfc status bar icon. -->
     <string name="status_bar_nfc">NFC</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
@@ -199,4 +211,22 @@
     <string name="quick_settings_cpuinfo_label">CPU-adatok</string>
     <!-- Screenshot Tile -->
     <string name="screenshot_long_press">Részleges képernyőmentésért nyomja hosszan</string>
+    <!-- Bluetooth dialog -->
+    <string name="turn_on_bluetooth">Bluetooth-használat</string>
+    <string name="bluetooth_is_off">A Bluetooth ki van kapcsolva</string>
+    <string name="tap_a_device_to_connect">A kapcsolódáshoz koppintson a kívánt készülékre</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Megjeleníti mindaddíg, amíg fel nem oldja a rögzítést. A feloldáshoz érintse meg és tartsa lenyomva a Vissza gombot.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">A Képernyőrögzítés feloldásához érintse meg és tartsa nyomva a Vissza gombot</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Mindaddig megjelenítve marad, amíg Ön fel nem oldja a rögzítést. A feloldáshoz tartsa lenyomva az ujjlenyomat-olvasót.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">A Képernyőrögzítés feloldásához érintse meg és tartsa nyomva az ujjlenyomat-olvasót</string>
+    <!-- VPN tethering QS tile -->
+    <string name="vpn_tethering_label">VPN-megosztás</string>
+    <string name="vpn_tethering_changed_off">A VPN-megosztás kikapcsolva.</string>
+    <string name="vpn_tethering_changed_on">A VPN-megosztás bekapcsolva.</string>
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">Arcfelismerés...</string>
 </resources>
