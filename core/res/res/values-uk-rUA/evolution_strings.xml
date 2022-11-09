@@ -50,4 +50,6 @@
     <string name="volume_dialog_ringer_guidance_normal">Звуковий сигнал для викликів і сповіщень увімкнено</string>
     <!-- App lock -->
     <string name="unlock_application">Розблокувати <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">Розблокування за обличчю вимкнено через неактивність</string>
 </resources>
