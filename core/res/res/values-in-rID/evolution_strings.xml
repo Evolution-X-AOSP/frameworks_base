@@ -50,4 +50,6 @@
     <string name="volume_dialog_ringer_guidance_normal">Panggilan dan notifikasi akan berdering</string>
     <!-- App lock -->
     <string name="unlock_application">Buka <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">Face unlock dinonaktifkan karena tidak aktif</string>
 </resources>

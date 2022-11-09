@@ -46,4 +46,6 @@
     <string name="volume_dialog_ringer_guidance_normal">Hovory a upozornenia budú zvoniť</string>
     <!-- App lock -->
     <string name="unlock_application">Odomknúť <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">Odomknutie tvárou je vypnuté z dôvodu nečinnosti</string>
 </resources>

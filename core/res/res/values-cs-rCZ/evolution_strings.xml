@@ -50,4 +50,6 @@
     <string name="volume_dialog_ringer_guidance_normal">Volání a oznámení budou vyzvánět</string>
     <!-- App lock -->
     <string name="unlock_application">Odemknout <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">Odemknutí obličejem vypnuto z důvodu nečinnosti</string>
 </resources>
