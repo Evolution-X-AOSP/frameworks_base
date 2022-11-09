@@ -50,4 +50,6 @@
     <string name="volume_dialog_ringer_guidance_normal">Apelurile și notificările vor suna</string>
     <!-- App lock -->
     <string name="unlock_application">Deblocare <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">Deblocarea facială a fost dezactivată din cauza inactivității</string>
 </resources>
