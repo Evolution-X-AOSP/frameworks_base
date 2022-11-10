@@ -52,10 +52,10 @@ public class SliderQSTileViewImpl extends QSTileViewImpl {
 
     public SliderQSTileViewImpl(Context context, QSIconView icon, boolean collapsed, View.OnTouchListener touchListener, String settingKey) {
         super(context, icon, collapsed);
+        mSettingsKey = settingKey;
         percentageDrawable = new PercentageDrawable();
         percentageDrawable.setAlpha(64);
         updatePercentBackground(false /* default */);
-        mSettingsKey = settingKey;
         mSettingObserver = new SettingObserver(new Handler(Looper.getMainLooper()));
         setOnTouchListener(touchListener);
         mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(settingKey), false, mSettingObserver, UserHandle.USER_CURRENT);
@@ -100,7 +100,7 @@ public class SliderQSTileViewImpl extends QSTileViewImpl {
 
         @Override
         public void setBounds(Rect bounds) {
-			shape.setBounds(bounds);
+            shape.setBounds(bounds);
         }
 
         @Override
@@ -110,7 +110,6 @@ public class SliderQSTileViewImpl extends QSTileViewImpl {
 
         @Override
         public void draw(@NonNull Canvas canvas) {
-            android.util.Log.d("PercentageDrawable", "mCurrentPercent: " + mCurrentPercent);
             Bitmap bitmap = Bitmap.createBitmap(Math.round(shape.getBounds().width() * mCurrentPercent), shape.getBounds().height(), Bitmap.Config.ARGB_8888);
             Canvas tempCanvas = new Canvas(bitmap);
             shape.draw(tempCanvas);
