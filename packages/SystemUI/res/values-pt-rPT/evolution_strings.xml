@@ -32,6 +32,18 @@
     <string name="tristate_refresh_auto">Atualização automática</string>
     <string name="tristate_refresh_min">Atualização mínima</string>
     <string name="tristate_refresh_max">Atualização máxima</string>
+    <string name="tristate_extradim_off">Escurecimento desligado</string>
+    <string name="tristate_extradim_min">Escurecimento mínimo</string>
+    <string name="tristate_extradim_mid">Escurecimento médio</string>
+    <string name="tristate_extradim_max">Escurecimento máximo</string>
+    <string name="tristate_nightlight_off">Luz noturna desligada</string>
+    <string name="tristate_nightlight_min">Temperatura mínima</string>
+    <string name="tristate_nightlight_mid">Temperatura média</string>
+    <string name="tristate_nightlight_max">Temperatura máxima</string>
+    <string name="tristate_colorspace_vivid">Vívido</string>
+    <string name="tristate_colorspace_natural">Natural</string>
+    <string name="tristate_colorspace_cinematic">Cinematográfico</string>
+    <string name="tristate_colorspace_brilliant">Brilhante</string>
     <!-- Name of the nfc status bar icon. -->
     <string name="status_bar_nfc">NFC</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
@@ -144,10 +156,10 @@
     <string name="force_stop_dlg_text">Se forçar a paragem de uma aplicação, esta pode não funcionar corretamente.</string>
     <string name="guts_force_close_app">Fechar aplicação</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento rápido (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g>até estar carregado)</string>
-    <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Carregamento rápido</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento Dash (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até estar carregado)</string>
+    <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Carregamento Dash</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento warp (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g>até estar carregado)</string>
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento Warp (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até estar carregado)</string>
     <string name="keyguard_plugged_in_warp_charging"><xliff:g id="percentage">%s</xliff:g> • Carregamento warp</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento VOOC (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até estar carregado)</string>
@@ -155,6 +167,9 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g>• Carregamento Turbo (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até estar carregado)</string>
     <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Carregamento turbo</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento SuperDart (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até estar carregado)</string>
+    <string name="keyguard_plugged_in_superdart_charging"><xliff:g id="percentage">%s</xliff:g> • Carregamento SuperDart</string>
     <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
     <string name="clock">Relógio</string>
     <!-- Screen record -->
@@ -194,4 +209,24 @@
     <string name="quick_settings_onthego_label">Modo On-The-Go</string>
     <!-- CPUInfo tile -->
     <string name="quick_settings_cpuinfo_label">Info. da CPU</string>
+    <!-- Screenshot Tile -->
+    <string name="screenshot_long_press">Toque longo para captura de ecrã parcial</string>
+    <!-- Bluetooth dialog -->
+    <string name="turn_on_bluetooth">Usar Bluetooth</string>
+    <string name="bluetooth_is_off">Bluetooth está desligado</string>
+    <string name="tap_a_device_to_connect">Toque num dispositivo para conectar</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Vai ficar visível até o soltar. Prima e segure Voltar para soltar.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Para soltar este ecrã, prima e segure o botão Voltar</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Vai ficar visível até o soltar. Prima e segure o sensor de impressão digital para soltar.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Para soltar este ecrã, prima e segure o sensor de impressão digital</string>
+    <!-- VPN tethering QS tile -->
+    <string name="vpn_tethering_label">Partilha de conexão VPN</string>
+    <string name="vpn_tethering_changed_off">Partilha de conexão VPN desativada.</string>
+    <string name="vpn_tethering_changed_on">Partilha de conexão VPN ativada.</string>
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">A fazer o reconhecimento de rosto...</string>
 </resources>
