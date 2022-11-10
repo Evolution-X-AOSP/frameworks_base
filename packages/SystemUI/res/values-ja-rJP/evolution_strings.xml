@@ -32,6 +32,18 @@
     <string name="tristate_refresh_auto">自動リフレッシュレート</string>
     <string name="tristate_refresh_min">最小リフレッシュレート</string>
     <string name="tristate_refresh_max">最大リフレッシュレート</string>
+    <string name="tristate_extradim_off">暗画面 OFF</string>
+    <string name="tristate_extradim_min">低暗画面</string>
+    <string name="tristate_extradim_mid">中暗画面</string>
+    <string name="tristate_extradim_max">高暗画面</string>
+    <string name="tristate_nightlight_off">ナイトライト OFF</string>
+    <string name="tristate_nightlight_min">低色温度</string>
+    <string name="tristate_nightlight_mid">中色温度</string>
+    <string name="tristate_nightlight_max">高色温度</string>
+    <string name="tristate_colorspace_vivid">ビビッド</string>
+    <string name="tristate_colorspace_natural">ナチュラル</string>
+    <string name="tristate_colorspace_cinematic">シネマ</string>
+    <string name="tristate_colorspace_brilliant">ブリリアント</string>
     <!-- Name of the nfc status bar icon. -->
     <string name="status_bar_nfc">NFC</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
@@ -199,4 +211,22 @@
     <string name="quick_settings_cpuinfo_label">CPU 情報</string>
     <!-- Screenshot Tile -->
     <string name="screenshot_long_press">長押しで部分撮影</string>
+    <!-- Bluetooth dialog -->
+    <string name="turn_on_bluetooth">Bluetooth を使用</string>
+    <string name="bluetooth_is_off">Bluetooth は OFF です</string>
+    <string name="tap_a_device_to_connect">端末をタップして接続</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">固定を解除するまで表示されます。戻るを押し続けると解除されます。</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">画面の固定を解除するには戻るボタンを長押しします</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">解除するまで画面を固定します。解除するには指紋センサーを押します。</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">画面の固定を解除するには指紋センサーを長押しします</string>
+    <!-- VPN tethering QS tile -->
+    <string name="vpn_tethering_label">VPN テザリング</string>
+    <string name="vpn_tethering_changed_off">VPN テザリングを OFF にしました.</string>
+    <string name="vpn_tethering_changed_on">VPN テザリングを ON にしました.</string>
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">顔を認識中...</string>
 </resources>
