@@ -6097,21 +6097,6 @@ public final class Settings {
         public static final String HARDWARE_KEYS_DISABLE = "hardware_keys_disable";
 
         /**
-         * Whether volume button music control is enabled.
-         * Default 0.
-         * @hide
-         */
-        @Readable
-        public static final String VOLUME_BUTTON_MUSIC_CONTROL = "volume_button_music_control";
-
-        /**
-         * Time required for volume button music control to be pressed
-         * @hide
-         */
-        @Readable
-        public static final String VOLUME_BUTTON_MUSIC_CONTROL_DELAY = "volume_button_music_control_delay";
-
-        /**
          * Whether to show the battery info on the lockscreen while charging
          * @hide
          */
@@ -6389,14 +6374,6 @@ public final class Settings {
          * @hide
          */
         public static final String ALERT_SLIDER_PULSE = "alert_slider_pulse";
-
-        /**
-         * Gesture navbar IME space.
-         * Supported modes: 0 for normal length, 1 for narrow and 2 for hidden.
-         * Default 0.
-         * @hide
-         */
-        public static final String NAVIGATION_BAR_IME_SPACE = "navigation_bar_ime_space";
 
         /** @hide */
         public static final String BACK_GESTURE_HEIGHT = "back_gesture_height";

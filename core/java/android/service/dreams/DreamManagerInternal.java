@@ -59,9 +59,4 @@ public abstract class DreamManagerInternal {
      *             active dream component.
      */
     public abstract ComponentName getActiveDreamComponent(boolean doze);
-
-    /**
-     * Called by the power manager to determine whether the dream has gone to doze mode.
-     */
-    public abstract boolean isDozing();
 }

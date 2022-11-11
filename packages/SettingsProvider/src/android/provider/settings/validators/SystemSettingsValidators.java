@@ -280,8 +280,6 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.EDGE_LIGHT_REPEAT_ANIMATION, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.EDGE_LIGHT_COLOR_MODE, new InclusiveIntegerRangeValidator(0, 3));
         VALIDATORS.put(System.EDGE_LIGHT_CUSTOM_COLOR, NON_EMPTY_HEX_COLOR_VALIDATOR);
-        VALIDATORS.put(System.VOLUME_BUTTON_MUSIC_CONTROL, BOOLEAN_VALIDATOR);
-        VALIDATORS.put(System.VOLUME_BUTTON_MUSIC_CONTROL_DELAY, NON_NEGATIVE_INTEGER_VALIDATOR);
         VALIDATORS.put(System.SENSOR_BLOCK, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.VOLUME_KEY_CURSOR_CONTROL, new InclusiveIntegerRangeValidator(0, 2));
         VALIDATORS.put(System.ENABLE_FLOATING_ROTATION_BUTTON, BOOLEAN_VALIDATOR);
@@ -307,6 +305,5 @@ public class SystemSettingsValidators {
                         return true;
                     }
                 });
-
     }
 }
