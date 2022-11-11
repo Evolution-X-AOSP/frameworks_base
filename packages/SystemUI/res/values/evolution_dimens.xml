@@ -104,9 +104,6 @@
     <!-- Maximum vertical offset of statusbar for burn-in protection -->
     <dimen name="status_bar_offset_max_y">4dp</dimen>
 
-    <!-- Bluetooth dialog -->
-    <dimen name="bluetooth_dialog_active_device_bottom_margin">4dp</dimen>
-
     <!-- More battery styles -->
     <dimen name="status_bar_battery_icon_height_landscape_signal">21.0dip</dimen>
     <dimen name="status_bar_battery_icon_width_landscape_signal">16.0dip</dimen>
