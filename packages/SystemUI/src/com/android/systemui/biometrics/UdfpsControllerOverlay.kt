@@ -111,10 +111,9 @@ class UdfpsControllerOverlay(
         accessibilityTitle = " "
     }
 
-    fun updateDimAmount(newDimAmount: Float): Float {
+    fun updateDimAmount(newDimAmount: Float) {
         coreLayoutParams.dimAmount = newDimAmount
         windowManager.updateViewLayout(overlayView, coreLayoutParams)
-        return newDimAmount
     }
 
     /** A helper if the [requestReason] was due to enrollment. */
