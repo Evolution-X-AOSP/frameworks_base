@@ -152,10 +152,9 @@ class UdfpsControllerOverlay @JvmOverloads constructor(
         inputFeatures = WindowManager.LayoutParams.INPUT_FEATURE_SPY
     }
 
-    fun updateDimAmount(newDimAmount: Float): Float {
+    fun updateDimAmount(newDimAmount: Float) {
         coreLayoutParams.dimAmount = newDimAmount
         windowManager.updateViewLayout(overlayView, coreLayoutParams)
-        return newDimAmount
     }
 
     /** If the overlay is currently showing. */
