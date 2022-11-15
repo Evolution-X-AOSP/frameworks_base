@@ -38,9 +38,9 @@ import android.hardware.display.AmbientDisplayConfiguration;
 import android.hardware.display.ColorDisplayManager;
 import android.hardware.display.DisplayManager;
 import android.hardware.fingerprint.FingerprintManager;
+import android.hardware.fingerprint.FingerprintSensorPropertiesInternal;
 import android.hardware.fingerprint.IUdfpsOverlayController;
 import android.hardware.fingerprint.IUdfpsOverlayControllerCallback;
-import android.hardware.fingerprint.FingerprintSensorPropertiesInternal;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.PowerManager;
@@ -67,7 +67,6 @@ import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.systemui.R;
 import com.android.systemui.animation.ActivityLaunchAnimator;
 import com.android.systemui.biometrics.dagger.BiometricsBackground;
-import com.android.systemui.biometrics.UdfpsControllerOverlay;
 import com.android.systemui.dagger.SysUISingleton;
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.doze.DozeReceiver;
@@ -87,8 +86,6 @@ import com.android.systemui.util.concurrency.DelayableExecutor;
 import com.android.systemui.util.concurrency.Execution;
 import com.android.systemui.util.settings.SecureSettings;
 import com.android.systemui.util.time.SystemClock;
-
-import com.android.systemui.R;
 
 import java.util.HashSet;
 import java.util.Optional;
@@ -118,8 +115,6 @@ public class UdfpsController implements DozeReceiver {
 
     // Minimum required delay between consecutive touch logs in milliseconds.
     private static final long MIN_TOUCH_LOG_INTERVAL = 50;
-
-    private static final String PULSE_ACTION = "com.android.systemui.doze.pulse";
 
     private final Context mContext;
     private final Execution mExecution;
@@ -157,6 +152,7 @@ public class UdfpsController implements DozeReceiver {
     // TODO(b/229290039): UDFPS controller should manage its dimensions on its own. Remove this.
     @Nullable private Runnable mAuthControllerUpdateUdfpsLocation;
     @Nullable private final AlternateUdfpsTouchProvider mAlternateTouchProvider;
+
     @VisibleForTesting final FingerprintSensorPropertiesInternal mSensorProps;
     // Tracks the velocity of a touch to help filter out the touches that move too fast.
     @Nullable private VelocityTracker mVelocityTracker;
@@ -188,7 +184,7 @@ public class UdfpsController implements DozeReceiver {
 
     private final AmbientDisplayConfiguration mAmbientDisplayConfiguration;
     private final SecureSettings mSecureSettings;
-    private boolean mScreenOffUdfpsEnabled;
+    private boolean mScreenOffUdfps;
 
     private boolean mDisableNightMode;
     private boolean mNightModeActive;
@@ -295,17 +291,12 @@ public class UdfpsController implements DozeReceiver {
                 final boolean isAodEnabled = mAmbientDisplayConfiguration.alwaysOnEnabled(UserHandle.USER_CURRENT);
                 final boolean isShowingAmbientDisplay = mStatusBarStateController.isDozing() && mScreenOn;
 
-                if (acquiredVendor && ((mScreenOffUdfpsEnabled && !mScreenOn) || (isAodEnabled && isShowingAmbientDisplay))) {
+                if (acquiredVendor && ((mScreenOffUdfps && !mScreenOn) || (isAodEnabled && isShowingAmbientDisplay))) {
                     if (vendorCode == mUdfpsVendorCode) {
-                        if (mContext.getResources().getBoolean(R.bool.config_pulseOnFingerDown)) {
-                            mContext.sendBroadcastAsUser(
-                                    new Intent(PULSE_ACTION), new UserHandle(UserHandle.USER_CURRENT));
-                        } else {
-                            mPowerManager.wakeUp(mSystemClock.uptimeMillis(),
-                                    PowerManager.WAKE_REASON_GESTURE, TAG);
-                        }
+                        mPowerManager.wakeUp(mSystemClock.uptimeMillis(),
+                                PowerManager.WAKE_REASON_GESTURE, TAG);
+                        onAodInterrupt(0, 0, 0, 0);
                     }
-                    onAodInterrupt(0, 0, 0, 0);
                 }
             }
         }
@@ -670,8 +661,8 @@ public class UdfpsController implements DozeReceiver {
             @NonNull LatencyTracker latencyTracker,
             @NonNull ActivityLaunchAnimator activityLaunchAnimator,
             @NonNull Optional<AlternateUdfpsTouchProvider> aternateTouchProvider,
-            @NonNull SecureSettings secureSettings,
-            @BiometricsBackground Executor biometricsExecutor) {
+            @BiometricsBackground Executor biometricsExecutor,
+            @NonNull SecureSettings secureSettings) {
         mContext = context;
         mExecution = execution;
         mVibrator = vibrator;
@@ -727,7 +718,8 @@ public class UdfpsController implements DozeReceiver {
         udfpsHapticsSimulator.setUdfpsController(this);
         udfpsShell.setUdfpsOverlayController(mUdfpsOverlayController);
         mDisableNightMode = UdfpsUtils.hasUdfpsSupport(mContext);
-        mUdfpsVendorCode = context.getResources().getInteger(R.integer.config_udfpsVendorCode);
+        mUdfpsVendorCode = mContext.getResources().getInteger(R.integer.config_udfpsVendorCode);
+
         mAmbientDisplayConfiguration = new AmbientDisplayConfiguration(mContext);
         mSecureSettings = secureSettings;
         updateScreenOffUdfpsState();
@@ -749,7 +741,7 @@ public class UdfpsController implements DozeReceiver {
     private void updateScreenOffUdfpsState() {
         boolean isSupported = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_supportsScreenOffUdfps);
-        mScreenOffUdfpsEnabled = isSupported && mSecureSettings.getInt(Settings.Secure.SCREEN_OFF_UDFPS_ENABLED, 0) == 1;
+        mScreenOffUdfps = isSupported && mSecureSettings.getInt(Settings.Secure.SCREEN_OFF_UDFPS_ENABLED, 0) == 1;
     }
 
     private void disableNightMode() {

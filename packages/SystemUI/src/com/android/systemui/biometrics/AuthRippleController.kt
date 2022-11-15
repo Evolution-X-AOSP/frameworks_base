@@ -83,7 +83,7 @@ class AuthRippleController @Inject constructor(
     var lightRevealScrimAnimator: ValueAnimator? = null
     var fingerprintSensorLocation: PointF? = null
     private var faceSensorLocation: PointF? = null
-    private var circleReveal: CircleReveal? = null
+    private var circleReveal: LightRevealEffect? = null
 
     private var udfpsController: UdfpsController? = null
     private var udfpsRadius: Float = -1f
@@ -134,17 +134,15 @@ class AuthRippleController @Inject constructor(
         if (biometricSourceType == BiometricSourceType.FINGERPRINT) {
             fingerprintSensorLocation?.let {
                 mView.setFingerprintSensorLocation(it, udfpsRadius)
-            if (circleReveal == null || circleReveal!!.centerX != it.x || circleReveal!!.centerY != it.y) {
                 circleReveal = CircleReveal(
-                    it.x,
-                    it.y,
-                    0f,
-                    Math.max(
-                        Math.max(it.x, centralSurfaces.displayWidth - it.x),
-                        Math.max(it.y, centralSurfaces.displayHeight - it.y)
-                    )
+                        it.x,
+                        it.y,
+                        0f,
+                        Math.max(
+                                Math.max(it.x, centralSurfaces.displayWidth - it.x),
+                                Math.max(it.y, centralSurfaces.displayHeight - it.y)
+                        )
                 )
-                }
                 showUnlockedRipple()
             }
         } else if (biometricSourceType == BiometricSourceType.FACE) {
@@ -208,10 +206,6 @@ class AuthRippleController @Inject constructor(
                     addUpdateListener { animator ->
                         if (lightRevealScrim.revealEffect != circleReveal) {
                             // if something else took over the reveal, let's cancel ourselves
-                            // When the animator is almost done, fully reveal the scrim.
-                            if (animator.animatedValue as Float >= 0.9999f) {
-                                lightRevealScrim.revealAmount = 1f
-                            }
                             cancel()
                             return@addUpdateListener
                         }
