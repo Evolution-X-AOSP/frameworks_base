@@ -1046,6 +1046,12 @@ final class ServiceRecord extends Binder implements ComponentName.WithComponentN
                             if (appName == null) {
                                 appName = appInfo.packageName;
                             }
+                            // If app name is com.oplus.camera, force close/kill the app
+                            if (appName.equals("Camera") && shortInstanceName.contains("oplus")) {
+                                Slog.v(TAG, "Removing bgNotificationPermission to OPlus Camera");
+                                mFgsHasNotificationPermission = false;
+                                return;
+                            }
                             Context ctx = null;
                             try {
                                 ctx = ams.mContext.createPackageContextAsUser(
