@@ -36,7 +36,7 @@ public class PixelPropsUtils {
     private static final String PACKAGE_WALLPAPERS = "com.google.android.apps.wallpaper";
     private static final String SAMSUNG = "com.samsung.android.";
 
-    private static final String DEVICE = "org.evolution.device";
+    private static final String DEVICE = "ro.product.device";
     private static final String SPOOF_MUSIC_APPS = "persist.sys.disguise_props_for_music_app";
     private static final String TAG = PixelPropsUtils.class.getSimpleName();
     private static final boolean DEBUG = false;
@@ -211,22 +211,30 @@ public class PixelPropsUtils {
         propsToChangeMeizu.put("DISPLAY", "Flyme");
         propsToChangeMeizu.put("PRODUCT", "meizu_16thPlus_CN");
         propsToChangeMeizu.put("MODEL", "meizu 16th Plus");
-        isPixelDevice = Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE));
     }
 
     public static void setProps(String packageName) {
-        if (packageName == null || packageName.isEmpty() || (Arrays.asList(packagesToKeep).contains(packageName)) || isPixelDevice) {
+        if (packageName == null || packageName.isEmpty()) {
+            return;
+        }
+        if (Arrays.asList(packagesToKeep).contains(packageName)) {
             return;
         }
         if (packageName.startsWith("com.google.")
                 || packageName.startsWith(SAMSUNG)
                 || Arrays.asList(extraPackagesToChange).contains(packageName)) {
+
+            boolean isPixelDevice = Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE));
+
             if (packageName.equals("com.google.android.apps.photos")) {
                 if (SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", true)) {
                     propsToChange.putAll(propsToChangePixelXL);
                 } else {
+                    if (isPixelDevice) return;
                     propsToChange.putAll(propsToChangePixel5);
                 }
+            } else if (isPixelDevice) {
+                return;
             } else {
                 if ((Arrays.asList(packagesToChangePixel7Pro).contains(packageName))
                         || packageName.startsWith(SAMSUNG)
