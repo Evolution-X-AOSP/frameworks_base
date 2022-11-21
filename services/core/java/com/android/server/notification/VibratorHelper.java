@@ -28,6 +28,7 @@ import android.os.Process;
 import android.os.VibrationAttributes;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.provider.Settings;
 import android.util.Slog;
 
 import com.android.internal.R;
@@ -45,9 +46,15 @@ public final class VibratorHelper {
     private static final long[] DEFAULT_VIBRATE_PATTERN = {0, 250, 250, 250};
     private static final int VIBRATE_PATTERN_MAXLEN = 8 * 2 + 1; // up to eight bumps
 
+    private static final long[] DZZZ_DA_VIBRATION_PATTERN = {0, 500, 200, 70, 720};
+    private static final long[] MM_MM_MM_VIBRATION_PATTERN = {0, 300, 400, 300, 400, 300, 1400};
+    private static final long[] DA_DA_DZZZ_VIBRATION_PATTERN = {0, 70, 80, 70, 180, 600, 1050};
+    private static final long[] DA_DZZZ_DA_VIBRATION_PATTERN = {0, 80, 200, 600, 150, 60, 1050};
+
     private final Vibrator mVibrator;
     private final long[] mDefaultPattern;
     private final long[] mFallbackPattern;
+    @Nullable private final long[] mCustomPattern;
     @Nullable private final float[] mDefaultPwlePattern;
     @Nullable private final float[] mFallbackPwlePattern;
 
@@ -65,6 +72,50 @@ public final class VibratorHelper {
                 com.android.internal.R.array.config_defaultNotificationVibeWaveform);
         mFallbackPwlePattern = getFloatArray(context.getResources(),
                 com.android.internal.R.array.config_notificationFallbackVibeWaveform);
+
+        final int value = Settings.System.getInt(context.getContentResolver(),
+                Settings.System.NOTIFICATION_VIBRATION_PATTERN, 0);
+        switch (value) {
+            default:
+            case 0:
+                mCustomPattern = null;
+                break;
+            case 1:
+                mCustomPattern = DZZZ_DA_VIBRATION_PATTERN;
+                break;
+            case 2:
+                mCustomPattern = MM_MM_MM_VIBRATION_PATTERN;
+                break;
+            case 3:
+                mCustomPattern = DA_DA_DZZZ_VIBRATION_PATTERN;
+                break;
+            case 4:
+                mCustomPattern = DA_DZZZ_DA_VIBRATION_PATTERN;
+                break;
+            case 5:
+                String customVibValue = Settings.System.getString(
+                        context.getContentResolver(),
+                        Settings.System.CUSTOM_NOTIFICATION_VIBRATION_PATTERN);
+                String[] customVib = new String[3];
+                if (customVibValue != null && !customVibValue.equals("")) {
+                    customVib = customVibValue.split(",", 3);
+                } else { // If no value - use default
+                    customVib[0] = "80";
+                    customVib[1] = "40";
+                    customVib[2] = "0";
+                }
+                long[] vibPattern = {
+                    0, // No delay before starting
+                    Long.parseLong(customVib[0]), // How long to vibrate
+                    120, // Delay
+                    Long.parseLong(customVib[1]), // How long to vibrate
+                    120, // Delay
+                    Long.parseLong(customVib[2]), // How long to vibrate
+                    120, // How long to wait before vibrating again
+                };
+                mCustomPattern = vibPattern;
+                break;
+        }
     }
 
     /**
@@ -173,13 +224,14 @@ public final class VibratorHelper {
      * @param insistent {@code true} if the vibration should loop until it is cancelled.
      */
     public VibrationEffect createDefaultVibration(boolean insistent) {
-        if (mVibrator.hasFrequencyControl()) {
+        final boolean hasCustom = mCustomPattern != null;
+        if (mVibrator.hasFrequencyControl() && !hasCustom) {
             VibrationEffect effect = createPwleWaveformVibration(mDefaultPwlePattern, insistent);
             if (effect != null) {
                 return effect;
             }
         }
-        return createWaveformVibration(mDefaultPattern, insistent);
+        return createWaveformVibration(hasCustom ? mCustomPattern : mDefaultPattern, insistent);
     }
 
     @Nullable
