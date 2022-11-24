@@ -230,5 +230,6 @@ public class SecureSettings {
         Settings.Secure.QUICK_SETTINGS_TILES_ANIM_INTERPOLATOR,
         Settings.Secure.IGNORE_AUTH_CONFIRMATION,
         Settings.Secure.SHOW_WIFI_STANDARD_ICON,
+        Settings.Secure.NFC_SOUNDS,
     };
 }
