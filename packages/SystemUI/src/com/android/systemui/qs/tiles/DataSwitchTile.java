@@ -65,7 +65,7 @@ public class DataSwitchTile extends QSTileImpl<BooleanState> {
         }
 
         public void onCallStateChanged(int state, String arg1) {
-            mCanSwitch = mTelephonyManager.getCallState() == 0;
+            mCanSwitch = mTelephonyManager.getCallState() == TelephonyManager.CALL_STATE_IDLE;
             refreshState();
         }
     }
@@ -189,12 +189,18 @@ public class DataSwitchTile extends QSTileImpl<BooleanState> {
                 state.icon = ResourceIcon.get(activeSIMZero
                         ? R.drawable.ic_qs_data_switch_1
                         : R.drawable.ic_qs_data_switch_2);
+                state.secondaryLabel = mContext.getString(
+                        activeSIMZero ? R.string.qs_data_switch_text_1
+                                      : R.string.qs_data_switch_text_2);
                 state.value = false;
                 break;
             case 2:
                 state.icon = ResourceIcon.get(activeSIMZero
                         ? R.drawable.ic_qs_data_switch_1
                         : R.drawable.ic_qs_data_switch_2);
+                state.secondaryLabel = mContext.getString(
+                        activeSIMZero ? R.string.qs_data_switch_text_1
+                                      : R.string.qs_data_switch_text_2);
                 state.value = true;
                 break;
             default:
