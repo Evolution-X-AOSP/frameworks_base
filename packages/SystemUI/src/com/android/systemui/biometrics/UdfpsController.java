@@ -888,20 +888,26 @@ public class UdfpsController implements DozeReceiver {
 
         // TODO(b/225068271): this may not be correct but there isn't a way to track it
         final long requestId = mOverlay != null ? mOverlay.getRequestId() : -1;
-        mAodInterruptRunnable = () -> {
-            mIsAodInterruptActive = true;
-            // Since the sensor that triggers the AOD interrupt doesn't provide
-            // ACTION_UP/ACTION_CANCEL,  we need to be careful about not letting the screen
-            // accidentally remain in high brightness mode. As a mitigation, queue a call to
-            // cancel the fingerprint scan.
-            mCancelAodTimeoutAction = mFgExecutor.executeDelayed(this::onCancelUdfps,
-                    AOD_INTERRUPT_TIMEOUT_MILLIS);
-            // using a hard-coded value for major and minor until it is available from the sensor
-            onFingerDown(requestId, screenX, screenY, minor, major);
+        Handler mainHandler = new Handler(mContext.getMainLooper());
+        final UdfpsController thisInstance = this;
+
+        Runnable mAodInterruptRunnable = new Runnable() {
+            @Override
+            public void run() {
+                mIsAodInterruptActive = true;
+                    // Since the sensor that triggers the AOD interrupt doesn't provide
+                    // ACTION_UP/ACTION_CANCEL,  we need to be careful about not letting the screen
+                    // accidentally remain in high brightness mode. As a mitigation, queue a call to
+                    // cancel the fingerprint scan.
+                    mCancelAodTimeoutAction = mFgExecutor.executeDelayed(thisInstance::onCancelUdfps,
+                            AOD_INTERRUPT_TIMEOUT_MILLIS);
+                    // using a hard-coded value for major and minor until it is available from the sensor
+                    onFingerDown(requestId, screenX, screenY, minor, major);
+            }
         };
 
         if (mScreenOn) {
-            mAodInterruptRunnable.run();
+            mainHandler.post(mAodInterruptRunnable);
             mAodInterruptRunnable = null;
         }
     }
