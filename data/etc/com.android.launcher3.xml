@@ -29,5 +29,6 @@
         <permission name="android.permission.REGISTER_STATS_PULL_ATOM" />
         <permission name="android.permission.DEVICE_POWER" />
         <permission name="android.permission.FORCE_STOP_PACKAGES" />
+        <permission name="android.permission.MANAGE_PARALLEL_SPACES" />
     </privapp-permissions>
 </permissions>
