@@ -6914,6 +6914,12 @@ public final class Settings {
         public static final String QS_HEADER_IMAGE = "qs_header_image";
 
         /**
+         * Haptic feedback on volume panel
+         * @hide
+         */ 
+        public static final String VOLUME_PANEL_HAPTIC_FEEDBACK = "volume_panel_haptic_feedback";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
