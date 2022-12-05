@@ -209,10 +209,10 @@ internal class ChromaSource : Chroma {
 }
 
 internal class TonalSpec(val hue: Hue = HueSource(), val chroma: Chroma) {
-    fun shades(sourceColor: Cam): List<Int> {
+    fun shades(sourceColor: Cam, luminanceFactor: Float = 1f, chromaFactor: Float = 1f): List<Int> {
         val hue = hue.get(sourceColor)
         val chroma = chroma.get(sourceColor)
-        return Shades.of(hue.toFloat(), chroma.toFloat()).toList()
+        return Shades.of(hue.toFloat(), chroma.toFloat(), luminanceFactor, chromaFactor).toList()
     }
 
     fun getAtTone(sourceColor: Cam, tone: Float): Int {
@@ -331,9 +331,11 @@ class TonalPalette
 internal constructor(
     private val spec: TonalSpec,
     seedColor: Int,
+    luminanceFactor: Float = 1f,
+    chromaFactor: Float = 1f
 ) {
     val seedCam: Cam = Cam.fromInt(seedColor)
-    val allShades: List<Int> = spec.shades(seedCam)
+    val allShades: List<Int> = spec.shades(seedCam, luminanceFactor, chromaFactor)
     val allShadesMapped: Map<Int, Int> = SHADE_KEYS.zip(allShades).toMap()
     val baseColor: Int
 
@@ -382,7 +384,10 @@ internal constructor(
 class ColorScheme(
     @ColorInt val seed: Int,
     val darkTheme: Boolean,
-    val style: Style = Style.TONAL_SPOT
+    val style: Style = Style.TONAL_SPOT,
+    val luminanceFactor: Float = 1f,
+    val chromaFactor: Float = 1f,
+    val tintBackground: Boolean = false
 ) {
 
     val accent1: TonalPalette
@@ -391,14 +396,22 @@ class ColorScheme(
     val neutral1: TonalPalette
     val neutral2: TonalPalette
 
+    constructor(@ColorInt seed: Int, darkTheme: Boolean, style: Style = Style.TONAL_SPOT,
+            luminanceFactor: Float = 1f, chromaFactor: Float = 1f):
+            this(seed, darkTheme, style, luminanceFactor, chromaFactor, false)
+
     constructor(@ColorInt seed: Int, darkTheme: Boolean) : this(seed, darkTheme, Style.TONAL_SPOT)
 
     @JvmOverloads
     constructor(
         wallpaperColors: WallpaperColors,
         darkTheme: Boolean,
-        style: Style = Style.TONAL_SPOT
-    ) : this(getSeedColor(wallpaperColors, style != Style.CONTENT), darkTheme, style)
+        style: Style = Style.TONAL_SPOT,
+        luminanceFactor: Float = 1f,
+        chromaFactor: Float = 1f,
+        tintBackground: Boolean = false
+    ) : this(getSeedColor(wallpaperColors, style != Style.CONTENT), darkTheme, style,
+             luminanceFactor, chromaFactor, tintBackground)
 
     val allHues: List<TonalPalette>
         get() {
@@ -439,11 +452,13 @@ class ColorScheme(
                 seed
             }
 
-        accent1 = TonalPalette(style.coreSpec.a1, seedArgb)
+        accent1 = TonalPalette(style.coreSpec.a1, seedArgb, luminanceFactor, chromaFactor)
         accent2 = TonalPalette(style.coreSpec.a2, seedArgb)
         accent3 = TonalPalette(style.coreSpec.a3, seedArgb)
         neutral1 = TonalPalette(style.coreSpec.n1, seedArgb)
-        neutral2 = TonalPalette(style.coreSpec.n2, seedArgb)
+        neutral2 = TonalPalette(style.coreSpec.n2, seedArgb,
+                if (tintBackground) luminanceFactor else 1f
+                if (tintBackground) chromaFactor else 1f)
     }
 
     val shadeCount
