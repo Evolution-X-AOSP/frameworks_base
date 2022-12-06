@@ -18977,6 +18977,13 @@ public final class Settings {
         public static final String RESTRICTED_NETWORKING_MODE = "restricted_networking_mode";
 
         /**
+         * Android P animation style
+         * @hide
+         */
+        @Readable
+        public static final String PIE_ANIMATION_STYLE = "pie_animation_style";
+
+        /**
          * Enable blocking wakelock
          * @hide
          */
