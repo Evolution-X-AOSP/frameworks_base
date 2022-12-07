@@ -283,8 +283,8 @@ class ColorScheme(
         }
         val camSeed = Cam.fromInt(seedArgb)
         accent1 = style.coreSpec.a1.shades(camSeed, luminanceFactor, chromaFactor)
-        accent2 = style.coreSpec.a2.shades(camSeed, luminanceFactor, chromaFactor)
-        accent3 = style.coreSpec.a3.shades(camSeed, luminanceFactor, chromaFactor)
+        accent2 = style.coreSpec.a2.shades(camSeed)
+        accent3 = style.coreSpec.a3.shades(camSeed)
         neutral1 = style.coreSpec.n1.shades(camSeed,
                 if (tintBackground) luminanceFactor else 1f,
                 if (tintBackground) chromaFactor else 1f)
