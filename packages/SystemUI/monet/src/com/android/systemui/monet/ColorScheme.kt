@@ -220,7 +220,8 @@ class ColorScheme(
     val style: Style = Style.TONAL_SPOT,
     val luminanceFactor: Float = 1f,
     val chromaFactor: Float = 1f,
-    val tintBackground: Boolean = false
+    val tintBackground: Boolean = false,
+    @ColorInt val bgSeed: Int? = null
 ) {
 
     val accent1: List<Int>
@@ -281,14 +282,27 @@ class ColorScheme(
         } else {
             seed
         }
+
+        val proposedBgSeedCam = Cam.fromInt(if (bgSeed == null) seed else bgSeed)
+        val bgSeedArgb = if (bgSeed == null) {
+            seedArgb
+        } else if (bgSeed == Color.TRANSPARENT) {
+            GOOGLE_BLUE
+        } else if (style != Style.CONTENT && proposedBgSeedCam.chroma < 5) {
+            GOOGLE_BLUE
+        } else {
+            bgSeed
+        }
+
         val camSeed = Cam.fromInt(seedArgb)
         accent1 = style.coreSpec.a1.shades(camSeed, luminanceFactor, chromaFactor)
         accent2 = style.coreSpec.a2.shades(camSeed)
         accent3 = style.coreSpec.a3.shades(camSeed)
-        neutral1 = style.coreSpec.n1.shades(camSeed,
+        val camBgSeed = Cam.fromInt(bgSeedArgb)
+        neutral1 = style.coreSpec.n1.shades(camBgSeed,
                 if (tintBackground) luminanceFactor else 1f,
                 if (tintBackground) chromaFactor else 1f)
-        neutral2 = style.coreSpec.n2.shades(camSeed)
+        neutral2 = style.coreSpec.n2.shades(camBgSeed)
     }
 
     override fun toString(): String {
