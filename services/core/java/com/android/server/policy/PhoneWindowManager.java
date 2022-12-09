@@ -985,9 +985,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mPowerKeyWakeLock.acquire();
         }
 
-        // Still allow muting call with power button press.
-        boolean blockInputs = mIsDeviceInPocket && (!interactive || mPocketLockShowing);
-
         mWindowManagerFuncs.onPowerKeyDown(interactive);
 
         // Stop ringing or end call if configured to do so when power is pressed.
@@ -998,7 +995,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 // Pressing Power while there's a ringing incoming
                 // call should silence the ringer.
                 telecomManager.silenceRinger();
-            } else if (!blockInputs && (mIncallPowerBehavior
+            } else if ((mIncallPowerBehavior
                     & Settings.Secure.INCALL_POWER_BUTTON_BEHAVIOR_HANGUP) != 0
                     && telecomManager.isInCall() && interactive) {
                 // Otherwise, if "Power button ends call" is enabled,
@@ -2522,6 +2519,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     }
 
     public boolean handleTorchPress(boolean longpress) {
+        if (mIsDeviceInPocket) return false;
         if (mTorchActionMode == 2 && longpress) {
             performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, false,
                     "Power - Long Press - Torch");
