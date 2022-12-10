@@ -42,6 +42,8 @@ import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.dagger.SysUISingleton;
 import com.android.systemui.demomode.DemoModeCommandReceiver;
+import com.android.systemui.flags.FeatureFlags;
+import com.android.systemui.flags.Flags;
 import com.android.systemui.plugins.DarkIconDispatcher;
 import com.android.systemui.plugins.DarkIconDispatcher.DarkReceiver;
 import com.android.systemui.statusbar.BaseStatusBarWifiView;
@@ -519,7 +521,7 @@ public interface StatusBarIconController {
         private StatusBarMobileView onCreateStatusBarMobileView(int subId, String slot) {
             Context mobileContext = mMobileContextProvider.getMobileContextForSub(subId, mContext);
             StatusBarMobileView view = StatusBarMobileView
-                    .fromContext(mobileContext, slot);
+                    .fromContext(mobileContext, slot, mFeatureFlags.isEnabled(Flags.COMBINED_STATUS_BAR_SIGNAL_ICONS));
             return view;
         }
 
