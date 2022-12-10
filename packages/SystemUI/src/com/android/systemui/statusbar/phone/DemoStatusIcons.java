@@ -31,6 +31,8 @@ import android.widget.LinearLayout;
 import com.android.internal.statusbar.StatusBarIcon;
 import com.android.systemui.R;
 import com.android.systemui.demomode.DemoMode;
+import com.android.systemui.flags.FeatureFlags;
+import com.android.systemui.flags.Flags;
 import com.android.systemui.plugins.DarkIconDispatcher;
 import com.android.systemui.plugins.DarkIconDispatcher.DarkReceiver;
 import com.android.systemui.statusbar.StatusBarIconView;
@@ -252,7 +254,7 @@ public class DemoStatusIcons extends StatusIconContainer implements DemoMode, Da
     public void addMobileView(MobileIconState state, Context mobileContext) {
         Log.d(TAG, "addMobileView: ");
         StatusBarMobileView view = StatusBarMobileView
-                .fromContext(mobileContext, state.slot);
+                .fromContext(mobileContext, state.slot, mFeatureFlags.isEnabled(Flags.COMBINED_STATUS_BAR_SIGNAL_ICONS));
 
         view.applyMobileState(state);
         view.setStaticDrawableColor(mColor);
