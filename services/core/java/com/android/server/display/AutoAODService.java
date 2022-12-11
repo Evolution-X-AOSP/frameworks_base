@@ -22,8 +22,10 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.database.ContentObserver;
 import android.net.Uri;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.PowerManager;
@@ -38,6 +40,7 @@ import com.android.server.twilight.TwilightListener;
 import com.android.server.twilight.TwilightManager;
 import com.android.server.twilight.TwilightState;
 
+import java.io.File;
 import java.lang.IllegalArgumentException;
 import java.util.Calendar;
 
@@ -45,6 +48,10 @@ public class AutoAODService extends SystemService {
 
     private static final String TAG = "AutoAODService";
     private static final String PULSE_ACTION = "com.android.systemui.doze.pulse";
+    private static final String PREF_DIR_NAME = "shared_prefs";
+    private static final String PREF_FILE_NAME = TAG + "_preferences.xml";
+    private static final String PREF_STATE_KEY = TAG + "_last_state";
+    private static final String PREF_TIME_KEY = TAG + "_last_time";
     private static final int WAKELOCK_TIMEOUT_MS = 3000;
 
     /**
@@ -73,6 +80,7 @@ public class AutoAODService extends SystemService {
     private final Handler mHandler = new Handler(Looper.getMainLooper());
     private TwilightManager mTwilightManager;
     private TwilightState mTwilightState;
+    private SharedPreferences mSharedPreferences;
 
     /**
      * Current operation mode
@@ -80,7 +88,7 @@ public class AutoAODService extends SystemService {
      */
     private int mMode = MODE_DISABLED;
     /**
-     * Whether AOD is currently activated by the service
+     * Whether AOD is currently active
      */
     private boolean mActive = false;
     /**
@@ -90,6 +98,9 @@ public class AutoAODService extends SystemService {
     
     private boolean mTwilightRegistered = false;
     private boolean mTimeRegistered = false;
+    private boolean mSelfChange = false;
+    private boolean mOverrideOnce = false;
+    private long mLastSetTime = 0;
 
     private final TwilightListener mTwilightListener = new TwilightListener() {
         @Override
@@ -102,8 +113,8 @@ public class AutoAODService extends SystemService {
             Slog.v(TAG, "onTwilightStateChanged state: " + state);
             if (state == null) return;
             mTwilightState = state;
-            if (mMode < MODE_MIXED_SUNSET) mHandler.post(() -> maybeActivateAOD());
-            else mHandler.post(() -> maybeActivateTime());
+            if (mMode < MODE_MIXED_SUNSET) mHandler.post(() -> maybeActivateNight(false));
+            else mHandler.post(() -> maybeActivateTime(false));
         }
     };
 
@@ -116,7 +127,7 @@ public class AutoAODService extends SystemService {
                 return;
             }
             Slog.v(TAG, "mTimeChangedReceiver onReceive");
-            mHandler.post(() -> maybeActivateTime());
+            mHandler.post(() -> maybeActivateTime(false));
         }
     };
 
@@ -150,12 +161,14 @@ public class AutoAODService extends SystemService {
             cancel(); // making sure there is no more than 1
             mAlarmManager.setExact(AlarmManager.RTC_WAKEUP,
                     time, TAG, this, mHandler);
+            mLastSetTime = time;
             Slog.v(TAG, "new alarm set to " + time
                     + " mIsNextActivate=" + mIsNextActivate);
         }
 
         public void cancel() {
             mAlarmManager.cancel(this);
+            mLastSetTime = 0;
             Slog.v(TAG, "alarm cancelled");
         }
     }
@@ -175,11 +188,37 @@ public class AutoAODService extends SystemService {
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                     Settings.Secure.DOZE_ALWAYS_ON_AUTO_TIME),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.Secure.getUriFor(
+                    Settings.Secure.DOZE_ALWAYS_ON),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
         public void onChange(boolean selfChange, Uri uri) {
-            initState();
+            if (uri.getLastPathSegment().equals(Settings.Secure.DOZE_ALWAYS_ON)) {
+                if (mSelfChange) {
+                    mSelfChange = false;
+                    return;
+                }
+
+                mActive = Settings.Secure.getIntForUser(
+                        mContext.getContentResolver(),
+                        Settings.Secure.DOZE_ALWAYS_ON, 0,
+                        UserHandle.USER_CURRENT) == 1;
+
+                if (mLastSetTime != 0 && mActive == mIsNextActivate) {
+                    // we have a future alarm set and user left current state
+                    // save the next alarm
+                    Slog.v(TAG, "user abandoned state. active: " + mActive);
+                    mSharedPreferences.edit()
+                            .putLong(PREF_TIME_KEY, mLastSetTime).apply();
+                    return;
+                }
+                Slog.v(TAG, "removing PREF_TIME_KEY. active: " + mActive);
+                mSharedPreferences.edit().remove(PREF_TIME_KEY).apply();
+                return;
+            }
+            mHandler.post(() -> initState());
         }
     }
 
@@ -190,6 +229,10 @@ public class AutoAODService extends SystemService {
         mContext = context;
         mAlarmManager = (AlarmManager) mContext.getSystemService(Context.ALARM_SERVICE);
         mSettingsObserver = new SettingsObserver(mHandler);
+        mActive = Settings.Secure.getIntForUser(
+                mContext.getContentResolver(),
+                Settings.Secure.DOZE_ALWAYS_ON, 0,
+                UserHandle.USER_CURRENT) == 1;
     }
 
     @Override
@@ -206,7 +249,15 @@ public class AutoAODService extends SystemService {
             mTwilightManager = getLocalService(TwilightManager.class);
         } else if (phase == SystemService.PHASE_BOOT_COMPLETED) {
             Slog.v(TAG, "onBootPhase PHASE_BOOT_COMPLETED");
-            mHandler.post(() -> initState());
+            // we want to access our shared preferences before unlock
+            // use device encrypted storage & context for that
+            // also make sure to not store any sensitive data there
+            final File prefsFile = new File(
+                    new File(Environment.getDataSystemDeDirectory(
+                        UserHandle.USER_SYSTEM), PREF_DIR_NAME), PREF_FILE_NAME);
+            mSharedPreferences = mContext.createDeviceProtectedStorageContext()
+                    .getSharedPreferences(prefsFile, Context.MODE_PRIVATE);
+            mHandler.post(() -> initState(true));
         }
     }
 
@@ -254,23 +305,40 @@ public class AutoAODService extends SystemService {
     }
 
     /**
-     * Initiates the state according to user settings
-     * Registers or unregisters listeners and calls {@link #maybeActivateAOD()}
+     * See {@link #initState(boolean)}
      */
     private void initState() {
+        initState(false);
+    }
+
+    /**
+     * Initiates the state according to user settings
+     * Registers or unregisters listeners and calls {@link #maybeActivateAOD()}
+     * @param boot true if triggered by boot
+     */
+    private void initState(boolean boot) {
+        if (boot && mSharedPreferences.contains(PREF_TIME_KEY)) {
+            final long prefTime = mSharedPreferences.getLong(PREF_TIME_KEY, 0);
+            Calendar cal = Calendar.getInstance();
+            cal.setTimeInMillis(prefTime);
+            // skip setting AOD once if we left the state before a reboot
+            if (cal.after(Calendar.getInstance()))
+                mOverrideOnce = true;
+        }
+
         final int mode = Settings.Secure.getIntForUser(mContext.getContentResolver(),
                 Settings.Secure.DOZE_ALWAYS_ON_AUTO_MODE, MODE_DISABLED,
                 UserHandle.USER_CURRENT);
-        if (mode == mMode) return;
         mMode = mode;
         mAlarm.cancel(); // cancelling set alarm
         // unregister all registered listeners
         if (mTimeRegistered) setTimeReciever(false);
         if (mTwilightRegistered) setTwilightListener(false);
+        // erase shared preferences
+        if (!boot) mSharedPreferences.edit().remove(PREF_TIME_KEY).apply();
         switch (mMode) {
             default:
             case MODE_DISABLED:
-                setAutoAODActive(false);
                 return;
             case MODE_TIME:
                 setTimeReciever(true);
@@ -399,15 +467,24 @@ public class AutoAODService extends SystemService {
      * @param active Whether to enable or disable AOD
      */
     private void setAutoAODActive(boolean active) {
+        if (mOverrideOnce) {
+            Slog.v(TAG, "setAutoAODActive: user abandoned this session before, skipping");
+            mOverrideOnce = false;
+            return;
+        }
+        mSharedPreferences.edit().remove(PREF_TIME_KEY).apply();
+
         if (mActive == active) return;
         mActive = active;
         Slog.v(TAG, "setAutoAODActive: active=" + active);
+        mSelfChange = true;
         Settings.Secure.putIntForUser(mContext.getContentResolver(),
                 Settings.Secure.DOZE_ALWAYS_ON, active ? 1 : 0,
                 UserHandle.USER_CURRENT);
 
         // update the screen state
         PowerManager powerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
+        if (powerManager.isInteractive()) return; // no need if the screen is already on
         WakeLock wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
         wakeLock.acquire(WAKELOCK_TIMEOUT_MS);
         if (isDozeEnabled()) {
