@@ -402,19 +402,17 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
     }
 
     private boolean shouldHeadsUpWhenAwake(NotificationEntry entry, boolean log) {
-        StatusBarNotification sbn = entry.getSbn();
-
         // get the info from the currently running task
         List<ActivityManager.RunningTaskInfo> taskInfo = mAm.getRunningTasks(1);
-        if(taskInfo != null && !taskInfo.isEmpty()) {
+        if (taskInfo != null && !taskInfo.isEmpty()) {
             ComponentName componentInfo = taskInfo.get(0).topActivity;
-            if(isPackageInStoplist(componentInfo.getPackageName())
-                && !isDialerApp(sbn.getPackageName())) {
+            if (isPackageInStoplist(componentInfo.getPackageName())
+                && !isDialerApp(entry.getSbn().getPackageName())) {
                 return false;
             }
         }
 
-         if(isPackageBlacklisted(sbn.getPackageName())) {
+        if (isPackageBlacklisted(entry.getSbn().getPackageName())) {
             return false;
         }
 
@@ -440,7 +438,7 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
             return false;
         }
 
-        if (isSnoozedPackage(sbn)) {
+        if (isSnoozedPackage(entry, log)) {
             if (log) mLogger.logNoHeadsUpPackageSnoozed(entry);
             return false;
         }
@@ -662,8 +660,8 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
         return true;
     }
 
-    private boolean isSnoozedPackage(StatusBarNotification sbn) {
-        return mHeadsUpManager.isSnoozed(sbn.getPackageName());
+    private boolean isSnoozedPackage(NotificationEntry entry, boolean log) {
+        return mHeadsUpManager.isSnoozed(entry.getSbn().getPackageName());
     }
 
     private boolean shouldSuppressHeadsUpWhenAwakeForOldWhen(NotificationEntry entry, boolean log) {
