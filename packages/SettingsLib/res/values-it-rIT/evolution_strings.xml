@@ -21,8 +21,4 @@
     <string name="power_remaining_turbo_charging_duration_only">Ricarica Turbo (<xliff:g id="time">%1$s</xliff:g> rimanenti fino alla carica completa)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
     <string name="battery_info_status_turbo_charging">Ricarica Turbo</string>
-    <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
-    <string name="screen_zoom_summary_smaller">Più piccolo</string>
-    <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
-    <string name="screen_zoom_summary_smallest">Piccolissimo</string>
 </resources>
