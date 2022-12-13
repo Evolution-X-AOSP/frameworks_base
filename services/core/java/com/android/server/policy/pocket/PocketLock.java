@@ -37,8 +37,8 @@ import android.view.WindowManager;
 public class PocketLock {
 
     private final Context mContext;
-    private final TelephonyManager mTelephonyManager;
-    private final TelecomManager mTelecomManager;
+    private TelephonyManager mTelephonyManager;
+    private TelecomManager mTelecomManager;
     private WindowManager mWindowManager;
     private WindowManager.LayoutParams mLayoutParams;
     private Handler mHandler;
@@ -78,10 +78,15 @@ public class PocketLock {
         mLayoutParams = getLayoutParams();
         mView = LayoutInflater.from(mContext).inflate(
                 com.android.internal.R.layout.pocket_lock_view, null);
-        mTelephonyManager = (TelephonyManager)
-                context.getSystemService(Context.TELEPHONY_SERVICE);
-        mTelecomManager = (TelecomManager)
-                context.getSystemService(Context.TELECOM_SERVICE);
+
+        final boolean disableOnCall = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_pocketJudgeDisableOnCall);
+        if (disableOnCall) {
+            mTelephonyManager = (TelephonyManager)
+                    context.getSystemService(Context.TELEPHONY_SERVICE);
+            mTelecomManager = (TelecomManager)
+                    context.getSystemService(Context.TELECOM_SERVICE);
+        }
     }
 
     public void show(final boolean animate) {
@@ -133,14 +138,16 @@ public class PocketLock {
             }
         };
 
-        mIsOnCall = mTelecomManager.isInCall();
-        if (!mRegistered) {
-            mTelephonyManager.registerTelephonyCallback(
-                TelephonyManager.INCLUDE_LOCATION_DATA_NONE,
-                mContext.getMainExecutor(),
-                mOnCallStateListener
-            );
-            mRegistered = true;
+        if (mTelecomManager != null && mTelephonyManager != null) {
+            mIsOnCall = mTelecomManager.isInCall();
+            if (!mRegistered) {
+                mTelephonyManager.registerTelephonyCallback(
+                    TelephonyManager.INCLUDE_LOCATION_DATA_NONE,
+                    mContext.getMainExecutor(),
+                    mOnCallStateListener
+                );
+                mRegistered = true;
+            }
         }
 
         mHandler.post(r);
@@ -190,7 +197,7 @@ public class PocketLock {
             }
         };
 
-        if (mRegistered && !mIsOnCall) {
+        if (mTelephonyManager != null && mRegistered && !mIsOnCall) {
             mTelephonyManager.unregisterTelephonyCallback(mOnCallStateListener);
             mRegistered = false;
         }
