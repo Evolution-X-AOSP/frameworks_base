@@ -21,8 +21,4 @@
     <string name="power_remaining_turbo_charging_duration_only">شحن توربو (<xliff:g id="time">%1$s</xliff:g> متبقية حتى الامتلاء)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
     <string name="battery_info_status_turbo_charging">شحن توربو</string>
-    <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
-    <string name="screen_zoom_summary_smaller">أصغر</string>
-    <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
-    <string name="screen_zoom_summary_smallest">الأصغر</string>
 </resources>

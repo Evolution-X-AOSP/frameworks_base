@@ -50,4 +50,8 @@
     <string name="volume_dialog_ringer_guidance_normal">Звуковой сигнал для звонков и уведомлений</string>
     <!-- App lock -->
     <string name="unlock_application">Разблокировать <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">Разблокировка по лицу отключена из-за бездействия</string>
+    <!-- Lock gesture -->
+    <string name="gesture_locked_warning">Проведите еще раз, чтобы разблокировать жесты</string>
 </resources>
