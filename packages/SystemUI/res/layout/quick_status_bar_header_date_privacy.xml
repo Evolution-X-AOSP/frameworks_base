@@ -36,8 +36,8 @@
         android:layout_weight="1"
         android:gravity="center_vertical|start" >
 
-        <com.android.systemui.statusbar.policy.VariableDateView
-            android:id="@+id/date"
+        <com.android.systemui.statusbar.policy.Clock
+            android:id="@+id/custom_clock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start|center_vertical"
@@ -67,9 +67,36 @@
         android:minHeight="48dp"
         android:layout_weight="1"
         android:gravity="center_vertical|end" >
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            android:layout_gravity="center_vertical|end"
+            android:gravity="center_vertical|end">
 
-        <include layout="@layout/ongoing_privacy_chip" />
+            <include layout="@layout/qs_carrier_group"
+                android:id="@+id/carrier_group"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:maxWidth="80dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_weight="2"
+                android:focusable="false"/>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginStart="2dp"
+                android:layout_gravity="center_vertical|end"
+                android:gravity="center_vertical|end">
+            
+                <include layout="@layout/ongoing_privacy_chip"
+                    android:minWidth="48dp" />
+            </LinearLayout>
+        </LinearLayout>
     </FrameLayout>
 
     <com.android.systemui.battery.BatteryMeterView
