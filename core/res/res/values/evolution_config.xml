@@ -98,6 +98,7 @@
 
     <!-- Pocket Lock -->
     <bool name="config_pocketModeSupported">false</bool>
+    <bool name="config_pocketJudgeDisableOnCall">true</bool>
     <bool name="config_pocketUseLightSensor">false</bool>
 
     <!-- Defines custom OEM sensor for pocket detection. -->
