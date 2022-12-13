@@ -32,6 +32,18 @@
     <string name="tristate_refresh_auto">Taxa de atualização automática</string>
     <string name="tristate_refresh_min">Taxa de atualização mínima</string>
     <string name="tristate_refresh_max">Taxa de atualização máxima</string>
+    <string name="tristate_extradim_off">Escurecer desligado</string>
+    <string name="tristate_extradim_min">Escurecer minimamente</string>
+    <string name="tristate_extradim_mid">Escurecer pela metade</string>
+    <string name="tristate_extradim_max">Escurecer ao máximo</string>
+    <string name="tristate_nightlight_off">Modo noturno desligado</string>
+    <string name="tristate_nightlight_min">Temperatura mínima</string>
+    <string name="tristate_nightlight_mid">Temperatura pela metade</string>
+    <string name="tristate_nightlight_max">Temperatura máxima</string>
+    <string name="tristate_colorspace_vivid">Vívido</string>
+    <string name="tristate_colorspace_natural">Natural</string>
+    <string name="tristate_colorspace_cinematic">Cinematográfico</string>
+    <string name="tristate_colorspace_brilliant">Brilhante</string>
     <!-- Name of the nfc status bar icon. -->
     <string name="status_bar_nfc">NFC</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
@@ -114,14 +126,6 @@
     <string name="quick_settings_aod_on_charge_label">AOD ao carregar</string>
     <string name="quick_settings_aod_off_label">AOD desligado</string>
     <string name="quick_settings_aod_off_powersave_label">AOD desligado\nEconomia de bateria</string>
-    <!-- Advance location quick setting tile -->
-    <string name="accessibility_quick_settings_location_off">Localização: desativado.</string>
-    <string name="quick_settings_location_secondary_battery_saving">Economia de bateria</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Localização: economia de bateria.</string>
-    <string name="quick_settings_location_secondary_gps_only">Somente sensores</string>
-    <string name="accessibility_quick_settings_location_gps_only">Localização: apenas sensores.</string>
-    <string name="quick_settings_location_secondary_high_accuracy">Alta precisão</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Localização: alta precisão.</string>
     <!-- Refresh Rate Tile -->
     <string name="refresh_rate_tile_label">Taxa de atualização</string>
     <string name="refresh_rate_auto_mode_placeholder">        Automático (<xliff:g id="min_refresh_rate" example="60">%1$d</xliff:g> - <xliff:g id="max_refresh_rate" example="60">%2$d</xliff:g> Hz)
@@ -137,7 +141,6 @@
     <string name="status_bar_items_title">Ícones da barra de status</string>
     <string name="status_bar_call_strength">Intensidade do sinal para chamadas</string>
     <string name="status_bar_data_saver">Economia de dados</string>
-    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Forçar fechamento?</string>
@@ -155,6 +158,9 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento Turbo (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até concluir)</string>
     <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Carregamento Turbo</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento SuperDart (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até concluir)</string>
+    <string name="keyguard_plugged_in_superdart_charging"><xliff:g id="percentage">%s</xliff:g> • Carregamento SuperDart</string>
     <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
     <string name="clock">Relógio</string>
     <!-- Screen record -->
@@ -167,6 +173,7 @@
     <string name="screenrecord_skip_time_label">Início rápido</string>
     <string name="screenrecord_skip_time_summary">Remover espera de 3 segundos</string>
     <string name="screenrecord_hevc_switch_label">Ativar HEVC</string>
+    <string name="screenrecord_hevc_switch_summary">Usar codificação de vídeo HEVC</string>
     <!-- FPS view text placeholder -->
     <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
     <!-- Kill foreground app -->
@@ -174,9 +181,11 @@
     <string name="empty_app_killed">Aplicativo</string>
     <!-- Google Lens Screenshot string -->
     <string name="lensss">Lens</string>
-    <!-- Smart Pixels QS Tile -->
-    <string name="quick_settings_smart_pixels">Pixels Inteligentes</string>
-    <string name="quick_settings_smart_pixels_on_power_save">Ativação automática dos Pixels Inteligentes</string>
+    <string name="lens_unavailable">O Google Lens não está instalado</string>
+    <!-- Bluetooth dialog -->
+    <string name="turn_on_bluetooth">Usar Bluetooth</string>
+    <string name="bluetooth_is_off">O Bluetooth está desligado</string>
+    <string name="tap_a_device_to_connect">Selecione um dispositivo para conectar</string>
     <!-- On The Go -->
     <string name="onthego_notif_ticker">On-The-Go ativado</string>
     <string name="onthego_notif_title">On-The-Go está ativo</string>
@@ -194,4 +203,42 @@
     <string name="quick_settings_onthego_label">On-The-Go</string>
     <!-- CPUInfo tile -->
     <string name="quick_settings_cpuinfo_label">Informações da CPU</string>
+    <!-- Screenshot Tile -->
+    <string name="screenshot_long_press">Toque longo para captura de tela parcial</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Ela é mantida à vista até que seja liberada. Mantenha o botão Voltar pressionado para liberar.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Para liberar esta tela, mantenha o botão Voltar pressionado</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Ela é mantida à vista até que seja liberada. Toque e segure o sensor de impressão de digital para liberar.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Para liberar esta tela, toque e segure o sensor de impressão de digital</string>
+    <!-- VPN tethering QS tile -->
+    <string name="vpn_tethering_label">Compartilhar VPN</string>
+    <string name="vpn_tethering_changed_off">O compartilhamento de VPN foi desativado.</string>
+    <string name="vpn_tethering_changed_on">O compartilhamento de VPN foi ativado.</string>
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">Reconhecendo...</string>
+    <!-- Glove Mode Tile -->
+    <string name="quick_settings_glove_mode_label">Modo com Luvas</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">Bússola</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0<xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Inicializando\u2026</string>
+    <string name="quick_settings_compass_N">N</string>
+    <string name="quick_settings_compass_NE">NE</string>
+    <string name="quick_settings_compass_E">L</string>
+    <string name="quick_settings_compass_SE">SE</string>
+    <string name="quick_settings_compass_S">S</string>
+    <string name="quick_settings_compass_SW">SO</string>
+    <string name="quick_settings_compass_W">O</string>
+    <string name="quick_settings_compass_NW">NO</string>
+    <!-- Advance location quick setting tile -->
+    <string name="accessibility_quick_settings_location_off">Localização: desativado.</string>
+    <string name="quick_settings_location_secondary_battery_saving">Economia de bateria</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Localização: economia de bateria.</string>
+    <string name="quick_settings_location_secondary_gps_only">Somente sensores</string>
+    <string name="accessibility_quick_settings_location_gps_only">Localização: apenas sensores.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Alta precisão</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Localização: alta precisão.</string>
 </resources>
