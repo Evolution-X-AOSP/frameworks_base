@@ -651,6 +651,7 @@ public class ScreenshotController {
         }
         removeWindow();
         releaseContext();
+        TaskStackChangeListeners.getInstance().unregisterTaskStackListener(mTaskListener);
         mBgExecutor.shutdownNow();
     }
 
