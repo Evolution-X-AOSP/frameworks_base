@@ -296,4 +296,7 @@
 
     <!-- Whether the device supports Smart Pixels -->
     <java-symbol type="bool" name="config_supportSmartPixels" />
+
+    <!-- Smart Pixels UDFPS -->
+    <bool name="disable_smart_pixels_on_udfps">false</bool>
 </resources>

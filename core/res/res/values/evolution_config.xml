@@ -461,4 +461,7 @@
 
     <!-- Whether the device supports Smart Pixels -->
     <bool name="config_supportSmartPixels">false</bool>
+
+    <!-- Smart Pixels UDFPS -->
+    <bool name="disable_smart_pixels_on_udfps">false</bool>
 </resources>
