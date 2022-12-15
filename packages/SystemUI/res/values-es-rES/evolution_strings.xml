@@ -21,14 +21,29 @@
     <string name="tristate_flashlight">Linterna</string>
     <string name="tristate_flashlight_on">Linterna activada</string>
     <string name="tristate_flashlight_off">Linterna desactivada</string>
-    <string name="tristate_flashlight_blink">Parpadeo de Linterna</string>
+    <string name="tristate_flashlight_blink">Linterna intermitente</string>
     <string name="tristate_brightness_bright">Brillo máximo</string>
     <string name="tristate_brightness_dark">Brillo mínimo</string>
     <string name="tristate_brightness_auto">Brillo automático</string>
     <string name="tristate_rotation_auto">Rotación automática</string>
     <string name="tristate_rotation_0">Retrato</string>
-    <string name="tristate_rotation_90">Apaisado (90º)</string>
-    <string name="tristate_rotation_270">Apaisado (270º)</string>
+    <string name="tristate_rotation_90">Horizontal (90°)</string>
+    <string name="tristate_rotation_270">Horizontal (270°)</string>
+    <string name="tristate_refresh_auto">Refresco automático</string>
+    <string name="tristate_refresh_min">Refresco mín</string>
+    <string name="tristate_refresh_max">Refresco máx</string>
+    <string name="tristate_extradim_off">Atenuar off</string>
+    <string name="tristate_extradim_min">Atenuar Mín</string>
+    <string name="tristate_extradim_mid">Atenuar med</string>
+    <string name="tristate_extradim_max">Atenuar máx</string>
+    <string name="tristate_nightlight_off">Luz nocturna apagada</string>
+    <string name="tristate_nightlight_min">Temp mín</string>
+    <string name="tristate_nightlight_mid">Temp med</string>
+    <string name="tristate_nightlight_max">Temp máx</string>
+    <string name="tristate_colorspace_vivid">Vivo</string>
+    <string name="tristate_colorspace_natural">Natural</string>
+    <string name="tristate_colorspace_cinematic">Cinemático</string>
+    <string name="tristate_colorspace_brilliant">Brillante</string>
     <!-- Name of the nfc status bar icon. -->
     <string name="status_bar_nfc">NFC</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
@@ -87,7 +102,7 @@
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Conectar a\u2026</string>
     <string name="vpn_credentials_hint">Por favor, introduzca sus credenciales para conectarse a <xliff:g id="name">%s</xliff:g></string>
-    <string name="vpn_credentials_username">Nombre de Usuario</string>
+    <string name="vpn_credentials_username">Nombre de usuario</string>
     <string name="vpn_credentials_password">Contraseña</string>
     <string name="vpn_credentials_dialog_connect">Conectar</string>
     <!-- Reader mode QS tile -->
@@ -100,25 +115,17 @@
     <string name="quick_settings_anti_flicker">Antiparpadeo</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">Cambiar tarjeta SIM</string>
-    <string name="qs_data_switch_toast_0">Actualmente no hay ninguna tarjeta SIM insertada</string>
-    <string name="qs_data_switch_toast_1">Actualmente sólo hay una tarjeta SIM insertada</string>
+    <string name="qs_data_switch_toast_0">No se ha insertado ninguna tarjeta SIM</string>
+    <string name="qs_data_switch_toast_1">Solo se ha insertado una tarjeta SIM</string>
     <string name="qs_data_switch_text_1">SIM 1</string>
     <string name="qs_data_switch_text_2">SIM 2</string>
     <string name="qs_data_switch_changed_1">Cambiar datos a tarjeta SIM 1.</string>
     <string name="qs_data_switch_changed_2">Cambiar datos a tarjeta SIM 2.</string>
     <!-- AOD QS tile -->
-    <string name="quick_settings_aod_label">AOD (Pantalla siempre encendida)</string>
+    <string name="quick_settings_aod_label">Pantalla ambiente</string>
     <string name="quick_settings_aod_on_charge_label">AOD en carga</string>
     <string name="quick_settings_aod_off_label">AOD apagado</string>
-    <string name="quick_settings_aod_off_powersave_label">AOD apagado\nAhorro de Batería</string>
-    <!-- Advance location quick setting tile -->
-    <string name="accessibility_quick_settings_location_off">Informes de ubicación: off.</string>
-    <string name="quick_settings_location_secondary_battery_saving">Ahorro de Batería</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Informe de ubicación: modo ahorro de batería.</string>
-    <string name="quick_settings_location_secondary_gps_only">Sólo sensores</string>
-    <string name="accessibility_quick_settings_location_gps_only">Informe de ubicación: modo sólo sensores.</string>
-    <string name="quick_settings_location_secondary_high_accuracy">Alta precisión</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Informe de ubicación: modo alta precisión.</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD apagada\nAhorro de batería</string>
     <!-- Refresh Rate Tile -->
     <string name="refresh_rate_tile_label">Tasa de refresco</string>
     <string name="refresh_rate_auto_mode_placeholder">Automático (<xliff:g id="min_refresh_rate" ejemplo="60">%1$d</xliff:g> - <xliff:g id="max_refresh_rate" ejemplo="60">%2$d</xliff:g>Hz)    </string>
@@ -131,34 +138,32 @@
     <string name="delete_screenshot_toast">Captura de pantalla eliminada</string>
     <!-- Status bar tuner -->
     <string name="status_bar_items_title">Iconos de la barra de estado</string>
-    <string name="status_bar_call_strength">Intensidad de señal</string>
+    <string name="status_bar_call_strength">Intensidad de llamada</string>
     <string name="status_bar_data_saver">Ahorro de datos</string>
-    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">¿Forzar detención?</string>
     <string name="force_stop_dlg_text">Si se detiene una aplicación, es posible que no funcione correctamente.</string>
     <string name="guts_force_close_app">Cerrar aplicación</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carga rápida Dash (<xliff:g id="charging_time_left" example="4 horas y 2 minutos">%1$s</xliff:g> para completar)</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carga Dash (<xliff:g id="charging_time_left" example="4 horas y 2 minutos">%1$s</xliff:g> para completar)</string>
     <string name="keyguard_plugged_in_dash_charging"><xliff:g id="porcentaje">%s</xliff:g> • Carga rápida</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_warp_charging_time"><xliff:g id="porcentaje">%2$s</xliff:g> • Carga Warp (<xliff:g id="charging_time_left" ejemplo="4 horas y 2 minutos">%1$s</xliff:g> hasta llenar)</string>
-    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="percentage">%s</xliff:g> • Carga warp</string>
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="porcentaje">%2$s</xliff:g> • Carga Warp (<xliff:g id="charging_time_left" ejemplo="4 horas y 2 minutos">%1$s</xliff:g> para completar)</string>
+    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="porcentaje">%s</xliff:g> • Carga \"Warp\"</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carga VOOC (<xliff:g id="charging_time_left" example="4 horas y 2 minutos">%1$s</xliff:g> hasta llenar)</string>
-    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="percentage">%s</xliff:g> • Carga de VOOC</string>
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="porcentaje">%2$s</xliff:g> • Carga \"VOOC\" (<xliff:g id="charging_time_left" example="4 horas y 2 minutos">%1$s</xliff:g> para completar)</string>
+    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="porcentaje">%s</xliff:g> • Carga \"VOOC\"</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Carga Turbo (<xliff:g id="charging_time_left" ejemplo="4 horas y 2 minutos">%1$s</xliff:g> hasta llenar)</string>
-    <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="porcentaje">%s</xliff:g> • Carga turbo</string>
-    <!-- Data usage info in QS footer -->
-    <string name="usage_data">usado hoy</string>
-    <string name="usage_data_default_suffix">Datos</string>
-    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <string name="keyguard_indication_turbo_power_time"><xliff:g id="porcentaje">%2$s</xliff:g> • Carga \"Turbo\" (<xliff:g id="charging_time_left" ejemplo="4 horas y 2 minutos">%1$s</xliff:g> para completar)</string>
+    <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="porcentaje">%s</xliff:g> • Carga \"Turbo\"</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="porcentaje">%2$s</xliff:g> • Carga \"SuperDart\" (<xliff:g id="charging_time_left" example="4 horas y 2 minutos">%1$s</xliff:g> para completar)</string>
+    <string name="keyguard_plugged_in_superdart_charging"><xliff:g id="porcentaje">%s</xliff:g> •Carga \"SuperDart\"</string>
     <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
     <string name="clock">Reloj</string>
     <!-- Screen record -->
-    <string name="screenrecord_stopdot_label">Mostrar punto para detener grabación\nPulsación larga para moverlo</string>
+    <string name="screenrecord_stopdot_label">Mostrar punto para detener grabación\Pulsación larga para moverlo</string>
     <string name="screenrecord_stopdot_summary">Mantenga pulsado para moverlo</string>
     <string name="screenrecord_lowquality_label">Menor calidad para un tamaño de archivo menor</string>
     <string name="screenrecord_lowquality_summary">Para tamaño de archivo más pequeño</string>
@@ -166,6 +171,76 @@
     <string name="screenrecord_longer_timeout_switch_summary">Limitar tamaño de grabación a 15GB</string>
     <string name="screenrecord_skip_time_label">Ignorar temporizador</string>
     <string name="screenrecord_skip_time_summary">Eliminar espera de 3 segundos</string>
+    <string name="screenrecord_hevc_switch_label">Habilitar HEVC</string>
+    <string name="screenrecord_hevc_switch_summary">Usar codificación de vídeo HEVC más eficiente</string>
     <!-- FPS view text placeholder -->
     <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
+    <!-- Kill foreground app -->
+    <string name="task_helper_app_killed">%1$s se detuvo</string>
+    <string name="empty_app_killed">Aplicación</string>
+    <!-- Google Lens Screenshot string -->
+    <string name="lensss">Lente</string>
+    <string name="lens_unavailable">Google Lens no está instalado</string>
+    <!-- Bluetooth dialog -->
+    <string name="turn_on_bluetooth">Usar Bluetooth</string>
+    <string name="bluetooth_is_off">Bluetooth desactivado</string>
+    <string name="tap_a_device_to_connect">Toca un dispositivo para conectar</string>
+    <!-- On The Go -->
+    <string name="onthego_notif_ticker">Modo On-The-Go activado</string>
+    <string name="onthego_notif_title">On-The-Go está activo</string>
+    <string name="onthego_notif_stop">Detener</string>
+    <string name="onthego_notif_options">Opciones</string>
+    <string name="onthego_notif_error">No se pudo iniciar el modo On-The-Go</string>
+    <string name="onthego_notif_restart">Reiniciar On-The-Go</string>
+    <string name="onthego_notif_camera_changed">Modo de cámara cambiado</string>
+    <string name="onthego_transparency">Transparencia</string>
+    <string name="onthego_front_camera">Usar cámara frontal</string>
+    <string name="onthego_service_toggle">Reiniciar automáticamente el servicio</string>
+    <string name="onthego_channel_name">Principal</string>
+    <string name="global_action_onthego">Principal</string>
+    <!-- OnTheGo Tile -->
+    <string name="quick_settings_onthego_label">On-The-Go</string>
+    <!-- CPUInfo tile -->
+    <string name="quick_settings_cpuinfo_label">Info de CPU</string>
+    <!-- Screenshot Tile -->
+    <string name="screenshot_long_press">Pulsación larga para captura de pantalla parcial</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Esto lo mantiene a la vista hasta que lo liberes. Mantén pulsado «Atrás» para liberar.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Para desfijar esta pantalla, toca &amp; mantén pulsado el botón Atrás</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Esto mantiene la pantalla a la vista hasta que la liberes. Mantén presionado el sensor de huella para desfijar.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Para desfijar esta pantalla, mantén pulsado el sensor de huella</string>
+    <!-- VPN tethering QS tile -->
+    <string name="vpn_tethering_label">Anclaje VPN</string>
+    <string name="vpn_tethering_changed_off">Anclaje VPN desactivado.</string>
+    <string name="vpn_tethering_changed_on">Anclaje VPN activado.</string>
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">Reconociendo cara...</string>
+    <!-- Glove Mode Tile -->
+    <string name="quick_settings_glove_mode_label">Modo con guantes</string>
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass_label">Brújula</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Inicializando\u2026</string>
+    <string name="quick_settings_compass_N">N</string>
+    <string name="quick_settings_compass_NE">NE</string>
+    <string name="quick_settings_compass_E">E</string>
+    <string name="quick_settings_compass_SE">SE</string>
+    <string name="quick_settings_compass_S">S</string>
+    <string name="quick_settings_compass_SW">SO</string>
+    <string name="quick_settings_compass_W">O</string>
+    <string name="quick_settings_compass_NW">NO</string>
+    <!-- Advance location quick setting tile -->
+    <string name="accessibility_quick_settings_location_off">Informes de ubicación: off.</string>
+    <string name="quick_settings_location_secondary_battery_saving">Ahorro de Batería</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Informe de ubicación: modo ahorro de batería.</string>
+    <string name="quick_settings_location_secondary_gps_only">Sólo sensores</string>
+    <string name="accessibility_quick_settings_location_gps_only">Informe de ubicación: modo sólo sensores.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Alta precisión</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Informe de ubicación: modo alta precisión.</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Píxeles Inteligentes</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Habilitar Píxeles Inteligentes automáticamente</string>
 </resources>
