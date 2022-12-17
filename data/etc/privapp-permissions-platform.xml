@@ -537,6 +537,13 @@ applications that come with the platform
         <permission name="android.permission.INTERACT_ACROSS_USERS"/>
     </privapp-permissions>
 
+    <privapp-permissions package="com.android.systemui">
+        <permission name="android.permission.WRITE_APN_SETTINGS"/>
+        <permission name="android.permission.ACCESS_SURFACE_FLINGER" />
+        <permission name="android.permission.ROTATE_SURFACE_FLINGER" />
+        <permission name="android.permission.INTERNAL_SYSTEM_WINDOW" />
+    </privapp-permissions>
+
     <privapp-permissions package="com.android.tv">
         <permission name="android.permission.CHANGE_HDMI_CEC_ACTIVE_SOURCE"/>
         <permission name="android.permission.DVB_DEVICE"/>
