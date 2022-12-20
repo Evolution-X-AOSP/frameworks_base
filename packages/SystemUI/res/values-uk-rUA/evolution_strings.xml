@@ -120,7 +120,7 @@
     <string name="qs_data_switch_text_1">SIM 1</string>
     <string name="qs_data_switch_text_2">SIM 2</string>
     <string name="qs_data_switch_changed_1">Змінено картку для передачі даних на SIM 1.</string>
-    <string name="qs_data_switch_changed_2">Перемкніть дані на SIM-карту 2.</string>
+    <string name="qs_data_switch_changed_2">Змінено картку для передачі даних на SIM 2.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Екран сповіщень</string>
     <string name="quick_settings_aod_on_charge_label">Завжди включений екран при заряджанні</string>
