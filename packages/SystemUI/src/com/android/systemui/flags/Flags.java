@@ -133,8 +133,8 @@ public class Flags {
     public static final ReleasedFlag NEW_USER_SWITCHER =
             new ReleasedFlag(500);
 
-    public static final UnreleasedFlag COMBINED_QS_HEADERS =
-            new UnreleasedFlag(501, true);
+    public static final ReleasedFlag COMBINED_QS_HEADERS =
+            new ReleasedFlag(501);
 
     public static final ResourceBooleanFlag PEOPLE_TILE =
             new ResourceBooleanFlag(502, R.bool.flag_conversations);
@@ -148,7 +148,7 @@ public class Flags {
     @Deprecated
     public static final ReleasedFlag NEW_FOOTER = new ReleasedFlag(504);
 
-    public static final UnreleasedFlag NEW_HEADER = new UnreleasedFlag(505, true);
+    public static final ReleasedFlag NEW_HEADER = new ReleasedFlag(505);
     public static final ResourceBooleanFlag FULL_SCREEN_USER_SWITCHER =
             new ResourceBooleanFlag(506, R.bool.config_enableFullscreenUserSwitcher);
 
