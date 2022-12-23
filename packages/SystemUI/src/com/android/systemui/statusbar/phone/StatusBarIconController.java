@@ -575,10 +575,8 @@ public interface StatusBarIconController {
         }
 
         public void onSetIcon(int viewIndex, StatusBarIcon icon) {
-            View view = mGroup.getChildAt(viewIndex);
-            if (view instanceof StatusBarIconView) {
-                ((StatusBarIconView) view).set(icon);
-            }
+            StatusBarIconView view = (StatusBarIconView) mGroup.getChildAt(viewIndex);
+            view.set(icon);
         }
 
         public void onSetIconHolder(int viewIndex, StatusBarIconHolder holder) {
@@ -614,7 +612,8 @@ public interface StatusBarIconController {
                 // ModernStatusBarWifiView will automatically apply state based on its callbacks, so
                 // we don't need to call applyWifiState.
             } else {
-                return;
+                throw new IllegalStateException("View at " + viewIndex + " must be of type "
+                        + "StatusBarWifiView or ModernStatusBarWifiView");
             }
 
             if (mIsInDemoMode) {
@@ -623,11 +622,9 @@ public interface StatusBarIconController {
         }
 
         public void onSetMobileIcon(int viewIndex, MobileIconState state) {
-            View view = mGroup.getChildAt(viewIndex);
-            if (view instanceof StatusBarMobileView) {
-                ((StatusBarMobileView) view).applyMobileState(state);
-            } else {
-                return;
+            StatusBarMobileView view = (StatusBarMobileView) mGroup.getChildAt(viewIndex);
+            if (view != null) {
+                view.applyMobileState(state);
             }
 
             if (mIsInDemoMode) {
@@ -638,9 +635,9 @@ public interface StatusBarIconController {
         }
 
         public void onSetBluetoothIcon(int viewIndex, BluetoothIconState state) {
-            View view = mGroup.getChildAt(viewIndex);
-            if (view instanceof StatusBarBluetoothView) {
-                ((StatusBarBluetoothView) view).applyBluetoothState(state);
+            StatusBarBluetoothView view = (StatusBarBluetoothView) mGroup.getChildAt(viewIndex);
+            if (view != null) {
+                view.applyBluetoothState(state);
             }
         }
 
