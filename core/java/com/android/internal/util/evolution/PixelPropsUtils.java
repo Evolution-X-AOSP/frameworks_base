@@ -75,6 +75,7 @@ public class PixelPropsUtils {
             "com.android.vending",
             "com.breel.wallpapers20",
             "com.disney.disneyplus",
+            "com.microsoft.android.smsorganizer",
             "com.netflix.mediaclient",
             "com.nhs.online.nhsonline",
             "com.nothing.smartcenter",
