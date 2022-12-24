@@ -285,8 +285,8 @@ public class DozeSensors {
                         false /* requiresAod */
                 ),
         };
-        setProxListening(false);  // Don't immediately start listening when we register.
         if (mEnableProx) {
+            setProxListening(false);  // Don't immediately start listening when we register.
             mProximitySensor.register(
                     proximityEvent -> {
                         if (proximityEvent != null) {
