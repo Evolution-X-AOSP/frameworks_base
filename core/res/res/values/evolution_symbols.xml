@@ -318,4 +318,7 @@
 
     <!-- Mock Oplus LinearmotorVibratorService -->
     <java-symbol type="bool" name="config_mockOplusLinearmotorVibratorService" />
+
+    <!-- Device model (Build.MODEL) to spoof for netflix, if not empty -->
+    <java-symbol type="string" name="config_netflixSpoofModel" />
 </resources>

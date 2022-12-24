@@ -18,11 +18,14 @@ package com.android.internal.util.evolution;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Build.VERSION;
 import android.os.SystemProperties;
 import android.text.TextUtils;
 import android.util.Log;
+
+import com.android.internal.R;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
@@ -43,6 +46,9 @@ public final class AttestationHooks {
 
     // Use certified properties for Netflix to enable HDR support
     private static final String PACKAGE_NETFLIX = "com.netflix.mediaclient";
+
+    private static final String sNetflixModel =
+            Resources.getSystem().getString(R.string.config_netflixSpoofModel);
 
     private static final Map<String, Object> sP1Props = new HashMap<>();
     static {
@@ -143,6 +149,9 @@ public final class AttestationHooks {
             if (!SystemProperties.getBoolean("persist.sys.pixelprops.netflix", false)) {
                 dlog("Netflix spoofing disabled by system prop");
                 return;
+            } else if (!sNetflixModel.isEmpty() && packageName.equals(PACKAGE_NETFLIX)) {
+                dlog("Setting model to " + sNetflixModel + " for Netflix");
+                setPropValue("MODEL", sNetflixModel);
             } else {
                 dlog("Spoofing Pixel 7 Pro for Netflix");
                 sP7Props.forEach((k, v) -> setPropValue(k, v));
