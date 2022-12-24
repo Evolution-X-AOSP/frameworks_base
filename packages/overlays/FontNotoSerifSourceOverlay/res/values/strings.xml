@@ -17,5 +17,5 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Headline / Body font Noto Serif / Source Sans Pro overlay -->
-    <string name="font_notoserif_source_overlay" translatable="false">Noto Serif / Source Sans Pro</string>
+    <string name="font_notoserif_source_overlay" translatable="false">Noto Serif\nSource Sans Pro</string>
 </resources>
