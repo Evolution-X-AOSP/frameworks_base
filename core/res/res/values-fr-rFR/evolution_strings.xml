@@ -54,4 +54,5 @@
     <string name="face_unlock_disabled_idle">Déverrouillage par reconnaissance faciale désactivé en raison de l\'inactivité</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Glisser à nouveau pour déverrouiller les gestes</string>
+    <!-- Parallel space badge -->
 </resources>

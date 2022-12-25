@@ -50,4 +50,9 @@
     <string name="volume_dialog_ringer_guidance_normal">Cuộc gọi và thông báo sẽ rung</string>
     <!-- App lock -->
     <string name="unlock_application">Mở khóa <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">Mở khóa bằng khuôn mặt bị tắt do không hoạt động</string>
+    <!-- Lock gesture -->
+    <string name="gesture_locked_warning">Vuốt lại để mở khóa cử chỉ</string>
+    <!-- Parallel space badge -->
 </resources>
