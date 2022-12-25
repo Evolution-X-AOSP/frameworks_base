@@ -54,4 +54,5 @@
     <string name="face_unlock_disabled_idle">Deblocarea facială a fost dezactivată din cauza inactivității</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Glisați din nou pentru a debloca gesturile</string>
+    <!-- Parallel space badge -->
 </resources>
