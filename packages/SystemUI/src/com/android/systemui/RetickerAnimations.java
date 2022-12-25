@@ -2,6 +2,9 @@ package com.android.systemui;
 
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
+import android.animation.AnimatorListenerAdapter;
+import android.view.ViewAnimationUtils;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.BounceInterpolator;
 import android.view.View;
 
@@ -44,6 +47,41 @@ public class RetickerAnimations {
             public void onAnimationCancel(Animator animation) {
             }
         });
+    }
+
+
+    public static void revealAnimation(View targetView) {
+        int cx = targetView.getWidth() / 2;
+        int cy = targetView.getHeight() / 2;
+
+        float finalRadius = (float) Math.hypot(cx, cy);
+
+        Animator anim = ViewAnimationUtils.createCircularReveal(targetView, cx, cy, 0f, finalRadius);
+        anim.setInterpolator(new AccelerateDecelerateInterpolator());
+        anim.setDuration(1000);
+
+        targetView.setVisibility(View.VISIBLE);
+        anim.start();
+    }
+
+    public static void revealAnimationHide(View targetView, View notificationStackScroller) {
+        int cx = targetView.getWidth() / 2;
+        int cy = targetView.getHeight() / 2;
+
+        float initialRadius = (float) Math.hypot(cx, cy);
+
+        Animator anim = ViewAnimationUtils.createCircularReveal(targetView, cx, cy, initialRadius, 0f);
+        anim.setInterpolator(new AccelerateDecelerateInterpolator());
+        anim.setDuration(350);
+        anim.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                notificationStackScroller.setVisibility(View.VISIBLE);
+                targetView.setVisibility(View.GONE);
+                mIsAnimatingTicker = false;
+            }
+        });
+        anim.start();
     }
 
     public static boolean isTickerAnimating() {
