@@ -54,4 +54,5 @@
     <string name="face_unlock_disabled_idle">Desbloqueio facial desativado devido à inatividade</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Deslize novamente para desbloquear os gestos</string>
+    <!-- Parallel space badge -->
 </resources>

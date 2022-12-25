@@ -54,4 +54,5 @@
     <string name="face_unlock_disabled_idle">Inaktivitás miatt az arcfeloldás letiltásra került</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">A vezérlők feloldásához csúsztasson újból</string>
+    <!-- Parallel space badge -->
 </resources>
