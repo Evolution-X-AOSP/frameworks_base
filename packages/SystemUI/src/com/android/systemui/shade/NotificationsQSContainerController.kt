@@ -11,6 +11,7 @@ import androidx.constraintlayout.widget.ConstraintSet.END
 import androidx.constraintlayout.widget.ConstraintSet.PARENT_ID
 import androidx.constraintlayout.widget.ConstraintSet.START
 import androidx.constraintlayout.widget.ConstraintSet.TOP
+import com.android.internal.policy.SystemBarUtils
 import com.android.systemui.R
 import com.android.systemui.dagger.qualifiers.Main
 import com.android.systemui.flags.FeatureFlags
@@ -47,6 +48,13 @@ class NotificationsQSContainerController @Inject constructor(
                 mView.invalidate()
             }
         }
+    var qsExpandedFraction = 0f
+        set(value) {
+            if (field != value) {
+                field = value
+                updateConstraints()
+            }
+        }
     private var splitShadeEnabled = false
     private var isQSDetailShowing = false
     private var isQSCustomizing = false
@@ -61,6 +69,7 @@ class NotificationsQSContainerController @Inject constructor(
     private var bottomCutoutInsets = 0
     private var panelMarginHorizontal = 0
     private var topMargin = 0
+    private var qsTopMargin = 0
 
     private val useCombinedQSHeaders = featureFlags.isEnabled(Flags.COMBINED_QS_HEADERS)
 
@@ -134,6 +143,8 @@ class NotificationsQSContainerController @Inject constructor(
         } else {
             resources.getDimensionPixelSize(R.dimen.notification_panel_margin_top)
         }
+        qsTopMargin = SystemBarUtils.getQuickQsOffsetHeight(mView.context) -
+                SystemBarUtils.getStatusBarHeight(mView.context)
         updateConstraints()
 
         val scrimMarginChanged = ::scrimShadeBottomMargin.setAndReportChange(
@@ -246,11 +257,16 @@ class NotificationsQSContainerController @Inject constructor(
 
     private fun setQsConstraints(constraintSet: ConstraintSet) {
         val endConstraintId = if (splitShadeEnabled) R.id.qs_edge_guideline else PARENT_ID
+        val currentTopMargin: Int = if (largeScreenShadeHeaderActive || !useCombinedQSHeaders) {
+            topMargin
+        } else {
+            ((1.0f - qsExpandedFraction) * qsTopMargin).toInt()
+        }
         constraintSet.apply {
             connect(R.id.qs_frame, END, endConstraintId, END)
             setMargin(R.id.qs_frame, START, if (splitShadeEnabled) 0 else panelMarginHorizontal)
             setMargin(R.id.qs_frame, END, if (splitShadeEnabled) 0 else panelMarginHorizontal)
-            setMargin(R.id.qs_frame, TOP, topMargin)
+            setMargin(R.id.qs_frame, TOP, currentTopMargin)
         }
     }
 
