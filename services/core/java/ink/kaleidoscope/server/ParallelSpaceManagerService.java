@@ -106,7 +106,8 @@ public final class ParallelSpaceManagerService extends SystemService {
         "com.android.settings",
         // For managing files.
         "com.android.documentsui",
-        "com.android.google.documentsui"
+        "com.android.google.documentsui",
+        "org.evolution.oplus.OPlusExtras"
     );
 
     private static final List<String> SPACE_BLACKLIST_PACKAGES = Arrays.asList(
