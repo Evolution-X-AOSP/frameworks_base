@@ -54,4 +54,5 @@
     <string name="face_unlock_disabled_idle">Face unlock dinonaktifkan karena tidak aktif</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Gesek lagi untuk membuka kunci gestur</string>
+    <!-- Parallel space badge -->
 </resources>
