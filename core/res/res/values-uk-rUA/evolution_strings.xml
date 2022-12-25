@@ -54,4 +54,5 @@
     <string name="face_unlock_disabled_idle">Розблокування за обличчю вимкнено через неактивність</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Проведіть ще раз, щоб розблокувати жести</string>
+    <!-- Parallel space badge -->
 </resources>
