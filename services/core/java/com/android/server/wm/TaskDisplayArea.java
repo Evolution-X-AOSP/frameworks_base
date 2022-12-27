@@ -917,6 +917,11 @@ final class TaskDisplayArea extends DisplayArea<WindowContainer> {
                 if (candidateTask.getParent() == null) {
                     launchRootTask.addChild(candidateTask, position);
                 } else if (candidateTask.getParent() != launchRootTask) {
+                    if (candidateTask.getWindowingMode() == WINDOWING_MODE_PINNED
+                            && launchRootTask.getWindowingMode() == WINDOWING_MODE_MULTI_WINDOW) {
+                        candidateTask.setWindowingMode(WINDOWING_MODE_UNDEFINED);
+                        candidateTask.setBounds(null);
+                    }
                     candidateTask.reparent(launchRootTask, position);
                 }
             } else if (candidateTask.getDisplayArea() != this) {
