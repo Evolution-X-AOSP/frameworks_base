@@ -170,16 +170,6 @@ open class ClockRegistry(
         clockChangeListeners.remove(listener)
 
     fun createCurrentClock(): Clock {
-        val clockId = currentClockId
-        if (isEnabled && clockId.isNotEmpty()) {
-            val clock = createClock(clockId)
-            if (clock != null) {
-                return clock
-            } else {
-                Log.e(TAG, "Clock $clockId not found; using default")
-            }
-        }
-
         return createClock(DEFAULT_CLOCK_ID)!!
     }
 
