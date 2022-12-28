@@ -141,6 +141,7 @@
     <string name="status_bar_items_title">Pictograme bară de stare</string>
     <string name="status_bar_call_strength">Putere apel</string>
     <string name="status_bar_data_saver">Economisire date</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Opriți forțat?</string>
