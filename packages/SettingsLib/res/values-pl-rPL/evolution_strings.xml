@@ -21,4 +21,6 @@
     <string name="power_remaining_turbo_charging_duration_only">Superszybkie ładowanie (<xliff:g id="time">%1$s</xliff:g> pozostało do pełnego)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
     <string name="battery_info_status_turbo_charging">Superszybkie ładowanie</string>
+    <!-- [CHAR LIMIT=25] Manage applications, text for when an application is hidden. -->
+    <string name="hidden">Ukryte</string>
 </resources>
