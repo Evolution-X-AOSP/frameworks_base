@@ -2,7 +2,8 @@
 * Copyright (C) 2013 SlimRoms Project
 * Copyright (C) 2015 TeamEos Project
 * Copyright (C) 2015-2016 The DirtyUnicorns Project
-* Copyright (C) 2019-2021 crDroid Android Project
+* Copyright (C) 2019-2022 crDroid Android Project
+* Copyright (C) 2023 the Arcana Android Project
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -51,14 +52,15 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.VectorDrawable;
 import android.net.Uri;
 import android.os.ParcelFileDescriptor;
-import android.renderscript.Element;
-import android.renderscript.Allocation;
-import android.renderscript.ScriptIntrinsicBlur;
-import android.renderscript.RenderScript;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.util.Xml;
+import android.view.Display;
+import android.view.SurfaceControl;
+import android.view.View;
+import android.view.WindowManager;
 
 import android.content.ContentResolver;
 import android.os.UserHandle;
@@ -67,8 +69,6 @@ import android.provider.Settings;
 public class ImageHelper {
     private static final int VECTOR_WIDTH = 512;
     private static final int VECTOR_HEIGHT = 512;
-    private static float mCurrentLSBlurRadius;
-    private static float mLSBlurRadius;
 
     public static Drawable getColoredDrawable(Drawable d, int color) {
         if (d == null) {
@@ -150,12 +150,6 @@ public class ImageHelper {
         return (int) ((dp * context.getResources().getDisplayMetrics().density) + 0.5);
     }
 
-    private static float getLSBlurRadius(Context context) {
-        mCurrentLSBlurRadius = Settings.System.getFloatForUser(context.getContentResolver(),
-                Settings.System.LS_MEDIA_FILTER_BLUR_RADIUS, 25f, UserHandle.USER_CURRENT);
-        return mCurrentLSBlurRadius;
-    }
-
     public static Drawable resize(Context context, Drawable image, int size) {
         if (image == null || context == null) {
             return null;
@@ -184,6 +178,42 @@ public class ImageHelper {
                     middleY - bitmap.getHeight() / 2, paint);
             return new BitmapDrawable(context.getResources(), scaledBitmap);
         }
+    }
+
+    public static Bitmap resizeMaxDeviceSize(Context context, Drawable image) {
+        Bitmap i2b = ((BitmapDrawable) image).getBitmap();
+        return resizeMaxDeviceSize(context, i2b);
+    }
+
+    public static Bitmap resizeMaxDeviceSize(Context context, Bitmap image) {
+        Bitmap imageToBitmap;
+        DisplayMetrics metrics = new DisplayMetrics();
+        WindowManager wm = context.getSystemService(WindowManager.class);
+        wm.getDefaultDisplay().getRealMetrics(metrics);
+        int maxHeight = metrics.heightPixels;
+        int maxWidth = metrics.widthPixels;
+        try {
+            imageToBitmap = RGB565toARGB888(image);
+            if (maxHeight > 0 && maxWidth > 0) {
+                int width = imageToBitmap.getWidth();
+                int height = imageToBitmap.getHeight();
+                float ratioBitmap = (float) width / (float) height;
+                float ratioMax = (float) maxWidth / (float) maxHeight;
+
+                int finalWidth = maxWidth;
+                int finalHeight = maxHeight;
+                if (ratioMax > ratioBitmap) {
+                    finalWidth = (int) ((float)maxHeight * ratioBitmap);
+                } else {
+                    finalHeight = (int) ((float)maxWidth / ratioBitmap);
+                }
+                imageToBitmap = Bitmap.createScaledBitmap(imageToBitmap, finalWidth, finalHeight, true);
+                return imageToBitmap;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return image;
     }
 
     public static Bitmap getRoundedCornerBitmap(Bitmap bitmap) {
@@ -321,49 +351,6 @@ public class ImageHelper {
             return null;
         }
         return Uri.fromFile(imageFile);
-    }
-
-    public static Bitmap getBlurredImage(Context context, Bitmap image) {
-    	mLSBlurRadius = getLSBlurRadius(context);
-        return getBlurredImage(context, image, mLSBlurRadius);
-    }
-
-    public static Bitmap getBlurredImage(Context context, Bitmap image, float radius) {
-        try {
-            image = RGB565toARGB888(image);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        Bitmap bitmap = Bitmap.createBitmap(
-                image.getWidth(), image.getHeight(),
-                Bitmap.Config.ARGB_8888);
-        RenderScript renderScript = RenderScript.create(context);
-        Allocation blurInput = Allocation.createFromBitmap(renderScript, image);
-        Allocation blurOutput = Allocation.createFromBitmap(renderScript, bitmap);
-
-        ScriptIntrinsicBlur blur = ScriptIntrinsicBlur.create(renderScript,
-                Element.U8_4(renderScript));
-        blur.setInput(blurInput);
-        blur.setRadius(radius); // radius must be 0 < r <= 25
-        blur.forEach(blurOutput);
-        blurOutput.copyTo(bitmap);
-        renderScript.destroy();
-
-        return bitmap;
-    }
-
-    public static Bitmap getGrayscaleBlurredImage(Context context, Bitmap image) {
-    	mLSBlurRadius = getLSBlurRadius(context);
-        return getGrayscaleBlurredImage(context, image, mLSBlurRadius);
-    }
-
-    public static Bitmap getGrayscaleBlurredImage(Context context, Bitmap image, float radius) {
-        Bitmap finalImage = Bitmap.createBitmap(
-                image.getWidth(), image.getHeight(),
-                Bitmap.Config.ARGB_8888);
-        finalImage = toGrayscale(getBlurredImage(context, image, radius));
-        return finalImage;
     }
 
     private static Bitmap RGB565toARGB888(Bitmap img) throws Exception {
