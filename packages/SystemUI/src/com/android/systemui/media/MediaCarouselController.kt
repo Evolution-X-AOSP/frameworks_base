@@ -5,7 +5,16 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.content.res.Configuration
+import android.database.ContentObserver
+import android.net.Uri
+import android.os.Handler
+import android.os.UserHandle.USER_ALL
+import android.os.UserHandle.USER_CURRENT
+import android.provider.Settings
 import android.provider.Settings.ACTION_MEDIA_CONTROLS_SETTINGS
+import android.provider.Settings.System.MEDIA_ARTWORK_BLUR_ENABLED
+import android.provider.Settings.System.MEDIA_ARTWORK_BLUR_RADIUS
+import com.android.systemui.util.settings.SystemSettings
 import android.util.Log
 import android.util.MathUtils
 import android.view.LayoutInflater
@@ -18,6 +27,7 @@ import com.android.systemui.Dumpable
 import com.android.systemui.R
 import com.android.systemui.classifier.FalsingCollector
 import com.android.systemui.dagger.SysUISingleton
+import com.android.systemui.dagger.qualifiers.Background
 import com.android.systemui.dagger.qualifiers.Main
 import com.android.systemui.dump.DumpManager
 import com.android.systemui.media.MediaControlPanel.SMARTSPACE_CARD_DISMISS_EVENT
@@ -39,10 +49,6 @@ import java.util.TreeMap
 import javax.inject.Inject
 import javax.inject.Provider
 
-private const val TAG = "MediaCarouselController"
-private val settingsIntent = Intent().setAction(ACTION_MEDIA_CONTROLS_SETTINGS)
-private val DEBUG = Log.isLoggable(TAG, Log.DEBUG)
-
 /**
  * Class that is responsible for keeping the view carousel up to date.
  * This also handles changes in state and applies them to the media carousel like the expansion.
@@ -62,7 +68,10 @@ class MediaCarouselController @Inject constructor(
     falsingManager: FalsingManager,
     dumpManager: DumpManager,
     private val logger: MediaUiEventLogger,
-    private val debugLogger: MediaCarouselControllerLogger
+    private val debugLogger: MediaCarouselControllerLogger,
+    @Main private val mainHandler: Handler,
+    @Background bgHandler: Handler,
+    systemSettings: SystemSettings
 ) : Dumpable {
     /**
      * The current width of the carousel
@@ -182,6 +191,9 @@ class MediaCarouselController @Inject constructor(
     private val isReorderingAllowed: Boolean
         get() = visualStabilityProvider.isReorderingAllowed
 
+    private val settingsObserver = SettingsObserver(bgHandler, systemSettings)
+    private var artworkSettings = ArtworkSettings()
+
     init {
         dumpManager.registerDumpable(TAG, this)
         mediaFrame = inflateMediaCarousel()
@@ -220,6 +232,7 @@ class MediaCarouselController @Inject constructor(
             mediaCarouselScrollHandler.scrollToStart()
         }
         visualStabilityProvider.addPersistentReorderingAllowedListener(visualStabilityCallback)
+        settingsObserver.observe()
         mediaManager.addListener(object : MediaDataManager.Listener {
             override fun onMediaDataLoaded(
                 key: String,
@@ -457,6 +470,7 @@ class MediaCarouselController @Inject constructor(
             newPlayer.mediaViewController.sizeChangedListener = this::updateCarouselDimensions
             val lp = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT)
+	    newPlayer.updateArtworkSettings(artworkSettings)
             newPlayer.mediaViewHolder?.player?.setLayoutParams(lp)
             newPlayer.bindPlayer(data, key)
             newPlayer.setListening(currentlyExpanded)
@@ -470,6 +484,7 @@ class MediaCarouselController @Inject constructor(
                 needsReordering = true
             }
         } else {
+            existingPlayer.updateArtworkSettings(artworkSettings)
             existingPlayer.bindPlayer(data, key)
             MediaPlayerData.addMediaPlayer(
                 key, data, existingPlayer, systemClock, isSsReactivated, debugLogger
@@ -938,6 +953,56 @@ class MediaCarouselController @Inject constructor(
                 "only active ${desiredHostState?.showsOnlyActiveMedia}")
         }
     }
+
+    private inner class SettingsObserver(
+        private val handler: Handler,
+        private val systemSettings: SystemSettings
+    ) : ContentObserver(handler) {
+
+        fun observe() {
+            handler.post {
+                val newSettings = ArtworkSettings(
+                    blurEnabled = systemSettings.getIntForUser(
+                        MEDIA_ARTWORK_BLUR_ENABLED, 0, USER_CURRENT) == 1,
+                    blurRadius = systemSettings.getFloatForUser(
+                        MEDIA_ARTWORK_BLUR_RADIUS, 25f, USER_CURRENT)
+                )
+                mainHandler.post {
+                    artworkSettings = newSettings
+                }
+            }
+
+            systemSettings.registerContentObserverForUser(
+                MEDIA_ARTWORK_BLUR_ENABLED, this, USER_ALL)
+            systemSettings.registerContentObserverForUser(
+                MEDIA_ARTWORK_BLUR_RADIUS, this, USER_ALL)
+        }
+
+        override fun onChange(selfChange: Boolean, uri: Uri) {
+            val newSettings = when (uri.lastPathSegment) {
+                MEDIA_ARTWORK_BLUR_ENABLED -> artworkSettings.copy(
+                    blurEnabled = systemSettings.getIntForUser(
+                        MEDIA_ARTWORK_BLUR_ENABLED, 0, USER_CURRENT) == 1
+                )
+                MEDIA_ARTWORK_BLUR_RADIUS -> artworkSettings.copy(
+                    blurRadius = systemSettings.getFloatForUser(
+                        MEDIA_ARTWORK_BLUR_RADIUS, 25f, USER_CURRENT)
+                )
+                else -> return
+            }
+            mainHandler.post {
+                artworkSettings = newSettings
+                updatePlayers(recreateMedia = true)
+            }
+        }
+    }
+
+    companion object {
+        private const val TAG = "MediaCarouselController"
+        private val DEBUG = Log.isLoggable(TAG, Log.DEBUG)
+
+        private val settingsIntent = Intent(ACTION_MEDIA_CONTROLS_SETTINGS)
+    }
 }
 
 @VisibleForTesting
@@ -1119,3 +1184,8 @@ internal object MediaPlayerData {
 
     fun isSsReactivated(key: String): Boolean = mediaData.get(key)?.isSsReactivated ?: false
 }
+
+data class ArtworkSettings @JvmOverloads constructor(
+    val blurEnabled: Boolean = false,
+    val blurRadius: Float = 1f,
+)
