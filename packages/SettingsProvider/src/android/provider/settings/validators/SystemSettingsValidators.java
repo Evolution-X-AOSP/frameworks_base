@@ -350,5 +350,7 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.QS_TILE_VERTICAL_LAYOUT, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.QS_LAYOUT, ANY_INTEGER_VALIDATOR);
         VALIDATORS.put(System.QQS_LAYOUT, ANY_INTEGER_VALIDATOR);
+        VALIDATORS.put(System.MEDIA_ARTWORK_BLUR_ENABLED, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.MEDIA_ARTWORK_BLUR_RADIUS, new InclusiveFloatRangeValidator(5f, 25f));
     }
 }
