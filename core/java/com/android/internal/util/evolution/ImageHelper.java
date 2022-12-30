@@ -326,8 +326,10 @@ public class ImageHelper {
                 image.getWidth(), image.getHeight(),
                 Bitmap.Config.ARGB_8888);
         RenderScript renderScript = RenderScript.create(context);
-        Allocation blurInput = Allocation.createFromBitmap(renderScript, image);
-        Allocation blurOutput = Allocation.createFromBitmap(renderScript, bitmap);
+        Allocation blurInput = Allocation.createFromBitmap(renderScript, image,
+                    Allocation.MipmapControl.MIPMAP_NONE, Allocation.USAGE_SHARED);
+        Allocation blurOutput = Allocation.createFromBitmap(renderScript, bitmap,
+                    Allocation.MipmapControl.MIPMAP_NONE, Allocation.USAGE_SHARED);
 
         ScriptIntrinsicBlur blur = ScriptIntrinsicBlur.create(renderScript,
                 Element.U8_4(renderScript));
