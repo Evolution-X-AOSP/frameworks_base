@@ -26,7 +26,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 
 import com.android.systemui.Dependency;
 import com.android.systemui.res.R;
@@ -62,7 +62,7 @@ public class BrightnessMirrorController
     private int mLastBrightnessSliderWidth = -1;
     private boolean mShouldShowAutoBrightness;
     private boolean mIsAutomaticBrightnessAvailable;
-    private ImageView mIcon;
+    private ImageButton mIcon;
 
     public BrightnessMirrorController(NotificationShadeWindowView statusBarWindow,
             ShadeViewController shadeViewController,
