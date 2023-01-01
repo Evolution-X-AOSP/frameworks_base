@@ -279,9 +279,7 @@ public class PixelPropsUtils {
                 sIsFinsky = true;
                 return;
             } else {
-                if ((Arrays.asList(packagesToChangePixel7Pro).contains(packageName))
-                        || packageName.startsWith(SAMSUNG)
-                        || Arrays.asList(extraPackagesToChange).contains(packageName)) {
+                if ((Arrays.asList(packagesToChangePixel7Pro).contains(packageName))) {
                     propsToChange.putAll(propsToChangePixel7Pro);
                 } else {
                     propsToChange.putAll(propsToChangePixel5);
