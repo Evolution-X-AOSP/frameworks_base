@@ -183,10 +183,6 @@
     <!-- Google Lens Screenshot string -->
     <string name="lensss">Lens</string>
     <string name="lens_unavailable">Nincs telepítve a Google Lens</string>
-    <!-- Bluetooth dialog -->
-    <string name="turn_on_bluetooth">Bluetooth-használat</string>
-    <string name="bluetooth_is_off">A Bluetooth ki van kapcsolva</string>
-    <string name="tap_a_device_to_connect">Kapcsolódáshoz koppintson a kívánt készülékre</string>
     <!-- On The Go -->
     <string name="onthego_notif_ticker">A Menet közben mód aktiválva</string>
     <string name="onthego_notif_title">A Menet közben mód aktív</string>
