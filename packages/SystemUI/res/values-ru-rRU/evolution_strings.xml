@@ -181,7 +181,7 @@
     <string name="empty_app_killed">Приложение</string>
     <!-- Google Lens Screenshot string -->
     <string name="lensss">Объектив</string>
-    <string name="lens_unavailable">Приложение Google Lens не установлено</string>
+    <string name="lens_unavailable">Приложение Google Объектив не установлено</string>
     <!-- Bluetooth dialog -->
     <string name="turn_on_bluetooth">Использовать Bluetooth</string>
     <string name="bluetooth_is_off">Bluetooth выкл</string>
