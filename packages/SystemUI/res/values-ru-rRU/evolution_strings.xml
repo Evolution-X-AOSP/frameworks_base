@@ -182,10 +182,6 @@
     <!-- Google Lens Screenshot string -->
     <string name="lensss">Объектив</string>
     <string name="lens_unavailable">Приложение Google Объектив не установлено</string>
-    <!-- Bluetooth dialog -->
-    <string name="turn_on_bluetooth">Использовать Bluetooth</string>
-    <string name="bluetooth_is_off">Bluetooth выкл</string>
-    <string name="tap_a_device_to_connect">Коснитесь устройства для подключения</string>
     <!-- On The Go -->
     <string name="onthego_notif_ticker">Режим \"На ходу\" включён</string>
     <string name="onthego_notif_title">Режим \"На ходу\" активен</string>
