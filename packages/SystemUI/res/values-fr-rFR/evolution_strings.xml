@@ -183,10 +183,6 @@
     <!-- Google Lens Screenshot string -->
     <string name="lensss">Lens</string>
     <string name="lens_unavailable">Google Lens n\'est pas installé</string>
-    <!-- Bluetooth dialog -->
-    <string name="turn_on_bluetooth">Utiliser le Bluetooth</string>
-    <string name="bluetooth_is_off">Le Bluetooth est désactivé</string>
-    <string name="tap_a_device_to_connect">Sélectionnez un appareil à connecter</string>
     <!-- On The Go -->
     <string name="onthego_notif_ticker">Mode OTG activé</string>
     <string name="onthego_notif_title">Le mode OTG est activé</string>

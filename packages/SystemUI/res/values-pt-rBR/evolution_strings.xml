@@ -183,10 +183,6 @@
     <!-- Google Lens Screenshot string -->
     <string name="lensss">Lens</string>
     <string name="lens_unavailable">O Google Lens não está instalado</string>
-    <!-- Bluetooth dialog -->
-    <string name="turn_on_bluetooth">Usar Bluetooth</string>
-    <string name="bluetooth_is_off">O Bluetooth está desligado</string>
-    <string name="tap_a_device_to_connect">Selecione um dispositivo para conectar</string>
     <!-- On The Go -->
     <string name="onthego_notif_ticker">On-The-Go ativado</string>
     <string name="onthego_notif_title">On-The-Go está ativo</string>
