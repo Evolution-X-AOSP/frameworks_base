@@ -127,6 +127,9 @@ public class ThemeOverlayApplier implements Dumpable {
     @VisibleForTesting
     static final String OVERLAY_CATEGORY_NAVBAR =
             "android.theme.customization.navbar";
+    @VisibleForTesting
+    static final String OVERLAY_CATEGORY_LOCK_CLOCK_FONT =
+            "android.theme.customization.lockscreen_clock_font";
 
     /*
      * All theme customization categories used by the system, in order that they should be applied,
@@ -145,7 +148,8 @@ public class ThemeOverlayApplier implements Dumpable {
             OVERLAY_CATEGORY_ICON_THEME_PICKER,
             OVERLAY_CATEGORY_ICON_SIGNAL,
             OVERLAY_CATEGORY_ICON_WIFI,
-            OVERLAY_CATEGORY_NAVBAR);
+            OVERLAY_CATEGORY_NAVBAR,
+            OVERLAY_CATEGORY_LOCK_CLOCK_FONT);
 
     /* Categories that need to be applied to the current user as well as the system user. */
     @VisibleForTesting
@@ -157,7 +161,8 @@ public class ThemeOverlayApplier implements Dumpable {
             OVERLAY_CATEGORY_SHAPE,
             OVERLAY_CATEGORY_ICON_ANDROID,
             OVERLAY_CATEGORY_ICON_SYSUI,
-            OVERLAY_CATEGORY_NAVBAR);
+            OVERLAY_CATEGORY_NAVBAR,
+            OVERLAY_CATEGORY_LOCK_CLOCK_FONT);
 
     /* Categories for all available custom themes */
     @VisibleForTesting
@@ -206,6 +211,7 @@ public class ThemeOverlayApplier implements Dumpable {
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_DYNAMIC_COLOR, ANDROID_PACKAGE);
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_FONT, ANDROID_PACKAGE);
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_SHAPE, ANDROID_PACKAGE);
+        mCategoryToTargetPackage.put(OVERLAY_CATEGORY_LOCK_CLOCK_FONT, ANDROID_PACKAGE);
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_ICON_ANDROID, ANDROID_PACKAGE);
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_ICON_SYSUI, SYSUI_PACKAGE);
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_ICON_SETTINGS, SETTINGS_PACKAGE);
