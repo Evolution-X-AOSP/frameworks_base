@@ -1720,7 +1720,7 @@ public final class ActivityRecord extends WindowToken implements WindowManagerSe
                 : null;
     }
 
-    private void clearLastParentBeforePip() {
+    void clearLastParentBeforePip() {
         if (mLastParentBeforePip != null) {
             mLastParentBeforePip.mChildPipActivity = null;
             mLastParentBeforePip = null;
