@@ -1588,16 +1588,20 @@ class Task extends TaskFragment {
                 || (oldParentFragment != null && oldParentFragment.isEmbedded()));
     }
 
-    private void clearPinnedTaskIfNeed() {
+    private void clearPinnedTaskIfNeed(boolean isTaskRemoved) {
         // The original task is to be removed, try remove also the pinned task.
         if (mChildPipActivity != null && mChildPipActivity.getTask() != null) {
             mTaskSupervisor.removeRootTask(mChildPipActivity.getTask());
+            if (isTaskRemoved && mChildPipActivity != null
+                    && mChildPipActivity.getWindowingMode() != WINDOWING_MODE_PINNED) {
+                mChildPipActivity.clearLastParentBeforePip();
+            }
         }
     }
 
     /** Completely remove all activities associated with an existing task. */
     void removeActivities(String reason, boolean excludingTaskOverlay) {
-        clearPinnedTaskIfNeed();
+        clearPinnedTaskIfNeed(false);
         // Broken down into to cases to avoid object create due to capturing mStack.
         if (getRootTask() == null) {
             forAllActivities((r) -> {
@@ -2603,7 +2607,7 @@ class Task extends TaskFragment {
         mRemoving = true;
 
         EventLogTags.writeWmTaskRemoved(mTaskId, reason);
-        clearPinnedTaskIfNeed();
+        clearPinnedTaskIfNeed(true);
         // If applicable let the TaskOrganizer know the Task is vanishing.
         setTaskOrganizer(null);
 
