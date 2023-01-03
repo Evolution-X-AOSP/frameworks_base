@@ -18,6 +18,7 @@ import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.icu.text.NumberFormat
+import android.os.UserHandle
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.widget.FrameLayout
@@ -35,10 +36,12 @@ import java.util.Locale
 import java.util.TimeZone
 import javax.inject.Inject
 
+import android.provider.Settings.Secure
+
 private val TAG = DefaultClockProvider::class.simpleName
 const val DEFAULT_CLOCK_NAME = "Default Clock"
 const val DEFAULT_CLOCK_ID = "DEFAULT"
-
+ 
 /** Provides the default system clock */
 class DefaultClockProvider @Inject constructor(
     val ctx: Context,
@@ -72,7 +75,7 @@ class DefaultClockProvider @Inject constructor(
  * AnimatableClockView used by the existing lockscreen clock.
  */
 class DefaultClock(
-        ctx: Context,
+        val ctx: Context,
         private val layoutInflater: LayoutInflater,
         private val resources: Resources
 ) : Clock {
@@ -153,12 +156,12 @@ class DefaultClock(
         ) {
             if (smallRegionDarkness != smallClockIsDark) {
                 smallRegionDarkness = smallClockIsDark
-                updateClockColor(smallClock, smallClockIsDark)
             }
+            updateClockColor(smallClock, smallRegionDarkness)
             if (largeRegionDarkness != largeClockIsDark) {
                 largeRegionDarkness = largeClockIsDark
-                updateClockColor(largeClock, largeClockIsDark)
             }
+            updateClockColor(largeClock, largeRegionDarkness)
         }
 
         override fun onLocaleChanged(locale: Locale) {
@@ -229,10 +232,20 @@ class DefaultClock(
     }
 
     private fun updateClockColor(clock: AnimatableClockView, isRegionDark: Boolean) {
+        val customClockColorEnabled = Secure.getIntForUser(ctx.getContentResolver(),
+                Secure.KG_CUSTOM_CLOCK_COLOR_ENABLED, 0, UserHandle.USER_CURRENT) != 0
+        val customClockColor = Secure.getIntForUser(ctx.getContentResolver(),
+                Secure.KG_CUSTOM_CLOCK_COLOR, 0xFFFFFFFF.toInt(), UserHandle.USER_CURRENT)
         val color = if (isRegionDark) {
-            resources.getColor(android.R.color.system_accent1_100)
+            if (customClockColorEnabled)
+                customClockColor.toInt()
+            else
+                resources.getColor(android.R.color.system_accent1_100)
         } else {
-            resources.getColor(android.R.color.system_accent2_600)
+            if (customClockColorEnabled)
+                customClockColor.toInt()
+            else
+                resources.getColor(android.R.color.system_accent2_600)
         }
         clock.setColors(DOZE_COLOR, color)
         clock.animateAppearOnLockscreen()
