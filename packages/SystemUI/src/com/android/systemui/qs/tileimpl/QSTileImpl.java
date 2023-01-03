@@ -40,6 +40,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.UserHandle;
 import android.os.Vibrator;
+import android.os.VibrationEffect;
 import android.provider.Settings;
 import android.text.format.DateUtils;
 import android.util.ArraySet;
@@ -206,7 +207,7 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
         mStatusBarStateController = statusBarStateController;
         mActivityStarter = activityStarter;
 
-        mVibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
+        mVibrator = mContext.getSystemService(Vibrator.class);
 
         resetStates();
         mUiHandler.post(() -> mLifecycle.setCurrentState(CREATED));
@@ -284,10 +285,10 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
                 UserHandle.USER_CURRENT) == 1);
     }
 
-    public void vibrateTile(int duration) {
+    public void vibrateTile() {
         if (!isVibrationEnabled()) { return; }
         if (mVibrator != null) {
-            if (mVibrator.hasVibrator()) { mVibrator.vibrate(duration); }
+            if (mVibrator.hasVibrator()) { mVibrator.vibrate(VibrationEffect.get(VibrationEffect.EFFECT_CLICK)); }
         }
     }
 
@@ -315,7 +316,7 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
         if (!mFalsingManager.isFalseTap(FalsingManager.LOW_PENALTY)) {
             mHandler.obtainMessage(H.CLICK, eventId, 0, view).sendToTarget();
         }
-        vibrateTile(45);
+        vibrateTile();
     }
 
     public void secondaryClick(@Nullable View view) {
@@ -342,7 +343,7 @@ public abstract class QSTileImpl<TState extends State> implements QSTile, Lifecy
                 eventId);
         if (!mFalsingManager.isFalseLongTap(FalsingManager.LOW_PENALTY)) {
             mHandler.obtainMessage(H.LONG_CLICK, eventId, 0, view).sendToTarget();
-            vibrateTile(45);
+            vibrateTile();
         }
     }
 
