@@ -198,10 +198,8 @@ public interface StatusBarIconController {
 
         @Override
         public void onSetIcon(int viewIndex, StatusBarIcon icon) {
-            View view = mGroup.getChildAt(viewIndex);
-            if (view instanceof StatusBarIconView) {
-                ((StatusBarIconView) view).set(icon);
-            }
+            super.onSetIcon(viewIndex, icon);
+            mDarkIconDispatcher.applyDark((DarkReceiver) mGroup.getChildAt(viewIndex));
         }
 
         @Override
@@ -582,10 +580,7 @@ public interface StatusBarIconController {
         public void onSetIconHolder(int viewIndex, StatusBarIconHolder holder) {
             switch (holder.getType()) {
                 case TYPE_ICON:
-                    View view = mGroup.getChildAt(viewIndex);
-                    if (view instanceof StatusBarIconView) {
-                        onSetIcon(viewIndex, holder.getIcon());
-                    }
+                    onSetIcon(viewIndex, holder.getIcon());
                     return;
                 case TYPE_WIFI:
                     onSetWifiIcon(viewIndex, holder.getWifiState());

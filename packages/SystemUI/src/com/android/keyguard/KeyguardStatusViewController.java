@@ -203,11 +203,6 @@ public class KeyguardStatusViewController extends ViewController<KeyguardStatusV
         public void onDensityOrFontScaleChanged() {
             mKeyguardClockSwitchController.onDensityOrFontScaleChanged();
         }
-
-        @Override
-        public void onThemeChanged() {
-            mKeyguardClockSwitchController.onDensityOrFontScaleChanged();
-        }
     };
 
     private KeyguardUpdateMonitorCallback mInfoCallback = new KeyguardUpdateMonitorCallback() {
