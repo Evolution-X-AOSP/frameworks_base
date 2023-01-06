@@ -406,7 +406,7 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
      * @return true if the entry should ambient pulse, false otherwise
      */
     private boolean shouldHeadsUpWhenDozing(NotificationEntry entry) {
-        if (!mAmbientDisplayConfiguration.pulseOnNotificationEnabled(UserHandle.USER_CURRENT)) {
+        if (!mAmbientDisplayConfiguration.userPulseOnNotificationEnabled(UserHandle.USER_CURRENT)) {
             mLogger.logNoPulsingSettingDisabled(entry);
             return false;
         }
