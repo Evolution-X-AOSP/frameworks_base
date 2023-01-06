@@ -1283,12 +1283,6 @@ public class VolumeDialogImpl implements VolumeDialog,
                         == BluetoothProfile.STATE_CONNECTED;
     }
 
-    private boolean isMediaControllerAvailable() {
-        final MediaController mediaController = getActiveLocalMediaController();
-        return mediaController != null &&
-                !TextUtils.isEmpty(mediaController.getPackageName());
-    }
-
     private void initSettingsH(int lockTaskModeState) {
         if (mRoundedBorderBottom != null){
             mRoundedBorderBottom.setVisibility(!mDeviceProvisionedController.isCurrentUserSetup() ||
@@ -1303,9 +1297,13 @@ public class VolumeDialogImpl implements VolumeDialog,
         if (mSettingsIcon != null) {
             mSettingsIcon.setOnClickListener(v -> {
                 Events.writeEvent(Events.EVENT_SETTINGS_CLICK);
-                String packageName = isMediaControllerAvailable()
-                        ? getActiveLocalMediaController().getPackageName() : "";
-                mMediaOutputDialogFactory.create(packageName, true, mDialogView);
+                final MediaController mediaController = getActiveLocalMediaController();
+                String packageName =
+                        mediaController != null
+                                && !TextUtils.isEmpty(mediaController.getPackageName())
+                                ? mediaController.getPackageName()
+                                : "";
+                mMediaOutputDialogFactory.create(packageName, false, mDialogView);
                 dismissH(DISMISS_REASON_SETTINGS_CLICKED);
             });
         }
