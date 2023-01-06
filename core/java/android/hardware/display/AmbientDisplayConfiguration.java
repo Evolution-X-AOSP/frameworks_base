@@ -56,7 +56,8 @@ public class AmbientDisplayConfiguration {
             Settings.Secure.DOZE_WAKE_LOCK_SCREEN_GESTURE,
             Settings.Secure.DOZE_WAKE_DISPLAY_GESTURE,
             Settings.Secure.DOZE_TAP_SCREEN_GESTURE,
-            Settings.Secure.DOZE_ON_CHARGE
+            Settings.Secure.DOZE_ON_CHARGE,
+            Settings.Secure.DOZE_FOR_NOTIFICATIONS
     };
 
     /** Non-user configurable doze settings */
@@ -101,6 +102,12 @@ public class AmbientDisplayConfiguration {
     public boolean pulseOnNotificationAvailable() {
         return mContext.getResources().getBoolean(R.bool.config_pulseOnNotificationsAvailable)
                 && ambientDisplayAvailable();
+    }
+    
+    /** @hide */
+    public boolean userPulseOnNotificationEnabled(int user) {
+        return boolSettingDefaultOn(Settings.Secure.DOZE_FOR_NOTIFICATIONS, user)
+                && pulseOnNotificationEnabled(user);
     }
 
     /** @hide */
