@@ -3322,6 +3322,9 @@ public final class NotificationPanelViewController extends PanelViewController {
                 && !mKeyguardBypassController.getBypassEnabled()) {
             alpha *= mClockPositionResult.clockAlpha;
         }
+        if (mQsExpandImmediate && !mQsFullyExpanded) {
+            alpha = 0f;
+        }
         mNotificationStackScrollLayoutController.setAlpha(alpha);
         if (mBarState != StatusBarState.KEYGUARD && !isFullyCollapsed() || !isPanelVisibleBecauseOfHeadsUp()) {
             mCentralSurfaces.updateDismissAllVisibility(true);
