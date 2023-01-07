@@ -27,7 +27,6 @@ import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.repeatOnLifecycle
-import com.android.settingslib.Utils
 import com.android.systemui.R
 import com.android.systemui.animation.ActivityLaunchAnimator
 import com.android.systemui.animation.Interpolators
@@ -240,15 +239,6 @@ object KeyguardBottomAreaViewBinder {
             is ContainedDrawable.WithDrawable -> view.setImageDrawable(viewModel.icon.drawable)
             is ContainedDrawable.WithResource -> view.setImageResource(viewModel.icon.resourceId)
         }
-
-        view.drawable.setTint(
-            Utils.getColorAttrDefaultColor(
-                view.context,
-                com.android.internal.R.attr.textColorPrimary
-            )
-        )
-        view.backgroundTintList =
-            Utils.getColorAttr(view.context, com.android.internal.R.attr.colorSurface)
 
         view.contentDescription = view.context.getString(viewModel.contentDescriptionResourceId)
         view.isClickable = viewModel.isClickable
