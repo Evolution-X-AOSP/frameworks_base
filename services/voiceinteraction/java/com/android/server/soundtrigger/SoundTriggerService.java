@@ -139,7 +139,7 @@ import java.util.stream.Collectors;
  */
 public class SoundTriggerService extends SystemService {
     private static final String TAG = "SoundTriggerService";
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
     private static final int SESSION_MAX_EVENT_SIZE = 128;
 
     private final Context mContext;

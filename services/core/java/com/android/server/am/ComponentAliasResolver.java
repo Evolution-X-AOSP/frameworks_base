@@ -57,7 +57,7 @@ import java.util.function.Supplier;
 @Deprecated
 public class ComponentAliasResolver {
     private static final String TAG = "ComponentAliasResolver";
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
 
     /**
      * This flag has to be enabled for the "android" package to use component aliases.
