@@ -171,6 +171,7 @@ public final class NotificationRecord {
     private Light mLight;
     private boolean mIsNotConversationOverride;
     private ShortcutInfo mShortcutInfo;
+    private int[] mTorchBlink;
     /**
      * This list contains system generated smart actions from NAS, app-generated smart actions are
      * stored in Notification.actions with isContextual() set to true.
@@ -231,6 +232,7 @@ public final class NotificationRecord {
         mPreChannelsNotification = isPreChannelsNotification();
         mSound = calculateSound();
         mVibration = calculateVibration();
+        mTorchBlink = calculateTorchBlink();
         mAttributes = calculateAttributes();
         mImportance = calculateInitialImportance();
         mLight = calculateLights();
@@ -328,6 +330,27 @@ public final class NotificationRecord {
             }
         }
         return vibration;
+    }
+
+    private int[] calculateTorchBlink() {
+        final String defSetValue = Settings.System.getString(
+                mContext.getContentResolver(),
+                Settings.System.DEFAULT_NOTIFICATION_TORCH);
+        int[] pattern = null;
+        if (defSetValue != null) {
+            if (defSetValue.equals("1")) {
+                pattern = new int[] { 2, 2 };
+            } else {
+                pattern = new int[2];
+                final String[] vals = defSetValue.split(",");
+                pattern[0] = Integer.parseInt(vals[0]);
+                pattern[1] = Integer.parseInt(vals[1]);
+            }
+        }
+        if (getChannel().shouldBlinkTorch() && getChannel().getTorchBlinkPattern() != null) {
+            pattern = getChannel().getTorchBlinkPattern();
+        }
+        return pattern;
     }
 
     private AudioAttributes calculateAttributes() {
@@ -1133,6 +1156,10 @@ public final class NotificationRecord {
 
     public VibrationEffect getVibration() {
         return mVibration;
+    }
+
+    public int[] getTorchBlink() {
+        return mTorchBlink;
     }
 
     public AudioAttributes getAudioAttributes() {

@@ -193,6 +193,7 @@ import android.content.pm.UserInfo;
 import android.content.pm.VersionedPackage;
 import android.content.res.Resources;
 import android.database.ContentObserver;
+import android.hardware.camera2.CameraManager;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.AudioManagerInternal;
@@ -289,6 +290,7 @@ import com.android.internal.util.DumpUtils;
 import com.android.internal.util.Preconditions;
 import com.android.internal.util.XmlUtils;
 import com.android.internal.util.function.TriPredicate;
+import com.android.internal.util.evolution.EvolutionUtils;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.server.DeviceIdleInternal;
 import com.android.server.EventLogTags;
@@ -541,12 +543,16 @@ public class NotificationManagerService extends SystemService {
     private PermissionHelper mPermissionHelper;
     private UsageStatsManagerInternal mUsageStatsManagerInternal;
     private TelecomManager mTelecomManager;
+    private CameraManager mCameraManager;
 
     final IBinder mForegroundToken = new Binder();
     private WorkerHandler mHandler;
     private Handler mUiHandler;
     private final HandlerThread mRankingThread = new HandlerThread("ranker",
             Process.THREAD_PRIORITY_BACKGROUND);
+    private Handler mTorchHandler;
+    private boolean mHasTorch = true;
+    private boolean mIsBlinking;
 
     private LogicalLight mNotificationLight;
     LogicalLight mAttentionLight;
@@ -2252,6 +2258,7 @@ public class NotificationManagerService extends SystemService {
         mActivityManager = activityManager;
         mAmi = ami;
         mDeviceIdleManager = getContext().getSystemService(DeviceIdleManager.class);
+        mCameraManager = (CameraManager) getContext().getSystemService(Context.CAMERA_SERVICE);
         mDpm = dpm;
         mUm = userManager;
         mTelecomManager = telecomManager;
@@ -2373,6 +2380,7 @@ public class NotificationManagerService extends SystemService {
         mUseAttentionLight = resources.getBoolean(R.bool.config_useAttentionLight);
         mHasLight =
                 resources.getBoolean(com.android.internal.R.bool.config_intrusiveNotificationLed);
+        mHasTorch = EvolutionUtils.deviceHasFlashlight(getContext());
 
         // Don't start allowing notifications until the setup wizard has run once.
         // After that, including subsequent boots, init with notifications turned on.
@@ -6198,6 +6206,7 @@ public class NotificationManagerService extends SystemService {
                     }
                     pw.println("  mUseAttentionLight=" + mUseAttentionLight);
                     pw.println("  mHasLight=" + mHasLight);
+                    pw.println("  mHasTorch=" + mHasTorch);
                     pw.println("  mNotificationPulseEnabled=" + mNotificationPulseEnabled);
                     pw.println("  mSoundNotificationKey=" + mSoundNotificationKey);
                     pw.println("  mVibrateNotificationKey=" + mVibrateNotificationKey);
@@ -7999,6 +8008,9 @@ public class NotificationManagerService extends SystemService {
         } else if (wasShowLights) {
             updateLightsLocked();
         }
+        if (canBlinkTorch(record, aboveThreshold)) {
+            blink = playTorchBlink(record);
+        }
         final int buzzBeepBlink = (buzz ? 1 : 0) | (beep ? 2 : 0) | (blink ? 4 : 0);
         if (buzzBeepBlink > 0) {
             // Ignore summary updates because we don't display most of the information.
@@ -8069,6 +8081,44 @@ public class NotificationManagerService extends SystemService {
             return false;
         }
         // Light, but only when the screen is off
+        return true;
+    }
+
+    @GuardedBy("mNotificationLock")
+    boolean canBlinkTorch(final NotificationRecord record, boolean aboveThreshold) {
+        // device lacks torch
+        if (!mHasTorch) {
+            return false;
+        }
+        // the notification/channel is set to not torch blink
+        if (record.getTorchBlink() == null) {
+            return false;
+        }
+        // another notification is already blinking
+        if (mIsBlinking) {
+            return false;
+        }
+        // unimportant notification
+        if (!aboveThreshold) {
+            return false;
+        }
+        // suppressed due to DND
+        if ((record.getSuppressedVisualEffects() & SUPPRESSED_EFFECT_LIGHTS) != 0) {
+            return false;
+        }
+        // Suppressed because it's a silent update
+        final Notification notification = record.getNotification();
+        if (record.isUpdate && (notification.flags & FLAG_ONLY_ALERT_ONCE) != 0) {
+            return false;
+        }
+        // Suppressed because another notification in its group handles alerting
+        if (record.getSbn().isGroup() && record.getNotification().suppressAlertingDueToGrouping()) {
+            return false;
+        }
+        // check current user
+        if (!isNotificationForCurrentUser(record)) {
+            return false;
+        }
         return true;
     }
 
@@ -8233,6 +8283,30 @@ public class NotificationManagerService extends SystemService {
         String reason = "Notification (" + record.getSbn().getOpPkg() + " "
                 + record.getSbn().getUid() + ") " + (delayed ? "(Delayed)" : "");
         mVibratorHelper.vibrate(effect, record.getAudioAttributes(), reason);
+    }
+
+    private boolean playTorchBlink(final NotificationRecord record) {
+        // Escalate privileges so we can use the torch even if the
+        // notifying app does not have the permission.
+        final long identity = Binder.clearCallingIdentity();
+        try {
+            synchronized (mNotificationLock) {
+                final int[] vals = record.getTorchBlink();
+                getTorchHandler().post(new TorchToggler(vals[0], vals[1]));
+            }
+            return true;
+        } finally {
+            Binder.restoreCallingIdentity(identity);
+        }
+    }
+
+    private Handler getTorchHandler() {
+        if (mTorchHandler == null) {
+            HandlerThread handlerThread = new HandlerThread("TorchHandler");
+            handlerThread.start();
+            mTorchHandler = new Handler(handlerThread.getLooper());
+        }
+        return mTorchHandler;
     }
 
     private boolean isNotificationForCurrentUser(NotificationRecord record) {
@@ -11872,6 +11946,36 @@ public class NotificationManagerService extends SystemService {
             // trampolines are blocked.
             return tokens.contains(ALLOWLIST_TOKEN)
                     && !CompatChanges.isChangeEnabled(NOTIFICATION_TRAMPOLINE_BLOCK, uid);
+        }
+    }
+
+    private class TorchToggler implements Runnable {
+        private int times;
+        private int duration;
+
+        public TorchToggler(int times, int frequency) {
+            this.times = times;
+            this.duration = 500 / frequency;
+        }
+
+        @Override
+        public void run() {
+            try {
+                String cameraId = mCameraManager.getCameraIdList()[0];
+                mIsBlinking = true;
+                for (int i = 0; i < times; i++) {
+                    mCameraManager.setTorchMode(cameraId, true);
+                    Thread.sleep(duration);
+
+                    mCameraManager.setTorchMode(cameraId, false);
+                    Thread.sleep(duration);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                mIsBlinking = false;
+                getTorchHandler().removeCallbacksAndMessages(null);
+            }
         }
     }
 }
