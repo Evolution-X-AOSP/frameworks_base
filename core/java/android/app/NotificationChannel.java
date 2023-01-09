@@ -145,6 +145,8 @@ public final class NotificationChannel implements Parcelable {
     private static final String ATT_VIBRATION = "vibration";
     private static final String ATT_CUSTOM_VIBRATION = "custom_vibration";
     private static final String ATT_VIBRATION_ENABLED = "vibration_enabled";
+    private static final String ATT_TORCH_BLINK_ENABLED = "torch_blink_enabled";
+    private static final String ATT_TORCH_BLINK_PATTERN = "torch_blink_pattern";
     private static final String ATT_SOUND = "sound";
     private static final String ATT_USAGE = "usage";
     private static final String ATT_FLAGS = "flags";
@@ -248,11 +250,13 @@ public final class NotificationChannel implements Parcelable {
     private int mLightColor = DEFAULT_LIGHT_COLOR;
     private long[] mVibration;
     private long[] mCustomVibration;
+    private int[] mTorchPattern;
     // Bitwise representation of fields that have been changed by the user, preventing the app from
     // making changes to these fields.
     private int mUserLockedFields;
     private boolean mFgServiceShown;
     private boolean mVibrationEnabled;
+    private boolean mTorchBlink;
     private boolean mShowBadge = DEFAULT_SHOW_BADGE;
     private boolean mDeleted = DEFAULT_DELETED;
     private String mGroup;
@@ -319,9 +323,14 @@ public final class NotificationChannel implements Parcelable {
             mVibration = Arrays.copyOf(mVibration, MAX_VIBRATION_LENGTH);
         }
         mCustomVibration = in.createLongArray();
+        if (mCustomVibration != null && mCustomVibration.length > MAX_VIBRATION_LENGTH) {
+            mCustomVibration = Arrays.copyOf(mCustomVibration, MAX_VIBRATION_LENGTH);
+        }
+        mTorchPattern = in.createIntArray();
         mUserLockedFields = in.readInt();
         mFgServiceShown = in.readByte() != 0;
         mVibrationEnabled = in.readByte() != 0;
+        mTorchBlink = in.readByte() != 0;
         mShowBadge = in.readByte() != 0;
         mDeleted = in.readByte() != 0;
         if (in.readByte() != 0) {
@@ -374,9 +383,11 @@ public final class NotificationChannel implements Parcelable {
         dest.writeByte(mLights ? (byte) 1 : (byte) 0);
         dest.writeLongArray(mVibration);
         dest.writeLongArray(mCustomVibration);
+        dest.writeIntArray(mTorchPattern);
         dest.writeInt(mUserLockedFields);
         dest.writeByte(mFgServiceShown ? (byte) 1 : (byte) 0);
         dest.writeByte(mVibrationEnabled ? (byte) 1 : (byte) 0);
+        dest.writeByte(mTorchBlink ? (byte) 1 : (byte) 0);
         dest.writeByte(mShowBadge ? (byte) 1 : (byte) 0);
         dest.writeByte(mDeleted ? (byte) 1 : (byte) 0);
         if (mGroup != null) {
@@ -600,6 +611,27 @@ public final class NotificationChannel implements Parcelable {
     }
 
     /**
+     * Whether to blink torch for this notification channel
+     * @param torchBlink true to enable
+     * @hide
+     */
+    public void enableTorchBlink(boolean torchBlink) {
+        this.mTorchBlink = torchBlink;
+    }
+
+    /**
+     * Set the default blink pattern for this notification channel
+     * @param torchPattern array of {int times, int Hz frequency}
+     * @hide
+     */
+    public void setCustomTorchBlinkPattern(int[] torchPattern) {
+        final boolean valid = torchPattern != null && torchPattern.length == 2
+            && torchPattern[0] > 0 && torchPattern[1] > 0;
+        this.mTorchBlink = valid;
+        if (valid) this.mTorchPattern = torchPattern;
+    }
+
+    /**
      * Sets the level of interruption of this notification channel.
      *
      * Only modifiable before the channel is submitted to
@@ -780,6 +812,24 @@ public final class NotificationChannel implements Parcelable {
      */
     public long[] getCustomVibrationPattern() {
         return mCustomVibration;
+    }
+
+    /**
+     * Returns whether should blink torch for this notification channel.
+     * @hide
+     */
+    public boolean shouldBlinkTorch() {
+        return mTorchBlink;
+    }
+
+    /**
+     * Returns the blink pattern for notifications posted to this channel. Will be ignored if
+     * torch blink is not enabled ({@link #shouldBlinkTorch()}
+     * @return array of {int times, int Hz frequency}
+     * @hide
+     */
+    public int[] getTorchBlinkPattern() {
+        return mTorchPattern;
     }
 
     /**
@@ -983,6 +1033,8 @@ public final class NotificationChannel implements Parcelable {
         setVibrationPattern(safeLongArray(parser, ATT_VIBRATION, null));
         setCustomVibrationPattern(safeLongArray(parser, ATT_CUSTOM_VIBRATION, null));
         enableVibration(safeBool(parser, ATT_VIBRATION_ENABLED, false));
+        enableTorchBlink(safeBool(parser, ATT_TORCH_BLINK_ENABLED, false));
+        setCustomTorchBlinkPattern(safeIntArray(parser, ATT_TORCH_BLINK_PATTERN, null));
         setShowBadge(safeBool(parser, ATT_SHOW_BADGE, false));
         setDeleted(safeBool(parser, ATT_DELETED, false));
         setDeletedTimeMs(XmlUtils.readLongAttribute(
@@ -1096,6 +1148,12 @@ public final class NotificationChannel implements Parcelable {
         if (getCustomVibrationPattern() != null) {
             out.attribute(null, ATT_CUSTOM_VIBRATION, longArrayToString(getCustomVibrationPattern()));
         }
+        if (shouldBlinkTorch()) {
+            out.attributeBoolean(null, ATT_TORCH_BLINK_ENABLED, shouldBlinkTorch());
+        }
+        if (getTorchBlinkPattern() != null) {
+            out.attribute(null, ATT_TORCH_BLINK_PATTERN, intArrayToString(getTorchBlinkPattern()));
+        }
         if (getUserLockedFields() != 0) {
             out.attributeInt(null, ATT_USER_LOCKED, getUserLockedFields());
         }
@@ -1177,6 +1235,8 @@ public final class NotificationChannel implements Parcelable {
         record.put(ATT_FG_SERVICE_SHOWN, Boolean.toString(isFgServiceShown()));
         record.put(ATT_VIBRATION, longArrayToString(getVibrationPattern()));
         record.put(ATT_CUSTOM_VIBRATION, longArrayToString(getCustomVibrationPattern()));
+        record.put(ATT_TORCH_BLINK_ENABLED, Boolean.toString(shouldBlinkTorch()));
+        record.put(ATT_TORCH_BLINK_PATTERN, intArrayToString(getTorchBlinkPattern()));
         record.put(ATT_SHOW_BADGE, Boolean.toString(canShowBadge()));
         record.put(ATT_DELETED, Boolean.toString(isDeleted()));
         record.put(ATT_DELETED_TIME_MS, Long.toString(getDeletedTimeMs()));
@@ -1227,7 +1287,33 @@ public final class NotificationChannel implements Parcelable {
         return longValues;
     }
 
+    private static int[] safeIntArray(TypedXmlPullParser parser, String att, int[] defValue) {
+        final String attributeValue = parser.getAttributeValue(null, att);
+        if (TextUtils.isEmpty(attributeValue)) return defValue;
+        String[] values = attributeValue.split(DELIMITER);
+        int[] intValues = new int[values.length];
+        for (int i = 0; i < values.length; i++) {
+            try {
+                intValues[i] = Integer.parseInt(values[i]);
+            } catch (NumberFormatException e) {
+                intValues[i] = 0;
+            }
+        }
+        return intValues;
+    }
+
     private static String longArrayToString(long[] values) {
+        StringBuilder sb = new StringBuilder();
+        if (values != null && values.length > 0) {
+            for (int i = 0; i < values.length - 1; i++) {
+                sb.append(values[i]).append(DELIMITER);
+            }
+            sb.append(values[values.length - 1]);
+        }
+        return sb.toString();
+    }
+
+    private static String intArrayToString(int[] values) {
         StringBuilder sb = new StringBuilder();
         if (values != null && values.length > 0) {
             for (int i = 0; i < values.length - 1; i++) {
@@ -1332,6 +1418,8 @@ public final class NotificationChannel implements Parcelable {
                 + ", mLightColor=" + mLightColor
                 + ", mVibration=" + Arrays.toString(mVibration)
                 + ", mCustomVibration=" + Arrays.toString(mCustomVibration)
+                + ", mTorchBlink=" + mTorchBlink
+                + ", mTorchPattern=" + Arrays.toString(mTorchPattern)
                 + ", mUserLockedFields=" + Integer.toHexString(mUserLockedFields)
                 + ", mFgServiceShown=" + mFgServiceShown
                 + ", mVibrationEnabled=" + mVibrationEnabled
