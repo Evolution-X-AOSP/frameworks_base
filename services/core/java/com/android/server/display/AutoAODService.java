@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.database.ContentObserver;
+import android.hardware.display.AmbientDisplayConfiguration;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.Handler;
@@ -81,6 +82,7 @@ public class AutoAODService extends SystemService {
     private TwilightManager mTwilightManager;
     private TwilightState mTwilightState;
     private SharedPreferences mSharedPreferences;
+    private AmbientDisplayConfiguration mAmbientConfig;
 
     /**
      * Current operation mode
@@ -499,7 +501,14 @@ public class AutoAODService extends SystemService {
     }
 
     private boolean isDozeEnabled() {
-        return Settings.Secure.getIntForUser(mContext.getContentResolver(),
-                Settings.Secure.DOZE_ENABLED, 1, UserHandle.USER_CURRENT) == 1;
+        return getAmbientConfig().pulseOnNotificationEnabled(UserHandle.USER_CURRENT);
+    }
+
+    private AmbientDisplayConfiguration getAmbientConfig() {
+        if (mAmbientConfig == null) {
+            mAmbientConfig = new AmbientDisplayConfiguration(mContext);
+        }
+
+        return mAmbientConfig;
     }
 }
