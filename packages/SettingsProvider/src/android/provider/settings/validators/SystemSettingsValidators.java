@@ -288,5 +288,24 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.NOTIFICATION_VIBRATION_PATTERN, new InclusiveIntegerRangeValidator(0, 5));
         VALIDATORS.put(System.CUSTOM_NOTIFICATION_VIBRATION_PATTERN, CUSTOM_VIBRATION_PATTERN_VALIDATOR);
+        VALIDATORS.put(System.DEFAULT_NOTIFICATION_TORCH,
+                new Validator() {
+                    @Override
+                    public boolean validate(String value) {
+                        if (value == null) return true;
+                        if (value.equals("1")) return true;
+                        String[] args = value.split(",");
+                        if (args.length != 2) return false;
+                        for (String arg : args) {
+                            try {
+                                if (Integer.parseInt(arg) < 1)
+                                    return false;
+                            } catch (NumberFormatException e) {
+                                return false;
+                            }
+                        }
+                        return true;
+                    }
+                });
     }
 }
