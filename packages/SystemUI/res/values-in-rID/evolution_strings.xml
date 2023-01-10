@@ -141,6 +141,7 @@
     <string name="status_bar_items_title">Ikon bilah status</string>
     <string name="status_bar_call_strength">Kekuatan panggilan</string>
     <string name="status_bar_data_saver">Penghemat Data</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Paksa berhenti?</string>
@@ -182,10 +183,6 @@
     <!-- Google Lens Screenshot string -->
     <string name="lensss">Lens</string>
     <string name="lens_unavailable">Google Lens tidak diinstal</string>
-    <!-- Bluetooth dialog -->
-    <string name="turn_on_bluetooth">Gunakan Bluetooth</string>
-    <string name="bluetooth_is_off">Bluetooth nonaktif</string>
-    <string name="tap_a_device_to_connect">Ketuk perangkat untuk terhubung</string>
     <!-- On The Go -->
     <string name="onthego_notif_ticker">On-The-Go diaktifkan</string>
     <string name="onthego_notif_title">On-The-Go sudah diaktifkan</string>
@@ -244,4 +241,12 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Piksel Cerdas</string>
     <string name="quick_settings_smart_pixels_on_power_save">Aktifkan otomatis Piksel Cerdas</string>
+    <!-- Data usage info in QS footer -->
+    <string name="usage_data">digunakan hari ini</string>
+    <string name="usage_data_default_suffix">Data</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <!-- Sleep Mode -->
+    <string name="quick_settings_sleep_mode_label">Mode Tidur</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">Peredupan DC</string>
 </resources>
