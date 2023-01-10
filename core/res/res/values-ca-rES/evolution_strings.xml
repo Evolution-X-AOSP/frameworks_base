@@ -50,4 +50,9 @@
     <string name="volume_dialog_ringer_guidance_normal">Sonaran trucades i notificacions</string>
     <!-- App lock -->
     <string name="unlock_application">Desbloqueja<xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">Desbloqueig facial desactivat per inactivitat</string>
+    <!-- Lock gesture -->
+    <string name="gesture_locked_warning">Llisqueu de nou per desbloquejar els gestos</string>
+    <!-- Parallel space badge -->
 </resources>
