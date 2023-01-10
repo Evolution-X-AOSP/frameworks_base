@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2022 Evolution X
+     Copyright (C) 2019-2023 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -54,5 +54,10 @@
     <string name="face_unlock_disabled_idle">Deblocarea facială a fost dezactivată din cauza inactivității</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Glisați din nou pentru a debloca gesturile</string>
-    <!-- Parallel space badge -->
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Modul suspendare</string>
+    <string name="sleep_mode_notification_title">Modul suspendare este activat</string>
+    <string name="sleep_mode_notification_content">Atingeți pentru a dezactiva modul suspendare</string>
+    <string name="sleep_mode_enabled_toast">Modul suspendare este activat</string>
+    <string name="sleep_mode_disabled_toast">Modul suspendare este dezactivat</string>
 </resources>

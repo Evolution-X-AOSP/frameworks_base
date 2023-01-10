@@ -5,7 +5,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Message for updating an existing app [CHAR LIMIT=NONE] -->
-    <string name="old_version_number">Nainštalovaná verzia: <xliff:g id="old_version">%1$s</xliff:g></string>
+    <string name="old_version_number">نسخه نصب شده: <xliff:g id="old_version">%1$s</xliff:g></string>
     <!-- Message for updating an existing system app [CHAR LIMIT=NONE] -->
-    <string name="new_version_number">Verzia na inštaláciu: <xliff:g id="new_version">%1$s</xliff:g></string>
+    <string name="new_version_number">این نسخه نصب خواهد شد: <xliff:g id="new_version">%1$s</xliff:g></string>
 </resources>

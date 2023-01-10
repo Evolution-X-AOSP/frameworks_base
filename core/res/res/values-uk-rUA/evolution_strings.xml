@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2022 Evolution X
+     Copyright (C) 2019-2023 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -54,5 +54,10 @@
     <string name="face_unlock_disabled_idle">Розблокування за обличчю вимкнено через неактивність</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Проведіть ще раз, щоб розблокувати жести</string>
-    <!-- Parallel space badge -->
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Режим сну</string>
+    <string name="sleep_mode_notification_title">Увімкнено режим сну</string>
+    <string name="sleep_mode_notification_content">Торкніться, щоб вимкнути режим сну</string>
+    <string name="sleep_mode_enabled_toast">Увімкнено режим сну</string>
+    <string name="sleep_mode_disabled_toast">Вимкнено режим сну</string>
 </resources>

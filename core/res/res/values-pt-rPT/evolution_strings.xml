@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2022 Evolution X
+     Copyright (C) 2019-2023 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -20,7 +20,7 @@
     <string name="systemui_restart_message">Para que todas as alterações tenham efeito, é necessário reiniciar a Ui do sistema. Reiniciar agora?</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Pressione e mantenha pressionado o botão Ligar/Desligar para desbloquear</string>
-    <string name="pocket_view_title">Modo Bolso ligado</string>
+    <string name="pocket_view_title">Modo de Bolso ligado</string>
     <string name="pocket_view_title_cancel">Para utilizar o seu telefone:</string>
     <string name="pocket_view_top_tag_cancel">Não cubra a área azul do seu telefone e limpe qualquer terra ou poeira.</string>
     <string name="pocket_view_top_tag_cancel2">Premir e segurar o botão ligar/desligar para forçar a saída do Modo Bolso.</string>
@@ -54,5 +54,10 @@
     <string name="face_unlock_disabled_idle">Desbloqueio facial desativado devido à inatividade</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Deslize de novo para desbloquear gestos</string>
-    <!-- Parallel space badge -->
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Modo de suspensão</string>
+    <string name="sleep_mode_notification_title">Modo de suspensão ativado</string>
+    <string name="sleep_mode_notification_content">Toque para desligar o modo de jogo</string>
+    <string name="sleep_mode_enabled_toast">O modo de suspensão foi ligado</string>
+    <string name="sleep_mode_disabled_toast">O modo de suspensão foi desligado</string>
 </resources>

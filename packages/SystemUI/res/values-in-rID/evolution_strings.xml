@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2022 Evolution X
+     Copyright (C) 2019-2023 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -50,7 +50,7 @@
     <string name="accessibility_status_bar_nfc">Nfc</string>
     <!-- Advanced Reboot -->
     <string name="global_action_restart_advanced">Lanjutan</string>
-    <string name="global_action_restart_recovery">Pemulihan</string>
+    <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">Sistem UI</string>
     <!-- Custom QS tiles -->
@@ -70,7 +70,7 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">Tampilan Ambien dimatikan.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Tampilan Ambien diaktifkan.</string>
     <!-- USB tethering QS tile -->
-    <string name="quick_settings_usb_tether_label">Penambatan USB</string>
+    <string name="quick_settings_usb_tether_label">Tethering USB</string>
     <!-- Sync QS Tile -->
     <string name="quick_settings_sync_label">Sinkronisasi</string>
     <string name="accessibility_quick_settings_sync_off">Sinkronisasi nonaktif</string>
@@ -91,7 +91,7 @@
     <!-- Poweroff/Reboot/Recovery QS tile -->
     <string name="quick_settings_poweroff_label">Matikan daya</string>
     <string name="quick_settings_reboot_label">Muat Ulang</string>
-    <string name="quick_settings_reboot_recovery_label">Pemulihan</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
     <string name="quick_settings_reboot_bootloader_label">Bootloader</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Panel Volume</string>
@@ -100,7 +100,7 @@
     <string name="quick_settings_sound_search_no_app">Maaf, tapi ini tidak akan berfungsi jika tidak ada aplikasi pencarian suara.</string>
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
-    <string name="quick_settings_vpn_connect_dialog_title">Terhubung ke\u2026</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Hubungkan ke\u2026</string>
     <string name="vpn_credentials_hint">Silakan masukkan kredensial Anda untuk menghubungkan ke <xliff:g id="name">%s</xliff:g></string>
     <string name="vpn_credentials_username">Nama pengguna</string>
     <string name="vpn_credentials_password">Kata sandi</string>
@@ -114,7 +114,7 @@
     <!-- Anti flicker QS tile -->
     <string name="quick_settings_anti_flicker">Anti kerlip</string>
     <!-- DataSwitch Tile -->
-    <string name="qs_data_switch_label">Ganti kartu data</string>
+    <string name="qs_data_switch_label">Ubah kartu data</string>
     <string name="qs_data_switch_toast_0">Tidak ada kartu SIM yang terpasang saat ini</string>
     <string name="qs_data_switch_toast_1">Hanya satu kartu SIM yang terpasang saat ini</string>
     <string name="qs_data_switch_text_1">SIM 1</string>
@@ -124,8 +124,8 @@
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_on_charge_label">AOD saat cas</string>
-    <string name="quick_settings_aod_off_label">AOD mati</string>
-    <string name="quick_settings_aod_off_powersave_label">AOD mati\nPenghemat baterai</string>
+    <string name="quick_settings_aod_off_label">AOD nonaktif</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD nonaktif\nPenghemat baterai</string>
     <!-- Refresh Rate Tile -->
     <string name="refresh_rate_tile_label">Kecepatan refresh</string>
     <string name="refresh_rate_auto_mode_placeholder">        Otomatis (<xliff:g id="min_refresh_rate" example="60">%1$d</xliff:g> - <xliff:g id="max_refresh_rate" example="60">%2$d</xliff:g> Hz)
@@ -141,6 +141,7 @@
     <string name="status_bar_items_title">Ikon bilah status</string>
     <string name="status_bar_call_strength">Kekuatan panggilan</string>
     <string name="status_bar_data_saver">Penghemat Data</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Paksa berhenti?</string>
@@ -182,10 +183,6 @@
     <!-- Google Lens Screenshot string -->
     <string name="lensss">Lens</string>
     <string name="lens_unavailable">Google Lens tidak diinstal</string>
-    <!-- Bluetooth dialog -->
-    <string name="turn_on_bluetooth">Gunakan Bluetooth</string>
-    <string name="bluetooth_is_off">Bluetooth nonaktif</string>
-    <string name="tap_a_device_to_connect">Ketuk perangkat untuk terhubung</string>
     <!-- On The Go -->
     <string name="onthego_notif_ticker">On-The-Go diaktifkan</string>
     <string name="onthego_notif_title">On-The-Go sudah diaktifkan</string>
@@ -206,7 +203,7 @@
     <!-- Screenshot Tile -->
     <string name="screenshot_long_press">Tekan lama untuk menangkap layar sebagian</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
-    <string name="screen_pinning_description_no_navbar">Ini membuatnya tetap terlihat sampai Anda melepaskan sematan. Sentuh &amp; tahan tombol Kembali untuk melepaskan pin.</string>
+    <string name="screen_pinning_description_no_navbar">Ini membuatnya tetap terlihat sampai Anda melepaskan sematan. Sentuh &amp; tahan tombol Kembali untuk melepaskan sematan.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <string name="screen_pinning_toast_no_navbar">Untuk melepaskan sematan layar ini, sentuh &amp; tahan tombol Kembali</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
@@ -238,10 +235,21 @@
     <string name="quick_settings_location_secondary_battery_saving">Hemat Baterai</string>
     <string name="accessibility_quick_settings_location_battery_saving">Pelaporan lokasi: Mode hemat baterai.</string>
     <string name="quick_settings_location_secondary_gps_only">Hanya Sensor</string>
-    <string name="accessibility_quick_settings_location_gps_only">Pelaporan lokasi: Hanya sensor.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Pelaporan lokasi: Mode hanya sensor.</string>
     <string name="quick_settings_location_secondary_high_accuracy">Akurasi Tinggi</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Pelaporan lokasi: Mode akurasi tinggi.</string>
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Piksel Cerdas</string>
     <string name="quick_settings_smart_pixels_on_power_save">Aktifkan otomatis Piksel Cerdas</string>
+    <!-- Data usage info in QS footer -->
+    <string name="usage_data">digunakan hari ini</string>
+    <string name="usage_data_default_suffix">Data</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <!-- Sleep Mode -->
+    <string name="quick_settings_sleep_mode_label">Mode Tidur</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">Peredupan DC</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Bahasa</string>
+    <string name="quick_settings_locale_more_locales_toast">Silakan konfigurasikan beberapa bahasa untuk mengaktifkan fungsi tombol</string>
 </resources>

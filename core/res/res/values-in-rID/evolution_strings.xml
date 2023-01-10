@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2022 Evolution X
+     Copyright (C) 2019-2023 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced reboot -->
-    <string name="reboot_to_recovery_title">Mode Pemulihan</string>
+    <string name="reboot_to_recovery_title">Recovery</string>
     <string name="reboot_to_recovery_message">Memulai ulang ke mode pemulihan</string>
     <string name="reboot_to_bootloader_title">Bootloader</string>
     <string name="reboot_to_bootloader_message">Memulai ulang ke bootloader</string>
@@ -51,8 +51,13 @@
     <!-- App lock -->
     <string name="unlock_application">Buka <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
     <!-- Face unlock -->
-    <string name="face_unlock_disabled_idle">Face unlock dinonaktifkan karena tidak aktif</string>
+    <string name="face_unlock_disabled_idle">Face unlock dinonaktifkan karena tidak ada aktivitas</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Gesek lagi untuk membuka kunci gestur</string>
-    <!-- Parallel space badge -->
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Mode Tidur</string>
+    <string name="sleep_mode_notification_title">Mode Tidur diaktifkan</string>
+    <string name="sleep_mode_notification_content">Ketuk untuk menonaktifkan Mode Tidur</string>
+    <string name="sleep_mode_enabled_toast">Mode Tidur diaktifkan</string>
+    <string name="sleep_mode_disabled_toast">Mode Tidur dinonaktifkan</string>
 </resources>

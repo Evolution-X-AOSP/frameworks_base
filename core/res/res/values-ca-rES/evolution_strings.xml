@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2022 Evolution X
+     Copyright (C) 2019-2023 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -50,4 +50,14 @@
     <string name="volume_dialog_ringer_guidance_normal">Sonaran trucades i notificacions</string>
     <!-- App lock -->
     <string name="unlock_application">Desbloqueja<xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">Desbloqueig facial desactivat per inactivitat</string>
+    <!-- Lock gesture -->
+    <string name="gesture_locked_warning">Llisqueu de nou per desbloquejar els gestos</string>
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Mode en repòs</string>
+    <string name="sleep_mode_notification_title">Mode en repòs activat</string>
+    <string name="sleep_mode_notification_content">Toca per a desactivar el mode en repòs</string>
+    <string name="sleep_mode_enabled_toast">S\'ha activat el mode en repòs</string>
+    <string name="sleep_mode_disabled_toast">S\'ha desactivat el mode en repòs</string>
 </resources>

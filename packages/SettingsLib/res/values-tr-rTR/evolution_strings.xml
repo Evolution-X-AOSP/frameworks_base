@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2022 Evolution X
+     Copyright (C) 2019-2023 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -21,4 +21,6 @@
     <string name="power_remaining_turbo_charging_duration_only">Turbo şarj oluyor (Tam dolmasına <xliff:g id="time">%1$s</xliff:g> kaldı)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
     <string name="battery_info_status_turbo_charging">Turbo şarj oluyor</string>
+    <!-- [CHAR LIMIT=25] Manage applications, text for when an application is hidden. -->
+    <string name="hidden">Gizli</string>
 </resources>

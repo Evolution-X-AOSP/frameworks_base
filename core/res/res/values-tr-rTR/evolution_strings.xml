@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2022 Evolution X
+     Copyright (C) 2019-2023 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -54,5 +54,10 @@
     <string name="face_unlock_disabled_idle">Hareketsizlik nedeniyle yüz kilidi devre dışı bırakıldı</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Hareket kilidini açmak için tekrar kaydırın</string>
-    <!-- Parallel space badge -->
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Uyku modu</string>
+    <string name="sleep_mode_notification_title">Uyku modu etkin</string>
+    <string name="sleep_mode_notification_content">Uyku modunu kapatmak için dokunun</string>
+    <string name="sleep_mode_enabled_toast">Uyku modu açıldı</string>
+    <string name="sleep_mode_disabled_toast">Uyku modu kapatıldı</string>
 </resources>

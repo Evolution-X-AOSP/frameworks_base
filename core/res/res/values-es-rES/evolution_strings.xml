@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2022 Evolution X
+     Copyright (C) 2019-2023 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -54,5 +54,10 @@
     <string name="face_unlock_disabled_idle">Desbloqueo facial desactivado debido a inactividad</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Desliza de nuevo para desbloquear gestos</string>
-    <!-- Parallel space badge -->
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Modo Sueño</string>
+    <string name="sleep_mode_notification_title">Modo Sueño activado</string>
+    <string name="sleep_mode_notification_content">Toca para desactivar el modo sueño</string>
+    <string name="sleep_mode_enabled_toast">Modo Sueño activado</string>
+    <string name="sleep_mode_disabled_toast">Modo Sueño desactivado</string>
 </resources>
