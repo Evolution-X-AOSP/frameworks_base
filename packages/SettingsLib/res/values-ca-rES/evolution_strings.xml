@@ -20,4 +20,6 @@
     <string name="power_remaining_turbo_charging_duration_only">Càrrega Turbo (<xliff:g id="time">%1$s</xliff:g> fins completar-la)</string>
     <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
     <string name="battery_info_status_turbo_charging">Càrrega Turbo</string>
+    <!-- [CHAR LIMIT=25] Manage applications, text for when an application is hidden. -->
+    <string name="hidden">Ocult</string>
 </resources>

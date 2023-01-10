@@ -240,4 +240,10 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Умные пиксели</string>
     <string name="quick_settings_smart_pixels_on_power_save">Автовключение умных пикселей</string>
+    <!-- Data usage info in QS footer -->
+    <string name="usage_data">использовано сегодня</string>
+    <string name="usage_data_default_suffix">Данные</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <!-- Sleep Mode -->
+    <string name="quick_settings_sleep_mode_label">Спящий режим</string>
 </resources>

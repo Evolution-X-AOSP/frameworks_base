@@ -55,4 +55,10 @@
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Erneut wischen, um Gesten freizuschalten</string>
     <!-- Parallel space badge -->
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Schlafmodus</string>
+    <string name="sleep_mode_notification_title">Schlafmodus aktiviert</string>
+    <string name="sleep_mode_notification_content">Tippen, um Schlafmodus auszuschalten</string>
+    <string name="sleep_mode_enabled_toast">Schlafmodus eingeschaltet</string>
+    <string name="sleep_mode_disabled_toast">Schlafmodus ausgeschaltet</string>
 </resources>
