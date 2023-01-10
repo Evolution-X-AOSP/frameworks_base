@@ -33,9 +33,8 @@ import android.os.UserHandle;
 import android.provider.Settings;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
-import android.text.BidiFormatter;
+import android.text.TextUtils;
 import android.text.format.Formatter;
-import android.text.format.Formatter.BytesResult;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -48,8 +47,6 @@ import androidx.annotation.VisibleForTesting;
 import com.android.settingslib.development.DevelopmentSettingsEnabler;
 import com.android.settingslib.net.DataUsageController;
 import com.android.systemui.R;
-
-import java.util.List;
 
 /**
  * Footer of expanded Quick Settings, tiles page indicator, (optionally) build number and
@@ -74,7 +71,6 @@ public class QSFooterView extends FrameLayout {
     private boolean mShouldShowUsageText;
     private boolean mShowEditIcon;
     private boolean mShouldShowSuffix;
-    private boolean mForceShowSuffix;
 
     @Nullable
     private OnClickListener mExpandClickListener;
@@ -85,11 +81,13 @@ public class QSFooterView extends FrameLayout {
     private boolean mHasNoSims;
     private boolean mIsWifiConnected;
     private String mWifiSsid;
+    private int mSubId;
+    private int mCurrentDataSubId;
 
     public QSFooterView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mDataController = new DataUsageController(context);
-        mSubManager = (SubscriptionManager) context.getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE);
+        mSubManager = context.getSystemService(SubscriptionManager.class);
     }
 
     @Override
@@ -106,8 +104,15 @@ public class QSFooterView extends FrameLayout {
         setUsageText();
 
         mUsageText.setOnClickListener(v -> {
-            mForceShowSuffix = !mForceShowSuffix;
+            if (!mShouldShowSuffix) {
+                mShouldShowSuffix = true;
+            } else if (mSubManager.getActiveSubscriptionInfoCount() > 1) {
+                // Get opposite slot 2 ^ 3 = 1, 1 ^ 3 = 2
+                mSubId = mSubId ^ 3;
+            }
             setUsageText();
+            mUsageText.setSelected(false);
+            postDelayed(() -> mUsageText.setSelected(true), 1000);
         });
     }
 
@@ -124,8 +129,7 @@ public class QSFooterView extends FrameLayout {
                 suffix = getWifiSsid();
             }
         } else if (!mHasNoSims) {
-            mDataController.setSubscriptionId(
-                    SubscriptionManager.getDefaultDataSubscriptionId());
+            mDataController.setSubscriptionId(mSubId);
             info = mDataController.getDailyDataUsageInfo();
             suffix = getSlotCarrierName();
         } else {
@@ -138,47 +142,45 @@ public class QSFooterView extends FrameLayout {
             Log.w(TAG, "setUsageText: DataUsageInfo is NULL.");
             return;
         }
+        // Setting text actually triggers a layout pass (because the text view is set to
+        // wrap_content width and TextView always relayouts for this). Avoid needless
+        // relayout if the text didn't actually change.
+        String text = formatDataUsage(info.usageLevel, suffix);
+        if (!TextUtils.equals(text, mUsageText.getText())) {
+            mUsageText.setText(formatDataUsage(info.usageLevel, suffix));
+        }
         mShouldShowUsageText = true;
-        mUsageText.setText(formatDataUsage(info.usageLevel, suffix));
         updateVisibilities();
     }
 
-    private CharSequence formatDataUsage(long byteValue, String suffix) {
-        final BytesResult res = Formatter.formatBytes(mContext.getResources(), byteValue,
-                Formatter.FLAG_IEC_UNITS);
+    private String formatDataUsage(long byteValue, String suffix) {
         // Example: 1.23 GB used today
-        String usage = BidiFormatter.getInstance().unicodeWrap(mContext.getString(
-                com.android.internal.R.string.fileSizeSuffix, res.value, res.units))
-                + " " + mContext.getString(R.string.usage_data);
-        if (mShouldShowSuffix ^ mForceShowSuffix) {
+        StringBuilder usage = new StringBuilder(Formatter.formatFileSize(getContext(),
+                byteValue, Formatter.FLAG_IEC_UNITS))
+                .append(" ")
+                .append(mContext.getString(R.string.usage_data));
+        if (mShouldShowSuffix) {
             // Example: 1.23 GB used today (airtel)
-            usage += " (" + suffix + ")";
+            usage.append(" (")
+                 .append(suffix)
+                 .append(")");
         }
-        return usage;
+        return usage.toString();
     }
 
     private String getSlotCarrierName() {
-        CharSequence result = mContext.getResources().getString(R.string.usage_data_default_suffix);
-        int subId = mSubManager.getDefaultDataSubscriptionId();
-        final List<SubscriptionInfo> subInfoList =
-                mSubManager.getActiveSubscriptionInfoList(true);
-        if (subInfoList != null) {
-            for (SubscriptionInfo subInfo : subInfoList) {
-                if (subId == subInfo.getSubscriptionId()) {
-                    result = subInfo.getDisplayName();
-                    break;
-                }
-            }
+        SubscriptionInfo subInfo = mSubManager.getActiveSubscriptionInfo(mSubId);
+        if (subInfo != null) {
+            return subInfo.getDisplayName().toString();
         }
-        return result.toString();
+        return mContext.getResources().getString(R.string.usage_data_default_suffix);
     }
 
     private String getWifiSsid() {
-        if (mWifiSsid == null) {
-            return mContext.getResources().getString(R.string.usage_wifi_default_suffix);
-        } else {
+        if (mWifiSsid != null) {
             return mWifiSsid.replace("\"", "");
         }
+        return mContext.getResources().getString(R.string.usage_wifi_default_suffix);
     }
 
     protected void setWifiSsid(String ssid) {
@@ -205,6 +207,13 @@ public class QSFooterView extends FrameLayout {
     protected void setShowSuffix(boolean show) {
         if (mShouldShowSuffix != show) {
             mShouldShowSuffix = show;
+            setUsageText();
+        }
+    }
+
+    protected void setCurrentDataSubId(int subId) {
+        if (mCurrentDataSubId != subId) {
+            mSubId = mCurrentDataSubId = subId;
             setUsageText();
         }
     }
@@ -270,7 +279,8 @@ public class QSFooterView extends FrameLayout {
             postDelayed(() -> mUsageText.setSelected(true), 1000);
         } else if (headerExpansionFraction == 0.0f) {
             mUsageText.setSelected(false);
-            mForceShowSuffix = false;
+            mShouldShowSuffix = false;
+            mSubId = mCurrentDataSubId;
         }
     }
 
