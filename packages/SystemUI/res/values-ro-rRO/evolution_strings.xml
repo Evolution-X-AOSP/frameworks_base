@@ -241,4 +241,12 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Pixeli inteligenți</string>
     <string name="quick_settings_smart_pixels_on_power_save">Auto-activare pixeli inteligenți</string>
+    <!-- Data usage info in QS footer -->
+    <string name="usage_data">utilizat azi</string>
+    <string name="usage_data_default_suffix">Date</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <!-- Sleep Mode -->
+    <string name="quick_settings_sleep_mode_label">Modul suspendare</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">Mod întunecare protecție ochi</string>
 </resources>
