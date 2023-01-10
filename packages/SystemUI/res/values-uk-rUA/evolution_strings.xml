@@ -240,4 +240,8 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Розумні пікселі</string>
     <string name="quick_settings_smart_pixels_on_power_save">Автоматичне увімкнення розумних пікселів</string>
+    <!-- Data usage info in QS footer -->
+    <string name="usage_data">використано сьогодні</string>
+    <string name="usage_data_default_suffix">Дані</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
 </resources>

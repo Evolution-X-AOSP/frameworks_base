@@ -241,4 +241,12 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Smart Pixels</string>
     <string name="quick_settings_smart_pixels_on_power_save">Activation automatique de Smart Pixels</string>
+    <!-- Data usage info in QS footer -->
+    <string name="usage_data">utilisé aujourd\'hui</string>
+    <string name="usage_data_default_suffix">Données</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <!-- Sleep Mode -->
+    <string name="quick_settings_sleep_mode_label">Mode veille</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">Atténuation DC</string>
 </resources>
