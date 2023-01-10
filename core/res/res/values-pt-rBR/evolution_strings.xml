@@ -55,4 +55,10 @@
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Deslize novamente para desbloquear os gestos</string>
     <!-- Parallel space badge -->
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Modo de suspensão</string>
+    <string name="sleep_mode_notification_title">Modo de suspensão ativado</string>
+    <string name="sleep_mode_notification_content">Toque para desativar o modo de suspensão</string>
+    <string name="sleep_mode_enabled_toast">Modo de suspensão desativado</string>
+    <string name="sleep_mode_disabled_toast">O modo de suspensão foi desativado</string>
 </resources>

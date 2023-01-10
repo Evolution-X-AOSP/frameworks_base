@@ -55,4 +55,10 @@
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Hareket kilidini açmak için tekrar kaydırın</string>
     <!-- Parallel space badge -->
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Uyku modu</string>
+    <string name="sleep_mode_notification_title">Uyku modu etkin</string>
+    <string name="sleep_mode_notification_content">Uyku modunu kapatmak için dokunun</string>
+    <string name="sleep_mode_enabled_toast">Uyku modu açıldı</string>
+    <string name="sleep_mode_disabled_toast">Uyku modu kapatıldı</string>
 </resources>

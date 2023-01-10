@@ -55,4 +55,10 @@
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">再度スワイプしてジェスチャーをロック解除</string>
     <!-- Parallel space badge -->
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">スリープモード</string>
+    <string name="sleep_mode_notification_title">スリープモードは有効です</string>
+    <string name="sleep_mode_notification_content">タップでスリープモードを無効化</string>
+    <string name="sleep_mode_enabled_toast">スリープモードを有効化しました</string>
+    <string name="sleep_mode_disabled_toast">スリープモードを無効化しました</string>
 </resources>

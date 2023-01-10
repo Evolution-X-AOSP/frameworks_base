@@ -241,4 +241,10 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Pixels Inteligentes</string>
     <string name="quick_settings_smart_pixels_on_power_save">Ativação automática dos Pixels Inteligentes</string>
+    <!-- Data usage info in QS footer -->
+    <string name="usage_data">usado hoje</string>
+    <string name="usage_data_default_suffix">Dados</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <!-- Sleep Mode -->
+    <string name="quick_settings_sleep_mode_label">Modo de suspensão</string>
 </resources>

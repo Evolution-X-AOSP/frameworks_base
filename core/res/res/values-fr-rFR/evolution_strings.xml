@@ -55,4 +55,10 @@
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Glisser à nouveau pour déverrouiller les gestes</string>
     <!-- Parallel space badge -->
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Mode veille</string>
+    <string name="sleep_mode_notification_title">Mode veille activé</string>
+    <string name="sleep_mode_notification_content">Appuyer pour désactiver le mode veille</string>
+    <string name="sleep_mode_enabled_toast">Mode veille activé</string>
+    <string name="sleep_mode_disabled_toast">Mode veille désactivé</string>
 </resources>
