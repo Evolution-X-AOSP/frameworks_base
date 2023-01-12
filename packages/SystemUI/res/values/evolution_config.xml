@@ -99,4 +99,7 @@
     <!-- StatusBar burn-in protection -->
     <bool name="config_disableStatusBarBurnInProtection">false</bool>
     <integer name="config_shift_interval">60</integer>
+
+    <!-- Update battery info every second when device is charging -->
+    <bool name="config_alternateFastchargeInfoUpdate">false</bool>
 </resources>
