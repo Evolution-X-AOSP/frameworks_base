@@ -53,7 +53,6 @@ import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.hardware.camera2.CameraManager;
 import android.media.AudioManager;
 import android.os.Binder;
 import android.os.Build;
@@ -188,7 +187,6 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
     static final String GLOBAL_ACTION_KEY_EMERGENCY = "emergency";
     static final String GLOBAL_ACTION_KEY_SCREENSHOT = "screenshot";
     private static final String GLOBAL_ACTION_KEY_ADVANCED_RESTART = "advanced";
-    private static final String GLOBAL_ACTION_KEY_FLASHLIGHT = "flashlight";
     private static final String GLOBAL_ACTION_KEY_ON_THE_GO = "onthego";
     static final String GLOBAL_ACTION_KEY_DEVICE_CONTROLS = "devicecontrols";
 
@@ -261,7 +259,6 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
     private final Optional<CentralSurfaces> mCentralSurfacesOptional;
     private final KeyguardUpdateMonitor mKeyguardUpdateMonitor;
     private final DialogLaunchAnimator mDialogLaunchAnimator;
-    private boolean mTorchEnabled = false;
     private final ControlsComponent mControlsComponent;
 
     @VisibleForTesting
@@ -429,10 +426,6 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
         mScreenshotHelper = new ScreenshotHelper(context);
 
         mConfigurationController.addCallback(this);
-
-        // get notified of torch state changes
-        mCameraManager = (CameraManager) mContext.getSystemService(Context.CAMERA_SERVICE);
-        mCameraManager.registerTorchCallback(torchCallback, null);
     }
 
     /**
@@ -748,11 +741,6 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
                 if (Settings.System.getInt(mContext.getContentResolver(),
                         Settings.System.GLOBAL_ACTIONS_LOCKDOWN, 1) == 1) {
                     addIfShouldShowAction(tempActions, new LockDownAction());
-                }
-            } else if (GLOBAL_ACTION_KEY_FLASHLIGHT.equals(actionKey)) {
-                if (Settings.System.getInt(mContext.getContentResolver(),
-                        Settings.System.GLOBAL_ACTIONS_FLASHLIGHT, 0) != 0) {
-                    addIfShouldShowAction(tempActions, getFlashlightToggleAction());
                 }
             } else if (GLOBAL_ACTION_KEY_VOICEASSIST.equals(actionKey)) {
                 addIfShouldShowAction(tempActions, getVoiceAssistAction());
@@ -1135,44 +1123,6 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
     @VisibleForTesting
     ScreenshotAction makeScreenshotActionForTesting() {
         return new ScreenshotAction();
-    }
-
-    private CameraManager mCameraManager;
-    CameraManager.TorchCallback torchCallback = new CameraManager.TorchCallback() {
-        @Override
-        public void onTorchModeUnavailable(String cameraId) {
-            super.onTorchModeUnavailable(cameraId);
-        }
-
-        @Override
-        public void onTorchModeChanged(String cameraId, boolean enabled) {
-            super.onTorchModeChanged(cameraId, enabled);
-            mTorchEnabled = enabled;
-        }
-    };
-
-    private Action getFlashlightToggleAction() {
-        return new SinglePressAction(com.android.internal.R.drawable.ic_qs_flashlight,
-                com.android.systemui.R.string.quick_settings_flashlight_label) {
-
-            public void onPress() {
-                if (mStatusBarService != null) {
-                    try {
-                        mStatusBarService.toggleCameraFlash();
-                    } catch (RemoteException e) {
-                    // do nothing.
-                    }
-                }
-            }
-
-            public boolean showDuringKeyguard() {
-                return true;
-            }
-
-            public boolean showBeforeProvisioning() {
-                return false;
-            }
-        };
     }
 
     @VisibleForTesting
