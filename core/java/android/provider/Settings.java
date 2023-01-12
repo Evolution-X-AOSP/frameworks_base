@@ -5746,12 +5746,6 @@ public final class Settings {
         public static final String GLOBAL_ACTIONS_EMERGENCY = "global_actions_emergency";
 
         /**
-         * Whether to display the flashlight option in the power menu
-         * @hide
-         */
-        public static final String GLOBAL_ACTIONS_FLASHLIGHT = "global_actions_flashlight";
-
-        /**
          * Whether to display the on-the-go option in the power menu
          * @hide
          */
