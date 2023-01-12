@@ -41,6 +41,11 @@ public final class AdbNotifications {
     private static final String ADB_NOTIFICATION_CHANNEL_ID_TV = "usbdevicemanager.adb.tv";
 
     /**
+     * Wireless debugging settings intent
+     */
+    private static final String WIRELESS_SETTINGS_INTENT = "android.settings.WIRELESS_DEBUGGING_SETTINGS";
+
+    /**
      * Builds a notification to show connected state for adb over a transport type.
      * @param context the context
      * @param transportType the adb transport type.
@@ -53,12 +58,14 @@ public final class AdbNotifications {
         int titleId;
         int messageId;
 
+        String intentStr = Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS;
         if (transportType == AdbTransportType.USB) {
             titleId = com.android.internal.R.string.adb_active_notification_title;
             messageId = com.android.internal.R.string.adb_active_notification_message;
         } else if (transportType == AdbTransportType.WIFI) {
             titleId = com.android.internal.R.string.adbwifi_active_notification_title;
             messageId = com.android.internal.R.string.adbwifi_active_notification_message;
+            intentStr = WIRELESS_SETTINGS_INTENT;
         } else {
             throw new IllegalArgumentException(
                     "createNotification called with unknown transport type=" + transportType);
@@ -67,7 +74,7 @@ public final class AdbNotifications {
         CharSequence title = resources.getText(titleId);
         CharSequence message = resources.getText(messageId);
 
-        Intent intent = new Intent(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS);
+        Intent intent = new Intent(intentStr);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         ResolveInfo resolveInfo = context.getPackageManager().resolveActivity(intent,
                 PackageManager.MATCH_SYSTEM_ONLY);
