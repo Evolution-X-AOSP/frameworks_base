@@ -111,4 +111,7 @@
 
     <!-- Max visible status icons -->
     <integer name="config_maxVisibleStatusIcons">7</integer>
+
+    <!-- Update battery info every second when device is charging -->
+    <bool name="config_alternateFastchargeInfoUpdate">false</bool>
 </resources>
