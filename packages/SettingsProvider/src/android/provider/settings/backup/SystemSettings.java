@@ -113,8 +113,6 @@ public class SystemSettings {
         Settings.System.BLOCK_ALERT,
         Settings.System.SENSOR_BLOCK,
         Settings.System.ENABLE_FLOATING_ROTATION_BUTTON,
-        Settings.System.QS_FOOTER_TEXT_SHOW,
-        Settings.System.QS_FOOTER_TEXT_STRING,
         Settings.System.RINGTONE_VIBRATION_PATTERN,
         Settings.System.CUSTOM_RINGTONE_VIBRATION_PATTERN,
         Settings.System.NOTIFICATION_VIBRATION_PATTERN,
