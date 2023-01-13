@@ -17,7 +17,7 @@
     <!-- Alert slider extras -->
     <string name="volume_ringer_priority_only">Prioritat</string>
     <string name="volume_ringer_alarms_only">Alarmes</string>
-    <string name="volume_ringer_dnd">No Molestar</string>
+    <string name="volume_ringer_dnd">No molestis</string>
     <string name="tristate_flashlight">Llanterna</string>
     <string name="tristate_flashlight_on">Llanterna activada</string>
     <string name="tristate_flashlight_off">Llanterna desactivada</string>
@@ -119,8 +119,8 @@
     <string name="qs_data_switch_toast_1">Només hi ha una targeta SIM inserida</string>
     <string name="qs_data_switch_text_1">SIM 1</string>
     <string name="qs_data_switch_text_2">SIM 2</string>
-    <string name="qs_data_switch_changed_1">Canviar dades a targeta SIM 1.</string>
-    <string name="qs_data_switch_changed_2">Canviar dades a targeta SIM 2.</string>
+    <string name="qs_data_switch_changed_1">S\'ha canviat la targeta de dades a la SIM 1.</string>
+    <string name="qs_data_switch_changed_2">S\'ha canviat la targeta de dades a la SIM 2.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Pantalla ambiental</string>
     <string name="quick_settings_aod_on_charge_label">Pantalla ambiental en carregar</string>
@@ -136,19 +136,19 @@
     <string name="accessibility_quick_settings_fpsinfo_off">Info de FPS desactivada</string>
     <string name="accessibility_quick_settings_fpsinfo_on">Info de FPS activada</string>
     <!-- Screenshot Delete Toast -->
-    <string name="delete_screenshot_toast">Captura de pantalla eliminada</string>
+    <string name="delete_screenshot_toast">S\'ha eliminat la captura de pantalla</string>
     <!-- Status bar tuner -->
     <string name="status_bar_items_title">Icones de la barra d\'estat</string>
-    <string name="status_bar_call_strength">Intensitat de crida</string>
+    <string name="status_bar_call_strength">Intensitat del senyal</string>
     <string name="status_bar_data_saver">Estalvi de dades</string>
     <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- Kill button in notification guts -->
-    <string name="force_stop_dlg_title">Forçar detenció?</string>
-    <string name="force_stop_dlg_text">Si s\' apén una aplicació, és possible que no funcioni correctament.</string>
-    <string name="guts_force_close_app">Tancar aplicació</string>
+    <string name="force_stop_dlg_title">Vols forçar l\'aturada?</string>
+    <string name="force_stop_dlg_text">Si forces l\'aturada d\'una aplicació, és possible que no funcioni correctament.</string>
+    <string name="guts_force_close_app">Tanca l\'aplicació</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Càrrega Dash (<xliff:g id="charging_time_left" example="4 horas y 2 minutos">%1$s</xliff:g> per completar)</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Càrrega Dash (<xliff:g id="charging_time_left" example="4 hores i 2 minuts">%1$s</xliff:g> per a completar)</string>
     <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Càrrega Dash</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_warp_charging_time"><xliff:g id="porcentaje">%2$s</xliff:g> • Càrrega Warp (<xliff:g id="charging_time_left" ejemplo="4 horas y 2 minutos">%1$s</xliff:g> per completar)</string>
@@ -201,15 +201,15 @@
     <!-- CPUInfo tile -->
     <string name="quick_settings_cpuinfo_label">Info de CPU</string>
     <!-- Screenshot Tile -->
-    <string name="screenshot_long_press">Pulsació llarga per a captura de pantalla parcial</string>
+    <string name="screenshot_long_press">Pulsació llarga per a fer una captura de pantalla parcial</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
-    <string name="screen_pinning_description_no_navbar">Això ho manté a la vista fins que l\'alliberis. Mantenen polsat «Enrere» per alliberar.</string>
+    <string name="screen_pinning_description_no_navbar">Aquest element es mostrarà fins que deixis de fixar-lo. Per a fer-ho, toca i mantén premut el botó d\'enrere.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
-    <string name="screen_pinning_toast_no_navbar">Per desfer aquesta pantalla, toca &amp; mantenen polsat el botó Enrere</string>
+    <string name="screen_pinning_toast_no_navbar">Per a deixar de fixar aquesta pantalla, mantén el botó d\'enrere</string>
     <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
-    <string name="screen_pinning_description_no_navbar_fpsensor">Això manté la pantalla a la vista fins que l\'alliberis. Mantenen pressionat el sensor d\'empremta per desfer.</string>
+    <string name="screen_pinning_description_no_navbar_fpsensor">Aquest element es mostrarà fins que deixis de fixar-lo. Per a fer-ho, toca i mantén premut el sensor d\'empremta.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
-    <string name="screen_pinning_toast_no_navbar_fpsensor">Per desfer aquesta pantalla, mantenen polsat el sensor d\'empremta</string>
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Per a deixar de fixar aquesta pantalla, mantén premut el sensor d\'empremta</string>
     <!-- VPN tethering QS tile -->
     <string name="vpn_tethering_label">Ancoratge VPN</string>
     <string name="vpn_tethering_changed_off">Ancoratge VPN desactivat.</string>
@@ -231,14 +231,20 @@
     <string name="quick_settings_compass_W">O</string>
     <string name="quick_settings_compass_NW">NO</string>
     <!-- Advance location quick setting tile -->
-    <string name="accessibility_quick_settings_location_off">Informes d\' ubicació: off.</string>
-    <string name="quick_settings_location_secondary_battery_saving">Estalvi de Bateria</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Informe d\' ubicació: mode estalvi de bateria.</string>
+    <string name="accessibility_quick_settings_location_off">Informe d\'ubicació: desactivat.</string>
+    <string name="quick_settings_location_secondary_battery_saving">Estalvi de bateria</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Informe d\'ubicació: mode d\'estalvi de bateria.</string>
     <string name="quick_settings_location_secondary_gps_only">Només sensors</string>
-    <string name="accessibility_quick_settings_location_gps_only">Informe d\' ubicació: mode només sensors.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Informe d\'ubicació: mode només sensors.</string>
     <string name="quick_settings_location_secondary_high_accuracy">Alta precisió</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Informe d\' ubicació: mode alta precisió.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Informe d\'ubicació: mode d\'alta precisió.</string>
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Píxels intel·ligents</string>
     <string name="quick_settings_smart_pixels_on_power_save">Activa automàticament els píxels intel·ligents</string>
+    <!-- Data usage info in QS footer -->
+    <string name="usage_data">ús d\'avui</string>
+    <string name="usage_data_default_suffix">Dades</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <!-- Sleep Mode -->
+    <string name="quick_settings_sleep_mode_label">Mode en repòs</string>
 </resources>

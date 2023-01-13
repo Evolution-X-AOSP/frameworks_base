@@ -176,7 +176,7 @@
     <string name="screenrecord_hevc_switch_label">Włącz HEVC</string>
     <string name="screenrecord_hevc_switch_summary">Użyj bardziej wydajnego kodowania wideo HEVC</string>
     <!-- FPS view text placeholder -->
-    <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
+    <string name="fps_text_placeholder"><xliff:g id="fps" example="90">%1$d</xliff:g></string>
     <!-- Kill foreground app -->
     <string name="task_helper_app_killed">%1$s została zatrzymana</string>
     <string name="empty_app_killed">Aplikacja</string>
@@ -241,4 +241,10 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Inteligentne piksele</string>
     <string name="quick_settings_smart_pixels_on_power_save">Automatyczne włączanie inteligentnych pikseli</string>
+    <!-- Data usage info in QS footer -->
+    <string name="usage_data">użyto dzisiaj</string>
+    <string name="usage_data_default_suffix">Dane</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <!-- Sleep Mode -->
+    <string name="quick_settings_sleep_mode_label">Tryb uśpienia</string>
 </resources>
