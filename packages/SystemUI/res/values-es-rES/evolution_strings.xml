@@ -240,4 +240,8 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Píxeles Inteligentes</string>
     <string name="quick_settings_smart_pixels_on_power_save">Habilitar Píxeles Inteligentes automáticamente</string>
+    <!-- Data usage info in QS footer -->
+    <string name="usage_data">usado hoy</string>
+    <string name="usage_data_default_suffix">Datos</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
 </resources>
