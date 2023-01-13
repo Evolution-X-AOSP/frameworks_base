@@ -79,6 +79,7 @@ public class PixelPropsUtils {
             "com.netflix.mediaclient",
             "com.nhs.online.nhsonline",
             "com.nothing.smartcenter",
+            "com.snapchat.android",
             "in.startv.hotstar"
     };
 
