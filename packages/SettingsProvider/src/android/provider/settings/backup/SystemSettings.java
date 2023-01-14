@@ -120,5 +120,6 @@ public class SystemSettings {
         Settings.System.DEFAULT_NOTIFICATION_TORCH,
         Settings.System.STATUS_BAR_NOTIF_COUNT,
         Settings.System.HEADS_UP_NOTIFICATIONS_THRESHOLD,
+        Settings.System.KEYGUARD_QUICK_TOGGLES,
     };
 }
