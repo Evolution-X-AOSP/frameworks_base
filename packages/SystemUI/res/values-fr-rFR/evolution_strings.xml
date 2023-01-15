@@ -245,4 +245,6 @@
     <string name="usage_data">utilisé aujourd\'hui</string>
     <string name="usage_data_default_suffix">Données</string>
     <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <!-- Sleep Mode -->
+    <string name="quick_settings_sleep_mode_label">Mode veille</string>
 </resources>
