@@ -349,4 +349,7 @@
 
     <!-- Boost Framework -->
     <java-symbol type="bool" name="config_supportsBoostFramework" />
+
+    <!-- Enforce DisplayModeDirector to select user preferred resolution -->
+    <java-symbol type="bool" name="config_forceToUseSelectedResolution" />
 </resources>
