@@ -428,4 +428,7 @@
     <!-- Defines the value used by the device sysfs node
          to disable DC dimming -->
     <string name="config_deviceDcDimmingDisableValue">0</string>
+
+    <!-- Enforce DisplayModeDirector to select user preferred resolution -->
+    <bool name="config_forceToUseSelectedResolution">false</bool>
 </resources>

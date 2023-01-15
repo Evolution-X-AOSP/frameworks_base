@@ -314,4 +314,7 @@
     <java-symbol type="string" name="config_deviceDcDimmingSysfsNode" />
     <java-symbol type="string" name="config_deviceDcDimmingEnableValue" />
     <java-symbol type="string" name="config_deviceDcDimmingDisableValue" />
+
+    <!-- Enforce DisplayModeDirector to select user preferred resolution -->
+    <java-symbol type="bool" name="config_forceToUseSelectedResolution" />
 </resources>
