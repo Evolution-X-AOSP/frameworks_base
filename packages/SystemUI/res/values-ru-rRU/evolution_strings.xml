@@ -244,4 +244,6 @@
     <string name="usage_data">использовано сегодня</string>
     <string name="usage_data_default_suffix">Данные</string>
     <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <!-- Sleep Mode -->
+    <string name="quick_settings_sleep_mode_label">Спящий режим</string>
 </resources>
