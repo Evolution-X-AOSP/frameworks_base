@@ -55,4 +55,10 @@
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Scorri di nuovo per sbloccare i gesti</string>
     <!-- Parallel space badge -->
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Modalità sonno</string>
+    <string name="sleep_mode_notification_title">Modalità sonno attivata</string>
+    <string name="sleep_mode_notification_content">Tocca per disattivare la modalità sonno</string>
+    <string name="sleep_mode_enabled_toast">Modalità sonno attivata</string>
+    <string name="sleep_mode_disabled_toast">Modalità sonno disattivata</string>
 </resources>
