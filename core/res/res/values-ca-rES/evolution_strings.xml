@@ -55,4 +55,10 @@
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Llisqueu de nou per desbloquejar els gestos</string>
     <!-- Parallel space badge -->
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Mode en repòs</string>
+    <string name="sleep_mode_notification_title">Mode en repòs activat</string>
+    <string name="sleep_mode_notification_content">Toca per a desactivar el mode en repòs</string>
+    <string name="sleep_mode_enabled_toast">S\'ha activat el mode en repòs</string>
+    <string name="sleep_mode_disabled_toast">S\'ha desactivat el mode en repòs</string>
 </resources>
