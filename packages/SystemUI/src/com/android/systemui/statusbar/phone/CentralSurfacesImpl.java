@@ -313,10 +313,10 @@ public class CentralSurfacesImpl extends CoreStartable implements
             "system:" + Settings.System.NOTIFICATION_MATERIAL_DISMISS_STYLE;
     private static final String NOTIFICATION_MATERIAL_DISMISS_BGSTYLE =
             "system:" + Settings.System.NOTIFICATION_MATERIAL_DISMISS_BGSTYLE;
-    private static final String FORCE_SHOW_NAVBAR =
-            "system:" + Settings.System.FORCE_SHOW_NAVBAR;
     private static final String PULSE_ON_NEW_TRACKS =
             Settings.Secure.PULSE_ON_NEW_TRACKS;
+    private static final String FORCE_SHOW_NAVBAR =
+            "system:" + Settings.System.FORCE_SHOW_NAVBAR;
     private static final String LESS_BORING_HEADS_UP =
             "system:" + Settings.System.LESS_BORING_HEADS_UP;
     private static final String RETICKER_STATUS =
@@ -1548,10 +1548,11 @@ public class CentralSurfacesImpl extends CoreStartable implements
             mDismissAllButton.getBackground().setAlpha(0);
             mDismissAllButton.setVisibility(View.GONE);
         } else {
-            mDismissAllButton.setVisibility(View.VISIBLE);
+            updateDismissAllButton();
             int alpha = Math.round(mNotificationPanelViewController.getExpandedFraction() * 255.0f);
             mDismissAllButton.setAlpha(alpha);
             mDismissAllButton.getBackground().setAlpha(alpha);
+            mDismissAllButton.setVisibility(View.VISIBLE);
         }
     }
 
@@ -4631,7 +4632,6 @@ public class CentralSurfacesImpl extends CoreStartable implements
             case NOTIFICATION_MATERIAL_DISMISS_BGSTYLE:
                 mClearAllBgStyle =
                         TunerService.parseInteger(newValue, 0);
-                updateDismissAllButton();
                 break;
             case FORCE_SHOW_NAVBAR:
                 if (mDisplayId != Display.DEFAULT_DISPLAY || mWindowManagerService == null)
@@ -4860,9 +4860,6 @@ public class CentralSurfacesImpl extends CoreStartable implements
 
                 @Override
                 public void onStateChanged(int newState) {
-                    if (mState != newState) {
-                        updateDismissAllVisibility(newState != StatusBarState.KEYGUARD);
-                    }
                     mState = newState;
                     updateReportRejectedTouchVisibility();
                     mDozeServiceHost.updateDozing();

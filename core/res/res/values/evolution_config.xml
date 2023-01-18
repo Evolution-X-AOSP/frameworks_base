@@ -408,15 +408,6 @@
     <!-- Whether the device supports Smart Pixels -->
     <bool name="config_supportSmartPixels">false</bool>
 
-    <!-- Parallel space max count. Should overlay according to device performance. -->
-    <integer name="config_parallelSpaceMaxCount">9</integer>
-
-    <!-- Parallel space whitelist -->
-    <string-array name="config_parallelSpaceWhitelist" />
-
-    <!-- Parallel space blocklist -->
-    <string-array name="config_parallelSpaceBlocklist" />
-
     <!-- Defines the sysfs attribute path used by the device
          to enable/disable DC dimming. -->
     <string name="config_deviceDcDimmingSysfsNode"></string>

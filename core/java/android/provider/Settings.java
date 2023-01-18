@@ -6821,31 +6821,6 @@ public final class Settings {
         public static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
 
         /**
-         * @hide
-         */
-         public static final String QS_LAYOUT_COLUMNS_LANDSCAPE = "qs_layout_columns_landscape";
-
-        /**
-         * @hide
-         */
-         public static final String QS_LAYOUT_COLUMNS = "qs_layout_columns";
-
-        /**
-         * @hide
-         */
-        public static final String QS_TILE_VERTICAL_LAYOUT = "qs_tile_vertical_layout";
-
-        /**
-         * @hide
-         */
-        public static final String QS_TILE_LABEL_HIDE = "qs_tile_label_hide";
-
-        /**
-         * @hide
-         */
-        public static final String QS_TILE_LABEL_SIZE = "qs_tile_label_size";
-
-        /**
          * Bottom screen shortcuts on keyguard
          * Two lists of strings delimeted by ;
          * Each list of string is delimited by ,
@@ -12839,12 +12814,6 @@ public final class Settings {
          * @hide
          */
         public static final String DOZE_FOR_NOTIFICATIONS = "doze_for_notifications";
-
-        /**
-         * Control whether GMS is enabled for this user.
-         * @hide
-         */
-        public static final String GMS_ENABLED = "gms_enabled";
 
         /**
          * Whether to show daily data usage in the QS footer.
@@ -20285,18 +20254,6 @@ public final class Settings {
         @SdkConstant(SdkConstant.SdkConstantType.ACTIVITY_INTENT_ACTION)
         public static final String ACTION_MOBILE_DATA =
                 "android.settings.panel.action.MOBILE_DATA";
-
-        /**
-         * Activity Action: Show a settings dialog containing controls for Bluetooth.
-         * <p>
-         * Input: Nothing.
-         * <p>
-         * Output: Nothing.
-         * @hide
-         */
-        @SdkConstant(SdkConstant.SdkConstantType.ACTIVITY_INTENT_ACTION)
-        public static final String ACTION_BLUETOOTH =
-                "android.settings.panel.action.BLUETOOTH";
     }
 
     /**

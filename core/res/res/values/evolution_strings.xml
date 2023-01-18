@@ -66,9 +66,6 @@
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Swipe again to unlock gestures</string>
 
-    <!-- Parallel space badge -->
-    <string name="parallel_space_badge_label" translatable="false">%1$s</string>
-
     <!-- Sleep Mode -->
     <string name="notification_channel_sleep">Sleep Mode</string>
     <string name="sleep_mode_notification_title">Sleep mode enabled</string>

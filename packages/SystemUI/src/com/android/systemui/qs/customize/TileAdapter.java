@@ -46,7 +46,6 @@ import com.android.internal.logging.UiEventLogger;
 import com.android.systemui.R;
 import com.android.systemui.qs.QSEditEvent;
 import com.android.systemui.qs.QSTileHost;
-import com.android.systemui.qs.TileUtils;
 import com.android.systemui.qs.customize.TileAdapter.Holder;
 import com.android.systemui.qs.customize.TileQueryHelper.TileInfo;
 import com.android.systemui.qs.customize.TileQueryHelper.TileStateListener;
@@ -129,7 +128,6 @@ public class TileAdapter extends RecyclerView.Adapter<Holder> implements TileSta
         mMinNumTiles = context.getResources().getInteger(R.integer.quick_settings_min_num_tiles);
         mNumColumns = context.getResources().getInteger(NUM_COLUMNS_ID);
         //mAccessibilityDelegate = new TileAdapterDelegate();
-        mNumColumns = TileUtils.getQSColumnsCount(context, mNumColumns);
         mSizeLookup.setSpanIndexCacheEnabled(true);
     }
 
@@ -150,7 +148,6 @@ public class TileAdapter extends RecyclerView.Adapter<Holder> implements TileSta
      */
     public boolean updateNumColumns() {
         int numColumns = mContext.getResources().getInteger(NUM_COLUMNS_ID);
-        numColumns = TileUtils.getQSColumnsCount(mContext, numColumns);
         if (numColumns != mNumColumns) {
             mNumColumns = numColumns;
             return true;

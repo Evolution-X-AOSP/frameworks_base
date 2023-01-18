@@ -88,8 +88,6 @@ import com.android.server.contentcapture.ContentCaptureManagerInternal;
 import com.android.server.uri.UriGrantsManagerInternal;
 import com.android.server.wm.WindowManagerInternal;
 
-import ink.kaleidoscope.server.ParallelSpaceManagerService;
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.function.Consumer;
@@ -649,9 +647,6 @@ public class ClipboardService extends SystemService {
     }
 
     List<UserInfo> getRelatedProfiles(@UserIdInt int userId) {
-        if (ParallelSpaceManagerService.isInteractive(userId))
-            return ParallelSpaceManagerService.getInteractiveUsers();
-
         final List<UserInfo> related;
         final long origId = Binder.clearCallingIdentity();
         try {

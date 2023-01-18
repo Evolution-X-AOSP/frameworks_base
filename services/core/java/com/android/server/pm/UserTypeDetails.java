@@ -304,10 +304,6 @@ public final class UserTypeDetails {
         return (mBaseType & UserInfo.FLAG_PROFILE) != 0;
     }
 
-    public boolean isParallel() {
-        return (mDefaultUserInfoPropertyFlags & UserInfo.FLAG_PARALLEL) != 0;
-    }
-
     public boolean isFull() {
         return (mBaseType & UserInfo.FLAG_FULL) != 0;
     }
