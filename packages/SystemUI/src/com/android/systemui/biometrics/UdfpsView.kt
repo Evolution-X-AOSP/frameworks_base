@@ -57,7 +57,6 @@ class UdfpsView(
             a.getFloat(R.styleable.UdfpsView_sensorTouchAreaCoefficient, 0f)
         }
 
-    // Only used for UdfpsHbmTypes.GLOBAL_HBM.
     private var ghbmView: UdfpsSurfaceView? = null
 
     /** View controller (can be different for enrollment, BiometricPrompt, Keyguard, etc.). */
@@ -167,8 +166,7 @@ class UdfpsView(
         }
 
         mUdfpsDisplayMode?.enable {
-            isDisplayConfigured = true
-            animationViewController?.onDisplayConfiguring()
+            onDisplayConfigured?.run()
             ghbmView?.drawIlluminationDot(sensorRect)
         }
     }
