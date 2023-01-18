@@ -123,15 +123,12 @@ public class PagedTileLayout extends ViewPager implements QSTileLayout {
 
     @Override
     public int getTilesHeight() {
-        // Find the maximum height among all pages.
-        int height = 0;
-        for (TileLayout tileLayout: mPages) {
-            if (tileLayout != null) {
-                height = Math.max(height, tileLayout.getTilesHeight());
-            }
+        // Use the first page as that is the maximum height we need to show.
+        TileLayout tileLayout = mPages.get(0);
+        if (tileLayout == null) {
+            return 0;
         }
-        if (DEBUG) Log.d(TAG, "getTilesHeight ret=" + height);
-        return height;
+        return tileLayout.getTilesHeight();
     }
 
     @Override
@@ -544,21 +541,6 @@ public class PagedTileLayout extends ViewPager implements QSTileLayout {
     public int getNumTilesFirstPage() {
         if (mPages.size() == 0) return 0;
         return mPages.get(0).mRecords.size();
-    }
-
-    @Override
-    public int getResourceColumns() {
-        if (mPages.size() == 0) return TileLayout.NO_MAX_COLUMNS;
-        TileLayout currentPage = mPages.get(getCurrentPageNumber());
-        return currentPage.getResourceColumns();
-    }
-
-    @Override
-    public void updateSettings() {
-        for (int i = 0; i < mPages.size(); i++) {
-            mPages.get(i).updateSettings();
-        }
-        mDistributeTiles = true;
     }
 
     public void startTileReveal(Set<String> tileSpecs, final Runnable postAnimation) {
