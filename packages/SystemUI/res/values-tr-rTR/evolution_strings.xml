@@ -247,4 +247,6 @@
     <string name="usage_wifi_default_suffix">Kablosuz ağ</string>
     <!-- Sleep Mode -->
     <string name="quick_settings_sleep_mode_label">Uyku modu</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">DC Karartma</string>
 </resources>
