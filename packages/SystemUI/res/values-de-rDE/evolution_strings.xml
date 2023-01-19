@@ -245,4 +245,8 @@
     <string name="usage_data">heute verwendet</string>
     <string name="usage_data_default_suffix">Daten</string>
     <string name="usage_wifi_default_suffix">WLAN</string>
+    <!-- Sleep Mode -->
+    <string name="quick_settings_sleep_mode_label">Schlafmodus</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">DC-Dimming</string>
 </resources>
