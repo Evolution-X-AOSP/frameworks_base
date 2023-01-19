@@ -247,4 +247,6 @@
     <string name="usage_wifi_default_suffix">Wi-Fi</string>
     <!-- Sleep Mode -->
     <string name="quick_settings_sleep_mode_label">Mode veille</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">Atténuation DC</string>
 </resources>
