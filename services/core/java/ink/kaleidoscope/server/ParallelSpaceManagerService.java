@@ -100,7 +100,7 @@ public final class ParallelSpaceManagerService extends SystemService {
         "com.google.android.apps.nexuslauncher",
         "com.google.android.projection.gearhead",
         "org.lineageos.setupwizard",
-        "com.crdroid.updater"
+        "org.evolution.ota"
     );
 
     /**
