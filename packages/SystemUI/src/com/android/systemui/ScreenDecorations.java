@@ -598,7 +598,10 @@ public class ScreenDecorations implements CoreStartable, Tunable , Dumpable {
             removeHwcOverlay();
         }
 
-        if (hasOverlays() || hasHwcOverlay()) {
+        final boolean available = mContext.getResources().getBoolean(
+                    com.android.internal.R.bool.config_displayInversionAvailable);
+        if (!available) return;
+        if ((hasOverlays() || hasHwcOverlay())) {
             if (mIsRegistered) {
                 return;
             }
