@@ -431,4 +431,7 @@
 
     <!-- Enforce DisplayModeDirector to select user preferred resolution -->
     <bool name="config_forceToUseSelectedResolution">false</bool>
+
+    <!-- Display color inversion availability -->
+    <bool name="config_displayInversionAvailable">true</bool>
 </resources>
