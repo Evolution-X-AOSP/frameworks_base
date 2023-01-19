@@ -267,4 +267,7 @@
     <java-symbol type="string" name="config_deviceDcDimmingSysfsNode" />
     <java-symbol type="string" name="config_deviceDcDimmingEnableValue" />
     <java-symbol type="string" name="config_deviceDcDimmingDisableValue" />
+
+    <!-- Display color inversion availability -->
+    <java-symbol type="bool" name="config_displayInversionAvailable" />
 </resources>
