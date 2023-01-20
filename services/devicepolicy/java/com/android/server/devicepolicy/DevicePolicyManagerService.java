@@ -14029,7 +14029,8 @@ public class DevicePolicyManagerService extends BaseIDevicePolicyManager {
             mInjector.binderRestoreCallingIdentity(ident);
         }
 
-        return checkProvisioningPreconditionSkipPermission(action, packageName) == STATUS_OK;
+        return checkProvisioningPreconditionSkipPermission(action, packageName, caller.getUserId())
+                == STATUS_OK;
     }
 
     @Override
@@ -14039,11 +14040,12 @@ public class DevicePolicyManagerService extends BaseIDevicePolicyManager {
         Preconditions.checkCallAuthorization(
                 hasCallingOrSelfPermission(permission.MANAGE_PROFILE_AND_DEVICE_OWNERS));
 
-        return checkProvisioningPreconditionSkipPermission(action, packageName);
+        return checkProvisioningPreconditionSkipPermission(action, packageName,
+                mInjector.userHandleGetCallingUserId());
     }
 
     private int checkProvisioningPreconditionSkipPermission(String action,
-            String packageName) {
+            String packageName, @UserIdInt int callingUserId) {
         if (!mHasFeature) {
             logMissingFeatureAction("Cannot check provisioning for action " + action);
             return STATUS_DEVICE_ADMIN_NOT_SUPPORTED;
@@ -14051,11 +14053,12 @@ public class DevicePolicyManagerService extends BaseIDevicePolicyManager {
         if (!isProvisioningAllowed()) {
             return STATUS_PROVISIONING_NOT_ALLOWED_FOR_NON_DEVELOPER_USERS;
         }
-        final int code = checkProvisioningPreConditionSkipPermissionNoLog(action, packageName);
+        final int code = checkProvisioningPreConditionSkipPermissionNoLog(action, packageName,
+                callingUserId);
         if (code != STATUS_OK) {
             Slogf.d(LOG_TAG, "checkProvisioningPreCondition(" + action + ", " + packageName
                     + ") failed: "
-                    + computeProvisioningErrorString(code, mInjector.userHandleGetCallingUserId()));
+                    + computeProvisioningErrorString(code, callingUserId));
         }
         return code;
     }
@@ -14078,8 +14081,7 @@ public class DevicePolicyManagerService extends BaseIDevicePolicyManager {
     }
 
     private int checkProvisioningPreConditionSkipPermissionNoLog(String action,
-            String packageName) {
-        final int callingUserId = mInjector.userHandleGetCallingUserId();
+            String packageName, @UserIdInt int callingUserId) {
         if (action != null) {
             switch (action) {
                 case DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE:
@@ -17651,7 +17653,7 @@ public class DevicePolicyManagerService extends BaseIDevicePolicyManager {
         final long identity = Binder.clearCallingIdentity();
         try {
             final int result = checkProvisioningPreconditionSkipPermission(
-                    ACTION_PROVISION_MANAGED_PROFILE, admin.getPackageName());
+                    ACTION_PROVISION_MANAGED_PROFILE, admin.getPackageName(), caller.getUserId());
             if (result != STATUS_OK) {
                 throw new ServiceSpecificException(
                         ERROR_PRE_CONDITION_FAILED,
@@ -18063,7 +18065,8 @@ public class DevicePolicyManagerService extends BaseIDevicePolicyManager {
         final long identity = Binder.clearCallingIdentity();
         try {
             int result = checkProvisioningPreconditionSkipPermission(
-                    ACTION_PROVISION_MANAGED_DEVICE, deviceAdmin.getPackageName());
+                    ACTION_PROVISION_MANAGED_DEVICE, deviceAdmin.getPackageName(),
+                    caller.getUserId());
             if (result != STATUS_OK) {
                 throw new ServiceSpecificException(
                         ERROR_PRE_CONDITION_FAILED,
