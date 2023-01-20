@@ -245,4 +245,8 @@
     <string name="usage_data">utilizado hoje</string>
     <string name="usage_data_default_suffix">Dados</string>
     <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <!-- Sleep Mode -->
+    <string name="quick_settings_sleep_mode_label">Modo de suspensão</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">Regulação de intensidade</string>
 </resources>
