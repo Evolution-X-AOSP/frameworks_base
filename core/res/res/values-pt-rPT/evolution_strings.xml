@@ -20,7 +20,7 @@
     <string name="systemui_restart_message">Para que todas as alterações tenham efeito, é necessário reiniciar a Ui do sistema. Reiniciar agora?</string>
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Pressione e mantenha pressionado o botão Ligar/Desligar para desbloquear</string>
-    <string name="pocket_view_title">Modo Bolso ligado</string>
+    <string name="pocket_view_title">Modo de Bolso ligado</string>
     <string name="pocket_view_title_cancel">Para utilizar o seu telefone:</string>
     <string name="pocket_view_top_tag_cancel">Não cubra a área azul do seu telefone e limpe qualquer terra ou poeira.</string>
     <string name="pocket_view_top_tag_cancel2">Premir e segurar o botão ligar/desligar para forçar a saída do Modo Bolso.</string>
