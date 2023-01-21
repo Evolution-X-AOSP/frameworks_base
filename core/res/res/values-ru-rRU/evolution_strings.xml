@@ -60,5 +60,5 @@
     <string name="sleep_mode_notification_title">Спящий режим включен</string>
     <string name="sleep_mode_notification_content">Нажмите, чтобы выключить спящий режим</string>
     <string name="sleep_mode_enabled_toast">Спящий режим включён</string>
-    <string name="sleep_mode_disabled_toast">Таймер сна отключён</string>
+    <string name="sleep_mode_disabled_toast">Спящий режим выключен</string>
 </resources>
