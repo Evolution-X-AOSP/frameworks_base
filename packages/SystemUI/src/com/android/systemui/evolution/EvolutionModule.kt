@@ -28,6 +28,7 @@ import com.android.systemui.qs.tiles.DcDimmingTile
 import com.android.systemui.qs.tiles.GloveModeTile
 import com.android.systemui.qs.tiles.HeadsUpTile
 import com.android.systemui.qs.tiles.LiveDisplayTile
+import com.android.systemui.qs.tiles.LocaleTile
 import com.android.systemui.qs.tiles.OnTheGoTile
 import com.android.systemui.qs.tiles.PowerShareTile
 import com.android.systemui.qs.tiles.ReadingModeTile
@@ -115,6 +116,12 @@ interface EvolutionModule {
     @IntoMap
     @StringKey(LiveDisplayTile.TILE_SPEC)
     fun bindLiveDisplayTile(liveDisplayTile: LiveDisplayTile): QSTileImpl<*>
+
+    /** Inject LocaleTile into tileMap in QSModule */
+    @Binds  
+    @IntoMap
+    @StringKey(LocaleTile.TILE_SPEC)
+    fun bindLocaleTile(localeTile: LocaleTile): QSTileImpl<*>
 
     /** Inject OnTheGoTile into tileMap in QSModule */
     @Binds  

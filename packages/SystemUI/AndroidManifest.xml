@@ -374,7 +374,8 @@
     <!-- DataSwitch tile -->
     <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" />
 
-    <protected-broadcast android:name="com.android.systemui.doze.pulse" />
+    <!-- Locale QS -->
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
 
     <application
         android:name=".SystemUIApplication"
