@@ -71,7 +71,7 @@
     
     <!-- The default tiles to display in QuickSettings -->
     <string name="quick_settings_tiles_extra" translatable="false">
-        ambient_display,anti_flicker,aod,caffeine,compass,cpuinfo,dataswitch,dc_dimming,fpsinfo,glovemode,heads_up,livedisplay,onthego,powershare,reading_mode,reboot,refresh_rate,screenshot,sleep_mode,smartpixels,sound,soundsearch,sync,usb_tether,volume_panel,vpn,vpn_tethering
+        ambient_display,anti_flicker,aod,caffeine,compass,cpuinfo,dataswitch,dc_dimming,fpsinfo,glovemode,heads_up,livedisplay,locale,onthego,powershare,reading_mode,reboot,refresh_rate,screenshot,sleep_mode,smartpixels,sound,soundsearch,sync,usb_tether,volume_panel,vpn,vpn_tethering
     </string>
 
     <!-- The battery current divider, some kernel report current value in mA other in µA.
