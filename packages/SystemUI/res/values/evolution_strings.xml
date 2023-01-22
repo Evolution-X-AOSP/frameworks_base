@@ -170,4 +170,8 @@
 
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Volume panel</string>
+
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Language</string>
+    <string name="quick_settings_locale_more_locales_toast">Configure multiple languages first</string>
 </resources>
