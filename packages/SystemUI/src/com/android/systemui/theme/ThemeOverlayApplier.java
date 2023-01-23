@@ -130,6 +130,9 @@ public class ThemeOverlayApplier implements Dumpable {
     @VisibleForTesting
     static final String OVERLAY_CATEGORY_BRIGHTNESS_SLIDER =
             "android.theme.customization.brightness_slider";
+    @VisibleForTesting
+    static final String OVERLAY_CATEGORY_DATA =
+            "android.customization.sb_data";
 
     /*
      * All theme customization categories used by the system, in order that they should be applied,
@@ -149,7 +152,8 @@ public class ThemeOverlayApplier implements Dumpable {
             OVERLAY_CATEGORY_ICON_SIGNAL,
             OVERLAY_CATEGORY_ICON_WIFI,
             OVERLAY_CATEGORY_NAVBAR,
-            OVERLAY_CATEGORY_BRIGHTNESS_SLIDER);
+            OVERLAY_CATEGORY_BRIGHTNESS_SLIDER,
+            OVERLAY_CATEGORY_DATA);
 
     /* Categories that need to be applied to the current user as well as the system user. */
     @VisibleForTesting
@@ -162,7 +166,8 @@ public class ThemeOverlayApplier implements Dumpable {
             OVERLAY_CATEGORY_ICON_ANDROID,
             OVERLAY_CATEGORY_ICON_SYSUI,
             OVERLAY_CATEGORY_NAVBAR,
-            OVERLAY_CATEGORY_BRIGHTNESS_SLIDER);
+            OVERLAY_CATEGORY_BRIGHTNESS_SLIDER,
+            OVERLAY_CATEGORY_DATA);
 
     /* Categories for all available custom themes */
     @VisibleForTesting
@@ -220,6 +225,7 @@ public class ThemeOverlayApplier implements Dumpable {
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_ICON_WIFI, SYSUI_PACKAGE);
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_NAVBAR, SYSUI_PACKAGE);
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_BRIGHTNESS_SLIDER, SYSUI_PACKAGE);
+        mCategoryToTargetPackage.put(OVERLAY_CATEGORY_DATA, SYSUI_PACKAGE);
 
         dumpManager.registerDumpable(TAG, this);
     }
