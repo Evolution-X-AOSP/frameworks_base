@@ -273,12 +273,10 @@ public class PixelPropsUtils {
                     !SystemProperties.getBoolean("persist.sys.pixelprops.netflix", false)) {
                 if (DEBUG) Log.d(TAG, "Netflix spoofing disabled by system prop");
                 return;
-            } else if (isPixelDevice) {
-                return;
             } else if (packageName.equals("com.android.vending")) {
                 sIsFinsky = true;
                 return;
-            } else {
+            } else if (!isPixelDevice) {
                 if ((Arrays.asList(packagesToChangePixel7Pro).contains(packageName))) {
                     propsToChange.putAll(propsToChangePixel7Pro);
                 } else {
