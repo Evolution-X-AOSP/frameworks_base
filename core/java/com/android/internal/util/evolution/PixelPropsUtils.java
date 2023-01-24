@@ -150,6 +150,7 @@ public class PixelPropsUtils {
             "com.ea.gp.apexlegendsmobilefps",
             "com.levelinfinite.hotta.gp",
             "com.mobile.legends",
+            "com.supercell.clashofclans",
             "com.tencent.tmgp.sgame",
             "com.vng.mlbbvn"
     };
