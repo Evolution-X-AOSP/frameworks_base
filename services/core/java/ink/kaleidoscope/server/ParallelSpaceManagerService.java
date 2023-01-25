@@ -96,7 +96,9 @@ public final class ParallelSpaceManagerService extends SystemService {
 
     private static final List<String> SPACE_BLOCKLIST_PACKAGES = Arrays.asList(
         // To avoid third party apps starting it accidentally.
+        "com.android.fmradio",
         "com.android.launcher3",
+        "com.caf.fmradio",
         "com.google.android.apps.nexuslauncher",
         "com.google.android.projection.gearhead",
         "org.lineageos.setupwizard",
