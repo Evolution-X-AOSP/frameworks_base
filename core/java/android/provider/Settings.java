@@ -4980,8 +4980,9 @@ public final class Settings {
          * @see #RINGTONE
          * @see #DEFAULT_RINGTONE2_URI
          *
+         * @hide
          */
-        /** {@hide} */
+        @Readable
         public static final String RINGTONE2 = "ringtone2";
 
         /**
@@ -5011,6 +5012,7 @@ public final class Settings {
         public static final Uri RINGTONE_CACHE_URI = getUriFor(RINGTONE_CACHE);
 
         /** {@hide} */
+        @Readable
         public static final String RINGTONE2_CACHE = "ringtone2_cache";
         /** {@hide} */
         public static final Uri RINGTONE2_CACHE_URI = getUriFor(RINGTONE2_CACHE);
