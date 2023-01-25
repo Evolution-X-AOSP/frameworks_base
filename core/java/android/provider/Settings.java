@@ -6859,6 +6859,12 @@ public final class Settings {
         public static final String KEYGUARD_QUICK_TOGGLES = "keyguard_quick_toggles";
 
         /**
+         * Lockscreen clock format
+         * @hide
+         */
+        public static final String CLOCK_USE_CUSTOM_FORMAT = "clock_use_custom_format";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
