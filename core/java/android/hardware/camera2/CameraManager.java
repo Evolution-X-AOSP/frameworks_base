@@ -645,12 +645,16 @@ public final class CameraManager {
         HashMap<String, CameraCharacteristics> physicalIdsToChars =
                 new HashMap<String, CameraCharacteristics>();
         Set<String> physicalCameraIds = chars.getPhysicalCameraIds();
-        String physicalCameraIdOverride = SystemProperties.get("persist.sys.vendor.camera_override_id", "");
+        boolean sWorkAroundDepthSensor =
+                SystemProperties.getBoolean("persist.enable_depthsensor_workaround", false);
+        CameraCharacteristics physicalChars;
         for (String physicalCameraId : physicalCameraIds) {
-            if (!"".equals(physicalCameraIdOverride)) {
-                physicalCameraId = physicalCameraIdOverride;
+            if (sWorkAroundDepthSensor) {
+                physicalCameraId = "20";
+                physicalChars = getCameraCharacteristics(physicalCameraId);
+            } else {
+                physicalChars = getCameraCharacteristics(physicalCameraId);
             }
-            CameraCharacteristics physicalChars = getCameraCharacteristics(physicalCameraId);
             physicalIdsToChars.put(physicalCameraId, physicalChars);
         }
         return physicalIdsToChars;
