@@ -25,6 +25,7 @@ import android.annotation.Nullable;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.os.SystemProperties;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.ArraySet;
@@ -42,8 +43,6 @@ import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.dagger.SysUISingleton;
 import com.android.systemui.demomode.DemoModeCommandReceiver;
-import com.android.systemui.flags.FeatureFlags;
-import com.android.systemui.flags.Flags;
 import com.android.systemui.plugins.DarkIconDispatcher;
 import com.android.systemui.plugins.DarkIconDispatcher.DarkReceiver;
 import com.android.systemui.statusbar.BaseStatusBarWifiView;
@@ -521,7 +520,7 @@ public interface StatusBarIconController {
         private StatusBarMobileView onCreateStatusBarMobileView(int subId, String slot) {
             Context mobileContext = mMobileContextProvider.getMobileContextForSub(subId, mContext);
             StatusBarMobileView view = StatusBarMobileView
-                    .fromContext(mobileContext, slot, mFeatureFlags.isEnabled(Flags.COMBINED_STATUS_BAR_SIGNAL_ICONS));
+                    .fromContext(mobileContext, slot, SystemProperties.getBoolean("persist.sys.flags.combined_signal_icons", false));
             return view;
         }
 
