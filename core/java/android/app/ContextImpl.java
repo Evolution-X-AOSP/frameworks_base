@@ -73,6 +73,7 @@ import android.os.Looper;
 import android.os.Process;
 import android.os.RemoteException;
 import android.os.StrictMode;
+import android.os.SystemProperties;
 import android.os.Trace;
 import android.os.UserHandle;
 import android.os.UserManager;
@@ -2108,10 +2109,12 @@ class ContextImpl extends Context {
 
     @Override
     public Object getSystemService(String name) {
-        if (Context.LINEARMOTOR_VIBRATOR_SERVICE.equals(name)) {
-            if (!LINEAR_MOTOR_VIBRATOR_WHITELIST.contains(getPackageName())) {
-                Log.w(TAG, "LinearMotorVibrator is unsupported for external use");
-                return null;
+        if (SystemProperties.getBoolean("persist.sys.service.enable_oplus_linearmotor", false)) {
+            if (Context.LINEARMOTOR_VIBRATOR_SERVICE.equals(name)) {
+                if (!LINEAR_MOTOR_VIBRATOR_WHITELIST.contains(getPackageName())) {
+                    Log.w(TAG, "LinearMotorVibrator is unsupported for external use");
+                    return null;
+                }
             }
         }
         if (vmIncorrectContextUseEnabled()) {

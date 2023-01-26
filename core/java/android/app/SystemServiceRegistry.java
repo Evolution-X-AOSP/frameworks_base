@@ -180,6 +180,7 @@ import android.os.ServiceManager;
 import android.os.ServiceManager.ServiceNotFoundException;
 import android.os.StatsFrameworkInitializer;
 import android.os.SystemConfigManager;
+import android.os.SystemProperties;
 import android.os.SystemUpdateManager;
 import android.os.SystemVibrator;
 import android.os.SystemVibratorManager;
@@ -989,14 +990,16 @@ public final class SystemServiceRegistry {
                         return new DcDimmingManager(service);
                     }});
 
-        registerService(Context.LINEARMOTOR_VIBRATOR_SERVICE, LinearmotorVibrator.class,
-                new CachedServiceFetcher<LinearmotorVibrator>() {
-            @Override
-            public LinearmotorVibrator createService(ContextImpl ctx) {
-                IBinder binder = ServiceManager.getService(Context.LINEARMOTOR_VIBRATOR_SERVICE);
-                ILinearmotorVibratorService service = ILinearmotorVibratorService.Stub.asInterface(binder);
-                return new LinearmotorVibrator(ctx.getOuterContext(), service);
-            }});
+            if (SystemProperties.getBoolean("persist.sys.service.enable_oplus_linearmotor", false)) {
+                registerService(Context.LINEARMOTOR_VIBRATOR_SERVICE, LinearmotorVibrator.class,
+                        new CachedServiceFetcher<LinearmotorVibrator>() {
+                    @Override
+                public LinearmotorVibrator createService(ContextImpl ctx) {
+                    IBinder binder = ServiceManager.getService(Context.LINEARMOTOR_VIBRATOR_SERVICE);
+                    ILinearmotorVibratorService service = ILinearmotorVibratorService.Stub.asInterface(binder);
+                    return new LinearmotorVibrator(ctx.getOuterContext(), service);
+                }});
+            }
 
         registerService(Context.TV_INPUT_SERVICE, TvInputManager.class,
                 new CachedServiceFetcher<TvInputManager>() {
