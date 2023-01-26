@@ -626,9 +626,9 @@ public final class NotificationChannel implements Parcelable {
      */
     public void setCustomTorchBlinkPattern(int[] torchPattern) {
         final boolean valid = torchPattern != null && torchPattern.length == 2
-            && torchPattern[0] > 0 && torchPattern[1] > 0;
+                && torchPattern[0] > 0 && torchPattern[1] > 0;
         this.mTorchBlink = valid;
-        if (valid) this.mTorchPattern = torchPattern;
+        this.mTorchPattern = torchPattern;
     }
 
     /**
@@ -1033,8 +1033,8 @@ public final class NotificationChannel implements Parcelable {
         setVibrationPattern(safeLongArray(parser, ATT_VIBRATION, null));
         setCustomVibrationPattern(safeLongArray(parser, ATT_CUSTOM_VIBRATION, null));
         enableVibration(safeBool(parser, ATT_VIBRATION_ENABLED, false));
-        enableTorchBlink(safeBool(parser, ATT_TORCH_BLINK_ENABLED, false));
         setCustomTorchBlinkPattern(safeIntArray(parser, ATT_TORCH_BLINK_PATTERN, null));
+        enableTorchBlink(safeBool(parser, ATT_TORCH_BLINK_ENABLED, false));
         setShowBadge(safeBool(parser, ATT_SHOW_BADGE, false));
         setDeleted(safeBool(parser, ATT_DELETED, false));
         setDeletedTimeMs(XmlUtils.readLongAttribute(
