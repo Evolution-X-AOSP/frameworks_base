@@ -23,6 +23,7 @@ import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.ContextThemeWrapper;
@@ -78,20 +79,29 @@ public class NavigationHandle extends View implements ButtonInterface {
         // Draw that bar
         int navHeight = getHeight();
         int width = getWidth();
-        int radiusType = Settings.System.getInt(mContext.getContentResolver(),
-            Settings.System.GESTURE_NAVBAR_RADIUS, 0);
+        int radiusType = Settings.System.getIntForUser(mContext.getContentResolver(),
+            Settings.System.GESTURE_NAVBAR_RADIUS, 3, UserHandle.USER_CURRENT);
         final Resources res = mContext.getResources();
         switch (radiusType) {
             case 0:
-                mRadius = res.getDimensionPixelSize(R.dimen.navigation_handle_radius);
+                mRadius = res.getDimensionPixelSize(R.dimen.navigation_handle_radius1);
                 break;
             case 1:
                 mRadius = res.getDimensionPixelSize(R.dimen.navigation_handle_radius2);
                 break;
             case 2:
                 mRadius = res.getDimensionPixelSize(R.dimen.navigation_handle_radius3);
+                break;
             case 3:
+            default:
+                mRadius = res.getDimensionPixelSize(R.dimen.navigation_handle_radius);
+                break;
+            case 4:
                 mRadius = res.getDimensionPixelSize(R.dimen.navigation_handle_radius4);
+                break;
+            case 5:
+                mRadius = res.getDimensionPixelSize(R.dimen.navigation_handle_radius5);
+                break;
         }
         float height = mRadius * 2;
         float y = (navHeight - mBottom - height);
