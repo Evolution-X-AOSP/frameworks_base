@@ -501,36 +501,17 @@ public final class SuspendPackageHelper {
                             + "\": has an active device admin");
                     continue;
                 }
-                if (packageName.equals(activeLauncherPackageName)) {
-                    Slog.w(TAG, "Cannot suspend package \"" + packageName
-                            + "\": contains the active launcher");
-                    continue;
+		
+		// these packages shouldn't be suspended
+                if (packageName.equals(activeLauncherPackageName)
+                   || packageName.equals(requiredInstallerPackage)
+                   || packageName.equals(requiredVerifierPackage)
+                   || packageName.equals(dialerPackageName)
+                   || packageName.equals(requiredPermissionControllerPackage)
+                   || packageName.equals("android")) {
+                   continue;
                 }
-                if (packageName.equals(requiredInstallerPackage)) {
-                    Slog.w(TAG, "Cannot suspend package \"" + packageName
-                            + "\": required for package installation");
-                    continue;
-                }
-                if (packageName.equals(requiredUninstallerPackage)) {
-                    Slog.w(TAG, "Cannot suspend package \"" + packageName
-                            + "\": required for package uninstallation");
-                    continue;
-                }
-                if (packageName.equals(requiredVerifierPackage)) {
-                    Slog.w(TAG, "Cannot suspend package \"" + packageName
-                            + "\": required for package verification");
-                    continue;
-                }
-                if (packageName.equals(dialerPackageName)) {
-                    Slog.w(TAG, "Cannot suspend package \"" + packageName
-                            + "\": is the default dialer");
-                    continue;
-                }
-                if (packageName.equals(requiredPermissionControllerPackage)) {
-                    Slog.w(TAG, "Cannot suspend package \"" + packageName
-                            + "\": required for permissions management");
-                    continue;
-                }
+
                 if (mProtectedPackages.isPackageStateProtected(userId, packageName)) {
                     Slog.w(TAG, "Cannot suspend package \"" + packageName
                             + "\": protected package");

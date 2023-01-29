@@ -321,6 +321,9 @@
     <allow-in-power-save package="com.android.cellbroadcastreceiver.module" />
     <allow-in-power-save package="com.android.cellbroadcastreceiver" />
     <allow-in-power-save package="com.android.shell" />
+    <allow-in-power-save package="com.android.systemui" />
+    <allow-in-power-save package="com.android.dialer" />
+    <allow-in-power-save package="android" />
 
     <!-- Emergency app needs to run in the background to reliably provide safety features -->
     <allow-in-power-save package="com.android.emergency" />
@@ -339,4 +342,10 @@
     <allow-in-power-save-except-idle package="com.android.imsserviceentitlement" />
 
     <allow-in-power-save package="com.google.android.gms"/>
+    
+    <!-- These components were repeatedly being suspended by SuspendPackageHelper, but cannot due to certain app privileges.-->
+    <allow-in-power-save-except-idle package="com.android.vending" />
+    <allow-in-power-save-except-idle package="com.android.packageinstaller" />
+    <allow-in-power-save-except-idle package="com.android.permissioncontroller" />
+    <allow-in-power-save-except-idle package="com.android.launcher3" />
 </permissions>
