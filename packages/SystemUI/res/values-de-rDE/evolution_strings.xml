@@ -128,7 +128,7 @@
     <string name="quick_settings_aod_off_powersave_label">Always-On-Display aus\nEnergiesparmodus</string>
     <!-- Refresh Rate Tile -->
     <string name="refresh_rate_tile_label">Bildwiederholrate</string>
-    <string name="refresh_rate_auto_mode_placeholder">        Auto (<xliff:g id="min_refresh_rate" example="60">%1$d</xliff:g> - <xliff:g id="max_refresh_rate" example="60">%2$d</xliff:g> Hz)
+    <string name="refresh_rate_auto_mode_placeholder">        Automatisch (<xliff:g id="min_refresh_rate" example="60">%1$d</xliff:g> - <xliff:g id="max_refresh_rate" example="60">%2$d</xliff:g> Hz)
     </string>
     <string name="refresh_rate_forced_mode_placeholder"><xliff:g id="refresh_rate" example="60">%1$d</xliff:g> Hz</string>
     <!-- FPS Info tile -->
@@ -145,8 +145,8 @@
     <string name="status_bar_vpn">VPN</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Beenden erzwingen?</string>
-    <string name="force_stop_dlg_text">Das erzwungene Beenden einer App kann zu unerwünschtem Verhalten führen.</string>
-    <string name="guts_force_close_app">App schließen</string>
+    <string name="force_stop_dlg_text">Das erzwungene Beenden einer Anwendung kann zu unerwünschtem Verhalten führen.</string>
+    <string name="guts_force_close_app">Anwendung schließen</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Schnellladen (<xliff:g id="charging_time_left" example="4 Stunden und 2 Minuten">%1$s</xliff:g> bis voll)</string>
     <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Schnellladen</string>

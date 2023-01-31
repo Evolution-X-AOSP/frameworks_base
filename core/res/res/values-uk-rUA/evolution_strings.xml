@@ -55,4 +55,10 @@
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Проведіть ще раз, щоб розблокувати жести</string>
     <!-- Parallel space badge -->
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Режим сну</string>
+    <string name="sleep_mode_notification_title">Увімкнено режим сну</string>
+    <string name="sleep_mode_notification_content">Торкніться, щоб вимкнути режим сну</string>
+    <string name="sleep_mode_enabled_toast">Увімкнено режим сну</string>
+    <string name="sleep_mode_disabled_toast">Вимкнено режим сну</string>
 </resources>
