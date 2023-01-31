@@ -21,7 +21,7 @@
     <string name="tristate_flashlight">Linterna</string>
     <string name="tristate_flashlight_on">Linterna activada</string>
     <string name="tristate_flashlight_off">Linterna desactivada</string>
-    <string name="tristate_flashlight_blink">Linterna intermitente</string>
+    <string name="tristate_flashlight_blink">Parpadeo de Linterna</string>
     <string name="tristate_brightness_bright">Brillo máximo</string>
     <string name="tristate_brightness_dark">Brillo mínimo</string>
     <string name="tristate_brightness_auto">Brillo automático</string>
@@ -244,4 +244,8 @@
     <string name="usage_data">usado hoy</string>
     <string name="usage_data_default_suffix">Datos</string>
     <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <!-- Sleep Mode -->
+    <string name="quick_settings_sleep_mode_label">Modo hora de dormir</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">Atenuación extra</string>
 </resources>
