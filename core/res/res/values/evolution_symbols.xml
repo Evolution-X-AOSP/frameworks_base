@@ -63,7 +63,10 @@
     <!-- Whether to cancel fingerprint operation if not idle -->
     <java-symbol type="bool" name="config_fpCancelIfNotIdle" />
 
-    <!-- Whether devices suports in-display fingerprint when screen is off -->
+    <!-- Whether device supports in-display fingerprint -->
+    <java-symbol type="bool" name="config_supportsUdfps" />
+
+    <!-- Whether device supports in-display fingerprint when screen is off -->
     <java-symbol type="bool" name="config_supportsScreenOffUdfps" />
 
     <!-- Whether device supports an alt. ambient display -->
