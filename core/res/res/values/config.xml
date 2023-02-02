@@ -5966,4 +5966,8 @@
          TODO(b/236022708) Move rear display state to device state config file
     -->
     <integer name="config_deviceStateRearDisplay">-1</integer>
+
+    <!-- Array of allowed USB classes to remove from sDenyInterfaces. -->
+    <integer-array translatable="false" name="config_allowedUsbClasses">
+    </integer-array>
 </resources>

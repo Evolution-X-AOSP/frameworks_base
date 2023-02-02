@@ -82,6 +82,7 @@ import android.service.usb.UsbHandlerProto;
 import android.util.Pair;
 import android.util.Slog;
 
+import com.android.internal.R;
 import com.android.internal.annotations.GuardedBy;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
@@ -237,6 +238,10 @@ public class UsbDeviceManager implements ActivityTaskManagerInternal.ScreenObser
         sDenyInterfaces.add(UsbConstants.USB_CLASS_CONTENT_SEC);
         sDenyInterfaces.add(UsbConstants.USB_CLASS_VIDEO);
         sDenyInterfaces.add(UsbConstants.USB_CLASS_WIRELESS_CONTROLLER);
+
+        for (int usbClass : Resources.getSystem().getIntArray(R.array.config_allowedUsbClasses)) {
+            sDenyInterfaces.remove(usbClass);
+        }
     }
 
     /*

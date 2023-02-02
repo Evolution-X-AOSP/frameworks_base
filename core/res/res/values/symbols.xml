@@ -4870,4 +4870,5 @@
 
   <!-- For dynamic default font styles -->
   <java-symbol type="string" name="config_bodyFontFamily" />
+  <java-symbol type="array" name="config_allowedUsbClasses" />
 </resources>
