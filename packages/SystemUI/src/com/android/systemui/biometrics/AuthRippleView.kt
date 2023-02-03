@@ -24,6 +24,8 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Point
+import android.os.UserHandle
+import android.provider.Settings
 import android.util.AttributeSet
 import android.view.View
 import android.view.animation.PathInterpolator
@@ -53,6 +55,10 @@ class AuthRippleView(context: Context?, attrs: AttributeSet?) : View(context, at
 
     private var drawDwell: Boolean = false
     private var drawRipple: Boolean = false
+
+    private val isRippleEnabled: Boolean
+        get() = Settings.System.getIntForUser(context.contentResolver,
+            Settings.System.ENABLE_RIPPLE_EFFECT, 1, UserHandle.USER_CURRENT) == 1
 
     private var lockScreenColorVal = Color.WHITE
     private val fadeDuration = 83L
@@ -268,6 +274,8 @@ class AuthRippleView(context: Context?, attrs: AttributeSet?) : View(context, at
         if (unlockedRippleInProgress) {
             return // Ignore if ripple effect is already playing
         }
+
+        if (!isRippleEnabled) return
 
         val rippleAnimator = ValueAnimator.ofFloat(0f, 1f).apply {
             interpolator = Interpolators.LINEAR_OUT_SLOW_IN
