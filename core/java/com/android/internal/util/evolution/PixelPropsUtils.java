@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2020 The Pixel Experience Project
  *               2021-2022 crDroid Android Project
- *               2019-2022 Evolution X
+ *               2019-2023 Evolution X
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,11 +20,13 @@ package com.android.internal.util.evolution;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Build;
-import android.os.Build.VERSION;
 import android.os.SystemProperties;
 import android.text.TextUtils;
 import android.util.Log;
+
+import com.android.internal.R;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -34,8 +36,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PixelPropsUtils {
+
+    private static final String PACKAGE_ARCORE = "com.google.ar.core";
+    private static final String PACKAGE_GPHOTOS = "com.google.android.apps.photos";
+    private static final String PACKAGE_GMS = "com.google.android.gms";
+    private static final String PROCESS_GMS_UNSTABLE = PACKAGE_GMS + ".unstable";
+    private static final String PACKAGE_NETFLIX = "com.netflix.mediaclient";
+    private static final String PACKAGE_PS = "com.android.vending";
+    private static final String PACKAGE_SETTINGS_SERVICES = "com.google.android.settings.intelligence";
     private static final String SAMSUNG = "com.samsung.android.";
     private static final String SPOOF_MUSIC_APPS = "persist.sys.disguise_props_for_music_app";
+
+    private static final String sCertifiedFp =
+            Resources.getSystem().getString(R.string.config_certifiedFingerprint);
+
+    private static final String sStockFp =
+            Resources.getSystem().getString(R.string.config_stockFingerprint);
 
     private static final String TAG = PixelPropsUtils.class.getSimpleName();
     private static final String DEVICE = "ro.product.device";
@@ -73,11 +89,11 @@ public class PixelPropsUtils {
     private static final String[] extraPackagesToChange = {
             "com.amazon.avod.thirdpartyclient",
             "com.android.chrome",
-            "com.android.vending",
+            PACKAGE_PS,
             "com.breel.wallpapers20",
             "com.disney.disneyplus",
             "com.microsoft.android.smsorganizer",
-            "com.netflix.mediaclient",
+            PACKAGE_NETFLIX,
             "com.nhs.online.nhsonline",
             "com.nothing.smartcenter",
             "in.startv.hotstar"
@@ -180,14 +196,12 @@ public class PixelPropsUtils {
             "bluejay",
             "oriole",
             "raven",
-            "barbet",
             "redfin",
+            "barbet",
             "bramble",
             "sunfish",
             "coral",
-            "flame",
-            "bonito",
-            "sargo"
+            "flame"
     };
 
     private static volatile boolean sIsGms = false;
@@ -195,7 +209,7 @@ public class PixelPropsUtils {
 
     static {
         propsToKeep = new HashMap<>();
-        propsToKeep.put("com.google.android.settings.intelligence", new ArrayList<>(Collections.singletonList("FINGERPRINT")));
+        propsToKeep.put(PACKAGE_SETTINGS_SERVICES, new ArrayList<>(Collections.singletonList("FINGERPRINT")));
         propsToChange = new HashMap<>();
         propsToChangePixel7Pro = new HashMap<>();
         propsToChangePixel7Pro.put("BRAND", "google");
@@ -255,25 +269,26 @@ public class PixelPropsUtils {
         if (Arrays.asList(packagesToKeep).contains(packageName)) {
             return;
         }
+        if (packageName.equals(PACKAGE_PS)) {
+            sIsFinsky = true;
+            return;
+        }
         if (packageName.startsWith("com.google.")
                 || packageName.startsWith(SAMSUNG)
                 || Arrays.asList(extraPackagesToChange).contains(packageName)) {
 
             boolean isPixelDevice = Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE));
 
-            if (packageName.equals("com.google.android.apps.photos")) {
+            if (packageName.equals(PACKAGE_GPHOTOS)) {
                 if (SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", true)) {
                     propsToChange.putAll(propsToChangePixelXL);
                 } else {
                     if (isPixelDevice) return;
                     propsToChange.putAll(propsToChangePixel5);
                 }
-            } else if (packageName.equals("com.netflix.mediaclient") &&
+            } else if (packageName.equals(PACKAGE_NETFLIX) &&
                     !SystemProperties.getBoolean("persist.sys.pixelprops.netflix", false)) {
-                if (DEBUG) Log.d(TAG, "Netflix spoofing disabled by system prop");
-                return;
-            } else if (packageName.equals("com.android.vending")) {
-                sIsFinsky = true;
+                dlog("Netflix spoofing disabled by system prop");
                 return;
             } else if (!isPixelDevice) {
                 if ((Arrays.asList(packagesToChangePixel7Pro).contains(packageName))) {
@@ -283,34 +298,49 @@ public class PixelPropsUtils {
                 }
             }
 
-            if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
-            for (Map.Entry<String, Object> prop : propsToChange.entrySet()) {
-                String key = prop.getKey();
-                Object value = prop.getValue();
-                if (propsToKeep.containsKey(packageName) && propsToKeep.get(packageName).contains(key)) {
-                    if (DEBUG) Log.d(TAG, "Not defining " + key + " prop for: " + packageName);
-                    continue;
+            dlog("Defining props for: " + packageName);
+            if (!isPixelDevice) {
+                for (Map.Entry<String, Object> prop : propsToChange.entrySet()) {
+                    String key = prop.getKey();
+                    Object value = prop.getValue();
+                    if (propsToKeep.containsKey(packageName) && propsToKeep.get(packageName).contains(key)) {
+                        dlog("Not defining " + key + " prop for: " + packageName);
+                        continue;
+                    }
+                    dlog("Defining " + key + " prop for: " + packageName);
+                    setPropValue(key, value);
                 }
-                if (DEBUG) Log.d(TAG, "Defining " + key + " prop for: " + packageName);
-                setPropValue(key, value);
             }
-            if (packageName.equals("com.google.android.gms")) {
+            if (packageName.equals(PACKAGE_GMS)) {
                 final String processName = Application.getProcessName();
-                if (processName.equals("com.google.android.gms.unstable")) {
+                if (processName.equals(PROCESS_GMS_UNSTABLE)) {
                     sIsGms = true;
-                    spoofBuildGms();
                 }
-                return;
+            }
+            if (!sCertifiedFp.isEmpty() && (sIsGms || sIsFinsky)) {
+                dlog("Setting certified fingerprint for: " + packageName);
+                setPropValue("FINGERPRINT", sCertifiedFp);
+            } else if (!sStockFp.isEmpty() && packageName.equals(PACKAGE_ARCORE)) {
+                dlog("Setting stock fingerprint for: " + packageName);
+                setPropValue("FINGERPRINT", sStockFp);
+            } else if (sIsGms) {
+                dlog("Setting 6P fingerprint for: " + packageName);
+                setPropValue("FINGERPRINT", "google/angler/angler:6.0/MDB08L/2343525:user/release-keys");
+                setPropValue("MODEL", Build.MODEL + "\u200b");
+            }
+            if (sIsGms && Build.VERSION.DEVICE_INITIAL_SDK_INT > Build.VERSION_CODES.S) {
+                dlog("Setting sdk to 32");
+                setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.S);
             }
             // Set proper indexing fingerprint
-            if (packageName.equals("com.google.android.settings.intelligence")) {
+            if (packageName.equals(PACKAGE_SETTINGS_SERVICES)) {
                 setPropValue("FINGERPRINT", String.valueOf(Build.TIME));
             }
         } else {
 
             if ((SystemProperties.getBoolean(SPOOF_MUSIC_APPS, false)) &&
                 (Arrays.asList(packagesToChangeMeizu).contains(packageName))) {
-                if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
+                dlog("Defining props for: " + packageName);
                 for (Map.Entry<String, Object> prop : propsToChangeMeizu.entrySet()) {
                     String key = prop.getKey();
                     Object value = prop.getValue();
@@ -322,49 +352,49 @@ public class PixelPropsUtils {
                 return;
 
             if (Arrays.asList(packagesToChangeROG1).contains(packageName)) {
-                if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
+                dlog("Defining props for: " + packageName);
                 for (Map.Entry<String, Object> prop : propsToChangeROG1.entrySet()) {
                     String key = prop.getKey();
                     Object value = prop.getValue();
                     setPropValue(key, value);
                 }
             } else if (Arrays.asList(packagesToChangeROG3).contains(packageName)) {
-                if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
+                dlog("Defining props for: " + packageName);
                 for (Map.Entry<String, Object> prop : propsToChangeROG3.entrySet()) {
                     String key = prop.getKey();
                     Object value = prop.getValue();
                     setPropValue(key, value);
                 }
             } else if (Arrays.asList(packagesToChangeXP5).contains(packageName)) {
-                if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
+                dlog("Defining props for: " + packageName);
                 for (Map.Entry<String, Object> prop : propsToChangeXP5.entrySet()) {
                     String key = prop.getKey();
                     Object value = prop.getValue();
                     setPropValue(key, value);
                 }
             } else if (Arrays.asList(packagesToChangeOP8P).contains(packageName)) {
-                if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
+                dlog("Defining props for: " + packageName);
                 for (Map.Entry<String, Object> prop : propsToChangeOP8P.entrySet()) {
                     String key = prop.getKey();
                     Object value = prop.getValue();
                     setPropValue(key, value);
                 }
             } else if (Arrays.asList(packagesToChangeOP9R).contains(packageName)) {
-                if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
+                dlog("Defining props for: " + packageName);
                 for (Map.Entry<String, Object> prop : propsToChangeOP9R.entrySet()) {
                     String key = prop.getKey();
                     Object value = prop.getValue();
                     setPropValue(key, value);
                 }
             } else if (Arrays.asList(packagesToChange11T).contains(packageName)) {
-                if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
+                dlog("Defining props for: " + packageName);
                 for (Map.Entry<String, Object> prop : propsToChange11T.entrySet()) {
                     String key = prop.getKey();
                     Object value = prop.getValue();
                     setPropValue(key, value);
                 }
             } else if (Arrays.asList(packagesToChangeF4).contains(packageName)) {
-                if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
+                dlog("Defining props for: " + packageName);
                 for (Map.Entry<String, Object> prop : propsToChangeF4.entrySet()) {
                     String key = prop.getKey();
                     Object value = prop.getValue();
@@ -376,29 +406,13 @@ public class PixelPropsUtils {
 
     private static void setPropValue(String key, Object value) {
         try {
-            if (DEBUG) Log.d(TAG, "Defining prop " + key + " to " + value.toString());
+            dlog("Defining prop " + key + " to " + value.toString());
             Field field = Build.class.getDeclaredField(key);
             field.setAccessible(true);
             field.set(null, value);
             field.setAccessible(false);
         } catch (NoSuchFieldException | IllegalAccessException e) {
             Log.e(TAG, "Failed to set prop " + key, e);
-        }
-    }
-
-    private static void setBuildField(String key, String value) {
-        try {
-            // Unlock
-            Field field = Build.class.getDeclaredField(key);
-            field.setAccessible(true);
-
-            // Edit
-            field.set(null, value);
-
-            // Lock
-            field.setAccessible(false);
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            Log.e(TAG, "Failed to spoof Build." + key, e);
         }
     }
 
@@ -418,13 +432,6 @@ public class PixelPropsUtils {
         }
     }
 
-    private static void spoofBuildGms() {
-        // Alter model name and fingerprint to avoid hardware attestation enforcement
-        setBuildField("FINGERPRINT", "google/angler/angler:6.0/MDB08L/2343525:user/release-keys");
-        setBuildField("MODEL", Build.MODEL + "\u200b");
-        setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.S);
-    }
-
     private static boolean isCallerSafetyNet() {
         return Arrays.stream(Thread.currentThread().getStackTrace())
                 .anyMatch(elem -> elem.getClassName().contains("DroidGuard"));
@@ -435,10 +442,13 @@ public class PixelPropsUtils {
         if (sIsGms && isCallerSafetyNet()) {
             throw new UnsupportedOperationException();
         }
-
         // Check stack for PlayIntegrity
         if (sIsFinsky) {
             throw new UnsupportedOperationException();
         }
+    }
+
+    public static void dlog(String msg) {
+      if (DEBUG) Log.d(TAG, msg);
     }
 }
