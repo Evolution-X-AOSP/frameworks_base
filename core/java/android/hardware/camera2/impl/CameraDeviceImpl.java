@@ -16,13 +16,11 @@
 
 package android.hardware.camera2.impl;
 
-import static android.hardware.camera2.CameraAccessException.CAMERA_IN_USE;
-
 import static com.android.internal.util.function.pooled.PooledLambda.obtainRunnable;
 
+import android.app.ActivityThread;
 import android.annotation.NonNull;
 import android.content.Context;
-import android.app.ActivityThread;
 import android.graphics.ImageFormat;
 import android.hardware.ICameraService;
 import android.hardware.camera2.CameraAccessException;
@@ -1590,6 +1588,7 @@ public class CameraDeviceImpl extends CameraDevice
                 Log.w(TAG, "ignore input format/size check for white listed app");
                 return;
             }
+
             boolean skipInputConfigCheck =
                 SystemProperties.getBoolean("persist.camera.skip_input_config_check", false);
             if (!skipInputConfigCheck) {
