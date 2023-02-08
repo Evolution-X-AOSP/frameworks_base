@@ -40,18 +40,11 @@ public class PixelPropsUtils {
     private static final String PACKAGE_ARCORE = "com.google.ar.core";
     private static final String PACKAGE_GPHOTOS = "com.google.android.apps.photos";
     private static final String PACKAGE_GMS = "com.google.android.gms";
-    private static final String PROCESS_GMS_UNSTABLE = PACKAGE_GMS + ".unstable";
     private static final String PACKAGE_NETFLIX = "com.netflix.mediaclient";
     private static final String PACKAGE_PS = "com.android.vending";
     private static final String PACKAGE_SETTINGS_SERVICES = "com.google.android.settings.intelligence";
     private static final String SAMSUNG = "com.samsung.android.";
     private static final String SPOOF_MUSIC_APPS = "persist.sys.disguise_props_for_music_app";
-
-    private static final String sCertifiedFp =
-            Resources.getSystem().getString(R.string.config_certifiedFingerprint);
-
-    private static final String sStockFp =
-            Resources.getSystem().getString(R.string.config_stockFingerprint);
 
     private static final String TAG = PixelPropsUtils.class.getSimpleName();
     private static final String DEVICE = "ro.product.device";
@@ -89,7 +82,6 @@ public class PixelPropsUtils {
     private static final String[] extraPackagesToChange = {
             "com.amazon.avod.thirdpartyclient",
             "com.android.chrome",
-            PACKAGE_PS,
             "com.breel.wallpapers20",
             "com.disney.disneyplus",
             "com.microsoft.android.smsorganizer",
@@ -101,6 +93,8 @@ public class PixelPropsUtils {
 
     // Packages to Keep with original device
     private static final String[] packagesToKeep = {
+            PACKAGE_GMS,
+            PACKAGE_PS,
             "com.google.android.GoogleCamera",
             "com.google.android.GoogleCamera.Cameight",
             "com.google.android.GoogleCamera.Go",
@@ -204,9 +198,6 @@ public class PixelPropsUtils {
             "flame"
     };
 
-    private static volatile boolean sIsGms = false;
-    private static volatile boolean sIsFinsky = false;
-
     static {
         propsToKeep = new HashMap<>();
         propsToKeep.put(PACKAGE_SETTINGS_SERVICES, new ArrayList<>(Collections.singletonList("FINGERPRINT")));
@@ -269,10 +260,6 @@ public class PixelPropsUtils {
         if (Arrays.asList(packagesToKeep).contains(packageName)) {
             return;
         }
-        if (packageName.equals(PACKAGE_PS)) {
-            sIsFinsky = true;
-            return;
-        }
         if (packageName.startsWith("com.google.")
                 || packageName.startsWith(SAMSUNG)
                 || Arrays.asList(extraPackagesToChange).contains(packageName)) {
@@ -310,27 +297,6 @@ public class PixelPropsUtils {
                     dlog("Defining " + key + " prop for: " + packageName);
                     setPropValue(key, value);
                 }
-            }
-            if (packageName.equals(PACKAGE_GMS)) {
-                final String processName = Application.getProcessName();
-                if (processName.equals(PROCESS_GMS_UNSTABLE)) {
-                    sIsGms = true;
-                }
-            }
-            if (!sCertifiedFp.isEmpty() && (sIsGms || sIsFinsky)) {
-                dlog("Setting certified fingerprint for: " + packageName);
-                setPropValue("FINGERPRINT", sCertifiedFp);
-            } else if (!sStockFp.isEmpty() && packageName.equals(PACKAGE_ARCORE)) {
-                dlog("Setting stock fingerprint for: " + packageName);
-                setPropValue("FINGERPRINT", sStockFp);
-            } else if (sIsGms) {
-                dlog("Setting 6P fingerprint for: " + packageName);
-                setPropValue("FINGERPRINT", "google/angler/angler:6.0/MDB08L/2343525:user/release-keys");
-                setPropValue("MODEL", Build.MODEL + "\u200b");
-            }
-            if (sIsGms && Build.VERSION.DEVICE_INITIAL_SDK_INT > Build.VERSION_CODES.S) {
-                dlog("Setting sdk to 32");
-                setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.S);
             }
             // Set proper indexing fingerprint
             if (packageName.equals(PACKAGE_SETTINGS_SERVICES)) {
@@ -406,45 +372,13 @@ public class PixelPropsUtils {
 
     private static void setPropValue(String key, Object value) {
         try {
-            dlog("Defining prop " + key + " to " + value.toString());
+            dlog("Setting prop " + key + " to " + value.toString());
             Field field = Build.class.getDeclaredField(key);
             field.setAccessible(true);
             field.set(null, value);
             field.setAccessible(false);
         } catch (NoSuchFieldException | IllegalAccessException e) {
             Log.e(TAG, "Failed to set prop " + key, e);
-        }
-    }
-
-    private static void setVersionField(String key, Integer value) {
-        try {
-            // Unlock
-            Field field = Build.VERSION.class.getDeclaredField(key);
-            field.setAccessible(true);
-
-            // Edit
-            field.set(null, value);
-
-            // Lock
-            field.setAccessible(false);
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            Log.e(TAG, "Failed to spoof Build." + key, e);
-        }
-    }
-
-    private static boolean isCallerSafetyNet() {
-        return Arrays.stream(Thread.currentThread().getStackTrace())
-                .anyMatch(elem -> elem.getClassName().contains("DroidGuard"));
-    }
-
-    public static void onEngineGetCertificateChain() {
-        // Check stack for SafetyNet
-        if (sIsGms && isCallerSafetyNet()) {
-            throw new UnsupportedOperationException();
-        }
-        // Check stack for PlayIntegrity
-        if (sIsFinsky) {
-            throw new UnsupportedOperationException();
         }
     }
 
