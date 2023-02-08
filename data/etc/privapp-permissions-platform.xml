@@ -51,6 +51,7 @@ applications that come with the platform
 
     <privapp-permissions package="com.android.launcher3">
         <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
+        <permission name="android.permission.REGISTER_STATS_PULL_ATOM"/>
     </privapp-permissions>
 
     <privapp-permissions package="com.android.location.fused">
