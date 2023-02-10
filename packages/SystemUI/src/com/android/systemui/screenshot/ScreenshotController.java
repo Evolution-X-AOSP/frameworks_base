@@ -1170,6 +1170,8 @@ public class ScreenshotController {
                 } else {
                     doPostAnimation(imageData);
                 }
+                mNotificationsController.showPostActionNotification(
+                    imageData, mScreenBitmap);
             });
         }
     }
