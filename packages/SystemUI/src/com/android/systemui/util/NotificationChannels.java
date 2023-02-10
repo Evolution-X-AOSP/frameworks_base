@@ -122,7 +122,7 @@ public class NotificationChannels extends CoreStartable {
     @VisibleForTesting static NotificationChannel createScreenshotChannel(
             String name) {
         NotificationChannel screenshotChannel = new NotificationChannel(SCREENSHOTS_HEADSUP,
-                name, NotificationManager.IMPORTANCE_HIGH); // pop on screen
+                name, NotificationManager.IMPORTANCE_DEFAULT);
 
         screenshotChannel.setSound(null, // silent
                 new AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_NOTIFICATION).build());
