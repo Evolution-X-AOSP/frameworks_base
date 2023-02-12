@@ -249,4 +249,7 @@
     <string name="quick_settings_sleep_mode_label">Modalità sonno</string>
     <!-- DC Dimming -->
     <string name="quick_settings_dc_dimming_label">Attenuazione DC</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Lingua</string>
+    <string name="quick_settings_locale_more_locales_toast">Per favore configura più lingue per abilitare la funzionalità del toggle</string>
 </resources>
