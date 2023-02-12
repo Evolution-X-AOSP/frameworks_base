@@ -54,7 +54,6 @@
     <string name="face_unlock_disabled_idle">Desbloqueo facial desactivado debido a inactividad</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Desliza de nuevo para desbloquear gestos</string>
-    <!-- Parallel space badge -->
     <!-- Sleep Mode -->
     <string name="notification_channel_sleep">Modo Sueño</string>
     <string name="sleep_mode_notification_title">Modo Sueño activado</string>
