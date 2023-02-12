@@ -249,4 +249,7 @@
     <string name="quick_settings_sleep_mode_label">Mode Tidur</string>
     <!-- DC Dimming -->
     <string name="quick_settings_dc_dimming_label">Peredupan DC</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Bahasa</string>
+    <string name="quick_settings_locale_more_locales_toast">Silakan konfigurasikan beberapa bahasa untuk mengaktifkan fungsi tombol</string>
 </resources>
