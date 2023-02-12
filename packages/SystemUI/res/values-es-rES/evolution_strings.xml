@@ -248,4 +248,7 @@
     <string name="quick_settings_sleep_mode_label">Modo hora de dormir</string>
     <!-- DC Dimming -->
     <string name="quick_settings_dc_dimming_label">Atenuación extra</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Idioma</string>
+    <string name="quick_settings_locale_more_locales_toast">Es necesario configurar múltiples idiomas para que este interruptor funcione</string>
 </resources>
