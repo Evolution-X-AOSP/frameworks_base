@@ -249,4 +249,7 @@
     <string name="quick_settings_sleep_mode_label">Modul suspendare</string>
     <!-- DC Dimming -->
     <string name="quick_settings_dc_dimming_label">Mod întunecare protecție ochi</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Limbă</string>
+    <string name="quick_settings_locale_more_locales_toast">Configurați mai multe limbi pentru a activa funcția de comutare</string>
 </resources>
