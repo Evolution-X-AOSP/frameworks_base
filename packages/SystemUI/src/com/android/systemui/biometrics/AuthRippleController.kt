@@ -97,6 +97,11 @@ class AuthRippleController @Inject constructor(
 
     private var udfpsController: UdfpsController? = null
     private var udfpsRadius: Float = -1f
+    private var unlockAnimationEnabled: Boolean = true
+
+    override fun onInit() {
+        unlockAnimationEnabled = sysuiContext.resources.getBoolean(R.bool.config_enableUnlockRippleAnimation)
+    }
 
     private val isRippleEnabled: Boolean
         get() = Settings.System.getIntForUser(context.contentResolver,
@@ -193,8 +198,9 @@ class AuthRippleController @Inject constructor(
     }
 
     private fun showUnlockedRipple() {
-        if (!isRippleEnabled) return
-
+        if (!isRippleEnabled || !unlockAnimationEnabled) {
+            return
+        }
         notificationShadeWindowController.setForcePluginOpen(true, this)
 
         // This code path is not used if the KeyguardTransitionRepository is managing the light
