@@ -19,7 +19,7 @@
     <string name="systemui_restart_title">Neustart der SystemUI erforderlich</string>
     <string name="systemui_restart_message">Um alle Änderungen anzuwenden, ist ein Neustart des SystemUI notwendig. SystemUI jetzt neu starten?</string>
     <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Drücke und halte die Ein-/Aus Taste, um zum Entsperren</string>
+    <string name="pocket_lock_message_long_press">Drücke und halte die Power-Taste zum Entsperren</string>
     <string name="pocket_view_title">Taschenmodus ist an</string>
     <string name="pocket_view_title_cancel">Um Ihr Telefon zu verwenden:</string>
     <string name="pocket_view_top_tag_cancel">Überprüfen Sie, ob der blaue Bereich Ihres Telefons von jeglichen Hindernissen befreit ist und entfernen Sie jeden Schmutz oder Staub.</string>
@@ -54,7 +54,6 @@
     <string name="face_unlock_disabled_idle">Gesichtserkennung wegen Inaktivität deaktiviert</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Erneut wischen, um Gesten freizuschalten</string>
-    <!-- Parallel space badge -->
     <!-- Sleep Mode -->
     <string name="notification_channel_sleep">Schlafmodus</string>
     <string name="sleep_mode_notification_title">Schlafmodus aktiviert</string>
