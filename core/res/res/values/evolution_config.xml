@@ -468,4 +468,7 @@
 
     <!-- Display color inversion availability -->
     <bool name="config_displayInversionAvailable">true</bool>
+
+    <!-- Boost Framework -->
+    <bool name="config_supportsBoostFramework">false</bool>
 </resources>
