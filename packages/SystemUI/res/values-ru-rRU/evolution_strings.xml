@@ -248,4 +248,7 @@
     <string name="quick_settings_sleep_mode_label">Спящий режим</string>
     <!-- DC Dimming -->
     <string name="quick_settings_dc_dimming_label">DC Dimming</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Язык</string>
+    <string name="quick_settings_locale_more_locales_toast">Пожалуйста, настройте несколько языков, чтобы активировать функцию</string>
 </resources>
