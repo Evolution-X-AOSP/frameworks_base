@@ -249,4 +249,7 @@
     <string name="quick_settings_sleep_mode_label">Mode en repòs</string>
     <!-- DC Dimming -->
     <string name="quick_settings_dc_dimming_label">Atenuació DC</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Llengua</string>
+    <string name="quick_settings_locale_more_locales_toast">Configura diverses llengües per a activar la funció d\'alternar entre elles</string>
 </resources>
