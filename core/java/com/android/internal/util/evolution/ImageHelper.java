@@ -51,10 +51,6 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.VectorDrawable;
 import android.net.Uri;
 import android.os.ParcelFileDescriptor;
-import android.renderscript.Element;
-import android.renderscript.Allocation;
-import android.renderscript.ScriptIntrinsicBlur;
-import android.renderscript.RenderScript;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
@@ -67,8 +63,6 @@ import android.provider.Settings;
 public class ImageHelper {
     private static final int VECTOR_WIDTH = 512;
     private static final int VECTOR_HEIGHT = 512;
-    private static float mCurrentLSBlurRadius;
-    private static float mLSBlurRadius;
 
     public static Drawable getColoredDrawable(Drawable d, int color) {
         if (d == null) {
@@ -148,12 +142,6 @@ public class ImageHelper {
 
     public static int dpToPx(Context context, int dp) {
         return (int) ((dp * context.getResources().getDisplayMetrics().density) + 0.5);
-    }
-
-    private static float getLSBlurRadius(Context context) {
-        mCurrentLSBlurRadius = Settings.System.getFloatForUser(context.getContentResolver(),
-                Settings.System.LS_MEDIA_FILTER_BLUR_RADIUS, 25f, UserHandle.USER_CURRENT);
-        return mCurrentLSBlurRadius;
     }
 
     public static Drawable resize(Context context, Drawable image, int size) {
@@ -321,51 +309,6 @@ public class ImageHelper {
             return null;
         }
         return Uri.fromFile(imageFile);
-    }
-
-    public static Bitmap getBlurredImage(Context context, Bitmap image) {
-    	mLSBlurRadius = getLSBlurRadius(context);
-        return getBlurredImage(context, image, mLSBlurRadius);
-    }
-
-    public static Bitmap getBlurredImage(Context context, Bitmap image, float radius) {
-        try {
-            image = RGB565toARGB888(image);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        Bitmap bitmap = Bitmap.createBitmap(
-                image.getWidth(), image.getHeight(),
-                Bitmap.Config.ARGB_8888);
-        RenderScript renderScript = RenderScript.create(context);
-        Allocation blurInput = Allocation.createFromBitmap(renderScript, image,
-                    Allocation.MipmapControl.MIPMAP_NONE, Allocation.USAGE_SHARED);
-        Allocation blurOutput = Allocation.createFromBitmap(renderScript, bitmap,
-                    Allocation.MipmapControl.MIPMAP_NONE, Allocation.USAGE_SHARED);
-
-        ScriptIntrinsicBlur blur = ScriptIntrinsicBlur.create(renderScript,
-                Element.U8_4(renderScript));
-        blur.setInput(blurInput);
-        blur.setRadius(radius); // radius must be 0 < r <= 25
-        blur.forEach(blurOutput);
-        blurOutput.copyTo(bitmap);
-        renderScript.destroy();
-
-        return bitmap;
-    }
-
-    public static Bitmap getGrayscaleBlurredImage(Context context, Bitmap image) {
-    	mLSBlurRadius = getLSBlurRadius(context);
-        return getGrayscaleBlurredImage(context, image, mLSBlurRadius);
-    }
-
-    public static Bitmap getGrayscaleBlurredImage(Context context, Bitmap image, float radius) {
-        Bitmap finalImage = Bitmap.createBitmap(
-                image.getWidth(), image.getHeight(),
-                Bitmap.Config.ARGB_8888);
-        finalImage = toGrayscale(getBlurredImage(context, image, radius));
-        return finalImage;
     }
 
     private static Bitmap RGB565toARGB888(Bitmap img) throws Exception {
