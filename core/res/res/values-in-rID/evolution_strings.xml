@@ -54,7 +54,6 @@
     <string name="face_unlock_disabled_idle">Face unlock dinonaktifkan karena tidak ada aktivitas</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Gesek lagi untuk membuka kunci gestur</string>
-    <!-- Parallel space badge -->
     <!-- Sleep Mode -->
     <string name="notification_channel_sleep">Mode Tidur</string>
     <string name="sleep_mode_notification_title">Mode Tidur diaktifkan</string>

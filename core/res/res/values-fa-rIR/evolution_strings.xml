@@ -50,7 +50,6 @@
     <string name="face_unlock_disabled_idle">باز کردن قفل با چهره به دلیل عدم فعالیت غیرفعال شد</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">برای باز کردن قفل حرکات، دوباره انگشت خود را بکشید</string>
-    <!-- Parallel space badge -->
     <!-- Sleep Mode -->
     <string name="notification_channel_sleep">حالت خواب</string>
     <string name="sleep_mode_notification_title">حالت خواب فعال شده</string>

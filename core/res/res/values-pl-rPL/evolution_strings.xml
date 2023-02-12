@@ -54,7 +54,6 @@
     <string name="face_unlock_disabled_idle">Rozpoznawanie twarzy wyłączone z powodu braku aktywności</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Przesuń ponownie aby odblokować gesty</string>
-    <!-- Parallel space badge -->
     <!-- Sleep Mode -->
     <string name="notification_channel_sleep">Tryb uśpienia</string>
     <string name="sleep_mode_notification_title">Tryb uśpienia włączony</string>

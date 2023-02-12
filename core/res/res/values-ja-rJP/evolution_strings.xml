@@ -54,7 +54,6 @@
     <string name="face_unlock_disabled_idle">顔認証によるロック解除は無効中です</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">再度スワイプしてジェスチャーをロック解除</string>
-    <!-- Parallel space badge -->
     <!-- Sleep Mode -->
     <string name="notification_channel_sleep">スリープモード</string>
     <string name="sleep_mode_notification_title">スリープモードは有効です</string>
