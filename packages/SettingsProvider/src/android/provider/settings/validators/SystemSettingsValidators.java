@@ -301,6 +301,6 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.QS_LAYOUT, ANY_INTEGER_VALIDATOR);
         VALIDATORS.put(System.QQS_LAYOUT, ANY_INTEGER_VALIDATOR);
         VALIDATORS.put(System.MEDIA_ARTWORK_BLUR_ENABLED, BOOLEAN_VALIDATOR);
-        VALIDATORS.put(System.MEDIA_ARTWORK_BLUR_RADIUS, new InclusiveFloatRangeValidator(5f, 25f));
+        VALIDATORS.put(System.MEDIA_ARTWORK_BLUR_RADIUS, new InclusiveFloatRangeValidator(5f, 125f));
     }
 }
