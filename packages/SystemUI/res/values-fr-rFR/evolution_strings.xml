@@ -249,4 +249,7 @@
     <string name="quick_settings_sleep_mode_label">Mode veille</string>
     <!-- DC Dimming -->
     <string name="quick_settings_dc_dimming_label">Atténuation DC</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Langue</string>
+    <string name="quick_settings_locale_more_locales_toast">Veuillez configurer plusieurs langues pour utiliser cette fonctionnalité</string>
 </resources>
