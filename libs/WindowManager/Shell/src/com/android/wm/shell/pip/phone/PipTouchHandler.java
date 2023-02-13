@@ -636,6 +636,9 @@ public class PipTouchHandler {
             case MotionEvent.ACTION_CANCEL: {
                 shouldDeliverToMenu = !mTouchState.startedDragging() && !mTouchState.isDragging();
                 mTouchState.reset();
+
+                mPipDismissTargetHandler.hideDismissTargetMaybe();
+                mPipDismissTargetHandler.setTaskLeash(null);
                 break;
             }
             case MotionEvent.ACTION_HOVER_ENTER:
