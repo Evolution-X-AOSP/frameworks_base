@@ -523,4 +523,7 @@
         <item>com.shannon.imsservice</item>
         <item>org.pixelexperience.faceunlock</item>
     </string-array>
+
+    <!-- Whether to use Richtap vibration -->
+    <bool name="config_usesRichtapVibration">false</bool>
 </resources>
