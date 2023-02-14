@@ -180,6 +180,7 @@ java_library_static {
         "kotlinx_coroutines_android",
         "kotlinx_coroutines",
         "faceunlock_framework",
+        "vendor.aac.hardware.richtap.vibrator",
     ],
     javac_shard_size: 50,
 }
