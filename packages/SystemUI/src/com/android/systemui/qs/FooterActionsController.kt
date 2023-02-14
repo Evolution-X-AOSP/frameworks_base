@@ -16,10 +16,13 @@
 
 package com.android.systemui.qs
 
+import android.app.KeyguardManager
 import android.content.Intent
 import android.content.res.Configuration
+import android.content.Context
 import android.os.Handler
 import android.os.UserManager
+import android.os.UserHandle
 import android.provider.Settings
 import android.provider.Settings.Global.USER_SWITCHER_ENABLED
 import android.view.View
@@ -177,7 +180,16 @@ internal class FooterActionsController @Inject constructor(
             startServicesActivity()
         } else if (v === powerMenuLite) {
             uiEventLogger.log(GlobalActionsDialogLite.GlobalActionsEvent.GA_OPEN_QS)
-            globalActionsDialog?.showOrHideDialog(false, true, v)
+            val isHidePowerMenuEnabled = Settings.System.getIntForUser(getContext().getContentResolver(),
+                    Settings.System.LOCK_POWER_MENU_DISABLED, 1,
+                    UserHandle.USER_CURRENT) != 0;
+            val keyguardManager = getContext().getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
+            val isLocked = keyguardManager.isDeviceLocked()
+            if ((isLocked) && (isHidePowerMenuEnabled)) {
+                // no nothing
+            } else {
+                globalActionsDialog?.showOrHideDialog(false, true, v)
+            }
         }
     }
 
