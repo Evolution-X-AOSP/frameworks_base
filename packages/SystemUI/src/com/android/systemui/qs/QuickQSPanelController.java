@@ -33,7 +33,6 @@ import com.android.systemui.qs.customize.QSCustomizerController;
 import com.android.systemui.qs.dagger.QSScope;
 import com.android.systemui.qs.logging.QSLogger;
 import com.android.systemui.util.leak.RotationUtils;
-import com.android.systemui.qs.TileUtils;
 import com.android.systemui.settings.brightness.BrightnessController;
 import com.android.systemui.settings.brightness.BrightnessMirrorHandler;
 import com.android.systemui.settings.brightness.BrightnessSliderController;
@@ -49,8 +48,7 @@ import javax.inject.Provider;
 
 /** Controller for {@link QuickQSPanel}. */
 @QSScope
-public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel>
-        implements TunerService.Tunable {
+public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel> {
 
     private final Provider<Boolean> mUsingCollapsedLandscapeMediaProvider;
     private final BrightnessController mBrightnessController;
@@ -73,7 +71,7 @@ public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel>
             BrightnessSliderController.Factory brightnessSliderFactory
     ) {
         super(view, qsTileHost, qsCustomizerController, usingMediaPlayer, mediaHost, metricsLogger,
-                uiEventLogger, qsLogger, dumpManager, tunerService);
+                uiEventLogger, qsLogger, dumpManager);
         mUsingCollapsedLandscapeMediaProvider = usingCollapsedLandscapeMediaProvider;
         mTunerService = tunerService;
 
@@ -117,15 +115,12 @@ public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel>
         mTunerService.addTunable(mView, QSPanel.QS_BRIGHTNESS_SLIDER_POSITION);
         mTunerService.addTunable(mView, QSPanel.QS_SHOW_AUTO_BRIGHTNESS);
         mTunerService.addTunable(mView, QSPanel.QS_SHOW_BRIGHTNESS_SLIDER);
-        mTunerService.addTunable(mView, QSPanel.QS_LAYOUT_COLUMNS);
-        mTunerService.addTunable(mView, QSPanel.QS_LAYOUT_COLUMNS_LANDSCAPE);
 
         mView.setBrightnessRunnable(() -> {
             mView.updateResources();
             updateBrightnessMirror();
         });
 
-        updateConfig();
         mBrightnessMirrorHandler.onQsPanelAttached();
     }
 
@@ -135,14 +130,6 @@ public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel>
         mTunerService.removeTunable(mView);
         mView.setBrightnessRunnable(null);
         mBrightnessMirrorHandler.onQsPanelDettached();
-    }
-
-    private void updateConfig() {
-        int maxTiles = getResources().getInteger(R.integer.quick_qs_panel_max_tiles);
-        int columns = getResources().getInteger(R.integer.quick_settings_num_columns);
-        columns = TileUtils.getQSColumnsCount(getContext(), columns);
-        mView.setMaxTiles(Math.max(columns, maxTiles));
-        setTiles();
     }
 
     private void updateBrightnessMirror() {
@@ -168,6 +155,11 @@ public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel>
         return mView.isListening();
     }
 
+    private void setMaxTiles(int parseNumTiles) {
+        mView.setMaxTiles(parseNumTiles);
+        setTiles();
+    }
+
     @Override
     public void refreshAllTiles() {
         mBrightnessController.checkRestrictionAndSetEnabled();
@@ -176,7 +168,10 @@ public class QuickQSPanelController extends QSPanelControllerBase<QuickQSPanel>
 
     @Override
     protected void onConfigurationChanged() {
-        updateConfig();
+        int newMaxTiles = getResources().getInteger(R.integer.quick_qs_panel_max_tiles);
+        if (newMaxTiles != mView.getNumQuickTiles()) {
+            setMaxTiles(newMaxTiles);
+        }
         updateMediaExpansion();
     }
 
