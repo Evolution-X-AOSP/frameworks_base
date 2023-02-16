@@ -34,7 +34,8 @@ public final class AttestationHooks {
 
     private static final String PACKAGE_GMS = "com.google.android.gms";
     private static final String PACKAGE_FINSKY = "com.android.vending";
-    private static final String PROCESS_UNSTABLE = "com.google.android.gms.unstable";
+    private static final String PROCESS_PERSISTENT = PACKAGE_GMS + ".persistent";
+    private static final String PROCESS_UNSTABLE = PACKAGE_GMS + ".unstable";
 
     private static final String PACKAGE_GPHOTOS = "com.google.android.apps.photos";
     private static final Map<String, Object> sP1Props = new HashMap<>();
@@ -45,6 +46,18 @@ public final class AttestationHooks {
         sP1Props.put("PRODUCT", "marlin");
         sP1Props.put("MODEL", "Pixel XL");
         sP1Props.put("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys");
+    }
+
+    private static final Map<String, Object> sP6Props = new HashMap<>();
+    static {
+        sP6Props.put("ID", "TQ1A.230205.002");
+        sP6Props.put("BRAND", "google");
+        sP6Props.put("MANUFACTURER", "Google");
+        sP6Props.put("DEVICE", "raven");
+        sP6Props.put("PRODUCT", "raven");
+        sP6Props.put("MODEL", "Pixel 6 Pro");
+        sP6Props.put("FINGERPRINT", "google/raven/raven:13/TQ1A.230205.002/9471150:user/release-keys");
+        sP6Props.put("SECURITY_PATCH", "2023-02-05");
     }
 
     private static volatile boolean sIsGms = false;
@@ -98,6 +111,12 @@ public final class AttestationHooks {
                 PROCESS_UNSTABLE.equals(Application.getProcessName())) {
             sIsGms = true;
             spoofBuildGms();
+        }
+
+        if (PACKAGE_GMS.equals(app.getPackageName()) &&
+                PROCESS_PERSISTENT.equals(Application.getProcessName())) {
+            dlog("Spoofing Pixel 6 Pro for Persistent process");
+            sP6Props.forEach((k, v) -> setPropValue(k, v));
         }
 
         if (PACKAGE_FINSKY.equals(app.getPackageName())) {
