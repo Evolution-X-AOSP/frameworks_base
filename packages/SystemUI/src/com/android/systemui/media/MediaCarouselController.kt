@@ -14,6 +14,7 @@ import android.provider.Settings
 import android.provider.Settings.ACTION_MEDIA_CONTROLS_SETTINGS
 import android.provider.Settings.System.MEDIA_ARTWORK_BLUR_ENABLED
 import android.provider.Settings.System.MEDIA_ARTWORK_BLUR_RADIUS
+import android.provider.Settings.System.MEDIA_ARTWORK_FADE_PERCENT
 import com.android.systemui.util.settings.SystemSettings
 import android.util.Log
 import android.util.MathUtils
@@ -965,7 +966,9 @@ class MediaCarouselController @Inject constructor(
                     blurEnabled = systemSettings.getIntForUser(
                         MEDIA_ARTWORK_BLUR_ENABLED, 0, USER_CURRENT) == 1,
                     blurRadius = systemSettings.getFloatForUser(
-                        MEDIA_ARTWORK_BLUR_RADIUS, 25f, USER_CURRENT)
+                        MEDIA_ARTWORK_BLUR_RADIUS, 25f, USER_CURRENT),
+                    fadeLevel = systemSettings.getIntForUser(
+                        MEDIA_ARTWORK_FADE_PERCENT, 30, USER_CURRENT)
                 )
                 mainHandler.post {
                     artworkSettings = newSettings
@@ -976,6 +979,8 @@ class MediaCarouselController @Inject constructor(
                 MEDIA_ARTWORK_BLUR_ENABLED, this, USER_ALL)
             systemSettings.registerContentObserverForUser(
                 MEDIA_ARTWORK_BLUR_RADIUS, this, USER_ALL)
+            systemSettings.registerContentObserverForUser(
+                MEDIA_ARTWORK_FADE_PERCENT, this, USER_ALL)
         }
 
         override fun onChange(selfChange: Boolean, uri: Uri) {
@@ -987,6 +992,10 @@ class MediaCarouselController @Inject constructor(
                 MEDIA_ARTWORK_BLUR_RADIUS -> artworkSettings.copy(
                     blurRadius = systemSettings.getFloatForUser(
                         MEDIA_ARTWORK_BLUR_RADIUS, 25f, USER_CURRENT)
+                )
+                MEDIA_ARTWORK_FADE_PERCENT -> artworkSettings.copy(
+                    fadeLevel = systemSettings.getIntForUser(
+                        MEDIA_ARTWORK_FADE_PERCENT, 30, USER_CURRENT)
                 )
                 else -> return
             }
@@ -1188,4 +1197,5 @@ internal object MediaPlayerData {
 data class ArtworkSettings @JvmOverloads constructor(
     val blurEnabled: Boolean = false,
     val blurRadius: Float = 1f,
+    val fadeLevel: Int = 30,
 )
