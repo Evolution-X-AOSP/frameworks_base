@@ -35,6 +35,7 @@ import android.graphics.BlendMode;
 import android.graphics.Color;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
+import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.ColorDrawable;
@@ -826,6 +827,12 @@ public class MediaControlPanel {
                         	)
                     	    );
                	 }
+                	final int fadeFilter = ColorUtils.blendARGB(
+                   		Color.TRANSPARENT,
+                    		Color.BLACK,
+                    		mArtworkSettings.getFadeLevel() / 100f
+                	);
+                	albumView.setColorFilter(fadeFilter, PorterDuff.Mode.SRC_ATOP);
                         albumView.setImageDrawable(artwork);
                     } else {
                         // Since we throw away the last transition, this'll pop if you backgrounds

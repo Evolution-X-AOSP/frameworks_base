@@ -6812,6 +6812,12 @@ public final class Settings {
         public static final String MEDIA_ARTWORK_BLUR_RADIUS = "media_artwork_blur_radius";
 
         /**
+         * Adjust fade percent for background media
+         * @hide
+         */
+        public static final String MEDIA_ARTWORK_FADE_PERCENT = "media_artwork_fade_percent";
+
+        /**
          * lockscreen album art blur level
          * @hide
          */
