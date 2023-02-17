@@ -30,7 +30,7 @@
 
     <bool name="flag_charging_ripple">true</bool>
 
-    <bool name="flag_smartspace">true</bool>
+    <bool name="flag_smartspace">false</bool>
 
     <!--  Whether the user switcher chip shows in the status bar. When true, the multi user
       avatar will no longer show on the lockscreen -->

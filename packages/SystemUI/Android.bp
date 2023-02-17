@@ -127,7 +127,6 @@ android_library {
         "jsr330",
         "lottie",
         "LowLightDreamLib",
-        "bcsmartspacegoogle",
         "faceunlock_framework",
         "vendor.lineage.powershare-V1.0-java",
         "//hardware/google/interfaces:com.google.hardware.pixel.display-V6-java",
