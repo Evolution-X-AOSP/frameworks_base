@@ -6920,6 +6920,12 @@ public final class Settings {
          * @hide
          */
         public static final String LS_MEDIA_FILTER_BLUR_RADIUS = "ls_media_filter_blur_radius";
+        
+        /**
+         * lockscreen album art fade level
+         * @hide
+         */
+        public static final String LS_MEDIA_ARTWORK_FADE_PERCENT = "ls_media_artwork_fade_percent";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to
