@@ -24,14 +24,28 @@ import android.util.Log;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /** @hide */
 public final class AttestationHooks {
     private static final String TAG = "Attestation";
+    private static final boolean DEBUG = false;
 
     private static final String PACKAGE_GMS = "com.google.android.gms";
     private static final String PACKAGE_FINSKY = "com.android.vending";
     private static final String PROCESS_UNSTABLE = "com.google.android.gms.unstable";
+
+    private static final String PACKAGE_GPHOTOS = "com.google.android.apps.photos";
+    private static final Map<String, Object> sP1Props = new HashMap<>();
+    static {
+        sP1Props.put("BRAND", "google");
+        sP1Props.put("MANUFACTURER", "Google");
+        sP1Props.put("DEVICE", "marlin");
+        sP1Props.put("PRODUCT", "marlin");
+        sP1Props.put("MODEL", "Pixel XL");
+        sP1Props.put("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys");
+    }
 
     private static volatile boolean sIsGms = false;
     private static volatile boolean sIsFinsky = false;
@@ -89,6 +103,24 @@ public final class AttestationHooks {
         if (PACKAGE_FINSKY.equals(app.getPackageName())) {
             sIsFinsky = true;
         }
+
+        if (PACKAGE_GPHOTOS.equals(app.getPackageName()) &&
+                SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", true)) {
+            dlog("Spoofing Pixel XL for Google Photos");
+            sP1Props.forEach((k, v) -> setPropValue(k, v));
+        }
+    }
+
+    private static void setPropValue(String key, Object value){
+        try {
+            dlog("Setting prop " + key + " to " + value.toString());
+            Field field = Build.class.getDeclaredField(key);
+            field.setAccessible(true);
+            field.set(null, value);
+            field.setAccessible(false);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            Log.e(TAG, "Failed to set prop " + key, e);
+        }
     }
 
     private static boolean isCallerSafetyNet() {
@@ -102,5 +134,9 @@ public final class AttestationHooks {
             Log.i(TAG, "Blocked key attestation sIsGms=" + sIsGms + " sIsFinsky=" + sIsFinsky);
             throw new UnsupportedOperationException();
         }
+    }
+
+    public static void dlog(String msg) {
+      if (DEBUG) Log.d(TAG, msg);
     }
 }

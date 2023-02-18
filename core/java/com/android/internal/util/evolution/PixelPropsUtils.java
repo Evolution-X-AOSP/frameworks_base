@@ -53,7 +53,6 @@ public class PixelPropsUtils {
     private static final Map<String, Object> propsToChange;
     private static final Map<String, Object> propsToChangePixel7Pro;
     private static final Map<String, Object> propsToChangePixel5;
-    private static final Map<String, Object> propsToChangePixelXL;
     private static final Map<String, Object> propsToChangeROG1;
     private static final Map<String, Object> propsToChangeROG3;
     private static final Map<String, Object> propsToChangeXP5;
@@ -95,6 +94,7 @@ public class PixelPropsUtils {
     // Packages to Keep with original device
     private static final String[] packagesToKeep = {
             PACKAGE_GMS,
+            PACKAGE_GPHOTOS,
             PACKAGE_PS,
             "com.google.android.GoogleCamera",
             "com.google.android.GoogleCamera.Cameight",
@@ -217,13 +217,6 @@ public class PixelPropsUtils {
         propsToChangePixel5.put("PRODUCT", "redfin");
         propsToChangePixel5.put("MODEL", "Pixel 5");
         propsToChangePixel5.put("FINGERPRINT", "google/redfin/redfin:13/TQ1A.230205.002/9471150:user/release-keys");
-        propsToChangePixelXL = new HashMap<>();
-        propsToChangePixelXL.put("BRAND", "google");
-        propsToChangePixelXL.put("MANUFACTURER", "Google");
-        propsToChangePixelXL.put("DEVICE", "marlin");
-        propsToChangePixelXL.put("PRODUCT", "marlin");
-        propsToChangePixelXL.put("MODEL", "Pixel XL");
-        propsToChangePixelXL.put("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys");
         propsToChangeROG1 = new HashMap<>();
         propsToChangeROG1.put("MODEL", "ASUS_Z01QD");
         propsToChangeROG1.put("MANUFACTURER", "asus");
@@ -267,14 +260,7 @@ public class PixelPropsUtils {
 
             boolean isPixelDevice = Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE));
 
-            if (packageName.equals(PACKAGE_GPHOTOS)) {
-                if (SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", true)) {
-                    propsToChange.putAll(propsToChangePixelXL);
-                } else {
-                    if (isPixelDevice) return;
-                    propsToChange.putAll(propsToChangePixel5);
-                }
-            } else if (packageName.equals(PACKAGE_NETFLIX) &&
+            if (packageName.equals(PACKAGE_NETFLIX) &&
                     !SystemProperties.getBoolean("persist.sys.pixelprops.netflix", false)) {
                 dlog("Netflix spoofing disabled by system prop");
                 return;
