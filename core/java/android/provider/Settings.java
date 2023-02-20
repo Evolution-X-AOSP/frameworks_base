@@ -6868,6 +6868,19 @@ public final class Settings {
         public static final String QS_PANEL_STYLE = "qs_panel_style";
 
         /**
+         * Lockscreen clock format
+         * @hide
+         */
+        public static final String CLOCK_USE_CUSTOM_FORMAT = "clock_use_custom_format";
+
+        /**
+         * The amount of time in milliseconds before the device goes to sleep or begins
+         * to dream after a period of inactivity in the keyguard.
+         * @hide
+         */
+        public static final String LOCKSCREEN_TIMEOUT = "lockscreen_timeout";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -12543,6 +12556,11 @@ public final class Settings {
          * @hide
          */
         public static final String KG_CUSTOM_CLOCK_COLOR_ENABLED = "kg_custom_clock_color_enabled";
+
+        /**
+         * @hide
+         */
+        public static final String ENABLE_COMBINED_SIGNAL_ICONS = "enable_combined_signal_icons";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to

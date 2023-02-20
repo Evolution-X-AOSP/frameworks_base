@@ -25,6 +25,7 @@ import android.annotation.Nullable;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.UserHandle;
+import android.os.SystemProperties;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.ArraySet;
@@ -519,7 +520,7 @@ public interface StatusBarIconController {
         private StatusBarMobileView onCreateStatusBarMobileView(int subId, String slot) {
             Context mobileContext = mMobileContextProvider.getMobileContextForSub(subId, mContext);
             StatusBarMobileView view = StatusBarMobileView
-                    .fromContext(mobileContext, slot);
+                    .fromContext(mobileContext, slot, SystemProperties.getBoolean("persist.sys.flags.combined_signal_icons", false));
             return view;
         }
 
