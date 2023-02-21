@@ -203,6 +203,15 @@ final class DefaultPermissionGrantPolicy {
         SENSORS_PERMISSIONS.add(Manifest.permission.BODY_SENSORS_BACKGROUND);
     }
 
+    private static final Set<String> GOOGLE_RESTORE_PERMISSIONS = new ArraySet<>();
+    static {
+        GOOGLE_RESTORE_PERMISSIONS.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+        GOOGLE_RESTORE_PERMISSIONS.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        GOOGLE_RESTORE_PERMISSIONS.add(Manifest.permission.MANAGE_EXTERNAL_STORAGE);
+        GOOGLE_RESTORE_PERMISSIONS.add(Manifest.permission.MANAGE_USB);
+        GOOGLE_RESTORE_PERMISSIONS.add(Manifest.permission.INTERNET);
+    }
+
     private static final Set<String> STORAGE_PERMISSIONS = new ArraySet<>();
     static {
         STORAGE_PERMISSIONS.add(Manifest.permission.READ_EXTERNAL_STORAGE);
@@ -988,7 +997,7 @@ final class DefaultPermissionGrantPolicy {
 
         // Android Setup
         grantSystemFixedPermissionsToSystemPackage(pm,"com.google.android.apps.restore", userId, PHONE_PERMISSIONS,
-                CONTACTS_PERMISSIONS, SMS_PERMISSIONS);
+                CONTACTS_PERMISSIONS, SMS_PERMISSIONS, GOOGLE_RESTORE_PERMISSIONS);
 
         // Carrier Setup
         grantSystemFixedPermissionsToSystemPackage(pm,"com.google.android.carriersetup", userId, PHONE_PERMISSIONS,
