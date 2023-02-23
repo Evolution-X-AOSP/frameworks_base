@@ -237,7 +237,10 @@ java_defaults {
 java_library {
     name: "android-non-updatable.stubs",
     defaults: ["android-non-updatable_defaults_stubs_current"],
-    srcs: [":api-stubs-docs-non-updatable"],
+    srcs: [
+        ":api-stubs-docs-non-updatable",
+        "core/java/oplus/content/res/OplusExtraConfiguration.java",
+    ],
     libs: ["all-modules-public-stubs"],
     dist: {
         dir: "apistubs/android/public",
@@ -247,7 +250,10 @@ java_library {
 java_library {
     name: "android-non-updatable.stubs.system",
     defaults: ["android-non-updatable_defaults_stubs_current"],
-    srcs: [":system-api-stubs-docs-non-updatable"],
+    srcs: [
+        ":system-api-stubs-docs-non-updatable",
+        "core/java/oplus/content/res/OplusExtraConfiguration.java",
+    ],
     libs: ["all-modules-system-stubs"],
     dist: {
         dir: "apistubs/android/system",
@@ -257,7 +263,10 @@ java_library {
 java_library {
     name: "android-non-updatable.stubs.module_lib",
     defaults: ["android-non-updatable_defaults_stubs_current"],
-    srcs: [":module-lib-api-stubs-docs-non-updatable"],
+    srcs: [
+        ":module-lib-api-stubs-docs-non-updatable",
+        "core/java/oplus/content/res/OplusExtraConfiguration.java",
+    ],
     libs: [
         "sdk_module-lib_current_framework-tethering",
         "sdk_module-lib_current_framework-connectivity-t",
@@ -275,7 +284,10 @@ java_library {
 java_library {
     name: "android-non-updatable.stubs.test",
     defaults: ["android-non-updatable_defaults_stubs_current"],
-    srcs: [":test-api-stubs-docs-non-updatable"],
+    srcs: [
+        ":test-api-stubs-docs-non-updatable",
+        "core/java/oplus/content/res/OplusExtraConfiguration.java",
+    ],
     libs: ["all-modules-system-stubs"],
     dist: {
         dir: "apistubs/android/test",
