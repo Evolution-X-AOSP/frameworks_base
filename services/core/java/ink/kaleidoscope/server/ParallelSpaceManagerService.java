@@ -99,11 +99,13 @@ public final class ParallelSpaceManagerService extends SystemService {
         "com.android.fmradio",
         "com.android.launcher3",
         "com.caf.fmradio",
+        "org.evolution.oneplus.DeviceExtras",
+        "org.evolution.oplus.OPlusExtras",
+        "org.evolution.ota",
         "com.google.android.apps.nexuslauncher",
         "com.google.android.pixel.setupwizard",
         "com.google.android.projection.gearhead",
-        "com.google.android.setupwizard",
-        "org.evolution.ota"
+        "com.google.android.setupwizard"
     );
 
     /**
