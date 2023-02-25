@@ -117,10 +117,8 @@ public class SystemSettings {
         Settings.System.CUSTOM_RINGTONE_VIBRATION_PATTERN,
         Settings.System.NOTIFICATION_VIBRATION_PATTERN,
         Settings.System.CUSTOM_NOTIFICATION_VIBRATION_PATTERN,
-        Settings.System.DEFAULT_NOTIFICATION_TORCH,
         Settings.System.STATUS_BAR_NOTIF_COUNT,
         Settings.System.HEADS_UP_NOTIFICATIONS_THRESHOLD,
-        Settings.System.KEYGUARD_QUICK_TOGGLES,
         Settings.System.QS_PANEL_STYLE
     };
 }
