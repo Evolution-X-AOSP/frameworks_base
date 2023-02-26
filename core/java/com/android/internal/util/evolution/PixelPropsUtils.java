@@ -69,8 +69,8 @@ public class PixelPropsUtils {
             "com.google.android.apps.podcasts",
             "com.google.android.apps.privacy.wildlife",
             "com.google.android.apps.subscriptions.red",
-            "com.google.android.apps.tachyon",
             "com.google.android.apps.wallpaper",
+            "com.google.android.apps.wallpaper.pixel",
             "com.google.android.contacts",
             "com.google.android.deskclock",
             "com.google.android.inputmethod.latin"
@@ -108,6 +108,7 @@ public class PixelPropsUtils {
             "com.google.android.UltraCVM",
             "com.google.android.apps.cameralite",
             "com.google.android.apps.recorder",
+            "com.google.android.apps.tachyon",
             "com.google.android.apps.wearables.maestro.companion",
             "com.google.android.apps.youtube.kids",
             "com.google.android.apps.youtube.music",
