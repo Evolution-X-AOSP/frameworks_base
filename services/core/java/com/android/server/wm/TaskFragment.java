@@ -1688,6 +1688,7 @@ class TaskFragment extends WindowContainer<WindowContainer> {
 
         if (prev.attachedToProcess()) {
             if (shouldAutoPip) {
+                prev.mPauseSchedulePendingForPip = true;
                 boolean didAutoPip = mAtmService.enterPictureInPictureMode(
                         prev, prev.pictureInPictureArgs, false /* fromClient */);
                 ProtoLog.d(WM_DEBUG_STATES, "Auto-PIP allowed, entering PIP mode "
@@ -1751,6 +1752,7 @@ class TaskFragment extends WindowContainer<WindowContainer> {
             boolean pauseImmediately, boolean autoEnteringPip, String reason) {
         ProtoLog.v(WM_DEBUG_STATES, "Enqueueing pending pause: %s", prev);
         try {
+            prev.mPauseSchedulePendingForPip = false;
             EventLogTags.writeWmPauseActivity(prev.mUserId, System.identityHashCode(prev),
                     prev.shortComponentName, "userLeaving=" + userLeaving, reason);
 
