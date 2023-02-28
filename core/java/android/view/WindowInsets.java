@@ -155,9 +155,8 @@ public final class WindowInsets {
         mCompatInsetsTypes = compatInsetsTypes;
         mCompatIgnoreVisibility = compatIgnoreVisibility;
 
-        mDisplayCutoutConsumed = displayCutout == null;
-        mDisplayCutout = (mDisplayCutoutConsumed || displayCutout.isEmpty())
-                ? null : displayCutout;
+        mDisplayCutoutConsumed = (displayCutout == null) || displayCutout.isEmpty();
+        mDisplayCutout = mDisplayCutoutConsumed ? null : displayCutout;
 
         mRoundedCorners = roundedCorners;
         mPrivacyIndicatorBounds = privacyIndicatorBounds;
