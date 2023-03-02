@@ -252,4 +252,8 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Sprache</string>
     <string name="quick_settings_locale_more_locales_toast">Bitte fügen Sie mehr als eine Sprache hinzu, um die Umschaltfunktion zu aktivieren</string>
+    <!-- Bluetooth dialog -->
+    <string name="turn_on_bluetooth">Bluetooth verwenden</string>
+    <string name="bluetooth_is_off">Bluetooth ist deaktiviert</string>
+    <string name="tap_a_device_to_connect">Gerät zum Verbinden antippen</string>
 </resources>
