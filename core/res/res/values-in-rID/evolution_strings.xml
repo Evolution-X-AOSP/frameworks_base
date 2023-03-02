@@ -6,7 +6,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced reboot -->
     <string name="reboot_to_recovery_title">Recovery</string>
-    <string name="reboot_to_recovery_message">Memulai ulang ke mode pemulihan</string>
+    <string name="reboot_to_recovery_message">Memulai ulang ke recovery</string>
     <string name="reboot_to_bootloader_title">Bootloader</string>
     <string name="reboot_to_bootloader_message">Memulai ulang ke bootloader</string>
     <string name="reboot_title">Mulai ulang</string>
@@ -54,6 +54,7 @@
     <string name="face_unlock_disabled_idle">Face unlock dinonaktifkan karena tidak ada aktivitas</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Gesek lagi untuk membuka kunci gestur</string>
+    <!-- Parallel space badge -->
     <!-- Sleep Mode -->
     <string name="notification_channel_sleep">Mode Tidur</string>
     <string name="sleep_mode_notification_title">Mode Tidur diaktifkan</string>
