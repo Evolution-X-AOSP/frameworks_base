@@ -19,23 +19,23 @@
     <string name="systemui_restart_title">Este necesară repornirea interfeței sistemului</string>
     <string name="systemui_restart_message">Pentru ca toate modificările să aibă efect, este necesară o repornire a interfeței sistemului. Reporniți interfața de sistem acum?</string>
     <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Apăsați și țineți apăsat butonul de alimentare pentru a debloca</string>
+    <string name="pocket_lock_message_long_press">Apasă și ține apăsat butonul de pornire pentru a debloca</string>
     <string name="pocket_view_title">Modul buzunar este pornit</string>
     <string name="pocket_view_title_cancel">Pentru a folosi telefonul:</string>
-    <string name="pocket_view_top_tag_cancel">Verificați dacă zona albastră a telefonului dumneavoastră nu are nici un fel de obstacole și ștergeți orice noroi sau praf.</string>
-    <string name="pocket_view_top_tag_cancel2">Apăsați lung butonul de pornire pentru a forța ieșirea din modul buzunar.</string>
+    <string name="pocket_view_top_tag_cancel">Verifică dacă zona albastră a telefonului nu are nici un fel de obstrucții și șterge orice noroi sau praf.</string>
+    <string name="pocket_view_top_tag_cancel2">Apasă lung butonul de pornire pentru a forța ieșirea din modul buzunar.</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automat</string>
     <string name="live_display_auto_summary">Reglează automat temperatura culorii ecranului în funcție de apus și răsărit</string>
     <string name="live_display_off">Oprit</string>
     <string name="live_display_off_summary">Dezactivează toate ajustările</string>
     <string name="live_display_day">Zi</string>
-    <string name="live_display_day_summary">Utilizați numai setările de zi</string>
+    <string name="live_display_day_summary">Utilizare doar a setărilor de zi</string>
     <string name="live_display_night">Noapte</string>
-    <string name="live_display_night_summary">Utilizați numai setările de noapte</string>
-    <string name="live_display_outdoor">Afară (soare strălucitor)</string>
-    <string name="live_display_outdoor_summary">Utilizați numai setările de exterior</string>
-    <string name="live_display_hint">LiveDisplay poate să ajute la reducerea oboselii ochilor și să vă ajute să dormiți noaptea. Apăsați aici pentru a-l încerca!</string>
+    <string name="live_display_night_summary">Utilizează numai setările pentru noapte</string>
+    <string name="live_display_outdoor">Exterior (soare puternic)</string>
+    <string name="live_display_outdoor_summary">Utilizează numai setările de exterior</string>
+    <string name="live_display_hint">LiveDisplay poate să te ajute la reducerea oboselii ochilor și să te ajute să dormi noaptea. Apasă aici pentru a-l încerca!</string>
     <string name="accessibility_quick_settings_live_display_off">LiveDisplay oprit.</string>
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: mod automat.</string>
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay: mod zi.</string>
@@ -54,6 +54,7 @@
     <string name="face_unlock_disabled_idle">Deblocarea facială a fost dezactivată din cauza inactivității</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Glisați din nou pentru a debloca gesturile</string>
+    <!-- Parallel space badge -->
     <!-- Sleep Mode -->
     <string name="notification_channel_sleep">Modul suspendare</string>
     <string name="sleep_mode_notification_title">Modul suspendare este activat</string>
