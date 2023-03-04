@@ -98,6 +98,7 @@ public final class ParallelSpaceManagerService extends SystemService {
         // To avoid third party apps starting it accidentally.
         "com.android.fmradio",
         "com.android.launcher3",
+        "com.android.server.telecom",
         "com.caf.fmradio",
         "org.evolution.oneplus.DeviceExtras",
         "org.evolution.oplus.OPlusExtras",
