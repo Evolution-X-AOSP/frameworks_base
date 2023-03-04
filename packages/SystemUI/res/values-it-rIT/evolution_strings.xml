@@ -252,4 +252,8 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Lingua</string>
     <string name="quick_settings_locale_more_locales_toast">Per favore configura più lingue per abilitare la funzionalità del toggle</string>
+    <!-- Bluetooth dialog -->
+    <string name="turn_on_bluetooth">Usa il Bluetooth</string>
+    <string name="bluetooth_is_off">Il Bluetooth è spento</string>
+    <string name="tap_a_device_to_connect">Tocca un dispositivo per connetterti</string>
 </resources>
