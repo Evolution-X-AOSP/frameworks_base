@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2022 Evolution X
+     Copyright (C) 2019-2023 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -50,4 +50,15 @@
     <string name="volume_dialog_ringer_guidance_normal">Volání a oznámení budou vyzvánět</string>
     <!-- App lock -->
     <string name="unlock_application">Odemknout <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">Odemknutí obličejem vypnuto z důvodu nečinnosti</string>
+    <!-- Lock gesture -->
+    <string name="gesture_locked_warning">Opětovným přejetím odemknete gesta</string>
+    <!-- Parallel space badge -->
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Režim spánku</string>
+    <string name="sleep_mode_notification_title">Režim spánku zapnutý</string>
+    <string name="sleep_mode_notification_content">Klepněte sem pro vypnutí režimu spánku</string>
+    <string name="sleep_mode_enabled_toast">Režim spánku je zapnutý</string>
+    <string name="sleep_mode_disabled_toast">Režim spánku je vypnutý</string>
 </resources>
