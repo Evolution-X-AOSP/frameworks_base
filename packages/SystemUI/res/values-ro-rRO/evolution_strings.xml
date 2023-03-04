@@ -252,4 +252,8 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Limbă</string>
     <string name="quick_settings_locale_more_locales_toast">Configurați mai multe limbi pentru a activa funcția de comutare</string>
+    <!-- Bluetooth dialog -->
+    <string name="turn_on_bluetooth">Utilizare Bluetooth</string>
+    <string name="bluetooth_is_off">Bluetooth este dezactivat</string>
+    <string name="tap_a_device_to_connect">Atinge un dispozitiv pentru conectare</string>
 </resources>
