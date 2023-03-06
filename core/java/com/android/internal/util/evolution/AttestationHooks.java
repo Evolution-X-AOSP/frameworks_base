@@ -34,9 +34,8 @@ public final class AttestationHooks {
 
     private static final String PACKAGE_GMS = "com.google.android.gms";
     private static final String PACKAGE_FINSKY = "com.android.vending";
-    private static final String PROCESS_UNSTABLE = PACKAGE_GMS + ".unstable";
-
     private static final String PACKAGE_GPHOTOS = "com.google.android.apps.photos";
+
     private static final Map<String, Object> sP1Props = new HashMap<>();
     static {
         sP1Props.put("BRAND", "google");
@@ -94,10 +93,17 @@ public final class AttestationHooks {
     }
 
     public static void initApplicationBeforeOnCreate(Application app) {
-        if (PACKAGE_GMS.equals(app.getPackageName()) &&
-                PROCESS_UNSTABLE.equals(Application.getProcessName())) {
-            sIsGms = true;
-            spoofBuildGms();
+        final String processName = Application.getProcessName();
+        boolean isPackageGms = PACKAGE_GMS.equals(app.getPackageName())
+                || (app.getPackageName()).toLowerCase().contains("androidx.test")
+                || (app.getPackageName()).toLowerCase().equals("com.google.android.apps.restore");
+        if (isPackageGms) {
+            if (processName.toLowerCase().contains("unstable")
+                    || processName.toLowerCase().contains("pixelmigrate")
+                    || processName.toLowerCase().contains("instrumentation")) {
+                sIsGms = true;
+                spoofBuildGms();
+            }
         }
 
         if (PACKAGE_FINSKY.equals(app.getPackageName())) {

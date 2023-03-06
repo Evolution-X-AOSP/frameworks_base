@@ -40,6 +40,7 @@ public class PixelPropsUtils {
     private static final String PACKAGE_ARCORE = "com.google.ar.core";
     private static final String PACKAGE_GPHOTOS = "com.google.android.apps.photos";
     private static final String PACKAGE_GMS = "com.google.android.gms";
+    private static final String PACKAGE_GMS_RESTORE = "com.google.android.apps.restore";
     private static final String PACKAGE_NETFLIX = "com.netflix.mediaclient";
     private static final String PACKAGE_PS = "com.android.vending";
     private static final String PACKAGE_SI = "com.google.android.settings.intelligence";
@@ -94,6 +95,7 @@ public class PixelPropsUtils {
     // Packages to Keep with original device
     private static final String[] packagesToKeep = {
             PACKAGE_GMS,
+            PACKAGE_GMS_RESTORE,
             PACKAGE_GPHOTOS,
             PACKAGE_PS,
             "com.google.android.GoogleCamera",
