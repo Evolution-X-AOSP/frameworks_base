@@ -46,6 +46,18 @@ public final class AttestationHooks {
         sP1Props.put("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys");
     }
 
+    private static final Map<String, Object> sP6Props = new HashMap<>();
+    static {
+        sP6Props.put("ID", "TQ1A.230205.002");
+        sP6Props.put("BRAND", "google");
+        sP6Props.put("MANUFACTURER", "Google");
+        sP6Props.put("DEVICE", "raven");
+        sP6Props.put("PRODUCT", "raven");
+        sP6Props.put("MODEL", "Pixel 6 Pro");
+        sP6Props.put("FINGERPRINT", "google/raven/raven:13/TQ1A.230205.002/9471150:user/release-keys");
+        sP6Props.put("SECURITY_PATCH", "2023-02-05");
+    }
+
     private static volatile boolean sIsGms = false;
     private static volatile boolean sIsFinsky = false;
 
@@ -103,6 +115,9 @@ public final class AttestationHooks {
                     || processName.toLowerCase().contains("instrumentation")) {
                 sIsGms = true;
                 spoofBuildGms();
+            } else if (processName.toLowerCase().contains("persistent")) {
+                dlog("Spoofing Pixel 6 Pro for Persistent process");
+                sP6Props.forEach((k, v) -> setPropValue(k, v));
             }
         }
 
