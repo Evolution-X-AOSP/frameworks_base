@@ -58,6 +58,18 @@ public final class AttestationHooks {
         sP6Props.put("SECURITY_PATCH", "2023-02-05");
     }
 
+    private static final Map<String, Object> sP7Props = new HashMap<>();
+    static {
+        sP7Props.put("ID", "TQ1A.230205.002");
+        sP7Props.put("BRAND", "google");
+        sP7Props.put("MANUFACTURER", "Google");
+        sP7Props.put("DEVICE", "cheetah");
+        sP7Props.put("PRODUCT", "cheetah");
+        sP7Props.put("MODEL", "Pixel 7 Pro");
+        sP7Props.put("FINGERPRINT", "google/cheetah/cheetah:13/TQ1A.230205.002/9471150:user/release-keys");
+        sP7Props.put("SECURITY_PATCH", "2023-02-05");
+    }
+
     private static volatile boolean sIsGms = false;
     private static volatile boolean sIsFinsky = false;
 
@@ -118,6 +130,10 @@ public final class AttestationHooks {
             } else if (processName.toLowerCase().contains("persistent")) {
                 dlog("Spoofing Pixel 6 Pro for Persistent process");
                 sP6Props.forEach((k, v) -> setPropValue(k, v));
+            } else if (processName.toLowerCase().contains("learning")
+                    || processName.toLowerCase().contains("ui")) {
+                dlog("Spoofing Pixel 7 Pro for Learning and UI processes");
+                sP7Props.forEach((k, v) -> setPropValue(k, v));
             }
         }
 
