@@ -6439,12 +6439,6 @@ public final class Settings {
          */
         public static final String ALERT_SLIDER_PULSE = "alert_slider_pulse";
 
-        /**
-         * Whether to show IME space
-         * @hide
-         */
-        public static final String HIDE_IME_SPACE_ENABLE = "hide_ime_space_enable";
-
         /** @hide */
         public static final String BACK_GESTURE_HEIGHT = "back_gesture_height";
 
