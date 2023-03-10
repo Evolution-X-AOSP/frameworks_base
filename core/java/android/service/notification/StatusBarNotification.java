@@ -572,6 +572,7 @@ public class StatusBarNotification implements Parcelable {
      * Check whether the notification content is secure.
      *
      * @return true if content is secure, false otherwise.
+     * @hide
      */
     public boolean getIsContentSecure() {
         return mIsContentSecure;
