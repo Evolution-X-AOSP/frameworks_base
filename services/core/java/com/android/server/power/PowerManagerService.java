@@ -838,6 +838,7 @@ public final class PowerManagerService extends SystemService
     }
 
     // Smart charging
+    private boolean mSmartChargingAvailable;
     private boolean mSmartChargingEnabled;
     private boolean mSmartChargingResetStats;
     private boolean mPowerInputSuspended = false;
@@ -1537,6 +1538,8 @@ public final class PowerManagerService extends SystemService
                     .newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "ProximityWakeLock");
         }
         // Smart charging
+        mSmartChargingAvailable = resources.getBoolean(
+                com.android.internal.R.bool.config_smartChargingAvailable);
         mSmartChargingLevelDefaultConfig = resources.getInteger(
                 com.android.internal.R.integer.config_smartChargingBatteryLevel);
         mSmartChargingResumeLevelDefaultConfig = resources.getInteger(
@@ -2696,10 +2699,13 @@ public final class PowerManagerService extends SystemService
     }
 
     private void updateSmartChargingStatus() {
-        if (mPowerInputSuspended && (mBatteryLevel <= mSmartChargingResumeLevel) ||
-            (mPowerInputSuspended && !mSmartChargingEnabled)) {
+        if (!mSmartChargingAvailable) return;
+        if (mPowerInputSuspended && ((mSmartChargingResumeLevel < mSmartChargingLevel &&
+            mBatteryLevel <= mSmartChargingResumeLevel) || !mSmartChargingEnabled)) {
+            String resumeSysfsNode = mPowerInputSuspendSysfsNode.contains("google") ? mPowerInputSuspendSysfsNode + "charge_start_level" : mPowerInputSuspendSysfsNode;
+            String resumeValue = mPowerInputSuspendSysfsNode.contains("google") ? String.valueOf(mSmartChargingResumeLevel) : mPowerInputResumeValue;
             try {
-                FileUtils.stringToFile(mPowerInputSuspendSysfsNode, mPowerInputResumeValue);
+                FileUtils.stringToFile(resumeSysfsNode, resumeValue);
                 mPowerInputSuspended = false;
             } catch (IOException e) {
                 Slog.e(TAG, "failed to write to " + mPowerInputSuspendSysfsNode);
@@ -2718,7 +2724,9 @@ public final class PowerManagerService extends SystemService
             }
 
             try {
-                FileUtils.stringToFile(mPowerInputSuspendSysfsNode, mPowerInputSuspendValue);
+            String suspendSysfsNode = mPowerInputSuspendSysfsNode.contains("google") ? mPowerInputSuspendSysfsNode + "charge_stop_level" : mPowerInputSuspendSysfsNode;
+            String suspendValue = mPowerInputSuspendSysfsNode.contains("google") ? String.valueOf(mSmartChargingLevel) : mPowerInputResumeValue;
+                FileUtils.stringToFile(suspendSysfsNode, suspendValue);
                 mPowerInputSuspended = true;
             } catch (IOException e) {
                     Slog.e(TAG, "failed to write to " + mPowerInputSuspendSysfsNode);
