@@ -108,10 +108,8 @@ import com.android.systemui.statusbar.phone.CentralSurfaces;
 import com.android.systemui.statusbar.phone.HeadsUpAppearanceController;
 import com.android.systemui.statusbar.phone.HeadsUpTouchHelper;
 import com.android.systemui.statusbar.phone.ScreenOffAnimationController;
-import com.android.systemui.statusbar.policy.ConfigurationController.ConfigurationListener;
 import com.android.systemui.statusbar.policy.HeadsUpUtil;
 import com.android.systemui.statusbar.policy.ScrollAdapter;
-import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.Assert;
 import com.android.systemui.util.DumpUtilsKt;
 import com.android.systemui.util.LargeScreenUtils;
@@ -130,8 +128,7 @@ import java.util.function.Consumer;
 /**
  * A layout which handles a dynamic amount of notifications and presents them in a scrollable stack.
  */
-public class NotificationStackScrollLayout extends ViewGroup implements Dumpable,
-        ConfigurationListener {
+public class NotificationStackScrollLayout extends ViewGroup implements Dumpable {
 
     public static final float BACKGROUND_ALPHA_DIMMED = 0.7f;
     private static final String TAG = "StackScroller";
@@ -154,9 +151,6 @@ public class NotificationStackScrollLayout extends ViewGroup implements Dumpable
      */
     private static final int DISTANCE_BETWEEN_ADJACENT_SECTIONS_PX = 1;
     private boolean mKeyguardBypassEnabled;
-
-    private static final String NOTIFICATION_MATERIAL_DISMISS =
-            "system:" + Settings.System.NOTIFICATION_MATERIAL_DISMISS;
 
     private ExpandHelper mExpandHelper;
     private NotificationSwipeHelper mSwipeHelper;
@@ -549,7 +543,6 @@ public class NotificationStackScrollLayout extends ViewGroup implements Dumpable
     private NotificationStackScrollLayoutController.TouchHandler mTouchHandler;
     private final ScreenOffAnimationController mScreenOffAnimationController;
     private boolean mShouldUseSplitNotificationShade;
-    private boolean mShowDimissButton;
 
     private final ExpandableView.OnHeightChangedListener mOnChildHeightChangedListener =
             new ExpandableView.OnHeightChangedListener() {
@@ -629,14 +622,6 @@ public class NotificationStackScrollLayout extends ViewGroup implements Dumpable
         mGroupMembershipManager = Dependency.get(GroupMembershipManager.class);
         mGroupExpansionManager = Dependency.get(GroupExpansionManager.class);
         setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_YES);
-        TunerService tunerService = Dependency.get(TunerService.class);
-        tunerService.addTunable((key, newValue) -> {
-            if (key.equals(NOTIFICATION_MATERIAL_DISMISS)) {
-                mShowDimissButton = TunerService.parseIntegerSwitch(newValue, false);
-                updateFooter();
-            }
-        },  NOTIFICATION_MATERIAL_DISMISS);
-
     }
 
     /**
@@ -693,7 +678,6 @@ public class NotificationStackScrollLayout extends ViewGroup implements Dumpable
         inflateEmptyShadeView();
         updateFooter();
         mSectionsManager.reinflateViews();
-        mCentralSurfaces.updateDismissAllButton();
     }
 
     public void setIsRemoteInputActive(boolean isActive) {
@@ -746,12 +730,6 @@ public class NotificationStackScrollLayout extends ViewGroup implements Dumpable
                 ((ActivatableNotificationView) child).updateBackgroundColors();
             }
         }
-    }
-
-    @Override
-    @ShadeViewRefactor(RefactorComponent.SHADE_VIEW)
-    public void onUiModeChanged() {
-        mCentralSurfaces.updateDismissAllButton();
     }
 
     @ShadeViewRefactor(RefactorComponent.DECORATOR)
@@ -4548,7 +4526,7 @@ public class NotificationStackScrollLayout extends ViewGroup implements Dumpable
         }
         boolean animate = mIsExpanded && mAnimationsEnabled;
         mFooterView.setVisible(visible, animate);
-        mFooterView.setSecondaryVisible(!mShowDimissButton && showDismissView, animate);
+        mFooterView.setSecondaryVisible(showDismissView, animate);
         mFooterView.showHistory(showHistory);
     }
 
@@ -5288,7 +5266,6 @@ public class NotificationStackScrollLayout extends ViewGroup implements Dumpable
         FooterView footerView = (FooterView) LayoutInflater.from(mContext).inflate(
                 R.layout.status_bar_notification_footer, this, false);
         footerView.setClearAllButtonClickListener(v -> {
-            if (mShowDimissButton) return;
             if (mFooterClearAllListener != null) {
                 mFooterClearAllListener.onClearAll();
             }
@@ -5296,13 +5273,6 @@ public class NotificationStackScrollLayout extends ViewGroup implements Dumpable
             footerView.setSecondaryVisible(false /* visible */, true /* animate */);
         });
         setFooterView(footerView);
-        if (mCentralSurfaces != null && mCentralSurfaces.getDismissAllButton() != null) {
-            mCentralSurfaces.getDismissAllButton().setOnClickListener(v -> {
-                if (mShowDimissButton) {
-                    clearNotifications(ROWS_ALL, true /* closeShade */);
-                }
-            });
-        }
     }
 
     @ShadeViewRefactor(RefactorComponent.SHADE_VIEW)
