@@ -252,4 +252,8 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Język</string>
     <string name="quick_settings_locale_more_locales_toast">Proszę skonfigurować wiele języków, aby włączyć funkcję przełączenia</string>
+    <!-- Bluetooth dialog -->
+    <string name="turn_on_bluetooth">Użyj Bluetooth</string>
+    <string name="bluetooth_is_off">Bluetooth jest wyłączony</string>
+    <string name="tap_a_device_to_connect">Dotknij urządzenia, aby się z nim połączyć</string>
 </resources>

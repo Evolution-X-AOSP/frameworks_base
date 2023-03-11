@@ -252,4 +252,8 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">言語</string>
     <string name="quick_settings_locale_more_locales_toast">切り替え機能を有効にするには複数の言語を設定して下さい</string>
+    <!-- Bluetooth dialog -->
+    <string name="turn_on_bluetooth">Bluetooth を使用</string>
+    <string name="bluetooth_is_off">Bluetooth は OFF です</string>
+    <string name="tap_a_device_to_connect">端末をタップして接続</string>
 </resources>
