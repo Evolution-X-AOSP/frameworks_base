@@ -252,4 +252,8 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Bahasa</string>
     <string name="quick_settings_locale_more_locales_toast">Silakan konfigurasikan beberapa bahasa untuk mengaktifkan fungsi tombol</string>
+    <!-- Bluetooth dialog -->
+    <string name="turn_on_bluetooth">Gunakan Bluetooth</string>
+    <string name="bluetooth_is_off">Bluetooth nonaktif</string>
+    <string name="tap_a_device_to_connect">Ketuk perangkat untuk menghubungkan</string>
 </resources>
