@@ -53,7 +53,7 @@ public final class AttestationHooks {
         sP5Props.put("DEVICE", "redfin");
         sP5Props.put("PRODUCT", "redfin");
         sP5Props.put("MODEL", "Pixel 5");
-        sP5Props.put("FINGERPRINT", "google/redfin/redfin:13/TQ1A.230205.002/9471150:user/release-keys");
+        sP5Props.put("FINGERPRINT", "google/redfin/redfin:13/TQ2A.230305.008.C1/9619669:user/release-keys");
     }
 
     private static final Map<String, Object> sP6Props = new HashMap<>();
@@ -70,14 +70,14 @@ public final class AttestationHooks {
 
     private static final Map<String, Object> sP7Props = new HashMap<>();
     static {
-        sP7Props.put("ID", "TQ1A.230205.002");
+        sP7Props.put("ID", "TQ2A.230305.008.C1");
         sP7Props.put("BRAND", "google");
         sP7Props.put("MANUFACTURER", "Google");
         sP7Props.put("DEVICE", "cheetah");
         sP7Props.put("PRODUCT", "cheetah");
         sP7Props.put("MODEL", "Pixel 7 Pro");
-        sP7Props.put("FINGERPRINT", "google/cheetah/cheetah:13/TQ1A.230205.002/9471150:user/release-keys");
-        sP7Props.put("SECURITY_PATCH", "2023-02-05");
+        sP7Props.put("FINGERPRINT", "google/cheetah/cheetah:13/TQ2A.230305.008.C1/9619669:user/release-keys");
+        sP7Props.put("SECURITY_PATCH", "2023-03-05");
     }
 
     private static volatile boolean sIsGms = false;
