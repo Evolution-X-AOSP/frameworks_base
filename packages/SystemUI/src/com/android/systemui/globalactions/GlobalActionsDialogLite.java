@@ -712,9 +712,9 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
             addedKeys.add(actionKey);
         }
 
-        if (tempActions.contains(restartAction) && Settings.System.getIntForUser(
-                mContext.getContentResolver(), Settings.System.ADVANCED_REBOOT, 0,
-                UserHandle.USER_CURRENT) == 1) {
+        if (tempActions.contains(restartAction) && !mKeyguardShowing
+                && Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.ADVANCED_REBOOT, 0, UserHandle.USER_CURRENT) == 1) {
             // transfer restart and advanced restart to their own list of power actions
             // and position it where Reset button was supposed to be
             int powerOptionsIndex = tempActions.indexOf(restartAction);
