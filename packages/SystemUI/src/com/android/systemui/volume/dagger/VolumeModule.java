@@ -61,12 +61,12 @@ public interface VolumeModule {
             MediaOutputDialogFactory mediaOutputDialogFactory,
             VolumePanelFactory volumePanelFactory,
             ActivityStarter activityStarter,
+            TunerService tunerService,
             InteractionJankMonitor interactionJankMonitor,
             CsdWarningDialog.Factory csdFactory,
             DevicePostureController devicePostureController,
             DumpManager dumpManager,
-            Lazy<SecureSettings> secureSettings,
-            TunerService tunerService) {
+            Lazy<SecureSettings> secureSettings) {
         VolumeDialogImpl impl = new VolumeDialogImpl(
                 context,
                 volumeDialogController,
@@ -76,14 +76,14 @@ public interface VolumeModule {
                 mediaOutputDialogFactory,
                 volumePanelFactory,
                 activityStarter,
+                tunerService,
                 interactionJankMonitor,
                 true, /* should listen for jank */
                 csdFactory,
                 devicePostureController,
                 Looper.getMainLooper(),
                 dumpManager,
-                secureSettings,
-                tunerService);
+                secureSettings);
         impl.setStreamImportant(AudioManager.STREAM_SYSTEM, false);
         impl.setAutomute(true);
         impl.setSilentMode(false);

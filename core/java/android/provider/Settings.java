@@ -7431,6 +7431,18 @@ public final class Settings {
         public static final String FLASHLIGHT_ON_CALL_RATE = "flashlight_on_call_rate";
 
         /**
+         * Volume panel percentage
+         * @hide
+         */
+        public static final String VOLUME_TEXTVIEW = "volume_textview";
+
+        /**
+         * Volume panel percentage style
+         * @hide
+         */
+        public static final String VOLUME_TEXTVIEW_STYLE = "volume_textview_style";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
