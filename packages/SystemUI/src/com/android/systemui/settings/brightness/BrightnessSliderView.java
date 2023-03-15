@@ -17,16 +17,24 @@
 package com.android.systemui.settings.brightness;
 
 import android.content.Context;
+import android.content.ContentResolver;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.database.ContentObserver;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.DrawableWrapper;
 import android.graphics.drawable.LayerDrawable;
+import android.os.Handler;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.TextView;
 
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
@@ -45,6 +53,7 @@ import java.util.Collections;
 public class BrightnessSliderView extends LinearLayout {
 
     @NonNull
+    private TextView mTextPersen;
     private ToggleSeekBar mSlider;
     private DispatchTouchEventListener mListener;
     private Gefingerpoken mOnInterceptListener;
@@ -69,6 +78,12 @@ public class BrightnessSliderView extends LinearLayout {
 
         mSlider = requireViewById(R.id.slider);
         mSlider.setAccessibilityLabel(getContentDescription().toString());
+        mTextPersen = requireViewById(R.id.percentbrightness);    
+	    Handler h = new Handler();
+        TextBrightness text = new TextBrightness(h);
+        text.BTObserver();
+	    ShowingTextBrightness();
+	    GetValueBrightness(mSlider.getProgress());
 
         // Finds the progress drawable. Assumes brightness_progress_drawable.xml
         try {
@@ -80,6 +95,49 @@ public class BrightnessSliderView extends LinearLayout {
         } catch (Exception e) {
             // Nothing to do, mProgressDrawable will be null.
         }
+    }
+
+    public void GetValueBrightness(int value) {
+            int make100 = value * 100 / mSlider.getMax();
+            mTextPersen.setText(String.valueOf(make100) + "%");
+    }
+
+    private void ShowingTextBrightness() {
+            int showHide = Settings.System.getInt(getContext().getContentResolver(),
+                    Settings.System.QS_BRIGHTNESS_TEXTVIEW, 0);
+	    if (showHide == 1) {
+	    LinearLayout.LayoutParams bright = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT);
+            bright.setMargins(20, 0, 0, 0);
+	    mTextPersen.setLayoutParams(bright);
+            mTextPersen.setVisibility(View.VISIBLE);
+            } else {
+            LinearLayout.LayoutParams bright = new LinearLayout.LayoutParams(0, 0);
+            bright.setMargins(0, 0, 0, 0);
+	    mTextPersen.setLayoutParams(bright);
+            mTextPersen.setVisibility(View.GONE);
+            }
+
+    }
+
+    public class TextBrightness extends ContentObserver {
+            public TextBrightness(Handler h) {
+            super(h);
+            BTObserver();
+            }
+
+            @Override
+            public void onChange(boolean selfChange) {
+                   super.onChange(selfChange);
+                   ShowingTextBrightness();
+            }
+
+            public void BTObserver()
+            {
+                   ContentResolver cr = getContext().getContentResolver();
+                   cr.registerContentObserver(Settings.System.getUriFor(
+                           Settings.System.QS_BRIGHTNESS_TEXTVIEW), false, this);
+            }
     }
 
     /**

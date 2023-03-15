@@ -7443,6 +7443,12 @@ public final class Settings {
         public static final String VOLUME_TEXTVIEW_STYLE = "volume_textview_style";
 
         /**
+         * QS brightness percentage
+         * @hide
+         */
+        public static final String QS_BRIGHTNESS_TEXTVIEW = "qs_brightness_textview";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
