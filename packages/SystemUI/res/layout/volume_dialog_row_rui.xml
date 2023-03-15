@@ -46,6 +46,17 @@
             android:layout_marginBottom="8dp"
             android:visibility="gone"
             android:textAppearance="@style/TextAppearance.Volume.Header" />
+        <TextView
+            android:id="@+id/volume_persen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13dp" 
+            android:layout_marginTop="5dp" 
+            android:layout_marginBottom="5dp"
+            android:ellipsize="end"
+            android:maxLength="10"
+            android:maxLines="1"      
+            android:textAppearance="@style/TextAppearance.Volume.Header" /> 
         <FrameLayout
             android:id="@+id/volume_row_slider_frame"
             android:layout_width="match_parent"
@@ -77,6 +88,18 @@
             android:layout_marginBottom="@dimen/volume_dialog_row_margin_bottom"
             android:tint="?androidprv:attr/colorAccentPrimaryVariant"
             android:soundEffectsEnabled="false" />
+            
+        <TextView
+            android:id="@+id/volume_persen_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:ellipsize="end"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.Volume.Header" /> 
     </LinearLayout>
 
 </FrameLayout>
