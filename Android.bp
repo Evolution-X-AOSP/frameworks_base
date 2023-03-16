@@ -152,6 +152,7 @@ java_library {
     sdk_version: "core_platform",
     visibility: [
         // DO NOT ADD ANY MORE ENTRIES TO THIS LIST
+        "//external/robolectric:__subpackages__",
         "//external/robolectric-shadows:__subpackages__",
         "//frameworks/layoutlib:__subpackages__",
     ],
