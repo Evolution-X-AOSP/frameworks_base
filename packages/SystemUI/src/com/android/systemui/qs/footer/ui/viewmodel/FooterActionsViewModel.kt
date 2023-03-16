@@ -192,6 +192,18 @@ fun FooterActionsViewModel(
         footerActionsInteractor.showSettings(expandable)
     }
 
+    fun onSettingsButtonLongClicked(expandable: Expandable): Boolean {
+        if (falsingManager.isFalseTap(FalsingManager.LOW_PENALTY)) {
+            return false
+        }
+
+        return footerActionsInteractor.showEvolver(expandable)
+    }
+
+    fun doNothingLongClick(expandable: Expandable): Boolean {
+        return false
+    }
+
     fun onPowerButtonClicked(expandable: Expandable) {
         val mKeyguard = Dependency.get(KeyguardStateController::class.java)
         if (mKeyguard.isShowing() && mKeyguard.isMethodSecure() 
@@ -331,6 +343,7 @@ fun userSwitcherButtonViewModel(
         iconTint = null,
         backgroundColor = R.attr.shadeInactive,
         onClick = onUserSwitcherClicked,
+        onLongClick = doNothingLongClick,
     )
 }
 
@@ -360,6 +373,7 @@ fun settingsButtonViewModel(
             ),
         backgroundColor = R.attr.shadeInactive,
         onSettingsButtonClicked,
+        onSettingsButtonLongClicked,
     )
 }
 
@@ -380,5 +394,6 @@ fun powerButtonViewModel(
             ),
         backgroundColor = R.attr.shadeActive,
         onPowerButtonClicked,
+        doNothingLongClick,
     )
 }
