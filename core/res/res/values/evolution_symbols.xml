@@ -58,8 +58,6 @@
     <java-symbol type="bool" name="config_forceMultiResolution" />
 
     <!-- Camera -->
-    <java-symbol type="array" name="config_cameraAuxPackageAllowList" />
-    <java-symbol type="array" name="config_cameraAuxPackageExcludeList" />
     <java-symbol type="array" name="config_cameraHFRPrivAppList" />
 
     <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
