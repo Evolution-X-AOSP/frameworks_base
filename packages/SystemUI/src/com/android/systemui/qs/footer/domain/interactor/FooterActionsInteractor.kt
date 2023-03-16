@@ -88,6 +88,9 @@ interface FooterActionsInteractor {
     /** Show the settings. */
     fun showSettings(expandable: Expandable)
 
+    /** Show the Evolver */
+    fun showEvolver(expandable: Expandable): Boolean
+
     /** Show the user switcher. */
     fun showUserSwitcher(expandable: Expandable)
 }
@@ -179,5 +182,23 @@ constructor(
 
     override fun showUserSwitcher(expandable: Expandable) {
         userInteractor.showUserSwitcher(expandable)
+    }
+
+    override fun showEvolver(expandable: Expandable): Boolean {
+        if (!deviceProvisionedController.isCurrentUserSetup) {
+            // If user isn't setup just unlock the device and dump them back at SUW.
+            activityStarter.postQSRunnableDismissingKeyguard {}
+            return false
+        }
+
+        metricsLogger.action(MetricsProto.MetricsEvent.ACTION_QS_EXPANDED_SETTINGS_LAUNCH)
+        activityStarter.startActivity(
+            Intent("com.evolution.settings.EvolutionSettings"),
+            true /* dismissShade */,
+            expandable.activityLaunchController(
+                InteractionJankMonitor.CUJ_SHADE_APP_LAUNCH_FROM_SETTINGS_BUTTON
+            ),
+        )
+        return true
     }
 }
