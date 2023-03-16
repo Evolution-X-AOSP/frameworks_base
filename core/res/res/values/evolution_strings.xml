@@ -66,4 +66,8 @@
 
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Swipe again to unlock gestures</string>
+
+    <!-- Title & summary of notification letting users know that battery saver is now on [CHAR_LIMIT=80] -->
+    <string name="battery_saver_on_notification_title">Battery Saver turned on</string>
+    <string name="battery_saver_on_notification_summary">By schedule. Press to review settings.</string>
 </resources>
