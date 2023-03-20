@@ -72,7 +72,6 @@ public class PixelPropsUtils {
     private static final String[] packagesToChangePixel7Pro = {
             PACKAGE_GBOARD,
             PACKAGE_SETUPWIZARD,
-            PACKAGE_SUBSCRIPTION_RED,
             PACKAGE_TURBO,
             PACKAGE_VELVET,
             "com.google.android.apps.googleassistant",
@@ -103,6 +102,7 @@ public class PixelPropsUtils {
             PACKAGE_GMS,
             PACKAGE_GPHOTOS,
             PACKAGE_PS,
+            PACKAGE_SUBSCRIPTION_RED,
             "com.google.android.GoogleCamera",
             "com.google.android.GoogleCamera.Cameight",
             "com.google.android.GoogleCamera.Go",
