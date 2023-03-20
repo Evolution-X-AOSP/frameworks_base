@@ -26,7 +26,7 @@ import android.annotation.TestApi;
 import android.app.ActivityThread;
 import android.app.compat.CompatChanges;
 import android.compat.annotation.ChangeId;
-import android.compat.annotation.EnabledSince;
+import android.compat.annotation.Disabled;
 import android.compat.annotation.Overridable;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -117,7 +117,7 @@ public final class CameraManager {
      */
     @ChangeId
     @Overridable
-    @EnabledSince(targetSdkVersion = android.os.Build.VERSION_CODES.TIRAMISU)
+    @Disabled
     @TestApi
     public static final long OVERRIDE_FRONT_CAMERA_APP_COMPAT = 250678880L;
 
