@@ -41,7 +41,6 @@ public class PixelPropsUtils {
     private static final String PACKAGE_GPHOTOS = "com.google.android.apps.photos";
     private static final String PACKAGE_GMS = "com.google.android.gms";
     private static final String PACKAGE_GMS_RESTORE = "com.google.android.apps.restore";
-    private static final String PACKAGE_NETFLIX = "com.netflix.mediaclient";
     private static final String PACKAGE_PS = "com.android.vending";
     private static final String PACKAGE_SI = "com.google.android.settings.intelligence";
     private static final String SAMSUNG = "com.samsung.android.";
@@ -85,7 +84,6 @@ public class PixelPropsUtils {
             "com.breel.wallpapers20",
             "com.disney.disneyplus",
             "com.microsoft.android.smsorganizer",
-            PACKAGE_NETFLIX,
             "com.nhs.online.nhsonline",
             "com.nothing.smartcenter",
             "com.snapchat.android",
@@ -270,11 +268,7 @@ public class PixelPropsUtils {
             Map<String, Object> propsToChange = new HashMap<>();
             boolean isPixelDevice = Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE));
 
-            if (packageName.equals(PACKAGE_NETFLIX) &&
-                    !SystemProperties.getBoolean("persist.sys.pixelprops.netflix", false)) {
-                dlog("Netflix spoofing disabled by system prop");
-                return;
-            } else if (!isPixelDevice) {
+            if (!isPixelDevice) {
                 if ((Arrays.asList(packagesToChangePixel7Pro).contains(packageName))) {
                     propsToChange.putAll(propsToChangePixel7Pro);
                 } else {
