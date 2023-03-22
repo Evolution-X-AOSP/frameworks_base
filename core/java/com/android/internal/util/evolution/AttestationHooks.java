@@ -46,16 +46,6 @@ public final class AttestationHooks {
         sP1Props.put("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys");
     }
 
-    private static final Map<String, Object> sP5Props = new HashMap<>();
-    static {
-        sP5Props.put("BRAND", "google");
-        sP5Props.put("MANUFACTURER", "Google");
-        sP5Props.put("DEVICE", "redfin");
-        sP5Props.put("PRODUCT", "redfin");
-        sP5Props.put("MODEL", "Pixel 5");
-        sP5Props.put("FINGERPRINT", "google/redfin/redfin:13/TQ2A.230305.008.C1/9619669:user/release-keys");
-    }
-
     private static final Map<String, Object> sP6Props = new HashMap<>();
     static {
         sP6Props.put("ID", "TQ1A.230205.002");
@@ -152,12 +142,12 @@ public final class AttestationHooks {
         }
 
         if (PACKAGE_GPHOTOS.equals(app.getPackageName())) {
-            if (SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", true)) {
+            if (!SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", false)) {
+                dlog("Photos spoofing disabled by system prop");
+                return;
+            } else {
                 dlog("Spoofing Pixel XL for Google Photos");
                 sP1Props.forEach((k, v) -> setPropValue(k, v));
-            } else {
-                dlog("Spoofing Pixel 5 for Google Photos");
-                sP5Props.forEach((k, v) -> setPropValue(k, v));
             }
         }
     }
