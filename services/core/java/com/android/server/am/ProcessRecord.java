@@ -41,6 +41,7 @@ import android.content.pm.VersionedPackage;
 import android.content.res.CompatibilityInfo;
 import android.os.Binder;
 import android.os.Bundle;
+import android.os.DeviceIntegrationUtils;
 import android.os.IBinder;
 import android.os.Process;
 import android.os.RemoteException;
@@ -1246,6 +1247,11 @@ class ProcessRecord implements WindowProcessListener {
                 }
             }
             Trace.traceEnd(Trace.TRACE_TAG_ACTIVITY_MANAGER);
+        }
+        if (!DeviceIntegrationUtils.DISABLE_DEVICE_INTEGRATION) {
+            // Device Integartion: If the app is died during the remote task status,
+            // we need to inform RemoteTaskManager to clear the references and dirty data.
+            mService.mActivityTaskManager.getRemoteTaskManager().handleProcessDied(getWindowProcessController(), reason);
         }
     }
 

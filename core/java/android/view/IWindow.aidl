@@ -126,4 +126,9 @@ oneway interface IWindow {
      * @param callbacks to receive responses
      */
     void requestScrollCapture(in IScrollCaptureResponseListener callbacks);
+
+    /**
+     * Device Integration: Dispatch Key event to black screen
+     */
+    void dispatchBlackScreenKeyEvent(in KeyEvent event);
 }

@@ -52,7 +52,9 @@ import static android.view.WindowManager.LayoutParams.TYPE_STATUS_BAR;
 import static android.view.WindowManager.LayoutParams.TYPE_STATUS_BAR_ADDITIONAL;
 import static android.view.WindowManager.LayoutParams.TYPE_STATUS_BAR_SUB_PANEL;
 import static android.view.WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+import static android.view.WindowManager.LayoutParams.TYPE_SYSTEM_BLACKSCREEN_OVERLAY;
 import static android.view.WindowManager.LayoutParams.TYPE_SYSTEM_DIALOG;
+import static android.view.WindowManager.LayoutParams.TYPE_SYSTEM_DRAGDROP_OVERLAY;
 import static android.view.WindowManager.LayoutParams.TYPE_SYSTEM_ERROR;
 import static android.view.WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY;
 import static android.view.WindowManager.LayoutParams.TYPE_TOAST;
@@ -626,6 +628,12 @@ public interface WindowManagerPolicy extends WindowManagerPolicyConstants {
             case TYPE_POINTER:
                 // the (mouse) pointer layer
                 return  35;
+            case TYPE_SYSTEM_DRAGDROP_OVERLAY:
+                // Device Integration: the drag drop layer
+                return  36;
+            case TYPE_SYSTEM_BLACKSCREEN_OVERLAY:
+                // Device Integration: the black screen layer
+                return  37;
             default:
                 Slog.e("WindowManager", "Unknown window type: " + type);
                 return 3;
@@ -642,7 +650,9 @@ public interface WindowManagerPolicy extends WindowManagerPolicyConstants {
      * @see WindowManager.LayoutParams#PRIVATE_FLAG_IS_ROUNDED_CORNERS_OVERLAY
      */
     default int getMaxWindowLayer() {
-        return 36;
+        // Device Integration: please refer to findAreaForToken(WindowToken token) in DisplayAreaPolicyBuilder
+        // Array length should be greater than index
+        return 38;
     }
 
     /**

@@ -30,6 +30,7 @@ import android.annotation.Nullable;
 import android.app.ActivityOptions;
 import android.content.pm.ActivityInfo.WindowLayout;
 import android.graphics.Rect;
+import android.os.DeviceIntegrationUtils;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -122,6 +123,17 @@ class LaunchParamsController {
             // should always use that.
             result.mPreferredTaskDisplayArea = mService.mRootWindowContainer
                     .getDisplayContent(mService.mVr2dDisplayId).getDefaultTaskDisplayArea();
+        } else if (!DeviceIntegrationUtils.DISABLE_DEVICE_INTEGRATION
+                   && mService.getRemoteTaskManager().isDisplaySwitchDetected(options)) {
+            // Device Integration: If switch display action is detected, we should reassign prefer
+            // TaskDisplayArea so that RootWindowContainer will help reparent task to target display.
+            TaskDisplayArea area = mService.getRemoteTaskManager().
+                                    getFinalPreferredTaskDisplayArea(request.caller, request.callingPid,
+                                            request.callingUid, request.realCallingPid, request.realCallingUid,
+                                            source, options);
+            if (area != null) {
+                result.mPreferredTaskDisplayArea = area;
+            }
         }
     }
 

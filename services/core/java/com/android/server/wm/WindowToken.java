@@ -18,6 +18,8 @@ package com.android.server.wm;
 
 import static android.app.WindowConfiguration.WINDOWING_MODE_PINNED;
 
+import static android.view.WindowManager.LayoutParams.TYPE_SYSTEM_BLACKSCREEN_OVERLAY;
+
 import static com.android.internal.protolog.ProtoLogGroup.WM_DEBUG_ADD_REMOVE;
 import static com.android.internal.protolog.ProtoLogGroup.WM_DEBUG_APP_TRANSITIONS;
 import static com.android.internal.protolog.ProtoLogGroup.WM_DEBUG_FOCUS;
@@ -38,6 +40,7 @@ import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Debug;
+import android.os.DeviceIntegrationUtils;
 import android.os.IBinder;
 import android.util.proto.ProtoOutputStream;
 import android.view.DisplayInfo;
@@ -387,7 +390,10 @@ class WindowToken extends WindowContainer<WindowState> {
     @Override
     SurfaceControl.Builder makeSurface() {
         final SurfaceControl.Builder builder = super.makeSurface();
-        if (mRoundedCornerOverlay) {
+        // Device Integration: This is to make phone screen not show our black screen
+        if (mRoundedCornerOverlay
+                || (!DeviceIntegrationUtils.DISABLE_DEVICE_INTEGRATION
+                    && windowType == TYPE_SYSTEM_BLACKSCREEN_OVERLAY)) {
             builder.setParent(null);
         }
         return builder;
