@@ -56,4 +56,7 @@
     <!-- StatusBar burn-in protection -->
     <bool name="config_disableStatusBarBurnInProtection">false</bool>
     <integer name="config_shift_interval">60</integer>
+
+    <!-- Whether to enable lock screen quick affordances -->
+    <bool name="flag_enable_customizable_lock_screen_quick_affordances">true</bool>
 </resources>
