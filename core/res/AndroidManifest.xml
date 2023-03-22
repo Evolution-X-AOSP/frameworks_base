@@ -943,6 +943,11 @@
     <permission android:name="android.permission.ACCESS_MESSAGES_ON_ICC"
         android:protectionLevel="signature" />
 
+    <!-- Allows accessing Device Integration functions. -->
+    <permission android:name="deviceintegration.permission.MANAGE_CROSS_DEVICE"
+        android:protectionLevel="signature|privileged"
+        />
+
     <!-- Used for runtime permissions related to user's SMS messages. -->
     <permission-group android:name="android.permission-group.SMS"
         android:icon="@drawable/perm_group_sms"

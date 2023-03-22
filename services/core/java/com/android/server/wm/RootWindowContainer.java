@@ -111,6 +111,7 @@ import android.hardware.power.Mode;
 import android.net.Uri;
 import android.os.Binder;
 import android.os.Debug;
+import android.os.DeviceIntegrationUtils;
 import android.os.FactoryTest;
 import android.os.Handler;
 import android.os.IBinder;
@@ -2343,6 +2344,14 @@ class RootWindowContainer extends WindowContainer<DisplayContent>
             mTmpFindTaskResult.process(taskDisplayArea);
             if (mTmpFindTaskResult.mIdealRecord != null) {
                 return mTmpFindTaskResult.mIdealRecord;
+            } else if (!DeviceIntegrationUtils.DISABLE_DEVICE_INTEGRATION
+                       && mTmpFindTaskResult.mCandidateRecord != null
+                       && mService.getRemoteTaskManager().
+                            findTaskOnlyForLaunch(
+                                    intent,
+                                    taskAffinity,
+                                    mTmpFindTaskResult.mCandidateRecord.getTask().mTaskId)) {
+                return mTmpFindTaskResult.mCandidateRecord;
             }
             return null;
         });

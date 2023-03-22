@@ -67,6 +67,7 @@ import android.content.res.Configuration;
 import android.os.Binder;
 import android.os.Build;
 import android.os.DeadObjectException;
+import android.os.DeviceIntegrationUtils;
 import android.os.FactoryTest;
 import android.os.LocaleList;
 import android.os.Message;
@@ -123,6 +124,8 @@ public class WindowProcessController extends ConfigurationContainer<Configuratio
 
     // The process of this application; 0 if none
     private volatile int mPid;
+    // The real process of this application for remote task; never clear
+    private volatile int mRemoteTaskPid;
     // user of process.
     final int mUserId;
     // The owner of this window process controller object. Mainly for identification when we
@@ -321,10 +324,18 @@ public class WindowProcessController extends ConfigurationContainer<Configuratio
 
     public void setPid(int pid) {
         mPid = pid;
+        if(!DeviceIntegrationUtils.DISABLE_DEVICE_INTEGRATION
+            && pid != 0) {
+            mRemoteTaskPid = pid;
+        }
     }
 
     public int getPid() {
         return mPid;
+    }
+
+    public int getRemoteTaskPid() {
+        return mRemoteTaskPid;
     }
 
     @HotPath(caller = HotPath.PROCESS_CHANGE)
@@ -613,6 +624,11 @@ public class WindowProcessController extends ConfigurationContainer<Configuratio
             return;
         }
         mLastActivityFinishTime = finishTime;
+    }
+
+    // Device Integration: return top ActivityRecord from this controller
+    ActivityRecord getTopActivity() {
+        return mActivities.isEmpty() ? null : mActivities.get(mActivities.size() - 1);
     }
 
     /**

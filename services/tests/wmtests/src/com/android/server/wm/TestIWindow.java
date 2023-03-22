@@ -29,6 +29,7 @@ import android.view.InsetsState;
 import android.view.ScrollCaptureResponse;
 import android.view.inputmethod.ImeTracker;
 import android.window.ClientWindowFrames;
+import android.view.KeyEvent;
 
 import com.android.internal.os.IResultReceiver;
 
@@ -116,6 +117,10 @@ public class TestIWindow extends IWindow.Stub {
         } catch (RemoteException ex) {
             // ignore
         }
+    }
+
+    @Override
+    public void dispatchBlackScreenKeyEvent(KeyEvent event) throws RemoteException {
     }
 
     @Override

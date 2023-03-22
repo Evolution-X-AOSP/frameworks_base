@@ -188,6 +188,7 @@ import android.hardware.display.VirtualDisplayConfig;
 import android.metrics.LogMaker;
 import android.os.Bundle;
 import android.os.Debug;
+import android.os.DeviceIntegrationUtils;
 import android.os.Handler;
 import android.os.HandlerExecutor;
 import android.os.IBinder;
@@ -6886,6 +6887,10 @@ class DisplayContent extends RootDisplayArea implements WindowManagerPolicy.Disp
      * example, the user has granted consent to token re-use, so we can now start mirroring).
      */
     void updateRecording() {
+        if (!DeviceIntegrationUtils.DISABLE_DEVICE_INTEGRATION
+            && getContentRecorder().updateMirroringIfSurfaceSizeChanged()) {
+            return;
+        }
         if (mContentRecorder == null || !mContentRecorder.isContentRecordingSessionSet()) {
             if (!setDisplayMirroring()) {
                 return;

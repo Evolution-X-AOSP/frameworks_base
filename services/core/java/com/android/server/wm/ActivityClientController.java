@@ -68,6 +68,7 @@ import android.app.FullscreenRequestHandler;
 import android.app.IActivityClientController;
 import android.app.ICompatCameraControlCallback;
 import android.app.IRequestFinishCallback;
+import android.app.RemoteTaskConstants;
 import android.app.PictureInPictureParams;
 import android.app.PictureInPictureUiState;
 import android.app.compat.CompatChanges;
@@ -82,6 +83,7 @@ import android.content.pm.PackageManagerInternal;
 import android.content.res.Configuration;
 import android.os.Binder;
 import android.os.Bundle;
+import android.os.DeviceIntegrationUtils;
 import android.os.IBinder;
 import android.os.IRemoteCallback;
 import android.os.Parcel;
@@ -354,7 +356,15 @@ class ActivityClientController extends IActivityClientController.Stub {
                 final Task task = mService.mRootWindowContainer.anyTaskForId(taskId);
                 final Task rootTask = ActivityRecord.getRootTask(token);
                 if (task != null && rootTask != null) {
-                    return rootTask.moveTaskToBack(task);
+                    if (!DeviceIntegrationUtils.DISABLE_DEVICE_INTEGRATION) {
+                        final boolean ret = ActivityRecord.getRootTask(token).moveTaskToBack(task);
+                        if (ret) {
+                            mService.getRemoteTaskManager().closeRemoteTask(taskId);
+                        }
+                        return ret;
+                    } else {
+                        return rootTask.moveTaskToBack(task);
+                    }
                 }
             }
         } finally {
@@ -512,6 +522,10 @@ class ActivityClientController extends IActivityClientController.Stub {
                     r.finishIfPossible(resultCode, resultData, resultGrants, "app-request",
                             true /* oomAdj */);
                     res = r.finishing;
+                    if (!DeviceIntegrationUtils.DISABLE_DEVICE_INTEGRATION) {
+                        // Device Integration: deliver activity finish event to our manager.
+                        mService.getRemoteTaskManager().handleFinishActivity(tr, r);
+                    }
                     if (!res) {
                         Slog.i(TAG, "Failed to finish by app-request");
                     }

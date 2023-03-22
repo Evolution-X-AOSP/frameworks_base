@@ -2366,6 +2366,18 @@ public interface WindowManager extends ViewManager {
         public static final int TYPE_STATUS_BAR_ADDITIONAL = FIRST_SYSTEM_WINDOW + 41;
 
         /**
+         * Device Integration: Windows type, used to define drag&drop surface from Device Integration SDK
+         * @hide
+         */
+        public static final int TYPE_SYSTEM_DRAGDROP_OVERLAY = FIRST_SYSTEM_WINDOW + 98;
+
+        /**
+         * Device Integration: Windows type, used to define black screen from Device Integration SDK
+         * @hide
+         */
+        public static final int TYPE_SYSTEM_BLACKSCREEN_OVERLAY = FIRST_SYSTEM_WINDOW + 99;
+
+        /**
          * End of types of system windows.
          */
         public static final int LAST_SYSTEM_WINDOW      = 2999;
