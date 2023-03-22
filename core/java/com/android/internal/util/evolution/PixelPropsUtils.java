@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2020 The Pixel Experience Project
+ *               2022 StatiXOS
  *               2021-2022 crDroid Android Project
  *               2019-2023 Evolution X
  *
@@ -38,11 +39,15 @@ import java.util.Map;
 public class PixelPropsUtils {
 
     private static final String PACKAGE_ARCORE = "com.google.ar.core";
-    private static final String PACKAGE_GPHOTOS = "com.google.android.apps.photos";
+    private static final String PACKAGE_GBOARD = "com.google.android.inputmethod.latin";
     private static final String PACKAGE_GMS = "com.google.android.gms";
-    private static final String PACKAGE_GMS_RESTORE = "com.google.android.apps.restore";
+    private static final String PACKAGE_GPHOTOS = "com.google.android.apps.photos";
     private static final String PACKAGE_PS = "com.android.vending";
+    private static final String PACKAGE_SETUPWIZARD = "com.google.android.setupwizard";
     private static final String PACKAGE_SI = "com.google.android.settings.intelligence";
+    private static final String PACKAGE_SUBSCRIPTION_RED = "com.google.android.apps.subscriptions.red";
+    private static final String PACKAGE_TURBO = "com.google.android.apps.turbo";
+    private static final String PACKAGE_VELVET = "com.google.android.googlequicksearchbox";
     private static final String SAMSUNG = "com.samsung.android.";
     private static final String SAMSUNGACCESSORY = "com.samsung.accessory.";
     private static final String SPOOF_MUSIC_APPS = "persist.sys.disguise_props_for_music_app";
@@ -65,16 +70,19 @@ public class PixelPropsUtils {
 
     // Packages to Spoof as Pixel 7 Pro
     private static final String[] packagesToChangePixel7Pro = {
+            PACKAGE_GBOARD,
+            PACKAGE_SETUPWIZARD,
+            PACKAGE_SUBSCRIPTION_RED,
+            PACKAGE_TURBO,
+            PACKAGE_VELVET,
             "com.google.android.apps.googleassistant",
             "com.google.android.apps.nbu.files",
             "com.google.android.apps.podcasts",
             "com.google.android.apps.privacy.wildlife",
-            "com.google.android.apps.subscriptions.red",
             "com.google.android.apps.wallpaper",
             "com.google.android.apps.wallpaper.pixel",
             "com.google.android.contacts",
-            "com.google.android.deskclock",
-            "com.google.android.inputmethod.latin"
+            "com.google.android.deskclock"
     };
 
     // Packages to Spoof as Pixel 7 Pro
@@ -93,7 +101,6 @@ public class PixelPropsUtils {
     // Packages to Keep with original device
     private static final String[] packagesToKeep = {
             PACKAGE_GMS,
-            PACKAGE_GMS_RESTORE,
             PACKAGE_GPHOTOS,
             PACKAGE_PS,
             "com.google.android.GoogleCamera",
