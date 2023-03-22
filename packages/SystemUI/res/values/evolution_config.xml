@@ -99,4 +99,7 @@
 
     <!-- The number of rows in the QuickSettings -->
     <integer name="quick_settings_max_rows_custom">4</integer>
+
+    <!-- Whether to enable lock screen quick affordances -->
+    <bool name="flag_enable_customizable_lock_screen_quick_affordances">true</bool>
 </resources>
