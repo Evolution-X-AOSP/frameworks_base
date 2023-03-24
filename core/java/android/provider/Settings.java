@@ -5738,12 +5738,6 @@ public final class Settings {
         public static final String POWERMENU_EMERGENCY = "powermenu_emergency";
 
         /**
-         * Whether to display the torch option in the power menu
-         * @hide
-         */
-        public static final String POWERMENU_TORCH = "powermenu_torch";
-
-        /**
          * Disable power menu on secure lock screens
          *
          * @hide
