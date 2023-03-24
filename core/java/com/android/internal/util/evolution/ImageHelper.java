@@ -60,9 +60,15 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.util.Xml;
 
+import android.content.ContentResolver;
+import android.os.UserHandle;
+import android.provider.Settings;
+
 public class ImageHelper {
     private static final int VECTOR_WIDTH = 512;
     private static final int VECTOR_HEIGHT = 512;
+    private static float mCurrentLSBlurRadius;
+    private static float mLSBlurRadius;
 
     public static Drawable getColoredDrawable(Drawable d, int color) {
         if (d == null) {
@@ -142,6 +148,12 @@ public class ImageHelper {
 
     public static int dpToPx(Context context, int dp) {
         return (int) ((dp * context.getResources().getDisplayMetrics().density) + 0.5);
+    }
+
+    private static float getLSBlurRadius(Context context) {
+        mCurrentLSBlurRadius = Settings.System.getFloatForUser(context.getContentResolver(),
+                Settings.System.LS_MEDIA_FILTER_BLUR_RADIUS, 25f, UserHandle.USER_CURRENT);
+        return mCurrentLSBlurRadius;
     }
 
     public static Drawable resize(Context context, Drawable image, int size) {
@@ -312,7 +324,8 @@ public class ImageHelper {
     }
 
     public static Bitmap getBlurredImage(Context context, Bitmap image) {
-        return getBlurredImage(context, image, 3.5f);
+    	mLSBlurRadius = getLSBlurRadius(context);
+        return getBlurredImage(context, image, mLSBlurRadius);
     }
 
     public static Bitmap getBlurredImage(Context context, Bitmap image, float radius) {
@@ -341,7 +354,8 @@ public class ImageHelper {
     }
 
     public static Bitmap getGrayscaleBlurredImage(Context context, Bitmap image) {
-        return getGrayscaleBlurredImage(context, image, 3.5f);
+    	mLSBlurRadius = getLSBlurRadius(context);
+        return getGrayscaleBlurredImage(context, image, mLSBlurRadius);
     }
 
     public static Bitmap getGrayscaleBlurredImage(Context context, Bitmap image, float radius) {
