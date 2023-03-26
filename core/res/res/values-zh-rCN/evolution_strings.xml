@@ -54,7 +54,6 @@
     <string name="face_unlock_disabled_idle">面部解锁因不活跃被禁用</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">再次滑动以解锁手势</string>
-    <!-- Parallel space badge -->
     <!-- Sleep Mode -->
     <string name="notification_channel_sleep">睡眠模式</string>
     <string name="sleep_mode_notification_title">睡眠模式已启用</string>
