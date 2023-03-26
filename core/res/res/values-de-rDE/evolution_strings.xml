@@ -54,7 +54,6 @@
     <string name="face_unlock_disabled_idle">Gesichtserkennung wegen Inaktivität deaktiviert</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Erneut wischen, um Gesten freizuschalten</string>
-    <!-- Parallel space badge -->
     <!-- Sleep Mode -->
     <string name="notification_channel_sleep">Schlafmodus</string>
     <string name="sleep_mode_notification_title">Schlafmodus aktiviert</string>
