@@ -141,7 +141,6 @@
     <string name="status_bar_items_title">Pictograme bară de stare</string>
     <string name="status_bar_call_strength">Putere apel</string>
     <string name="status_bar_data_saver">Economisire date</string>
-    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Oprești forțat?</string>
@@ -183,6 +182,10 @@
     <!-- Google Lens Screenshot string -->
     <string name="lensss">Obiectiv</string>
     <string name="lens_unavailable">Aplicația Google Lens nu este instalată</string>
+    <!-- Bluetooth dialog -->
+    <string name="turn_on_bluetooth">Utilizare Bluetooth</string>
+    <string name="bluetooth_is_off">Bluetooth este dezactivat</string>
+    <string name="tap_a_device_to_connect">Atinge un dispozitiv pentru conectare</string>
     <!-- On The Go -->
     <string name="onthego_notif_ticker">On-The-Go activat</string>
     <string name="onthego_notif_title">On-The-Go este activ</string>
@@ -252,8 +255,4 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Limbă</string>
     <string name="quick_settings_locale_more_locales_toast">Configurați mai multe limbi pentru a activa funcția de comutare</string>
-    <!-- Bluetooth dialog -->
-    <string name="turn_on_bluetooth">Utilizare Bluetooth</string>
-    <string name="bluetooth_is_off">Bluetooth este dezactivat</string>
-    <string name="tap_a_device_to_connect">Atinge un dispozitiv pentru conectare</string>
 </resources>
