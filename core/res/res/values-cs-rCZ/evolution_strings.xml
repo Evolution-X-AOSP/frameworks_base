@@ -54,7 +54,6 @@
     <string name="face_unlock_disabled_idle">Odemknutí obličejem vypnuto z důvodu nečinnosti</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Opětovným přejetím odemknete gesta</string>
-    <!-- Parallel space badge -->
     <!-- Sleep Mode -->
     <string name="notification_channel_sleep">Režim spánku</string>
     <string name="sleep_mode_notification_title">Režim spánku zapnutý</string>
