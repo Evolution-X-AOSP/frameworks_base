@@ -54,7 +54,6 @@
     <string name="face_unlock_disabled_idle">Разблокировка по лицу отключена из-за бездействия</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Проведите еще раз, чтобы разблокировать жесты</string>
-    <!-- Parallel space badge -->
     <!-- Sleep Mode -->
     <string name="notification_channel_sleep">Спящий режим</string>
     <string name="sleep_mode_notification_title">Спящий режим включен</string>
