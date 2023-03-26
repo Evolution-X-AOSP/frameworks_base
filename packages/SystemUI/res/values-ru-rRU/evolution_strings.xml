@@ -140,7 +140,6 @@
     <string name="status_bar_items_title">Значки в строке состояния</string>
     <string name="status_bar_call_strength">Уровень сигнала</string>
     <string name="status_bar_data_saver">Экономия трафика</string>
-    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Остановить принудительно?</string>
@@ -182,6 +181,10 @@
     <!-- Google Lens Screenshot string -->
     <string name="lensss">Объектив</string>
     <string name="lens_unavailable">Приложение Google Объектив не установлено</string>
+    <!-- Bluetooth dialog -->
+    <string name="turn_on_bluetooth">Использовать Bluetooth</string>
+    <string name="bluetooth_is_off">Bluetooth отключен</string>
+    <string name="tap_a_device_to_connect">Нажмите на устройство для подключения</string>
     <!-- On The Go -->
     <string name="onthego_notif_ticker">Режим \"На ходу\" включён</string>
     <string name="onthego_notif_title">Режим \"На ходу\" активен</string>
@@ -251,8 +254,4 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Язык</string>
     <string name="quick_settings_locale_more_locales_toast">Пожалуйста, настройте несколько языков, чтобы активировать функцию</string>
-    <!-- Bluetooth dialog -->
-    <string name="turn_on_bluetooth">Использовать Bluetooth</string>
-    <string name="bluetooth_is_off">Bluetooth отключен</string>
-    <string name="tap_a_device_to_connect">Нажмите на устройство для подключения</string>
 </resources>
