@@ -140,7 +140,6 @@
     <string name="status_bar_items_title">Iconos de la barra de estado</string>
     <string name="status_bar_call_strength">Intensidad de llamada</string>
     <string name="status_bar_data_saver">Ahorro de datos</string>
-    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">¿Forzar detención?</string>
@@ -182,6 +181,10 @@
     <!-- Google Lens Screenshot string -->
     <string name="lensss">Lente</string>
     <string name="lens_unavailable">Google Lens no está instalado</string>
+    <!-- Bluetooth dialog -->
+    <string name="turn_on_bluetooth">Usar Bluetooth</string>
+    <string name="bluetooth_is_off">El Bluetooth está apagado</string>
+    <string name="tap_a_device_to_connect">Toque un dispositivo para conectar</string>
     <!-- On The Go -->
     <string name="onthego_notif_ticker">Modo On-The-Go activado</string>
     <string name="onthego_notif_title">On-The-Go está activo</string>
@@ -251,8 +254,4 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Idioma</string>
     <string name="quick_settings_locale_more_locales_toast">Es necesario configurar múltiples idiomas para que este interruptor funcione</string>
-    <!-- Bluetooth dialog -->
-    <string name="turn_on_bluetooth">Usar Bluetooth</string>
-    <string name="bluetooth_is_off">El Bluetooth está apagado</string>
-    <string name="tap_a_device_to_connect">Toque un dispositivo para conectar</string>
 </resources>
