@@ -54,7 +54,6 @@
     <string name="face_unlock_disabled_idle">Hareketsizlik nedeniyle yüz kilidi devre dışı bırakıldı</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">Hareket kilidini açmak için tekrar kaydırın</string>
-    <!-- Parallel space badge -->
     <!-- Sleep Mode -->
     <string name="notification_channel_sleep">Uyku modu</string>
     <string name="sleep_mode_notification_title">Uyku modu etkin</string>
