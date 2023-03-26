@@ -140,7 +140,6 @@
     <string name="status_bar_items_title">Значки статус бару</string>
     <string name="status_bar_call_strength">Рівень сигналу</string>
     <string name="status_bar_data_saver">Заощадження трафіку</string>
-    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">Мережа VPN</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Примусово зупинити?</string>
@@ -182,6 +181,10 @@
     <!-- Google Lens Screenshot string -->
     <string name="lensss">Об\'єктив</string>
     <string name="lens_unavailable">Додаток Google Lens не встановлено</string>
+    <!-- Bluetooth dialog -->
+    <string name="turn_on_bluetooth">Використовувати Bluetooth</string>
+    <string name="bluetooth_is_off">Bluetooth вимкнено</string>
+    <string name="tap_a_device_to_connect">Торкніться пристрою для підключення</string>
     <!-- On The Go -->
     <string name="onthego_notif_ticker">Режим «На ходу» активовано</string>
     <string name="onthego_notif_title">Режим «На ходу» активний</string>
