@@ -141,7 +141,6 @@
     <string name="status_bar_items_title">状态栏图标</string>
     <string name="status_bar_call_strength">通话强度</string>
     <string name="status_bar_data_saver">流量节省程序</string>
-    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">强制停止？</string>
@@ -183,6 +182,10 @@
     <!-- Google Lens Screenshot string -->
     <string name="lensss">镜头</string>
     <string name="lens_unavailable">未安装 Google 智能镜头</string>
+    <!-- Bluetooth dialog -->
+    <string name="turn_on_bluetooth">使用蓝牙</string>
+    <string name="bluetooth_is_off">蓝牙已关闭</string>
+    <string name="tap_a_device_to_connect">点击设备连接</string>
     <!-- On The Go -->
     <string name="onthego_notif_ticker">行走模式已激活</string>
     <string name="onthego_notif_title">行走模式处于活动状态</string>
@@ -252,8 +255,4 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">语言</string>
     <string name="quick_settings_locale_more_locales_toast">请配置多种语言以启用切换功能</string>
-    <!-- Bluetooth dialog -->
-    <string name="turn_on_bluetooth">使用蓝牙</string>
-    <string name="bluetooth_is_off">蓝牙已关闭</string>
-    <string name="tap_a_device_to_connect">点击设备连接</string>
 </resources>
