@@ -54,7 +54,6 @@
     <string name="face_unlock_disabled_idle">Inaktivitás miatt az arcfeloldás letiltásra került</string>
     <!-- Lock gesture -->
     <string name="gesture_locked_warning">A vezérlők feloldásához csúsztasson újból</string>
-    <!-- Parallel space badge -->
     <!-- Sleep Mode -->
     <string name="notification_channel_sleep">Alvómód</string>
     <string name="sleep_mode_notification_title">Az Alvómód engedélyezve</string>
