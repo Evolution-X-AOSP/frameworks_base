@@ -141,7 +141,6 @@
     <string name="status_bar_items_title">Ikony paska stanu</string>
     <string name="status_bar_call_strength">Siła połączenia</string>
     <string name="status_bar_data_saver">Oszczędzanie danych</string>
-    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Wymusić zatrzymanie?</string>
@@ -183,6 +182,10 @@
     <!-- Google Lens Screenshot string -->
     <string name="lensss">Obiektyw</string>
     <string name="lens_unavailable">Nie zainstalowano aplikacji Obiektyw Google</string>
+    <!-- Bluetooth dialog -->
+    <string name="turn_on_bluetooth">Użyj Bluetooth</string>
+    <string name="bluetooth_is_off">Bluetooth jest wyłączony</string>
+    <string name="tap_a_device_to_connect">Dotknij urządzenia, aby się z nim połączyć</string>
     <!-- On The Go -->
     <string name="onthego_notif_ticker">Tryb \"W ruchu\" aktywowany</string>
     <string name="onthego_notif_title">Tryb \"W ruchu\" jest aktywny</string>
@@ -252,8 +255,4 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Język</string>
     <string name="quick_settings_locale_more_locales_toast">Proszę skonfigurować wiele języków, aby włączyć funkcję przełączenia</string>
-    <!-- Bluetooth dialog -->
-    <string name="turn_on_bluetooth">Użyj Bluetooth</string>
-    <string name="bluetooth_is_off">Bluetooth jest wyłączony</string>
-    <string name="tap_a_device_to_connect">Dotknij urządzenia, aby się z nim połączyć</string>
 </resources>
