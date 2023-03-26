@@ -141,7 +141,6 @@
     <string name="status_bar_items_title">Ikony stavového řádku</string>
     <string name="status_bar_call_strength">Síla signálu hovoru</string>
     <string name="status_bar_data_saver">Spořič dat</string>
-    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Vynutit ukončení?</string>
@@ -183,6 +182,10 @@
     <!-- Google Lens Screenshot string -->
     <string name="lensss">Lens</string>
     <string name="lens_unavailable">Aplikace Google Lens není nainstalována</string>
+    <!-- Bluetooth dialog -->
+    <string name="turn_on_bluetooth">Použít Bluetooth</string>
+    <string name="bluetooth_is_off">Bluetooth je vypnuto</string>
+    <string name="tap_a_device_to_connect">Klepnutím na zařízení se připojíte</string>
     <!-- On The Go -->
     <string name="onthego_notif_ticker">On-The-Go aktivováno</string>
     <string name="onthego_notif_title">On-The-Go je aktivní</string>
@@ -252,8 +255,4 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Jazyk</string>
     <string name="quick_settings_locale_more_locales_toast">Chcete-li povolit funkci přepínání, nastavte více jazyků</string>
-    <!-- Bluetooth dialog -->
-    <string name="turn_on_bluetooth">Použít Bluetooth</string>
-    <string name="bluetooth_is_off">Bluetooth je vypnuto</string>
-    <string name="tap_a_device_to_connect">Klepnutím na zařízení se připojíte</string>
 </resources>
