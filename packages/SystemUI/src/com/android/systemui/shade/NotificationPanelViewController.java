@@ -1317,7 +1317,8 @@ public final class NotificationPanelViewController implements Dumpable {
         } else {
             mQuickQsHeaderHeight = SystemBarUtils.getQuickQsOffsetHeight(mView.getContext());
         }
-        int topMargin = mUseLargeScreenShadeHeader ? mLargeScreenShadeHeaderHeight :
+        int topMargin = mUseLargeScreenShadeHeader ? mStatusBarMinHeight +
+                mResources.getDimensionPixelSize(R.dimen.qqs_margin_top) :
                 mResources.getDimensionPixelSize(R.dimen.notification_panel_margin_top);
         mLargeScreenShadeHeaderController.setLargeScreenActive(mUseLargeScreenShadeHeader);
         mAmbientState.setStackTopMargin(topMargin);

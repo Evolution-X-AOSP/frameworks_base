@@ -106,4 +106,7 @@
     <!-- Udfps fingerprint animation -->
     <dimen name="udfps_animation_size">280dp</dimen>
     <dimen name="udfps_animation_offset">0dp</dimen>
+
+     <!-- QQS & QS margin top -->
+    <dimen name="qqs_margin_top">16dp</dimen>
 </resources>
