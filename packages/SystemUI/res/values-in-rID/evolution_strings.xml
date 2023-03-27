@@ -241,9 +241,6 @@
     <string name="accessibility_quick_settings_location_gps_only">Pelaporan lokasi: Mode hanya sensor.</string>
     <string name="quick_settings_location_secondary_high_accuracy">Akurasi Tinggi</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Pelaporan lokasi: Mode akurasi tinggi.</string>
-    <!-- Smart Pixels QS Tile -->
-    <string name="quick_settings_smart_pixels">Piksel Cerdas</string>
-    <string name="quick_settings_smart_pixels_on_power_save">Aktifkan otomatis Piksel Cerdas</string>
     <!-- Data usage info in QS footer -->
     <string name="usage_data">digunakan hari ini</string>
     <string name="usage_data_default_suffix">Data</string>
