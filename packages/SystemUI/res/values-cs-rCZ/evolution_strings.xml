@@ -241,9 +241,6 @@
     <string name="accessibility_quick_settings_location_gps_only">Hlášení polohy: pouze GPS.</string>
     <string name="quick_settings_location_secondary_high_accuracy">Vysoká přesnost</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Hlášení polohy: vysoká přesnost.</string>
-    <!-- Smart Pixels QS Tile -->
-    <string name="quick_settings_smart_pixels">Smart Pixels</string>
-    <string name="quick_settings_smart_pixels_on_power_save">Automaticky povolit Smart Pixels</string>
     <!-- Data usage info in QS footer -->
     <string name="usage_data">využito dnes</string>
     <string name="usage_data_default_suffix">Data</string>
