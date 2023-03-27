@@ -241,9 +241,6 @@
     <string name="accessibility_quick_settings_location_gps_only">位置报告：仅传感器模式。</string>
     <string name="quick_settings_location_secondary_high_accuracy">高精准度</string>
     <string name="accessibility_quick_settings_location_high_accuracy">位置报告：高精准度模式。</string>
-    <!-- Smart Pixels QS Tile -->
-    <string name="quick_settings_smart_pixels">智能像素</string>
-    <string name="quick_settings_smart_pixels_on_power_save">自动启用智能像素</string>
     <!-- Data usage info in QS footer -->
     <string name="usage_data">今日使用</string>
     <string name="usage_data_default_suffix">数据</string>
