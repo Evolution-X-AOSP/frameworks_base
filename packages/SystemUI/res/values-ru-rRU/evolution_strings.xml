@@ -240,9 +240,6 @@
     <string name="accessibility_quick_settings_location_gps_only">Передача геоданных: только датчики.</string>
     <string name="quick_settings_location_secondary_high_accuracy">Высокая точность</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Передача геоданных: по всем источникам.</string>
-    <!-- Smart Pixels QS Tile -->
-    <string name="quick_settings_smart_pixels">Умные пиксели</string>
-    <string name="quick_settings_smart_pixels_on_power_save">Автовключение умных пикселей</string>
     <!-- Data usage info in QS footer -->
     <string name="usage_data">использовано сегодня</string>
     <string name="usage_data_default_suffix">Данные</string>
