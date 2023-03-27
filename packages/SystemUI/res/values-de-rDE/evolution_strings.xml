@@ -241,9 +241,6 @@
     <string name="accessibility_quick_settings_location_gps_only">Standortdienste: Nur Sensoren.</string>
     <string name="quick_settings_location_secondary_high_accuracy">Hohe Genauigkeit</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Standortbestimmung: Hohe Genauigkeit.</string>
-    <!-- Smart Pixels QS Tile -->
-    <string name="quick_settings_smart_pixels">Smart Pixels</string>
-    <string name="quick_settings_smart_pixels_on_power_save">Smart Pixels automatisch einschalten</string>
     <!-- Data usage info in QS footer -->
     <string name="usage_data">heute verwendet</string>
     <string name="usage_data_default_suffix">Daten</string>
