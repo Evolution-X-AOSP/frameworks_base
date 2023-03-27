@@ -48,14 +48,12 @@ public final class AttestationHooks {
 
     private static final Map<String, Object> sP7Props = new HashMap<>();
     static {
-        sP7Props.put("ID", "TQ2A.230305.008.C1");
         sP7Props.put("BRAND", "google");
         sP7Props.put("MANUFACTURER", "Google");
         sP7Props.put("DEVICE", "cheetah");
         sP7Props.put("PRODUCT", "cheetah");
         sP7Props.put("MODEL", "Pixel 7 Pro");
         sP7Props.put("FINGERPRINT", "google/cheetah/cheetah:13/TQ2A.230305.008.C1/9619669:user/release-keys");
-        sP7Props.put("SECURITY_PATCH", "2023-03-05");
     }
 
     private static volatile boolean sIsGms = false;
@@ -105,14 +103,15 @@ public final class AttestationHooks {
     }
 
     public static void initApplicationBeforeOnCreate(Application app) {
-        final String processName = Application.getProcessName();
-        if (PACKAGE_GMS.equals(app.getPackageName()) &&
-                processName.toLowerCase().contains("unstable")) {
-            sIsGms = true;
-            spoofBuildGms();
-        } else {
-            dlog("Spoofing Pixel 7 Pro for Google Play Services");
-            sP7Props.forEach((k, v) -> setPropValue(k, v));
+        if (PACKAGE_GMS.equals(app.getPackageName())) {
+            final String processName = Application.getProcessName();
+            if (processName.toLowerCase().contains("unstable")) {
+                sIsGms = true;
+                spoofBuildGms();
+            } else {
+                dlog("Spoofing Pixel 7 Pro for Google Play Services");
+                sP7Props.forEach((k, v) -> setPropValue(k, v));
+            }
         }
 
         if (PACKAGE_FINSKY.equals(app.getPackageName())) {
