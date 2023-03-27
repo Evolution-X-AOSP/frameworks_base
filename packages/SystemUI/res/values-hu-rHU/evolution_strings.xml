@@ -241,9 +241,6 @@
     <string name="accessibility_quick_settings_location_gps_only">Helymeghatározás: csak GPS használatával.</string>
     <string name="quick_settings_location_secondary_high_accuracy">Nagy pontosságú</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Helymeghatározás: Tökéletes pontossággal.</string>
-    <!-- Smart Pixels QS Tile -->
-    <string name="quick_settings_smart_pixels">Intelligens pixelek</string>
-    <string name="quick_settings_smart_pixels_on_power_save">Intelligens pixelek automatikus engedélyezése</string>
     <!-- Data usage info in QS footer -->
     <string name="usage_data">ma használva</string>
     <string name="usage_data_default_suffix">Adat</string>
