@@ -241,9 +241,6 @@
     <string name="accessibility_quick_settings_location_gps_only">Raportare locație: mod doar senzori.</string>
     <string name="quick_settings_location_secondary_high_accuracy">Precizie ridicată</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Raportarea locației: precizie ridicată.</string>
-    <!-- Smart Pixels QS Tile -->
-    <string name="quick_settings_smart_pixels">Pixeli inteligenți</string>
-    <string name="quick_settings_smart_pixels_on_power_save">Auto-activare pixeli inteligenți</string>
     <!-- Data usage info in QS footer -->
     <string name="usage_data">utilizat azi</string>
     <string name="usage_data_default_suffix">Date</string>
