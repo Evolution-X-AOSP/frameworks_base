@@ -252,4 +252,8 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Dil</string>
     <string name="quick_settings_locale_more_locales_toast">Geçiş işlevselliğinin etkin olması için lütfen birden fazla dil ekleyin</string>
+    <!-- App picker -->
+    <string name="app_picker_dialog_title">Bir uygulama seç</string>
+    <string name="active_edge_app_select_title">Uygulama seç</string>
+    <string name="active_edge_activity_select_title">Etkinlik seç</string>
 </resources>
