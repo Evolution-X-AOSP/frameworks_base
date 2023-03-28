@@ -252,4 +252,8 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Jazyk</string>
     <string name="quick_settings_locale_more_locales_toast">Chcete-li povolit funkci přepínání, nastavte více jazyků</string>
+    <!-- App picker -->
+    <string name="app_picker_dialog_title">Vybrat aplikaci</string>
+    <string name="active_edge_app_select_title">Vybrat aplikaci</string>
+    <string name="active_edge_activity_select_title">Vybrat aktivitu</string>
 </resources>
