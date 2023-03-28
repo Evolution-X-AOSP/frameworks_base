@@ -116,7 +116,6 @@ public class SystemSettings {
         Settings.System.CUSTOM_NOTIFICATION_VIBRATION_PATTERN,
         Settings.System.DEFAULT_NOTIFICATION_TORCH,
         Settings.System.HEADS_UP_NOTIFICATIONS_THRESHOLD,
-        Settings.System.QS_PANEL_STYLE,
 	Settings.System.QS_TILE_LABEL_HIDE,
         Settings.System.QS_TILE_VERTICAL_LAYOUT,
         Settings.System.QS_LAYOUT,
