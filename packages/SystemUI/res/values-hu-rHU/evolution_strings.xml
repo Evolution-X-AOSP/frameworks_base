@@ -252,4 +252,8 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Nyelv</string>
     <string name="quick_settings_locale_more_locales_toast">A kapcsolónak csak több nyelv esetén van értelme, állítson be többet</string>
+    <!-- App picker -->
+    <string name="app_picker_dialog_title">Válasszon egy alkalmazást</string>
+    <string name="active_edge_app_select_title">Válasszon alkalmazást</string>
+    <string name="active_edge_activity_select_title">Válasszon műveletet</string>
 </resources>
