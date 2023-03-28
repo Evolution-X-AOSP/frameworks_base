@@ -252,4 +252,8 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Bahasa</string>
     <string name="quick_settings_locale_more_locales_toast">Silakan konfigurasikan beberapa bahasa untuk mengaktifkan fungsi tombol</string>
+    <!-- App picker -->
+    <string name="app_picker_dialog_title">Pilih aplikasi</string>
+    <string name="active_edge_app_select_title">Pilih aplikasi</string>
+    <string name="active_edge_activity_select_title">Pilih aktivitas</string>
 </resources>
