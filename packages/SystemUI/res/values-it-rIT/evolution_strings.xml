@@ -252,4 +252,8 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Lingua</string>
     <string name="quick_settings_locale_more_locales_toast">Per favore configura più lingue per abilitare la funzionalità del toggle</string>
+    <!-- App picker -->
+    <string name="app_picker_dialog_title">Seleziona un\'app</string>
+    <string name="active_edge_app_select_title">Seleziona un\'applicazione</string>
+    <string name="active_edge_activity_select_title">Seleziona un\'attività</string>
 </resources>
