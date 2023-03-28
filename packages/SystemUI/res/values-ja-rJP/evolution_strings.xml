@@ -252,4 +252,8 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">言語</string>
     <string name="quick_settings_locale_more_locales_toast">切り替え機能を有効にするには複数の言語を設定して下さい</string>
+    <!-- App picker -->
+    <string name="app_picker_dialog_title">アプリを選択</string>
+    <string name="active_edge_app_select_title">アプリを選択</string>
+    <string name="active_edge_activity_select_title">アクティビティを選択</string>
 </resources>
