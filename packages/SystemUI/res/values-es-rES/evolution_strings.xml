@@ -251,4 +251,8 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Idioma</string>
     <string name="quick_settings_locale_more_locales_toast">Es necesario configurar múltiples idiomas para que este interruptor funcione</string>
+    <!-- App picker -->
+    <string name="app_picker_dialog_title">Seleccionar una aplicación</string>
+    <string name="active_edge_app_select_title">Seleccionar aplicación</string>
+    <string name="active_edge_activity_select_title">Seleccionar actividad</string>
 </resources>
