@@ -252,4 +252,8 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Sprache</string>
     <string name="quick_settings_locale_more_locales_toast">Bitte fügen Sie mehr als eine Sprache hinzu, um die Umschaltfunktion zu aktivieren</string>
+    <!-- App picker -->
+    <string name="app_picker_dialog_title">Eine Anwendung auswählen</string>
+    <string name="active_edge_app_select_title">Anwendung auswählen</string>
+    <string name="active_edge_activity_select_title">Aktivität auswählen</string>
 </resources>
