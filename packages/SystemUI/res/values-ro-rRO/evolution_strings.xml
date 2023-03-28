@@ -252,4 +252,8 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Limbă</string>
     <string name="quick_settings_locale_more_locales_toast">Configurați mai multe limbi pentru a activa funcția de comutare</string>
+    <!-- App picker -->
+    <string name="app_picker_dialog_title">Selectați o aplicație</string>
+    <string name="active_edge_app_select_title">Selectați aplicația</string>
+    <string name="active_edge_activity_select_title">Selectați activitatea</string>
 </resources>
