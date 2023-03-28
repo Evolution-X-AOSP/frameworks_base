@@ -251,4 +251,8 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Мова</string>
     <string name="quick_settings_locale_more_locales_toast">Будь ласка, налаштуйте кілька мов, щоб увімкнути функцію перемикання</string>
+    <!-- App picker -->
+    <string name="app_picker_dialog_title">Виберіть додаток</string>
+    <string name="active_edge_app_select_title">Оберіть додаток</string>
+    <string name="active_edge_activity_select_title">Виберіть дію</string>
 </resources>
