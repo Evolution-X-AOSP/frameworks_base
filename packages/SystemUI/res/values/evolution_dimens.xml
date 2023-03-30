@@ -113,4 +113,7 @@
 
     <!-- QS A11 Style -->
     <dimen name="custom_qs_panel_padding_top">0dp</dimen>
+
+    <!-- QS Header height full -->
+    <dimen name="qs_header_height_full">200dp</dimen>
 </resources>
