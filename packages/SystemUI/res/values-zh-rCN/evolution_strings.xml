@@ -175,7 +175,6 @@
     <string name="screenrecord_hevc_switch_label">启用 HEVC 编码</string>
     <string name="screenrecord_hevc_switch_summary">使用效率更高的 HEVC 视频编码</string>
     <!-- FPS view text placeholder -->
-    <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
     <!-- Kill foreground app -->
     <string name="task_helper_app_killed">%1$s 已停止运行</string>
     <string name="empty_app_killed">应用</string>
@@ -252,4 +251,11 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">语言</string>
     <string name="quick_settings_locale_more_locales_toast">请配置多种语言以启用切换功能</string>
+    <!-- App picker -->
+    <string name="app_picker_dialog_title">选择应用</string>
+    <string name="active_edge_app_select_title">选择应用</string>
+    <string name="active_edge_activity_select_title">选择活动</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">智能像素</string>
+    <string name="quick_settings_smart_pixels_on_power_save">自动启用智能像素</string>
 </resources>

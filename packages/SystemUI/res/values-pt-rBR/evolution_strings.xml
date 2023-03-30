@@ -175,7 +175,6 @@
     <string name="screenrecord_hevc_switch_label">Ativar HEVC</string>
     <string name="screenrecord_hevc_switch_summary">Usar codificação de vídeo HEVC</string>
     <!-- FPS view text placeholder -->
-    <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
     <!-- Kill foreground app -->
     <string name="task_helper_app_killed">%1$s encerrado</string>
     <string name="empty_app_killed">Aplicativo</string>
@@ -256,4 +255,7 @@
     <string name="app_picker_dialog_title">Selecione um app</string>
     <string name="active_edge_app_select_title">Selecionar aplicativo</string>
     <string name="active_edge_activity_select_title">Selecionar atividade</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Pixels Inteligentes</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Ativação automática dos Pixels Inteligentes</string>
 </resources>

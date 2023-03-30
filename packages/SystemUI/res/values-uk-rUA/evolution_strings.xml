@@ -174,7 +174,6 @@
     <string name="screenrecord_hevc_switch_label">Увімкнути HEVC</string>
     <string name="screenrecord_hevc_switch_summary">Використовувати більш ефективне HEVC-розширення для кодування відео</string>
     <!-- FPS view text placeholder -->
-    <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
     <!-- Kill foreground app -->
     <string name="task_helper_app_killed">%1$s примусово зупинити</string>
     <string name="empty_app_killed">Додатки</string>
@@ -251,4 +250,11 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Мова</string>
     <string name="quick_settings_locale_more_locales_toast">Будь ласка, налаштуйте кілька мов, щоб увімкнути функцію перемикання</string>
+    <!-- App picker -->
+    <string name="app_picker_dialog_title">Виберіть додаток</string>
+    <string name="active_edge_app_select_title">Оберіть додаток</string>
+    <string name="active_edge_activity_select_title">Виберіть дію</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Розумні пікселі</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Автоматичне увімкнення розумних пікселів</string>
 </resources>
