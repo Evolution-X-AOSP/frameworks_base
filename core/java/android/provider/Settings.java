@@ -6236,18 +6236,6 @@ public final class Settings {
         public static final String STATUS_BAR_CLOCK_AUTO_HIDE_SDURATION = "status_bar_clock_auto_hide_sduration";
 
         /**
-         * Whether to display QS clock
-         * @hide
-         */
-        public static final String SHOW_QS_CLOCK = "show_qs_clock";
-
-        /**
-         * Whether to display QS date
-         * @hide
-         */
-        public static final String SHOW_QS_DATE = "show_qs_date";
-
-        /**
          * Whether to take partial screenshot with volume down + power click.
          * @hide
          */
