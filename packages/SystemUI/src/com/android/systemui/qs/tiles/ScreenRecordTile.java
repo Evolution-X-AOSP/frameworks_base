@@ -43,6 +43,7 @@ import com.android.systemui.plugins.statusbar.StatusBarStateController;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.logging.QSLogger;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
+import com.android.systemui.screenrecord.ScreenRecordDialog;
 import com.android.systemui.screenrecord.RecordingController;
 import com.android.systemui.statusbar.phone.KeyguardDismissUtil;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
@@ -96,7 +97,6 @@ public class ScreenRecordTile extends QSTileImpl<QSTile.BooleanState>
     public BooleanState newTileState() {
         BooleanState state = new BooleanState();
         state.label = mContext.getString(R.string.quick_settings_screen_record_label);
-        state.handlesLongClick = false;
         return state;
     }
 
@@ -106,6 +106,23 @@ public class ScreenRecordTile extends QSTileImpl<QSTile.BooleanState>
             cancelCountdown();
         } else if (mController.isRecording()) {
             stopRecording();
+        } else {
+            mUiHandler.post(() -> showPrompt(view));
+        }
+        refreshState();
+    }
+
+    @Override
+    protected void handleLongClick(@Nullable View view) {
+        if (mController.isStarting()) {
+            cancelCountdown();
+        } else if (mController.isRecording()) {
+            stopRecording();
+        } else if (ScreenRecordDialog.wasShown(mContext)) {
+            mUiHandler.post(() -> {
+                getHost().collapsePanels();
+                ScreenRecordDialog.startByPrefs(mContext, mController);
+            });
         } else {
             mUiHandler.post(() -> showPrompt(view));
         }
