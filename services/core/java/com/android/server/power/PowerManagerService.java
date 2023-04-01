@@ -696,6 +696,9 @@ public final class PowerManagerService extends SystemService
     // True if always on display is enabled
     private boolean mAlwaysOnEnabled;
 
+    // True if always on charging is enabled
+    private boolean mAlwaysOnChargingEnabled;
+
     // True if double tap to wake is enabled
     private boolean mDoubleTapWakeEnabled;
 
@@ -1426,6 +1429,9 @@ public final class PowerManagerService extends SystemService
                 Settings.Secure.DOZE_ALWAYS_ON),
                 false, mSettingsObserver, UserHandle.USER_ALL);
         resolver.registerContentObserver(Settings.Secure.getUriFor(
+                Settings.Secure.DOZE_ON_CHARGE),
+                false, mSettingsObserver, UserHandle.USER_ALL);
+        resolver.registerContentObserver(Settings.Secure.getUriFor(
                 Settings.Secure.DOUBLE_TAP_TO_WAKE),
                 false, mSettingsObserver, UserHandle.USER_ALL);
         resolver.registerContentObserver(Settings.Global.getUriFor(
@@ -1599,9 +1605,9 @@ public final class PowerManagerService extends SystemService
                 Settings.Global.STAY_ON_WHILE_PLUGGED_IN, BatteryManager.BATTERY_PLUGGED_AC);
         mTheaterModeEnabled = Settings.Global.getInt(mContext.getContentResolver(),
                 Settings.Global.THEATER_MODE_ON, 0) == 1;
-        mAlwaysOnEnabled = mAmbientDisplayConfiguration.alwaysOnEnabledSetting(UserHandle.USER_CURRENT)
-            || (mAmbientDisplayConfiguration.alwaysOnChargingEnabledSetting(
-                    UserHandle.USER_CURRENT) && mIsPowered);
+        mAlwaysOnEnabled = mAmbientDisplayConfiguration.alwaysOnEnabledSetting(UserHandle.USER_CURRENT);
+        mAlwaysOnChargingEnabled = mAmbientDisplayConfiguration.alwaysOnChargingEnabledSetting(
+                    UserHandle.USER_CURRENT);
         mWakeUpWhenPluggedOrUnpluggedSetting = Settings.System.getIntForUser(resolver,
                 Settings.System.WAKE_WHEN_PLUGGED_OR_UNPLUGGED, 1,
                 UserHandle.USER_CURRENT);
@@ -2820,6 +2826,11 @@ public final class PowerManagerService extends SystemService
 
         // On Always On Display, SystemUI shows the charging indicator
         if (mAlwaysOnEnabled && getGlobalWakefulnessLocked() == WAKEFULNESS_DOZING) {
+            return false;
+        }
+
+        // On Always On Charging, SystemUI shows the charging indicator
+        if (mAlwaysOnChargingEnabled && mIsPowered && getGlobalWakefulnessLocked() == WAKEFULNESS_DOZING) {
             return false;
         }
 
