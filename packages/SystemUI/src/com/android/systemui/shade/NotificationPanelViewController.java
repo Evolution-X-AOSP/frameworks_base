@@ -3729,7 +3729,8 @@ public final class NotificationPanelViewController implements Dumpable {
         if (mQsExpandImmediate && !mQsFullyExpanded) {
             alpha = 0f;
         }
-        mNotificationStackScrollLayoutController.setAlpha(alpha);
+        float finalAlpha = alpha > 0.84f ? alpha : 0f;
+        mNotificationStackScrollLayoutController.setAlpha(finalAlpha);
         if (mBarState != StatusBarState.KEYGUARD && !isFullyCollapsed() && !isPanelVisibleBecauseOfHeadsUp()) {
             mCentralSurfaces.updateDismissAllVisibility(true);
         }
