@@ -17,6 +17,8 @@
 
 package com.android.systemui.keyguard.domain.quickaffordance
 
+import com.android.systemui.keyguard.data.quickaffordance.CameraQuickAffordanceConfig
+import com.android.systemui.keyguard.data.quickaffordance.FlashlightQuickAffordanceConfig
 import com.android.systemui.keyguard.data.quickaffordance.HomeControlsKeyguardQuickAffordanceConfig
 import com.android.systemui.keyguard.data.quickaffordance.KeyguardQuickAffordanceConfig
 import com.android.systemui.keyguard.data.quickaffordance.QrCodeScannerKeyguardQuickAffordanceConfig
@@ -33,6 +35,8 @@ interface KeyguardQuickAffordanceRegistry<T : KeyguardQuickAffordanceConfig> {
 class KeyguardQuickAffordanceRegistryImpl
 @Inject
 constructor(
+    camera: CameraQuickAffordanceConfig,
+    flashlight: FlashlightQuickAffordanceConfig,
     homeControls: HomeControlsKeyguardQuickAffordanceConfig,
     quickAccessWallet: QuickAccessWalletKeyguardQuickAffordanceConfig,
     qrCodeScanner: QrCodeScannerKeyguardQuickAffordanceConfig,
@@ -42,11 +46,13 @@ constructor(
             KeyguardQuickAffordancePosition.BOTTOM_START to
                 listOf(
                     homeControls,
+                    flashlight,
                 ),
             KeyguardQuickAffordancePosition.BOTTOM_END to
                 listOf(
                     quickAccessWallet,
                     qrCodeScanner,
+                    camera,
                 ),
         )
     private val configByKey =
