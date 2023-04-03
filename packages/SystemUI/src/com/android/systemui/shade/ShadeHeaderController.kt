@@ -276,6 +276,8 @@ constructor(
 
         privacyIconsController.onParentVisible()
 
+        clock.setQsHeader()
+
         clock.setOnClickListener {
             activityStarter.postStartActivityDismissingKeyguard(
                 Intent(AlarmClock.ACTION_SHOW_ALARMS), 0
