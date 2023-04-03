@@ -28,5 +28,6 @@
         <permission name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
         <permission name="android.permission.NETWORK_STACK"/>
         <permission name="android.permission.MAINLINE_NETWORK_STACK"/>
+        <permission name="android.permission.CAPTURE_AUDIO_OUTPUT"/>
     </privapp-permissions>
 </permissions>
