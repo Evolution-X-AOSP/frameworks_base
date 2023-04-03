@@ -182,6 +182,7 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
 
         mClockContainer = findViewById(R.id.clock_container);
         mClockView = findViewById(R.id.clock);
+        mClockView.setQsHeader();
         mClockView.setOnClickListener(this);
         mClockView.setOnLongClickListener(this);
         mDatePrivacySeparator = findViewById(R.id.space);
