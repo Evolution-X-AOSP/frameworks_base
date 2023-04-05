@@ -297,4 +297,8 @@
 
     <!-- Whether device supports in-display fingerprint when screen is off -->
     <java-symbol type="bool" name="config_supportsScreenOffUdfps" />
+
+    <!-- InputFilter Class-->
+    <java-symbol type="string" name="config_deviceInputFilterLibs" />
+    <java-symbol type="string" name="config_deviceInputFilterClasses" />
 </resources>
