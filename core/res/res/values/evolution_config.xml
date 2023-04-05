@@ -462,4 +462,8 @@
 
     <!-- Whether device supports in-display fingerprint when screen is off -->
     <bool name="config_supportsScreenOffUdfps">false</bool>
+
+    <!-- InputFilter Class-->
+    <string name="config_deviceInputFilterLibs" translatable="false"></string>
+    <string name="config_deviceInputFilterClasses" translatable="false"></string>
 </resources>
