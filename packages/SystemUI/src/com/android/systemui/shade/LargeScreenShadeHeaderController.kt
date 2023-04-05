@@ -23,7 +23,9 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Trace
 import android.os.Trace.TRACE_TAG_APP
+import android.os.UserHandle
 import android.provider.AlarmClock
+import android.provider.Settings
 import android.util.Pair
 import android.view.View
 import android.view.WindowInsets
@@ -62,6 +64,8 @@ import com.android.systemui.statusbar.policy.Clock
 import com.android.systemui.statusbar.policy.ConfigurationController
 import com.android.systemui.statusbar.policy.VariableDateView
 import com.android.systemui.statusbar.policy.VariableDateViewController
+import com.android.systemui.tuner.TunerService
+import com.android.systemui.tuner.TunerService.Tunable
 import com.android.systemui.util.ViewController
 import java.io.PrintWriter
 import javax.inject.Inject
@@ -88,6 +92,7 @@ class LargeScreenShadeHeaderController @Inject constructor(
     private val insetsProvider: StatusBarContentInsetsProvider,
     private val configurationController: ConfigurationController,
     private val variableDateViewControllerFactory: VariableDateViewController.Factory,
+    private val tunerService: TunerService,
     @Named(LARGE_SCREEN_BATTERY_CONTROLLER)
     private val batteryMeterViewController: BatteryMeterViewController,
     private val dumpManager: DumpManager,
@@ -113,6 +118,18 @@ class LargeScreenShadeHeaderController @Inject constructor(
         @VisibleForTesting
         internal val LARGE_SCREEN_HEADER_CONSTRAINT = R.id.large_screen_header_constraint
 
+        internal val QS_BATTERY_STYLE =
+            "system:" + Settings.System.QS_BATTERY_STYLE
+
+        internal val STATUS_BAR_BATTERY_STYLE =
+            "system:" + Settings.System.STATUS_BAR_BATTERY_STYLE
+
+        internal val QS_SHOW_BATTERY_ESTIMATE =
+            "system:" + Settings.System.QS_SHOW_BATTERY_ESTIMATE
+
+        internal val QS_SHOW_BATTERY_PERCENT =
+            "system:" + Settings.System.QS_SHOW_BATTERY_PERCENT
+
         private fun Int.stateToString() = when (this) {
             QQS_HEADER_CONSTRAINT -> "QQS Header"
             QS_HEADER_CONSTRAINT -> "QS Header"
@@ -120,6 +137,15 @@ class LargeScreenShadeHeaderController @Inject constructor(
             else -> "Unknown state"
         }
     }
+
+    private var qsbatterystyle = Settings.System.getIntForUser(
+             context.contentResolver, Settings.System.QS_BATTERY_STYLE, -1, UserHandle.USER_CURRENT)
+    private var batterystyle = Settings.System.getIntForUser(
+             context.contentResolver, Settings.System.STATUS_BAR_BATTERY_STYLE, 0, UserHandle.USER_CURRENT)
+    private var showestimates = Settings.System.getIntForUser(
+             context.contentResolver, Settings.System.QS_SHOW_BATTERY_ESTIMATE, 1, UserHandle.USER_CURRENT)
+    private var batterypercent = Settings.System.getIntForUser(
+             context.contentResolver, Settings.System.QS_SHOW_BATTERY_PERCENT, 1, UserHandle.USER_CURRENT)
 
     private val combinedHeaders = featureFlags.isEnabled(Flags.COMBINED_QS_HEADERS)
 
@@ -265,7 +291,34 @@ class LargeScreenShadeHeaderController @Inject constructor(
         }
     }
 
+    fun updateBatteryStyle() {
+        if (qsbatterystyle >= 0) batteryIcon.setBatteryStyle(qsbatterystyle)
+            else batteryIcon.setBatteryStyle(batterystyle)
+        batteryIcon.setBatteryEstimate(showestimates)
+        batteryIcon.setBatteryPercent(batterypercent)
+    }
+
     override fun onInit() {
+
+        val tunable = Tunable { key: String?, value: String? ->
+            when (key) {
+                QS_BATTERY_STYLE ->
+                    qsbatterystyle = TunerService.parseInteger(value, -1)
+                STATUS_BAR_BATTERY_STYLE ->
+                    batterystyle = TunerService.parseInteger(value, 0)
+                QS_SHOW_BATTERY_PERCENT ->
+                    batterypercent = TunerService.parseInteger(value, 1)
+                QS_SHOW_BATTERY_ESTIMATE ->
+                    showestimates = TunerService.parseInteger(value, 1)
+            }
+        }
+
+        tunerService.addTunable(tunable,
+                QS_BATTERY_STYLE,
+                STATUS_BAR_BATTERY_STYLE,
+                QS_SHOW_BATTERY_PERCENT,
+                QS_SHOW_BATTERY_ESTIMATE)
+
         if (header is MotionLayout) {
             variableDateViewControllerFactory.create(date as VariableDateView).init()
         }
@@ -423,6 +476,7 @@ class LargeScreenShadeHeaderController @Inject constructor(
      * be visible any time the QQS/QS shade is open.
      */
     private fun updateVisibility() {
+        updateBatteryStyle()
         val visibility = if (!largeScreenActive && !combinedHeaders || qsDisabled) {
             View.GONE
         } else if (qsVisible && header.alpha > 0f) {
