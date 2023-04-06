@@ -257,4 +257,5 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Умные пиксели</string>
     <string name="quick_settings_smart_pixels_on_power_save">Автовключение умных пикселей</string>
+    <!-- Text to use when the number in a notification info is too large -->
 </resources>
