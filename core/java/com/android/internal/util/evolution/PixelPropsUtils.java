@@ -38,15 +38,12 @@ import java.util.Map;
 
 public class PixelPropsUtils {
 
-    private static final String PACKAGE_ARCORE = "com.google.ar.core";
     private static final String PACKAGE_GMS = "com.google.android.gms";
     private static final String PACKAGE_GPHOTOS = "com.google.android.apps.photos";
     private static final String PACKAGE_PS = "com.android.vending";
     private static final String PACKAGE_SI = "com.google.android.settings.intelligence";
     private static final String PACKAGE_SUBSCRIPTION_RED = "com.google.android.apps.subscriptions.red";
-    private static final String PACKAGE_TURBO = "com.google.android.apps.turbo";
-    private static final String SAMSUNG = "com.samsung.android.";
-    private static final String SAMSUNGACCESSORY = "com.samsung.accessory.";
+    private static final String SAMSUNG = "com.samsung.";
     private static final String SPOOF_MUSIC_APPS = "persist.sys.disguise_props_for_music_app";
 
     private static final String TAG = PixelPropsUtils.class.getSimpleName();
@@ -69,14 +66,9 @@ public class PixelPropsUtils {
 
     // Packages to Spoof as Pixel 7 Pro
     private static final String[] packagesToChangePixel7Pro = {
-            PACKAGE_TURBO,
-            "com.google.android.apps.nbu.files",
-            "com.google.android.apps.podcasts",
             "com.google.android.apps.privacy.wildlife",
             "com.google.android.apps.wallpaper",
             "com.google.android.apps.wallpaper.pixel",
-            "com.google.android.contacts",
-            "com.google.android.deskclock"
     };
 
     // Packages to Spoof as Pixel 7 Pro
@@ -88,7 +80,6 @@ public class PixelPropsUtils {
             "com.microsoft.android.smsorganizer",
             "com.nhs.online.nhsonline",
             "com.nothing.smartcenter",
-            "com.snapchat.android",
             "in.startv.hotstar"
     };
 
@@ -127,6 +118,8 @@ public class PixelPropsUtils {
 
     // Packages to Spoof as ROG Phone 3
     private static final String[] packagesToChangeROG3 = {
+            "com.ea.gp.fifamobile",
+            "com.gameloft.android.ANMP.GloftA9HM",
             "com.pearlabyss.blackdesertm",
             "com.pearlabyss.blackdesertm.gl"
     };
@@ -141,6 +134,7 @@ public class PixelPropsUtils {
 
     // Packages to Spoof as OnePlus 8 Pro
     private static final String[] packagesToChangeOP8P = {
+            "com.mobile.legends",
             "com.netease.lztgglobal",
             "com.pubg.imobile",
             "com.pubg.krmobile",
@@ -163,7 +157,6 @@ public class PixelPropsUtils {
     private static final String[] packagesToChange11T = {
             "com.ea.gp.apexlegendsmobilefps",
             "com.levelinfinite.hotta.gp",
-            "com.mobile.legends",
             "com.supercell.clashofclans",
             "com.tencent.tmgp.sgame",
             "com.vng.mlbbvn"
@@ -221,14 +214,14 @@ public class PixelPropsUtils {
         propsToChangePixel7Pro.put("DEVICE", "cheetah");
         propsToChangePixel7Pro.put("PRODUCT", "cheetah");
         propsToChangePixel7Pro.put("MODEL", "Pixel 7 Pro");
-        propsToChangePixel7Pro.put("FINGERPRINT", "google/cheetah/cheetah:13/TQ2A.230305.008.C1/9619669:user/release-keys");
+        propsToChangePixel7Pro.put("FINGERPRINT", "google/cheetah/cheetah:13/TQ2A.230505.002/9891397:user/release-keys");
         propsToChangePixel5 = new HashMap<>();
         propsToChangePixel5.put("BRAND", "google");
         propsToChangePixel5.put("MANUFACTURER", "Google");
         propsToChangePixel5.put("DEVICE", "redfin");
         propsToChangePixel5.put("PRODUCT", "redfin");
         propsToChangePixel5.put("MODEL", "Pixel 5");
-        propsToChangePixel5.put("FINGERPRINT", "google/redfin/redfin:13/TQ2A.230305.008.C1/9619669:user/release-keys");
+        propsToChangePixel5.put("FINGERPRINT", "google/redfin/redfin:13/TQ2A.230505.002/9891397:user/release-keys");
         propsToChangeROG1 = new HashMap<>();
         propsToChangeROG1.put("MODEL", "ASUS_Z01QD");
         propsToChangeROG1.put("MANUFACTURER", "asus");
@@ -259,53 +252,50 @@ public class PixelPropsUtils {
         propsToChangeMeizu.put("MODEL", "meizu 16th Plus");
     }
 
-    private static boolean isGoogleCameraPackage(String packageName){
-        return packageName.startsWith("com.google.android.GoogleCamera") ||
-            Arrays.asList(customGoogleCameraPackages).contains(packageName);
-    }
+    public static void setProps(Context context) {
+        final String packageName = context.getPackageName();
+        final String processName = Application.getProcessName();
 
-    public static void setProps(String packageName) {
         propsToChangeGeneric.forEach((k, v) -> setPropValue(k, v));
 
         if (packageName == null || packageName.isEmpty()) {
             return;
         }
-        if (Arrays.asList(packagesToKeep).contains(packageName)) {
-            return;
-        }
-        if (isGoogleCameraPackage(packageName)) {
-            return;
-        }
         if (packageName.startsWith("com.google.")
                 || packageName.startsWith(SAMSUNG)
-                || packageName.startsWith(SAMSUNGACCESSORY)
+                || Arrays.asList(customGoogleCameraPackages).contains(packageName)
                 || Arrays.asList(extraPackagesToChange).contains(packageName)) {
 
+            if (Arrays.asList(packagesToKeep).contains(packageName)
+                    || Arrays.asList(customGoogleCameraPackages).contains(packageName)
+                    || packageName.startsWith("com.google.android.GoogleCamera")) {
+                return;
+            }
+
             Map<String, Object> propsToChange = new HashMap<>();
+
             boolean isPixelDevice = Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE));
 
-            if (!isPixelDevice) {
-                if ((Arrays.asList(packagesToChangePixel7Pro).contains(packageName))) {
-                    propsToChange.putAll(propsToChangePixel7Pro);
-                } else if (Arrays.asList(packagesToChangeUserdebug).contains(packageName)) {
-                    propsToChange.putAll(propsToChangeUserdebug);
-                } else {
-                    propsToChange.putAll(propsToChangePixel5);
-                }
+            if ((Arrays.asList(packagesToChangePixel7Pro).contains(packageName))
+                    || Arrays.asList(extraPackagesToChange).contains(packageName)) {
+                propsToChange.putAll(propsToChangePixel7Pro);
+            } else if (Arrays.asList(packagesToChangeUserdebug).contains(packageName)) {
+                propsToChange.putAll(propsToChangeUserdebug);
+            } else {
+                if (isPixelDevice) return;
+                propsToChange.putAll(propsToChangePixel5);
             }
 
             dlog("Defining props for: " + packageName);
-            if (!isPixelDevice) {
-                for (Map.Entry<String, Object> prop : propsToChange.entrySet()) {
-                    String key = prop.getKey();
-                    Object value = prop.getValue();
-                    if (propsToKeep.containsKey(packageName) && propsToKeep.get(packageName).contains(key)) {
-                        dlog("Not defining " + key + " prop for: " + packageName);
-                        continue;
-                    }
-                    dlog("Defining " + key + " prop for: " + packageName);
-                    setPropValue(key, value);
+            for (Map.Entry<String, Object> prop : propsToChange.entrySet()) {
+                String key = prop.getKey();
+                Object value = prop.getValue();
+                if (propsToKeep.containsKey(packageName) && propsToKeep.get(packageName).contains(key)) {
+                    dlog("Not defining " + key + " prop for: " + packageName);
+                    continue;
                 }
+                dlog("Defining " + key + " prop for: " + packageName);
+                setPropValue(key, value);
             }
             // Set proper indexing fingerprint
             if (packageName.equals(PACKAGE_SI)) {
@@ -381,7 +371,7 @@ public class PixelPropsUtils {
 
     private static void setPropValue(String key, Object value) {
         try {
-            dlog("Setting prop " + key + " to " + value.toString());
+            dlog("Defining prop " + key + " to " + value.toString());
             Field field = Build.class.getDeclaredField(key);
             field.setAccessible(true);
             field.set(null, value);

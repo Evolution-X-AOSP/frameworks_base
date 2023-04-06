@@ -17,6 +17,7 @@
 package com.android.internal.util.evolution;
 
 import android.app.Application;
+import android.content.Context;
 import android.os.Build;
 import android.os.Build.VERSION;
 import android.os.SystemProperties;
@@ -32,9 +33,18 @@ public final class AttestationHooks {
     private static final String TAG = "Attestation";
     private static final boolean DEBUG = false;
 
+    // Use certified properties for GMS to pass SafetyNet / Play Integrity
     private static final String PACKAGE_GMS = "com.google.android.gms";
     private static final String PACKAGE_FINSKY = "com.android.vending";
+
+    // Use certified properties for Google Photos to enable unlimited Photos storage feature
     private static final String PACKAGE_GPHOTOS = "com.google.android.apps.photos";
+
+    // Use certified properties for Snapchat to prevent send/receive delays
+    private static final String PACKAGE_SNAPCHAT = "com.snapchat.android";
+
+    // Use certified properties for Netflix to enable HDR support
+    private static final String PACKAGE_NETFLIX = "com.netflix.mediaclient";
 
     private static final Map<String, Object> sP1Props = new HashMap<>();
     static {
@@ -53,7 +63,7 @@ public final class AttestationHooks {
         sP7Props.put("DEVICE", "cheetah");
         sP7Props.put("PRODUCT", "cheetah");
         sP7Props.put("MODEL", "Pixel 7 Pro");
-        sP7Props.put("FINGERPRINT", "google/cheetah/cheetah:13/TQ2A.230305.008.C1/9619669:user/release-keys");
+        sP7Props.put("FINGERPRINT", "google/cheetah/cheetah:13/TQ2A.230505.002/9891397:user/release-keys");
     }
 
     private static volatile boolean sIsGms = false;
@@ -102,30 +112,46 @@ public final class AttestationHooks {
         setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.N_MR1);
     }
 
-    public static void initApplicationBeforeOnCreate(Application app) {
-        if (PACKAGE_GMS.equals(app.getPackageName())) {
-            final String processName = Application.getProcessName();
+    public static void initApplicationBeforeOnCreate(Context context) {
+        final String packageName = context.getPackageName();
+        final String processName = Application.getProcessName();
+        if (packageName.equals(PACKAGE_GMS)) {
             if (processName.toLowerCase().contains("unstable")) {
                 sIsGms = true;
                 spoofBuildGms();
             } else {
-                dlog("Spoofing Pixel 7 Pro for Google Play Services");
+                dlog("Spoofing Pixel 7 Pro for: " + packageName);
                 sP7Props.forEach((k, v) -> setPropValue(k, v));
             }
         }
 
-        if (PACKAGE_FINSKY.equals(app.getPackageName())) {
+        if (packageName.equals(PACKAGE_FINSKY)) {
             sIsFinsky = true;
         }
 
-        if (PACKAGE_GPHOTOS.equals(app.getPackageName())) {
+        if (packageName.equals(PACKAGE_GPHOTOS)) {
             if (!SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", false)) {
                 dlog("Photos spoofing disabled by system prop");
                 return;
             } else {
-                dlog("Spoofing Pixel XL for Google Photos");
+                dlog("Spoofing Pixel XL for: " + packageName);
                 sP1Props.forEach((k, v) -> setPropValue(k, v));
             }
+        }
+
+        if (packageName.equals(PACKAGE_NETFLIX)) {
+            if (!SystemProperties.getBoolean("persist.sys.pixelprops.netflix", false)) {
+                dlog("Netflix spoofing disabled by system prop");
+                return;
+            } else {
+                dlog("Spoofing Pixel 7 Pro for: " + packageName);
+                sP7Props.forEach((k, v) -> setPropValue(k, v));
+            }
+        }
+
+        if (packageName.equals(PACKAGE_SNAPCHAT)) {
+            dlog("Spoofing build for: " + packageName);
+            spoofBuildGms();
         }
     }
 
