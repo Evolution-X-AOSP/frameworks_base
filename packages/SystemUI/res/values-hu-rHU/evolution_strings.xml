@@ -258,4 +258,5 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Intelligens pixelek</string>
     <string name="quick_settings_smart_pixels_on_power_save">Intelligens pixelek automatikus engedélyezése</string>
+    <!-- Text to use when the number in a notification info is too large -->
 </resources>
