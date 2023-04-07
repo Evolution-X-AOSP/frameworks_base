@@ -791,9 +791,6 @@ public class ContrastColorUtil {
          */
         public static double calculateContrast(@ColorInt int foreground, @ColorInt int background) {
             if (Color.alpha(background) != 255) {
-                Log.w(TAG, String.format(
-                        "Background should not be translucent: #%s",
-                        Integer.toHexString(background)));
                 background = setAlphaComponent(background, 255);
             }
             if (Color.alpha(foreground) < 255) {
