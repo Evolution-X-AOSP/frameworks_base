@@ -141,6 +141,7 @@ import com.android.server.power.batterysaver.BatterySavingStats;
 
 import dalvik.annotation.optimization.NeverCompile;
 
+import java.io.File;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -852,9 +853,9 @@ public final class PowerManagerService extends SystemService
     }
 
     // Smart charging
+    private boolean mSmartChargingAvailable;
     private boolean mSmartChargingEnabled;
     private boolean mSmartChargingResetStats;
-    private boolean mPowerInputSuspended = false;
     private int mSmartChargingLevel;
     private int mSmartChargingResumeLevel;
     private int mSmartChargingLevelDefaultConfig;
@@ -1564,6 +1565,8 @@ public final class PowerManagerService extends SystemService
                     .newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "ProximityWakeLock");
         }
         // Smart charging
+        mSmartChargingAvailable = resources.getBoolean(
+                com.android.internal.R.bool.config_smartChargingAvailable);
         mSmartChargingLevelDefaultConfig = resources.getInteger(
                 com.android.internal.R.integer.config_smartChargingBatteryLevel);
         mSmartChargingResumeLevelDefaultConfig = resources.getInteger(
@@ -2753,18 +2756,26 @@ public final class PowerManagerService extends SystemService
     }
 
     private void updateSmartChargingStatus() {
-        if (mPowerInputSuspended && (mBatteryLevel <= mSmartChargingResumeLevel) ||
-            (mPowerInputSuspended && !mSmartChargingEnabled)) {
+        if (!mSmartChargingAvailable) return;
+
+        String readValue = "";
+        try {
+            readValue= FileUtils.readTextFile(new File(mPowerInputSuspendSysfsNode), 100, "");
+        } catch (IOException e) {
+            Slog.e(TAG, "failed to write to " + mPowerInputSuspendSysfsNode);
+        }
+
+        boolean powerInputSuspended = readValue.contains(mPowerInputSuspendValue)? true: false;
+
+        if (powerInputSuspended && ((mSmartChargingResumeLevel < mSmartChargingLevel &&
+            mBatteryLevel <= mSmartChargingResumeLevel) || !mSmartChargingEnabled)) {
             try {
                 FileUtils.stringToFile(mPowerInputSuspendSysfsNode, mPowerInputResumeValue);
-                mPowerInputSuspended = false;
             } catch (IOException e) {
                 Slog.e(TAG, "failed to write to " + mPowerInputSuspendSysfsNode);
             }
-            return;
         }
-
-        if (mSmartChargingEnabled && !mPowerInputSuspended && (mBatteryLevel >= mSmartChargingLevel)) {
+        else if (mSmartChargingEnabled && !powerInputSuspended && (mBatteryLevel >= mSmartChargingLevel)) {
             Slog.i(TAG, "Smart charging reset stats: " + mSmartChargingResetStats);
             if (mSmartChargingResetStats) {
                 try {
@@ -2776,7 +2787,6 @@ public final class PowerManagerService extends SystemService
 
             try {
                 FileUtils.stringToFile(mPowerInputSuspendSysfsNode, mPowerInputSuspendValue);
-                mPowerInputSuspended = true;
             } catch (IOException e) {
                     Slog.e(TAG, "failed to write to " + mPowerInputSuspendSysfsNode);
             }
