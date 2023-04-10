@@ -18,17 +18,12 @@ package com.android.systemui.qs;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.internal.jank.InteractionJankMonitor;
-
 import com.android.systemui.R;
-import com.android.systemui.animation.ActivityLaunchAnimator;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.FalsingManager;
 import com.android.systemui.qs.dagger.QSScope;
@@ -45,8 +40,7 @@ public class QSFooterViewController extends ViewController<QSFooterView> impleme
 
     private final UserTracker mUserTracker;
     private final QSPanelController mQsPanelController;
-
-    private final TextView mUsageText;
+    private final TextView mBuildText;
     private final PageIndicator mPageIndicator;
     private final View mEditButton;
     private final FalsingManager mFalsingManager;
@@ -64,29 +58,33 @@ public class QSFooterViewController extends ViewController<QSFooterView> impleme
         mFalsingManager = falsingManager;
         mActivityStarter = activityStarter;
 
-        mUsageText = mView.findViewById(R.id.build);
+        mBuildText = mView.findViewById(R.id.build);
         mPageIndicator = mView.findViewById(R.id.footer_page_indicator);
         mEditButton = mView.findViewById(android.R.id.edit);
     }
 
     @Override
     protected void onViewAttached() {
+        mBuildText.setOnLongClickListener(view -> {
+            CharSequence buildText = mBuildText.getText();
+            if (!TextUtils.isEmpty(buildText)) {
+                ClipboardManager service =
+                        mUserTracker.getUserContext().getSystemService(ClipboardManager.class);
+                String label = getResources().getString(R.string.build_number_clip_data_label);
+                service.setPrimaryClip(ClipData.newPlainText(label, buildText));
+                Toast.makeText(getContext(), R.string.build_number_copy_toast, Toast.LENGTH_SHORT)
+                        .show();
+                return true;
+            }
+            return false;
+        });
+
         mEditButton.setOnClickListener(view -> {
             if (mFalsingManager.isFalseTap(FalsingManager.LOW_PENALTY)) {
                 return;
             }
             mActivityStarter
                     .postQSRunnableDismissingKeyguard(() -> mQsPanelController.showEdit(view));
-        });
-        mUsageText.setOnClickListener(view -> {
-            ActivityLaunchAnimator.Controller animationController =
-                mUsageText != null ? ActivityLaunchAnimator.Controller.fromView(
-                        mUsageText,
-                        InteractionJankMonitor.CUJ_SHADE_APP_LAUNCH_FROM_SETTINGS_BUTTON) : null;
-            Intent intent = new Intent();
-            intent.setClassName("com.android.settings",
-                    "com.android.settings.Settings$DataUsageSummaryActivity");
-            mActivityStarter.startActivity(intent, true /* dismissShade */, animationController);
         });
         mQsPanelController.setFooterPageIndicator(mPageIndicator);
         mView.updateEverything();
