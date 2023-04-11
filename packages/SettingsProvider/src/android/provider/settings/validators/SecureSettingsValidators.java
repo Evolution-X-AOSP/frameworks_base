@@ -437,5 +437,7 @@ public class SecureSettingsValidators {
         VALIDATORS.put(Secure.IGNORE_AUTH_CONFIRMATION, BOOLEAN_VALIDATOR);
         VALIDATORS.put(Secure.EXTRA_DIM_AUTO_MODE, new DiscreteValueValidator(new String[] {"0", "1", "2", "3", "4"}));
         VALIDATORS.put(Secure.EXTRA_DIM_AUTO_TIME, TIME_RANGE_VALIDATOR);
+        VALIDATORS.put(Secure.DOZE_DOUBLE_TAP_GESTURE_AMBIENT, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(Secure.DOZE_PICK_UP_GESTURE_AMBIENT, BOOLEAN_VALIDATOR);
     }
 }
