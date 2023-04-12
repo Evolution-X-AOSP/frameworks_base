@@ -25,9 +25,6 @@
 namespace android {
 namespace uirenderer {
 
-// Friend TestUtils serves as a proxy for any test cases that require access to private members.
-class TestUtils;
-
 /**
  * AutoBackendTextureRelease manages EglImage/VkImage lifetime. It is a ref-counted object
  * that keeps GPU resources alive until the last SkImage object using them is destroyed.
@@ -69,9 +66,6 @@ private:
 
     // mImage is the SkImage created from mBackendTexture.
     sk_sp<SkImage> mImage;
-
-    // Friend TestUtils serves as a proxy for any test cases that require access to private members.
-    friend class TestUtils;
 };
 
 } /* namespace uirenderer */

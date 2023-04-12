@@ -16,7 +16,6 @@
 
 #pragma once
 
-#include <AutoBackendTextureRelease.h>
 #include <DisplayList.h>
 #include <Matrix.h>
 #include <Properties.h>
@@ -283,11 +282,6 @@ public:
 
     static SkRect getClipBounds(const SkCanvas* canvas);
     static SkRect getLocalClipBounds(const SkCanvas* canvas);
-
-    static int getUsageCount(const AutoBackendTextureRelease* textureRelease) {
-        EXPECT_NE(nullptr, textureRelease);
-        return textureRelease->mUsageCount;
-    }
 
     struct CallCounts {
         int sync = 0;
