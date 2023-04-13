@@ -6533,18 +6533,6 @@ public final class Settings {
                 "statusbar_battery_bar_blend_color_reverse";
 
         /**
-         * Whether to enable or disable vibration on succesful fingerprint auth
-         * @hide
-         */
-        public static final String FP_SUCCESS_VIBRATE = "fp_success_vibrate";
-
-        /**
-         * Whether to enable or disable vibration on failed fingerprint auth
-         * @hide
-         */
-        public static final String FP_ERROR_VIBRATE = "fp_error_vibrate";
-
-        /**
          * Whether to show floating rotation button
          * @hide
          */
