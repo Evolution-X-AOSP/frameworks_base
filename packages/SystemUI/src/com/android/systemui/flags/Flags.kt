@@ -305,7 +305,7 @@ object Flags {
     val ENABLE_NEW_QS_EDIT_MODE = unreleasedFlag(510, "enable_new_qs_edit_mode", teamfood = false)
 
     // 600- status bar
-    val COMBINED_STATUS_BAR_SIGNAL_ICONS = unreleasedFlag(601, "combined_status_bar_signal_icons")
+    val COMBINED_STATUS_BAR_SIGNAL_ICONS = sysPropBooleanFlag(601, "persist.sys.flags.combined_signal_icons", default = false)
 
     // TODO(b/256614753): Tracking Bug
     val NEW_STATUS_BAR_MOBILE_ICONS =

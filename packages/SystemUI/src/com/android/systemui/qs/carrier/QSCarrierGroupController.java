@@ -26,6 +26,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.os.SystemProperties;
 import android.provider.Settings;
 import android.telephony.SubscriptionManager;
 import android.text.TextUtils;
@@ -222,11 +223,7 @@ public class QSCarrierGroupController {
             CarrierConfigTracker carrierConfigTracker, FeatureFlags featureFlags,
             SlotIndexResolver slotIndexResolver) {
 
-        if (featureFlags.isEnabled(Flags.COMBINED_STATUS_BAR_SIGNAL_ICONS)) {
-            mProviderModel = true;
-        } else {
-            mProviderModel = false;
-        }
+        mProviderModel = SystemProperties.getBoolean("persist.sys.flags.combined_signal_icons", false);
         mActivityStarter = activityStarter;
         mBgHandler = bgHandler;
         mNetworkController = networkController;
