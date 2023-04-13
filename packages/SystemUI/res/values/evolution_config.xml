@@ -57,9 +57,6 @@
     <bool name="config_disableStatusBarBurnInProtection">false</bool>
     <integer name="config_shift_interval">60</integer>
 
-    <!-- Whether to enable lock screen quick affordances -->
-    <bool name="flag_enable_customizable_lock_screen_quick_affordances">true</bool>
-
     <!-- Whether usage of the proximity sensor during doze is supported -->
     <bool name="doze_proximity_sensor_supported">true</bool>
 

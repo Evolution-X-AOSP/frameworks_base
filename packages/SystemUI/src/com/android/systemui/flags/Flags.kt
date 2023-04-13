@@ -165,7 +165,7 @@ object Flags {
     // TODO(b/255618149): Tracking Bug
     @JvmField
     val CUSTOMIZABLE_LOCK_SCREEN_QUICK_AFFORDANCES =
-        resourceBooleanFlag(216, R.bool.flag_enable_customizable_lock_screen_quick_affordances, "customizable_lock_screen_quick_affordances")
+        unreleasedFlag(216, "customizable_lock_screen_quick_affordances", teamfood = false)
 
     /** Shows chipbar UI whenever the device is unlocked by ActiveUnlock (watch). */
     // TODO(b/256513609): Tracking Bug
