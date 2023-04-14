@@ -41,6 +41,7 @@ public class PixelPropsUtils {
     private static final String PACKAGE_ARCORE = "com.google.ar.core";
     private static final String PACKAGE_GMS = "com.google.android.gms";
     private static final String PACKAGE_GPHOTOS = "com.google.android.apps.photos";
+    private static final String PACKAGE_NETFLIX = "com.netflix.mediaclient";
     private static final String PACKAGE_PS = "com.android.vending";
     private static final String PACKAGE_SI = "com.google.android.settings.intelligence";
     private static final String PACKAGE_SUBSCRIPTION_RED = "com.google.android.apps.subscriptions.red";
@@ -81,6 +82,7 @@ public class PixelPropsUtils {
 
     // Packages to Spoof as Pixel 7 Pro
     private static final String[] extraPackagesToChange = {
+            PACKAGE_NETFLIX,
             "com.amazon.avod.thirdpartyclient",
             "com.android.chrome",
             "com.breel.wallpapers20",
@@ -283,7 +285,11 @@ public class PixelPropsUtils {
             Map<String, Object> propsToChange = new HashMap<>();
             boolean isPixelDevice = Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE));
 
-            if (!isPixelDevice) {
+            if (packageName.equals(PACKAGE_NETFLIX) &&
+                    !SystemProperties.getBoolean("persist.sys.pixelprops.netflix", false)) {
+                dlog("Netflix spoofing disabled by system prop");
+                return;
+            } else if (!isPixelDevice) {
                 if ((Arrays.asList(packagesToChangePixel7Pro).contains(packageName))) {
                     propsToChange.putAll(propsToChangePixel7Pro);
                 } else if (Arrays.asList(packagesToChangeUserdebug).contains(packageName)) {
