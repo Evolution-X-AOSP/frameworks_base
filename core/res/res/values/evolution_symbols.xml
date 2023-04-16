@@ -301,4 +301,8 @@
     <!-- InputFilter Class-->
     <java-symbol type="string" name="config_deviceInputFilterLibs" />
     <java-symbol type="string" name="config_deviceInputFilterClasses" />
+
+    <!-- PowerOffAlarmService -->
+    <java-symbol type="string" name="poweroff_alarm_cancelled"></java-symbol>
+    <java-symbol type="string" name="poweroff_alarm_set"></java-symbol>
 </resources>

@@ -24,12 +24,18 @@ import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.UserHandle;
 import android.util.Slog;
+import android.widget.Toast;
 
+import com.android.internal.R;
 import com.android.server.SystemService;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * A service that makes use of qcom's power off alarm feature
@@ -51,6 +57,8 @@ public class PowerOffAlarmService extends SystemService {
 
     private final Context mContext;
     private final AlarmManager mAlarmManager;
+    private final Handler mHandler;
+    private final Toast mToast;
     private SharedPreferences mSharedPreferences;
     private boolean mIsAvailable = false;
 
@@ -58,6 +66,9 @@ public class PowerOffAlarmService extends SystemService {
         super(context);
         mContext = context;
         mAlarmManager = (AlarmManager) mContext.getSystemService(Context.ALARM_SERVICE);
+        mHandler = new Handler(Looper.getMainLooper());
+        mToast = new Toast(context);
+        mToast.setDuration(Toast.LENGTH_SHORT);
     }
 
     @Override
@@ -101,15 +112,19 @@ public class PowerOffAlarmService extends SystemService {
         @Override
         public void onReceive(Context context, Intent intent) {
             Slog.v(TAG, "mAlarmChangedReceiver onReceive");
-            updateAlarms(mAlarmManager);
+            updateAlarms(mAlarmManager, true);
         }
     };
 
     private synchronized void updateAlarms(AlarmManager alarmManager) {
+        updateAlarms(alarmManager, false);
+    }
+
+    private synchronized void updateAlarms(AlarmManager alarmManager, boolean user) {
         final AlarmManager.AlarmClockInfo alarmInfo = alarmManager.getNextAlarmClock();
         cancelPowerOffAlarm();
-        if (alarmInfo == null) return;
-        setPowerOffAlarm(alarmInfo);
+        if (alarmInfo != null) setPowerOffAlarm(alarmInfo);
+        if (user) showToast(alarmInfo);
     }
 
     private synchronized void cancelPowerOffAlarm() {
@@ -124,6 +139,17 @@ public class PowerOffAlarmService extends SystemService {
         Slog.i(TAG, "Set next power off alarm. Time: " + time);
         mContext.sendBroadcastAsUser(getIntent(ACTION_SET, time), UserHandle.SYSTEM);
         mSharedPreferences.edit().putLong(PREF_NEXT_ALARM, time).commit();
+    }
+
+    private synchronized void showToast(AlarmManager.AlarmClockInfo info) {
+        final String text = info == null
+                ? mContext.getString(R.string.poweroff_alarm_cancelled)
+                : mContext.getString(R.string.poweroff_alarm_set);
+        mToast.cancel(); // don't spam
+        mToast.setText(text);
+        mHandler.postDelayed(() -> {
+            mToast.show();
+        }, 1000); // give the app 1s to show info
     }
 
     private static Intent getIntent(String action, long time) {

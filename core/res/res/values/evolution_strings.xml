@@ -72,4 +72,8 @@
     <string name="sleep_mode_notification_content">Tap to turn off sleep mode</string>
     <string name="sleep_mode_enabled_toast">Sleep mode turned on</string>
     <string name="sleep_mode_disabled_toast">Sleep mode turned off</string>
+
+    <!-- PowerOffAlarmService -->
+    <string name="poweroff_alarm_cancelled">Power off alarm cancelled</string>
+    <string name="poweroff_alarm_set">Power off alarm set</string>
 </resources>
