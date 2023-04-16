@@ -293,7 +293,7 @@ object Flags {
     // 804 - monochromatic themes
     @JvmField
     val MONOCHROMATIC_THEMES =
-        sysPropBooleanFlag(804, "persist.sysui.monochromatic", default = false)
+        unreleasedFlag(804, "persist.sysui.monochromatic")
 
     // 900 - media
     // TODO(b/254512697): Tracking Bug
