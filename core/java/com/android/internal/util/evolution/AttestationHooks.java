@@ -29,22 +29,11 @@ import java.util.Map;
 
 /** @hide */
 public final class AttestationHooks {
-    private static final String TAG = "Attestation";
+    private static final String TAG = "AttestationHooks";
     private static final boolean DEBUG = false;
 
     private static final String PACKAGE_GMS = "com.google.android.gms";
     private static final String PACKAGE_FINSKY = "com.android.vending";
-    private static final String PACKAGE_GPHOTOS = "com.google.android.apps.photos";
-
-    private static final Map<String, Object> sP1Props = new HashMap<>();
-    static {
-        sP1Props.put("BRAND", "google");
-        sP1Props.put("MANUFACTURER", "Google");
-        sP1Props.put("DEVICE", "marlin");
-        sP1Props.put("PRODUCT", "marlin");
-        sP1Props.put("MODEL", "Pixel XL");
-        sP1Props.put("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys");
-    }
 
     private static final Map<String, Object> sP7Props = new HashMap<>();
     static {
@@ -116,16 +105,6 @@ public final class AttestationHooks {
 
         if (PACKAGE_FINSKY.equals(app.getPackageName())) {
             sIsFinsky = true;
-        }
-
-        if (PACKAGE_GPHOTOS.equals(app.getPackageName())) {
-            if (!SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", false)) {
-                dlog("Photos spoofing disabled by system prop");
-                return;
-            } else {
-                dlog("Spoofing Pixel XL for Google Photos");
-                sP1Props.forEach((k, v) -> setPropValue(k, v));
-            }
         }
     }
 
