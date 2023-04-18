@@ -544,16 +544,17 @@ public final class SearchableInfo implements Parcelable {
             return null;
         }
         // for each component, try to find metadata
-        XmlResourceParser xml = 
-                activityInfo.loadXmlMetaData(userContext.getPackageManager(), MD_LABEL_SEARCHABLE);
-        if (xml == null) {
-            return null;
+        SearchableInfo searchable;
+        try (XmlResourceParser xml = activityInfo.loadXmlMetaData(userContext.getPackageManager(),
+                MD_LABEL_SEARCHABLE)) {
+            if (xml == null) {
+                return null;
+            }
+            ComponentName cName = new ComponentName(activityInfo.packageName, activityInfo.name);
+
+            searchable = getActivityMetaData(userContext, xml, cName);
         }
-        ComponentName cName = new ComponentName(activityInfo.packageName, activityInfo.name);
-        
-        SearchableInfo searchable = getActivityMetaData(userContext, xml, cName);
-        xml.close();
-        
+
         if (DBG) {
             if (searchable != null) {
                 Log.d(LOG_TAG, "Checked " + activityInfo.name
