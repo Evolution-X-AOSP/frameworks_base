@@ -301,7 +301,7 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
     // Volume panel placement left or right
     private boolean mVolumePanelOnLeft;
 
-    private final boolean mNotifAliasRing;
+    private final boolean mVoiceCapable;
 
     private final boolean mUseBackgroundBlur;
     private Consumer<Boolean> mCrossWindowBlurEnabledListener;
@@ -359,8 +359,8 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
         mUseBackgroundBlur =
             mContext.getResources().getBoolean(R.bool.config_volumeDialogUseBackgroundBlur);
         mInteractionJankMonitor = interactionJankMonitor;
-        mNotifAliasRing = mContext.getResources().getBoolean(
-                com.android.internal.R.bool.config_alias_ring_notif_stream_types);
+        mVoiceCapable = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_voice_capable);
 
         dumpManager.registerDumpable("VolumeDialogImpl", this);
 
@@ -380,7 +380,6 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
             mTunerService.addTunable(mTunable, VOLUME_PANEL_ON_LEFT);
         }
         mTunerService.addTunable(mTunable, VOLUME_DIALOG_TIMEOUT);
-
         initDimens();
     }
 
@@ -714,14 +713,12 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
             addRow(AudioManager.STREAM_MUSIC,
                     R.drawable.ic_volume_media, R.drawable.ic_volume_media_mute, true, true);
             if (!AudioSystem.isSingleVolume(mContext)) {
-                if (!mNotifAliasRing) {
-                    addRow(AudioManager.STREAM_RING, R.drawable.ic_volume_ringer_unlinked,
-                            R.drawable.ic_volume_ringer_mute_unlinked, true, false);
-                    addRow(AudioManager.STREAM_NOTIFICATION, R.drawable.ic_volume_ringer,
-                            R.drawable.ic_volume_ringer_mute, true, false);
-                } else {
+                if (mVoiceCapable) {
                     addRow(AudioManager.STREAM_RING, R.drawable.ic_volume_ringer,
                             R.drawable.ic_volume_ringer_mute, true, false);
+                } else {
+                    addRow(AudioManager.STREAM_RING, R.drawable.ic_volume_notification,
+                            R.drawable.ic_volume_notification_mute, true, false);
                 }
                 addRow(STREAM_ALARM,
                         R.drawable.ic_alarm, R.drawable.ic_volume_alarm_mute, true, false);
@@ -892,7 +889,6 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
         writer.print("  mDynamic: "); writer.println(mDynamic);
         writer.print("  mAutomute: "); writer.println(mAutomute);
         writer.print("  mSilentMode: "); writer.println(mSilentMode);
-        writer.print("  mNotifAliasRing: "); writer.println(mNotifAliasRing);
     }
 
     private static int getImpliedLevel(SeekBar seekBar, int progress) {
@@ -1771,7 +1767,7 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
     private boolean isExpandableRowH(VolumeRow row) {
         return row != null && row != mDefaultRow && !row.defaultStream
                 && (row.stream == STREAM_RING
-                        || row.stream == STREAM_NOTIFICATION
+                        || (row.stream == STREAM_NOTIFICATION && !mState.linkedNotification)
                         || row.stream == STREAM_ALARM
                         || row.stream == STREAM_MUSIC);
     }
@@ -2099,11 +2095,15 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
             final VolumeRow row = mRows.get(i);
             if (row.ss == null || !row.ss.dynamic) continue;
             if (!mDynamic.get(row.stream)) {
-                mRows.remove(i);
-                mDialogRowsView.removeView(row.view);
+                removeRow(row);
                 mConfigurableTexts.remove(row.header);
             }
         }
+    }
+
+    private void removeRow(VolumeRow volumeRow) {
+        mRows.remove(volumeRow);
+        mDialogRowsView.removeView(volumeRow.view);
     }
 
     protected void onStateChangedH(State state) {
@@ -2128,6 +2128,10 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
             }
         }
 
+        if (mVoiceCapable) {
+            updateNotificationRowH();
+        }
+
         if (mActiveStream != state.activeStream) {
             mPrevActiveStream = mActiveStream;
             mActiveStream = state.activeStream;
@@ -2144,6 +2148,16 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
 
     CharSequence composeWindowTitle() {
         return mContext.getString(R.string.volume_dialog_title, getStreamLabelH(getActiveRow().ss));
+    }
+
+    private void updateNotificationRowH() {
+        VolumeRow notificationRow = findRow(AudioManager.STREAM_NOTIFICATION);
+        if (notificationRow != null && mState.linkedNotification) {
+            removeRow(notificationRow);
+        } else if (notificationRow == null && !mState.linkedNotification) {
+            addRow(AudioManager.STREAM_NOTIFICATION, R.drawable.ic_volume_notification,
+                    R.drawable.ic_volume_notification_mute, true, false);
+        }
     }
 
     private void updateVolumeRowH(VolumeRow row) {
