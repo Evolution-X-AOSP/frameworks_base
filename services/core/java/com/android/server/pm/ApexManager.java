@@ -1476,7 +1476,7 @@ public abstract class ApexManager {
 
         @Override
         public boolean destroyDeSnapshots(int rollbackId) {
-            throw new UnsupportedOperationException();
+            return true;
         }
 
         @Override
