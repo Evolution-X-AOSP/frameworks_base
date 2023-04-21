@@ -309,8 +309,6 @@ public class PixelPropsUtils {
                 }
             } else if (packageName.equals("com.snapchat.android")) {
                 propsToChange.putAll(propsToChangePixel2);
-            } else if (isPixelDevice) {
-                return;
             } else {
                 if ((Arrays.asList(packagesToChangePixel7Pro).contains(packageName))
                         || Arrays.asList(extraPackagesToChangePixel7Pro).contains(packageName)) {
@@ -318,6 +316,7 @@ public class PixelPropsUtils {
                 } else if (Arrays.asList(packagesToChangeUserdebug).contains(packageName)) {
                     propsToChange.putAll(propsToChangeUserdebug);
                 } else {
+                    if (isPixelDevice) return;
                     propsToChange.putAll(propsToChangePixel5);
                 }
             }
