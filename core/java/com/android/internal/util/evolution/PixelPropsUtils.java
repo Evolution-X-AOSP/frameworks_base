@@ -49,7 +49,6 @@ public class PixelPropsUtils {
     private static final Map<String, Object> propsToChangeUserdebug;
     private static final Map<String, Object> propsToChangePixel7Pro;
     private static final Map<String, Object> propsToChangePixel5;
-    private static final Map<String, Object> propsToChangePixel2;
     private static final Map<String, Object> propsToChangePixelXL;
     private static final Map<String, Object> propsToChangeROG1;
     private static final Map<String, Object> propsToChangeROG3;
@@ -69,19 +68,21 @@ public class PixelPropsUtils {
     };
 
     // Packages to Spoof as Pixel 7 Pro
-    private static final String[] extraPackagesToChangePixel7Pro = {
+    private static final String[] extraPackagesToChange = {
             "com.amazon.avod.thirdpartyclient",
             "com.android.chrome",
             "com.breel.wallpapers20",
             "com.disney.disneyplus",
             "com.microsoft.android.smsorganizer",
+            "com.netflix.mediaclient",
             "com.nhs.online.nhsonline",
             "com.nothing.smartcenter",
             "in.startv.hotstar"
     };
 
-    private static final String[] extraPackagesToChange = {
-            "com.netflix.mediaclient",
+    // Packages to Spoof as Pixel XL
+    private static final String[] packagesToChangePixelXL = {
+            "com.google.android.apps.photos",
             "com.snapchat.android"
     };
 
@@ -223,13 +224,6 @@ public class PixelPropsUtils {
         propsToChangePixel5.put("PRODUCT", "redfin");
         propsToChangePixel5.put("MODEL", "Pixel 5");
         propsToChangePixel5.put("FINGERPRINT", "google/redfin/redfin:13/TQ2A.230405.003/9719927:user/release-keys");
-        propsToChangePixel2 = new HashMap<>();
-        propsToChangePixel2.put("BRAND", "google");
-        propsToChangePixel2.put("MANUFACTURER", "Google");
-        propsToChangePixel2.put("DEVICE", "walleye");
-        propsToChangePixel2.put("PRODUCT", "walleye");
-        propsToChangePixel2.put("MODEL", "Pixel 2");
-        propsToChangePixel2.put("FINGERPRINT", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
         propsToChangePixelXL = new HashMap<>();
         propsToChangePixelXL.put("BRAND", "google");
         propsToChangePixelXL.put("MANUFACTURER", "Google");
@@ -277,9 +271,9 @@ public class PixelPropsUtils {
             return;
         }
         if (packageName.startsWith("com.google.")
+                || packageName.equals("com.snapchat.android")
                 || packageName.startsWith(SAMSUNG)
                 || Arrays.asList(customGoogleCameraPackages).contains(packageName)
-                || Arrays.asList(extraPackagesToChangePixel7Pro).contains(packageName)
                 || Arrays.asList(extraPackagesToChange).contains(packageName)) {
 
             if (Arrays.asList(packagesToKeep).contains(packageName)
@@ -296,25 +290,19 @@ public class PixelPropsUtils {
                 if (!SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", false)) {
                     if (isPixelDevice) return;
                     propsToChange.putAll(propsToChangePixel5);
-                } else {
-                    dlog("Spoofing Pixel XL for Google Photos");
-                    propsToChange.putAll(propsToChangePixelXL);
                 }
             } else if (packageName.equals("com.netflix.mediaclient")) {
                 if (!SystemProperties.getBoolean("persist.sys.pixelprops.netflix", false)) {
                     if (isPixelDevice) return;
                     dlog("Netflix spoofing disabled by system prop");
                     return;
-                } else {
-                    dlog("Spoofing Pixel 7 Pro for Netflix");
-                    propsToChange.putAll(propsToChangePixel7Pro);
                 }
-            } else if (packageName.equals("com.snapchat.android")) {
-                propsToChange.putAll(propsToChangePixel2);
             } else {
                 if ((Arrays.asList(packagesToChangePixel7Pro).contains(packageName))
-                        || Arrays.asList(extraPackagesToChangePixel7Pro).contains(packageName)) {
+                        || Arrays.asList(extraPackagesToChange).contains(packageName)) {
                     propsToChange.putAll(propsToChangePixel7Pro);
+                } else if (Arrays.asList(packagesToChangePixelXL).contains(packageName)) {
+                    propsToChange.putAll(propsToChangePixelXL);
                 } else if (Arrays.asList(packagesToChangeUserdebug).contains(packageName)) {
                     propsToChange.putAll(propsToChangeUserdebug);
                 } else {
