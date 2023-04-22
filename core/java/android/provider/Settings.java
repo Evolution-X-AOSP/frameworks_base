@@ -7699,6 +7699,11 @@ public final class Settings {
         }
 
         /**
+         * @hide
+         */
+        public static final String QS_TILE_UI_STYLE = "qs_tile_ui_style";
+
+        /**
          * These are all hidden system settings.
          *
          * @hide

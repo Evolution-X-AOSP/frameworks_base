@@ -17,6 +17,8 @@
 package com.android.systemui.qs.customize
 
 import android.content.Context
+import android.os.UserHandle
+import android.provider.Settings
 import android.text.TextUtils
 import com.android.systemui.plugins.qs.QSTile
 import com.android.systemui.qs.tileimpl.QSTileViewImpl
@@ -36,6 +38,9 @@ class CustomizeTileView(context: Context) : QSTileViewImpl(context, collapsed = 
             if (!showSideView) sideView.visibility = GONE
         }
 
+    private fun isA11Style(): Boolean = Settings.System.getIntForUser(context.contentResolver, 
+    Settings.System.QS_TILE_UI_STYLE, 0,  UserHandle.USER_CURRENT) != 0
+
     override fun handleStateChanged(state: QSTile.State) {
         super.handleStateChanged(state)
         showRippleEffect = false
@@ -47,7 +52,7 @@ class CustomizeTileView(context: Context) : QSTileViewImpl(context, collapsed = 
         return if (showAppLabel && !TextUtils.isEmpty(text)) {
             VISIBLE
         } else {
-            GONE
+            if (isA11Style()) INVISIBLE else GONE
         }
     }
 
