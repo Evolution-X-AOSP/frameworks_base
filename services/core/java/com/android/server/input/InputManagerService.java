@@ -505,6 +505,7 @@ public class InputManagerService extends IInputManager.Stub
         Watchdog.getInstance().addMonitor(this);
 
         registerPointerSpeedSettingObserver();
+        registerPreventPointerAccelerationSettingObserver();
         registerShowTouchesSettingObserver();
         registerAccessibilityLargePointerSettingObserver();
         registerLongPressTimeoutObserver();
@@ -515,6 +516,7 @@ public class InputManagerService extends IInputManager.Stub
             @Override
             public void onReceive(Context context, Intent intent) {
                 updatePointerSpeedFromSettings();
+                updatePreventPointerAccelerationFromSettings();
                 updateShowTouchesFromSettings();
                 updateAccessibilityLargePointerFromSettings();
                 updateDeepPressStatusFromSettings("user switched");
@@ -522,6 +524,7 @@ public class InputManagerService extends IInputManager.Stub
         }, new IntentFilter(Intent.ACTION_USER_SWITCHED), null, mHandler);
 
         updatePointerSpeedFromSettings();
+        updatePreventPointerAccelerationFromSettings();
         updateShowTouchesFromSettings();
         updateAccessibilityLargePointerFromSettings();
         updateDeepPressStatusFromSettings("just booted");
@@ -1855,6 +1858,16 @@ public class InputManagerService extends IInputManager.Stub
         mNative.setPointerSpeed(speed);
     }
 
+    private void updatePreventPointerAccelerationFromSettings() {
+        int preventPointerAcceleration = getPreventPointerAccelerationSetting();
+        setPreventPointerAccelerationUnchecked(preventPointerAcceleration);
+    }
+
+    private void setPreventPointerAccelerationUnchecked(int preventPointerAcceleration) {
+        preventPointerAcceleration = Math.min(Math.max(preventPointerAcceleration, 1), 3);
+        mNative.setPreventPointerAcceleration(preventPointerAcceleration);
+    }
+
     private void setPointerAcceleration(float acceleration, int displayId) {
         updateAdditionalDisplayInputProperties(displayId,
                 properties -> properties.pointerAcceleration = acceleration);
@@ -1884,6 +1897,27 @@ public class InputManagerService extends IInputManager.Stub
         } catch (SettingNotFoundException ignored) {
         }
         return speed;
+    }
+
+    private void registerPreventPointerAccelerationSettingObserver() {
+        mContext.getContentResolver().registerContentObserver(
+                Settings.System.getUriFor(Settings.System.PREVENT_POINTER_ACCELERATION), true,
+                new ContentObserver(mHandler) {
+                    @Override
+                    public void onChange(boolean selfChange) {
+                        updatePreventPointerAccelerationFromSettings();
+                    }
+                }, UserHandle.USER_ALL);
+    }
+
+    private int getPreventPointerAccelerationSetting() {
+        int preventPointerAcceleration = 0;
+        try {
+            preventPointerAcceleration = Settings.System.getIntForUser(mContext.getContentResolver(),
+                    Settings.System.PREVENT_POINTER_ACCELERATION, UserHandle.USER_CURRENT);
+        } catch (SettingNotFoundException ignored) {
+        }
+        return preventPointerAcceleration;
     }
 
     private void updateShowTouchesFromSettings() {
