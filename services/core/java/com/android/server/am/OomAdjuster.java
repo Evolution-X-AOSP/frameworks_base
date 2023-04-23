@@ -352,20 +352,16 @@ public class OomAdjuster {
         mTmpQueue = new ArrayDeque<ProcessRecord>(mConstants.CUR_MAX_CACHED_PROCESSES << 1);
         mNumSlots = ((ProcessList.CACHED_APP_MAX_ADJ - ProcessList.CACHED_APP_MIN_ADJ + 1) >> 1)
                 / ProcessList.CACHED_APP_IMPORTANCE_LEVELS;
-
-        // Enable Proactive Kills on devices with modern kernel mm setup
-        conditionallyEnableProactiveKills();
     }
 
-    void conditionallyEnableProactiveKills() {
+    private boolean conditionallyEnableProactiveKills() {
         File mglru = new File("/sys/kernel/mm/lru_gen/enabled");
         File psi = new File("/proc/pressure/memory");
         File lmk_kernel = new File("/sys/module/lowmemorykiller/parameters/minfree");
 
-        if (!lmk_kernel.exists() && mglru.exists() && psi.exists()) {
-            Slog.i(TAG, "Detected kernel with modern mm setup, enabling Proactive Kills.");
-            mProactiveKillsEnabled = true;
-        }
+	boolean isModernKernel = !lmk_kernel.exists() && mglru.exists() && psi.exists();
+	Slog.i(TAG, "Detected kernel with " + (isModernKernel ? "modern" : "legacy") + " mm setup,  " + (isModernKernel ? "enabling" : "disabling") + " Proactive Kills.");
+        return isModernKernel;
     }
 
     void initSettings() {
@@ -1093,21 +1089,14 @@ public class OomAdjuster {
         return CachedAppOptimizer.getFreeSwapPercent();
     }
 
-    private boolean mProactiveKillsEnabled = mConstants.PROACTIVE_KILLS_ENABLED;
-
     @GuardedBy({"mService", "mProcLock"})
     private boolean updateAndTrimProcessLSP(final long now, final long nowElapsed,
             final long oldTime, final ActiveUids activeUids, String oomAdjReason) {
         ArrayList<ProcessRecord> lruList = mProcessList.getLruProcessesLOSP();
         final int numLru = lruList.size();
 
-        final boolean doKillExcessiveProcesses = shouldKillExcessiveProcesses(now);
-        if (!doKillExcessiveProcesses) {
-            if (mNextNoKillDebugMessageTime < now) {
-                Slog.d(TAG, "Not killing cached processes"); // STOPSHIP Remove it b/222365734
-                mNextNoKillDebugMessageTime = now + 5000; // Every 5 seconds
-            }
-        }
+	final boolean mProactiveKillsEnabled = conditionallyEnableProactiveKills();
+        final boolean doKillExcessiveProcesses = true;
         final int emptyProcessLimit = doKillExcessiveProcesses
                 ? mConstants.CUR_MAX_EMPTY_PROCESSES : Integer.MAX_VALUE;
         final int cachedProcessLimit = doKillExcessiveProcesses
@@ -1121,8 +1110,6 @@ public class OomAdjuster {
         ProcessRecord selectedAppRecord = null;
         long serviceLastActivity = 0;
         int numBServices = 0;
-
-
 
         double lowSwapThresholdPercent = mConstants.LOW_SWAP_THRESHOLD_PERCENT;
         double freeSwapPercent = mProactiveKillsEnabled ? getFreeSwapPercent() : 1.00;
