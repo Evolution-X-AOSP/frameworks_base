@@ -6654,6 +6654,11 @@ public final class Settings {
         public static final String FP_ERROR_VIBRATE = "fp_error_vibrate";
 
         /**
+         * @hide
+         */
+        public static final String TRANSISTENT_TASK_MODE = "transistent_task_mode";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -6807,6 +6812,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED);
             PRIVATE_SETTINGS.add(BACK_GESTURE_HAPTIC);
             PRIVATE_SETTINGS.add(MAX_VISIBLE_NOTIFICATION_ICONS);
+            PRIVATE_SETTINGS.add(TRANSISTENT_TASK_MODE);
         }
 
         /**
@@ -6821,6 +6827,7 @@ public final class Settings {
             CLONE_TO_MANAGED_PROFILE.add(SOUND_EFFECTS_ENABLED);
             CLONE_TO_MANAGED_PROFILE.add(TEXT_SHOW_PASSWORD);
             CLONE_TO_MANAGED_PROFILE.add(TIME_12_24);
+            CLONE_TO_MANAGED_PROFILE.add(TRANSISTENT_TASK_MODE);
         }
 
         /** @hide */
