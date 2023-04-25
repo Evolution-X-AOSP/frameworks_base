@@ -27,7 +27,7 @@ class DelayableMarqueeTextView @JvmOverloads constructor(
     defStyleRes: Int = 0
 ) : SafeMarqueeTextView(context, attrs, defStyleAttr, defStyleRes) {
 
-    var marqueeDelay: Long = DEFAULT_MARQUEE_DELAY
+    val marqueeDelay: Long = DEFAULT_MARQUEE_DELAY
     private var wantsMarquee = false
     private var marqueeBlocked = true
 
@@ -36,20 +36,6 @@ class DelayableMarqueeTextView @JvmOverloads constructor(
             marqueeBlocked = false
             startMarquee()
         }
-    }
-
-    init {
-        val typedArray = context.theme.obtainStyledAttributes(
-                attrs,
-                R.styleable.DelayableMarqueeTextView,
-                defStyleAttr,
-                defStyleRes
-        )
-        marqueeDelay = typedArray.getInteger(
-                R.styleable.DelayableMarqueeTextView_marqueeDelay,
-                DEFAULT_MARQUEE_DELAY.toInt()
-        ).toLong()
-        typedArray.recycle()
     }
 
     override fun startMarquee() {
