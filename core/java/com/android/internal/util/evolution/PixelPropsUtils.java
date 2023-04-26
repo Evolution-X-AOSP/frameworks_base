@@ -99,7 +99,6 @@ public class PixelPropsUtils {
     private static final String[] packagesToKeep = {
             "com.android.vending",
             "com.google.android.apps.recorder",
-            "com.google.android.apps.restore",
             "com.google.android.apps.subscriptions.red",
             "com.google.android.apps.tachyon",
             "com.google.android.apps.tycho",

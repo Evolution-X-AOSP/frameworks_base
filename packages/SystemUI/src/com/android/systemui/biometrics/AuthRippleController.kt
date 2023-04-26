@@ -193,13 +193,15 @@ class AuthRippleController @Inject constructor(
     }
 
     override fun onKeyguardFadingAwayChanged() {
-        if (featureFlags.isEnabled(Flags.LIGHT_REVEAL_MIGRATION)) {
-            return
-        } else if (!isRippleEnabled) {
+        if (!isRippleEnabled) {
             // reset and hide the scrim so it doesn't appears on
             // the next notification shade usage
             centralSurfaces.lightRevealScrim?.revealAmount = 1f
             startLightRevealScrimOnKeyguardFadingAway = false
+            return
+        }
+
+        if (featureFlags.isEnabled(Flags.LIGHT_REVEAL_MIGRATION)) {
             return
         }
 

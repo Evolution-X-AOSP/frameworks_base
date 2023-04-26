@@ -35,7 +35,6 @@ public final class AttestationHooks {
 
     private static final String PACKAGE_GMS = "com.google.android.gms";
     private static final String PACKAGE_FINSKY = "com.android.vending";
-    private static final String PACKAGE_RESTORE = "com.google.android.apps.restore";
 
     private static final Map<String, Object> sP7Props = new HashMap<>();
     static {
@@ -96,12 +95,8 @@ public final class AttestationHooks {
     public static void initApplicationBeforeOnCreate(Context context) {
         final String packageName = context.getPackageName();
         final String processName = Application.getProcessName();
-        if (packageName.equals(PACKAGE_GMS)
-            || packageName.equals(PACKAGE_RESTORE)) {
-            if (processName.toLowerCase().contains("unstable")
-                || processName.toLowerCase().contains("persistent")
-                || processName.toLowerCase().contains("pixelmigrate")
-                || processName.toLowerCase().contains("restore")) {
+        if (packageName.equals(PACKAGE_GMS)) {
+            if (processName.toLowerCase().contains("unstable")) {
                 sIsGms = true;
                 spoofBuildGms();
             } else {
