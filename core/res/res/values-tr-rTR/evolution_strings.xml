@@ -60,4 +60,8 @@
     <string name="sleep_mode_notification_content">Uyku modunu kapatmak için dokunun</string>
     <string name="sleep_mode_enabled_toast">Uyku modu açıldı</string>
     <string name="sleep_mode_disabled_toast">Uyku modu kapatıldı</string>
+    <!-- PowerOffAlarmService -->
+    <string name="notification_channel_poweroff_alarm">Güç kapalı alarm</string>
+    <string name="poweroff_alarm_title">Güç kapalı alarmı ayarla</string>
+    <string name="poweroff_alarm_body">Bir alarm algılandı ve cihaz 2 dakika öncesinde açılacak</string>
 </resources>
