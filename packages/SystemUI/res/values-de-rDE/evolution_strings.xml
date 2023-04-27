@@ -141,6 +141,7 @@
     <string name="status_bar_items_title">Statusleisten Symbole</string>
     <string name="status_bar_call_strength">Rufstärke</string>
     <string name="status_bar_data_saver">Datensparmodus</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Beenden erzwingen?</string>
