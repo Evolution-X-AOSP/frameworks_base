@@ -60,4 +60,8 @@
     <string name="sleep_mode_notification_content">Érintse meg az Alvómód kikapcsolásához</string>
     <string name="sleep_mode_enabled_toast">Az Alvómód bekapcsolva</string>
     <string name="sleep_mode_disabled_toast">Az Alvómód kikapcsolva</string>
+    <!-- PowerOffAlarmService -->
+    <string name="notification_channel_poweroff_alarm">Ébresztés kikapcsolt állapotban</string>
+    <string name="poweroff_alarm_title">Az \'Ébresztés kikapcsolt állapotban\' beállítása</string>
+    <string name="poweroff_alarm_body">Amikor a készüléken ébresztés van ütemezve és a telefon ki van kapcsolva, 2 perccel az ébresztés előtt bekapcsolódik a készülék</string>
 </resources>
