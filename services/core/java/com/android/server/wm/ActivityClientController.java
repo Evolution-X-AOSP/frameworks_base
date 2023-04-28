@@ -462,7 +462,8 @@ class ActivityClientController extends IActivityClientController.Stub {
             try {
                 r.releaseActivityBoost();
                 final boolean res;
-                final boolean finishWithRootActivity = shouldFinishTaskOnBackPressed() == 2
+                final boolean isLastRunningActivity = isTopActivityInTaskFragment(r);
+                final boolean finishWithRootActivity = (isLastRunningActivity && shouldFinishTaskOnBackPressed() == 2)
                         || finishTask == Activity.FINISH_TASK_WITH_ROOT_ACTIVITY;
                 if (finishTask == Activity.FINISH_TASK_WITH_ACTIVITY
                         || (finishWithRootActivity && r == rootR)) {
@@ -1421,7 +1422,7 @@ class ActivityClientController extends IActivityClientController.Stub {
 
                 finishTask = shouldFinishTaskOnBackPressed() >= 1;
 
-                isLastRunningActivity = isTopActivityInTaskFragment(isTaskRoot ? root : r);
+                isLastRunningActivity = isTopActivityInTaskFragment(r);
 
                 final boolean isBaseActivity = root.mActivityComponent.equals(task.realActivity);
                 baseActivityIntent = isBaseActivity ? root.intent : null;
