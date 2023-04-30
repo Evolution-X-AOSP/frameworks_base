@@ -18,5 +18,5 @@
     android:versionCode="1"
     android:versionName="1.0">
     <overlay android:targetPackage="com.android.settings" android:category="android.theme.customization.icon_pack.settings" android:priority="1"/>
-    <application android:label="Kai" android:hasCode="false"/>
+    <application android:label="Kai" android:hasCode="false" android:allowBackup="false"/>
 </manifest>
