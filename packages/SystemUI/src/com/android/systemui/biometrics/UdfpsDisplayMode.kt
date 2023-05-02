@@ -48,7 +48,7 @@ constructor(
         try {
             // This method is a misnomer. It has nothing to do with HBM, its purpose is to set
             // the appropriate display refresh rate.
-            authController.udfpsHbmListener!!.onHbmEnabled(request.displayId)
+            // authController.udfpsHbmListener!!.onHbmEnabled(request.displayId)
             Log.v(TAG, "enable | requested optimal refresh rate for UDFPS")
         } catch (e: RemoteException) {
             Log.e(TAG, "enable", e)
