@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.RemoteException
 import android.os.Trace
 import android.util.Log
+import com.android.systemui.R
 import com.android.systemui.dagger.SysUISingleton
 import com.android.systemui.util.concurrency.Execution
 import javax.inject.Inject
@@ -27,6 +28,9 @@ constructor(
     private var currentRequest: Request? = null
 
     override fun enable(onEnabled: Runnable?) {
+
+        val enableOptimalRefreshRate = context.resources.getBoolean(R.bool.config_udfpsOptimalRefreshRate)
+
         execution.isMainThread()
         Log.v(TAG, "enable")
 
@@ -48,7 +52,9 @@ constructor(
         try {
             // This method is a misnomer. It has nothing to do with HBM, its purpose is to set
             // the appropriate display refresh rate.
-            // authController.udfpsHbmListener!!.onHbmEnabled(request.displayId)
+            if (enableOptimalRefreshRate) {
+                authController.udfpsHbmListener!!.onHbmEnabled(request.displayId)
+            }
             Log.v(TAG, "enable | requested optimal refresh rate for UDFPS")
         } catch (e: RemoteException) {
             Log.e(TAG, "enable", e)
