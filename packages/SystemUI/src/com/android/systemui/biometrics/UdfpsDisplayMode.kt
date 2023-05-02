@@ -19,6 +19,7 @@ package com.android.systemui.biometrics
 import android.content.Context
 import android.os.RemoteException
 import android.os.Trace
+import com.android.systemui.R
 import com.android.systemui.util.concurrency.Execution
 
 private const val TAG = "UdfpsDisplayMode"
@@ -39,6 +40,9 @@ constructor(
     private var currentRequest: Request? = null
 
     override fun enable(onEnabled: Runnable?) {
+
+        val enableOptimalRefreshRate = context.resources.getBoolean(R.bool.config_udfpsOptimalRefreshRate)
+
         execution.isMainThread()
         logger.v(TAG, "enable")
 
@@ -60,7 +64,9 @@ constructor(
         try {
             // This method is a misnomer. It has nothing to do with HBM, its purpose is to set
             // the appropriate display refresh rate.
-            // authController.udfpsRefreshRateCallback!!.onRequestEnabled(request.displayId)
+            if (enableOptimalRefreshRate) {
+                authController.udfpsRefreshRateCallback!!.onRequestEnabled(request.displayId)
+            }
             logger.v(TAG, "enable | requested optimal refresh rate for UDFPS")
         } catch (e: RemoteException) {
             logger.e(TAG, "enable", e)
