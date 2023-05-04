@@ -193,14 +193,18 @@ class EdgeLightViewController @Inject constructor(
     }
 
     private suspend fun getCustomColor(): Int {
-        val colorCustom = withContext(Dispatchers.IO) {
-            systemSettings.getIntForUser(
+        val colorString = withContext(Dispatchers.IO) {
+            systemSettings.getStringForUser(
                 Settings.System.EDGE_LIGHT_CUSTOM_COLOR,
-                Color.WHITE,
                 UserHandle.USER_CURRENT
             )
+        } ?: return Color.WHITE
+        return try {
+            Color.parseColor(colorString)
+        } catch (_: IllegalArgumentException) {
+            Log.e(TAG, "Custom color $colorString is invalid")
+            Color.WHITE
         }
-        return colorCustom
     }
 
     // Accent color is returned for notification color mode

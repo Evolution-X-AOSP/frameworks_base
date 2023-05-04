@@ -29,8 +29,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.hardware.display.AmbientDisplayConfiguration;
 import android.os.SystemClock;
-import android.os.UserHandle;
-import android.telecom.TelecomManager;
 import android.text.format.Formatter;
 import android.util.IndentingPrintWriter;
 import android.util.Log;
@@ -368,19 +366,7 @@ public class DozeTriggers implements DozeMachine.Part {
         return mKeyguardStateController.isOccluded();
     }
 
-    TelecomManager getTelecommService() {
-        return (TelecomManager) mContext.getSystemService(Context.TELECOM_SERVICE);
-    }
-
     private void gentleWakeUp(@DozeLog.Reason int reason) {
-        TelecomManager telecomManager = getTelecommService();
-        boolean isInCall = (telecomManager != null && telecomManager.isInCall());
-        if (!mConfig.alwaysOnEnabled(UserHandle.USER_CURRENT)
-                && mConfig.isAmbientGestureEnabled(UserHandle.USER_CURRENT)
-                && !isInCall) {
-            requestPulse(reason, true /* alreadyPerformedProxCheck */, null /* onPulseSupressedListener */);
-            return;
-        }
         // Log screen wake up reason (lift/pickup, tap, double-tap)
         Optional.ofNullable(DozingUpdateUiEvent.fromReason(reason))
                 .ifPresent(uiEventEnum -> mUiEventLogger.log(uiEventEnum, getKeyguardSessionId()));

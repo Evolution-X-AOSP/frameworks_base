@@ -24,7 +24,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
 import androidx.annotation.VisibleForTesting
-import com.android.internal.util.evolution.EvolutionUtils
 import com.android.systemui.customization.R
 import com.android.systemui.plugins.ClockAnimations
 import com.android.systemui.plugins.ClockController
@@ -59,8 +58,6 @@ class DefaultClockController(
     private val burmeseNumerals = burmeseNf.format(FORMAT_NUMBER.toLong())
     private val burmeseLineSpacing =
         resources.getFloat(R.dimen.keyguard_clock_line_spacing_scale_burmese)
-    private val customClockLineSpacing =
-        resources.getFloat(R.dimen.keyguard_clock_line_spacing_scale_custom)
     private val defaultLineSpacing = resources.getFloat(R.dimen.keyguard_clock_line_spacing_scale)
 
     override val events: DefaultClockEvents
@@ -203,8 +200,6 @@ class DefaultClockController(
             val nf = NumberFormat.getInstance(locale)
             if (nf.format(FORMAT_NUMBER.toLong()) == burmeseNumerals) {
                 clocks.forEach { it.setLineSpacingScale(burmeseLineSpacing) }
-            } else if (currentClockNeedsMoreSpace()) {
-                clocks.forEach { it.setLineSpacingScale(customClockLineSpacing) }
             } else {
                 clocks.forEach { it.setLineSpacingScale(defaultLineSpacing) }
             }
@@ -273,18 +268,6 @@ class DefaultClockController(
             fraction = newFraction
             return Pair(wasActive != isActive, hasJumped)
         }
-    }
-
-    private fun currentClockNeedsMoreSpace(): Boolean {
-        // The affected clock fonts were entered manually into this array. Maybe there is a more
-        // elegant way, working with an attribute that is transported within the overlay.
-        var lockClockThemes = arrayOf("aclonica", "bariol", "comfortaa", "coolstory", "linotte", "nokiapure", "AlmonteSnow", "AlphaClouds", "AlphaFlowers", "AlphaWood", "Ampad3D2", "BetsyFlanagan", "Brandayolq", "BudmoJiggler", "BunnyRabbits", "CFBadNews", "EditPoints", "EditPointsFilled", "Fibography", "Floorlight", "HotSweat", "Karamuruh", "Klyukin", "LMSClifford", "MonbijouxClownpiece", "NINJAS", "Pinewood", "Romantiques", "Roundheads", "TH3MACHINE", "VTKSDURA3d", "alienleague", "balticbodden", "balticcoast", "balticdune", "balticstorm", "biko", "forta", "frankfrt", "museomod", "mxwasgard", "neon2", "neptuncat", "odibee", "prodeltco", "snowstorm", "tourney", "vg5000", "xtrusion")
-        for (item in lockClockThemes) {
-            if (EvolutionUtils.isClockFontEnabled(item)) {
-                return true
-            }
-        }
-        return false
     }
 
     override fun dump(pw: PrintWriter) {

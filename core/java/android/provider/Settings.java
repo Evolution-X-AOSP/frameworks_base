@@ -5681,12 +5681,6 @@ public final class Settings {
         public static final String DOUBLE_TAP_SLEEP_LOCKSCREEN = "double_tap_sleep_lockscreen";
 
         /**
-         * Use doubletap as doze pulse triggers
-         * @hide
-         */
-        public static final String DOZE_TRIGGER_DOUBLETAP = "doze_trigger_doubletap";
-
-        /**
          * Whether to launch default music player when headset plugged in
          * @hide
          */
@@ -6419,31 +6413,10 @@ public final class Settings {
         public static final String STATUSBAR_COLORED_ICONS = "statusbar_colored_icons";
 
         /**
-         * Heads up notifications threshold
-         * Default 0
-         * @hide
-         */
-        public static final String HEADS_UP_NOTIFICATIONS_THRESHOLD = "heads_up_notifications_threshold";
-
-        /**
          * Heads up timeout configuration
          * @hide
          */
         public static final String HEADS_UP_TIMEOUT = "heads_up_timeout";
-
-        /**
-         * Applications list where heasdup should't show
-         * @hide
-         */
-        @Readable
-        public static final String HEADS_UP_STOPLIST_VALUES = "heads_up_stoplist_values";
-
-        /**
-         * Which applications to disable heads up notifications for
-         * @hide
-         */
-        @Readable
-        public static final String HEADS_UP_BLACKLIST_VALUES = "heads_up_blacklist_values";
 
         /**
          * Size of gesture bar radius.
@@ -6809,15 +6782,6 @@ public final class Settings {
         public static final String RIGHT_VERTICAL_BACK_SWIPE_APP_ACTIVITY_ACTION = "right_vertical_back_swipe_app_activity_action";
 
         /**
-         * Whether to show ambient or lockscreen if AoD is disabled
-         * and we do a wake gesture like lift to wake or double tap
-         *
-         * @hide
-         */
-        @Readable
-        public static final String AMBIENT_WAKE_GESTURES = "ambient_wake_gestures";
-
-        /**
          * Whether to enable Smart Pixels
          * @hide
          */
@@ -6865,12 +6829,6 @@ public final class Settings {
          * @hide
          */
         public static final String OMNI_CUSTOM_FP_ICON = "custom_fingerprint_icon";
-
-        /**
-         * Whether to enable the ripple animation on fingerprint unlock
-         * @hide
-         */
-        public static final String ENABLE_RIPPLE_EFFECT = "enable_ripple_effect";
 
         /**
          * @hide
@@ -7129,12 +7087,9 @@ public final class Settings {
             PRIVATE_SETTINGS.add(VOLUME_ROCKER_WAKE);
             PRIVATE_SETTINGS.add(SENSOR_BLOCK);
             PRIVATE_SETTINGS.add(FORCE_FULLSCREEN_CUTOUT_APPS);
-            PRIVATE_SETTINGS.add(HEADS_UP_STOPLIST_VALUES);
-            PRIVATE_SETTINGS.add(HEADS_UP_BLACKLIST_VALUES);
             PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED);
             PRIVATE_SETTINGS.add(NAVIGATION_BAR_IME_SPACE);
             PRIVATE_SETTINGS.add(BACK_GESTURE_HAPTIC);
-            PRIVATE_SETTINGS.add(AMBIENT_WAKE_GESTURES);
             PRIVATE_SETTINGS.add(MAX_VISIBLE_NOTIFICATION_ICONS);
             PRIVATE_SETTINGS.add(TRANSISTENT_TASK_MODE);
             PRIVATE_SETTINGS.add(PREVENT_POINTER_ACCELERATION);
