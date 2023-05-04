@@ -1345,13 +1345,7 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
                                 && !TextUtils.isEmpty(mediaController.getPackageName())
                                 ? mediaController.getPackageName()
                                 : "";
-                if (FeatureFlagUtils.isEnabled(mContext,
-                        FeatureFlagUtils.SETTINGS_VOLUME_PANEL_IN_SYSTEMUI)) {
-                    mVolumePanelFactory.create(true /* aboveStatusBar */, null);
-                } else {
-                    mActivityStarter.startActivity(new Intent(Settings.Panel.ACTION_VOLUME),
-                            true /* dismissShade */);
-                }
+                mMediaOutputDialogFactory.create(packageName, false, mDialogView);
                 dismissH(DISMISS_REASON_SETTINGS_CLICKED);
             });
         }
