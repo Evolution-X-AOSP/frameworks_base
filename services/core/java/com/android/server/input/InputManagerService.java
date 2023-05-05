@@ -1864,7 +1864,7 @@ public class InputManagerService extends IInputManager.Stub
     }
 
     private void setPreventPointerAccelerationUnchecked(int preventPointerAcceleration) {
-        preventPointerAcceleration = Math.min(Math.max(preventPointerAcceleration, 1), 3);
+        preventPointerAcceleration = Math.min(Math.max(preventPointerAcceleration, 0), 3);
         mNative.setPreventPointerAcceleration(preventPointerAcceleration);
     }
 
