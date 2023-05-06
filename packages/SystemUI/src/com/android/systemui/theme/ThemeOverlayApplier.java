@@ -141,6 +141,10 @@ public class ThemeOverlayApplier implements Dumpable {
             "com.android.systemui.brightness_slider.filled";
     static final String OVERLAY_BRIGHTNESS_SLIDER_THIN =
             "com.android.systemui.brightness_slider.thin";
+    static final String OVERLAY_BRIGHTNESS_SLIDER_BANG =
+            "com.android.systemui.brightness_slider.bang";
+    static final String OVERLAY_BRIGHTNESS_SLIDER_ACUN =
+            "com.android.systemui.brightness_slider.acun";
 
     /*
      * All theme customization categories used by the system, in order that they should be applied,
@@ -187,7 +191,9 @@ public class ThemeOverlayApplier implements Dumpable {
     static final List<String> BRIGHTNESS_SLIDER_OVERLAYS = Lists.newArrayList(
             "",
             OVERLAY_BRIGHTNESS_SLIDER_FILLED,
-            OVERLAY_BRIGHTNESS_SLIDER_THIN);
+            OVERLAY_BRIGHTNESS_SLIDER_THIN,
+            OVERLAY_BRIGHTNESS_SLIDER_BANG,
+            OVERLAY_BRIGHTNESS_SLIDER_ACUN);
 
     /* Allowed overlay categories for each target package. */
     private final Map<String, Set<String>> mTargetPackageToCategories = new ArrayMap<>();
