@@ -45,4 +45,5 @@
 
     <!-- SoundSearch Tile -->
     <string name="quick_settings_sound_search">Sound search</string>
+    <string name="quick_settings_sound_search_not_found">Please install Google app to make Sound search working properly</string>
 </resources>

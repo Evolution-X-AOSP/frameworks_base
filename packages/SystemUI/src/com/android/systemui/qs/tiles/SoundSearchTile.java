@@ -26,6 +26,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -57,7 +58,8 @@ public class SoundSearchTile extends QSTileImpl<BooleanState> {
 
     private final PanelInteractor mPanelInteractor;
 
-    private final String soundSearchApp = "com.google.android.googlequicksearchbox";
+    private final String PACKAGE_VELVET = "com.google.android.googlequicksearchbox";
+    private final String IA_MUSIC_SEARCH = PACKAGE_VELVET+".MUSIC_SEARCH";
 
     @Inject
     public SoundSearchTile(
@@ -85,15 +87,16 @@ public class SoundSearchTile extends QSTileImpl<BooleanState> {
     @Override
     protected void handleClick(@Nullable View view) {
         mPanelInteractor.collapsePanels();
+        if (!EvolutionUtils.isPackageInstalled(mContext, PACKAGE_VELVET)) {
+            Toast.makeText(mContext, mContext.getString(
+                R.string.quick_settings_sound_search_not_found), Toast.LENGTH_LONG).show();
+            return;
+        }
+
         Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.setAction("com.google.android.googlequicksearchbox.MUSIC_SEARCH");
+        intent.setAction(IA_MUSIC_SEARCH);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         mContext.startActivity(intent);
-    }
-
-    @Override
-    public boolean isAvailable() {
-        return EvolutionUtils.isPackageAvailable(mContext, soundSearchApp);
     }
 
     @Override
