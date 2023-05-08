@@ -129,6 +129,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Person;
 import android.app.RemoteInput;
+import android.app.RemoteInputHistoryItem;
 import android.app.StatsManager;
 import android.app.admin.DevicePolicyManagerInternal;
 import android.app.usage.UsageStatsManagerInternal;
@@ -5426,6 +5427,8 @@ public class NotificationManagerServiceTest extends UiServiceTestCase {
         extras.putParcelable(Notification.EXTRA_MESSAGING_PERSON, person1);
         extras.putParcelableArrayList(Notification.EXTRA_PEOPLE_LIST,
                 new ArrayList<>(Arrays.asList(person2, person3)));
+        extras.putParcelableArray(Notification.EXTRA_REMOTE_INPUT_HISTORY_ITEMS,
+                new RemoteInputHistoryItem[]{historyItem1, historyItem2});
 
         Notification n = new Notification.Builder(mContext, "a")
                 .setContentTitle("notification with uris")
@@ -5433,6 +5436,13 @@ public class NotificationManagerServiceTest extends UiServiceTestCase {
                 .setLargeIcon(largeIcon)
                 .addExtras(extras)
                 .build();
+
+        // Serialize and deserialize the notification to make sure nothing breaks in the process,
+        // since that's what will usually happen before we get to call visitUris.
+        Parcel parcel = Parcel.obtain();
+        n.writeToParcel(parcel, 0);
+        parcel.setDataPosition(0);
+        n = new Notification(parcel);
 
         Consumer<Uri> visitor = (Consumer<Uri>) spy(Consumer.class);
         n.visitUris(visitor);
@@ -5443,6 +5453,8 @@ public class NotificationManagerServiceTest extends UiServiceTestCase {
         verify(visitor, times(1)).accept(eq(personIcon1.getUri()));
         verify(visitor, times(1)).accept(eq(personIcon2.getUri()));
         verify(visitor, times(1)).accept(eq(personIcon3.getUri()));
+        verify(visitor, times(1)).accept(eq(historyUri1));
+        verify(visitor, times(1)).accept(eq(historyUri2));
     }
 
     @Test
