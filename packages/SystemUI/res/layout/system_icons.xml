@@ -22,8 +22,7 @@
     android:layout_gravity="center_vertical|end"
     android:gravity="center_vertical">
 
-    <com.android.systemui.statusbar.phone.StatusIconContainer 
-    	android:id="@+id/statusIcons"
+    <com.android.systemui.statusbar.phone.StatusIconContainer android:id="@+id/statusIcons"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="match_parent"
@@ -42,7 +41,6 @@
         android:id="@+id/right_clock_layout"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="center_vertical"
         android:orientation="horizontal"
         >
         <com.android.systemui.evolution.logo.LogoImageViewRight
@@ -64,7 +62,6 @@
             android:singleLine="true"
             android:paddingStart="@dimen/status_bar_clock_starting_padding"
             android:paddingEnd="@dimen/status_bar_clock_end_padding"
-            android:paddingTop="@dimen/status_bar_padding_top"
             android:gravity="center_vertical|start"
             android:visibility="gone"
             systemui:isStatusBar="true"
