@@ -208,7 +208,6 @@ public class UdfpsController implements DozeReceiver, Dumpable {
     private final SecureSettings mSecureSettings;
     private boolean mScreenOffFod;
 
-    private boolean mDisableNightMode;
     private boolean mNightModeActive;
     private int mAutoModeState;
 
@@ -271,9 +270,6 @@ public class UdfpsController implements DozeReceiver, Dumpable {
         @Override
         public void showUdfpsOverlay(long requestId, int sensorId, int reason,
                 @NonNull IUdfpsOverlayControllerCallback callback) {
-            if (mDisableNightMode) {
-                disableNightMode();
-            }
             mFgExecutor.execute(() -> UdfpsController.this.showUdfpsOverlay(
                     new UdfpsControllerOverlay(mContext, mFingerprintManager, mInflater,
                             mWindowManager, mAccessibilityManager, mStatusBarStateController,
@@ -290,9 +286,6 @@ public class UdfpsController implements DozeReceiver, Dumpable {
 
         @Override
         public void hideUdfpsOverlay(int sensorId) {
-            if (mDisableNightMode) {
-                setNightMode(mNightModeActive, mAutoModeState);
-            }
             mFgExecutor.execute(() -> {
                 if (mKeyguardUpdateMonitor.isFingerprintDetectionRunning()) {
                     // if we get here, we expect keyguardUpdateMonitor's fingerprintRunningState
@@ -854,7 +847,6 @@ public class UdfpsController implements DozeReceiver, Dumpable {
         }
 
         mUdfpsVendorCode = mContext.getResources().getInteger(R.integer.config_udfpsVendorCode);
-        mDisableNightMode = UdfpsUtils.hasUdfpsSupport(mContext);
         mDisableSmartPixels = UdfpsUtils.hasUdfpsSupport(mContext);
 
         mPerf = new BoostFramework();
