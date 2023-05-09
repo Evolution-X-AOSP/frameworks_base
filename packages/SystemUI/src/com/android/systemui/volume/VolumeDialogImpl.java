@@ -36,6 +36,7 @@ import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 import static com.android.internal.jank.InteractionJankMonitor.CUJ_VOLUME_CONTROL;
 import static com.android.internal.jank.InteractionJankMonitor.Configuration.Builder;
+import static com.android.systemui.people.PeopleSpaceUtils.convertDrawableToBitmap;
 import static com.android.systemui.volume.Events.DISMISS_REASON_SETTINGS_CLICKED;
 
 import android.animation.Animator;
@@ -59,6 +60,7 @@ import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Outline;
 import android.graphics.PixelFormat;
@@ -122,6 +124,7 @@ import com.android.internal.graphics.drawable.BackgroundBlurDrawable;
 import com.android.internal.jank.InteractionJankMonitor;
 import com.android.internal.view.RotationPolicy;
 import com.android.settingslib.Utils;
+import com.android.settingslib.drawable.CircleFramedDrawable;
 import com.android.systemui.Dependency;
 import com.android.systemui.Dumpable;
 import com.android.systemui.Prefs;
@@ -1370,7 +1373,13 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
         } catch (Exception e) {
             // nothing to do
         }
-        return icon;
+        
+        Bitmap bitmapIcon = convertDrawableToBitmap(icon);
+        
+        Drawable drawableAppIcon = new CircleFramedDrawable(bitmapIcon,
+                (int) mContext.getResources().getDimension(R.dimen.volume_app_icon_max_size));
+
+        return drawableAppIcon;
     }
 
     public void initAppVolumeH() {

@@ -119,4 +119,7 @@
 
     <!-- QS Header height full -->
     <dimen name="qs_header_height_full">200dp</dimen>
+    
+    <!-- Volume app icon -->  
+    <dimen name="volume_app_icon_max_size">108dp</dimen>
 </resources>
