@@ -660,6 +660,7 @@ public class RescueParty {
                     return true;
                 }
             } catch (PackageManager.NameNotFoundException ignore) {
+            } catch (IllegalStateException ignore) {
             }
 
             return isPersistentSystemApp(packageName);
