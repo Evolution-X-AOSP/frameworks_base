@@ -157,7 +157,7 @@ public class RescueParty {
         }
 
         // One last-ditch check
-        if (SystemProperties.getBoolean(PROP_DISABLE_RESCUE, false)) {
+        if (SystemProperties.getBoolean(PROP_DISABLE_RESCUE, true)) {
             Slog.v(TAG, "Disabled because of manual property");
             return true;
         }
