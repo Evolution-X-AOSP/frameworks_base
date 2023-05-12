@@ -315,13 +315,13 @@ object Flags {
     @JvmField val DREAM_MEDIA_TAP_TO_OPEN = unreleasedFlag(906, "dream_media_tap_to_open")
 
     // TODO(b/254513168): Tracking Bug
-    @JvmField val UMO_SURFACE_RIPPLE = releasedFlag(907, "umo_surface_ripple")
+    @JvmField val UMO_SURFACE_RIPPLE = resourceBooleanFlag(907, R.bool.flag_umo_surface_ripple, "umo_surface_ripple")
 
     @JvmField
     val MEDIA_FALSING_PENALTY = unreleasedFlag(908, "media_falsing_media", teamfood = true)
 
     // TODO(b/261734857): Tracking Bug
-    @JvmField val UMO_TURBULENCE_NOISE = releasedFlag(909, "umo_turbulence_noise")
+    @JvmField val UMO_TURBULENCE_NOISE = resourceBooleanFlag(909, R.bool.flag_umo_turbulence_noise, "umo_turbulence_noise")
 
     // TODO(b/263272731): Tracking Bug
     val MEDIA_TTT_RECEIVER_SUCCESS_RIPPLE =
@@ -345,10 +345,11 @@ object Flags {
     @Keep
     @JvmField
     val WM_ENABLE_PARTIAL_SCREEN_SHARING =
-        releasedFlag(
+        unreleasedFlag(
             1102,
             name = "record_task_content",
-            namespace = DeviceConfig.NAMESPACE_WINDOW_MANAGER
+            namespace = DeviceConfig.NAMESPACE_WINDOW_MANAGER,
+            teamfood = true
         )
 
     // TODO(b/254512674): Tracking Bug
