@@ -640,16 +640,24 @@ void NativeInputManager::getReaderConfiguration(InputReaderConfiguration* outCon
 
         outConfig->pointerVelocityControlParameters.scale = exp2f(mLocked.pointerSpeed
                 * POINTER_SPEED_EXPONENT);
-        outConfig->pointerVelocityControlParameters.acceleration = mLocked.pointerAcceleration;
+        // constants from frameworks/native/services/inputflinger/include/InputReaderBase.h, should be kept in sync
         if (mLocked.preventPointerAcceleration & 1) {
             outConfig->pointerVelocityControlParameters.highThreshold = 0.0f;
             outConfig->pointerVelocityControlParameters.lowThreshold = 0.0f;
             outConfig->pointerVelocityControlParameters.acceleration = 1.0f;
+        } else {
+            outConfig->pointerVelocityControlParameters.highThreshold = 500.0f;
+            outConfig->pointerVelocityControlParameters.lowThreshold = 3000.0f;
+            outConfig->pointerVelocityControlParameters.acceleration = mLocked.pointerAcceleration;
         }
         if (mLocked.preventPointerAcceleration & 2) {
             outConfig->wheelVelocityControlParameters.highThreshold = 0.0f;
             outConfig->wheelVelocityControlParameters.lowThreshold = 0.0f;
             outConfig->wheelVelocityControlParameters.acceleration = 1.0f;
+        } else {
+            outConfig->wheelVelocityControlParameters.highThreshold = 15.0f;
+            outConfig->wheelVelocityControlParameters.lowThreshold = 50.0f;
+            outConfig->wheelVelocityControlParameters.acceleration = 4.0f;
         }
         outConfig->forceMouseAsTouch = mLocked.forceMouseAsTouch;
         outConfig->pointerGesturesEnabled = mLocked.pointerGesturesEnabled;
