@@ -54,8 +54,7 @@ public class PixelPropsUtils {
     private static final Map<String, Object> propsToChangeUserdebug;
     private static final Map<String, Object> propsToChangePixel7Pro;
     private static final Map<String, Object> propsToChangePixel5;
-    private static final Map<String, Object> propsToChangeROG1;
-    private static final Map<String, Object> propsToChangeROG3;
+    private static final Map<String, Object> propsToChangeROG6;
     private static final Map<String, Object> propsToChangeXP5;
     private static final Map<String, Object> propsToChangeOP8P;
     private static final Map<String, Object> propsToChangeOP9R;
@@ -111,22 +110,19 @@ public class PixelPropsUtils {
             "com.google.ar.core"
     };
 
-    // Packages to Spoof as ROG Phone 1
-    private static final String[] packagesToChangeROG1 = {
-            "com.madfingergames.legends"
-    };
-
-    // Packages to Spoof as ROG Phone 3
-    private static final String[] packagesToChangeROG3 = {
+    // Packages to Spoof as ROG Phone 6
+    private static final String[] packagesToChangeROG6 = {
+            "com.activision.callofduty.shooter",
             "com.ea.gp.fifamobile",
             "com.gameloft.android.ANMP.GloftA9HM",
+            "com.madfingergames.legends",
+            "com.mobile.legends",
             "com.pearlabyss.blackdesertm",
             "com.pearlabyss.blackdesertm.gl"
     };
 
     // Packages to Spoof as Xperia 5
     private static final String[] packagesToChangeXP5 = {
-            "com.activision.callofduty.shooter",
             "com.garena.game.codm",
             "com.tencent.tmgp.kr.codm",
             "com.vng.codmvn"
@@ -134,7 +130,6 @@ public class PixelPropsUtils {
 
     // Packages to Spoof as OnePlus 8 Pro
     private static final String[] packagesToChangeOP8P = {
-            "com.mobile.legends",
             "com.netease.lztgglobal",
             "com.pubg.imobile",
             "com.pubg.krmobile",
@@ -223,12 +218,11 @@ public class PixelPropsUtils {
         propsToChangePixel5.put("PRODUCT", "redfin");
         propsToChangePixel5.put("MODEL", "Pixel 5");
         propsToChangePixel5.put("FINGERPRINT", "google/redfin/redfin:13/TQ2A.230505.002/9891397:user/release-keys");
-        propsToChangeROG1 = new HashMap<>();
-        propsToChangeROG1.put("MODEL", "ASUS_Z01QD");
-        propsToChangeROG1.put("MANUFACTURER", "asus");
-        propsToChangeROG3 = new HashMap<>();
-        propsToChangeROG3.put("MODEL", "ASUS_I003D");
-        propsToChangeROG3.put("MANUFACTURER", "asus");
+        propsToChangeROG6 = new HashMap<>();
+        propsToChangeROG6.put("BRAND", "asus");
+        propsToChangeROG6.put("MANUFACTURER", "asus");
+        propsToChangeROG6.put("DEVICE", "AI2201");
+        propsToChangeROG6.put("MODEL", "ASUS_AI2201");
         propsToChangeXP5 = new HashMap<>();
         propsToChangeXP5.put("MODEL", "SO-52A");
         propsToChangeXP5.put("MANUFACTURER", "Sony");
@@ -317,16 +311,9 @@ public class PixelPropsUtils {
             if (!SystemProperties.getBoolean("persist.sys.pixelprops.games", false))
                 return;
 
-            if (Arrays.asList(packagesToChangeROG1).contains(packageName)) {
+            if (Arrays.asList(packagesToChangeROG6).contains(packageName)) {
                 dlog("Defining props for: " + packageName);
-                for (Map.Entry<String, Object> prop : propsToChangeROG1.entrySet()) {
-                    String key = prop.getKey();
-                    Object value = prop.getValue();
-                    setPropValue(key, value);
-                }
-            } else if (Arrays.asList(packagesToChangeROG3).contains(packageName)) {
-                dlog("Defining props for: " + packageName);
-                for (Map.Entry<String, Object> prop : propsToChangeROG3.entrySet()) {
+                for (Map.Entry<String, Object> prop : propsToChangeROG6.entrySet()) {
                     String key = prop.getKey();
                     Object value = prop.getValue();
                     setPropValue(key, value);
