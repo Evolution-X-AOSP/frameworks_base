@@ -427,7 +427,7 @@ public class TaskPersister implements PersisterQueue.Listener {
         if (DEBUG) Slog.d(TAG, "removeObsoleteFiles: persistentTaskIds=" + persistentTaskIds +
                 " files=" + Arrays.toString(files));
         if (files == null) {
-            Slog.e(TAG, "File error accessing recents directory (directory doesn't exist?).");
+            //Slog.e(TAG, "File error accessing recents directory (directory doesn't exist?).");
             return;
         }
         for (int fileNdx = 0; fileNdx < files.length; ++fileNdx) {
