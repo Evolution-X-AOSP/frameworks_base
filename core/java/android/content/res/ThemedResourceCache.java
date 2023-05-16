@@ -26,6 +26,9 @@ import android.util.ArrayMap;
 import android.util.LongSparseArray;
 
 import java.lang.ref.WeakReference;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * Data structure used for caching data against themes.
@@ -37,6 +40,8 @@ abstract class ThemedResourceCache<T> {
     private ArrayMap<ThemeKey, LongSparseArray<WeakReference<T>>> mThemedEntries;
     private LongSparseArray<WeakReference<T>> mUnthemedEntries;
     private LongSparseArray<WeakReference<T>> mNullThemedEntries;
+    private final Object lock = new Object();
+
 
     /**
      * Adds a new theme-dependent entry to the cache.
@@ -145,31 +150,30 @@ abstract class ThemedResourceCache<T> {
      */
     @Nullable
     private LongSparseArray<WeakReference<T>> getThemedLocked(@Nullable Theme t, boolean create) {
-        if (t == null) {
-            if (mNullThemedEntries == null && create) {
-                mNullThemedEntries = new LongSparseArray<>(1);
+        synchronized (lock) {
+            if (t == null) {
+                if (mNullThemedEntries == null && create) {
+                    mNullThemedEntries = new LongSparseArray<>(1);
+                }
+                return mNullThemedEntries;
             }
-            return mNullThemedEntries;
-        }
 
-        if (mThemedEntries == null) {
-            if (create) {
-                mThemedEntries = new ArrayMap<>(1);
-            } else {
-                return null;
+            if (mThemedEntries == null) {
+                if (create) {
+                    mThemedEntries = new ArrayMap<ThemeKey, LongSparseArray<WeakReference<T>>>(1);
+                } else {
+                    return null;
+                }
             }
+
+            LongSparseArray<WeakReference<T>> cache = mThemedEntries.get(t.getKey());
+            if (cache == null && create) {
+                cache = new LongSparseArray<>(1);
+                mThemedEntries.put(t.getKey(), cache);
+            }
+
+            return cache;
         }
-
-        final ThemeKey key = t.getKey();
-        LongSparseArray<WeakReference<T>> cache = mThemedEntries.get(key);
-        if (cache == null && create) {
-            cache = new LongSparseArray<>(1);
-
-            final ThemeKey keyClone = key.clone();
-            mThemedEntries.put(keyClone, cache);
-        }
-
-        return cache;
     }
 
     /**
@@ -197,11 +201,14 @@ abstract class ThemedResourceCache<T> {
      * @return {@code true} if the cache is completely empty after pruning
      */
     private boolean prune(@Config int configChanges) {
-        synchronized (this) {
+        synchronized (lock) {
             if (mThemedEntries != null) {
-                for (int i = mThemedEntries.size() - 1; i >= 0; i--) {
-                    if (pruneEntriesLocked(mThemedEntries.valueAt(i), configChanges)) {
-                        mThemedEntries.removeAt(i);
+                Iterator<Map.Entry<ThemeKey, LongSparseArray<WeakReference<T>>>> iterator =
+                        mThemedEntries.entrySet().iterator();
+                while (iterator.hasNext()) {
+                    Map.Entry<ThemeKey, LongSparseArray<WeakReference<T>>> entry = iterator.next();
+                    if (pruneEntriesLocked(entry.getValue(), configChanges)) {
+                        iterator.remove();
                     }
                 }
             }
