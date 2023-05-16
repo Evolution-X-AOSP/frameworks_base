@@ -298,9 +298,6 @@ public class AudioService extends IAudioService.Stub
     /** Debug communication route */
     protected static final boolean DEBUG_COMM_RTE = false;
 
-    /** Debug log sound fx (touchsounds...) in dumpsys */
-    protected static final boolean DEBUG_LOG_SOUND_FX = false;
-
     /** How long to delay before persisting a change in volume/ringer mode. */
     private static final int PERSIST_DELAY = 500;
 
@@ -420,7 +417,6 @@ public class AudioService extends IAudioService.Stub
     private static final int MSG_ROTATION_UPDATE = 48;
     private static final int MSG_FOLD_UPDATE = 49;
     private static final int MSG_RESET_SPATIALIZER = 50;
-    private static final int MSG_NO_LOG_FOR_PLAYER_I = 51;
     private static final int MSG_DISPATCH_PREFERRED_MIXER_ATTRIBUTES = 52;
     private static final int MSG_CONFIGURATION_CHANGED = 54;
     private static final int MSG_BROADCAST_MASTER_MUTE = 55;
@@ -1117,7 +1113,7 @@ public class AudioService extends IAudioService.Stub
         PowerManager pm = (PowerManager)context.getSystemService(Context.POWER_SERVICE);
         mAudioEventWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "handleAudioEvent");
 
-        mSfxHelper = new SoundEffectsHelper(mContext, playerBase -> ignorePlayerLogs(playerBase));
+        mSfxHelper = new SoundEffectsHelper(mContext);
 
         boolean binauralEnabledDefault = SystemProperties.getBoolean(
                 "ro.audio.spatializer_binaural_enabled_default", true);
@@ -1647,18 +1643,6 @@ public class AudioService extends IAudioService.Stub
         final String foldStateParameter = "device_folded=" + (foldState ? "on" : "off");
         sendMsg(mAudioHandler, MSG_FOLD_UPDATE, SENDMSG_REPLACE, /*arg1*/ 0, /*arg2*/ 0,
                 /*obj*/ foldStateParameter, /*delay*/ 0);
-    }
-
-    //-----------------------------------------------------------------
-    // Communicate to PlayackActivityMonitor whether to log or not
-    // the sound FX activity (useful for removing touch sounds in the activity logs)
-    void ignorePlayerLogs(@NonNull PlayerBase playerToIgnore) {
-        if (DEBUG_LOG_SOUND_FX) {
-            return;
-        }
-        sendMsg(mAudioHandler, MSG_NO_LOG_FOR_PLAYER_I, SENDMSG_REPLACE,
-                /*arg1, piid of the player*/ playerToIgnore.getPlayerIId(),
-                /*arg2 ignored*/ 0, /*obj ignored*/ null, /*delay*/ 0);
     }
 
     //-----------------------------------------------------------------
@@ -9662,10 +9646,6 @@ public class AudioService extends IAudioService.Stub
                 case MSG_FOLD_UPDATE:
                     // fold parameter format: "device_folded=x" where x is one of on, off
                     mAudioSystem.setParameters((String) msg.obj);
-                    break;
-
-                case MSG_NO_LOG_FOR_PLAYER_I:
-                    mPlaybackMonitor.ignorePlayerIId(msg.arg1);
                     break;
 
                 case MSG_DISPATCH_PREFERRED_MIXER_ATTRIBUTES:
