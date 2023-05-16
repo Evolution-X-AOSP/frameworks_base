@@ -58,6 +58,7 @@ class InsetsStateController {
 
     private final ArrayMap<Integer, WindowContainerInsetsSourceProvider> mProviders =
             new ArrayMap<>();
+    private final Object mProvidersLock = new Object();
     private final ArrayMap<InsetsControlTarget, ArrayList<Integer>> mControlTargetTypeMap =
             new ArrayMap<>();
     private final SparseArray<InsetsControlTarget> mTypeControlTargetMap = new SparseArray<>();
@@ -119,7 +120,9 @@ class InsetsStateController {
     }
 
     ArrayMap<Integer, WindowContainerInsetsSourceProvider> getSourceProviders() {
-        return mProviders;
+        synchronized (mProvidersLock) {
+            return new ArrayMap<>(mProviders);
+        }
     }
 
     /**
@@ -146,8 +149,10 @@ class InsetsStateController {
      */
     void onPostLayout() {
         Trace.traceBegin(TRACE_TAG_WINDOW_MANAGER, "ISC.onPostLayout");
-        for (int i = mProviders.size() - 1; i >= 0; i--) {
-            mProviders.valueAt(i).onPostLayout();
+        synchronized (mProvidersLock) {
+            for (int i = mProviders.size() - 1; i >= 0; i--) {
+                mProviders.valueAt(i).onPostLayout();
+            }
         }
         if (!mLastState.equals(mState)) {
             mLastState.set(mState, true /* copySources */);
@@ -195,8 +200,10 @@ class InsetsStateController {
 
     void onInsetsModified(InsetsControlTarget caller) {
         boolean changed = false;
-        for (int i = mProviders.size() - 1; i >= 0; i--) {
-            changed |= mProviders.valueAt(i).updateClientVisibility(caller);
+        synchronized (mProvidersLock) {
+            for (int i = mProviders.size() - 1; i >= 0; i--) {
+                changed |= mProviders.valueAt(i).updateClientVisibility(caller);
+            }
         }
         if (changed) {
             notifyInsetsChanged();
@@ -341,24 +348,24 @@ class InsetsStateController {
             return;
         }
         mDisplayContent.mWmService.mAnimator.addAfterPrepareSurfacesRunnable(() -> {
-            for (int i = mProviders.size() - 1; i >= 0; i--) {
-                final WindowContainerInsetsSourceProvider provider = mProviders.valueAt(i);
-                provider.onSurfaceTransactionApplied();
-            }
-            final ArraySet<InsetsControlTarget> newControlTargets = new ArraySet<>();
-            for (int i = mPendingControlChanged.size() - 1; i >= 0; i--) {
-                final InsetsControlTarget controlTarget = mPendingControlChanged.valueAt(i);
-                controlTarget.notifyInsetsControlChanged();
-                if (mControlTargetTypeMap.containsKey(controlTarget)) {
-                    // We only collect targets who get controls, not lose controls.
-                    newControlTargets.add(controlTarget);
+            ArraySet<InsetsControlTarget> newControlTargets = null;
+            synchronized (mProvidersLock) {
+                for (int i = mProviders.size() - 1; i >= 0; i--) {
+                    WindowContainerInsetsSourceProvider provider = mProviders.valueAt(i);
+                    provider.onSurfaceTransactionApplied();
                 }
             }
-            mPendingControlChanged.clear();
-
-            // This updates the insets visibilities AFTER sending current insets state and controls
-            // to the clients, so that the clients can change the current visibilities to the
-            // requested visibilities with animations.
+            synchronized (mPendingControlChanged) {
+                newControlTargets = new ArraySet<>(mPendingControlChanged.size());
+                for (int i = mPendingControlChanged.size() - 1; i >= 0; i--) {
+                    InsetsControlTarget controlTarget = mPendingControlChanged.valueAt(i);
+                    controlTarget.notifyInsetsControlChanged();
+                    if (mControlTargetTypeMap.containsKey(controlTarget)) {
+                        newControlTargets.add(controlTarget);
+                    }
+                }
+                mPendingControlChanged.clear();
+            }
             for (int i = newControlTargets.size() - 1; i >= 0; i--) {
                 onInsetsModified(newControlTargets.valueAt(i));
             }

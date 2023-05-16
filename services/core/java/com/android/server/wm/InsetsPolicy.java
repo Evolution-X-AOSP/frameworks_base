@@ -401,21 +401,26 @@ class InsetsPolicy {
                 state.removeSource(ITYPE_CAPTION_BAR);
             }
         }
-        ArrayMap<Integer, WindowContainerInsetsSourceProvider> providers = mStateController
-                .getSourceProviders();
-        for (int i = providers.size() - 1; i >= 0; i--) {
-            WindowContainerInsetsSourceProvider otherProvider = providers.valueAt(i);
-            if (otherProvider.overridesFrame(windowType)) {
-                if (!stateCopied) {
-                    state = new InsetsState(state);
-                    stateCopied = true;
+        ArrayMap<Integer, WindowContainerInsetsSourceProvider> providers;
+        synchronized (mStateController) {
+            providers = new ArrayMap<>(mStateController.getSourceProviders());
+        }
+
+        InsetsState stateCopy = null;
+        for (WindowContainerInsetsSourceProvider provider : providers.values()) {
+            if (provider.overridesFrame(windowType)) {
+                if (stateCopy == null) {
+                    stateCopy = new InsetsState(state);
                 }
-                InsetsSource override =
-                        new InsetsSource(state.getSource(otherProvider.getSource().getType()));
-                override.setFrame(otherProvider.getOverriddenFrame(windowType));
-                state.addSource(override);
+
+                InsetsSource source = stateCopy.getSource(provider.getSource().getType());
+                InsetsSource override = new InsetsSource(source);
+                override.setFrame(provider.getOverriddenFrame(windowType));
+                stateCopy.addSource(override);
             }
         }
+
+        state = (stateCopy != null) ? stateCopy : state;
 
         if (WindowConfiguration.isFloating(windowingMode)
                 || (windowingMode == WINDOWING_MODE_MULTI_WINDOW && isAlwaysOnTop)) {
