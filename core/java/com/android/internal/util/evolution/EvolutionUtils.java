@@ -198,23 +198,6 @@ public class EvolutionUtils {
         return false;
     }
 
-    // Method to detect whether a clock font overlay is enabled or not
-    public static boolean isClockFontEnabled(String fontName) {
-        mOverlayService = new OverlayManager();
-        try {
-            List<OverlayInfo> infos = mOverlayService.getOverlayInfosForTarget("android",
-                    UserHandle.myUserId());
-            for (int i = 0, size = infos.size(); i < size; i++) {
-                if (infos.get(i).packageName.contains(fontName)) {
-                    return infos.get(i).isEnabled();
-                }
-            }
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
     public static boolean isWifiOnly(Context context) {
         return !context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
     }
