@@ -60,4 +60,8 @@
     <string name="sleep_mode_notification_content">Klepněte sem pro vypnutí režimu spánku</string>
     <string name="sleep_mode_enabled_toast">Režim spánku je zapnutý</string>
     <string name="sleep_mode_disabled_toast">Režim spánku je vypnutý</string>
+    <!-- PowerOffAlarmService -->
+    <string name="notification_channel_poweroff_alarm">Budík při vypnutém zařízením</string>
+    <string name="poweroff_alarm_title">Nastavení budíku při vypnutém zařízení</string>
+    <string name="poweroff_alarm_body">Byl detekován budík a zařízení se zapne 2 minuty před jeho spuštěním</string>
 </resources>
