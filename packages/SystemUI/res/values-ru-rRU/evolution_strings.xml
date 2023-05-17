@@ -115,12 +115,6 @@
     <string name="quick_settings_anti_flicker">Защита от мерцания</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">Поменять SIM-карту для передачи данных</string>
-    <string name="qs_data_switch_toast_0">В настоящее время SIM-карта не вставлена</string>
-    <string name="qs_data_switch_toast_1">Установлена только одна SIM-карта</string>
-    <string name="qs_data_switch_text_1">SIM 1</string>
-    <string name="qs_data_switch_text_2">SIM 2</string>
-    <string name="qs_data_switch_changed_1">Переключить передачу данных на SIM 1.</string>
-    <string name="qs_data_switch_changed_2">Переключить передачу данных на SIM 2.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Всегда включенный экран</string>
     <string name="quick_settings_aod_on_charge_label">Всегда включенный экран при зарядке</string>
@@ -140,6 +134,7 @@
     <string name="status_bar_items_title">Значки в строке состояния</string>
     <string name="status_bar_call_strength">Уровень сигнала</string>
     <string name="status_bar_data_saver">Экономия трафика</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Остановить принудительно?</string>

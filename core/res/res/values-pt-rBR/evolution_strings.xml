@@ -60,4 +60,8 @@
     <string name="sleep_mode_notification_content">Toque para desativar o modo de suspensão</string>
     <string name="sleep_mode_enabled_toast">Modo de suspensão desativado</string>
     <string name="sleep_mode_disabled_toast">O modo de suspensão foi desativado</string>
+    <!-- PowerOffAlarmService -->
+    <string name="notification_channel_poweroff_alarm">Alarme com o dispositivo desligado</string>
+    <string name="poweroff_alarm_title">Definir alarme com o dispositivo desligado</string>
+    <string name="poweroff_alarm_body">Um alarme foi detectado e o dispositivo será ligado 2 minutos antes de despertar</string>
 </resources>
