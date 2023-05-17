@@ -115,12 +115,6 @@
     <string name="quick_settings_anti_flicker">Anti-sfarfallio</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">Cambia Sim dati</string>
-    <string name="qs_data_switch_toast_0">Attualmente non è inserita alcuna scheda SIM</string>
-    <string name="qs_data_switch_toast_1">Correntemente è inserita solo una scheda SIM</string>
-    <string name="qs_data_switch_text_1">SIM 1</string>
-    <string name="qs_data_switch_text_2">SIM 2</string>
-    <string name="qs_data_switch_changed_1">Scheda dati cambiata su SIM 1.</string>
-    <string name="qs_data_switch_changed_2">Scheda dati cambiata su SIM 2.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Schermo sempre attivo (AOD)</string>
     <string name="quick_settings_aod_on_charge_label">AOD durante la ricarica</string>
@@ -141,6 +135,7 @@
     <string name="status_bar_items_title">Icone barra di stato</string>
     <string name="status_bar_call_strength">Intensità chiamata</string>
     <string name="status_bar_data_saver">Risparmio dati</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Forzare l\'interruzione?</string>

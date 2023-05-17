@@ -60,4 +60,8 @@
     <string name="sleep_mode_notification_content">Торкніться, щоб вимкнути режим сну</string>
     <string name="sleep_mode_enabled_toast">Увімкнено режим сну</string>
     <string name="sleep_mode_disabled_toast">Вимкнено режим сну</string>
+    <!-- PowerOffAlarmService -->
+    <string name="notification_channel_poweroff_alarm">Вимкнення будильника</string>
+    <string name="poweroff_alarm_title">Будильник вимкнено</string>
+    <string name="poweroff_alarm_body">Було виявлено будильник, і пристрій увімкнеться за 2 хвилини до його звучання</string>
 </resources>
