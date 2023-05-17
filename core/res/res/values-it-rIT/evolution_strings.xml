@@ -60,4 +60,8 @@
     <string name="sleep_mode_notification_content">Tocca per disattivare la modalità sonno</string>
     <string name="sleep_mode_enabled_toast">Modalità sonno attivata</string>
     <string name="sleep_mode_disabled_toast">Modalità sonno disattivata</string>
+    <!-- PowerOffAlarmService -->
+    <string name="notification_channel_poweroff_alarm">Sveglia da spento</string>
+    <string name="poweroff_alarm_title">Imposta sveglia da spento</string>
+    <string name="poweroff_alarm_body">Se viene rilevata una sveglia e il dispositivo è spento, si accenderà 2 minuti prima della sveglia</string>
 </resources>
