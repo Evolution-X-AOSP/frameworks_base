@@ -115,12 +115,6 @@
     <string name="quick_settings_anti_flicker">Anti-Flimmern</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">Daten SIM-Karte wechseln</string>
-    <string name="qs_data_switch_toast_0">Derzeit ist keine SIM-Karte eingelegt</string>
-    <string name="qs_data_switch_toast_1">Derzeit ist nur eine SIM-Karte eingelegt</string>
-    <string name="qs_data_switch_text_1">SIM 1</string>
-    <string name="qs_data_switch_text_2">SIM 2</string>
-    <string name="qs_data_switch_changed_1">Daten SIM-Karte zu SIM 1 wechseln.</string>
-    <string name="qs_data_switch_changed_2">Daten SIM-Karte zu SIM 2 wechseln.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Always-On-Display</string>
     <string name="quick_settings_aod_on_charge_label">Always-On-Display beim Laden</string>
@@ -141,6 +135,7 @@
     <string name="status_bar_items_title">Statusleisten Symbole</string>
     <string name="status_bar_call_strength">Rufstärke</string>
     <string name="status_bar_data_saver">Datensparmodus</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Beenden erzwingen?</string>

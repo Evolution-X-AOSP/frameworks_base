@@ -60,4 +60,8 @@
     <string name="sleep_mode_notification_content">Нажмите, чтобы выключить спящий режим</string>
     <string name="sleep_mode_enabled_toast">Спящий режим включён</string>
     <string name="sleep_mode_disabled_toast">Спящий режим выключен</string>
+    <!-- PowerOffAlarmService -->
+    <string name="notification_channel_poweroff_alarm">Выключить будильник</string>
+    <string name="poweroff_alarm_title">Будильник выключен</string>
+    <string name="poweroff_alarm_body">Был обнаружен будильник, устройство включится на 2 минуты раньше положенного срока</string>
 </resources>

@@ -22,7 +22,7 @@
     <string name="pocket_lock_message_long_press">Tekan dan tahan tombol daya untuk membuka kunci</string>
     <string name="pocket_view_title">Mode saku aktif</string>
     <string name="pocket_view_title_cancel">Untuk mengaktifkan ponsel Anda:</string>
-    <string name="pocket_view_top_tag_cancel">Jangan menutupi area biru ponsel Anda, dan bersihkan dari kotoran atau debu.</string>
+    <string name="pocket_view_top_tag_cancel">Harap jangan tutupi area biru ponsel Anda dan bersihkan kotoran atau debu darinya.</string>
     <string name="pocket_view_top_tag_cancel2">Tekan lama tombol daya untuk memaksa keluar dari mode saku.</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Otomatis</string>
@@ -60,4 +60,8 @@
     <string name="sleep_mode_notification_content">Ketuk untuk menonaktifkan Mode Tidur</string>
     <string name="sleep_mode_enabled_toast">Mode Tidur diaktifkan</string>
     <string name="sleep_mode_disabled_toast">Mode Tidur dinonaktifkan</string>
+    <!-- PowerOffAlarmService -->
+    <string name="notification_channel_poweroff_alarm">Alarm perangkat mati</string>
+    <string name="poweroff_alarm_title">Setel alarm perangkat mati</string>
+    <string name="poweroff_alarm_body">Alarm terdeteksi dan perangkat akan menyala 2 menit sebelum waktunya</string>
 </resources>

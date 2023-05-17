@@ -115,12 +115,6 @@
     <string name="quick_settings_anti_flicker">Усунення мерехтіння</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">Змінити картку для передачі даних</string>
-    <string name="qs_data_switch_toast_0">Зараз не вставлено жодної SIM картки</string>
-    <string name="qs_data_switch_toast_1">Зараз вставлена лише одна SIM-картка</string>
-    <string name="qs_data_switch_text_1">SIM 1</string>
-    <string name="qs_data_switch_text_2">SIM 2</string>
-    <string name="qs_data_switch_changed_1">Змінено картку для передачі даних на SIM 1.</string>
-    <string name="qs_data_switch_changed_2">Змінено картку для передачі даних на SIM 2.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Екран сповіщень</string>
     <string name="quick_settings_aod_on_charge_label">Завжди включений екран при заряджанні</string>
@@ -140,6 +134,7 @@
     <string name="status_bar_items_title">Значки статус бару</string>
     <string name="status_bar_call_strength">Рівень сигналу</string>
     <string name="status_bar_data_saver">Заощадження трафіку</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">Мережа VPN</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Примусово зупинити?</string>

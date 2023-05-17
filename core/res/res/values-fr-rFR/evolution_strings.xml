@@ -60,4 +60,8 @@
     <string name="sleep_mode_notification_content">Appuyer pour désactiver le mode veille</string>
     <string name="sleep_mode_enabled_toast">Mode veille activé</string>
     <string name="sleep_mode_disabled_toast">Mode veille désactivé</string>
+    <!-- PowerOffAlarmService -->
+    <string name="notification_channel_poweroff_alarm">Alarme appareil éteint</string>
+    <string name="poweroff_alarm_title">Alarme appareil éteint réglée</string>
+    <string name="poweroff_alarm_body">Une alarme a été détectée et l\'appareil va s\'allumer 2 minutes avant son échéance</string>
 </resources>

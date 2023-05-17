@@ -115,12 +115,6 @@
     <string name="quick_settings_anti_flicker">Vibrálásmentesítés</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">SIM-kártyaváltás</string>
-    <string name="qs_data_switch_toast_0">Jelenleg nincs SIM-kártya behelyezve</string>
-    <string name="qs_data_switch_toast_1">Jelenleg csak egy SIM-kártya van behelyezve</string>
-    <string name="qs_data_switch_text_1">1.SIM</string>
-    <string name="qs_data_switch_text_2">2.SIM</string>
-    <string name="qs_data_switch_changed_1">Átváltott SIM 1 adatforgalomra.</string>
-    <string name="qs_data_switch_changed_2">Átváltott SIM 2 adatforgalomra.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Mindig bekapcsolva (AOD)</string>
     <string name="quick_settings_aod_on_charge_label">AOD töltéskor</string>
@@ -141,6 +135,7 @@
     <string name="status_bar_items_title">Az állapotsor ikonjai</string>
     <string name="status_bar_call_strength">Jelerősség</string>
     <string name="status_bar_data_saver">Adatforgalom-csökkentő</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Kényszeríti a leállítást?</string>

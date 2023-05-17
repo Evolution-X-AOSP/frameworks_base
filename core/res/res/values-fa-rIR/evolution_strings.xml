@@ -56,4 +56,8 @@
     <string name="sleep_mode_notification_content">برای خاموش کردن حالت ساده ضربه بزنید</string>
     <string name="sleep_mode_enabled_toast">حالت خواب روشن شد</string>
     <string name="sleep_mode_disabled_toast">حالت خواب خاموش شد</string>
+    <!-- PowerOffAlarmService -->
+    <string name="notification_channel_poweroff_alarm">تنظیم زنگ خاموش</string>
+    <string name="poweroff_alarm_title">تنظیم زنگ خاموش</string>
+    <string name="poweroff_alarm_body">زنگ هشدار شناسایی شد و دستگاه ۲ دقیقه قبل از سررسید روشن می‌شود</string>
 </resources>
