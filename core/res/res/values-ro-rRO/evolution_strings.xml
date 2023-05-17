@@ -60,4 +60,8 @@
     <string name="sleep_mode_notification_content">Atingeți pentru a dezactiva modul suspendare</string>
     <string name="sleep_mode_enabled_toast">Modul suspendare este activat</string>
     <string name="sleep_mode_disabled_toast">Modul suspendare este dezactivat</string>
+    <!-- PowerOffAlarmService -->
+    <string name="notification_channel_poweroff_alarm">Alarmă oprire</string>
+    <string name="poweroff_alarm_title">Alarmă de oprire setată</string>
+    <string name="poweroff_alarm_body">A fost detectată o alarmă și dispozitivul va porni cu 2 minute înainte</string>
 </resources>
