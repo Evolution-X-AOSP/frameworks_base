@@ -60,4 +60,8 @@
     <string name="sleep_mode_notification_content">Tippen, um Schlafmodus auszuschalten</string>
     <string name="sleep_mode_enabled_toast">Schlafmodus eingeschaltet</string>
     <string name="sleep_mode_disabled_toast">Schlafmodus ausgeschaltet</string>
+    <!-- PowerOffAlarmService -->
+    <string name="notification_channel_poweroff_alarm">Alarm ausschalten</string>
+    <string name="poweroff_alarm_title">Alarm ausschalten</string>
+    <string name="poweroff_alarm_body">Ein Alarm wurde erkannt und das Gerät schaltet 2 Minuten vor Fälligkeit ein</string>
 </resources>
