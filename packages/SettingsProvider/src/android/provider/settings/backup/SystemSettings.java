@@ -114,7 +114,6 @@ public class SystemSettings {
         Settings.System.NOTIFICATION_VIBRATION_PATTERN,
         Settings.System.CUSTOM_NOTIFICATION_VIBRATION_PATTERN,
         Settings.System.DEFAULT_NOTIFICATION_TORCH,
-        Settings.System.HEADS_UP_NOTIFICATIONS_THRESHOLD,
         Settings.System.NAVIGATION_BAR_IME_SPACE,
         Settings.System.AMBIENT_WAKE_GESTURES,
         Settings.System.ENABLE_RIPPLE_EFFECT,

@@ -6419,31 +6419,10 @@ public final class Settings {
         public static final String STATUSBAR_COLORED_ICONS = "statusbar_colored_icons";
 
         /**
-         * Heads up notifications threshold
-         * Default 0
-         * @hide
-         */
-        public static final String HEADS_UP_NOTIFICATIONS_THRESHOLD = "heads_up_notifications_threshold";
-
-        /**
          * Heads up timeout configuration
          * @hide
          */
         public static final String HEADS_UP_TIMEOUT = "heads_up_timeout";
-
-        /**
-         * Applications list where heasdup should't show
-         * @hide
-         */
-        @Readable
-        public static final String HEADS_UP_STOPLIST_VALUES = "heads_up_stoplist_values";
-
-        /**
-         * Which applications to disable heads up notifications for
-         * @hide
-         */
-        @Readable
-        public static final String HEADS_UP_BLACKLIST_VALUES = "heads_up_blacklist_values";
 
         /**
          * Size of gesture bar radius.
@@ -7134,8 +7113,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(VOLUME_ROCKER_WAKE);
             PRIVATE_SETTINGS.add(SENSOR_BLOCK);
             PRIVATE_SETTINGS.add(FORCE_FULLSCREEN_CUTOUT_APPS);
-            PRIVATE_SETTINGS.add(HEADS_UP_STOPLIST_VALUES);
-            PRIVATE_SETTINGS.add(HEADS_UP_BLACKLIST_VALUES);
             PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED);
             PRIVATE_SETTINGS.add(NAVIGATION_BAR_IME_SPACE);
             PRIVATE_SETTINGS.add(BACK_GESTURE_HAPTIC);
