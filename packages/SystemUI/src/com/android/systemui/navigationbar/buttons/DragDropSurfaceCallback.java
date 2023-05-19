@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 The Android Open Source Project
+ * Copyright (C) 2023 droid-ng
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,20 +16,6 @@
 
 package com.android.systemui.navigationbar.buttons;
 
-import android.annotation.Nullable;
-import android.graphics.drawable.Drawable;
-
-public interface ButtonInterface {
-
-    void setImageDrawable(@Nullable Drawable drawable);
-
-    void abortCurrentGesture();
-
-    void setVertical(boolean vertical);
-
-    void setDarkIntensity(float intensity);
-
-    void setDelayTouchFeedback(boolean shouldDelay);
-
-    default void setForceDisableOverviewCallback(DragDropSurfaceCallback callback) {}
+public interface DragDropSurfaceCallback {
+    void setForceDisableOverview(boolean forceDisableOverview);
 }
