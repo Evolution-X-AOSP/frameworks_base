@@ -121,6 +121,7 @@ import com.android.systemui.navigationbar.NavigationBarComponent.NavigationBarSc
 import com.android.systemui.navigationbar.NavigationModeController.ModeChangedListener;
 import com.android.systemui.navigationbar.buttons.ButtonDispatcher;
 import com.android.systemui.navigationbar.buttons.DeadZone;
+import com.android.systemui.navigationbar.buttons.DragDropSurfaceCallback;
 import com.android.systemui.navigationbar.buttons.KeyButtonView;
 import com.android.systemui.navigationbar.buttons.RotationContextButton;
 import com.android.systemui.navigationbar.gestural.EdgeBackGestureHandler;
@@ -170,7 +171,7 @@ import dagger.Lazy;
  * Contains logic for a navigation bar view.
  */
 @NavigationBarScope
-public class NavigationBar extends ViewController<NavigationBarView> implements Callbacks {
+public class NavigationBar extends ViewController<NavigationBarView> implements Callbacks, DragDropSurfaceCallback {
 
     public static final String TAG = "NavigationBar";
     private static final boolean DEBUG = false;
@@ -259,6 +260,7 @@ public class NavigationBar extends ViewController<NavigationBarView> implements 
     private final DeadZone mDeadZone;
     private boolean mImeVisible;
     private final Rect mSamplingBounds = new Rect();
+    private boolean mForceDisableOverview = false;
 
     @com.android.internal.annotations.VisibleForTesting
     public enum NavBarActionEvent implements UiEventLogger.UiEventEnum {
@@ -584,6 +586,7 @@ public class NavigationBar extends ViewController<NavigationBarView> implements 
     public void onInit() {
         // TODO: A great deal of this code should probably live in onViewAttached.
         // It should also has corresponding cleanup in onViewDetached.
+        mView.setForceDisableOverviewCallback(this);
         mView.setBarTransitions(mNavigationBarTransitions);
         mView.setTouchHandler(mTouchHandler);
         setNavBarMode(mNavBarMode);
@@ -890,6 +893,14 @@ public class NavigationBar extends ViewController<NavigationBarView> implements 
     @Override
     public void onRecentsAnimationStateChanged(boolean running) {
         mView.getRotationButtonController().setRecentsAnimationRunning(running);
+    }
+
+    @Override
+    public void setForceDisableOverview(boolean forceDisableOverview) {
+        if (mForceDisableOverview != forceDisableOverview) {
+            mForceDisableOverview = forceDisableOverview;
+            mView.updateDisabledSystemUiStateFlags(mSysUiFlagsContainer);
+        }
     }
 
     /** Restores the appearance and the transient saved state to {@link NavigationBar}. */
