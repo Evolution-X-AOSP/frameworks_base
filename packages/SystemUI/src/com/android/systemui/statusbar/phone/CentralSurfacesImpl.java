@@ -1577,6 +1577,8 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces,
 	    int alpha = mNotificationPanelViewController.getExpandedFraction() < 0.84f ? 0 : Math.round(mNotificationPanelViewController.getExpandedFraction()  * 255.0f);
             mDismissAllButton.setAlpha(shouldHideDismissButton ? 0 : alpha);
             mDismissAllButton.getBackground().setAlpha(shouldHideDismissButton ? 0 : alpha);
+            mDismissAllButton.setClickable(!shouldHideDismissButton);
+            mDismissAllButton.setEnabled(!shouldHideDismissButton);
             mDismissAllButton.setVisibility(shouldHideDismissButton && isDismissButtonVisible ? View.GONE : View.VISIBLE);
     }
 
