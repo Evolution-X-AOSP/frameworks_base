@@ -19,6 +19,7 @@
 #include <cutils/compiler.h>
 #include <utils/StrongPointer.h>
 
+#include <mutex>
 #include <vector>
 
 #include "utils/Macros.h"
@@ -63,6 +64,8 @@ public:
     void endAllActiveAnimators();
 
     bool hasAnimators() { return mAnimators.size(); }
+
+    std::mutex mNewAnimatorsMutex;
 
 private:
     uint32_t animateCommon(TreeInfo& info);
