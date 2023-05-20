@@ -310,4 +310,9 @@
 
     <!-- Default line spacing multiplier between hours and minutes of the keyguard clock-->
     <java-symbol type="dimen" format="float" name="keyguard_clock_line_spacing_scale" />
+
+    <java-symbol type="anim" name="activity_freeform_open_enter" />
+    <java-symbol type="anim" name="activity_freeform_open_exit" />
+    <java-symbol type="anim" name="activity_freeform_close_enter" />
+    <java-symbol type="anim" name="activity_freeform_close_exit" />
 </resources>
