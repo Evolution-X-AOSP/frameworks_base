@@ -65,7 +65,6 @@ public:
 
     bool hasAnimators() { return mAnimators.size(); }
 
-    std::mutex mNewAnimatorsMutex;
 
 private:
     uint32_t animateCommon(TreeInfo& info);
@@ -78,6 +77,8 @@ private:
     std::vector<sp<BaseRenderNodeAnimator> > mAnimators;
 
     bool mCancelAllAnimators;
+
+    std::mutex mNewAnimatorsMutex;
 };
 
 } /* namespace uirenderer */

@@ -68,38 +68,33 @@ void AnimatorManager::setAnimationHandle(AnimationHandle* handle) {
 }
 
 void AnimatorManager::pushStaging() {
-    if (mNewAnimators.size()) {
-        if (CC_UNLIKELY(!mAnimationHandle)) {
-            ALOGW("Trying to start new animators on %p (%s) without an animation handle!", &mParent,
-                  mParent.getName());
-            return;
-        }
-
-        // Acquire the lock 
-        std::lock_guard<std::mutex> lock(mNewAnimatorsMutex);
-
-        // Only add new animators that are not already in the mAnimators list
-        if (mNewAnimators.size()) {
-            for (auto& anim : mNewAnimators) {
-                if (anim != nullptr && anim->target() != &mParent) {
-                    mAnimators.push_back(std::move(anim));
-                }
-            }
-            mNewAnimators.clear();
-        }
+    if (CC_UNLIKELY(!mAnimationHandle)) {
+        ALOGW("Trying to start new animators on %p (%s) without an animation handle!", &mParent,
+              mParent.getName());
+        return;
     }
 
-    if (mAnimators.size()) {
+    std::lock_guard<std::mutex> lock(mNewAnimatorsMutex);
+    mAnimators.reserve(mAnimators.size() + mNewAnimators.size());
+
+    for (const auto& anim : mNewAnimators) {
+        if (anim != nullptr && anim->target() != &mParent) {
+            mAnimators.push_back(anim);
+        }
+    }
+    std::vector<sp<BaseRenderNodeAnimator>>().swap(mNewAnimators);  // Use swap to clear mNewAnimators
+
+    if (mAnimationHandle != nullptr) {
         if (mCancelAllAnimators) {
             for (auto& animator : mAnimators) {
-                if (animator != nullptr && mAnimationHandle != nullptr) {
+                if (animator != nullptr) {
                     animator->forceEndNow(mAnimationHandle->context());
                 }
             }
             mCancelAllAnimators = false;
         } else {
             for (auto& animator : mAnimators) {
-                if (animator != nullptr && mAnimationHandle != nullptr) {
+                if (animator != nullptr) {
                     animator->pushStaging(mAnimationHandle->context());
                 }
             }
