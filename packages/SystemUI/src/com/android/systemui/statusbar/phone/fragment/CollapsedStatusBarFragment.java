@@ -147,6 +147,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private final DumpManager mDumpManager;
 
     private ClockController mClockController;
+    private Context mContext;
     private boolean mIsClockBlacklisted;
 
     private BatteryMeterView mBatteryMeterView;
@@ -309,8 +310,10 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         initEmergencyCryptkeeperText();
         initOperatorName();
         initNotificationIconArea();
+
         mLyricController = new LyricController(getContext(), mStatusBar);
         mStatusBarFragmentComponent.getHeadsUpAppearanceController().setLyricViewController(mLyricController);
+        mContext = getContext();
         Dependency.get(TunerService.class).addTunable(this, StatusBarIconController.ICON_HIDE_LIST);
         Dependency.get(TunerService.class).addTunable(this, Settings.Secure.STATUS_BAR_SHOW_LYRIC);
 
@@ -416,7 +419,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         if (key.equals(StatusBarIconController.ICON_HIDE_LIST)) {
             boolean wasClockBlacklisted = mIsClockBlacklisted;
             mIsClockBlacklisted = StatusBarIconController.getIconHideList(
-                    getContext(), newValue).contains("clock");
+                    mContext, newValue).contains("clock");
             if (wasClockBlacklisted && !mIsClockBlacklisted) {
                 showClock(false);
             }
