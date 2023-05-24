@@ -1823,6 +1823,7 @@ public final class ProcessList {
                 AppGlobals.getPackageManager().checkPackageStartable(app.info.packageName, userId);
             } catch (RemoteException e) {
                 throw e.rethrowAsRuntimeException();
+            } catch (SecurityException e) {
             }
 
             int uid = app.uid;
