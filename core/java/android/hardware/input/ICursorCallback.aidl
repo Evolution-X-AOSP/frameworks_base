@@ -21,4 +21,5 @@ import android.view.PointerIcon;
 /** @hide */
 interface ICursorCallback {
     oneway void onCursorChanged(int iconId, in PointerIcon icon);
+    oneway void onCaptureChanged(boolean enabled);
 }
