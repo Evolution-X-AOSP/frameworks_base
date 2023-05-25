@@ -50,6 +50,13 @@ import static java.lang.Float.isNaN;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.OvershootInterpolator;
+import android.view.ViewAnimationUtils;
 import android.animation.ValueAnimator;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
@@ -136,7 +143,6 @@ import com.android.systemui.DejankUtils;
 import com.android.systemui.Dumpable;
 import com.android.systemui.Gefingerpoken;
 import com.android.systemui.R;
-import com.android.systemui.RetickerAnimations;
 import com.android.systemui.animation.ActivityLaunchAnimator;
 import com.android.systemui.animation.Interpolators;
 import com.android.systemui.animation.LaunchAnimator;
@@ -577,13 +583,15 @@ public final class NotificationPanelViewController implements Dumpable {
     private final NPVCDownEventState.Buffer mLastDownEvents;
 
     /*Reticker*/
-    private final String[] mAppExceptions;
     private LinearLayout mReTickerComeback;
     private ImageView mReTickerComebackIcon;
     private TextView mReTickerContentTV;
     private NotificationStackScrollLayout mNotificationStackScroller;
     private boolean mReTickerStatus;
     private boolean mReTickerColored;
+    private Boolean mReTickerVisible = null;
+    private boolean mIsAnimatingTicker = false;
+    private boolean mIsDismissRequested = false;
 
     private final KeyguardBottomAreaViewModel mKeyguardBottomAreaViewModel;
     private final KeyguardBottomAreaInteractor mKeyguardBottomAreaInteractor;
@@ -946,7 +954,6 @@ public final class NotificationPanelViewController implements Dumpable {
         mUnlockedScreenOffAnimationController = unlockedScreenOffAnimationController;
         mLastDownEvents = new NPVCDownEventState.Buffer(MAX_DOWN_EVENT_BUFFER_SIZE);
         mEdgeLightViewController = edgeLightViewController;
-        mAppExceptions = mResources.getStringArray(R.array.app_exceptions);
 
         int currentMode = navigationModeController.addListener(
                 mode -> mIsGestureNavigation = QuickStepContract.isGesturalMode(mode));
@@ -5252,89 +5259,219 @@ public final class NotificationPanelViewController implements Dumpable {
 
     /* reTicker */
     public void reTickerView(boolean visibility) {
-        if (!mReTickerStatus) return;
-        if (visibility && mReTickerComeback.getVisibility() == View.VISIBLE) {
-            reTickerDismissal();
+        if (!mReTickerStatus) {
+            return;
         }
-        String reTickerContent;
+
+        if (visibility && mReTickerComeback.getVisibility() == View.VISIBLE) {
+            // check if we can dismiss reticker
+            retickerDismiss();
+        }
+
         if (visibility && getExpandedFraction() != 1) {
             mNotificationStackScroller.setVisibility(View.GONE);
+
             StatusBarNotification sbn = mHeadsUpManager.getTopEntry().getRow().getEntry().getSbn();
             Notification notification = sbn.getNotification();
             String pkgname = sbn.getPackageName();
+
             Drawable icon = null;
             try {
-                if (pkgname.equals("com.android.systemui")) {
+                if ("com.android.systemui".equals(pkgname)) {
                     icon = mView.getContext().getDrawable(notification.icon);
                 } else {
                     icon = mView.getContext().getPackageManager().getApplicationIcon(pkgname);
                 }
-            } catch (NameNotFoundException e) {
+            } catch (NameNotFoundException e) {}
+
+            String content = notification.extras.getString("android.text");
+            if (TextUtils.isEmpty(content)) {
                 return;
             }
-            String content = notification.extras.getString("android.text");
-            if (TextUtils.isEmpty(content)) return;
-            reTickerContent = content;
+
+            String reTickerContent = content;
             String reTickerAppName = notification.extras.getString("android.title");
             PendingIntent reTickerIntent = notification.contentIntent;
             String mergedContentText = reTickerAppName + " " + reTickerContent;
+
             mReTickerComebackIcon.setImageDrawable(icon);
-            Drawable dw = mView.getContext().getDrawable(R.drawable.reticker_background);
-            if (mReTickerColored) {
-                int col = notification.color;
-                // check if we need to override the color
-                if ((mAppExceptions.length & 1) == 0) {
-                    for (int i = 0; i < mAppExceptions.length; i += 2) {
-                        if (mAppExceptions[i].equals(pkgname)) {
-                            col = Color.parseColor(mAppExceptions[i + 1]);
-                            break;
-                        }
-                    }
-                }
-                dw.setTint(col);
-            } else {
-                dw.setTintList(null);
-            }
+
+            Drawable dw = getRetickerBackgroundDrawable(pkgname, notification.color);
+            mReTickerVisible = true;
             mReTickerComeback.setBackground(dw);
             mReTickerContentTV.setText(mergedContentText);
             mReTickerContentTV.setTextAppearance(mView.getContext(), R.style.TextAppearance_Notifications_reTicker);
             mReTickerContentTV.setSelected(true);
-            RetickerAnimations.revealAnimation(mReTickerComeback);
+
+            retickerAnimate();
+
             if (reTickerIntent != null) {
                 mReTickerComeback.setOnClickListener(v -> {
                     final GameSpaceManager gameSpace = mCentralSurfaces.getGameSpaceManager();
                     if (gameSpace == null || !gameSpace.isGameActive()) {
                         try {
                             reTickerIntent.send();
-                        } catch (PendingIntent.CanceledException e) {
-                        }
+                        } catch (PendingIntent.CanceledException e) {}
                     }
-                    RetickerAnimations.revealAnimationHide(mReTickerComeback, mNotificationStackScroller);
+                    retickerDismiss();
                     reTickerViewVisibility();
                 });
             }
         } else {
-            reTickerDismissal();
+            retickerDismiss();
         }
     }
 
     protected void reTickerViewVisibility() {
         if (!mReTickerStatus) {
-            reTickerDismissal();
+            retickerDismiss();
             return;
         }
+
         mNotificationStackScroller.setVisibility(getExpandedFraction() == 0 ? View.GONE : View.VISIBLE);
-        if (getExpandedFraction() > 0) mReTickerComeback.setVisibility(View.GONE);
+        if (getExpandedFraction() > 0) {
+            mReTickerComeback.setVisibility(View.GONE);
+            mReTickerVisible = false;
+        }
+
         if (mReTickerComeback.getVisibility() == View.VISIBLE) {
             mReTickerComeback.getViewTreeObserver().addOnComputeInternalInsetsListener(mInsetsListener);
         } else {
             mReTickerComeback.getViewTreeObserver().removeOnComputeInternalInsetsListener(mInsetsListener);
+            mReTickerVisible = false;
         }
     }
 
-    public void reTickerDismissal() {
-        RetickerAnimations.revealAnimationHide(mReTickerComeback, mNotificationStackScroller);
-        mReTickerComeback.getViewTreeObserver().removeOnComputeInternalInsetsListener(mInsetsListener);
+    public void retickerAnimate() {
+        if (mIsAnimatingTicker) {
+            return; // Animation is already running
+        }
+
+        mIsAnimatingTicker = true;
+        mIsDismissRequested = false;
+
+        mReTickerComeback.setScaleX(0f);
+        mReTickerComeback.setScaleY(0f);
+        mReTickerComeback.setAlpha(0f);
+        mReTickerComeback.setTranslationY(mReTickerComeback.getHeight() / 4f);
+
+        // Set initial values for scale, alpha, and translation
+        PropertyValuesHolder scaleX = PropertyValuesHolder.ofFloat(View.SCALE_X, 0f, 1f);
+        PropertyValuesHolder scaleY = PropertyValuesHolder.ofFloat(View.SCALE_Y, 0f, 1f);
+        PropertyValuesHolder alpha = PropertyValuesHolder.ofFloat(View.ALPHA, 0f, 1f);
+        PropertyValuesHolder translationY = PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, mReTickerComeback.getHeight() / 4f, 0f);
+
+        AnimatorSet animatorSet = new AnimatorSet();
+
+        long totalDuration = 1000;
+        long animationDuration = totalDuration / 2; // Divde totalDuration with the numbers of animator set
+        // Create animators for scaleX, scaleY, and alpha
+        ObjectAnimator scaleXAnimator = ObjectAnimator.ofPropertyValuesHolder(mReTickerComeback, scaleX);
+        scaleXAnimator.setDuration(animationDuration);
+        ObjectAnimator scaleYAnimator = ObjectAnimator.ofPropertyValuesHolder(mReTickerComeback, scaleY);
+        scaleYAnimator.setDuration(animationDuration);
+        ObjectAnimator alphaAnimator = ObjectAnimator.ofPropertyValuesHolder(mReTickerComeback, alpha);
+        alphaAnimator.setDuration(animationDuration);
+
+        // Play scaleX, scaleY, and alpha together
+        animatorSet.playTogether(scaleXAnimator, scaleYAnimator, alphaAnimator);
+
+        // Create an animator for translationY with DecelerateInterpolator
+        ObjectAnimator translationYAnimator = ObjectAnimator.ofPropertyValuesHolder(mReTickerComeback, translationY);
+        translationYAnimator.setInterpolator(new DecelerateInterpolator());
+        translationYAnimator.setDuration(animationDuration);
+
+        // Play translationY animation after scaleX, scaleY, and alpha animations
+        animatorSet.play(translationYAnimator).after(scaleXAnimator);
+
+        animatorSet.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                // Show mReTickerComeback before starting the animation
+                mReTickerComeback.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                mIsAnimatingTicker = false; // Animation has finished
+                if (mIsDismissRequested) {
+                    // Dismiss was requested during animation, trigger dismiss animation
+                    retickerDismiss();
+                }
+            }
+        });
+        animatorSet.start();
+    }
+
+    public void retickerDismiss() {
+        if (mIsAnimatingTicker) {
+            // Dismiss requested while animation is running
+            mIsDismissRequested = true;
+            // Wait until animation finishes
+            return;
+        }
+
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.setInterpolator(new AccelerateDecelerateInterpolator());
+
+        // Set final values for scale and translation
+        PropertyValuesHolder scaleX = PropertyValuesHolder.ofFloat(View.SCALE_X, 1f, 0f);
+        PropertyValuesHolder scaleY = PropertyValuesHolder.ofFloat(View.SCALE_Y, 1f, 0f);
+        PropertyValuesHolder alpha = PropertyValuesHolder.ofFloat(View.ALPHA, 1f, 0f);
+        PropertyValuesHolder translationY = PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, 0f, mReTickerComeback.getHeight() / 4f);
+
+        // Create animators for scaleX, scaleY, alpha and translationY
+        long totalDuration = 350;
+        long animationDuration = totalDuration / 2; // Divde totalDuration with the numbers of animator set
+        ObjectAnimator scaleXAnimator = ObjectAnimator.ofPropertyValuesHolder(mReTickerComeback, scaleX);
+        scaleXAnimator.setDuration(animationDuration);
+        ObjectAnimator scaleYAnimator = ObjectAnimator.ofPropertyValuesHolder(mReTickerComeback, scaleY);
+        scaleYAnimator.setDuration(animationDuration);
+        ObjectAnimator translationYAnimator = ObjectAnimator.ofPropertyValuesHolder(mReTickerComeback, translationY);
+        translationYAnimator.setDuration(animationDuration);
+        ObjectAnimator alphaAnimator = ObjectAnimator.ofPropertyValuesHolder(mReTickerComeback, alpha);
+        alphaAnimator.setDuration(animationDuration);
+
+        // Play translationY animation before scaleX and scaleY animations
+        animatorSet.play(translationYAnimator).before(scaleXAnimator);
+
+        mReTickerComeback.setScaleX(1f);
+        mReTickerComeback.setScaleY(1f);
+        mReTickerComeback.setAlpha(1f);
+        mReTickerComeback.setTranslationY(0f);
+
+        // Play scaleX and scaleY together
+        animatorSet.playTogether(scaleXAnimator, scaleYAnimator, alphaAnimator);
+
+        animatorSet.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                mReTickerComeback.setVisibility(View.GONE);
+                mNotificationStackScroller.setVisibility(View.VISIBLE);
+                mReTickerVisible = false;
+                mReTickerComeback.getViewTreeObserver().removeOnComputeInternalInsetsListener(mInsetsListener);
+            }
+        });
+
+        animatorSet.start();
+    }
+
+    private Drawable getRetickerBackgroundDrawable(String pkgname, int notificationColor) {
+        Drawable dw = mView.getContext().getDrawable(R.drawable.reticker_background);
+        if (mReTickerColored) {
+            int col;
+
+            try {
+                col = Color.parseColor(pkgname);
+            } catch (Exception e) {
+                col = notificationColor;
+            }
+
+            dw.setTint(col);
+        } else {
+            dw.setTintList(null);
+        }
+        return dw;
     }
 
     private final OnComputeInternalInsetsListener mInsetsListener = internalInsetsInfo -> {
