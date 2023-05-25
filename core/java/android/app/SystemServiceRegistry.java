@@ -990,16 +990,19 @@ public final class SystemServiceRegistry {
                         return new DcDimmingManager(service);
                     }});
 
-            if (SystemProperties.getBoolean("persist.sys.service.enable_oplus_linearmotor", false)) {
-                registerService(Context.LINEARMOTOR_VIBRATOR_SERVICE, LinearmotorVibrator.class,
-                        new CachedServiceFetcher<LinearmotorVibrator>() {
-                    @Override
+        boolean mockOplus = Resources.getSystem()
+            .getBoolean(com.android.internal.R.bool.config_mockOplusLinearmotorVibratorService);
+
+        if (mockOplus) {
+            registerService(Context.LINEARMOTOR_VIBRATOR_SERVICE, LinearmotorVibrator.class,
+                    new CachedServiceFetcher<LinearmotorVibrator>() {
+                @Override
                 public LinearmotorVibrator createService(ContextImpl ctx) {
                     IBinder binder = ServiceManager.getService(Context.LINEARMOTOR_VIBRATOR_SERVICE);
                     ILinearmotorVibratorService service = ILinearmotorVibratorService.Stub.asInterface(binder);
                     return new LinearmotorVibrator(ctx.getOuterContext(), service);
                 }});
-            }
+        }
 
         registerService(Context.TV_INPUT_SERVICE, TvInputManager.class,
                 new CachedServiceFetcher<TvInputManager>() {
