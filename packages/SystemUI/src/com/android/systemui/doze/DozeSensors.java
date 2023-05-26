@@ -216,6 +216,7 @@ public class DozeSensors {
                         true /* touchscreen */,
                         false /* ignoresSetting */,
                         dozeParameters.singleTapUsesProx(mDevicePosture) /* requiresProx */,
+                        !dozeParameters.singleTapNeedsProximityCheck() /* performsProxCheck */,
                         true /* immediatelyReRegister */,
                         mDevicePosture),
                 new TriggerSensor(

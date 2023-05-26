@@ -25,6 +25,9 @@
          Leave 1 if you have mA, put 1000 if you have µA-->
     <integer name="config_battCurrentDivider" translatable="false">1000</integer>
 
+    <!-- Doze: does the single tap sensor need a proximity check? -->
+    <bool name="doze_single_tap_proximity_check">false</bool>
+
     <!-- Doze: does the double tap sensor need a proximity check? -->
     <bool name="doze_double_tap_proximity_check">false</bool>
 
