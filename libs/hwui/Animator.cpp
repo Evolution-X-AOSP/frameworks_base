@@ -160,54 +160,60 @@ void BaseRenderNodeAnimator::pushStaging(AnimationContext& context) {
         }
     }
 
-    if (!mStagingRequests.empty()) {
-        // No interpolator was set, use the default
-        if (mPlayState == PlayState::NotStarted && !mInterpolator) {
-            mInterpolator.reset(Interpolator::createDefaultInterpolator());
-        }
-        // Keep track of the play state and play time before they are changed when
-        // staging requests are resolved.
-        nsecs_t currentPlayTime = mPlayTime;
-        PlayState prevFramePlayState = mPlayState;
+    if (mStagingRequests.empty()) {
+        return;
+    }
 
-        // Resolve staging requests one by one.
-        for (Request request : mStagingRequests) {
-            resolveStagingRequest(request);
-        }
-        mStagingRequests.clear();
+    // No interpolator was set, use the default
+    if (mPlayState == PlayState::NotStarted && !mInterpolator) {
+        mInterpolator.reset(Interpolator::createDefaultInterpolator());
+    }
 
-        if (mStagingPlayState == PlayState::Finished) {
-            callOnFinishedListener(context);
-        } else if (mStagingPlayState == PlayState::Running ||
-                   mStagingPlayState == PlayState::Reversing) {
-            bool changed = currentPlayTime != mPlayTime || prevFramePlayState != mStagingPlayState;
-            if (prevFramePlayState != mStagingPlayState) {
-                transitionToRunning(context);
-            }
-            if (changed) {
-                // Now we need to seek to the stagingPlayTime (i.e. the animation progress that was
-                // requested from UI thread). It is achieved by modifying mStartTime, such that
-                // current time - mStartTime = stagingPlayTime (or mDuration -stagingPlayTime in the
-                // case of reversing)
-                nsecs_t currentFrameTime = context.frameTimeMs();
-                if (mPlayState == PlayState::Reversing) {
-                    // Reverse is not supported for animations with a start delay, so here we
-                    // assume no start delay.
-                    mStartTime = currentFrameTime - (mDuration - mPlayTime);
+    // Keep track of the play state and play time before they are changed when
+    // staging requests are resolved.
+    nsecs_t currentPlayTime = mPlayTime;
+    PlayState prevFramePlayState = mPlayState;
+
+    // Create a copy of staging requests to prevent modification while iterating
+    std::vector<Request> stagingRequestsCopy = mStagingRequests;
+    mStagingRequests.clear();
+
+    for (const Request& request : stagingRequestsCopy) {
+        resolveStagingRequest(request);
+    }
+
+    if (mStagingPlayState == PlayState::Finished) {
+        callOnFinishedListener(context);
+    } else if (mStagingPlayState == PlayState::Running ||
+               mStagingPlayState == PlayState::Reversing) {
+        bool changed = currentPlayTime != mPlayTime || prevFramePlayState != mStagingPlayState;
+        if (prevFramePlayState != mStagingPlayState) {
+            transitionToRunning(context);
+        }
+        if (changed) {
+            // Now we need to seek to the stagingPlayTime (i.e. the animation progress that was
+            // requested from the UI thread). It is achieved by modifying mStartTime, such that
+            // current time - mStartTime = stagingPlayTime (or mDuration - stagingPlayTime in the
+            // case of reversing)
+            nsecs_t currentFrameTime = context.frameTimeMs();
+            if (mPlayState == PlayState::Reversing) {
+                // Reverse is not supported for animations with a start delay, so here we
+                // assume no start delay.
+                mStartTime = currentFrameTime - (mDuration - mPlayTime);
+            } else {
+                // Animation should play forward
+                if (mPlayTime == 0) {
+                    // If the request is to start from the beginning, include start delay.
+                    mStartTime = currentFrameTime + mStartDelay;
                 } else {
-                    // Animation should play forward
-                    if (mPlayTime == 0) {
-                        // If the request is to start from the beginning, include start delay.
-                        mStartTime = currentFrameTime + mStartDelay;
-                    } else {
-                        // If the request is to seek to a non-zero play time, then we skip start
-                        // delay.
-                        mStartTime = currentFrameTime - mPlayTime;
-                    }
+                    // If the request is to seek to a non-zero play time, then we skip start
+                    // delay.
+                    mStartTime = currentFrameTime - mPlayTime;
                 }
             }
         }
     }
+
     onPushStaging();
 }
 

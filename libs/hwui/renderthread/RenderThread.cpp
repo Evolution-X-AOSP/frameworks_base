@@ -438,7 +438,8 @@ bool RenderThread::threadLoop() {
         waitForWork();
         processQueue();
 
-        if (mPendingRegistrationFrameCallbacks.size() && !mFrameCallbackTaskPending) {
+        // Process frame callbacks
+        if (!mPendingRegistrationFrameCallbacks.empty() && !mFrameCallbackTaskPending) {
             mVsyncSource->drainPendingEvents();
             mFrameCallbacks.insert(mPendingRegistrationFrameCallbacks.begin(),
                                    mPendingRegistrationFrameCallbacks.end());
@@ -446,7 +447,7 @@ bool RenderThread::threadLoop() {
             requestVsync();
         }
 
-        if (!mFrameCallbackTaskPending && !mVsyncRequested && mFrameCallbacks.size()) {
+        if (!mFrameCallbackTaskPending && !mVsyncRequested && !mFrameCallbacks.empty()) {
             // TODO: Clean this up. This is working around an issue where a combination
             // of bad timing and slow drawing can result in dropping a stale vsync
             // on the floor (correct!) but fails to schedule to listen for the

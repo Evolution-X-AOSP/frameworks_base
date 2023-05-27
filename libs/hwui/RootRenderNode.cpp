@@ -254,7 +254,7 @@ public:
     // Marks the start of a frame, which will update the frame time and move all
     // next frame animations into the current frame
     virtual void startFrame(TreeInfo::TraversalMode mode) {
-        if (mode == TreeInfo::MODE_FULL) {
+        if (mode == TreeInfo::MODE_FULL && mRootNode) {
             mRootNode->doAttachAnimatingNodes(this);
             mRootNode->attachPendingVectorDrawableAnimators();
         }
@@ -264,18 +264,28 @@ public:
     // Runs any animations still left in mCurrentFrameAnimations
     virtual void runRemainingAnimations(TreeInfo& info) {
         AnimationContext::runRemainingAnimations(info);
-        mRootNode->runVectorDrawableAnimators(this, info);
+        if (mRootNode) {
+            mRootNode->runVectorDrawableAnimators(this, info);
+        }
     }
 
-    virtual void pauseAnimators() override { mRootNode->pauseAnimators(); }
+    virtual void pauseAnimators() override {
+        if (mRootNode) {
+            mRootNode->pauseAnimators();
+        }
+    }
 
     virtual void callOnFinished(BaseRenderNodeAnimator* animator, AnimationListener* listener) {
-        listener->onAnimationFinished(animator);
+        if (listener) {
+            listener->onAnimationFinished(animator);
+        }
     }
 
     virtual void destroy() {
         AnimationContext::destroy();
-        mRootNode->detachAnimators();
+        if (mRootNode) {
+            mRootNode->detachAnimators();
+        }
     }
 
 private:

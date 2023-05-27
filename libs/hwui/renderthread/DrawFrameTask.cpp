@@ -20,6 +20,7 @@
 #include <gui/TraceUtils.h>
 #include <utils/Log.h>
 #include <algorithm>
+#include <condition_variable>
 
 #include "../DeferredLayerUpdater.h"
 #include "../DisplayList.h"
@@ -105,7 +106,7 @@ void DrawFrameTask::pushLayerUpdate(DeferredLayerUpdater* layer) {
     LOG_ALWAYS_FATAL_IF(!mContext,
                         "Lifecycle violation, there's no context to pushLayerUpdate with!");
 
-    for (size_t i = 0; i < mLayers.size(); i++) {
+    for (size_t i = 0; i < mLayers.size() && mLayers.size() > 0; i++) {
         if (mLayers[i].get() == layer) {
             return;
         }
@@ -114,7 +115,7 @@ void DrawFrameTask::pushLayerUpdate(DeferredLayerUpdater* layer) {
 }
 
 void DrawFrameTask::removeLayerUpdate(DeferredLayerUpdater* layer) {
-    for (size_t i = 0; i < mLayers.size(); i++) {
+    for (size_t i = 0; i < mLayers.size() && mLayers.size() > 0; i++) {
         if (mLayers[i].get() == layer) {
             mLayers.erase(mLayers.begin() + i);
             return;
@@ -135,9 +136,29 @@ int DrawFrameTask::drawFrame() {
 void DrawFrameTask::postAndWait() {
     ATRACE_CALL();
     AutoMutex _lock(mLock);
-    mRenderThread->queue().post([this]() { run(); });
-    mSignal.wait(mLock);
+
+    if (!mRenderThread) {
+        return;
+    }
+
+    std::condition_variable_any signal;
+    bool isFinished = false;
+
+    mRenderThread->queue().post([&]() {
+        run();
+        {
+            AutoMutex _lock(mLock);
+            isFinished = true;
+        }
+        signal.notify_one();
+    });
+
+    // Wait for the task to finish
+    while (!isFinished) {
+        signal.wait(mLock);
+    }
 }
+
 
 void DrawFrameTask::run() {
     const int64_t vsyncId = mFrameInfo[static_cast<int>(FrameInfoIndex::FrameTimelineVsyncId)];

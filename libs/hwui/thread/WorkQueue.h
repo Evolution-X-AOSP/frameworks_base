@@ -63,15 +63,18 @@ public:
         auto now = clock::now();
         std::vector<WorkItem> toProcess;
         {
-            std::unique_lock _lock{mLock};
-            if (mWorkQueue.empty()) return;
+            std::unique_lock<std::mutex> lock(mLock);
+            if (mWorkQueue.empty()) {
+                return;
+            }
             toProcess = std::move(mWorkQueue);
-            auto moveBack = find_if(std::begin(toProcess), std::end(toProcess),
-                                    [&now](WorkItem& item) { return item.runAt > now; });
-            if (moveBack != std::end(toProcess)) {
-                mWorkQueue.reserve(std::distance(moveBack, std::end(toProcess)) + 5);
-                std::move(moveBack, std::end(toProcess), std::back_inserter(mWorkQueue));
-                toProcess.erase(moveBack, std::end(toProcess));
+            auto moveBack = std::find_if(toProcess.begin(), toProcess.end(), [&now](const WorkItem& item) {
+                return item.runAt > now;
+            });
+            if (moveBack != toProcess.end()) {
+                mWorkQueue.reserve(std::distance(moveBack, toProcess.end()) + 5);
+                std::move(moveBack, toProcess.end(), std::back_inserter(mWorkQueue));
+                toProcess.erase(moveBack, toProcess.end());
             }
         }
         for (auto& item : toProcess) {

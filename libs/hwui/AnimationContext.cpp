@@ -65,11 +65,15 @@ void AnimationContext::startFrame(TreeInfo::TraversalMode mode) {
 }
 
 void AnimationContext::runRemainingAnimations(TreeInfo& info) {
-    while (mCurrentFrameAnimations.mNextHandle) {
-        AnimationHandle* current = mCurrentFrameAnimations.mNextHandle;
-        AnimatorManager& animators = current->mRenderNode->animators();
-        animators.pushStaging();
-        animators.animateNoDamage(info);
+    while (AnimationHandle* current = mCurrentFrameAnimations.mNextHandle) {
+        mCurrentFrameAnimations.mNextHandle = current->mNextHandle;  // Update the next handle before processing
+
+        if (current->mRenderNode) {  // Check for null pointer
+            AnimatorManager& animators = current->mRenderNode->animators();
+            animators.pushStaging();
+            animators.animateNoDamage(info);
+        }
+
         LOG_ALWAYS_FATAL_IF(mCurrentFrameAnimations.mNextHandle == current,
                             "Animate failed to remove from current frame list!");
     }

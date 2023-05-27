@@ -68,33 +68,33 @@ void AnimatorManager::setAnimationHandle(AnimationHandle* handle) {
 }
 
 void AnimatorManager::pushStaging() {
-    if (CC_UNLIKELY(!mAnimationHandle)) {
-        return;
-    }
-
-    std::lock_guard<std::mutex> lock(mNewAnimatorsMutex);
-    mAnimators.reserve(mAnimators.size() + mNewAnimators.size());
-
-    for (const auto& anim : mNewAnimators) {
-        if (anim != nullptr && anim->target() != &mParent) {
-            mAnimators.push_back(anim);
+    if (!mNewAnimators.empty()) {
+        if (!mAnimationHandle) {
+            return;
         }
-    }
-    std::vector<sp<BaseRenderNodeAnimator>>().swap(mNewAnimators);  // Use swap to clear mNewAnimators
 
-    if (mAnimationHandle != nullptr) {
-        if (mCancelAllAnimators) {
-            for (auto& animator : mAnimators) {
-                if (animator != nullptr) {
-                    animator->forceEndNow(mAnimationHandle->context());
-                }
+        std::lock_guard<std::mutex> lock(mNewAnimatorsMutex);
+        mAnimators.reserve(mAnimators.size() + mNewAnimators.size());
+
+        for (const auto& anim : mNewAnimators) {
+            if (anim && anim->target() != &mParent) {
+                mAnimators.push_back(anim);
             }
-            mCancelAllAnimators = false;
-        } else {
-            for (auto& animator : mAnimators) {
-                if (animator != nullptr) {
-                    animator->pushStaging(mAnimationHandle->context());
-                }
+        }
+        mNewAnimators.clear();
+    }
+
+    if (mCancelAllAnimators && !mAnimators.empty()) {
+        for (auto& animator : mAnimators) {
+            if (animator) {
+                animator->forceEndNow(mAnimationHandle->context());
+            }
+       }
+        mCancelAllAnimators = false;
+    } else {
+        for (auto& animator : mAnimators) {
+            if (animator) {
+                animator->pushStaging(mAnimationHandle->context());
             }
         }
     }

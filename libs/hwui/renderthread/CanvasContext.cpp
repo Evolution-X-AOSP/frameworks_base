@@ -358,7 +358,9 @@ void CanvasContext::prepareTree(TreeInfo& info, int64_t* uiFrameInfo, int64_t sy
         mCurrentFrameInfo = mJankTracker.startFrame();
     }
 
-    mCurrentFrameInfo->importUiThreadInfo(uiFrameInfo);
+    if (uiFrameInfo) {
+        mCurrentFrameInfo->importUiThreadInfo(uiFrameInfo);
+    }
     mCurrentFrameInfo->set(FrameInfoIndex::SyncQueued) = syncQueued;
     mCurrentFrameInfo->markSyncStart();
 
@@ -367,20 +369,23 @@ void CanvasContext::prepareTree(TreeInfo& info, int64_t* uiFrameInfo, int64_t sy
     info.damageGenerationId = mDamageId++;
     info.out.canDrawThisFrame = true;
 
-    mAnimationContext->startFrame(info.mode);
-    for (const sp<RenderNode>& node : mRenderNodes) {
-        // Only the primary target node will be drawn full - all other nodes would get drawn in
-        // real time mode. In case of a window, the primary node is the window content and the other
-        // node(s) are non client / filler nodes.
-        info.mode = (node.get() == target ? TreeInfo::MODE_FULL : TreeInfo::MODE_RT_ONLY);
-        node->prepareTree(info);
-        GL_CHECKPOINT(MODERATE);
+    if (mAnimationContext) {
+        mAnimationContext->startFrame(info.mode);
     }
-    mAnimationContext->runRemainingAnimations(info);
-    GL_CHECKPOINT(MODERATE);
+    for (const sp<RenderNode>& node : mRenderNodes) {
+        if (node) {
+            // Only the primary target node will be drawn full - all other nodes would get drawn in
+            // real-time mode. In case of a window, the primary node is the window content and the other
+            // node(s) are non-client / filler nodes.
+            info.mode = (node.get() == target ? TreeInfo::MODE_FULL : TreeInfo::MODE_RT_ONLY);
+            node->prepareTree(info);
+        }
+    }
+    if (mAnimationContext) {
+        mAnimationContext->runRemainingAnimations(info);
+    }
 
     freePrefetchedLayers();
-    GL_CHECKPOINT(MODERATE);
 
     mIsDirty = true;
 
@@ -390,7 +395,7 @@ void CanvasContext::prepareTree(TreeInfo& info, int64_t* uiFrameInfo, int64_t sy
         return;
     }
 
-    if (CC_LIKELY(mSwapHistory.size() && !info.forceDrawFrame)) {
+    if (CC_LIKELY(!info.forceDrawFrame && mSwapHistory.size())) {
         nsecs_t latestVsync = mRenderThread.timeLord().latestVsync();
         SwapHistory& lastSwap = mSwapHistory.back();
         nsecs_t vsyncDelta = std::abs(lastSwap.vsyncTime - latestVsync);
@@ -409,18 +414,18 @@ void CanvasContext::prepareTree(TreeInfo& info, int64_t* uiFrameInfo, int64_t sy
 
     // TODO: Do we need to abort out if the backdrop is added but not ready? Should that even
     // be an allowable combination?
-    if (mRenderNodes.size() > 2 && !mRenderNodes[1]->isRenderable()) {
+    if (mRenderNodes.size() > 2 && mRenderNodes[1] && !mRenderNodes[1]->isRenderable()) {
         info.out.canDrawThisFrame = false;
     }
 
     if (info.out.canDrawThisFrame) {
-        int err = mNativeSurface->reserveNext();
+        int err = mNativeSurface ? mNativeSurface->reserveNext() : NO_INIT;
         if (err != OK) {
             mCurrentFrameInfo->addFlag(FrameInfoFlags::SkippedFrame);
             info.out.canDrawThisFrame = false;
             ALOGW("reserveNext failed, error = %d (%s)", err, strerror(-err));
             if (err != TIMED_OUT) {
-                // A timed out surface can still recover, but assume others are permanently dead.
+                // A timed-out surface can still recover, but assume others are permanently dead.
                 setSurface(nullptr);
                 return;
             }
