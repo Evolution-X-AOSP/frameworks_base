@@ -419,7 +419,7 @@ void CanvasContext::prepareTree(TreeInfo& info, int64_t* uiFrameInfo, int64_t sy
     }
 
     if (info.out.canDrawThisFrame) {
-        int err = mNativeSurface ? mNativeSurface->reserveNext() : NO_INIT;
+        int err = mNativeSurface->reserveNext();
         if (err != OK) {
             mCurrentFrameInfo->addFlag(FrameInfoFlags::SkippedFrame);
             info.out.canDrawThisFrame = false;

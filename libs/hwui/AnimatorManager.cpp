@@ -81,7 +81,7 @@ void AnimatorManager::pushStaging() {
                 mAnimators.push_back(anim);
             }
         }
-        mNewAnimators.clear();
+        std::vector<sp<BaseRenderNodeAnimator>>().swap(mNewAnimators);  // Use swap to clear mNewAnimators
     }
 
     if (mCancelAllAnimators && !mAnimators.empty()) {

@@ -175,8 +175,8 @@ void BaseRenderNodeAnimator::pushStaging(AnimationContext& context) {
     PlayState prevFramePlayState = mPlayState;
 
     // Create a copy of staging requests to prevent modification while iterating
-    std::vector<Request> stagingRequestsCopy = mStagingRequests;
-    mStagingRequests.clear();
+    std::vector<Request> stagingRequestsCopy = std::move(mStagingRequests);
+    std::vector<Request>().swap(mStagingRequests);
 
     for (const Request& request : stagingRequestsCopy) {
         resolveStagingRequest(request);
