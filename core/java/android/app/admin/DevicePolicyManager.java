@@ -7124,6 +7124,10 @@ public class DevicePolicyManager {
     /** @hide per-user version */
     @UnsupportedAppUsage
     public int getStorageEncryptionStatus(int userHandle) {
+        if (Settings.Secure.getInt(mContext.getContentResolver(),
+                Settings.Secure.SPOOF_STORAGE_ENCRYPTION_STATUS, 0) == 1) {
+            return ENCRYPTION_STATUS_ACTIVE;
+        }
         if (mService != null) {
             try {
                 return mService.getStorageEncryptionStatus(mContext.getPackageName(), userHandle);
