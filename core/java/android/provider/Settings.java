@@ -13919,7 +13919,14 @@ public final class Settings {
          * @hide
          */
         public static final String FACE_UNLOCK_METHOD = "face_unlock_method";
-        
+
+        /**
+         * Control whether to spoof current status of storage encryption.
+         * @hide
+         */
+        @Readable
+        public static final String SPOOF_STORAGE_ENCRYPTION_STATUS = "spoof_storage_encryption_status";
+
         /**
          * These entries are considered common between the personal and the managed profile,
          * since the managed profile doesn't get to change them.
