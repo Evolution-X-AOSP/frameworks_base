@@ -4247,4 +4247,32 @@ public abstract class ContentResolver implements ContentInterface {
     public static @NonNull String translateDeprecatedDataPath(@NonNull Uri uri) {
         return DEPRECATE_DATA_PREFIX + uri.getEncodedSchemeSpecificPart().substring(2);
     }
+
+    /** {@hide} */
+    public static Context getCallingContext() {
+        ContentResolver cr = new ContentResolver(null) {
+            @Override
+            public void unstableProviderDied(IContentProvider icp) {
+                throw new UnsupportedOperationException();
+            }
+            @Override
+            public boolean releaseUnstableProvider(IContentProvider icp) {
+                throw new UnsupportedOperationException();
+            }
+            @Override
+            public boolean releaseProvider(IContentProvider icp) {
+                throw new UnsupportedOperationException();
+            }
+            @Override
+            protected IContentProvider acquireUnstableProvider(Context c, String name) {
+                throw new UnsupportedOperationException();
+            }
+            @Override
+            protected IContentProvider acquireProvider(Context c, String name) {
+                throw new UnsupportedOperationException();
+            }
+        };
+
+        return cr.mContext;
+    }
 }
