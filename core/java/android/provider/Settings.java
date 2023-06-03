@@ -6856,11 +6856,6 @@ public final class Settings {
         public static final String QS_TILE_LABEL_SIZE = "qs_tile_label_size";
 
         /**
-         * @hide
-         */
-        public static final String MAX_VISIBLE_NOTIFICATION_ICONS = "max_visible_notification_icons";
-
-        /**
          * Show the pending notification counts as overlays on the status bar
          * Default 0
          * @hide
@@ -7126,7 +7121,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED);
             PRIVATE_SETTINGS.add(NAVIGATION_BAR_IME_SPACE);
             PRIVATE_SETTINGS.add(BACK_GESTURE_HAPTIC);
-            PRIVATE_SETTINGS.add(MAX_VISIBLE_NOTIFICATION_ICONS);
             PRIVATE_SETTINGS.add(TRANSISTENT_TASK_MODE);
             PRIVATE_SETTINGS.add(PREVENT_POINTER_ACCELERATION);
             PRIVATE_SETTINGS.add(FORCE_MOUSE_AS_TOUCH);

@@ -18,16 +18,13 @@ package com.android.systemui.statusbar.phone;
 import static com.android.systemui.statusbar.phone.HeadsUpAppearanceController.CONTENT_FADE_DELAY;
 import static com.android.systemui.statusbar.phone.HeadsUpAppearanceController.CONTENT_FADE_DURATION;
 
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Configuration;
-import android.database.ContentObserver;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Icon;
-import android.os.Handler;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.AttributeSet;
@@ -179,15 +176,10 @@ public class NotificationIconContainer extends ViewGroup {
     private View mIsolatedIconForAnimation;
     private int mThemedTextColorPrimary;
 
-    private SettingsObserver mSettingsObserver;
-
     public NotificationIconContainer(Context context, AttributeSet attrs) {
         super(context, attrs);
         initDimens();
         setWillNotDraw(!(DEBUG || DEBUG_OVERFLOW));
-
-        mSettingsObserver = new SettingsObserver(new Handler());
-        mSettingsObserver.observe();
     }
 
     private void initDimens() {
@@ -238,25 +230,6 @@ public class NotificationIconContainer extends ViewGroup {
     protected void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         initDimens();
-    }
-
-    private class SettingsObserver extends ContentObserver {
-        SettingsObserver(Handler handler) {
-            super(handler);
-        }
-
-        void observe() {
-            final ContentResolver resolver = getContext().getContentResolver();
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.MAX_VISIBLE_NOTIFICATION_ICONS), false, this,
-                    UserHandle.USER_ALL);
-            //updateState();
-        }
-
-        @Override
-        public void onChange(boolean selfChange) {
-            updateState();
-        }
     }
 
     @Override
@@ -485,10 +458,7 @@ public class NotificationIconContainer extends ViewGroup {
         float translationX = getActualPaddingStart();
         int firstOverflowIndex = -1;
         int childCount = getChildCount();
-        int maxStatusVisibleIcons = Settings.System.getIntForUser(getContext().getContentResolver(),
-                Settings.System.MAX_VISIBLE_NOTIFICATION_ICONS, MAX_STATIC_ICONS, UserHandle.USER_CURRENT);
-        int maxVisibleIcons = mOnLockScreen ? MAX_ICONS_ON_AOD :
-                mIsStaticLayout ? maxStatusVisibleIcons : childCount;
+        int maxVisibleIcons = getMaxVisibleIcons(childCount);
         float layoutEnd = getLayoutEnd();
         mVisualOverflowStart = 0;
         mFirstVisibleIconState = null;

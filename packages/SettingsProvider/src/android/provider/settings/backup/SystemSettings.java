@@ -115,7 +115,6 @@ public class SystemSettings {
         Settings.System.CUSTOM_NOTIFICATION_VIBRATION_PATTERN,
         Settings.System.DEFAULT_NOTIFICATION_TORCH,
         Settings.System.NAVIGATION_BAR_IME_SPACE,
-        Settings.System.MAX_VISIBLE_NOTIFICATION_ICONS,
         Settings.System.STATUS_BAR_NOTIF_COUNT,
         Settings.System.QS_PANEL_STYLE,
         Settings.System.MEDIA_ARTWORK_BLUR_ENABLED,
