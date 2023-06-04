@@ -811,6 +811,7 @@ public class ApplicationPackageManager extends PackageManager {
             };
 
     private static final String[] pTensorCodenames = {
+            "lynx",
             "cheetah",
             "panther",
             "bluejay",
@@ -834,13 +835,17 @@ public class ApplicationPackageManager extends PackageManager {
             "com.google.android.feature.GOOGLE_EXPERIENCE"
     };
 
-    private static final String[] featuresTensor = {
-            "com.google.android.feature.PIXEL_2024_EXPERIENCE",
-            "com.google.android.feature.PIXEL_2024_MIDYEAR_EXPERIENCE",
+    private static final String[] featuresP23 = {
             "com.google.android.feature.PIXEL_2023_EXPERIENCE",
-            "com.google.android.feature.PIXEL_2023_MIDYEAR_EXPERIENCE",
+            "com.google.android.feature.PIXEL_2023_MIDYEAR_EXPERIENCE"
+    };
+
+    private static final String[] featuresP22 = {
             "com.google.android.feature.PIXEL_2022_EXPERIENCE",
-            "com.google.android.feature.PIXEL_2022_MIDYEAR_EXPERIENCE",
+            "com.google.android.feature.PIXEL_2022_MIDYEAR_EXPERIENCE"
+    };
+
+    private static final String[] featuresP21 = {
             "com.google.android.feature.PIXEL_2021_EXPERIENCE",
             "com.google.android.feature.PIXEL_2021_MIDYEAR_EXPERIENCE"
     };
@@ -864,15 +869,17 @@ public class ApplicationPackageManager extends PackageManager {
                 packageName.equals("com.google.android.apps.photos") &&
                 SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", false)) {
             if (Arrays.asList(featuresPixel).contains(name)) return false;
-            if (Arrays.asList(featuresTensor).contains(name)) return false;
+            if (Arrays.asList(featuresP23).contains(name)) return false;
+            if (Arrays.asList(featuresP22).contains(name)) return false;
+            if (Arrays.asList(featuresP21).contains(name)) return false;
             if (Arrays.asList(featuresNexus).contains(name)) return true;
         }
-        if (Arrays.asList(featuresAndroid).contains(name)) return true;
-        if (Arrays.asList(featuresTensor).contains(name) &&
+        if (Arrays.asList(featuresP22).contains(name) &&
                 !Arrays.asList(pTensorCodenames).contains(SystemProperties.get("ro.product.device"))) {
             return false;
-        } else if (packageName != null && Arrays.asList(featuresTensor).contains(name)) {
-            if (packageName.contains("com.google.android.as") || packageName.contains("com.google.android.apps.nexuslauncher")) {
+        } else if (packageName != null && Arrays.asList(featuresP22).contains(name)) {
+            if (packageName.contains("com.google.android.as")
+                || packageName.contains("com.google.android.apps.nexuslauncher")) {
                 return false;
             }
         }
