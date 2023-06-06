@@ -64,4 +64,5 @@
     <string name="notification_channel_poweroff_alarm">Выключить будильник</string>
     <string name="poweroff_alarm_title">Будильник выключен</string>
     <string name="poweroff_alarm_body">Был обнаружен будильник, устройство включится на 2 минуты раньше положенного срока</string>
+    <!-- Parallel space badge -->
 </resources>
