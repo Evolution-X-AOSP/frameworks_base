@@ -64,4 +64,5 @@
     <string name="notification_channel_poweroff_alarm">Güç kapalı alarm</string>
     <string name="poweroff_alarm_title">Güç kapalı alarmı ayarla</string>
     <string name="poweroff_alarm_body">Bir alarm algılandı ve cihaz 2 dakika öncesinde açılacak</string>
+    <!-- Parallel space badge -->
 </resources>

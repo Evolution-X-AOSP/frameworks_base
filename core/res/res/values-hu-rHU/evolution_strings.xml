@@ -14,7 +14,7 @@
     <!-- Button that copies the url to the log of a crashed application -->
     <string name="aerr_copy">Az összeomlási napló URL-jének másolása</string>
     <string name="url_copy_success">Az URL sikeresen másolva</string>
-    <string name="url_copy_failed">Hiba történt a napló stagbin-re való feltöltése során</string>
+    <string name="url_copy_failed">Hiba történt a napló feltöltése során</string>
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Rendszerfelület-újraindítás szükséges</string>
     <string name="systemui_restart_message">Az összes módosítás érvénybe léptetéséhez szükséges a rendszerfelület újraindítása. Újraindítja most?</string>
@@ -64,4 +64,5 @@
     <string name="notification_channel_poweroff_alarm">Ébresztés kikapcsolt állapotban</string>
     <string name="poweroff_alarm_title">Az \'Ébresztés kikapcsolt állapotban\' beállítása</string>
     <string name="poweroff_alarm_body">Amikor a készüléken ébresztés van ütemezve és a telefon ki van kapcsolva, 2 perccel az ébresztés előtt bekapcsolódik a készülék</string>
+    <!-- Parallel space badge -->
 </resources>
