@@ -14,7 +14,7 @@
     <!-- Button that copies the url to the log of a crashed application -->
     <string name="aerr_copy">Salin tautan log kerusakan</string>
     <string name="url_copy_success">Tautan berhasil disalin</string>
-    <string name="url_copy_failed">Terjadi kesalahan pada saat mengunggah log ke stagbin</string>
+    <string name="url_copy_failed">Terjadi kesalahan pada saat mengunggah log ke dogbin</string>
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Diperlukan memulai ulang SistemUI</string>
     <string name="systemui_restart_message">Untuk melihat semua perubahan, diperlukan memulai ulang SistemUI. Mulai ulang sekarang?</string>
@@ -64,4 +64,5 @@
     <string name="notification_channel_poweroff_alarm">Alarm perangkat mati</string>
     <string name="poweroff_alarm_title">Setel alarm perangkat mati</string>
     <string name="poweroff_alarm_body">Alarm terdeteksi dan perangkat akan menyala 2 menit sebelum waktunya</string>
+    <!-- Parallel space badge -->
 </resources>
