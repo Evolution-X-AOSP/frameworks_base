@@ -64,4 +64,5 @@
     <string name="notification_channel_poweroff_alarm">Sveglia da spento</string>
     <string name="poweroff_alarm_title">Imposta sveglia da spento</string>
     <string name="poweroff_alarm_body">Se viene rilevata una sveglia e il dispositivo è spento, si accenderà 2 minuti prima della sveglia</string>
+    <!-- Parallel space badge -->
 </resources>

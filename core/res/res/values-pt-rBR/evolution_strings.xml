@@ -14,7 +14,7 @@
     <!-- Button that copies the url to the log of a crashed application -->
     <string name="aerr_copy">Copie o URL do registro de falhas</string>
     <string name="url_copy_success">URL copiado com sucesso</string>
-    <string name="url_copy_failed">Ocorreu um erro durante o upload do log para o stagbin</string>
+    <string name="url_copy_failed">Ocorreu um erro durante o upload do log para o Pasty</string>
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">É necessário reiniciar a Interface do Sistema</string>
     <string name="systemui_restart_message">Para que todas as alterações tenham efeito, é necessário reiniciar a interface do sistema. Deseja reiniciar a interface do sistema agora?</string>
@@ -62,6 +62,7 @@
     <string name="sleep_mode_disabled_toast">O modo de suspensão foi desativado</string>
     <!-- PowerOffAlarmService -->
     <string name="notification_channel_poweroff_alarm">Alarme com o dispositivo desligado</string>
-    <string name="poweroff_alarm_title">Definir alarme com o dispositivo desligado</string>
+    <string name="poweroff_alarm_title">Alarme definido com o dispositivo desligado</string>
     <string name="poweroff_alarm_body">Um alarme foi detectado e o dispositivo será ligado 2 minutos antes de despertar</string>
+    <!-- Parallel space badge -->
 </resources>
