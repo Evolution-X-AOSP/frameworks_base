@@ -13411,6 +13411,28 @@ public final class Settings {
         public static final String WINDOW_IGNORE_SECURE = "window_ignore_secure";
 
         /**
+         * Indicates whether extra dim turns on automatically
+         * 0 = disabled (default)
+         * 1 = from sunset to sunrise
+         * 2 = custom time
+         * 3 = from sunset till a time
+         * 4 = from a time till sunrise
+         * @hide
+         */
+        @Readable
+        public static final String EXTRA_DIM_AUTO_MODE = "extra_dim_auto_mode";
+
+        /**
+         * The custom time extra dim should be on at
+         * Only relevant when {@link EXTRA_DIM_AUTO_MODE} is set to 2 and above
+         * 0 = Disabled (default)
+         * format: HH:mm,HH:mm (since,till)
+         * @hide
+         */
+        @Readable
+        public static final String EXTRA_DIM_AUTO_TIME = "extra_dim_auto_time";
+
+        /**
          * Whether lockscreen weather is enabled.
          *
          * @hide
