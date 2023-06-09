@@ -190,7 +190,9 @@ final class InputManagerCallback implements InputManagerService.WindowManagerCal
             int firstExternalDisplayId = DEFAULT_DISPLAY;
             for (int i = mService.mRoot.mChildren.size() - 1; i >= 0; --i) {
                 final DisplayContent displayContent = mService.mRoot.mChildren.get(i);
-                if (displayContent.getDisplayInfo().state == Display.STATE_OFF) {
+                if (displayContent.getDisplayInfo().state == Display.STATE_OFF
+                            || !displayContent.forceDesktopMode()) {
+                    // If desktop mode is not enabled, show on the default display.
                     continue;
                 }
                 // Heuristic solution here. Currently when "Freeform windows" developer option is
@@ -200,9 +202,7 @@ final class InputManagerCallback implements InputManagerService.WindowManagerCal
                     return displayContent.getDisplayId();
                 }
 
-                // If desktop mode is not enabled, show on the default display.
-                if (displayContent.forceDesktopMode()
-                        && firstExternalDisplayId == DEFAULT_DISPLAY
+                if (firstExternalDisplayId == DEFAULT_DISPLAY
                         && displayContent.getDisplayId() != DEFAULT_DISPLAY) {
                     firstExternalDisplayId = displayContent.getDisplayId();
                 }
