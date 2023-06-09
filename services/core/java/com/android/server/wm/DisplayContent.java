@@ -4131,10 +4131,7 @@ class DisplayContent extends RootDisplayArea implements WindowManagerPolicy.Disp
     }
 
     boolean forceDesktopMode() {
-        // Always treat a display with FLAG_SHOULD_SHOW_SYSTEM_DECORATIONS as desktop,
-        // as Android does not set that for normal public displays, and only a non-AOSP addition
-        // could ever set that on a non-default public display.
-        return ((mDisplay.getFlags() & FLAG_SHOULD_SHOW_SYSTEM_DECORATIONS) != 0 || mWmService.mForceDesktopModeOnExternalDisplays)
+        return ("VNC".equals(mDisplay.getName()) || mWmService.mForceDesktopModeOnExternalDisplays)
             && !isDefaultDisplay && !isPrivate();
     }
 
