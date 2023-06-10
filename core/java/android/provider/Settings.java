@@ -6033,6 +6033,39 @@ public final class Settings {
         public static final String INCREASING_RING_RAMP_UP_TIME = "increasing_ring_ramp_up_time";
 
         /**
+         * Whether charging control should be enabled.
+         * The value is boolean (1 or 0).
+         * @hide
+         */
+        public static final String CHARGING_CONTROL_ENABLED = "charging_control_enabled";
+
+        /**
+         * Charging control mode, one of AUTO (1; default), CUSTOM (2), or LIMIT (3).
+         * @hide
+         */
+        public static final String CHARGING_CONTROL_MODE = "charging_control_mode";
+
+        /**
+         * Time when charging control is automatically activated in CUSTOM mode.
+         * The value is represented as seconds from midnight.
+         * @hide
+         */
+        public static final String CHARGING_CONTROL_START_TIME = "charging_control_start_time";
+
+        /**
+         * Target time when battery is fully charged in CUSTOM mode.
+         * The value is represented as seconds from midnight.
+         * @hide
+         */
+        public static final String CHARGING_CONTROL_TARGET_TIME = "charging_control_target_time";
+
+        /**
+         * Limit to stop charging.
+         * @hide
+         */
+        public static final String CHARGING_CONTROL_LIMIT = "charging_control_charging_limit";
+
+        /**
          * Whether the battery light should be enabled (if hardware supports it)
          * The value is boolean (1 or 0).
          * @hide
