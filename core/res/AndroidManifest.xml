@@ -7886,6 +7886,9 @@
     <protected-broadcast android:name="lineageos.platform.intent.action.UPDATE_TWILIGHT_STATE" />
     <protected-broadcast android:name="lineageos.intent.action.INITIALIZE_LIVEDISPLAY" />
 
+    <!-- LineageHealth -->
+    <protected-broadcast android:name="lineageos.platform.intent.action.CHARGING_CONTROL_CANCEL_ONCE" />
+
     <!-- @hide -->
     <permission android:name="lineageos.permission.HARDWARE_ABSTRACTION_ACCESS"
                 android:protectionLevel="signature|privileged" />
