@@ -75,4 +75,13 @@
 
     <!-- Parallel space badge -->
     <string name="parallel_space_badge_label" translatable="false">%1$s</string>
+
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">Charging control</string>
+    <string name="charging_control_notification_title">Charging control</string>
+    <string name="charging_control_notification_cancel_once">Cancel</string>
+    <string name="charging_control_notification_content_limit">Battery will be charged to %1$d%%</string>
+    <string name="charging_control_notification_content_limit_reached">Battery is charged to %1$d%%</string>
+    <string name="charging_control_notification_content_target">Battery will be fully charged at %1$s</string>
+    <string name="charging_control_notification_content_target_reached">Battery is charged</string>
 </resources>
