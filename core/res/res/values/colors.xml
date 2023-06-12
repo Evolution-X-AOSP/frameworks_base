@@ -482,5 +482,6 @@
     <color name="side_fps_button_color">#00677E</color>
     
     <color name="qs_translucent_brightness_bg">#33FFFFFF</color>
+    <color name="qs_offstate_color">@color/system_neutral1_0</color>
 
 </resources>
