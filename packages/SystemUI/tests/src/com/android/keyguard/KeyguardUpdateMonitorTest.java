@@ -1135,8 +1135,8 @@ public class KeyguardUpdateMonitorTest extends SysuiTestCase {
         assertThat(mKeyguardUpdateMonitor.isFingerprintLockedOut()).isEqualTo(fpLocked);
         assertThat(mKeyguardUpdateMonitor.isFaceLockedOut()).isEqualTo(faceLocked);
 
-        // Fingerprint should be cancelled on lockout if going to lockout state, else
-        // restarted if it's not
+        // Fingerprint should be restarted once its cancelled bc on lockout, the device
+        // can still detectFingerprint (and if it's not locked out, fingerprint can listen)
         assertThat(mKeyguardUpdateMonitor.mFingerprintRunningState)
                 .isEqualTo(BIOMETRIC_STATE_CANCELLING_RESTARTING);
     }
