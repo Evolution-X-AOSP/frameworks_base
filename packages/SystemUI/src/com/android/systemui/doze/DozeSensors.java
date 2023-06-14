@@ -249,7 +249,7 @@ public class DozeSensors {
                         dozeParameters.longPressUsesProx(),
                         !dozeParameters.longPressNeedsProximityCheck() /* performsProxCheck */,
                         false /* immediatelyReRegister */,
-                        true /* requiresAod */
+                        false /* requiresAod */
                 ),
                 new PluginSensor(
                         new SensorManagerPlugin.Sensor(TYPE_WAKE_DISPLAY),
