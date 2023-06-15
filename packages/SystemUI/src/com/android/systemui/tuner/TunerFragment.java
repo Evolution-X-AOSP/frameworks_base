@@ -102,10 +102,12 @@ public class TunerFragment extends PreferenceFragment {
             }
         }
 
-        if (Settings.Secure.getInt(getContext().getContentResolver(), SETTING_SEEN_TUNER_WARNING,
-                0) == 0) {
-            if (getFragmentManager().findFragmentByTag(WARNING_TAG) == null) {
-                new TunerWarningFragment().show(getFragmentManager(), WARNING_TAG);
+        if (Build.IS_DEBUGGABLE) {
+            if (Settings.Secure.getInt(getContext().getContentResolver(), SETTING_SEEN_TUNER_WARNING,
+                    0) == 0) {
+                if (getFragmentManager().findFragmentByTag(WARNING_TAG) == null) {
+                    new TunerWarningFragment().show(getFragmentManager(), WARNING_TAG);
+                }
             }
         }
     }
