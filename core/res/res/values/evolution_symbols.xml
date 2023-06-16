@@ -180,7 +180,6 @@
     <java-symbol type="style" name="GlobalActionsAnimation" />
     <java-symbol type="style" name="GlobalActionsAnimationTop" />
     <java-symbol type="style" name="GlobalActionsAnimationEnter" />
-    <java-symbol type="style" name="GlobalActionsAnimationFly" />
     <java-symbol type="style" name="GlobalActionsAnimationTn" />
     <java-symbol type="style" name="GlobalActionsAnimationTranslucent" />
     <java-symbol type="style" name="GlobalActionsAnimationXylon" />
