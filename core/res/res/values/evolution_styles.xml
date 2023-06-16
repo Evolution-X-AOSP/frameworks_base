@@ -17,10 +17,6 @@
         <item name="windowEnterAnimation">@anim/dialog_enter</item>
         <item name="windowExitAnimation">@anim/dialog_exit</item>
     </style>
-    <style name="GlobalActionsAnimationFly">
-        <item name="windowEnterAnimation">@anim/recent_enter</item>
-        <item name="windowExitAnimation">@anim/recent_exit</item>
-    </style>
     <style name="GlobalActionsAnimationTn">
         <item name="windowEnterAnimation">@anim/tn_toast_enter</item>
         <item name="windowExitAnimation">@anim/tn_toast_exit</item>
