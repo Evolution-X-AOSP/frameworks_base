@@ -51,7 +51,6 @@ public class PixelPropsUtils {
     private static final boolean DEBUG = false;
 
     private static final Map<String, Object> propsToChangeGeneric;
-    private static final Map<String, Object> propsToChangeUserdebug;
     private static final Map<String, Object> propsToChangePixel7Pro;
     private static final Map<String, Object> propsToChangePixelXL;
     private static final Map<String, Object> propsToChangePixel5;
@@ -93,10 +92,6 @@ public class PixelPropsUtils {
             "com.google.android.MTCL83",
             "com.google.android.UltraCVM",
             "com.google.android.apps.cameralite"
-    };
-
-    private static final String[] packagesToChangeUserdebug = {
-            "com.google.android.apps.nexuslauncher"
     };
 
     // Packages to Keep with original device
@@ -219,8 +214,6 @@ public class PixelPropsUtils {
         propsToChangeGeneric = new HashMap<>();
         propsToChangeGeneric.put("TYPE", "user");
         propsToChangeGeneric.put("TAGS", "release-keys");
-        propsToChangeUserdebug = new HashMap<>();
-        propsToChangeUserdebug.put("TYPE", "userdebug");
         propsToChangePixel7Pro = new HashMap<>();
         propsToChangePixel7Pro.put("BRAND", "google");
         propsToChangePixel7Pro.put("MANUFACTURER", "Google");
@@ -305,8 +298,6 @@ public class PixelPropsUtils {
             if ((Arrays.asList(packagesToChangePixel7Pro).contains(packageName))
                     || Arrays.asList(extraPackagesToChange).contains(packageName)) {
                 propsToChange.putAll(propsToChangePixel7Pro);
-            } else if (Arrays.asList(packagesToChangeUserdebug).contains(packageName)) {
-                propsToChange.putAll(propsToChangeUserdebug);
             } else {
                 if (isPixelDevice) return;
                 propsToChange.putAll(propsToChangePixel5);
