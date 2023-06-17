@@ -52,8 +52,9 @@ public class PixelPropsUtils {
 
     private static final Map<String, Object> propsToChangeGeneric;
     private static final Map<String, Object> propsToChangePixel7Pro;
-    private static final Map<String, Object> propsToChangePixelXL;
+    private static final Map<String, Object> propsToChangePixel6Pro;
     private static final Map<String, Object> propsToChangePixel5;
+    private static final Map<String, Object> propsToChangePixelXL;
     private static final Map<String, Object> propsToChangeROG6;
     private static final Map<String, Object> propsToChangeXP5;
     private static final Map<String, Object> propsToChangeOP8P;
@@ -72,6 +73,13 @@ public class PixelPropsUtils {
             "com.google.android.apps.wallpaper.pixel"
     };
 
+    // Packages to Spoof as Pixel 6 Pro
+    private static final String[] packagesToChangePixel6Pro = {
+            "com.google.android.wallpaper.effects",
+            "com.google.android.apps.emojiwallpaper",
+    };
+
+    // Packages to Spoof as Pixel XL
     private static final String[] packagesToChangePixelXL = {
             "com.google.android.inputmethod.latin"
     };
@@ -221,6 +229,13 @@ public class PixelPropsUtils {
         propsToChangePixel7Pro.put("PRODUCT", "cheetah");
         propsToChangePixel7Pro.put("MODEL", "Pixel 7 Pro");
         propsToChangePixel7Pro.put("FINGERPRINT", "google/cheetah/cheetah:13/TQ3A.230605.012/10204971:user/release-keys");
+        propsToChangePixel6Pro = new HashMap<>();
+        propsToChangePixel6Pro.put("BRAND", "google");
+        propsToChangePixel6Pro.put("MANUFACTURER", "Google");
+        propsToChangePixel6Pro.put("DEVICE", "raven");
+        propsToChangePixel6Pro.put("PRODUCT", "raven");
+        propsToChangePixel6Pro.put("MODEL", "Pixel 6 Pro");
+        propsToChangePixel6Pro.put("FINGERPRINT", "google/raven/raven:13/TQ3A.230605.010/10121037:user/release-keys");
         propsToChangePixel5 = new HashMap<>();
         propsToChangePixel5.put("BRAND", "google");
         propsToChangePixel5.put("MANUFACTURER", "Google");
@@ -298,6 +313,9 @@ public class PixelPropsUtils {
             if ((Arrays.asList(packagesToChangePixel7Pro).contains(packageName))
                     || Arrays.asList(extraPackagesToChange).contains(packageName)) {
                 propsToChange.putAll(propsToChangePixel7Pro);
+            } else if (Arrays.asList(packagesToChangePixel6Pro).contains(packageName)) {
+                if (isPixelDevice) return;
+                propsToChange.putAll(propsToChangePixel6Pro);
             } else {
                 if (isPixelDevice) return;
                 propsToChange.putAll(propsToChangePixel5);
