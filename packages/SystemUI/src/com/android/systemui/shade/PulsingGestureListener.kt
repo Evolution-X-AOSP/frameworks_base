@@ -33,6 +33,7 @@ import com.android.systemui.plugins.FalsingManager.LOW_PENALTY
 import com.android.systemui.plugins.statusbar.StatusBarStateController
 import com.android.systemui.power.domain.interactor.PowerInteractor
 import com.android.systemui.settings.UserTracker
+import com.android.systemui.statusbar.StatusBarState
 import com.android.systemui.tuner.TunerService
 import com.android.systemui.tuner.TunerService.Tunable
 import java.io.PrintWriter
@@ -135,6 +136,12 @@ class PulsingGestureListener @Inject constructor(
         } else if (!statusBarStateController.isDozing &&
                 doubleTapToSleepEnabled &&
                 e.getY() < quickQsOffsetHeight
+            ) {
+                powerManager.goToSleep(e.getEventTime())
+                return true
+            } else if (!statusBarStateController.isDozing &&
+                doubleTapToSleepEnabled &&
+                statusBarStateController.getState() == StatusBarState.KEYGUARD
             ) {
                 powerManager.goToSleep(e.getEventTime())
                 return true
