@@ -220,6 +220,8 @@ public class VolumePanelDialog extends SystemUIDialog implements LifecycleOwner 
         uris.add(MEDIA_OUTPUT_INDICATOR_SLICE_URI);
         uris.add(VOLUME_CALL_URI);
         uris.add(VOLUME_RINGER_URI);
+        uris.add(VOLUME_SEPARATE_RING_URI);
+        uris.add(VOLUME_NOTIFICATION_URI);
         uris.add(VOLUME_ALARM_URI);
         return uris;
     }
@@ -254,6 +256,18 @@ public class VolumePanelDialog extends SystemUIDialog implements LifecycleOwner 
             .authority(SETTINGS_SLICE_AUTHORITY)
             .appendPath(SettingsSlicesContract.PATH_SETTING_ACTION)
             .appendPath("ring_volume")
+            .build();
+    private static final Uri VOLUME_SEPARATE_RING_URI = new Uri.Builder()
+            .scheme(ContentResolver.SCHEME_CONTENT)
+            .authority(SETTINGS_SLICE_AUTHORITY)
+            .appendPath(SettingsSlicesContract.PATH_SETTING_ACTION)
+            .appendPath("separate_ring_volume")
+            .build();
+    private static final Uri VOLUME_NOTIFICATION_URI = new Uri.Builder()
+            .scheme(ContentResolver.SCHEME_CONTENT)
+            .authority(SETTINGS_SLICE_AUTHORITY)
+            .appendPath(SettingsSlicesContract.PATH_SETTING_ACTION)
+            .appendPath("notification_volume")
             .build();
     private static final Uri VOLUME_ALARM_URI = new Uri.Builder()
             .scheme(ContentResolver.SCHEME_CONTENT)
