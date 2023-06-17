@@ -25,6 +25,7 @@ import com.android.systemui.dagger.qualifiers.Main
 import com.android.systemui.plugins.FalsingManager
 import com.android.systemui.plugins.statusbar.StatusBarStateController
 import com.android.systemui.statusbar.phone.dagger.CentralSurfacesComponent
+import com.android.systemui.statusbar.StatusBarState
 import com.android.systemui.tuner.TunerService
 import com.android.systemui.tuner.TunerService.Tunable
 import javax.inject.Inject
@@ -66,6 +67,12 @@ class QQSGestureListener @Inject constructor(
                 doubleTapToSleepEnabled &&
                 e.getY() < quickQsOffsetHeight &&
                 !falsingManager.isFalseDoubleTap
+        ) {
+            powerManager.goToSleep(e.getEventTime())
+            return true
+        } else if (!statusBarStateController.isDozing &&
+            doubleTapToSleepEnabled &&
+            statusBarStateController.getState() == StatusBarState.KEYGUARD
         ) {
             powerManager.goToSleep(e.getEventTime())
             return true
