@@ -21,9 +21,11 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Binder;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.provider.DeviceConfig;
 import android.provider.Settings;
 import android.provider.SettingsSlicesContract;
 import android.text.TextUtils;
@@ -45,6 +47,8 @@ import androidx.slice.Slice;
 import androidx.slice.SliceMetadata;
 import androidx.slice.widget.EventInfo;
 import androidx.slice.widget.SliceLiveData;
+
+import com.android.internal.config.sysui.SystemUiDeviceConfigFlags;
 
 import com.android.settingslib.bluetooth.A2dpProfile;
 import com.android.settingslib.bluetooth.BluetoothUtils;
@@ -79,6 +83,8 @@ public class VolumePanelDialog extends SystemUIDialog implements LifecycleOwner 
     private final HashSet<Uri> mLoadedSlices = new HashSet<>();
     private boolean mSlicesReadyToLoad;
     private LocalBluetoothProfileManager mProfileManager;
+
+    private static final boolean CONFIG_SEPARATE_NOTIFICATION_DEFAULT_VAL = false;
 
     public VolumePanelDialog(Context context,
             ActivityStarter activityStarter, boolean aboveStatusBar) {
@@ -221,7 +227,11 @@ public class VolumePanelDialog extends SystemUIDialog implements LifecycleOwner 
         }
         uris.add(MEDIA_OUTPUT_INDICATOR_SLICE_URI);
         uris.add(VOLUME_CALL_URI);
-        uris.add(VOLUME_RINGER_URI);
+        if (isSeparateNotificationConfigEnabled()) {
+            uris.add(VOLUME_SEPARATE_RING_URI);
+        } else {
+            uris.add(VOLUME_RINGER_URI);
+        }
         uris.add(VOLUME_ALARM_URI);
         return uris;
     }
@@ -256,6 +266,12 @@ public class VolumePanelDialog extends SystemUIDialog implements LifecycleOwner 
             .authority(SETTINGS_SLICE_AUTHORITY)
             .appendPath(SettingsSlicesContract.PATH_SETTING_ACTION)
             .appendPath("ring_volume")
+            .build();
+    private static final Uri VOLUME_SEPARATE_RING_URI = new Uri.Builder()
+            .scheme(ContentResolver.SCHEME_CONTENT)
+            .authority(SETTINGS_SLICE_AUTHORITY)
+            .appendPath(SettingsSlicesContract.PATH_SETTING_ACTION)
+            .appendPath("separate_ring_volume")
             .build();
     private static final Uri VOLUME_ALARM_URI = new Uri.Builder()
             .scheme(ContentResolver.SCHEME_CONTENT)
@@ -301,5 +317,12 @@ public class VolumePanelDialog extends SystemUIDialog implements LifecycleOwner 
     @Override
     public Lifecycle getLifecycle() {
         return mLifecycleRegistry;
+    }
+
+    protected boolean isSeparateNotificationConfigEnabled() {
+        return Binder.withCleanCallingIdentity(()
+                -> DeviceConfig.getBoolean(DeviceConfig.NAMESPACE_SYSTEMUI,
+                SystemUiDeviceConfigFlags.VOLUME_SEPARATE_NOTIFICATION,
+                CONFIG_SEPARATE_NOTIFICATION_DEFAULT_VAL));
     }
 }
