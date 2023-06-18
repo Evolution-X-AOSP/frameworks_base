@@ -327,9 +327,6 @@ public class BrightnessController implements ToggleSlider.Listener, MirroredBrig
                 Context.VR_SERVICE));
 
         mVibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-        if (mVibrator == null || !mVibrator.hasVibrator()) {
-            mVibrator = null;
-        }
 
         mIcon = control.getIcon();
         mIcon.setOnClickListener(v -> Settings.System.putIntForUser(mContext.getContentResolver(),
