@@ -60,4 +60,5 @@
     <string name="sleep_mode_notification_content">点击关闭睡眠模式</string>
     <string name="sleep_mode_enabled_toast">睡眠模式已开启</string>
     <string name="sleep_mode_disabled_toast">睡眠模式已关闭</string>
+    <!-- Parallel space badge -->
 </resources>
