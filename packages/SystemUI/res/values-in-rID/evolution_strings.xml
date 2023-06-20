@@ -120,15 +120,6 @@
     <string name="quick_settings_aod_on_charge_label">AOD saat cas</string>
     <string name="quick_settings_aod_off_label">AOD nonaktif</string>
     <string name="quick_settings_aod_off_powersave_label">AOD nonaktif\nPenghemat baterai</string>
-    <!-- Refresh Rate Tile -->
-    <string name="refresh_rate_tile_label">Kecepatan refresh</string>
-    <string name="refresh_rate_auto_mode_placeholder">        Otomatis (<xliff:g id="min_refresh_rate" example="60">%1$d</xliff:g> - <xliff:g id="max_refresh_rate" example="60">%2$d</xliff:g> Hz)
-    </string>
-    <string name="refresh_rate_forced_mode_placeholder"><xliff:g id="refresh_rate" example="60">%1$d</xliff:g> Hz</string>
-    <!-- FPS Info tile -->
-    <string name="quick_settings_fpsinfo_label">Info FPS</string>
-    <string name="accessibility_quick_settings_fpsinfo_off">Info FPS nonaktif</string>
-    <string name="accessibility_quick_settings_fpsinfo_on">Info FPS aktif</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Tangkapan Layar dihapus</string>
     <!-- Status bar tuner -->
@@ -156,8 +147,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Pengisian SuperDart (<xliff:g id="charging_time_left" example="4 jam 2 menit">%1$s</xliff:g> hingga penuh)</string>
     <string name="keyguard_plugged_in_superdart_charging"><xliff:g id="percentage">%s</xliff:g> • Pengisian SuperDart</string>
-    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
-    <string name="clock">Jam</string>
     <!-- Screen record -->
     <string name="screenrecord_stopdot_label">Tampilkan titik berhenti</string>
     <string name="screenrecord_stopdot_summary">Tekan lama untuk memindahkannya</string>
@@ -169,7 +158,6 @@
     <string name="screenrecord_skip_time_summary">Hapus 3 detik menunggu</string>
     <string name="screenrecord_hevc_switch_label">Aktifkan HEVC</string>
     <string name="screenrecord_hevc_switch_summary">Gunakan enkode video HEVC yang lebih efisien</string>
-    <!-- FPS view text placeholder -->
     <!-- Kill foreground app -->
     <string name="task_helper_app_killed">%1$s paksa berhenti</string>
     <string name="empty_app_killed">Aplikasi</string>
@@ -195,8 +183,6 @@
     <string name="global_action_onthego">On-The-Go</string>
     <!-- OnTheGo Tile -->
     <string name="quick_settings_onthego_label">On-The-Go</string>
-    <!-- CPUInfo tile -->
-    <string name="quick_settings_cpuinfo_label">Info CPU</string>
     <!-- Screenshot Tile -->
     <string name="screenshot_long_press">Tekan lama untuk menangkap layar sebagian</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
@@ -211,8 +197,6 @@
     <string name="vpn_tethering_label">Tethering VPN</string>
     <string name="vpn_tethering_changed_off">Tethering VPN dinonaktifkan.</string>
     <string name="vpn_tethering_changed_on">Tethering VPN diaktifkan.</string>
-    <!-- Face Unlock -->
-    <string name="face_unlock_recognizing">Mengenali wajah...</string>
     <!-- Glove Mode Tile -->
     <string name="quick_settings_glove_mode_label">Mode Sarung Tangan</string>
     <!-- Compass QS Tile -->
@@ -254,4 +238,12 @@
     <string name="quick_settings_smart_pixels">Piksel Cerdas</string>
     <string name="quick_settings_smart_pixels_on_power_save">Aktifkan otomatis Piksel Cerdas</string>
     <!-- Text to use when the number in a notification info is too large -->
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Kursor kiri</string>
+    <string name="accessibility_dpad_right">Kursor kanan</string>
+    <!-- Preferred network tile -->
+    <string name="quick_settings_preferred_network_label">Jaringan pilihan</string>
+    <string name="quick_settings_preferred_network_lte">4G / LTE</string>
+    <string name="quick_settings_preferred_network_nr">5G / NR</string>
+    <string name="quick_settings_preferred_network_unsupported">Tidak didukung</string>
 </resources>
