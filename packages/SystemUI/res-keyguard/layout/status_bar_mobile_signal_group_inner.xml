@@ -66,9 +66,9 @@
             android:scaleType="centerInside"
             android:visibility="gone" />
         <Space
-            android:id="@+id/mobile_roaming_space"
+            android:id="@+id/mobile_hd_space"
             android:layout_height="match_parent"
-            android:layout_width="@dimen/roaming_icon_start_padding"
+            android:layout_width="2.5dp"
             android:visibility="gone"
             />
         <FrameLayout
@@ -82,11 +82,10 @@
                 systemui:hasOverlappingRendering="false"
                 />
             <ImageView
-                android:id="@+id/mobile_roaming"
+                android:id="@+id/mobile_hd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/stat_sys_roaming"
-                android:contentDescription="@string/data_connection_roaming"
+                android:src="@drawable/ic_hd_calling"
                 android:visibility="gone" />
         </FrameLayout>
         <ImageView

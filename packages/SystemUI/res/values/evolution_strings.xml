@@ -298,4 +298,10 @@
 
     <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
     <string name="clock">Clock</string>
+
+    <!-- Name of the HD calling status bar icon. -->
+    <string name="status_bar_hd_calling">HD calling (VoLTE/VoNR)</string>
+
+    <!-- Name of the VoWiFi status bar icon. -->
+    <string name="status_bar_vowifi">Wi-Fi calling (VoWiFi)</string>
 </resources>
