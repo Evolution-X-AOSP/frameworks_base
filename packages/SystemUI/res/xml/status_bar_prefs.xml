@@ -95,6 +95,16 @@
         android:key="data_saver"
         android:title="@string/status_bar_data_saver" />
 
+    <com.android.systemui.tuner.StatusBarSwitch
+        android:key="hd_calling"
+        android:title="@string/status_bar_hd_calling"
+        android:icon="@drawable/ic_statusbar_hd_calling" />
+
+    <com.android.systemui.tuner.StatusBarSwitch
+        android:key="vowifi"
+        android:title="@string/status_bar_vowifi"
+        android:icon="@drawable/ic_statusbar_vowifi" />
+
     <com.android.systemui.tuner.StatusBarSwitch 
         android:icon="@drawable/ic_statusbar_vpn"
         android:key="vpn"
