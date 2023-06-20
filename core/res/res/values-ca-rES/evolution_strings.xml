@@ -60,4 +60,5 @@
     <string name="sleep_mode_notification_content">Toca per a desactivar el mode en repòs</string>
     <string name="sleep_mode_enabled_toast">S\'ha activat el mode en repòs</string>
     <string name="sleep_mode_disabled_toast">S\'ha desactivat el mode en repòs</string>
+    <!-- Parallel space badge -->
 </resources>
