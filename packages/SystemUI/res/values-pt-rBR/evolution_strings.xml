@@ -120,15 +120,6 @@
     <string name="quick_settings_aod_on_charge_label">AOD ao carregar</string>
     <string name="quick_settings_aod_off_label">AOD desligado</string>
     <string name="quick_settings_aod_off_powersave_label">AOD desligado\nEconomia de bateria</string>
-    <!-- Refresh Rate Tile -->
-    <string name="refresh_rate_tile_label">Taxa de atualização</string>
-    <string name="refresh_rate_auto_mode_placeholder">        Automático (<xliff:g id="min_refresh_rate" example="60">%1$d</xliff:g> - <xliff:g id="max_refresh_rate" example="60">%2$d</xliff:g> Hz)
-    </string>
-    <string name="refresh_rate_forced_mode_placeholder"><xliff:g id="refresh_rate" example="60">%1$d</xliff:g> Hz</string>
-    <!-- FPS Info tile -->
-    <string name="quick_settings_fpsinfo_label">Info de FPS</string>
-    <string name="accessibility_quick_settings_fpsinfo_off">Info de FPS desativada</string>
-    <string name="accessibility_quick_settings_fpsinfo_on">Info de FPS ativada</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">A captura de tela foi excluída</string>
     <!-- Status bar tuner -->
@@ -156,8 +147,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento SuperDart (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até concluir)</string>
     <string name="keyguard_plugged_in_superdart_charging"><xliff:g id="percentage">%s</xliff:g> • Carregamento SuperDart</string>
-    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
-    <string name="clock">Relógio</string>
     <!-- Screen record -->
     <string name="screenrecord_stopdot_label">Mostrar ponto de parada</string>
     <string name="screenrecord_stopdot_summary">Pressione e segure para movê-lo</string>
@@ -169,7 +158,6 @@
     <string name="screenrecord_skip_time_summary">Remover espera de 3 segundos</string>
     <string name="screenrecord_hevc_switch_label">Ativar HEVC</string>
     <string name="screenrecord_hevc_switch_summary">Usar codificação de vídeo HEVC</string>
-    <!-- FPS view text placeholder -->
     <!-- Kill foreground app -->
     <string name="task_helper_app_killed">%1$s encerrado</string>
     <string name="empty_app_killed">Aplicativo</string>
@@ -195,8 +183,6 @@
     <string name="global_action_onthego">On-The-Go</string>
     <!-- OnTheGo Tile -->
     <string name="quick_settings_onthego_label">On-The-Go</string>
-    <!-- CPUInfo tile -->
-    <string name="quick_settings_cpuinfo_label">Informações da CPU</string>
     <!-- Screenshot Tile -->
     <string name="screenshot_long_press">Toque longo para captura de tela parcial</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
@@ -211,8 +197,6 @@
     <string name="vpn_tethering_label">Compartilhar VPN</string>
     <string name="vpn_tethering_changed_off">O compartilhamento de VPN foi desativado.</string>
     <string name="vpn_tethering_changed_on">O compartilhamento de VPN foi ativado.</string>
-    <!-- Face Unlock -->
-    <string name="face_unlock_recognizing">Reconhecendo...</string>
     <!-- Glove Mode Tile -->
     <string name="quick_settings_glove_mode_label">Modo com Luvas</string>
     <!-- Compass QS Tile -->
@@ -254,4 +238,12 @@
     <string name="quick_settings_smart_pixels">Pixels Inteligentes</string>
     <string name="quick_settings_smart_pixels_on_power_save">Ativação automática dos Pixels Inteligentes</string>
     <!-- Text to use when the number in a notification info is too large -->
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Cursor à esquerda</string>
+    <string name="accessibility_dpad_right">Cursor à direita</string>
+    <!-- Preferred network tile -->
+    <string name="quick_settings_preferred_network_label">Redes preferenciais</string>
+    <string name="quick_settings_preferred_network_lte">4g / LTE</string>
+    <string name="quick_settings_preferred_network_nr">5g / NR</string>
+    <string name="quick_settings_preferred_network_unsupported">Não suportado</string>
 </resources>

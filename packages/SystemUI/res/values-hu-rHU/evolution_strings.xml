@@ -120,15 +120,6 @@
     <string name="quick_settings_aod_on_charge_label">AOD töltéskor</string>
     <string name="quick_settings_aod_off_label">AOD ki</string>
     <string name="quick_settings_aod_off_powersave_label">AOD ki\nAkkukímélő</string>
-    <!-- Refresh Rate Tile -->
-    <string name="refresh_rate_tile_label">Frissítési gyakoriság</string>
-    <string name="refresh_rate_auto_mode_placeholder">        Auto (<xliff:g id="min_refresh_rate" example="60">%1$d</xliff:g> - <xliff:g id="max_refresh_rate" example="60">%2$d</xliff:g> Hz)
-    </string>
-    <string name="refresh_rate_forced_mode_placeholder"><xliff:g id="refresh_rate" example="60">%1$d</xliff:g> Hz</string>
-    <!-- FPS Info tile -->
-    <string name="quick_settings_fpsinfo_label">FPS-adatok</string>
-    <string name="accessibility_quick_settings_fpsinfo_off">FPS-adatok ki</string>
-    <string name="accessibility_quick_settings_fpsinfo_on">FPS-adatok be</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">A képernyőkép törölve</string>
     <!-- Status bar tuner -->
@@ -156,8 +147,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • SuperDart töltés (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> a teljes töltöttségig)</string>
     <string name="keyguard_plugged_in_superdart_charging"><xliff:g id="percentage">%s</xliff:g> • SuperDart töltés</string>
-    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
-    <string name="clock">Óra</string>
     <!-- Screen record -->
     <string name="screenrecord_stopdot_label">Megállítógomb-megjelenítés</string>
     <string name="screenrecord_stopdot_summary">Eltávolítás hosszannyomással</string>
@@ -169,7 +158,6 @@
     <string name="screenrecord_skip_time_summary">A 3 mp-s késleltetés elhagyása</string>
     <string name="screenrecord_hevc_switch_label">HEVC-kodek</string>
     <string name="screenrecord_hevc_switch_summary">Használjon hatékonyabb HEVC-videókódolást</string>
-    <!-- FPS view text placeholder -->
     <!-- Kill foreground app -->
     <string name="task_helper_app_killed">%1$s kényszerítve leállt</string>
     <string name="empty_app_killed">Alkalmazás</string>
@@ -195,8 +183,6 @@
     <string name="global_action_onthego">Menet közben (OnTheGo)</string>
     <!-- OnTheGo Tile -->
     <string name="quick_settings_onthego_label">Menet közben (OnTheGo)</string>
-    <!-- CPUInfo tile -->
-    <string name="quick_settings_cpuinfo_label">CPU-adatok</string>
     <!-- Screenshot Tile -->
     <string name="screenshot_long_press">Részleges képernyőmentésért nyomja hosszan</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
@@ -211,8 +197,6 @@
     <string name="vpn_tethering_label">VPN-megosztás</string>
     <string name="vpn_tethering_changed_off">A VPN-megosztás kikapcsolva.</string>
     <string name="vpn_tethering_changed_on">A VPN-megosztás bekapcsolva.</string>
-    <!-- Face Unlock -->
-    <string name="face_unlock_recognizing">Arcfelismerés...</string>
     <!-- Glove Mode Tile -->
     <string name="quick_settings_glove_mode_label">Kesztyűs mód</string>
     <!-- Compass QS Tile -->
@@ -254,4 +238,12 @@
     <string name="quick_settings_smart_pixels">Intelligens pixelek</string>
     <string name="quick_settings_smart_pixels_on_power_save">Intelligens pixelek automatikus engedélyezése</string>
     <!-- Text to use when the number in a notification info is too large -->
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Kurzor balra</string>
+    <string name="accessibility_dpad_right">Kurzor jobbra</string>
+    <!-- Preferred network tile -->
+    <string name="quick_settings_preferred_network_label">Előnyt élvező hálózat</string>
+    <string name="quick_settings_preferred_network_lte">4G / LTE</string>
+    <string name="quick_settings_preferred_network_nr">5G / NR</string>
+    <string name="quick_settings_preferred_network_unsupported">Nem támogatott</string>
 </resources>

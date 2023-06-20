@@ -120,15 +120,6 @@
     <string name="quick_settings_aod_on_charge_label">Şarj olurken her zaman açık ekran</string>
     <string name="quick_settings_aod_off_label">Her zaman açık ekran kapalı</string>
     <string name="quick_settings_aod_off_powersave_label">Her zaman açık ekran kapalı\nPil tasarrufu</string>
-    <!-- Refresh Rate Tile -->
-    <string name="refresh_rate_tile_label">Yenileme hızı</string>
-    <string name="refresh_rate_auto_mode_placeholder">        Otomatik (<xliff:g id="min_refresh_rate" example="60">%1$d</xliff:g> - <xliff:g id="max_refresh_rate" example="60">%2$d</xliff:g> Hz)
-    </string>
-    <string name="refresh_rate_forced_mode_placeholder"><xliff:g id="refresh_rate" example="60">%1$d</xliff:g>Hz</string>
-    <!-- FPS Info tile -->
-    <string name="quick_settings_fpsinfo_label">FPS bilgisi</string>
-    <string name="accessibility_quick_settings_fpsinfo_off">FPS bilgisi kapalı</string>
-    <string name="accessibility_quick_settings_fpsinfo_on">FPS bilgisi açık</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Ekran görüntüsü silindi</string>
     <!-- Status bar tuner -->
@@ -156,8 +147,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • SuperDart Şarj Oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> kaldı)</string>
     <string name="keyguard_plugged_in_superdart_charging"><xliff:g id="percentage">%s</xliff:g> • SuperDart Şarj oluyor</string>
-    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
-    <string name="clock">Saat</string>
     <!-- Screen record -->
     <string name="screenrecord_stopdot_label">Durma noktasını göster\nTaşımak için uzun basın</string>
     <string name="screenrecord_stopdot_summary">Taşımak için uzun basın</string>
@@ -169,7 +158,6 @@
     <string name="screenrecord_skip_time_summary">3 saniye beklemeyi kaldır</string>
     <string name="screenrecord_hevc_switch_label">HEVC etkinleştir</string>
     <string name="screenrecord_hevc_switch_summary">Daha verimli HEVC video kodlaması kullanın</string>
-    <!-- FPS view text placeholder -->
     <!-- Kill foreground app -->
     <string name="task_helper_app_killed">%1$s zorla durduruldu</string>
     <string name="empty_app_killed">Uygulama</string>
@@ -195,8 +183,6 @@
     <string name="global_action_onthego">Yürüme modu</string>
     <!-- OnTheGo Tile -->
     <string name="quick_settings_onthego_label">Yürüme modu</string>
-    <!-- CPUInfo tile -->
-    <string name="quick_settings_cpuinfo_label">İşlemci bilgisi</string>
     <!-- Screenshot Tile -->
     <string name="screenshot_long_press">Kısmi ekran görüntüsü için basılı tutun</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
@@ -211,8 +197,6 @@
     <string name="vpn_tethering_label">VPN bağlantısı</string>
     <string name="vpn_tethering_changed_off">VPN bağlantısı kapatıldı.</string>
     <string name="vpn_tethering_changed_on">VPN bağlantısı açıldı.</string>
-    <!-- Face Unlock -->
-    <string name="face_unlock_recognizing">Yüz tanınıyor...</string>
     <!-- Glove Mode Tile -->
     <string name="quick_settings_glove_mode_label">Eldiven Modu</string>
     <!-- Compass QS Tile -->
@@ -254,4 +238,12 @@
     <string name="quick_settings_smart_pixels">Akıllı Pikseller</string>
     <string name="quick_settings_smart_pixels_on_power_save">Otomatik olarak akıllı pikselleri etkinleştir</string>
     <!-- Text to use when the number in a notification info is too large -->
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Sol imleç</string>
+    <string name="accessibility_dpad_right">İmleç sağa</string>
+    <!-- Preferred network tile -->
+    <string name="quick_settings_preferred_network_label">Tercih edilen ağ</string>
+    <string name="quick_settings_preferred_network_lte">4g / LTE</string>
+    <string name="quick_settings_preferred_network_nr">5g / NR</string>
+    <string name="quick_settings_preferred_network_unsupported">Desteklenmiyor</string>
 </resources>

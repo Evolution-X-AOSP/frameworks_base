@@ -60,4 +60,5 @@
     <string name="sleep_mode_notification_content">Toca para desactivar el modo sueño</string>
     <string name="sleep_mode_enabled_toast">Modo Sueño activado</string>
     <string name="sleep_mode_disabled_toast">Modo Sueño desactivado</string>
+    <!-- Parallel space badge -->
 </resources>

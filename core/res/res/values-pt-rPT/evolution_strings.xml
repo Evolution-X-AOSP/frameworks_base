@@ -60,4 +60,5 @@
     <string name="sleep_mode_notification_content">Toque para desligar o modo de jogo</string>
     <string name="sleep_mode_enabled_toast">O modo de suspensão foi ligado</string>
     <string name="sleep_mode_disabled_toast">O modo de suspensão foi desligado</string>
+    <!-- Parallel space badge -->
 </resources>

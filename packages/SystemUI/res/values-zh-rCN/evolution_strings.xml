@@ -115,32 +115,18 @@
     <string name="quick_settings_anti_flicker">防闪烁</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">更改数据卡</string>
-    <string name="qs_data_switch_toast_0">当前没有插入 SIM 卡</string>
-    <string name="qs_data_switch_toast_1">当前仅插入一张 SIM 卡</string>
-    <string name="qs_data_switch_text_1">SIM 卡 1</string>
-    <string name="qs_data_switch_text_2">SIM 卡 2</string>
-    <string name="qs_data_switch_changed_1">设置卡 1 为数据卡</string>
-    <string name="qs_data_switch_changed_2">设置卡 2 为数据卡</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">始终显示</string>
     <string name="quick_settings_aod_on_charge_label">充电时息屏显示</string>
     <string name="quick_settings_aod_off_label">关闭息屏显示</string>
     <string name="quick_settings_aod_off_powersave_label">关闭息屏显示\n节省电量</string>
-    <!-- Refresh Rate Tile -->
-    <string name="refresh_rate_tile_label">刷新率</string>
-    <string name="refresh_rate_auto_mode_placeholder">        自动(<xliff:g id="min_refresh_rate" example="60">%1$d</xliff:g> - <xliff:g id="max_refresh_rate" example="60">%2$d</xliff:g> Hz)
-    </string>
-    <string name="refresh_rate_forced_mode_placeholder"><xliff:g id="refresh_rate" example="60">%1$d</xliff:g> Hz</string>
-    <!-- FPS Info tile -->
-    <string name="quick_settings_fpsinfo_label">FPS 信息</string>
-    <string name="accessibility_quick_settings_fpsinfo_off">关闭 FPS 信息</string>
-    <string name="accessibility_quick_settings_fpsinfo_on">开启 FPS 信息</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">屏幕截图已删除</string>
     <!-- Status bar tuner -->
     <string name="status_bar_items_title">状态栏图标</string>
     <string name="status_bar_call_strength">通话强度</string>
     <string name="status_bar_data_saver">流量节省程序</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">强制停止？</string>
@@ -161,8 +147,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • 闪充中 (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> 后充满)</string>
     <string name="keyguard_plugged_in_superdart_charging"><xliff:g id="percentage">%s</xliff:g> • 闪充</string>
-    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
-    <string name="clock">时钟</string>
     <!-- Screen record -->
     <string name="screenrecord_stopdot_label">显示停止点\n长按移动它</string>
     <string name="screenrecord_stopdot_summary">长按移动它</string>
@@ -174,7 +158,6 @@
     <string name="screenrecord_skip_time_summary">移除 3 秒等待</string>
     <string name="screenrecord_hevc_switch_label">启用 HEVC 编码</string>
     <string name="screenrecord_hevc_switch_summary">使用效率更高的 HEVC 视频编码</string>
-    <!-- FPS view text placeholder -->
     <!-- Kill foreground app -->
     <string name="task_helper_app_killed">%1$s 已停止运行</string>
     <string name="empty_app_killed">应用</string>
@@ -200,8 +183,6 @@
     <string name="global_action_onthego">行走模式</string>
     <!-- OnTheGo Tile -->
     <string name="quick_settings_onthego_label">行走模式</string>
-    <!-- CPUInfo tile -->
-    <string name="quick_settings_cpuinfo_label">CPU 信息</string>
     <!-- Screenshot Tile -->
     <string name="screenshot_long_press">长按以进行局部截图</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
@@ -216,8 +197,6 @@
     <string name="vpn_tethering_label">VPN网络共享</string>
     <string name="vpn_tethering_changed_off">VPN 网络共享已关闭.</string>
     <string name="vpn_tethering_changed_on">VPN 网络共享已开启</string>
-    <!-- Face Unlock -->
-    <string name="face_unlock_recognizing">正在识别面部...</string>
     <!-- Glove Mode Tile -->
     <string name="quick_settings_glove_mode_label">手套模式</string>
     <!-- Compass QS Tile -->
@@ -259,4 +238,12 @@
     <string name="quick_settings_smart_pixels">智能像素</string>
     <string name="quick_settings_smart_pixels_on_power_save">自动启用智能像素</string>
     <!-- Text to use when the number in a notification info is too large -->
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">光标左移</string>
+    <string name="accessibility_dpad_right">光标右移</string>
+    <!-- Preferred network tile -->
+    <string name="quick_settings_preferred_network_label">首选网络</string>
+    <string name="quick_settings_preferred_network_lte">4g / LTE</string>
+    <string name="quick_settings_preferred_network_nr">5g / NR</string>
+    <string name="quick_settings_preferred_network_unsupported">不支持</string>
 </resources>

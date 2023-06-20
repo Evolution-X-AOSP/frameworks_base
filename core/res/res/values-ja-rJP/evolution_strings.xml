@@ -60,4 +60,5 @@
     <string name="sleep_mode_notification_content">タップでスリープモードを無効化</string>
     <string name="sleep_mode_enabled_toast">スリープモードを有効化しました</string>
     <string name="sleep_mode_disabled_toast">スリープモードを無効化しました</string>
+    <!-- Parallel space badge -->
 </resources>
