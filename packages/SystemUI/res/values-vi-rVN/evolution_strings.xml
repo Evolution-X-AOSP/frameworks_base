@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2022 Evolution X
+     Copyright (C) 2019-2023 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -115,31 +115,18 @@
     <string name="quick_settings_anti_flicker">Chống nhấp nháy</string>
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">Chuyển đổi Sim dữ liệu</string>
-    <string name="qs_data_switch_toast_0">Hiện tại không có thẻ SIM nào được gắn</string>
-    <string name="qs_data_switch_toast_1">Hiện tại chỉ có 1 thẻ SIM được gắn</string>
-    <string name="qs_data_switch_text_1">SIM 1</string>
-    <string name="qs_data_switch_text_2">SIM 2</string>
-    <string name="qs_data_switch_changed_1">Đã chuyển sang SIM 1 cho dữ liệu.</string>
-    <string name="qs_data_switch_changed_2">Đã chuyển sang SIM 2 cho dữ liệu.</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Màn hình luôn sáng</string>
     <string name="quick_settings_aod_on_charge_label">Màn hình luôn bật khi sạc</string>
     <string name="quick_settings_aod_off_label">Màn hình luôn bật tắt</string>
     <string name="quick_settings_aod_off_powersave_label">Màn hình luôn bật tắt\nTiết kiệm pin</string>
-    <!-- Refresh Rate Tile -->
-    <string name="refresh_rate_tile_label">Tốc độ làm mới</string>
-    <string name="refresh_rate_auto_mode_placeholder">Tự động (<xliff:g id="min_refresh_rate" example="60">%1$d</xliff:g> - <xliff:g id="max_refresh_rate" example="60">%2$d</xliff:g> Hz)    </string>
-    <string name="refresh_rate_forced_mode_placeholder"><xliff:g id="refresh_rate" example="60">%1$d</xliff:g> Hz</string>
-    <!-- FPS Info tile -->
-    <string name="quick_settings_fpsinfo_label">Thông tin FPS</string>
-    <string name="accessibility_quick_settings_fpsinfo_off">Tắt thông tin FPS</string>
-    <string name="accessibility_quick_settings_fpsinfo_on">Thông tin FPS bật</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Đã xóa ảnh chụp màn hình</string>
     <!-- Status bar tuner -->
     <string name="status_bar_items_title">Biểu tượng thanh trạng thái</string>
     <string name="status_bar_call_strength">Cường độ cuộc gọi</string>
     <string name="status_bar_data_saver">Trình tiết kiệm dữ liệu</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Buộc dừng?</string>
@@ -150,7 +137,7 @@
     <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Đang sạc nhanh</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Sạc nhanh Warp (<xliff:g id="charging_time_left" example="4 giờ và 2 phút">%1$s</xliff:g> nữa sẽ đầy)</string>
-    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="Percentage">%s</xliff:g> • Sạc thần tốc</string>
+    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="Percentage">%s</xliff:g> • Sạc siêu nhanh</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Sạc nhanh VOOC (<xliff:g id="charging_time_left" example="4 giờ và 2 phút">%1$s</xliff:g> nữa sẽ đầy)</string>
     <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="Percentage">%s</xliff:g> • Sạc nhanh VOOC</string>
@@ -160,8 +147,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Đang sạc nhanh thông minh SuperDart (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> đến khi đầy)</string>
     <string name="keyguard_plugged_in_superdart_charging"><xliff:g id="percentage">%s</xliff:g> • Đang sạc nhanh thông minh SuperDart</string>
-    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
-    <string name="clock">Đồng hồ</string>
     <!-- Screen record -->
     <string name="screenrecord_stopdot_label">Hiển thị nút dừng</string>
     <string name="screenrecord_stopdot_summary">Nhấn giữ để di chuyển nó</string>
@@ -173,8 +158,6 @@
     <string name="screenrecord_skip_time_summary">Loại bỏ 3 giây chờ</string>
     <string name="screenrecord_hevc_switch_label">Bật HEVC</string>
     <string name="screenrecord_hevc_switch_summary">Sử dụng định dạng mã hoá video HEVC hiệu quả</string>
-    <!-- FPS view text placeholder -->
-    <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
     <!-- Kill foreground app -->
     <string name="task_helper_app_killed">%1$s buộc dừng</string>
     <string name="empty_app_killed">Ứng dụng</string>
@@ -200,8 +183,6 @@
     <string name="global_action_onthego">On-The-Go</string>
     <!-- OnTheGo Tile -->
     <string name="quick_settings_onthego_label">OTG</string>
-    <!-- CPUInfo tile -->
-    <string name="quick_settings_cpuinfo_label">Thông tin CPU</string>
     <!-- Screenshot Tile -->
     <string name="screenshot_long_press">Nhấn giữ để chụp một phần màn hình</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
@@ -216,8 +197,6 @@
     <string name="vpn_tethering_label">Kết nối VPN</string>
     <string name="vpn_tethering_changed_off">Kết nối VPN đã tắt.</string>
     <string name="vpn_tethering_changed_on">Kết nối VPN đang bật.</string>
-    <!-- Face Unlock -->
-    <string name="face_unlock_recognizing">Đang nhận diện khuôn mặt...</string>
     <!-- Glove Mode Tile -->
     <string name="quick_settings_glove_mode_label">Chế độ găng tay</string>
     <!-- Compass QS Tile -->
@@ -240,7 +219,31 @@
     <string name="accessibility_quick_settings_location_gps_only">Báo cáo vị trí: chế độ chỉ cảm biến.</string>
     <string name="quick_settings_location_secondary_high_accuracy">Chính xác cao</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Báo cáo vị trí: chế độ chính xác cao.</string>
+    <!-- Data usage info in QS footer -->
+    <string name="usage_data">đã dùng hôm nay</string>
+    <string name="usage_data_default_suffix">Dữ liệu</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <!-- Sleep Mode -->
+    <string name="quick_settings_sleep_mode_label">Chế độ ngủ</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">DC - Làm mờ</string>
+    <!-- Language toggle tile -->
+    <string name="quick_settings_locale_label">Ngôn ngữ</string>
+    <string name="quick_settings_locale_more_locales_toast">Vui lòng thiết lập nhiều ngôn ngữ để kích hoạt chức năng chuyển đổi</string>
+    <!-- App picker -->
+    <string name="app_picker_dialog_title">Chọn ứng dụng</string>
+    <string name="active_edge_app_select_title">Chọn ứng dụng</string>
+    <string name="active_edge_activity_select_title">Chọn một hoạt động</string>
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Điểm ảnh thông minh</string>
     <string name="quick_settings_smart_pixels_on_power_save">Tự động bật điểm ảnh thông minh</string>
+    <!-- Text to use when the number in a notification info is too large -->
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Trỏ trái</string>
+    <string name="accessibility_dpad_right">Trỏ phải</string>
+    <!-- Preferred network tile -->
+    <string name="quick_settings_preferred_network_label">Mạng ưu tiên</string>
+    <string name="quick_settings_preferred_network_lte">4G/LTE</string>
+    <string name="quick_settings_preferred_network_nr">5G/NR</string>
+    <string name="quick_settings_preferred_network_unsupported">Không hỗ trợ</string>
 </resources>
