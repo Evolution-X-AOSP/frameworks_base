@@ -1217,13 +1217,11 @@ public class DecorView extends FrameLayout implements RootViewSurfaceTaker, Wind
                 || (mLastShouldAlwaysConsumeSystemBars && hideNavigation);
 
         boolean consumingNavBar =
-                (((attrs.flags & FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS) != 0
+                ((attrs.flags & FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS) != 0
                         && (sysUiVisibility & SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION) == 0
                         && decorFitsSystemWindows
                         && !hideNavigation)
-                || forceConsumingNavBar)
-                && getResources().getConfiguration().windowConfiguration
-                    .getWindowingMode() != WINDOWING_MODE_FREEFORM;
+                || forceConsumingNavBar;
 
         // If we didn't request fullscreen layout, but we still got it because of the
         // mForceWindowDrawsBarBackgrounds flag, also consume top inset.
@@ -1232,15 +1230,13 @@ public class DecorView extends FrameLayout implements RootViewSurfaceTaker, Wind
         boolean fullscreen = (sysUiVisibility & SYSTEM_UI_FLAG_FULLSCREEN) != 0
                 || (attrs.flags & FLAG_FULLSCREEN) != 0
                 || !(controller == null || controller.isRequestedVisible(ITYPE_STATUS_BAR));
-        boolean consumingStatusBar = ((sysUiVisibility & SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN) == 0
+        boolean consumingStatusBar = (sysUiVisibility & SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN) == 0
                 && decorFitsSystemWindows
                 && (attrs.flags & FLAG_LAYOUT_IN_SCREEN) == 0
                 && (attrs.flags & FLAG_LAYOUT_INSET_DECOR) == 0
                 && mForceWindowDrawsBarBackgrounds
                 && mLastTopInset != 0
-                || (mLastShouldAlwaysConsumeSystemBars && fullscreen))
-                && getResources().getConfiguration().windowConfiguration
-                    .getWindowingMode() != WINDOWING_MODE_FREEFORM;
+                || (mLastShouldAlwaysConsumeSystemBars && fullscreen);
 
         int consumedTop = consumingStatusBar ? mLastTopInset : 0;
         int consumedRight = consumingNavBar ? mLastRightInset : 0;
@@ -2321,12 +2317,6 @@ public class DecorView extends FrameLayout implements RootViewSurfaceTaker, Wind
     }
 
     private void setLightDecorCaptionShade(DecorCaptionView view) {
-        view.findViewById(R.id.back_window).setBackgroundResource(
-                R.drawable.decor_back_button_light);
-        view.findViewById(R.id.pip_window).setBackgroundResource(
-                R.drawable.decor_pip_button_light);
-        view.findViewById(R.id.minimize_window).setBackgroundResource(
-                R.drawable.decor_minimize_button_light);
         view.findViewById(R.id.maximize_window).setBackgroundResource(
                 R.drawable.decor_maximize_button_light);
         view.findViewById(R.id.close_window).setBackgroundResource(
@@ -2334,12 +2324,6 @@ public class DecorView extends FrameLayout implements RootViewSurfaceTaker, Wind
     }
 
     private void setDarkDecorCaptionShade(DecorCaptionView view) {
-        view.findViewById(R.id.back_window).setBackgroundResource(
-                R.drawable.decor_back_button_dark);
-        view.findViewById(R.id.pip_window).setBackgroundResource(
-                R.drawable.decor_pip_button_dark);
-        view.findViewById(R.id.minimize_window).setBackgroundResource(
-                R.drawable.decor_minimize_button_dark);
         view.findViewById(R.id.maximize_window).setBackgroundResource(
                 R.drawable.decor_maximize_button_dark);
         view.findViewById(R.id.close_window).setBackgroundResource(

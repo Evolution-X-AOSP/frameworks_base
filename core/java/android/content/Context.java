@@ -6062,16 +6062,6 @@ public abstract class Context {
     public static final String AMBIENT_CONTEXT_SERVICE = "ambient_context";
 
     /**
-     * Use with {@link #getSystemService} to retrieve a
-     * {@link android.os.PocketManager} for accessing and listening to device pocket state.
-     *
-     * @hide
-     * @see #getSystemService
-     * @see android.os.PocketManager
-     */
-    public static final String POCKET_SERVICE = "pocket";
-
-    /**
      * {@link AppLockManager}.
      *
      * @see #getSystemService(String)

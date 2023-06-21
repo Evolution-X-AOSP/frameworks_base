@@ -27,15 +27,6 @@
     <!-- For dynamic default font styles -->
     <java-symbol type="string" name="config_bodyFontFamily" />
 
-    <!-- Proximity check on screen on -->
-    <java-symbol type="bool" name="config_proximityCheckOnWake" />
-
-    <!-- Proximity check timeout -->
-    <java-symbol type="integer" name="config_proximityCheckTimeout" />
-
-    <!-- Proximity check on screen on default -->
-    <java-symbol type="bool" name="config_proximityCheckOnWakeEnabledByDefault" />
-
     <!-- Package Manager -->
     <java-symbol type="array" name="config_deviceDisabledComponents" />
     <java-symbol type="array" name="config_globallyDisabledComponents" />
@@ -92,17 +83,6 @@
     <java-symbol type="string" name="config_SmartChargingSysfsNode" />
     <java-symbol type="string" name="config_SmartChargingSuspendValue" />
     <java-symbol type="string" name="config_SmartChargingResumeValue" />
-
-    <!-- Pocket Lock -->
-    <java-symbol type="layout" name="pocket_lock_view" />
-
-    <!-- Pocket bridge -->
-    <java-symbol type="string" name="config_pocketBridgeSysfsInpocket" />
-    <java-symbol type="bool" name="config_pocketModeSupported" />
-    <java-symbol type="bool" name="config_pocketUseLightSensor" />
-
-    <!-- Pocket Service -->
-    <java-symbol type="string" name="config_pocketJudgeVendorSensorName" />
 
     <!-- Whether device has dash charging support -->
     <java-symbol type="bool" name="config_hasDashCharger" />
@@ -266,11 +246,6 @@
 
     <!-- Default line spacing multiplier between hours and minutes of the keyguard clock-->
     <java-symbol type="dimen" format="float" name="keyguard_clock_line_spacing_scale" />
-
-    <java-symbol type="anim" name="activity_freeform_open_enter" />
-    <java-symbol type="anim" name="activity_freeform_open_exit" />
-    <java-symbol type="anim" name="activity_freeform_close_enter" />
-    <java-symbol type="anim" name="activity_freeform_close_exit" />
 
     <!-- Mock Oplus LinearmotorVibratorService -->
     <java-symbol type="bool" name="config_mockOplusLinearmotorVibratorService" />

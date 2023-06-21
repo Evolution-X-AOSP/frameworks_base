@@ -150,7 +150,7 @@ public class DialogAnimationController<T extends DialogContainerSupplier> {
 
     private Animation loadAnimation(int animAttr) {
         Animation animation = mTransitionAnimation.loadAnimationAttr(mPackageName, mAnimStyleResId,
-                animAttr, /* translucent= */ false, false);
+                animAttr, /* translucent= */ false);
         if (animation == null) {
             Log.e(mTag, "Failed to load animation " + animAttr);
         }

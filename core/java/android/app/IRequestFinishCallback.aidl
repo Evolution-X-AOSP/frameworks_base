@@ -23,5 +23,5 @@ package android.app;
  * {@hide}
  */
 oneway interface IRequestFinishCallback {
-    void requestFinish(boolean removingTask);
+    void requestFinish();
 }

@@ -30,6 +30,4 @@ public interface ButtonInterface {
     void setDarkIntensity(float intensity);
 
     void setDelayTouchFeedback(boolean shouldDelay);
-
-    default void setForceDisableOverviewCallback(DragDropSurfaceCallback callback) {}
 }

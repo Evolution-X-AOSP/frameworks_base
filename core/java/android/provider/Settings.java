@@ -96,8 +96,6 @@ import com.android.internal.annotations.GuardedBy;
 import com.android.internal.util.Preconditions;
 import com.android.internal.widget.ILockSettings;
 
-import com.android.internal.util.evolution.HideDeveloperStatusUtils;
-
 import java.io.IOException;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -3868,9 +3866,6 @@ public final class Settings {
          * or not a valid integer.
          */
         public static int getInt(ContentResolver cr, String name, int def) {
-            if (HideDeveloperStatusUtils.shouldHideDevStatus(cr.getCallingContext(), cr.getPackageName(), name)) {
-                return 0 /* Disabled */;
-            }
             return getIntForUser(cr, name, def, cr.getUserId());
         }
 
@@ -3901,9 +3896,6 @@ public final class Settings {
          */
         public static int getInt(ContentResolver cr, String name)
                 throws SettingNotFoundException {
-            if (HideDeveloperStatusUtils.shouldHideDevStatus(cr.getCallingContext(), cr.getPackageName(), name)) {
-                return 0 /* Disabled */;
-            }
             return getIntForUser(cr, name, cr.getUserId());
         }
 
@@ -5375,12 +5367,6 @@ public final class Settings {
         public static final String NOTIFICATION_LIGHT_PULSE = "notification_light_pulse";
 
         /**
-         * Whether Proximity on Wake is Enabled or not
-         * @hide
-         */
-        public static final String PROXIMITY_ON_WAKE = "proximity_on_wake";
-
-        /**
          * Show pointer location on screen?
          * 0 = no
          * 1 = yes
@@ -5810,18 +5796,6 @@ public final class Settings {
         public static final String NAVIGATION_BAR_INVERSE = "navigation_bar_inverse";
 
         /**
-         * @hide
-         */
-        public static final String USE_OLD_MOBILETYPE = "use_old_mobiletype";
-
-        /**
-         * Whether to show the kill app button in notification guts
-         * @hide
-         */
-        public static final String NOTIFICATION_GUTS_KILL_APP_BUTTON =
-                "notification_guts_kill_app_button";
-
-        /**
          * Whether to wake the display when plugging or unplugging the charger
          * @hide
          */
@@ -5918,15 +5892,6 @@ public final class Settings {
          * @hide
          */
         public static final String NAV_BAR_COMPACT_LAYOUT = "navigation_bar_compact_layout";
-
-        /**
-         * Whether allowing pocket service to register sensors and dispatch informations.
-         *   0 = disabled
-         *   1 = enabled
-         * @author Carlo Savignano
-         * @hide
-         */
-        public static final String POCKET_JUDGE = "pocket_judge";
 
         /**
          * Color temperature of the display during the day
@@ -6127,13 +6092,6 @@ public final class Settings {
          * @hide
          */
         public static final String VOLBTN_MUSIC_CONTROLS = "volbtn_music_controls";
-
-        /**
-         * Whether to show the battery info on the lockscreen while charging
-         * @hide
-         */
-        @Readable
-        public static final String LOCKSCREEN_BATTERY_INFO = "lockscreen_battery_info";
 
         /**
          * Whether to take partial screenshot with volume down + power click.
@@ -6662,32 +6620,11 @@ public final class Settings {
         public static final String FP_ERROR_VIBRATE = "fp_error_vibrate";
 
         /**
-         * @hide
-         */
-        public static final String TRANSISTENT_TASK_MODE = "transistent_task_mode";
-
-        /**
-         * @hide
-         */
-        public static final String PREVENT_POINTER_ACCELERATION = "prevent_pointer_acceleration";
-
-        /**
-         * @hide
-         */
-        public static final String FORCE_MOUSE_AS_TOUCH = "force_mouse_as_touch";
-
-        /**
          * boolean value. toggles using arrow key locations on nav bar
          * as left and right dpad keys
          * @hide
          */
         public static final String NAVIGATION_BAR_MENU_ARROW_KEYS = "navigation_bar_menu_arrow_keys";
-
-        /**
-         * Whether to enable smart 5G mode
-         * @hide
-         */
-        public static final String SMART_5G = "smart_5g";
 
         /**
          * Whether to enable fingerprint wake-and-unlock.
@@ -6853,7 +6790,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL_IGNORE_DND);
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL_RATE);
             PRIVATE_SETTINGS.add(NAV_BAR_COMPACT_LAYOUT);
-            PRIVATE_SETTINGS.add(POCKET_JUDGE);
             PRIVATE_SETTINGS.add(HIGH_TOUCH_POLLING_RATE_ENABLE);
             PRIVATE_SETTINGS.add(HIGH_TOUCH_SENSITIVITY_ENABLE);
             PRIVATE_SETTINGS.add(INCREASING_RING);
@@ -6872,9 +6808,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED);
             PRIVATE_SETTINGS.add(BACK_GESTURE_HAPTIC);
             PRIVATE_SETTINGS.add(MAX_VISIBLE_NOTIFICATION_ICONS);
-            PRIVATE_SETTINGS.add(TRANSISTENT_TASK_MODE);
-            PRIVATE_SETTINGS.add(PREVENT_POINTER_ACCELERATION);
-            PRIVATE_SETTINGS.add(FORCE_MOUSE_AS_TOUCH);
         }
 
         /**
@@ -6889,8 +6822,6 @@ public final class Settings {
             CLONE_TO_MANAGED_PROFILE.add(SOUND_EFFECTS_ENABLED);
             CLONE_TO_MANAGED_PROFILE.add(TEXT_SHOW_PASSWORD);
             CLONE_TO_MANAGED_PROFILE.add(TIME_12_24);
-            CLONE_TO_MANAGED_PROFILE.add(TRANSISTENT_TASK_MODE);
-            CLONE_TO_MANAGED_PROFILE.add(FORCE_MOUSE_AS_TOUCH);
         }
 
         /** @hide */
@@ -7628,9 +7559,6 @@ public final class Settings {
          * or not a valid integer.
          */
         public static int getInt(ContentResolver cr, String name, int def) {
-            if (HideDeveloperStatusUtils.shouldHideDevStatus(cr.getCallingContext(), cr.getPackageName(), name)) {
-                return 0 /* Disabled */;
-            }
             return getIntForUser(cr, name, def, cr.getUserId());
         }
 
@@ -7661,9 +7589,6 @@ public final class Settings {
          */
         public static int getInt(ContentResolver cr, String name)
                 throws SettingNotFoundException {
-            if (HideDeveloperStatusUtils.shouldHideDevStatus(cr.getCallingContext(), cr.getPackageName(), name)) {
-                return 0 /* Disabled */;
-            }
             return getIntForUser(cr, name, cr.getUserId());
         }
 
@@ -12447,13 +12372,6 @@ public final class Settings {
          * @hide
          */
         public static final String PULSE_VERTICAL_MIRROR = "pulse_vertical_mirror";
-
-        /**
-         * Control whether to hide ADB and Developer settings enable status.
-         * @hide
-         */
-        @Readable
-        public static final String HIDE_DEVELOPER_STATUS = "hide_developer_status";
 
         /**
          * @hide
@@ -18194,9 +18112,6 @@ public final class Settings {
          * or not a valid integer.
          */
         public static int getInt(ContentResolver cr, String name, int def) {
-            if (HideDeveloperStatusUtils.shouldHideDevStatus(cr.getCallingContext(), cr.getPackageName(), name)) {
-                return 0 /* Disabled */;
-            }
             String v = getString(cr, name);
             return parseIntSettingWithDefault(v, def);
         }
@@ -18221,9 +18136,6 @@ public final class Settings {
          */
         public static int getInt(ContentResolver cr, String name)
                 throws SettingNotFoundException {
-            if (HideDeveloperStatusUtils.shouldHideDevStatus(cr.getCallingContext(), cr.getPackageName(), name)) {
-                return 0 /* Disabled */;
-            }
             String v = getString(cr, name);
             return parseIntSetting(v, name);
         }
