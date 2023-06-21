@@ -5810,18 +5810,6 @@ public final class Settings {
         public static final String NAVIGATION_BAR_INVERSE = "navigation_bar_inverse";
 
         /**
-         * @hide
-         */
-        public static final String USE_OLD_MOBILETYPE = "use_old_mobiletype";
-
-        /**
-         * Whether to show the kill app button in notification guts
-         * @hide
-         */
-        public static final String NOTIFICATION_GUTS_KILL_APP_BUTTON =
-                "notification_guts_kill_app_button";
-
-        /**
          * Whether to wake the display when plugging or unplugging the charger
          * @hide
          */
@@ -6127,13 +6115,6 @@ public final class Settings {
          * @hide
          */
         public static final String VOLBTN_MUSIC_CONTROLS = "volbtn_music_controls";
-
-        /**
-         * Whether to show the battery info on the lockscreen while charging
-         * @hide
-         */
-        @Readable
-        public static final String LOCKSCREEN_BATTERY_INFO = "lockscreen_battery_info";
 
         /**
          * Whether to take partial screenshot with volume down + power click.
@@ -6682,12 +6663,6 @@ public final class Settings {
          * @hide
          */
         public static final String NAVIGATION_BAR_MENU_ARROW_KEYS = "navigation_bar_menu_arrow_keys";
-
-        /**
-         * Whether to enable smart 5G mode
-         * @hide
-         */
-        public static final String SMART_5G = "smart_5g";
 
         /**
          * Whether to enable fingerprint wake-and-unlock.

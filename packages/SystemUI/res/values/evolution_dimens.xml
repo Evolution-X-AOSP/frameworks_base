@@ -45,13 +45,6 @@
     <dimen name="navigation_home_handle_width_long">170dp</dimen>
     <dimen name="navigation_home_handle_width_very_long">190dp</dimen>
 
-    <!-- Old style mobile data indicators -->
-    <dimen name="status_bar_mobile_signal_with_type_height">18dp</dimen>
-    <dimen name="status_bar_mobile_signal_with_type_width">18dp</dimen>
-    <dimen name="status_bar_mobile_signal_width">16dp</dimen>
-    <dimen name="status_bar_mobile_type_height">9dp</dimen>
-    <dimen name="status_bar_mobile_type_width">12dp</dimen>
-
     <!-- QQS Brightness slider -->
     <dimen name="qqs_top_brightness_margin_top">4dp</dimen>
     <dimen name="qqs_top_brightness_margin_bottom">12dp</dimen>

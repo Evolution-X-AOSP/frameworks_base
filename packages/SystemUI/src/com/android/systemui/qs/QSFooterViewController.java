@@ -35,10 +35,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.internal.jank.InteractionJankMonitor;
-
 import com.android.systemui.R;
-import com.android.systemui.animation.ActivityLaunchAnimator;
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.FalsingManager;
@@ -65,7 +62,6 @@ public class QSFooterViewController extends ViewController<QSFooterView>
 
     private final UserTracker mUserTracker;
     private final QSPanelController mQsPanelController;
-    private final TextView mUsageText;
     private final PageIndicator mPageIndicator;
     private final View mEditButton;
     private final FalsingManager mFalsingManager;
@@ -123,7 +119,6 @@ public class QSFooterViewController extends ViewController<QSFooterView>
         mGlobalSettings = globalSettings;
         mSubManager = context.getSystemService(SubscriptionManager.class);
         mWifiTracker = trackerFactory.createTracker(this::onWifiStatusUpdated, null);
-        mUsageText = mView.findViewById(R.id.build);
         mPageIndicator = mView.findViewById(R.id.footer_page_indicator);
         mEditButton = mView.findViewById(android.R.id.edit);
     }
@@ -136,16 +131,6 @@ public class QSFooterViewController extends ViewController<QSFooterView>
             }
             mActivityStarter
                     .postQSRunnableDismissingKeyguard(() -> mQsPanelController.showEdit(view));
-        });
-        mUsageText.setOnClickListener(view -> {
-            ActivityLaunchAnimator.Controller animationController =
-                mUsageText != null ? ActivityLaunchAnimator.Controller.fromView(
-                        mUsageText,
-                        InteractionJankMonitor.CUJ_SHADE_APP_LAUNCH_FROM_SETTINGS_BUTTON) : null;
-            Intent intent = new Intent();
-            intent.setClassName("com.android.settings",
-                    "com.android.settings.Settings$DataUsageSummaryActivity");
-            mActivityStarter.startActivity(intent, true /* dismissShade */, animationController);
         });
         mQsPanelController.setFooterPageIndicator(mPageIndicator);
         final IntentFilter filter = new IntentFilter();

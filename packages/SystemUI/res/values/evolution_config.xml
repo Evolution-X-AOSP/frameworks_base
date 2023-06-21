@@ -16,10 +16,6 @@
     <integer name="config_maxVisibleNotificationIcons">4</integer>
     <integer name="config_maxVisibleNotificationIconsOnLock">3</integer>
 
-    <!-- The battery current divider, some kernel report current value in mA other in µA.
-         Leave 1 if you have mA, put 1000 if you have µA-->
-    <integer name="config_battCurrentDivider" translatable="false">1000</integer>
-
     <!-- Doze: does the single tap sensor need a proximity check? -->
     <bool name="doze_single_tap_proximity_check">false</bool>
 
