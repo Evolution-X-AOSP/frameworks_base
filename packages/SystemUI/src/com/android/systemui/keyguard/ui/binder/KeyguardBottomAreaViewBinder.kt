@@ -657,7 +657,7 @@ object KeyguardBottomAreaViewBinder {
                     0,
                 )
                 .compose()
-        val ActivatedAlt = VibrationEffect.createPredefined(VibrationEffect.EFFECT_CLICK)
+        val ActivatedAlt = VibrationEffect.createPredefined(VibrationEffect.EFFECT_HEAVY_CLICK)
 
         val Deactivated =
             VibrationEffect.startComposition()
@@ -672,6 +672,6 @@ object KeyguardBottomAreaViewBinder {
                     0,
                 )
                 .compose()
-        val DeactivatedAlt = VibrationEffect.createPredefined(VibrationEffect.EFFECT_CLICK)
+        val DeactivatedAlt = VibrationEffect.createPredefined(VibrationEffect.EFFECT_HEAVY_CLICK)
     }
 }
