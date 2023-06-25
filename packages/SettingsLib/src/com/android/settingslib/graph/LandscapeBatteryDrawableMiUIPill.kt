@@ -17,18 +17,14 @@ package com.android.settingslib.graph
 import android.content.Context
 import android.graphics.*
 import android.graphics.drawable.Drawable
-
 import android.util.PathParser
 import android.util.TypedValue
+
 
 import com.android.settingslib.R
 import com.android.settingslib.Utils
 
-/**
- * A battery meter drawable that respects paths configured in
- * frameworks/base/core/res/res/values/config.xml to allow for an easily overrideable battery icon
- */
-open class LandscapeBatteryDrawableOrigami(private val context: Context, frameColor: Int) : Drawable() {
+open class LandscapeBatteryDrawableMiUIPill(private val context: Context, frameColor: Int) : Drawable() {
 
     // Need to load:
     // 1. perimeter shape
@@ -75,6 +71,7 @@ open class LandscapeBatteryDrawableOrigami(private val context: Context, frameCo
     private var colorLevels: IntArray
 
     private var fillColor: Int = Color.WHITE
+    private var boltColor: Int = Color.WHITE
     private var backgroundColor: Int = Color.WHITE
 
     // updated whenever level changes
@@ -103,7 +100,7 @@ open class LandscapeBatteryDrawableOrigami(private val context: Context, frameCo
             postInvalidate()
         }
 
-    var showPercent = true
+    var showPercent = false
         set(value) {
             field = value
             levelColor = batteryColorForLevel(batteryLevel)
@@ -114,7 +111,7 @@ open class LandscapeBatteryDrawableOrigami(private val context: Context, frameCo
         p.color = frameColor
         p.alpha = 255
         p.isDither = true
-        p.strokeWidth = 5f
+        p.strokeWidth = 1f
         p.style = Paint.Style.STROKE
         p.blendMode = BlendMode.SRC
         p.strokeMiter = 5f
@@ -196,23 +193,21 @@ open class LandscapeBatteryDrawableOrigami(private val context: Context, frameCo
         levelPath.reset()
         levelRect.set(fillRect)
         val fillFraction = batteryLevel / 100f
-        val fillTop = if (batteryLevel >= 95) fillRect.top
-        else fillRect.top + (fillRect.height() * (1 - fillFraction))
+        val fillTop = if (batteryLevel >= 95) fillRect.right
+        else fillRect.right - (fillRect.width() * (1 - fillFraction))
 
-        levelRect.top = Math.floor(fillTop.toDouble()).toFloat()
+        levelRect.right = Math.floor(fillTop.toDouble()).toFloat()
         //levelPath.addRect(levelRect, Path.Direction.CCW)
         levelPath.addRoundRect(
             levelRect, floatArrayOf(
-                9.0f, 9.0f, 9.0f, 9.0f, 9.0f, 9.0f, 9.0f, 9.0f
+                4.0f, 4.0f, 4.0f, 4.0f, 4.0f, 4.0f, 4.0f, 4.0f
             ), Path.Direction.CCW
         )
 
         // The perimeter should never change
         unifiedPath.addPath(scaledPerimeter)
         // If drawing dual tone, the level is used only to clip the whole drawable path
-        if (!dualTone) {
-            unifiedPath.op(levelPath, Path.Op.UNION)
-        }
+        unifiedPath.op(levelPath, Path.Op.UNION)
 
         fillPaint.color = levelColor
 
@@ -220,77 +215,37 @@ open class LandscapeBatteryDrawableOrigami(private val context: Context, frameCo
         if (charging) {
             // Clip out the bolt shape
             unifiedPath.op(scaledBolt, Path.Op.DIFFERENCE)
+            levelPath.op(scaledBolt, Path.Op.DIFFERENCE)
             if (!invertFillIcon) {
                 c.drawPath(scaledBolt, fillPaint)
             }
         }
 
-        if (dualTone) {
-            // Dual tone means we draw the shape again, clipped to the charge level
-            c.drawPath(unifiedPath, dualToneBackgroundFill)
-            c.save()
-            c.clipRect(0f,
-                    bounds.bottom - bounds.height() * fillFraction,
-                    bounds.right.toFloat(),
-                    bounds.bottom.toFloat())
-            c.drawPath(unifiedPath, fillPaint)
-            c.restore()
-        } else {
-            // Non dual-tone means we draw the perimeter (with the level fill), and potentially
-            // draw the fill again with a critical color
-            fillPaint.color = fillColor
-            c.drawPath(unifiedPath, fillPaint)
-            fillPaint.color = levelColor
-
-            // Show colorError below this level
-            if (batteryLevel <= CRITICAL_LEVEL && !charging) {
-                c.save()
-                c.clipPath(scaledFill)
-                c.drawPath(levelPath, fillPaint)
-                c.restore()
-            }
-        }
+        // Non dual-tone means we draw the perimeter (with the level fill), and potentially
+        // draw the fill again with a critical color
+        c.drawPath(unifiedPath, dualToneBackgroundFill)
+        fillPaint.color = levelColor
+        c.drawPath(levelPath, fillPaint)
 
         if (charging) {
-            c.clipOutPath(scaledBolt)
-            if (invertFillIcon) {
-                c.drawPath(scaledBolt, fillColorStrokePaint)
-            } else {
-                c.drawPath(scaledBolt, fillColorStrokeProtection)
-            }
-        } else if (powerSaveEnabled) {
-            // If power save is enabled draw the perimeter path with colorError
-            c.drawPath(scaledErrorPerimeter, errorPaint)
-            // And draw the plus sign on top of the fill
-            if (!showPercent) {
-                c.drawPath(scaledPlus, errorPaint)
-            }
+            val xfermode = PorterDuffXfermode(PorterDuff.Mode.DST_OUT)
+            fillColorStrokePaint.xfermode = xfermode
+
+            c.drawPath(scaledBolt, fillColorStrokePaint)
+
+            fillPaint.color = boltColor
+            c.drawPath(scaledBolt, fillPaint)
+            fillPaint.color = levelColor
         }
         c.restore()
-
-        if (!charging && batteryLevel < 100 && showPercent) {
-            textPaint.textSize = bounds.height() * 0.38f
-            val textHeight = -textPaint.fontMetrics.ascent
-            val pctX = bounds.width() * 0.5f
-            val pctY = (bounds.height() + textHeight) * 0.5f
-
-            textPaint.color = fillColor
-            c.drawText(batteryLevel.toString(), pctX, pctY, textPaint)
-
-            textPaint.color = fillColor.toInt().inv() or 0xFF000000.toInt()
-            c.save()
-            c.clipRect(fillRect.left,
-                    fillRect.top + (fillRect.height() * (1 - fillFraction)),
-                    fillRect.right,
-                    fillRect.bottom)
-            c.drawText(batteryLevel.toString(), pctX, pctY, textPaint)
-            c.restore()
-        }
     }
 
     private fun batteryColorForLevel(level: Int): Int {
         return when {
-            charging || powerSaveEnabled -> fillColor
+            charging -> 0xFF34C759.toInt()
+            powerSaveEnabled -> 0xFFFFCC0A.toInt()
+            level > CRITICAL_LEVEL -> fillColor
+            level >= 0 -> 0xFFFF3B30.toInt()
             else -> getColorForLevel(level)
         }
     }
@@ -349,7 +304,7 @@ open class LandscapeBatteryDrawableOrigami(private val context: Context, frameCo
     /**
      * Set the fill level
      */
-    public fun setBatteryLevel(l: Int) {
+    public open fun setBatteryLevel(l: Int) {
         invertFillIcon = if (l >= 67) true else if (l <= 33) false else invertFillIcon
         batteryLevel = l
         levelColor = batteryColorForLevel(batteryLevel)
@@ -375,10 +330,11 @@ open class LandscapeBatteryDrawableOrigami(private val context: Context, frameCo
     }
 
     fun setColors(fgColor: Int, bgColor: Int, singleToneColor: Int) {
-        fillColor = if (dualTone) fgColor else singleToneColor
+        fillColor = fgColor
+        boltColor = singleToneColor
 
-        fillPaint.color = fillColor
-        fillColorStrokePaint.color = fillColor
+        fillPaint.color = singleToneColor
+        fillColorStrokePaint.color = singleToneColor
 
         backgroundColor = bgColor
         dualToneBackgroundFill.color = bgColor
@@ -399,7 +355,7 @@ open class LandscapeBatteryDrawableOrigami(private val context: Context, frameCo
         if (b.isEmpty) {
             scaleMatrix.setScale(1f, 1f)
         } else {
-            scaleMatrix.setScale((b.right / Companion.WIDTH), (b.bottom / Companion.HEIGHT))
+            scaleMatrix.setScale((b.right / WIDTH), (b.bottom / HEIGHT))
         }
 
         perimeterPath.transform(scaleMatrix, scaledPerimeter)
@@ -412,8 +368,7 @@ open class LandscapeBatteryDrawableOrigami(private val context: Context, frameCo
         // It is expected that this view only ever scale by the same factor in each dimension, so
         // just pick one to scale the strokeWidths
         val scaledStrokeWidth =
-
-            Math.max(b.right / Companion.WIDTH * Companion.PROTECTION_STROKE_WIDTH, Companion.PROTECTION_MIN_STROKE_WIDTH)
+            Math.max(b.right / WIDTH * PROTECTION_STROKE_WIDTH, PROTECTION_MIN_STROKE_WIDTH)
 
         fillColorStrokePaint.strokeWidth = scaledStrokeWidth
         fillColorStrokeProtection.strokeWidth = scaledStrokeWidth
@@ -421,35 +376,35 @@ open class LandscapeBatteryDrawableOrigami(private val context: Context, frameCo
 
     private fun loadPaths() {
         val pathString = context.resources.getString(
-                com.android.internal.R.string.config_batterymeterLandPerimeterPathOrigami)
+                com.android.internal.R.string.config_batterymeterLandPerimeterPathiOS15)
         perimeterPath.set(PathParser.createPathFromPathData(pathString))
         perimeterPath.computeBounds(RectF(), true)
 
         val errorPathString = context.resources.getString(
-                com.android.internal.R.string.config_batterymeterLandErrorPerimeterPathOrigami)
+                com.android.internal.R.string.config_batterymeterLandErrorPerimeterPathiOS15)
         errorPerimeterPath.set(PathParser.createPathFromPathData(errorPathString))
         errorPerimeterPath.computeBounds(RectF(), true)
 
         val fillMaskString = context.resources.getString(
-                com.android.internal.R.string.config_batterymeterLandFillMaskOrigami)
+                com.android.internal.R.string.config_batterymeterLandFillMaskiOS15)
         fillMask.set(PathParser.createPathFromPathData(fillMaskString))
         // Set the fill rect so we can calculate the fill properly
         fillMask.computeBounds(fillRect, true)
 
         val boltPathString = context.resources.getString(
-                com.android.internal.R.string.config_batterymeterLandBoltPathOrigami)
+                com.android.internal.R.string.config_batterymeterLandBoltPathiOS15)
         boltPath.set(PathParser.createPathFromPathData(boltPathString))
 
         val plusPathString = context.resources.getString(
-                com.android.internal.R.string.config_batterymeterLandPowersavePathOrigami)
+                com.android.internal.R.string.config_batterymeterLandPowersavePathiOS15)
         plusPath.set(PathParser.createPathFromPathData(plusPathString))
 
         dualTone = false
     }
 
     companion object {
-        private const val TAG = "LandscapeBatteryDrawableOrigami"
-        private const val WIDTH = 20f
+        private const val TAG = "LandscapeBatteryDrawableiOS15"
+        private const val WIDTH = 24f
         private const val HEIGHT = 12f
         private const val CRITICAL_LEVEL = 15
 
