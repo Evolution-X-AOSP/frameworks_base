@@ -2509,13 +2509,14 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces {
                     // Delay if we're waking up, not mid-doze animation (which means we are
                     // cancelling a sleep), from the power button, on a device with a power button
                     // FPS, and 'press to unlock' is required.
+                    FingerprintManager fpm = mFingerprintManager.get();
                     mShouldDelayWakeUpAnimation =
                             !mDozeServiceHost.isPulsing()
                                     && mStatusBarStateController.getDozeAmount() == 1f
                                     && mWakefulnessLifecycle.getLastWakeReason()
                                     == PowerManager.WAKE_REASON_POWER_BUTTON
-                                    && mFingerprintManager.get() != null
-                                    && mFingerprintManager.get().isPowerbuttonFps()
+                                    && fpm != null
+                                    && fpm.isPowerbuttonFps()
                                     && mKeyguardUpdateMonitor
                                     .isUnlockWithFingerprintPossible(
                                             mUserTracker.getUserId())
