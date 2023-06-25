@@ -811,6 +811,8 @@ public class ApplicationPackageManager extends PackageManager {
             };
 
     private static final String[] pTensorCodenames = {
+            "felix",
+            "tangorpro",
             "lynx",
             "cheetah",
             "panther",
@@ -835,17 +837,34 @@ public class ApplicationPackageManager extends PackageManager {
             "com.google.android.feature.GOOGLE_EXPERIENCE"
     };
 
+    private static final String[] featuresPixelOthers = {
+            "com.google.android.feature.ASI",
+            "com.google.android.feature.ANDROID_ONE_EXPERIENCE",
+            "com.google.android.feature.GOOGLE_FI_BUNDLED",
+            "com.google.android.feature.LILY_EXPERIENCE",
+            "com.google.android.feature.TURBO_PRELOAD",
+            "com.google.android.feature.WELLBEING",
+            "com.google.lens.feature.IMAGE_INTEGRATION",
+            "com.google.lens.feature.CAMERA_INTEGRATION",
+            "com.google.photos.trust_debug_certs",
+            "com.google.android.feature.AER_OPTIMIZED",
+            "com.google.android.feature.NEXT_GENERATION_ASSISTANT",
+            "android.software.game_service",
+            "com.google.android.feature.EXCHANGE_6_2",
+            "com.google.android.apps.dialer.call_recording_audio",
+            "com.google.android.apps.dialer.SUPPORTED"
+    };
+
     private static final String[] featuresP23 = {
+            "com.google.android.feature.PIXEL_2024_EXPERIENCE",
+            "com.google.android.feature.PIXEL_2024_MIDYEAR_EXPERIENCE",
             "com.google.android.feature.PIXEL_2023_EXPERIENCE",
             "com.google.android.feature.PIXEL_2023_MIDYEAR_EXPERIENCE"
     };
 
-    private static final String[] featuresP22 = {
+    private static final String[] featuresTensor = {
             "com.google.android.feature.PIXEL_2022_EXPERIENCE",
-            "com.google.android.feature.PIXEL_2022_MIDYEAR_EXPERIENCE"
-    };
-
-    private static final String[] featuresP21 = {
+            "com.google.android.feature.PIXEL_2022_MIDYEAR_EXPERIENCE",
             "com.google.android.feature.PIXEL_2021_EXPERIENCE",
             "com.google.android.feature.PIXEL_2021_MIDYEAR_EXPERIENCE"
     };
@@ -867,22 +886,24 @@ public class ApplicationPackageManager extends PackageManager {
         String packageName = ActivityThread.currentPackageName();
         if (packageName != null &&
                 packageName.equals("com.google.android.apps.photos") &&
-                SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", false)) {
+                SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", true)) {
             if (Arrays.asList(featuresPixel).contains(name)) return false;
+            if (Arrays.asList(featuresPixelOthers).contains(name)) return true;
             if (Arrays.asList(featuresP23).contains(name)) return false;
-            if (Arrays.asList(featuresP22).contains(name)) return false;
-            if (Arrays.asList(featuresP21).contains(name)) return false;
+            if (Arrays.asList(featuresTensor).contains(name)) return false;
             if (Arrays.asList(featuresNexus).contains(name)) return true;
         }
-        if (Arrays.asList(featuresP22).contains(name) &&
+        if (Arrays.asList(featuresTensor).contains(name) &&
                 !Arrays.asList(pTensorCodenames).contains(SystemProperties.get("ro.product.device"))) {
             return false;
-        } else if (packageName != null && Arrays.asList(featuresP22).contains(name)) {
-            if (packageName.contains("com.google.android.as")
-                || packageName.contains("com.google.android.apps.nexuslauncher")) {
+        } else if (packageName != null && Arrays.asList(featuresTensor).contains(name)) {
+            if (packageName.contains("com.google.android.apps.nexuslauncher")) {
                 return false;
             }
         }
+        if (Arrays.asList(featuresAndroid).contains(name)) return true;
+        if (Arrays.asList(featuresPixel).contains(name)) return true;
+        if (Arrays.asList(featuresPixelOthers).contains(name)) return true;
         return mHasSystemFeatureCache.query(new HasSystemFeatureQuery(name, version));
     }
 
