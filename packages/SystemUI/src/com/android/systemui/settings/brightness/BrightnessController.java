@@ -328,7 +328,10 @@ public class BrightnessController implements ToggleSlider.Listener, MirroredBrig
         mMainHandler = new Handler(mainLooper, mHandlerCallback);
         mBrightnessObserver = new BrightnessObserver(mMainHandler);
 
-        mVibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+        if (Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.BRIGHTNESS_SLIDER_HAPTIC_ENABLED, 0) == 1) {
+            mVibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+        }
 
         mIcon = control.getIcon();
         mIcon.setOnClickListener(v -> Settings.System.putIntForUser(mContext.getContentResolver(),
@@ -380,9 +383,12 @@ public class BrightnessController implements ToggleSlider.Listener, MirroredBrig
         }
         setBrightness(valFloat);
 
-        // Give haptic feedback only if brightness is changed manually
-        if (tracking)
-            mVibrator.vibrate(BRIGHTNESS_SLIDER_HAPTIC);
+        if (Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.BRIGHTNESS_SLIDER_HAPTIC_ENABLED, 0) == 1) {
+            // Give haptic feedback only if brightness is changed manually
+            if (tracking)
+                mVibrator.vibrate(BRIGHTNESS_SLIDER_HAPTIC);
+        }
 
         if (!tracking) {
             AsyncTask.execute(new Runnable() {
