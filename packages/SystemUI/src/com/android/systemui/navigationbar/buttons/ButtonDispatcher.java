@@ -21,7 +21,6 @@ import static com.android.systemui.animation.Interpolators.LINEAR;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
-import android.util.Log;
 import android.view.View;
 import android.view.View.AccessibilityDelegate;
 
@@ -34,7 +33,7 @@ import java.util.ArrayList;
  * Dispatches common view calls to multiple views.  This is used to handle
  * multiples of the same nav bar icon appearing.
  */
-public class ButtonDispatcher implements DragDropSurfaceCallback {
+public class ButtonDispatcher {
     private static final int FADE_DURATION_IN = 150;
     private static final int FADE_DURATION_OUT = 250;
 
@@ -56,7 +55,6 @@ public class ButtonDispatcher implements DragDropSurfaceCallback {
     private boolean mVertical;
     private ValueAnimator mFadeAnimator;
     private AccessibilityDelegate mAccessibilityDelegate;
-    private DragDropSurfaceCallback mCallback;
 
     private final ValueAnimator.AnimatorUpdateListener mAlphaListener = animation ->
             setAlpha(
@@ -110,7 +108,6 @@ public class ButtonDispatcher implements DragDropSurfaceCallback {
                 button.setDelayTouchFeedback(mDelayTouchFeedback);
             }
             button.setVertical(mVertical);
-            button.setForceDisableOverviewCallback(this);
         }
     }
 
@@ -338,19 +335,5 @@ public class ButtonDispatcher implements DragDropSurfaceCallback {
      * Executes when button is detached from window.
      */
     public void onDestroy() {
-        mCallback = null;
-    }
-
-    @Override
-    public void setForceDisableOverview(boolean forceDisableOverview) {
-        if (mCallback == null) {
-            Log.e("ButtonDispatcher", "mCallback == null");
-            return;
-        }
-        mCallback.setForceDisableOverview(forceDisableOverview);
-    }
-
-    public void setForceDisableOverviewCallback(DragDropSurfaceCallback forceDisableOverviewCallback) {
-        mCallback = forceDisableOverviewCallback;
     }
 }

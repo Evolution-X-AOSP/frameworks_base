@@ -278,8 +278,6 @@ public:
     void setSystemUiLightsOut(bool lightsOut);
     void setPointerDisplayId(int32_t displayId);
     void setPointerSpeed(int32_t speed);
-    void setPreventPointerAcceleration(int32_t preventPointerAcceleration);
-    void setForceMouseAsTouch(bool forceMouseAsTouch);
     void setPointerAcceleration(float acceleration);
     void setInputDeviceEnabled(uint32_t deviceId, bool enabled);
     void setShowTouches(bool enabled);
@@ -365,12 +363,6 @@ private:
         // Pointer speed.
         int32_t pointerSpeed;
 
-        // Pointer acceleration allowlist bitmask.
-        int32_t preventPointerAcceleration;
-
-        // Force mouse events to be handled as touch event.
-        bool forceMouseAsTouch;
-
         // Pointer acceleration.
         float pointerAcceleration;
 
@@ -422,8 +414,6 @@ NativeInputManager::NativeInputManager(jobject contextObj,
         AutoMutex _l(mLock);
         mLocked.systemUiLightsOut = false;
         mLocked.pointerSpeed = 0;
-        mLocked.preventPointerAcceleration = 0;
-        mLocked.forceMouseAsTouch = false;
         mLocked.pointerAcceleration = android::os::IInputConstants::DEFAULT_POINTER_ACCELERATION;
         mLocked.pointerGesturesEnabled = true;
         mLocked.showTouches = false;
@@ -452,8 +442,6 @@ void NativeInputManager::dump(std::string& dump) {
         dump += StringPrintf(INDENT "System UI Lights Out: %s\n",
                              toString(mLocked.systemUiLightsOut));
         dump += StringPrintf(INDENT "Pointer Speed: %" PRId32 "\n", mLocked.pointerSpeed);
-        dump += StringPrintf(INDENT "Pointer Acceleration Allowlist Bitmask: %" PRId32 "\n", mLocked.preventPointerAcceleration);
-        dump += StringPrintf(INDENT "Force Mouse As Touch: %s\n", toString(mLocked.forceMouseAsTouch));
         dump += StringPrintf(INDENT "Pointer Acceleration: %0.3f\n", mLocked.pointerAcceleration);
         dump += StringPrintf(INDENT "Pointer Gestures Enabled: %s\n",
                 toString(mLocked.pointerGesturesEnabled));
@@ -640,26 +628,7 @@ void NativeInputManager::getReaderConfiguration(InputReaderConfiguration* outCon
 
         outConfig->pointerVelocityControlParameters.scale = exp2f(mLocked.pointerSpeed
                 * POINTER_SPEED_EXPONENT);
-        // constants from frameworks/native/services/inputflinger/include/InputReaderBase.h, should be kept in sync
-        if (mLocked.preventPointerAcceleration & 1) {
-            outConfig->pointerVelocityControlParameters.highThreshold = 0.0f;
-            outConfig->pointerVelocityControlParameters.lowThreshold = 0.0f;
-            outConfig->pointerVelocityControlParameters.acceleration = 1.0f;
-        } else {
-            outConfig->pointerVelocityControlParameters.highThreshold = 500.0f;
-            outConfig->pointerVelocityControlParameters.lowThreshold = 3000.0f;
-            outConfig->pointerVelocityControlParameters.acceleration = mLocked.pointerAcceleration;
-        }
-        if (mLocked.preventPointerAcceleration & 2) {
-            outConfig->wheelVelocityControlParameters.highThreshold = 0.0f;
-            outConfig->wheelVelocityControlParameters.lowThreshold = 0.0f;
-            outConfig->wheelVelocityControlParameters.acceleration = 1.0f;
-        } else {
-            outConfig->wheelVelocityControlParameters.highThreshold = 15.0f;
-            outConfig->wheelVelocityControlParameters.lowThreshold = 50.0f;
-            outConfig->wheelVelocityControlParameters.acceleration = 4.0f;
-        }
-        outConfig->forceMouseAsTouch = mLocked.forceMouseAsTouch;
+        outConfig->pointerVelocityControlParameters.acceleration = mLocked.pointerAcceleration;
         outConfig->pointerGesturesEnabled = mLocked.pointerGesturesEnabled;
 
         outConfig->showTouches = mLocked.showTouches;
@@ -1084,39 +1053,6 @@ void NativeInputManager::setPointerSpeed(int32_t speed) {
 
     mInputManager->getReader().requestRefreshConfiguration(
             InputReaderConfiguration::CHANGE_POINTER_SPEED);
-}
-
-void NativeInputManager::setPreventPointerAcceleration(int32_t preventPointerAcceleration) {
-    { // acquire lock
-        AutoMutex _l(mLock);
-
-        if (mLocked.preventPointerAcceleration == preventPointerAcceleration) {
-            return;
-        }
-
-        ALOGI("Setting pointer acceleration setting bitmask to %d.", preventPointerAcceleration);
-        mLocked.preventPointerAcceleration = preventPointerAcceleration;
-    } // release lock
-
-    // CHANGE_POINTER_SPEED reloads velocity objects
-    mInputManager->getReader().requestRefreshConfiguration(
-            InputReaderConfiguration::CHANGE_POINTER_SPEED);
-}
-
-void NativeInputManager::setForceMouseAsTouch(bool forceMouseAsTouch) {
-    { // acquire lock
-        AutoMutex _l(mLock);
-
-        if (mLocked.forceMouseAsTouch == forceMouseAsTouch) {
-            return;
-        }
-
-        ALOGI("Setting force mouse as touch to %s.", toString(forceMouseAsTouch));
-        mLocked.forceMouseAsTouch = forceMouseAsTouch;
-    } // release lock
-
-    mInputManager->getReader().requestRefreshConfiguration(
-            InputReaderConfiguration::CHANGE_FORCE_MOUSE_AS_TOUCH);
 }
 
 void NativeInputManager::setPointerAcceleration(float acceleration) {
@@ -1926,18 +1862,6 @@ static void nativeSetPointerSpeed(JNIEnv* env, jobject nativeImplObj, jint speed
     im->setPointerSpeed(speed);
 }
 
-static void nativeSetPreventPointerAcceleration(JNIEnv* env, jobject nativeImplObj, jint preventPointerAcceleration) {
-    NativeInputManager* im = getNativeInputManager(env, nativeImplObj);
-
-    im->setPreventPointerAcceleration(preventPointerAcceleration);
-}
-
-static void nativeSetForceMouseAsTouch(JNIEnv* env, jobject nativeImplObj, jboolean forceMouseAsTouch) {
-    NativeInputManager* im = getNativeInputManager(env, nativeImplObj);
-
-    im->setForceMouseAsTouch(forceMouseAsTouch);
-}
-
 static void nativeSetPointerAcceleration(JNIEnv* env, jobject nativeImplObj, jfloat acceleration) {
     NativeInputManager* im = getNativeInputManager(env, nativeImplObj);
 
@@ -2421,8 +2345,6 @@ static const JNINativeMethod gInputManagerMethods[] = {
          (void*)nativeTransferTouchFocus},
         {"transferTouch", "(Landroid/os/IBinder;I)Z", (void*)nativeTransferTouch},
         {"setPointerSpeed", "(I)V", (void*)nativeSetPointerSpeed},
-        {"setPreventPointerAcceleration", "(I)V", (void*)nativeSetPreventPointerAcceleration},
-        {"setForceMouseAsTouch", "(Z)V", (void*)nativeSetForceMouseAsTouch},
         {"setPointerAcceleration", "(F)V", (void*)nativeSetPointerAcceleration},
         {"setShowTouches", "(Z)V", (void*)nativeSetShowTouches},
         {"setInteractive", "(Z)V", (void*)nativeSetInteractive},

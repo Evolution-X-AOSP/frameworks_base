@@ -49,7 +49,6 @@ import android.hardware.SensorPrivacyManager.Sensors;
 import android.hardware.SensorPrivacyManagerInternal;
 import android.hardware.display.DisplayManager;
 import android.hardware.display.DisplayViewport;
-import android.hardware.input.ICursorCallback;
 import android.hardware.input.IInputDeviceBatteryListener;
 import android.hardware.input.IInputDevicesChangedListener;
 import android.hardware.input.IInputManager;
@@ -278,13 +277,6 @@ public class InputManagerService extends IInputManager.Stub
     @GuardedBy("mLidSwitchLock")
     private final List<LidSwitchCallback> mLidSwitchCallbacks = new ArrayList<>();
 
-    private final Object mCursorCbLock = new Object();
-    @GuardedBy("mCursorCbLock")
-    private final SparseArray<CursorCallbackRecord> mCursorCallbacks = new SparseArray<>();
-    private final List<CursorCallbackRecord> mTempCursorCallbacksToNotify =
-            new ArrayList<>();
-    private boolean mForceNullCursor = false;
-
     // State for the currently installed input filter.
     final Object mInputFilterLock = new Object();
     @GuardedBy("mInputFilterLock")
@@ -505,100 +497,6 @@ public class InputManagerService extends IInputManager.Stub
         }
     }
 
-    @Override // Binder call
-    public void setForceNullCursor(boolean forceNullCursor) {
-        if (DEBUG) {
-            Slog.d(TAG, "setForceNullCursor: forceNullCursor=" + forceNullCursor + " callingPid="
-                    + Binder.getCallingPid());
-        }
-        mForceNullCursor = forceNullCursor;
-    }
-
-    @Override // Binder call
-    public void registerCursorCallback(ICursorCallback listener) {
-        if (listener == null) {
-            throw new IllegalArgumentException("listener must not be null");
-        }
-
-        synchronized (mCursorCbLock) {
-            final int callingPid = Binder.getCallingPid();
-            if (mCursorCallbacks.get(callingPid) != null) {
-                throw new IllegalStateException("The calling process has already registered "
-                        + "a CursorCallback.");
-            }
-            CursorCallbackRecord record =
-                    new CursorCallbackRecord(callingPid, listener);
-            try {
-                IBinder binder = listener.asBinder();
-                binder.linkToDeath(record, 0);
-            } catch (RemoteException ex) {
-                throw new RuntimeException(ex);
-            }
-            mCursorCallbacks.put(callingPid, record);
-        }
-    }
-
-    @Override // Binder call
-    public void unregisterCursorCallback(ICursorCallback listener) {
-        if (DEBUG) {
-            Slog.d(TAG, "unregisterCursorCallback: listener=" + listener + " callingPid="
-                    + Binder.getCallingPid());
-        }
-
-        if (listener == null) {
-            throw new IllegalArgumentException("listener must not be null");
-        }
-
-        synchronized (mCursorCbLock) {
-            int callingPid = Binder.getCallingPid();
-            if (mCursorCallbacks.get(callingPid) != null) {
-                CursorCallbackRecord record = mCursorCallbacks.get(callingPid);
-                if (record.getListener().asBinder() != listener.asBinder()) {
-                    throw new IllegalArgumentException("listener is not registered");
-                }
-                mCursorCallbacks.remove(callingPid);
-            }
-        }
-    }
-
-    private void onCursorCallbackDied(int pid) {
-        synchronized (mCursorCbLock) {
-            mCursorCallbacks.remove(pid);
-        }
-    }
-
-    // Must be called on handler
-    private void deliverCursorChanged(int iconId, PointerIcon icon) {
-        mTempCursorCallbacksToNotify.clear();
-        final int numListeners;
-        synchronized (mCursorCbLock) {
-            numListeners = mCursorCallbacks.size();
-            for (int i = 0; i < numListeners; i++) {
-                mTempCursorCallbacksToNotify.add(
-                        mCursorCallbacks.valueAt(i));
-            }
-        }
-        for (int i = 0; i < numListeners; i++) {
-            mTempCursorCallbacksToNotify.get(i).notifyCursorChanged(iconId, icon);
-        }
-    }
-
-    // Must be called on handler
-    private void deliverCaptureChanged(boolean enabled) {
-        mTempCursorCallbacksToNotify.clear();
-        final int numListeners;
-        synchronized (mCursorCbLock) {
-            numListeners = mCursorCallbacks.size();
-            for (int i = 0; i < numListeners; i++) {
-                mTempCursorCallbacksToNotify.add(
-                        mCursorCallbacks.valueAt(i));
-            }
-        }
-        for (int i = 0; i < numListeners; i++) {
-            mTempCursorCallbacksToNotify.get(i).notifyCaptureChanged(enabled);
-        }
-    }
-
     public void start() {
         Slog.i(TAG, "Starting input manager");
         mNative.start();
@@ -607,8 +505,6 @@ public class InputManagerService extends IInputManager.Stub
         Watchdog.getInstance().addMonitor(this);
 
         registerPointerSpeedSettingObserver();
-        registerPreventPointerAccelerationSettingObserver();
-        registerForceMouseAsTouchSettingObserver();
         registerShowTouchesSettingObserver();
         registerAccessibilityLargePointerSettingObserver();
         registerLongPressTimeoutObserver();
@@ -619,8 +515,6 @@ public class InputManagerService extends IInputManager.Stub
             @Override
             public void onReceive(Context context, Intent intent) {
                 updatePointerSpeedFromSettings();
-                updatePreventPointerAccelerationFromSettings();
-                updateForceMouseAsTouchFromSettings();
                 updateShowTouchesFromSettings();
                 updateAccessibilityLargePointerFromSettings();
                 updateDeepPressStatusFromSettings("user switched");
@@ -628,8 +522,6 @@ public class InputManagerService extends IInputManager.Stub
         }, new IntentFilter(Intent.ACTION_USER_SWITCHED), null, mHandler);
 
         updatePointerSpeedFromSettings();
-        updatePreventPointerAccelerationFromSettings();
-        updateForceMouseAsTouchFromSettings();
         updateShowTouchesFromSettings();
         updateAccessibilityLargePointerFromSettings();
         updateDeepPressStatusFromSettings("just booted");
@@ -1886,7 +1778,6 @@ public class InputManagerService extends IInputManager.Stub
     public void requestPointerCapture(IBinder inputChannelToken, boolean enabled) {
         Objects.requireNonNull(inputChannelToken, "event must not be null");
 
-        deliverCaptureChanged(enabled);
         mNative.requestPointerCapture(inputChannelToken, enabled);
     }
 
@@ -1964,25 +1855,6 @@ public class InputManagerService extends IInputManager.Stub
         mNative.setPointerSpeed(speed);
     }
 
-    private void updatePreventPointerAccelerationFromSettings() {
-        int preventPointerAcceleration = getPreventPointerAccelerationSetting();
-        setPreventPointerAccelerationUnchecked(preventPointerAcceleration);
-    }
-
-    private void setPreventPointerAccelerationUnchecked(int preventPointerAcceleration) {
-        preventPointerAcceleration = Math.min(Math.max(preventPointerAcceleration, 0), 3);
-        mNative.setPreventPointerAcceleration(preventPointerAcceleration);
-    }
-
-    private void updateForceMouseAsTouchFromSettings() {
-        boolean forceMouseAsTouch = getForceMouseAsTouchSetting();
-        setForceMouseAsTouchUnchecked(forceMouseAsTouch);
-    }
-
-    private void setForceMouseAsTouchUnchecked(boolean forceMouseAsTouch) {
-        mNative.setForceMouseAsTouch(forceMouseAsTouch);
-    }
-
     private void setPointerAcceleration(float acceleration, int displayId) {
         updateAdditionalDisplayInputProperties(displayId,
                 properties -> properties.pointerAcceleration = acceleration);
@@ -2012,48 +1884,6 @@ public class InputManagerService extends IInputManager.Stub
         } catch (SettingNotFoundException ignored) {
         }
         return speed;
-    }
-
-    private void registerPreventPointerAccelerationSettingObserver() {
-        mContext.getContentResolver().registerContentObserver(
-                Settings.System.getUriFor(Settings.System.PREVENT_POINTER_ACCELERATION), true,
-                new ContentObserver(mHandler) {
-                    @Override
-                    public void onChange(boolean selfChange) {
-                        updatePreventPointerAccelerationFromSettings();
-                    }
-                }, UserHandle.USER_ALL);
-    }
-
-    private int getPreventPointerAccelerationSetting() {
-        int preventPointerAcceleration = 0;
-        try {
-            preventPointerAcceleration = Settings.System.getIntForUser(mContext.getContentResolver(),
-                    Settings.System.PREVENT_POINTER_ACCELERATION, UserHandle.USER_CURRENT);
-        } catch (SettingNotFoundException ignored) {
-        }
-        return preventPointerAcceleration;
-    }
-
-    private void registerForceMouseAsTouchSettingObserver() {
-        mContext.getContentResolver().registerContentObserver(
-                Settings.System.getUriFor(Settings.System.FORCE_MOUSE_AS_TOUCH), true,
-                new ContentObserver(mHandler) {
-                    @Override
-                    public void onChange(boolean selfChange) {
-                        updateForceMouseAsTouchFromSettings();
-                    }
-                }, UserHandle.USER_ALL);
-    }
-
-    private boolean getForceMouseAsTouchSetting() {
-        boolean forceMouseAsTouch = false;
-        try {
-            forceMouseAsTouch = Settings.System.getIntForUser(mContext.getContentResolver(),
-                    Settings.System.FORCE_MOUSE_AS_TOUCH, UserHandle.USER_CURRENT) > 0;
-        } catch (SettingNotFoundException ignored) {
-        }
-        return forceMouseAsTouch;
     }
 
     private void updateShowTouchesFromSettings() {
@@ -2535,14 +2365,7 @@ public class InputManagerService extends IInputManager.Stub
             mIcon = null;
             mIconType = iconType;
 
-            deliverCursorChanged(iconType, null);
-
             if (!mCurrentDisplayProperties.pointerIconVisible) return;
-
-            if (mForceNullCursor) {
-                mNative.setPointerIconType(PointerIcon.TYPE_NULL);
-                return;
-            }
 
             mNative.setPointerIconType(mIconType);
         }
@@ -2556,14 +2379,7 @@ public class InputManagerService extends IInputManager.Stub
             mIconType = PointerIcon.TYPE_CUSTOM;
             mIcon = icon;
 
-            deliverCursorChanged(PointerIcon.TYPE_CUSTOM, icon);
-
             if (!mCurrentDisplayProperties.pointerIconVisible) return;
-
-            if (mForceNullCursor) {
-                mNative.setPointerIconType(PointerIcon.TYPE_NULL);
-                return;
-            }
 
             mNative.setCustomPointerIcon(mIcon);
         }
@@ -3858,48 +3674,6 @@ public class InputManagerService extends IInputManager.Stub
             } catch (RemoteException ex) {
                 Slog.w(TAG, "Failed to notify process " + mPid +
                         " that tablet mode changed, assuming it died.", ex);
-                binderDied();
-            }
-        }
-    }
-
-    private final class CursorCallbackRecord implements DeathRecipient {
-        private final int mPid;
-        private final ICursorCallback mListener;
-
-        public CursorCallbackRecord(int pid, ICursorCallback listener) {
-            mPid = pid;
-            mListener = listener;
-        }
-
-        @Override
-        public void binderDied() {
-            if (DEBUG) {
-                Slog.d(TAG, "Cursor listener for pid " + mPid + " died.");
-            }
-            onCursorCallbackDied(mPid);
-        }
-
-        public ICursorCallback getListener() {
-            return mListener;
-        }
-
-        public void notifyCursorChanged(int iconId, PointerIcon icon) {
-            try {
-                mListener.onCursorChanged(iconId, icon);
-            } catch (RemoteException ex) {
-                Slog.w(TAG, "Failed to notify process " + mPid +
-                        " that cursor changed, assuming it died.", ex);
-                binderDied();
-            }
-        }
-
-        public void notifyCaptureChanged(boolean enabled) {
-            try {
-                mListener.onCaptureChanged(enabled);
-            } catch (RemoteException ex) {
-                Slog.w(TAG, "Failed to notify process " + mPid +
-                        " that capture changed, assuming it died.", ex);
                 binderDied();
             }
         }

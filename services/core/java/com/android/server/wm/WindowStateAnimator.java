@@ -16,7 +16,6 @@
 
 package com.android.server.wm;
 
-import static android.app.WindowConfiguration.WINDOWING_MODE_FREEFORM;
 import static android.view.WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED;
 import static android.view.WindowManager.LayoutParams.PRIVATE_FLAG_IS_ROUNDED_CORNERS_OVERLAY;
 import static android.view.WindowManager.LayoutParams.TYPE_APPLICATION_STARTING;
@@ -620,7 +619,7 @@ class WindowStateAnimator {
                 }
                 if (attr >= 0) {
                     a = mWin.getDisplayContent().mAppTransition.loadAnimationAttr(
-                            mWin.mAttrs, attr, TRANSIT_OLD_NONE, mWin.getWindowingMode() == WINDOWING_MODE_FREEFORM);
+                            mWin.mAttrs, attr, TRANSIT_OLD_NONE);
                 }
             }
             if (ProtoLogImpl.isEnabled(WM_DEBUG_ANIM)) {

@@ -186,13 +186,16 @@ final class InputManagerCallback implements InputManagerService.WindowManagerCal
     @Override
     public int getPointerDisplayId() {
         synchronized (mService.mGlobalLock) {
+            // If desktop mode is not enabled, show on the default display.
+            if (!mService.mForceDesktopModeOnExternalDisplays) {
+                return DEFAULT_DISPLAY;
+            }
+
             // Look for the topmost freeform display.
             int firstExternalDisplayId = DEFAULT_DISPLAY;
             for (int i = mService.mRoot.mChildren.size() - 1; i >= 0; --i) {
                 final DisplayContent displayContent = mService.mRoot.mChildren.get(i);
-                if (displayContent.getDisplayInfo().state == Display.STATE_OFF
-                            || !displayContent.forceDesktopMode()) {
-                    // If desktop mode is not enabled, show on the default display.
+                if (displayContent.getDisplayInfo().state == Display.STATE_OFF) {
                     continue;
                 }
                 // Heuristic solution here. Currently when "Freeform windows" developer option is
