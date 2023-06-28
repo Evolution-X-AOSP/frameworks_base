@@ -126,12 +126,7 @@
     <string name="status_bar_items_title">Значки в строке состояния</string>
     <string name="status_bar_call_strength">Уровень сигнала</string>
     <string name="status_bar_data_saver">Экономия трафика</string>
-    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">VPN</string>
-    <!-- Kill button in notification guts -->
-    <string name="force_stop_dlg_title">Остановить принудительно?</string>
-    <string name="force_stop_dlg_text">Если вы принудительно остановите приложение, он может неправильно работать.</string>
-    <string name="guts_force_close_app">Закрыть приложение</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash зарядка • Осталось <xliff:g id="charging_time_left" example="4 часа и 2 минуты">%1$s</xliff:g></string>
     <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Dash зарядка</string>
@@ -246,4 +241,13 @@
     <string name="quick_settings_preferred_network_lte">4g / LTE</string>
     <string name="quick_settings_preferred_network_nr">5g / NR</string>
     <string name="quick_settings_preferred_network_unsupported">Не поддерживается</string>
+    <!-- Refresh Rate Tile -->
+    <string name="refresh_rate_tile_label">Частота обновления</string>
+    <string name="auto_mode_label">Авто</string>
+    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
+    <string name="clock">Часы</string>
+    <!-- Name of the HD calling status bar icon. -->
+    <string name="status_bar_hd_calling">Звонки HD (VoLTE/VoNR)</string>
+    <!-- Name of the VoWiFi status bar icon. -->
+    <string name="status_bar_vowifi">Wi-Fi звонки (VoWiFi)</string>
 </resources>

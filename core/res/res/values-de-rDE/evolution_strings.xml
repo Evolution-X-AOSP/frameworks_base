@@ -18,12 +18,6 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Neustart der SystemUI erforderlich</string>
     <string name="systemui_restart_message">Um alle Änderungen anzuwenden, ist ein Neustart des SystemUI notwendig. SystemUI jetzt neu starten?</string>
-    <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Drücke und halte die Power-Taste zum Entsperren</string>
-    <string name="pocket_view_title">Taschenmodus ist an</string>
-    <string name="pocket_view_title_cancel">Um Ihr Telefon zu verwenden:</string>
-    <string name="pocket_view_top_tag_cancel">Überprüfen Sie, ob der blaue Bereich Ihres Telefons von jeglichen Hindernissen befreit ist und entfernen Sie jeden Schmutz oder Staub.</string>
-    <string name="pocket_view_top_tag_cancel2">Langes Drücken der Ein-/Aus Taste, um den Taschenmodus zu beenden.</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automatisch</string>
     <string name="live_display_auto_summary">Farbtemperatur des Bildschirms automatisch nach Sonnenuntergang und Sonnenaufgang anpassen</string>

@@ -18,12 +18,6 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Sistem arayüzünün yeniden başlatılması gerekir</string>
     <string name="systemui_restart_message">Tüm değişikliklerin etkili olması için sistem arayüzünün yeniden başlatılması gerekiyor. Sistem arayüzünü şimdi yeniden başlatmak ister misiniz?</string>
-    <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Kilidi açmak için güç tuşuna basılı tutun</string>
-    <string name="pocket_view_title">Cep modu açık</string>
-    <string name="pocket_view_title_cancel">Telefonunuzu kullanmak için:</string>
-    <string name="pocket_view_top_tag_cancel">Telefonunuzun mavi alanında herhangi bir engel olup olmadığını kontrol edin ve herhangi bir kir veya toz varsa temizleyin.</string>
-    <string name="pocket_view_top_tag_cancel2">Cep modunu zorla kapatmak için güç tuşuna basılı tutun.</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Otomatik</string>
     <string name="live_display_auto_summary">Güneşin doğuşu ve batışından sonra ekran renk sıcaklığını otomatik ayarla</string>
