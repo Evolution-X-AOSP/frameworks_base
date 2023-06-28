@@ -120,26 +120,13 @@
     <string name="quick_settings_aod_on_charge_label">AOD en carga</string>
     <string name="quick_settings_aod_off_label">AOD apagado</string>
     <string name="quick_settings_aod_off_powersave_label">AOD apagada\nAhorro de batería</string>
-    <!-- Refresh Rate Tile -->
-    <string name="refresh_rate_tile_label">Tasa de refresco</string>
-    <string name="refresh_rate_auto_mode_placeholder">Automático (<xliff:g id="min_refresh_rate" ejemplo="60">%1$d</xliff:g> - <xliff:g id="max_refresh_rate" ejemplo="60">%2$d</xliff:g>Hz)    </string>
-    <string name="refresh_rate_forced_mode_placeholder"><xliff:g id="refresh_rate" ejemplo="60">%1$d</xliff:g> Hz</string>
-    <!-- FPS Info tile -->
-    <string name="quick_settings_fpsinfo_label">Info de FPS</string>
-    <string name="accessibility_quick_settings_fpsinfo_off">Info de FPS desactivada</string>
-    <string name="accessibility_quick_settings_fpsinfo_on">Info de FPS activada</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Captura de pantalla eliminada</string>
     <!-- Status bar tuner -->
     <string name="status_bar_items_title">Iconos de la barra de estado</string>
     <string name="status_bar_call_strength">Intensidad de llamada</string>
     <string name="status_bar_data_saver">Ahorro de datos</string>
-    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">VPN</string>
-    <!-- Kill button in notification guts -->
-    <string name="force_stop_dlg_title">¿Forzar detención?</string>
-    <string name="force_stop_dlg_text">Si se detiene una aplicación, es posible que no funcione correctamente.</string>
-    <string name="guts_force_close_app">Cerrar aplicación</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carga Dash (<xliff:g id="charging_time_left" example="4 horas y 2 minutos">%1$s</xliff:g> para completar)</string>
     <string name="keyguard_plugged_in_dash_charging"><xliff:g id="porcentaje">%s</xliff:g> • Carga rápida</string>
@@ -155,8 +142,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="porcentaje">%2$s</xliff:g> • Carga \"SuperDart\" (<xliff:g id="charging_time_left" example="4 horas y 2 minutos">%1$s</xliff:g> para completar)</string>
     <string name="keyguard_plugged_in_superdart_charging"><xliff:g id="porcentaje">%s</xliff:g> •Carga \"SuperDart\"</string>
-    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
-    <string name="clock">Reloj</string>
     <!-- Screen record -->
     <string name="screenrecord_stopdot_label">Mostrar punto para detener grabación\Pulsación larga para moverlo</string>
     <string name="screenrecord_stopdot_summary">Mantenga pulsado para moverlo</string>
@@ -168,7 +153,6 @@
     <string name="screenrecord_skip_time_summary">Eliminar espera de 3 segundos</string>
     <string name="screenrecord_hevc_switch_label">Habilitar HEVC</string>
     <string name="screenrecord_hevc_switch_summary">Usar codificación de vídeo HEVC más eficiente</string>
-    <!-- FPS view text placeholder -->
     <!-- Kill foreground app -->
     <string name="task_helper_app_killed">%1$s se detuvo</string>
     <string name="empty_app_killed">Aplicación</string>
@@ -194,8 +178,6 @@
     <string name="global_action_onthego">On-The-Go</string>
     <!-- OnTheGo Tile -->
     <string name="quick_settings_onthego_label">On-The-Go</string>
-    <!-- CPUInfo tile -->
-    <string name="quick_settings_cpuinfo_label">Info de CPU</string>
     <!-- Screenshot Tile -->
     <string name="screenshot_long_press">Pulsación larga para captura de pantalla parcial</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
@@ -210,8 +192,6 @@
     <string name="vpn_tethering_label">Anclaje VPN</string>
     <string name="vpn_tethering_changed_off">Anclaje VPN desactivado.</string>
     <string name="vpn_tethering_changed_on">Anclaje VPN activado.</string>
-    <!-- Face Unlock -->
-    <string name="face_unlock_recognizing">Reconociendo cara...</string>
     <!-- Glove Mode Tile -->
     <string name="quick_settings_glove_mode_label">Modo con guantes</string>
     <!-- Compass QS Tile -->
@@ -253,4 +233,21 @@
     <string name="quick_settings_smart_pixels">Píxeles Inteligentes</string>
     <string name="quick_settings_smart_pixels_on_power_save">Habilitar Píxeles Inteligentes automáticamente</string>
     <!-- Text to use when the number in a notification info is too large -->
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Cursor izquierda</string>
+    <string name="accessibility_dpad_right">Cursor derecha</string>
+    <!-- Preferred network tile -->
+    <string name="quick_settings_preferred_network_label">Red preferida</string>
+    <string name="quick_settings_preferred_network_lte">4G / LTE</string>
+    <string name="quick_settings_preferred_network_nr">5G / NR</string>
+    <string name="quick_settings_preferred_network_unsupported">No compatible</string>
+    <!-- Refresh Rate Tile -->
+    <string name="refresh_rate_tile_label">Tasa de refresco</string>
+    <string name="auto_mode_label">Auto</string>
+    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
+    <string name="clock">Reloj</string>
+    <!-- Name of the HD calling status bar icon. -->
+    <string name="status_bar_hd_calling">Llamada HD (VoLTE/VoNR)</string>
+    <!-- Name of the VoWiFi status bar icon. -->
+    <string name="status_bar_vowifi">Llamada Wi-Fi (VoWiFi)</string>
 </resources>
