@@ -18,12 +18,6 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Je vyžadován restart SystemUI</string>
     <string name="systemui_restart_message">Aby se projevily všechny změny, je třeba restartovat SystemUI. Restartovat nyní?</string>
-    <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Stisknutím a podržením tlačítka napájení zapnout obrazovku</string>
-    <string name="pocket_view_title">Režim v kapse je zapnutý</string>
-    <string name="pocket_view_title_cancel">Pro použití telefonu:</string>
-    <string name="pocket_view_top_tag_cancel">Zkontrolujte, zda je modrá oblast telefonu bez jakýchkoli překážek a vyčistěte nečistoty nebo prach.</string>
-    <string name="pocket_view_top_tag_cancel2">Dlouhým stiskem tlačítka Napájení vynutíte ukončení režimu v kapse.</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automaticky</string>
     <string name="live_display_auto_summary">Automaticky regulovat teplotu barev obrazovky po západu a východu Slunce</string>
