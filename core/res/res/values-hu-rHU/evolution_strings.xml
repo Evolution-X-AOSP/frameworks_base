@@ -18,12 +18,6 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Rendszerfelület-újraindítás szükséges</string>
     <string name="systemui_restart_message">Az összes módosítás érvénybe léptetéséhez szükséges a rendszerfelület újraindítása. Újraindítja most?</string>
-    <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Tartsa lenyomva a bekapcsológombot a feloldáshoz</string>
-    <string name="pocket_view_title">Zsebmód bekapcsolva</string>
-    <string name="pocket_view_title_cancel">A telefon használatához:</string>
-    <string name="pocket_view_top_tag_cancel">Ellenőrizze, hogy a kék területen nincs-e valami, és távolítsa el a szennyeződéseket és a port.</string>
-    <string name="pocket_view_top_tag_cancel2">A Bekapcsológomb hosszannyomása azonnal kikapcsolja a zsebmódot.</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automatikus</string>
     <string name="live_display_auto_summary">Automatikusan beállítja a képernyő színhőmérsékletét naplemente és napkelte után</string>

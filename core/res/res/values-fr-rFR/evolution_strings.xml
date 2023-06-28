@@ -18,12 +18,6 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Redémarrage de l\'interface utilisateur requis</string>
     <string name="systemui_restart_message">Pour que toutes les modifications prennent effet, un redémarrage de l\'interface utilisateur est nécessaire. Redémarrer l\'interface utilisateur maintenant ?</string>
-    <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Appuyez et maintenez le bouton marche/arrêt pour déverrouiller</string>
-    <string name="pocket_view_title">Le mode poche est activé</string>
-    <string name="pocket_view_title_cancel">Pour utiliser votre téléphone :</string>
-    <string name="pocket_view_top_tag_cancel">Vérifiez si la zone bleue de votre téléphone est exempte d\'obstacles et nettoyez toute saleté ou poussière.</string>
-    <string name="pocket_view_top_tag_cancel2">Appuyez longuement sur le bouton d\'alimentation pour quitter le Mode poche.</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automatique</string>
     <string name="live_display_auto_summary">Ajuster automatiquement la température de couleur de l\'écran après le coucher et le lever du soleil</string>

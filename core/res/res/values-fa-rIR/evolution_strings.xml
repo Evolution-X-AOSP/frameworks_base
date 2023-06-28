@@ -14,12 +14,6 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">رابط کاربری نیازمندِ راه‌اندازی مجدد است</string>
     <string name="systemui_restart_message">اِعمال همه تغییرات ، به راه‌اندازی مجدد رابط کاربری نیاز دارد. رابط کاربری راه اندازی مجدد شود?</string>
-    <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">کلید پاور را برای بازکردن نگه دارید</string>
-    <string name="pocket_view_title">حالت جیب روشن است</string>
-    <string name="pocket_view_title_cancel">برای استفاده از تلفن‌تان:</string>
-    <string name="pocket_view_top_tag_cancel">بررسی کنید که آیا قسمت آبی گوشی شما خالی از هرگونه مانع است یا خیر، و هرگونه کثیفی یا گرد و غبار را تمیز کنید.</string>
-    <string name="pocket_view_top_tag_cancel2">برای خروج اجباری از حالت جیب، دکمه پاور را به مدت طولانی فشار دهید.</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">خودکار</string>
     <string name="live_display_auto_summary">تنظیم خودکار شدت رنگ صفحه نمایش پس از طلوع و غروب آفتاب</string>

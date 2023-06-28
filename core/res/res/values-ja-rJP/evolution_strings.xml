@@ -18,12 +18,6 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">システム UI の再起動が必要です</string>
     <string name="systemui_restart_message">全ての変更を反映するにはシステム UI の再起動が必要です。再起動しますか?</string>
-    <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">電源ボタンを押し続けてロック解除</string>
-    <string name="pocket_view_title">ポケットモードは ON です</string>
-    <string name="pocket_view_title_cancel">携帯電話の有効化:</string>
-    <string name="pocket_view_top_tag_cancel">携帯電話の青い部分を覆わず、汚れやほこりを落として下さい。</string>
-    <string name="pocket_view_top_tag_cancel2">電源ボタンを長押ししてポケットモードを強制終了します。</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">自動</string>
     <string name="live_display_auto_summary">日の出と日の入りに画面の色温度を自動的に調整する</string>

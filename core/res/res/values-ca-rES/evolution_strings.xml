@@ -18,12 +18,6 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Es requereix reiniciar el SystemUI</string>
     <string name="systemui_restart_message">És necessari reiniciar el SystemUI per a aplicar tots els canvis. Vols reiniciar ara?</string>
-    <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Prem i mantén el botó d’encesa per desbloquejar</string>
-    <string name="pocket_view_title">Mode butxaca activat</string>
-    <string name="pocket_view_title_cancel">Per a utilitzar el telèfon:</string>
-    <string name="pocket_view_top_tag_cancel">Comprova si l\'àrea blava del teu telèfon està lliure d\'obstruccions i neteja tota la pols i brutícia.</string>
-    <string name="pocket_view_top_tag_cancel2">Prem i mentén el botó d\'encesa per a tancar el mode butxaca de forma forçada.</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automàtic</string>
     <string name="live_display_auto_summary">Ajusta automàticament la temperatura de color de la pantalla després de la posta de sol i de l\'alba</string>

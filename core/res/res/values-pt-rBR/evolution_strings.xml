@@ -18,12 +18,6 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">É necessário reiniciar a Interface do Sistema</string>
     <string name="systemui_restart_message">Para que todas as alterações tenham efeito, é necessário reiniciar a interface do sistema. Deseja reiniciar a interface do sistema agora?</string>
-    <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Pressione e segure o botão Liga/Desliga para desbloquear</string>
-    <string name="pocket_view_title">Modo bolso está ativado</string>
-    <string name="pocket_view_title_cancel">Para usar seu telefone:</string>
-    <string name="pocket_view_top_tag_cancel">Não cubra a área azul do seu telefone, limpe qualquer terra ou poeira.</string>
-    <string name="pocket_view_top_tag_cancel2">Pressione e segure o botão liga/desliga para forçar a saída do modo de bolso.</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automático</string>
     <string name="live_display_auto_summary">Ajusta automaticamente a temperatura da cor da tela após o pôr e nascer do sol</string>
