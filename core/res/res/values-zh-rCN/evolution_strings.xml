@@ -21,8 +21,8 @@
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">长按电源键来解锁</string>
     <string name="pocket_view_title">口袋模式已开启</string>
-    <string name="pocket_view_title_cancel">使用您的手机：</string>
-    <string name="pocket_view_top_tag_cancel">不要覆盖您手机的蓝色区域，并保持清洁</string>
+    <string name="pocket_view_title_cancel">要使用您的手机：</string>
+    <string name="pocket_view_top_tag_cancel">请不要覆盖您手机的蓝色区域，并保持该区域的清洁</string>
     <string name="pocket_view_top_tag_cancel2">长按电源按钮强制退出口袋模式</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">自动</string>

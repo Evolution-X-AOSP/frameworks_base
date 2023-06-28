@@ -21,8 +21,8 @@
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Premi e tieni premuto il pulsante di spegnimento per sbloccare</string>
     <string name="pocket_view_title">Modalità tasca attiva</string>
-    <string name="pocket_view_title_cancel">Per utilizzare il telefono:</string>
-    <string name="pocket_view_top_tag_cancel">Controlla se l\'area colorata in blu del tuo telefono è libera da eventuali ostruzioni, e pulita da sporco o polvere.</string>
+    <string name="pocket_view_title_cancel">Per attivare il tuo telefono:</string>
+    <string name="pocket_view_top_tag_cancel">Non coprire l\'area colorata in blu del telefono e rimuovi sporco o polvere.</string>
     <string name="pocket_view_top_tag_cancel2">Tieni premuto il pulsante di accensione per forzare l\'uscita dalla modalità tasca.</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automatico</string>

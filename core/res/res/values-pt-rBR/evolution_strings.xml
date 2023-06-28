@@ -21,9 +21,11 @@
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Pressione e segure o botão Liga/Desliga para desbloquear</string>
     <string name="pocket_view_title">Modo bolso está ativado</string>
-    <string name="pocket_view_title_cancel">Para usar seu telefone:</string>
+    <string name="pocket_view_title_cancel">Para ativar seu telefone:</string>
     <string name="pocket_view_top_tag_cancel">Não cubra a área azul do seu telefone, limpe qualquer terra ou poeira.</string>
     <string name="pocket_view_top_tag_cancel2">Pressione e segure o botão liga/desliga para forçar a saída do modo de bolso.</string>
+    <string name="pocket_view_top_tag_number1">1.\u0020</string>
+    <string name="pocket_view_top_tag_number2">2.\u0020</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automático</string>
     <string name="live_display_auto_summary">Ajusta automaticamente a temperatura da cor da tela após o pôr e nascer do sol</string>

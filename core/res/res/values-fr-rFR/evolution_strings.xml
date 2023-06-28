@@ -22,7 +22,7 @@
     <string name="pocket_lock_message_long_press">Appuyez et maintenez le bouton marche/arrêt pour déverrouiller</string>
     <string name="pocket_view_title">Le mode poche est activé</string>
     <string name="pocket_view_title_cancel">Pour utiliser votre téléphone :</string>
-    <string name="pocket_view_top_tag_cancel">Vérifiez si la zone bleue de votre téléphone est exempte d\'obstacles et nettoyez toute saleté ou poussière.</string>
+    <string name="pocket_view_top_tag_cancel">Veuillez ne pas couvrir la zone bleue de votre téléphone et nettoyer la saleté ou la poussière si besoin.</string>
     <string name="pocket_view_top_tag_cancel2">Appuyez longuement sur le bouton d\'alimentation pour quitter le Mode poche.</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automatique</string>
