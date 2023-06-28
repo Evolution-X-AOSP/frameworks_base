@@ -18,12 +18,6 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">需要重启系统界面</string>
     <string name="systemui_restart_message">要使所有更改生效，需要重新启动系统界面。现在重新启动系统界面？</string>
-    <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">长按电源键来解锁</string>
-    <string name="pocket_view_title">口袋模式已开启</string>
-    <string name="pocket_view_title_cancel">使用您的手机：</string>
-    <string name="pocket_view_top_tag_cancel">不要覆盖您手机的蓝色区域，并保持清洁</string>
-    <string name="pocket_view_top_tag_cancel2">长按电源按钮强制退出口袋模式</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">自动</string>
     <string name="live_display_auto_summary">在日出和日落后自动调节屏幕色温</string>
