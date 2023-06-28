@@ -29,7 +29,6 @@ import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.policy.Clock;
 import com.android.systemui.tuner.TunerService;
 
-
 public class ClockController implements TunerService.Tunable {
 
     private static final String TAG = "ClockController";
@@ -67,6 +66,10 @@ public class ClockController implements TunerService.Tunable {
     }
 
     private void updateActiveClock() {
+        if (mClockPosition == CLOCK_POSITION_HIDE && mActiveClock != null) {
+            Dependency.get(DarkIconDispatcher.class).removeDarkReceiver(mActiveClock);
+        }
+
         switch (mClockPosition) {
             case CLOCK_POSITION_RIGHT:
                 mActiveClock = mRightClock;
@@ -109,10 +112,14 @@ public class ClockController implements TunerService.Tunable {
     }
 
     public void addDarkReceiver() {
-        Dependency.get(DarkIconDispatcher.class).addDarkReceiver(mActiveClock);
+        if (mActiveClock != null) {
+            Dependency.get(DarkIconDispatcher.class).addDarkReceiver(mActiveClock);
+        }
     }
 
     public void removeDarkReceiver() {
-        Dependency.get(DarkIconDispatcher.class).removeDarkReceiver(mActiveClock);
+        if (mActiveClock != null) {
+            Dependency.get(DarkIconDispatcher.class).removeDarkReceiver(mActiveClock);
+        }
     }
 }
