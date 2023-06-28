@@ -103,12 +103,6 @@
     <!-- Whether to find optimal display refresh rate when using udfps -->
     <bool name="config_udfpsOptimalRefreshRate">true</bool>
 
-    <!-- Should we listen for fingerprints when the screen is off?  Devices
-         with a rear-mounted sensor want this, but certain devices have
-         the sensor embedded in the power key and listening all the time
-         causes a poor experience. -->
-    <bool name="config_fingerprintWakeAndUnlock">true</bool>
-
     <!-- Max visible status icons -->
     <integer name="config_maxVisibleStatusIcons">7</integer>
 </resources>
