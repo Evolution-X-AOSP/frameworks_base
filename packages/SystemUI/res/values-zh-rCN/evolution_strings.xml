@@ -126,12 +126,7 @@
     <string name="status_bar_items_title">状态栏图标</string>
     <string name="status_bar_call_strength">通话强度</string>
     <string name="status_bar_data_saver">流量节省程序</string>
-    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">VPN</string>
-    <!-- Kill button in notification guts -->
-    <string name="force_stop_dlg_title">强制停止？</string>
-    <string name="force_stop_dlg_text">强行停止某个应用可能会导致其出现异常</string>
-    <string name="guts_force_close_app">关闭应用</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash 闪充中 (还需 <xliff:g id="charging_time_left">%1$s</xliff:g>充满)</string>
     <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Dash 闪充</string>
@@ -246,4 +241,13 @@
     <string name="quick_settings_preferred_network_lte">4g / LTE</string>
     <string name="quick_settings_preferred_network_nr">5g / NR</string>
     <string name="quick_settings_preferred_network_unsupported">不支持</string>
+    <!-- Refresh Rate Tile -->
+    <string name="refresh_rate_tile_label">刷新率</string>
+    <string name="auto_mode_label">自动</string>
+    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
+    <string name="clock">时钟</string>
+    <!-- Name of the HD calling status bar icon. -->
+    <string name="status_bar_hd_calling">高清通话 (VoLTE/VoNR)</string>
+    <!-- Name of the VoWiFi status bar icon. -->
+    <string name="status_bar_vowifi">Wi-Fi 通话 (VoWiFi)</string>
 </resources>
