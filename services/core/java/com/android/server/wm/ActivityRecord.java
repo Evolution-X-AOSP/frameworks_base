@@ -1614,7 +1614,7 @@ final class ActivityRecord extends WindowToken implements WindowManagerService.A
                 newParent.setResumedActivity(this, "onParentChanged");
                 mImeInsetsFrozenUntilStartInput = false;
             }
-            mLetterboxUiController.onActivityParentChanged(newParent);
+            mLetterboxUiController.updateInheritedLetterbox();
         }
 
         if (rootTask != null && rootTask.topRunningActivity() == this) {
@@ -8417,6 +8417,16 @@ final class ActivityRecord extends WindowToken implements WindowManagerService.A
 
     boolean isInTransition() {
         return inTransitionSelfOrParent();
+    }
+
+    boolean isDisplaySleepingAndSwapping() {
+        for (int i = mDisplayContent.mAllSleepTokens.size() - 1; i >= 0; i--) {
+            RootWindowContainer.SleepToken sleepToken = mDisplayContent.mAllSleepTokens.get(i);
+            if (sleepToken.isDisplaySwapping()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
