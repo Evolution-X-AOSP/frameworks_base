@@ -371,8 +371,6 @@ public class DozeTriggers implements DozeMachine.Part {
     private void gentleWakeUp(@DozeLog.Reason int reason) {
         if (reason == DozeLog.REASON_SENSOR_PICKUP &&
             mConfig.pickupGestureAmbient(UserHandle.USER_CURRENT) ||
-            reason == DozeLog.REASON_SENSOR_DOUBLE_TAP
-            && mConfig.doubleTapGestureAmbient(UserHandle.USER_CURRENT) ||
             reason == DozeLog.REASON_SENSOR_TAP
             && mConfig.singleTapGestureAmbient(UserHandle.USER_CURRENT)) {
             requestPulse(reason, true, null);

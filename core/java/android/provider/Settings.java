@@ -6602,12 +6602,6 @@ public final class Settings {
         public static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
 
         /**
-         * lockscreen album art blur level
-         * @hide
-         */
-        public static final String LS_MEDIA_FILTER_BLUR_RADIUS = "ls_media_filter_blur_radius";
-
-        /**
          * Whether to enable or disable vibration on succesful fingerprint auth
          * @hide
          */
@@ -6650,10 +6644,10 @@ public final class Settings {
         public static final String RETICKER_COLORED = "reticker_colored";
 
         /**
-         * Lockscreen clock format
+         * Only enable reTicker in landscape mode
          * @hide
          */
-        public static final String CLOCK_USE_CUSTOM_FORMAT = "clock_use_custom_format";
+        public static final String RETICKER_LANDSCAPE_ONLY = "reticker_landscape_only";
 
         /**
          * Battery style
@@ -12958,22 +12952,10 @@ public final class Settings {
         public static final String QSTILE_REQUIRES_UNLOCKING = "qstile_requires_unlocking";
 
         /**
-         * Whether to show daily data usage in the QS footer.
-         * @hide
-         */
-        public static final String QS_SHOW_DATA_USAGE = "qs_show_data_usage";
-
-        /**
          * Whether to trigger doze for new notifications
          * @hide
          */
         public static final String DOZE_FOR_NOTIFICATIONS = "doze_for_notifications";
-
-        /**
-         * Whether to show ambient instead of waking for the dt2w gesture
-         * @hide
-         */
-        public static final String DOZE_DOUBLE_TAP_GESTURE_AMBIENT = "doze_double_tap_gesture_ambient";
 
         /**
          * Whether to show ambient instead of waking for the pickup gesture
