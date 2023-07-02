@@ -214,10 +214,6 @@
     <string name="accessibility_quick_settings_location_gps_only">Localização: apenas sensores.</string>
     <string name="quick_settings_location_secondary_high_accuracy">Alta precisão</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Localização: alta precisão.</string>
-    <!-- Data usage info in QS footer -->
-    <string name="usage_data">usado hoje</string>
-    <string name="usage_data_default_suffix">Dados</string>
-    <string name="usage_wifi_default_suffix">Wi-Fi</string>
     <!-- Sleep Mode -->
     <string name="quick_settings_sleep_mode_label">Modo de suspensão</string>
     <!-- DC Dimming -->
