@@ -12964,12 +12964,6 @@ public final class Settings {
         public static final String QSTILE_REQUIRES_UNLOCKING = "qstile_requires_unlocking";
 
         /**
-         * Whether to show daily data usage in the QS footer.
-         * @hide
-         */
-        public static final String QS_SHOW_DATA_USAGE = "qs_show_data_usage";
-
-        /**
          * Whether to trigger doze for new notifications
          * @hide
          */
