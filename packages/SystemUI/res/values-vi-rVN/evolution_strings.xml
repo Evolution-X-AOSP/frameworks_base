@@ -214,10 +214,6 @@
     <string name="accessibility_quick_settings_location_gps_only">Báo cáo vị trí: chế độ chỉ cảm biến.</string>
     <string name="quick_settings_location_secondary_high_accuracy">Chính xác cao</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Báo cáo vị trí: chế độ chính xác cao.</string>
-    <!-- Data usage info in QS footer -->
-    <string name="usage_data">đã dùng hôm nay</string>
-    <string name="usage_data_default_suffix">Dữ liệu</string>
-    <string name="usage_wifi_default_suffix">Wi-Fi</string>
     <!-- Sleep Mode -->
     <string name="quick_settings_sleep_mode_label">Chế độ ngủ</string>
     <!-- DC Dimming -->
