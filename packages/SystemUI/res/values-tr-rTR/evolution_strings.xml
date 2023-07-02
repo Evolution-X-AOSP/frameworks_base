@@ -126,12 +126,7 @@
     <string name="status_bar_items_title">Durum çubuğu simgeleri</string>
     <string name="status_bar_call_strength">Sinyal kuveti</string>
     <string name="status_bar_data_saver">Veri tasarrufu</string>
-    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">VPN</string>
-    <!-- Kill button in notification guts -->
-    <string name="force_stop_dlg_title">Durmaya zorlansın mı?</string>
-    <string name="force_stop_dlg_text">Uygulamayı zorla durdurursanız, hatalı davranabilir.</string>
-    <string name="guts_force_close_app">Uygulamayı Kapat</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash şarj oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> kaldı)</string>
     <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Dash şarj oluyor</string>
@@ -219,10 +214,6 @@
     <string name="accessibility_quick_settings_location_gps_only">Konum bildirimi: sadece sensörler modu.</string>
     <string name="quick_settings_location_secondary_high_accuracy">Yüksek Doğruluk</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Konum bildirimi: yüksek doğruluk modu.</string>
-    <!-- Data usage info in QS footer -->
-    <string name="usage_data">bugün kullanılan</string>
-    <string name="usage_data_default_suffix">Veri</string>
-    <string name="usage_wifi_default_suffix">Kablosuz ağ</string>
     <!-- Sleep Mode -->
     <string name="quick_settings_sleep_mode_label">Uyku modu</string>
     <!-- DC Dimming -->
@@ -246,4 +237,13 @@
     <string name="quick_settings_preferred_network_lte">4g / LTE</string>
     <string name="quick_settings_preferred_network_nr">5g / NR</string>
     <string name="quick_settings_preferred_network_unsupported">Desteklenmiyor</string>
+    <!-- Refresh Rate Tile -->
+    <string name="refresh_rate_tile_label">Yenileme hızı</string>
+    <string name="auto_mode_label">Otomatik</string>
+    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
+    <string name="clock">Saat</string>
+    <!-- Name of the HD calling status bar icon. -->
+    <string name="status_bar_hd_calling">HD arama (VoLTE/VoNR)</string>
+    <!-- Name of the VoWiFi status bar icon. -->
+    <string name="status_bar_vowifi">Wi-Fi arama (VoWiFi)</string>
 </resources>
