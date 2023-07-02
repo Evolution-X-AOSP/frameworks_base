@@ -25,8 +25,6 @@ import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.app.Notification;
 import android.content.Context;
-import android.content.ContentResolver;
-import android.os.UserHandle;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
@@ -169,8 +167,6 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
 
     private boolean mShowMediaMetadata;
     private int mAlbumArtFilter;
-    private float mCurrentLSBlurRadius;
-    private float mLSBlurRadius;
 
     private final MediaController.Callback mMediaListener = new MediaController.Callback() {
         @Override
@@ -659,12 +655,6 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
         Trace.endSection();
     }
 
-    private float getLSBlurRadius() {
-        mCurrentLSBlurRadius = Settings.System.getFloatForUser(mContext.getContentResolver(),
-                Settings.System.LS_MEDIA_FILTER_BLUR_RADIUS, 25f, UserHandle.USER_CURRENT);
-        return mCurrentLSBlurRadius;
-    }
-
     private void finishUpdateMediaMetaData(boolean metaDataChanged, boolean allowEnterAnimation,
             @Nullable Bitmap bmp) {
         Drawable artworkDrawable = null;
@@ -686,14 +676,12 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
                         mContext.getResources().getColor(R.color.accent_device_default_light)));
                     break;
                 case 3:
-                    mLSBlurRadius = getLSBlurRadius();
                     artworkDrawable = new BitmapDrawable(mBackdropBack.getResources(),
-                        ImageHelper.getBlurredImage(mContext, bmp, mLSBlurRadius));
+                        ImageHelper.getBlurredImage(mContext, bmp, 7.0f));
                     break;
                 case 4:
-                    mLSBlurRadius = getLSBlurRadius();
                     artworkDrawable = new BitmapDrawable(mBackdropBack.getResources(),
-                        ImageHelper.getGrayscaleBlurredImage(mContext, bmp, mLSBlurRadius));
+                        ImageHelper.getGrayscaleBlurredImage(mContext, bmp, 7.0f));
                     break;
             }
         }

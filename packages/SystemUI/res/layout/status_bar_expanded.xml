@@ -26,7 +26,6 @@
     android:layout_height="match_parent"
     android:background="@android:color/transparent">
 
-    <!-- reTicker -->
     <LinearLayout
         android:id="@+id/ticker_comeback"
         android:animateLayoutChanges="true"
@@ -40,7 +39,7 @@
         android:layout_marginLeft="62dp"
         android:layout_marginRight="62dp"
         android:layout_width="wrap_content"
-        android:layout_height="44dp">
+        android:layout_height="48dp">
         <ImageView
             android:id="@+id/ticker_comeback_icon"
             android:layout_gravity="center_vertical"

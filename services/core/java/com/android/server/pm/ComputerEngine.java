@@ -1620,17 +1620,12 @@ public class ComputerEngine implements Computer {
             return null;
         }
 
-        final PackageUserStateInternal state = ps.getUserStateOrDefault(userId);
-        if ((flags & MATCH_UNINSTALLED_PACKAGES) != 0) {
-            if (state.isHidden() && (mSettings.getSettingBase(
-                    UserHandle.getAppId(callingUid)).getFlags() & ApplicationInfo.FLAG_SYSTEM)
-                    != ApplicationInfo.FLAG_SYSTEM) {
-                return null;
-            } else if (ps.isSystem()) {
-                flags |= MATCH_ANY_USER;
-            }
+        if ((flags & MATCH_UNINSTALLED_PACKAGES) != 0
+                && ps.isSystem()) {
+            flags |= MATCH_ANY_USER;
         }
 
+        final PackageUserStateInternal state = ps.getUserStateOrDefault(userId);
         AndroidPackage p = ps.getPkg();
         if (p != null) {
             // Compute GIDs only if requested
@@ -5735,8 +5730,7 @@ public class ComputerEngine implements Computer {
             return PackageInfoUtils.generateProcessInfo(sus.processes, 0);
         } else if (settingBase instanceof PackageSetting) {
             final PackageSetting ps = (PackageSetting) settingBase;
-            final AndroidPackage pkg = ps.getPkg();
-            return pkg == null ? null : PackageInfoUtils.generateProcessInfo(pkg.getProcesses(), 0);
+            return PackageInfoUtils.generateProcessInfo(ps.getPkg().getProcesses(), 0);
         }
         return null;
     }
