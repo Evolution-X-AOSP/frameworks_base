@@ -135,6 +135,15 @@ public class StatusBarMobileView extends BaseStatusBarFrameLayout implements Dar
         mMobileDrawable = new SignalDrawable(getContext());
         mMobile.setImageDrawable(mMobileDrawable);
 
+        float signalSize = mContext.getResources().getDimensionPixelSize(
+                R.dimen.signal_icon_size);
+        float viewportSize = mContext.getResources().getDimensionPixelSize(
+                R.dimen.signal_icon_viewport_size);
+        LayoutParams lp = (LayoutParams) mMobileHd.getLayoutParams();
+        lp.height = Math.round(lp.height * (signalSize / viewportSize));
+        lp.width = Math.round(lp.width * (signalSize / viewportSize));
+        mMobileHd.setLayoutParams(lp);
+
         initDotView();
     }
 
