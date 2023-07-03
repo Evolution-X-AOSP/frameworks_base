@@ -6650,12 +6650,6 @@ public final class Settings {
         public static final String RETICKER_COLORED = "reticker_colored";
 
         /**
-         * Lockscreen clock format
-         * @hide
-         */
-        public static final String CLOCK_USE_CUSTOM_FORMAT = "clock_use_custom_format";
-
-        /**
          * Battery style
          * @hide
          */
