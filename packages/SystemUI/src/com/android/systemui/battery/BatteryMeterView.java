@@ -56,6 +56,8 @@ import com.android.settingslib.graph.LandscapeBatteryDrawableLine;
 import com.android.settingslib.graph.LandscapeBatteryDrawableSignal;
 import com.android.settingslib.graph.LandscapeBatteryDrawableMusku;
 import com.android.settingslib.graph.LandscapeBatteryDrawablePill;
+import com.android.settingslib.graph.LandscapeBatteryDrawableiOS15;
+import com.android.settingslib.graph.LandscapeBatteryDrawableiOS16;
 import com.android.systemui.DualToneHandler;
 import com.android.systemui.plugins.DarkIconDispatcher;
 import com.android.systemui.plugins.DarkIconDispatcher.DarkReceiver;
@@ -88,6 +90,8 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
     protected static final int BATTERY_STYLE_LANDSCAPE_STYLE_A = 16;
     protected static final int BATTERY_STYLE_RLANDSCAPE_STYLE_B = 17;
     protected static final int BATTERY_STYLE_LANDSCAPE_STYLE_B = 18;
+    protected static final int BATTERY_STYLE_LANDSCAPE_IOS15 = 19;
+    protected static final int BATTERY_STYLE_LANDSCAPE_IOS16 = 20;
 
     @Retention(SOURCE)
     @IntDef({MODE_DEFAULT, MODE_ON, MODE_OFF, MODE_ESTIMATE})
@@ -111,6 +115,8 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
     private final LandscapeBatteryDrawableMusku mLandscapeDrawableMusku;
     private final LandscapeBatteryDrawablePill mLandscapeDrawablePill;
     private final LandscapeBatteryDrawableSignal mLandscapeDrawableSignal;
+    private final LandscapeBatteryDrawableiOS15 mLandscapeDrawableiOS15;
+    private final LandscapeBatteryDrawableiOS16 mLandscapeDrawableiOS16;
     private final ImageView mBatteryIconView;
     private TextView mBatteryPercentView;
 
@@ -168,6 +174,8 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
         mLandscapeDrawableMusku = new LandscapeBatteryDrawableMusku(context, frameColor);
         mLandscapeDrawablePill = new LandscapeBatteryDrawablePill(context, frameColor);
         mLandscapeDrawableSignal = new LandscapeBatteryDrawableSignal(context, frameColor);
+        mLandscapeDrawableiOS15 = new LandscapeBatteryDrawableiOS15(context, frameColor);
+        mLandscapeDrawableiOS16 = new LandscapeBatteryDrawableiOS16(context, frameColor);
         atts.recycle();
 
         setupLayoutTransition();
@@ -322,6 +330,8 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
             mLandscapeDrawableMusku.setBatteryLevel(mLevel);
             mLandscapeDrawablePill.setBatteryLevel(mLevel);
             mLandscapeDrawableSignal.setBatteryLevel(mLevel);
+            mLandscapeDrawableiOS15.setBatteryLevel(mLevel);
+            mLandscapeDrawableiOS16.setBatteryLevel(mLevel);
             updatePercentText();
         }
         if (mCharging != pluggedIn) {
@@ -340,6 +350,8 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
             mLandscapeDrawableMusku.setCharging(mCharging);
             mLandscapeDrawablePill.setCharging(mCharging);
             mLandscapeDrawableSignal.setCharging(mCharging);
+            mLandscapeDrawableiOS15.setCharging(mCharging);
+            mLandscapeDrawableiOS16.setCharging(mCharging);
             updateShowPercent();
             updatePercentText();
         }
@@ -360,6 +372,8 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
         mLandscapeDrawableMusku.setPowerSaveEnabled(isPowerSave);
         mLandscapeDrawablePill.setPowerSaveEnabled(isPowerSave);
         mLandscapeDrawableSignal.setPowerSaveEnabled(isPowerSave);
+        mLandscapeDrawableiOS15.setPowerSaveEnabled(isPowerSave);
+        mLandscapeDrawableiOS16.setPowerSaveEnabled(isPowerSave);
     }
 
     void onIsBatteryDefenderChanged(boolean isBatteryDefender) {
@@ -518,6 +532,8 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
         mLandscapeDrawableMusku.setShowPercent(drawPercentInside);
         mLandscapeDrawablePill.setShowPercent(drawPercentInside);
         mLandscapeDrawableSignal.setShowPercent(drawPercentInside);
+        mLandscapeDrawableiOS15.setShowPercent(drawPercentInside);
+        mLandscapeDrawableiOS16.setShowPercent(drawPercentInside);
 
         if (showPercent || (mBatteryPercentCharging && mCharging)
                 || mShowPercentMode == MODE_ESTIMATE) {
@@ -618,6 +634,10 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
                 res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_height_landscape_pill_musku) : batteryHeight;
         batteryHeight = mBatteryStyle == BATTERY_STYLE_LANDSCAPE_BUDDY ?
                 res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_height_landscape_buddy) : batteryHeight;
+        batteryHeight = mBatteryStyle == BATTERY_STYLE_LANDSCAPE_IOS15 ?
+                res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_height_landscape_ios15) : batteryHeight;
+        batteryHeight = mBatteryStyle == BATTERY_STYLE_LANDSCAPE_IOS16 ?
+                res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_height_landscape_ios16) : batteryHeight;                
         int batteryWidth = mBatteryStyle == BATTERY_STYLE_CIRCLE || mBatteryStyle == BATTERY_STYLE_DOTTED_CIRCLE
                 || mBatteryStyle == BATTERY_STYLE_FULL_CIRCLE ?
                 res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_circle_width) :
@@ -635,7 +655,11 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
          batteryWidth = mBatteryStyle == BATTERY_STYLE_LANDSCAPE_PILL || mBatteryStyle == BATTERY_STYLE_LANDSCAPE_MUSKU ?
                 res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_width_landscape_pill_musku) : batteryWidth;      
          batteryWidth = mBatteryStyle == BATTERY_STYLE_LANDSCAPE_BUDDY ?
-                res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_width_landscape_buddy) : batteryWidth; 
+                res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_width_landscape_buddy) : batteryWidth;
+         batteryWidth = mBatteryStyle == BATTERY_STYLE_LANDSCAPE_IOS15 ?
+                res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_width_landscape_ios15) : batteryWidth;
+         batteryWidth = mBatteryStyle == BATTERY_STYLE_LANDSCAPE_IOS16 ?
+                res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_width_landscape_ios16) : batteryWidth;             
         float mainBatteryHeight = batteryHeight * iconScaleFactor;
         float mainBatteryWidth = batteryWidth * iconScaleFactor;
 
@@ -727,6 +751,16 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
                  mBatteryIconView.setVisibility(View.VISIBLE);
                  scaleBatteryMeterViews();
                  break;
+            case BATTERY_STYLE_LANDSCAPE_IOS15:
+                 mBatteryIconView.setImageDrawable(mLandscapeDrawableiOS15);
+                 mBatteryIconView.setVisibility(View.VISIBLE);
+                 scaleBatteryMeterViews();
+                 break;
+            case BATTERY_STYLE_LANDSCAPE_IOS16:
+                 mBatteryIconView.setImageDrawable(mLandscapeDrawableiOS16);
+                 mBatteryIconView.setVisibility(View.VISIBLE);
+                 scaleBatteryMeterViews();
+                 break;
             case BATTERY_STYLE_FULL_CIRCLE:
                 mBatteryIconView.setImageDrawable(mFullCircleDrawable);
                 break;
@@ -783,6 +817,8 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
         mLandscapeDrawableMusku.setColors(foregroundColor, backgroundColor, singleToneColor);
         mLandscapeDrawablePill.setColors(foregroundColor, backgroundColor, singleToneColor);
         mLandscapeDrawableSignal.setColors(foregroundColor, backgroundColor, singleToneColor);
+        mLandscapeDrawableiOS15.setColors(foregroundColor, backgroundColor, singleToneColor);
+        mLandscapeDrawableiOS16.setColors(foregroundColor, backgroundColor, singleToneColor);
         mTextColor = singleToneColor;
         if (mBatteryPercentView != null) {
             mBatteryPercentView.setTextColor(singleToneColor);
