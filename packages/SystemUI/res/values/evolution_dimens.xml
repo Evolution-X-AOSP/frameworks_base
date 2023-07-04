@@ -90,6 +90,8 @@
     <dimen name="status_bar_battery_icon_width_landscape_pill_musku">13dp</dimen>
     <dimen name="status_bar_battery_icon_height_landscape_buddy">28.0dip</dimen>
     <dimen name="status_bar_battery_icon_width_landscape_buddy">22.0dip</dimen>
+    <dimen name="status_bar_battery_icon_height_landscape_ios15">12.0dip</dimen>
+    <dimen name="status_bar_battery_icon_height_landscape_ios16">12.0dip</dimen>
 
     <!-- HD calling icon -->
     <dimen name="signal_icon_viewport_size">24dp</dimen>
