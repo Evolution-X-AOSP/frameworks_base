@@ -54,11 +54,6 @@
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">Giao diện người dùng</string>
     <!-- Custom QS tiles -->
-    <!-- PowerShare QS tile -->
-    <string name="quick_settings_powershare_label">Sạc không dây</string>
-    <string name="quick_settings_powershare_off_powersave_label">Sạc không dây tắt\nTiết kiệm pin</string>
-    <string name="quick_settings_powershare_off_low_battery_label">Sạc không dây tắt\nPin quá yếu</string>
-    <string name="quick_settings_powershare_enabled_label">Sạc không dây đã bật</string>
     <!-- Caffeine tile -->
     <string name="quick_settings_caffeine_label">Caffeine</string>
     <string name="accessibility_quick_settings_caffeine_off">Caffeine tắt</string>
