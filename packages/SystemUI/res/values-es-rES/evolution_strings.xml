@@ -54,11 +54,6 @@
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">IU del sistema</string>
     <!-- Custom QS tiles -->
-    <!-- PowerShare QS tile -->
-    <string name="quick_settings_powershare_label">Transferencia inalámbrica de energía</string>
-    <string name="quick_settings_powershare_off_powersave_label">Transferencia inalámbrica de energía apagada\nAhorro de energía</string>
-    <string name="quick_settings_powershare_off_low_battery_label">Transferencia inalámbrica de energía apagada\nBatería demasiado baja</string>
-    <string name="quick_settings_powershare_enabled_label">La transferencia inalámbrica de energía está activada</string>
     <!-- Caffeine tile -->
     <string name="quick_settings_caffeine_label">Cafeína</string>
     <string name="accessibility_quick_settings_caffeine_off">Cafeína desactivada</string>
