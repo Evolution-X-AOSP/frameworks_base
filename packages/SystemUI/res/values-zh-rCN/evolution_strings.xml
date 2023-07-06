@@ -54,11 +54,6 @@
     <string name="global_action_restart_bootloader">引导模式</string>
     <string name="global_action_restart_ui">软重启</string>
     <!-- Custom QS tiles -->
-    <!-- PowerShare QS tile -->
-    <string name="quick_settings_powershare_label">无线电力共享</string>
-    <string name="quick_settings_powershare_off_powersave_label">无线电力分享关闭\n省电模式</string>
-    <string name="quick_settings_powershare_off_low_battery_label">无线电分享关闭\n电池电量过低</string>
-    <string name="quick_settings_powershare_enabled_label">无线电力共享已启用</string>
     <!-- Caffeine tile -->
     <string name="quick_settings_caffeine_label">保持亮屏</string>
     <string name="accessibility_quick_settings_caffeine_off">屏幕常亮已关闭</string>
