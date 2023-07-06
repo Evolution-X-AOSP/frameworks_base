@@ -54,11 +54,6 @@
     <string name="global_action_restart_bootloader">Завантажувач</string>
     <string name="global_action_restart_ui">Інтерфейс системи</string>
     <!-- Custom QS tiles -->
-    <!-- PowerShare QS tile -->
-    <string name="quick_settings_powershare_label">Бездротовий заряд</string>
-    <string name="quick_settings_powershare_off_powersave_label">Бездротове використання живлення\nЕнергозбереження</string>
-    <string name="quick_settings_powershare_off_low_battery_label">Бездротовий режим вимкнено\nзбереження енергії</string>
-    <string name="quick_settings_powershare_enabled_label">Бездротове заряджання увімкнено</string>
     <!-- Caffeine tile -->
     <string name="quick_settings_caffeine_label">Заборона сну</string>
     <string name="accessibility_quick_settings_caffeine_off">Заборона сну вимкнена</string>
