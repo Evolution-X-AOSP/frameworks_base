@@ -54,11 +54,6 @@
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">Interface do sistema</string>
     <!-- Custom QS tiles -->
-    <!-- PowerShare QS tile -->
-    <string name="quick_settings_powershare_label">Carregamento reverso sem fio</string>
-    <string name="quick_settings_powershare_off_powersave_label">Compartilhamento de carga sem fio desligado\nEconomia de bateria</string>
-    <string name="quick_settings_powershare_off_low_battery_label">Compartilhamento de carga sem fio desligado\nBateria muito baixa</string>
-    <string name="quick_settings_powershare_enabled_label">Compartilhamento de carga sem fio está ativado</string>
     <!-- Caffeine tile -->
     <string name="quick_settings_caffeine_label">Modo Cafeina</string>
     <string name="accessibility_quick_settings_caffeine_off">Modo Cafeína desativado</string>
