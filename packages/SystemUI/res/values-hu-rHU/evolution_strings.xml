@@ -54,11 +54,6 @@
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">Rendszerfelület</string>
     <!-- Custom QS tiles -->
-    <!-- PowerShare QS tile -->
-    <string name="quick_settings_powershare_label">Vezetéknélküli Energiamegosztás</string>
-    <string name="quick_settings_powershare_off_powersave_label">Vezetéknélküli Energiamegosztás ki\nAkkumulátorkímélő</string>
-    <string name="quick_settings_powershare_off_low_battery_label">Vezetéknélküli Energiamegosztás ki\nAlacsony akkuszint</string>
-    <string name="quick_settings_powershare_enabled_label">A Vezetéknélküli Energiamegosztás engedélyezett</string>
     <!-- Caffeine tile -->
     <string name="quick_settings_caffeine_label">Caffeine</string>
     <string name="accessibility_quick_settings_caffeine_off">Caffeine ki</string>
