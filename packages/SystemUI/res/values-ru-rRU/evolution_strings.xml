@@ -54,11 +54,6 @@
     <string name="global_action_restart_bootloader">Загрузчик</string>
     <string name="global_action_restart_ui">Системный интерфейс</string>
     <!-- Custom QS tiles -->
-    <!-- PowerShare QS tile -->
-    <string name="quick_settings_powershare_label">Беспроводная зарядка</string>
-    <string name="quick_settings_powershare_off_powersave_label">Беспроводная зарядка выключена\nЭкономия энергии</string>
-    <string name="quick_settings_powershare_off_low_battery_label">Беспроводная зарядка выключена\nУровень заряда слишком низкий</string>
-    <string name="quick_settings_powershare_enabled_label">Беспроводная зарядка включена</string>
     <!-- Caffeine tile -->
     <string name="quick_settings_caffeine_label">Запрет сна</string>
     <string name="accessibility_quick_settings_caffeine_off">Запрет сна отключен</string>
