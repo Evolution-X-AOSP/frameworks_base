@@ -55,6 +55,7 @@ import com.android.systemui.display.DisplayModule;
 import com.android.systemui.doze.dagger.DozeComponent;
 import com.android.systemui.dreams.dagger.DreamModule;
 import com.android.systemui.dump.DumpManager;
+import com.android.systemui.evolution.EvolutionXModule;
 import com.android.systemui.flags.FeatureFlags;
 import com.android.systemui.flags.FlagDependenciesModule;
 import com.android.systemui.flags.FlagsModule;
@@ -189,6 +190,7 @@ import javax.inject.Named;
         DisplayModule.class,
         DreamModule.class,
         EventLogModule.class,
+        EvolutionXModule.class,
         FalsingModule.class,
         FlagsModule.class,
         FlagDependenciesModule.class,
