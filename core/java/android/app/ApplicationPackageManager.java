@@ -897,7 +897,8 @@ public class ApplicationPackageManager extends PackageManager {
                 !Arrays.asList(pTensorCodenames).contains(SystemProperties.get("ro.product.device"))) {
             return false;
         } else if (packageName != null && Arrays.asList(featuresTensor).contains(name)) {
-            if (packageName.contains("com.google.android.apps.nexuslauncher")) {
+            if (packageName.contains("com.google.android.apps.nexuslauncher")
+                || packageName.contains("com.google.android.apps.recorder")) {
                 return false;
             }
         }
