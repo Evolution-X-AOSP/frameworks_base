@@ -59,26 +59,23 @@ public class PixelPropsUtils {
     private static final Map<String, Object> propsToChangeGeneric;
     private static final Map<String, Object> propsToChangePixelTablet;
     private static final Map<String, Object> propsToChangePixel7Pro;
-    private static final Map<String, Object> propsToChangePixel6Pro;
+    private static final Map<String, Object> propsToChangePixel5a;
     private static final Map<String, Object> propsToChangePixel5;
     private static final Map<String, Object> propsToChangePixel2;
     private static final Map<String, Object> propsToChangePixelXL;
     private static final Map<String, Object> propsToChangeMeizu;
     private static final Map<String, ArrayList<String>> propsToKeep;
 
+    // Packages to Spoof as Pixel Tablet
     private static final String[] packagesToChangePixelTablet = {
             "com.google.android.googlequicksearchbox",
-            "com.google.android.apps.googleassistant",
+            "com.google.android.apps.googleassistant"
     };
 
-    // Packages to Spoof as Pixel 6 Pro
-    private static final String[] packagesToChangePixel6Pro = {
-            PACKAGE_FINSKY,
-            PACKAGE_GMS,
+    // Packages to Spoof as Pixel 7 Pro
+    private static final String[] packagesToChangePixel7Pro = {
             "com.google.android.apps.emojiwallpaper",
-            "com.google.android.as",
-            "com.google.android.inputmethod.latin",
-            "com.google.android.wallpaper.effects",
+            "com.google.android.wallpaper.effects"
     };
 
     // Packages to Spoof as Pixel 2
@@ -187,13 +184,13 @@ public class PixelPropsUtils {
         propsToChangePixel7Pro.put("PRODUCT", "cheetah");
         propsToChangePixel7Pro.put("MODEL", "Pixel 7 Pro");
         propsToChangePixel7Pro.put("FINGERPRINT", "google/cheetah/cheetah:13/TQ3A.230705.001.A1/10217028:user/release-keys");
-        propsToChangePixel6Pro = new HashMap<>();
-        propsToChangePixel6Pro.put("BRAND", "google");
-        propsToChangePixel6Pro.put("MANUFACTURER", "Google");
-        propsToChangePixel6Pro.put("DEVICE", "raven");
-        propsToChangePixel6Pro.put("PRODUCT", "raven");
-        propsToChangePixel6Pro.put("MODEL", "Pixel 6 Pro");
-        propsToChangePixel6Pro.put("FINGERPRINT", "google/raven/raven:13/TQ3A.230705.001.A1/10217028:user/release-keys");
+        propsToChangePixel5a = new HashMap<>();
+        propsToChangePixel5a.put("BRAND", "google");
+        propsToChangePixel5a.put("MANUFACTURER", "Google");
+        propsToChangePixel5a.put("DEVICE", "barbet");
+        propsToChangePixel5a.put("PRODUCT", "barbet");
+        propsToChangePixel5a.put("MODEL", "Pixel 5a");
+        propsToChangePixel5a.put("FINGERPRINT", "google/barbet/barbet:13/TQ3A.230705.001/10216780:user/release-keys");
         propsToChangePixel5 = new HashMap<>();
         propsToChangePixel5.put("BRAND", "google");
         propsToChangePixel5.put("MANUFACTURER", "Google");
@@ -266,7 +263,7 @@ public class PixelPropsUtils {
             } else if (processName.toLowerCase().contains("persistent")
                         || processName.toLowerCase().contains("ui")
                         || processName.toLowerCase().contains("learning")) {
-                propsToChange.putAll(propsToChangePixel6Pro);
+                propsToChange.putAll(propsToChangePixel5a);
             }
             return;
         }
@@ -293,14 +290,15 @@ public class PixelPropsUtils {
             } else if (Arrays.asList(packagesToChangePixel2).contains(packageName)) {
                 if (isPixelDevice) return;
                 propsToChange.putAll(propsToChangePixel2);
-            } else if (Arrays.asList(packagesToChangePixel6Pro).contains(packageName)) {
-                if (isPixelDevice) return;
-                propsToChange.putAll(propsToChangePixel6Pro);
             } else if (Arrays.asList(packagesToChangePixelTablet).contains(packageName)) {
                 if (isPixelDevice) return;
                 propsToChange.putAll(propsToChangePixelTablet);
-            } else {
+            } else if ((Arrays.asList(packagesToChangePixel7Pro).contains(packageName))
+                    || (Arrays.asList(extraPackagesToChange).contains(packageName))) {
+                if (isPixelDevice) return;
                 propsToChange.putAll(propsToChangePixel7Pro);
+            } else {
+                propsToChange.putAll(propsToChangePixel5a);
             }
         } else if ((SystemProperties.getBoolean(SPOOF_MUSIC_APPS, false)) &&
                 (Arrays.asList(packagesToChangeMeizu).contains(packageName))) {
