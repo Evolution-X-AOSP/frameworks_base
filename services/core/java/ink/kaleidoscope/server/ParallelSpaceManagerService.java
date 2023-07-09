@@ -113,6 +113,8 @@ public final class ParallelSpaceManagerService extends SystemService {
         // To avoid third party apps starting it accidentally.
         "com.android.fmradio",
         "com.android.launcher3",
+        "com.android.wallpaper",
+        "com.google.android.wallpaper",
         "com.android.server.telecom",
         "com.caf.fmradio",
         "com.google.android.apps.nexuslauncher",
