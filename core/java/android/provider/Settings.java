@@ -6602,12 +6602,6 @@ public final class Settings {
         public static final String STATUS_BAR_NOTIF_COUNT = "status_bar_notif_count";
 
         /**
-         * lockscreen album art blur level
-         * @hide
-         */
-        public static final String LS_MEDIA_FILTER_BLUR_RADIUS = "ls_media_filter_blur_radius";
-
-        /**
          * Whether to enable or disable vibration on succesful fingerprint auth
          * @hide
          */
