@@ -935,7 +935,9 @@ public class TextServicesManagerService extends ITextServicesManager.Stub {
             Slog.e(TAG, "Remove the spell checker bind unexpectedly.");
             final int size = mListeners.getRegisteredCallbackCount();
             for (int i = size - 1; i >= 0; --i) {
-                mListeners.unregister(mListeners.getRegisteredCallbackItem(i));
+                if (i < mListeners.getRegisteredCallbackCount()) {
+                    mListeners.unregister(mListeners.getRegisteredCallbackItem(i));
+                }
             }
             mPendingSessionRequests.clear();
             mOnGoingSessionRequests.clear();
