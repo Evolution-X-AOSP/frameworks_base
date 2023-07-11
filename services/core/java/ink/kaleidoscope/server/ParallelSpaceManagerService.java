@@ -113,17 +113,21 @@ public final class ParallelSpaceManagerService extends SystemService {
         // To avoid third party apps starting it accidentally.
         "com.android.fmradio",
         "com.android.launcher3",
-        "com.android.wallpaper",
-        "com.google.android.wallpaper",
         "com.android.server.telecom",
+        "com.android.wallpaper",
         "com.caf.fmradio",
+        "com.dolby.daxservice",
         "com.google.android.apps.nexuslauncher",
         "com.google.android.pixel.setupwizard",
         "com.google.android.projection.gearhead",
         "com.google.android.setupwizard",
+        "com.google.android.wallpaper",
+        "com.motorola.dolby.dolbyui",
         "org.evolution.oneplus.DeviceExtras",
         "org.evolution.oplus.OPlusExtras",
-        "org.evolution.ota"
+        "org.evolution.ota",
+        "org.lineageos.device.DeviceSettings",
+        "org.lineageos.settings.device"
     );
 
     /**
