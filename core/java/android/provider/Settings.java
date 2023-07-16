@@ -6136,10 +6136,10 @@ public final class Settings {
         public static final String GLOBAL_ACTIONS_DEVICE_CONTROLS = "global_actions_device_controls";
 
         /**
-         * Give haptic feedback on brightness slider changes.
+         * Haptic feedback on brightness slider
          * @hide
          */
-        public static final String BRIGHTNESS_SLIDER_HAPTIC_ENABLED = "brightness_slider_haptic_enabled";
+        public static final String QS_BRIGHTNESS_SLIDER_HAPTIC = "qs_brightness_slider_haptic";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to
