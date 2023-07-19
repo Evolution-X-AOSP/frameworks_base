@@ -246,4 +246,7 @@
     <string name="status_bar_hd_calling">Panggilan HD (VoLTE/VoNR)</string>
     <!-- Name of the VoWiFi status bar icon. -->
     <string name="status_bar_vowifi">Panggilan Wi-Fi (VoWiFi)</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Paksa berhenti?</string>
+    <string name="force_stop_dlg_text">Jika Anda menghentikan paksa aplikasi, akan menyebabkan gagal fungsi.</string>
 </resources>
