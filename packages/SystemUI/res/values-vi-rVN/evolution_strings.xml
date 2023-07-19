@@ -246,4 +246,7 @@
     <string name="status_bar_hd_calling">Cuộc gọi HD (VoLTE/VoNR)</string>
     <!-- Name of the VoWiFi status bar icon. -->
     <string name="status_bar_vowifi">Cuộc gọi Wi-Fi (VoLTE)</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Buộc dừng?</string>
+    <string name="force_stop_dlg_text">Nếu bạn buộc dừng ứng dụng, nó có thể hoạt động không ổn định.</string>
 </resources>
