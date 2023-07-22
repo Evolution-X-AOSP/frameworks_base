@@ -18,6 +18,12 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Требуется перезагрузка SystemUI</string>
     <string name="systemui_restart_message">Чтобы все изменения вступили в силу, требуется перезагрузка SystemUI. Перезапустить его прямо сейчас?</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Нажмите и удерживайте кнопку питания, чтобы разблокировать</string>
+    <string name="pocket_view_title">Режим \"В кармане\" включен</string>
+    <string name="pocket_view_title_cancel">Для использования телефона:</string>
+    <string name="pocket_view_top_tag_cancel">Убедитесь, что в синей области телефона нет никаких препятствий, и очистите её от грязи и пыли.</string>
+    <string name="pocket_view_top_tag_cancel2">Долгое нажатие кнопки питания для принудительного выхода из режима \"В кармане\".</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Автоматический</string>
     <string name="live_display_auto_summary">Автоматическая подстройка цветовой температуры экрана после заката и восхода солнца</string>
