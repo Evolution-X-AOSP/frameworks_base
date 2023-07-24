@@ -1083,6 +1083,17 @@
             </intent-filter>
         </receiver>
 
+        <!-- TODO(b/278897602): Disable EmojiCompatInitializer until threading issues are fixed.
+             https://developer.android.com/reference/androidx/emoji2/text/EmojiCompatInitializer -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer"
+                tools:node="remove" />
+        </provider>
+
         <receiver android:name="com.android.settingslib.wifi.WifiTimeoutReceiver"
             android:exported="true">
             <intent-filter>
@@ -1140,6 +1151,5 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
     </application>
 </manifest>
