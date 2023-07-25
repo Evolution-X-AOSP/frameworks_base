@@ -5303,13 +5303,21 @@ public final class NotificationPanelViewController implements Dumpable {
             retickerDismiss();
         }
 
+        StatusBarNotification sbn = mHeadsUpManager.getTopEntry().getRow().getEntry().getSbn();
+        Notification notification = sbn.getNotification();
+        String pkgname = sbn.getPackageName();
+
+        switch (pkgname) {
+            case "com.google.android.dialer":
+            case "com.android.dialer":
+                return;
+            default:
+                break;
+        }
+
         if (visibility && getExpandedFraction() != 1) {
             mNotificationStackScroller.setVisibility(View.GONE);
-
-            StatusBarNotification sbn = mHeadsUpManager.getTopEntry().getRow().getEntry().getSbn();
-            Notification notification = sbn.getNotification();
-            String pkgname = sbn.getPackageName();
-
+            
             Drawable icon = null;
             try {
                 if ("com.android.systemui".equals(pkgname)) {
