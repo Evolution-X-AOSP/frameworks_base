@@ -448,31 +448,45 @@ public class QSFragment extends LifecycleFragment implements QS, CommandQueue.Ca
         final boolean disabled = (state2 & DISABLE2_QUICK_SETTINGS) != 0;
         if (disabled == mQsDisabled) return;
         mQsDisabled = disabled;
-        mContainer.disable(state1, state2, animate);
-        mHeader.disable(state1, state2, animate);
-        mFooter.disable(state1, state2, animate);
+        if (mContainer != null) {
+            mContainer.disable(state1, state2, animate);
+        }
+        if (mHeader != null) {
+            mHeader.disable(state1, state2, animate);
+        }
+        if (mFooter != null) {
+            mFooter.disable(state1, state2, animate);
+        }
         updateQsState();
     }
 
     private void updateQsState() {
         final boolean expandVisually = mQsExpanded || mStackScrollerOverscrolling
                 || mHeaderAnimating;
-        mQSPanelController.setExpanded(mQsExpanded);
+        if (mQSPanelController != null) {
+            mQSPanelController.setExpanded(mQsExpanded);
+        }
         boolean keyguardShowing = isKeyguardState();
-        mHeader.setVisibility((mQsExpanded || !keyguardShowing || mHeaderAnimating
-                || mShowCollapsedOnKeyguard)
-                ? View.VISIBLE
-                : View.INVISIBLE);
-        mHeader.setExpanded((keyguardShowing && !mHeaderAnimating && !mShowCollapsedOnKeyguard)
-                || (mQsExpanded && !mStackScrollerOverscrolling), mQuickQSPanelController);
+        if (mHeader != null) {
+            mHeader.setVisibility((mQsExpanded || !keyguardShowing || mHeaderAnimating
+                    || mShowCollapsedOnKeyguard)
+                    ? View.VISIBLE
+                    : View.INVISIBLE);
+            mHeader.setExpanded((keyguardShowing && !mHeaderAnimating && !mShowCollapsedOnKeyguard)
+                    || (mQsExpanded && !mStackScrollerOverscrolling), mQuickQSPanelController);
+        }
         boolean qsPanelVisible = !mQsDisabled && expandVisually;
         boolean footerVisible = qsPanelVisible && (mQsExpanded || !keyguardShowing
                 || mHeaderAnimating || mShowCollapsedOnKeyguard);
-        mFooter.setVisibility(footerVisible ? View.VISIBLE : View.INVISIBLE);
-        mQSFooterActionsViewModel.onVisibilityChangeRequested(footerVisible);
-        mFooter.setExpanded((keyguardShowing && !mHeaderAnimating && !mShowCollapsedOnKeyguard)
-                || (mQsExpanded && !mStackScrollerOverscrolling));
-        mQSPanelController.setVisibility(qsPanelVisible ? View.VISIBLE : View.INVISIBLE);
+        if (mFooter != null) {
+            mFooter.setVisibility(footerVisible ? View.VISIBLE : View.INVISIBLE);
+            mQSFooterActionsViewModel.onVisibilityChangeRequested(footerVisible);
+            mFooter.setExpanded((keyguardShowing && !mHeaderAnimating && !mShowCollapsedOnKeyguard)
+                    || (mQsExpanded && !mStackScrollerOverscrolling));
+        }
+        if (mQSPanelController != null) {
+            mQSPanelController.setVisibility(qsPanelVisible ? View.VISIBLE : View.INVISIBLE);
+        }
         if (DEBUG) {
             Log.d(TAG, "Footer: " + footerVisible + ", QS Panel: " + qsPanelVisible);
         }
@@ -660,7 +674,9 @@ public class QSFragment extends LifecycleFragment implements QS, CommandQueue.Ca
 
         if (expansion < 1 && expansion > 0.99) {
             if (mQuickQSPanelController.switchTileLayout(false)) {
-                mHeader.updateResources();
+                if (mHeader != null) {
+                    mHeader.updateResources();
+                }
             }
         }
         mQSPanelController.setIsOnKeyguard(onKeyguard);

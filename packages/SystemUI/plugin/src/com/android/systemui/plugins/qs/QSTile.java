@@ -358,13 +358,11 @@ public interface QSTile {
 
         @Override
         public boolean equals(Object o) {
-            if (o == null) return false;
-            try {
-                return (((SlashState) o).rotation == rotation)
-                        && (((SlashState) o).isSlashed == isSlashed);
-            } catch (ClassCastException e) {
-                return false;
+            if (o instanceof SlashState) {
+                SlashState ss = (SlashState) o;
+                return ss.rotation == rotation && ss.isSlashed == isSlashed;
             }
+            return false;
         }
 
         public SlashState copy() {

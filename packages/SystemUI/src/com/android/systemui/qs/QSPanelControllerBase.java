@@ -229,10 +229,12 @@ public abstract class QSPanelControllerBase<T extends QSPanel> extends ViewContr
 
         mMediaHost.removeVisibilityChangeListener(mMediaHostVisibilityListener);
 
-        for (TileRecord record : mRecords) {
-            record.tile.removeCallbacks();
+        if (areThereTiles()) {
+            for (TileRecord record : mRecords) {
+                record.tile.removeCallbacks();
+            }
+            mRecords.clear();
         }
-        mRecords.clear();
         mDumpManager.unregisterDumpable(mView.getDumpableTag());
     }
 
@@ -267,6 +269,7 @@ public abstract class QSPanelControllerBase<T extends QSPanel> extends ViewContr
 
     /** */
     public void refreshAllTiles() {
+        if (!areThereTiles()) return;
         for (QSPanelControllerBase.TileRecord r : mRecords) {
             if (!r.tile.isListening()) {
                 // Only refresh tiles that were not already in the listening state. Tiles that are
@@ -282,13 +285,11 @@ public abstract class QSPanelControllerBase<T extends QSPanel> extends ViewContr
                 new TileRecord(tile, mHost.createTileView(getContext(), tile, collapsedView));
         // TODO(b/250618218): Remove the QSLogger in QSTileViewImpl once we know the root cause of
         // b/250618218.
-        try {
-            QSTileViewImpl qsTileView = (QSTileViewImpl) (r.tileView);
-            if (qsTileView != null) {
-                qsTileView.setQsLogger(mQSLogger);
-            }
-        } catch (ClassCastException e) {
-            Log.e(TAG, "Failed to cast QSTileView to QSTileViewImpl", e);
+        if (r.tileView instanceof QSTileViewImpl) {
+            QSTileViewImpl qsTileView = (QSTileViewImpl) r.tileView;
+            qsTileView.setQsLogger(mQSLogger);
+        } else if (r.tileView != null) {
+            Log.e(TAG, "Failed to cast QSTileView to QSTileViewImpl");
         }
         mView.addTile(r);
         mRecords.add(r);
@@ -337,7 +338,7 @@ public abstract class QSPanelControllerBase<T extends QSPanel> extends ViewContr
 
     /** */
     public void setExpanded(boolean expanded) {
-        if (mView.isExpanded() == expanded) {
+        if (mView == null || mView.isExpanded() == expanded) {
             return;
         }
         mQSLogger.logPanelExpanded(expanded, mView.getDumpableTag());
