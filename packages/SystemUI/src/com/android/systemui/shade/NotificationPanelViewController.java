@@ -5317,6 +5317,7 @@ public final class NotificationPanelViewController implements Dumpable {
         switch (pkgname) {
             case "com.google.android.dialer":
             case "com.android.dialer":
+            case "com.snapchat.android":
                 return;
             default:
                 break;
