@@ -35,5 +35,6 @@
 
     <integer name="power_menu_lite_max_columns">3</integer>
     <integer name="power_menu_lite_max_rows">2</integer>
-
+    
+    <bool name="config_use_large_screen_shade_header">true</bool>
 </resources>
