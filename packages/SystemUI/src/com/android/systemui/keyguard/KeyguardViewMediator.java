@@ -408,7 +408,6 @@ public class KeyguardViewMediator implements CoreStartable, Dumpable,
     private boolean mHideAnimationRun = false;
     private boolean mHideAnimationRunning = false;
 
-    private long mLastTimeSoundWasPlayed = 0;
     private SoundPool mLockSounds;
     private int mLockSoundId;
     private int mUnlockSoundId;
@@ -1473,8 +1472,10 @@ public class KeyguardViewMediator implements CoreStartable, Dumpable,
 
             maybeHandlePendingLock();
 
-            // Immediately lock any profiles whose power button instant lock setting is enabled.
-            if (!cameraGestureTriggered) {
+            // We do not have timeout and power button instant lock setting for profile lock.
+            // So we use the personal setting if there is any. But if there is no device
+            // we need to make sure we lock it immediately when the screen is off.
+            if (!mLockLater && !cameraGestureTriggered) {
                 doKeyguardForChildProfilesLocked();
             }
 
@@ -1551,19 +1552,10 @@ public class KeyguardViewMediator implements CoreStartable, Dumpable,
         // having to unlock the screen)
         final ContentResolver cr = mContext.getContentResolver();
 
-        // If calling about self, use hard-coded default timeout as fallback value.
-        // If calling about another user (child profile), use device timeout as fallback value.
-        // If all else fails, use hard-coded default timeout as fallback value.
-        final int lockAfterTimeoutFallback = cr.getUserId() == userId ?
-                KEYGUARD_LOCK_AFTER_DELAY_DEFAULT :
-                Settings.Secure.getInt(cr,
-                        Settings.Secure.LOCK_SCREEN_LOCK_AFTER_TIMEOUT,
-                        KEYGUARD_LOCK_AFTER_DELAY_DEFAULT);
-
         // From SecuritySettings
-        final long lockAfterTimeout = Settings.Secure.getIntForUser(cr,
+        final long lockAfterTimeout = Settings.Secure.getInt(cr,
                 Settings.Secure.LOCK_SCREEN_LOCK_AFTER_TIMEOUT,
-                lockAfterTimeoutFallback, userId);
+                KEYGUARD_LOCK_AFTER_DELAY_DEFAULT);
 
         // From DevicePolicyAdmin
         final long policyTimeout = mLockPatternUtils.getDevicePolicyManager()
@@ -1610,30 +1602,25 @@ public class KeyguardViewMediator implements CoreStartable, Dumpable,
         doKeyguardLaterForChildProfilesLocked();
     }
 
-    private void doKeyguardLaterForChildProfileLocked(
-            UserManager um, int profileId, long timeout) {
-        long userWhen = SystemClock.elapsedRealtime() + timeout;
-        Intent lockIntent = new Intent(DELAYED_LOCK_PROFILE_ACTION);
-        lockIntent.setPackage(mContext.getPackageName());
-        lockIntent.putExtra("seq", mDelayedProfileShowingSequence);
-        lockIntent.putExtra(Intent.EXTRA_USER_ID, profileId);
-        lockIntent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
-        PendingIntent lockSender = PendingIntent.getBroadcast(
-                mContext, profileId, lockIntent,
-                PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-        mAlarmManager.setExactAndAllowWhileIdle(AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                userWhen, lockSender);
-    }
-
     private void doKeyguardLaterForChildProfilesLocked() {
         UserManager um = UserManager.get(mContext);
         for (int profileId : um.getEnabledProfileIds(UserHandle.myUserId())) {
             if (mLockPatternUtils.isSeparateProfileChallengeEnabled(profileId)) {
-                final long userTimeout = getLockTimeout(profileId);
+                long userTimeout = getLockTimeout(profileId);
                 if (userTimeout == 0) {
-                    lockProfile(profileId);
+                    doKeyguardForChildProfilesLocked();
                 } else {
-                    doKeyguardLaterForChildProfileLocked(um, profileId, userTimeout);
+                    long userWhen = SystemClock.elapsedRealtime() + userTimeout;
+                    Intent lockIntent = new Intent(DELAYED_LOCK_PROFILE_ACTION);
+                    lockIntent.setPackage(mContext.getPackageName());
+                    lockIntent.putExtra("seq", mDelayedProfileShowingSequence);
+                    lockIntent.putExtra(Intent.EXTRA_USER_ID, profileId);
+                    lockIntent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
+                    PendingIntent lockSender = PendingIntent.getBroadcast(
+                            mContext, 0, lockIntent,
+                            PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+                    mAlarmManager.setExactAndAllowWhileIdle(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                            userWhen, lockSender);
                 }
             }
         }
@@ -1643,16 +1630,7 @@ public class KeyguardViewMediator implements CoreStartable, Dumpable,
         UserManager um = UserManager.get(mContext);
         for (int profileId : um.getEnabledProfileIds(UserHandle.myUserId())) {
             if (mLockPatternUtils.isSeparateProfileChallengeEnabled(profileId)) {
-                final boolean lockImmediately =
-                        mLockPatternUtils.getPowerButtonInstantlyLocks(profileId)
-                                || !mLockPatternUtils.isSecure(profileId);
-
-                if (lockImmediately) {
-                    lockProfile(profileId);
-                } else {
-                    final long userTimeout = getLockTimeout(profileId);
-                    doKeyguardLaterForChildProfileLocked(um, profileId, userTimeout);
-                }
+                lockProfile(profileId);
             }
         }
     }
@@ -2421,8 +2399,6 @@ public class KeyguardViewMediator implements CoreStartable, Dumpable,
         if (soundId == 0) return;
         final ContentResolver cr = mContext.getContentResolver();
         if (Settings.System.getInt(cr, Settings.System.LOCKSCREEN_SOUNDS_ENABLED, 1) == 1) {
-            if (SystemClock.elapsedRealtime() - mLastTimeSoundWasPlayed < 300) return;
-            mLastTimeSoundWasPlayed = SystemClock.elapsedRealtime();
 
             mLockSounds.stop(mLockSoundStreamId);
             // Init mAudioManager

@@ -142,7 +142,13 @@ class PulsingGestureListener @Inject constructor(
                 return true
             } else if (!statusBarStateController.isDozing &&
                 doubleTapToSleepEnabled &&
-                (e.getY() < quickQsOffsetHeight || statusBarStateController.getState() == StatusBarState.KEYGUARD)
+                e.getY() < quickQsOffsetHeight
+            ) {
+                powerManager.goToSleep(e.getEventTime())
+                return true
+            } else if (!statusBarStateController.isDozing &&
+                doubleTapToSleepEnabled &&
+                statusBarStateController.getState() == StatusBarState.KEYGUARD
             ) {
                 powerManager.goToSleep(e.getEventTime())
                 return true
