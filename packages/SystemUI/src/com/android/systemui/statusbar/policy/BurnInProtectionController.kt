@@ -116,11 +116,11 @@ class BurnInProtectionController @Inject constructor(
         }
     }
 
-    fun setNavigationBarView(navigationBarView: NavigationBarView) {
+    fun setNavigationBarView(navigationBarView: NavigationBarView?) {
         this.navigationBarView = navigationBarView
     }
 
-    fun setPhoneStatusBarView(phoneStatusBarView: PhoneStatusBarView) {
+    fun setPhoneStatusBarView(phoneStatusBarView: PhoneStatusBarView?) {
         this.phoneStatusBarView = phoneStatusBarView
     }
 
