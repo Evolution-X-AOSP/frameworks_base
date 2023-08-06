@@ -245,13 +245,12 @@ public class PixelPropsUtils {
                 if (was) return;
 
                 setPropValue("FINGERPRINT", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
-                setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.N_MR1);
-            } else if (processName.toLowerCase().contains("persistent")
-                        || processName.toLowerCase().contains("ui")
-                        || processName.toLowerCase().contains("learning")) {
-                propsToChange.putAll(propsToChangePixel5a);
+                setPropValue("MODEL", "walleye");
+                setPropValue("PRODUCT", "walleye");
+                setPropValue("DEVICE", "Pixel 2");
+                setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.O);
+                return;
             }
-            return;
         }
         if (packageName.startsWith("com.google.")
                 || packageName.startsWith(SAMSUNG)
