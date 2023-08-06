@@ -68,7 +68,10 @@ public class PixelPropsUtils {
     // Packages to Spoof as Pixel 7 Pro
     private static final String[] packagesToChangePixel7Pro = {
             "com.google.android.apps.emojiwallpaper",
-            "com.google.android.wallpaper.effects"
+            "com.google.android.apps.wallpaper",
+            "com.google.android.apps.wallpaper.pixel",
+            "com.google.android.wallpaper.effects",
+            "com.google.pixel.livewallpaper"
     };
 
     // Packages to Spoof as Pixel 2
