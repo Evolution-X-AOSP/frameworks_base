@@ -884,6 +884,10 @@ public class ApplicationPackageManager extends PackageManager {
     @Override
     public boolean hasSystemFeature(String name, int version) {
         String packageName = ActivityThread.currentPackageName();
+        if (Arrays.asList(featuresTensor).contains(name) &&
+                !Arrays.asList(pTensorCodenames).contains(SystemProperties.get("ro.product.device"))) {
+            return false;
+        }
         if (packageName != null &&
                 packageName.equals("com.google.android.apps.photos") &&
                 SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", true)) {
@@ -892,15 +896,6 @@ public class ApplicationPackageManager extends PackageManager {
             if (Arrays.asList(featuresP23).contains(name)) return false;
             if (Arrays.asList(featuresTensor).contains(name)) return false;
             if (Arrays.asList(featuresNexus).contains(name)) return true;
-        }
-        if (Arrays.asList(featuresTensor).contains(name) &&
-                !Arrays.asList(pTensorCodenames).contains(SystemProperties.get("ro.product.device"))) {
-            return false;
-        } else if (packageName != null && Arrays.asList(featuresTensor).contains(name)) {
-            if (packageName.contains("com.google.android.apps.nexuslauncher")
-                || packageName.contains("com.google.android.apps.recorder")) {
-                return false;
-            }
         }
         if (Arrays.asList(featuresAndroid).contains(name)) return true;
         if (Arrays.asList(featuresPixel).contains(name)) return true;
