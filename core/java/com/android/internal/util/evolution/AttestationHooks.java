@@ -64,7 +64,7 @@ public final class AttestationHooks {
         "DEVICE", "cheetah",
         "PRODUCT", "cheetah",
         "MODEL", "Pixel 7 Pro",
-        "FINGERPRINT", "google/cheetah/cheetah:13/TQ3A.230705.001.A1/10217028:user/release-keys"
+        "FINGERPRINT", "google/cheetah/cheetah:13/TQ3A.230805.001/10316531:user/release-keys"
     );
 
     private static volatile String sProcessName;
@@ -83,7 +83,9 @@ public final class AttestationHooks {
         if (!sStockFp.isEmpty() && packageName.equals(PACKAGE_ARCORE)) {
             dlog("Setting stock fingerprint for: " + packageName);
             setPropValue("FINGERPRINT", sStockFp);
-        } else if (packageName.equals(PACKAGE_GPHOTOS)) {
+        }
+
+        if (packageName.equals(PACKAGE_GPHOTOS)) {
             if (!SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", false)) {
                 dlog("Photos spoofing disabled by system prop");
                 return;
@@ -91,7 +93,9 @@ public final class AttestationHooks {
                 dlog("Spoofing Pixel XL for: " + packageName);
                 sPixelXLProps.forEach(AttestationHooks::setPropValue);
             }
-        } else if (packageName.equals(PACKAGE_NETFLIX)) {
+        }
+
+        if (packageName.equals(PACKAGE_NETFLIX)) {
             if (!SystemProperties.getBoolean("persist.sys.pixelprops.netflix", false)) {
                 dlog("Netflix spoofing disabled by system prop");
                 return;
