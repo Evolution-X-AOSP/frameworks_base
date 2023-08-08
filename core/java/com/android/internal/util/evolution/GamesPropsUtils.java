@@ -41,7 +41,8 @@ public class GamesPropsUtils {
             "com.ea.gp.apexlegendsmobilefps",
             "com.levelinfinite.hotta.gp",
             "com.supercell.clashofclans",
-            "com.vng.mlbbvn"
+            "com.vng.mlbbvn",
+            "com.mobile.legends"
     };
 
     private static final Map<String, Object> propsToChangeK30U = createMap("M2006J10C", "Xiaomi");
@@ -78,8 +79,7 @@ public class GamesPropsUtils {
     private static final Map<String, Object> propsToChangeF5 = createMap("23049PCD8G", "Xiaomi");
     private static final String[] packagesToChangeF5 = { // spoof as POCO F5
             "com.dts.freefiremax",
-            "com.dts.freefireth",
-            "com.mobile.legends"
+            "com.dts.freefireth"
     };
 
     private static final Map<String, Object> propsToChangeROG6 = createMap("ASUS_AI2201", "asus");
