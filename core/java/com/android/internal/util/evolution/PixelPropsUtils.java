@@ -48,7 +48,6 @@ public class PixelPropsUtils {
     private static final String PROCESS_GMS_UNSTABLE = PACKAGE_GMS + ".unstable";
     private static final String PACKAGE_GPHOTOS = "com.google.android.apps.photos";
     private static final String PACKAGE_SI = "com.google.android.settings.intelligence";
-    private static final String PACKAGE_SUBSCRIPTION_RED = "com.google.android.apps.subscriptions.red";
     private static final String SAMSUNG = "com.samsung.";
     private static final String SPOOF_MUSIC_APPS = "persist.sys.disguise_props_for_music_app";
 
@@ -58,41 +57,34 @@ public class PixelPropsUtils {
 
     private static final Map<String, Object> propsToChangeGeneric;
     private static final Map<String, Object> propsToChangePixel7Pro;
-    private static final Map<String, Object> propsToChangePixel5a;
     private static final Map<String, Object> propsToChangePixel5;
     private static final Map<String, Object> propsToChangePixel2;
-    private static final Map<String, Object> propsToChangePixelXL;
     private static final Map<String, Object> propsToChangeMeizu;
     private static final Map<String, ArrayList<String>> propsToKeep;
 
     // Packages to Spoof as Pixel 7 Pro
     private static final String[] packagesToChangePixel7Pro = {
+            "com.amazon.avod.thirdpartyclient",
+            "com.android.chrome",
+            "com.breel.wallpapers20",
+            "com.disney.disneyplus",
+            "com.google.android.apps.customization.pixel",
             "com.google.android.apps.emojiwallpaper",
+            "com.google.android.apps.privacy.wildlife",
+            "com.google.android.apps.subscriptions.red",
             "com.google.android.apps.wallpaper",
             "com.google.android.apps.wallpaper.pixel",
             "com.google.android.wallpaper.effects",
-            "com.google.pixel.livewallpaper"
+            "com.google.pixel.livewallpaper",
+            "com.microsoft.android.smsorganizer",
+            "com.nhs.online.nhsonline",
+            "com.nothing.smartcenter",
+            "in.startv.hotstar"
     };
 
     // Packages to Spoof as Pixel 2
     private static final String[] packagesToChangePixel2 = {
             "com.snapchat.android"
-    };
-
-    // Packages to Spoof as Pixel XL
-    private static final String[] packagesToChangePixelXL = {
-    };
-
-    // Packages to Spoof as Pixel 7 Pro
-    private static final String[] extraPackagesToChange = {
-            "com.amazon.avod.thirdpartyclient",
-            "com.android.chrome",
-            "com.breel.wallpapers20",
-            "com.disney.disneyplus",
-            "com.microsoft.android.smsorganizer",
-            "com.nhs.online.nhsonline",
-            "com.nothing.smartcenter",
-            "in.startv.hotstar"
     };
 
     private static final String[] customGoogleCameraPackages = {
@@ -104,7 +96,6 @@ public class PixelPropsUtils {
     // Packages to Keep with original device
     private static final String[] packagesToKeep = {
             PACKAGE_GPHOTOS,
-            PACKAGE_SUBSCRIPTION_RED,
             "com.google.android.apps.pixelmigrate",
             "com.google.android.apps.recorder",
             "com.google.android.apps.restore",
@@ -140,8 +131,8 @@ public class PixelPropsUtils {
             "bluejay",
             "oriole",
             "raven",
-            "redfin",
             "barbet",
+            "redfin",
             "bramble",
             "sunfish",
             "coral",
@@ -175,15 +166,6 @@ public class PixelPropsUtils {
         propsToChangePixel7Pro.put("MODEL", "Pixel 7 Pro");
         propsToChangePixel7Pro.put("ID", "TQ3A.230805.001");
         propsToChangePixel7Pro.put("FINGERPRINT", "google/cheetah/cheetah:13/TQ3A.230805.001/10316531:user/release-keys");
-        propsToChangePixel5a = new HashMap<>();
-        propsToChangePixel5a.put("BRAND", "google");
-        propsToChangePixel5a.put("MANUFACTURER", "Google");
-        propsToChangePixel5a.put("DEVICE", "barbet");
-        propsToChangePixel5a.put("PRODUCT", "barbet");
-        propsToChangePixel5a.put("HARDWARE", "barbet");
-        propsToChangePixel5a.put("MODEL", "Pixel 5a");
-        propsToChangePixel5a.put("ID", "TQ3A.230805.001");
-        propsToChangePixel5a.put("FINGERPRINT", "google/barbet/barbet:13/TQ3A.230805.001/10316531:user/release-keys");
         propsToChangePixel5 = new HashMap<>();
         propsToChangePixel5.put("BRAND", "google");
         propsToChangePixel5.put("MANUFACTURER", "Google");
@@ -202,15 +184,6 @@ public class PixelPropsUtils {
         propsToChangePixel2.put("MODEL", "Pixel 2");
         propsToChangePixel2.put("ID", "OPM1.171019.011");
         propsToChangePixel2.put("FINGERPRINT", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
-        propsToChangePixelXL = new HashMap<>();
-        propsToChangePixelXL.put("BRAND", "google");
-        propsToChangePixelXL.put("MANUFACTURER", "Google");
-        propsToChangePixelXL.put("DEVICE", "marlin");
-        propsToChangePixelXL.put("PRODUCT", "marlin");
-        propsToChangePixelXL.put("HARDWARE", "marlin");
-        propsToChangePixelXL.put("MODEL", "Pixel XL");
-        propsToChangePixelXL.put("ID", "QP1A.191005.007.A3");
-        propsToChangePixelXL.put("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys");
         propsToChangeMeizu = new HashMap<>();
         propsToChangeMeizu.put("BRAND", "meizu");
         propsToChangeMeizu.put("MANUFACTURER", "Meizu");
@@ -220,32 +193,31 @@ public class PixelPropsUtils {
         propsToChangeMeizu.put("MODEL", "meizu 16th Plus");
     }
 
-    public static void setProps(Context context) {
-        final String packageName = context.getPackageName();
-        final String processName = Application.getProcessName();
+    private static boolean isGoogleCameraPackage(String packageName){
+        return packageName.startsWith("com.google.android.GoogleCamera") ||
+            Arrays.asList(customGoogleCameraPackages).contains(packageName);
+    }
 
-        propsToChangeGeneric.forEach((k, v) -> setPropValue(k, v));
-
-        if (packageName == null || packageName.isEmpty()) {
-            return;
+    public static boolean setPropsForGms(String packageName) {
+        if (packageName.equals("com.android.vending")) {
+            sIsFinsky = true;
         }
-        Map<String, Object> propsToChange = new HashMap<>();
-        if (packageName.equals(PACKAGE_GMS)
-            || packageName.toLowerCase().contains("androidx.test")
-            || packageName.toLowerCase().equals("com.google.android.apps.restore")) {
+        if (packageName.equals("com.google.android.gms")
+                || packageName.toLowerCase().contains("androidx.test")
+                || packageName.equalsIgnoreCase("com.google.android.apps.restore")) {
+            final String processName = Application.getProcessName();
             if (processName.toLowerCase().contains("unstable")
-                || processName.toLowerCase().contains("pixelmigrate")
-                || processName.toLowerCase().contains("instrumentation")) {
+                    || processName.toLowerCase().contains("pixelmigrate")
+                    || processName.toLowerCase().contains("instrumentation")) {
                 sIsGms = true;
-
                 final boolean was = isGmsAddAccountActivityOnTop();
                 final TaskStackListener taskStackListener = new TaskStackListener() {
                     @Override
                     public void onTaskStackChanged() {
                         final boolean is = isGmsAddAccountActivityOnTop();
                         if (is ^ was) {
-                            dlog("GmsAddAccountActivityOnTop is:" + is + " was:" + was +
-                                    ", killing myself!"); // process will restart automatically later
+                            dlog("GmsAddAccountActivityOnTop is:" + is + " was:" + was + ", killing myself!");
+                            // process will restart automatically later
                             Process.killProcess(Process.myPid());
                         }
                     }
@@ -255,45 +227,51 @@ public class PixelPropsUtils {
                 } catch (Exception e) {
                     Log.e(TAG, "Failed to register task stack listener!", e);
                 }
-                if (was) return;
-
+                if (was) return true;
+                // Alter build parameters to pixel 2 for avoiding hardware attestation enforcement
+                setPropValue("DEVICE", "walleye");
                 setPropValue("FINGERPRINT", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
-                setPropValue("MODEL", "walleye");
+                setPropValue("MODEL", "Pixel 2");
                 setPropValue("PRODUCT", "walleye");
-                setPropValue("DEVICE", "Pixel 2");
                 setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.O);
-                return;
+                return true;
             }
         }
+        return false;
+    }
+
+    public static void setProps(Context context) {
+        final String packageName = context.getPackageName();
+        final String processName = Application.getProcessName();
+
+        propsToChangeGeneric.forEach((k, v) -> setPropValue(k, v));
+        if (packageName == null || packageName.isEmpty()) {
+            return;
+        }
+        if (setPropsForGms(packageName)) {
+            return;
+        }
+        if (Arrays.asList(packagesToKeep).contains(packageName)) {
+            return;
+        }
+        if (isGoogleCameraPackage(packageName)) {
+            return;
+        }
+        Map<String, Object> propsToChange = new HashMap<>();
         if (packageName.startsWith("com.google.")
                 || packageName.startsWith(SAMSUNG)
                 || Arrays.asList(packagesToChangePixel2).contains(packageName)
-                || Arrays.asList(customGoogleCameraPackages).contains(packageName)
-                || Arrays.asList(extraPackagesToChange).contains(packageName)) {
-
-            if (Arrays.asList(packagesToKeep).contains(packageName)
-                    || Arrays.asList(customGoogleCameraPackages).contains(packageName)
-                    || packageName.startsWith("com.google.android.GoogleCamera")) {
-                return;
-            }
+                || Arrays.asList(packagesToChangePixel7Pro).contains(packageName)) {
 
             boolean isPixelDevice = Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE));
-
-            if (packageName.equals("com.android.vending")) {
-                sIsFinsky = true;
-            }
-            if (Arrays.asList(packagesToChangePixelXL).contains(packageName)) {
-                if (isPixelDevice) return;
-                propsToChange.putAll(propsToChangePixelXL);
+            if (isPixelDevice) {
+                return;
             } else if (Arrays.asList(packagesToChangePixel2).contains(packageName)) {
-                if (isPixelDevice) return;
                 propsToChange.putAll(propsToChangePixel2);
-            } else if ((Arrays.asList(packagesToChangePixel7Pro).contains(packageName))
-                    || (Arrays.asList(extraPackagesToChange).contains(packageName))) {
-                if (isPixelDevice) return;
+            } else if (Arrays.asList(packagesToChangePixel7Pro).contains(packageName)) {
                 propsToChange.putAll(propsToChangePixel7Pro);
             } else {
-                propsToChange.putAll(propsToChangePixel5a);
+                propsToChange.putAll(propsToChangePixel5);
             }
         } else if ((SystemProperties.getBoolean(SPOOF_MUSIC_APPS, false)) &&
                 (Arrays.asList(packagesToChangeMeizu).contains(packageName))) {
@@ -313,6 +291,7 @@ public class PixelPropsUtils {
         // Set proper indexing fingerprint
         if (packageName.equals(PACKAGE_SI)) {
             setPropValue("FINGERPRINT", String.valueOf(Build.TIME));
+            return;
         }
     }
 
