@@ -13033,7 +13033,6 @@ public final class Settings {
         public static final String SCREEN_OFF_UDFPS_ENABLED = "screen_off_udfps_enabled";
 
         /**
-         * Whether to show QS auto brightness toggle button
          * @hide
          */
         @Readable
