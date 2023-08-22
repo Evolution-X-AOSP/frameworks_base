@@ -18,6 +18,12 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Diperlukan memulai ulang SistemUI</string>
     <string name="systemui_restart_message">Untuk melihat semua perubahan, diperlukan memulai ulang SistemUI. Mulai ulang sekarang?</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Tekan dan tahan tombol daya untuk membuka kunci</string>
+    <string name="pocket_view_title">Mode saku aktif</string>
+    <string name="pocket_view_title_cancel">Untuk mengaktifkan ponsel Anda:</string>
+    <string name="pocket_view_top_tag_cancel">Harap jangan tutupi area biru ponsel Anda dan bersihkan kotoran atau debu darinya.</string>
+    <string name="pocket_view_top_tag_cancel2">Tekan lama tombol daya untuk memaksa keluar dari mode saku.</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Otomatis</string>
     <string name="live_display_auto_summary">Otomatis mengatur suhu warna di layar setelah matahari terbenam dan matahari terbit</string>
