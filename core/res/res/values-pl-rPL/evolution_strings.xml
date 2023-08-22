@@ -18,6 +18,12 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Wymagane ponowne uruchomienie SystemUI</string>
     <string name="systemui_restart_message">Zapisanie wszystkich zmian wymaga ponownego uruchomienia SystemUI. Uruchomić ponownie SystemUI teraz?</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Naciśnij i przytrzymaj przycisk zasilania aby odblokować</string>
+    <string name="pocket_view_title">Tryb kieszonkowy jest włączony</string>
+    <string name="pocket_view_title_cancel">Aby aktywować swój telefon:</string>
+    <string name="pocket_view_top_tag_cancel">Nie należy przykryć niebieskiej powierzchni telefonu i usuwać jakiegokolwiek brudu lub kurzu.</string>
+    <string name="pocket_view_top_tag_cancel2">Przytrzymaj przycisk zasilania, aby wymusić wyjście z trybu kieszonkowego</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automatycznie</string>
     <string name="live_display_auto_summary">Automatycznie dopasuj temperaturę kolorów ekranu po zachodzie i wschodnie słońca</string>
