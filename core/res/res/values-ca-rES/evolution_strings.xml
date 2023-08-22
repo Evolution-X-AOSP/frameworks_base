@@ -18,6 +18,12 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Es requereix reiniciar el SystemUI</string>
     <string name="systemui_restart_message">És necessari reiniciar el SystemUI per a aplicar tots els canvis. Vols reiniciar ara?</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Prem i mantén el botó d’encesa per desbloquejar</string>
+    <string name="pocket_view_title">Mode butxaca activat</string>
+    <string name="pocket_view_title_cancel">Per activar el telèfon:</string>
+    <string name="pocket_view_top_tag_cancel">Si us plau, no tapis la zona blava del telèfon i neteja la brutícia o la pols.</string>
+    <string name="pocket_view_top_tag_cancel2">Prem i mentén el botó d\'encesa per a tancar el mode butxaca de forma forçada.</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automàtic</string>
     <string name="live_display_auto_summary">Ajusta automàticament la temperatura de color de la pantalla després de la posta de sol i de l\'alba</string>
@@ -43,7 +49,7 @@
     <!-- Cycle through ringer modes -->
     <string name="volume_dialog_ringer_guidance_normal">Sonaran trucades i notificacions</string>
     <!-- App lock -->
-    <string name="unlock_application">Desbloqueja<xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <string name="unlock_application">Desbloqueja <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
     <!-- Face unlock -->
     <string name="face_unlock_disabled_idle">Desbloqueig facial desactivat per inactivitat</string>
     <!-- Lock gesture -->
