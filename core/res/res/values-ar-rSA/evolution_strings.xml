@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019-2022 Evolution X
+     Copyright (C) 2019-2023 Evolution X
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -50,4 +50,15 @@
     <string name="volume_dialog_ringer_guidance_normal">يرن الهاتف عند تلقي المكالمات والإشعارات</string>
     <!-- App lock -->
     <string name="unlock_application">فتح <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <!-- Face unlock -->
+    <string name="face_unlock_disabled_idle">تم تعطيل \"فتح القُفْل بالوجه\" بسبب عدم النشاط</string>
+    <!-- Lock gesture -->
+    <string name="gesture_locked_warning">مرر مجدداً لفتح الإيماءات</string>
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">وضع السُكون</string>
+    <string name="sleep_mode_notification_title">وضع السُكون مُفعل</string>
+    <string name="sleep_mode_notification_content">انقر لإيقاف وضع السُكون</string>
+    <string name="sleep_mode_enabled_toast">تم تفعيل وضع السُكون</string>
+    <string name="sleep_mode_disabled_toast">تم إيقاف وضع السُكون</string>
+    <!-- Parallel space badge -->
 </resources>
