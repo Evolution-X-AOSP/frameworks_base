@@ -18,6 +18,12 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Se requiere reinicio de SystemUI</string>
     <string name="systemui_restart_message">Para que todos los cambios surtan efecto, se requiere un reinicio de SystemUI. ¿Reiniciar SystemUI ahora?</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Pulsar y mantener el botón de encendido para desbloquear</string>
+    <string name="pocket_view_title">Modo bolsillo activado</string>
+    <string name="pocket_view_title_cancel">Para activar tu teléfono:</string>
+    <string name="pocket_view_top_tag_cancel">Por favor no cubras la zona azul de tu teléfono y limpia cualquier suciedad o polvo de ella.</string>
+    <string name="pocket_view_top_tag_cancel2">Mantenga pulsado el botón encendido para forzar el apagado del modo bolsillo.</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automático</string>
     <string name="live_display_auto_summary">Ajustar automáticamente la temperatura del color de la pantalla entre anochecer y amanecer</string>
