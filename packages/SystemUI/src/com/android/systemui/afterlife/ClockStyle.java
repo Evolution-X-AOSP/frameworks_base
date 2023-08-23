@@ -14,7 +14,7 @@ import com.android.systemui.Dependency;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.R;
 
-import com.android.internal.util.crdroid.ThemeUtils;
+import com.android.internal.util.evolution.ThemeUtils;
 
 public class ClockStyle extends RelativeLayout implements TunerService.Tunable {
 
