@@ -38,7 +38,6 @@ public class GamesPropsUtils {
 
     private static final Map<String, Object> propsToChangeMI11TP = createMap("2107113SI", "Xiaomi");
     private static final String[] packagesToChangeMI11TP = { // spoof as Mi 11T PRO
-            "com.ea.gp.apexlegendsmobilefps",
             "com.levelinfinite.hotta.gp",
             "com.supercell.clashofclans",
             "com.vng.mlbbvn",
