@@ -38,6 +38,7 @@ import androidx.annotation.Nullable;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.util.evolution.EvolutionUtils;
 
 import com.android.systemui.R;
 import com.android.systemui.dagger.qualifiers.Background;
@@ -80,7 +81,7 @@ public class PreferredNetworkTile extends SecureQSTile<State> {
 
     @Override
     public boolean isAvailable() {
-        return true;
+        return !EvolutionUtils.isWifiOnly(mContext);
     }
 
     @Override
