@@ -24,6 +24,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.util.AttributeSet;
 import android.provider.Settings;
+import android.os.SystemProperties;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -139,7 +140,8 @@ public class QuickStatusBarHeader extends FrameLayout implements TunerService.Tu
         setLayoutParams(lp);
 
         MarginLayoutParams qqsLP = (MarginLayoutParams) mHeaderQsPanel.getLayoutParams();
-        if (largeScreenHeaderActive) {
+        boolean UseCombinedHeaders = SystemProperties.getBoolean("persist.sys.flags.combined_qs_headers", true);
+        if (largeScreenHeaderActive || !UseCombinedHeaders) {
             qqsLP.topMargin = mContext.getResources()
                     .getDimensionPixelSize(R.dimen.qqs_layout_margin_top);
         } else {
