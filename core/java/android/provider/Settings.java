@@ -12655,6 +12655,11 @@ public final class Settings {
         public static final String ENABLE_COMBINED_SIGNAL_ICONS = "enable_combined_signal_icons";
 
         /**
+         * @hide
+         */
+	public static final String ENABLE_COMBINED_QS_HEADERS = "enable_combined_qs_headers";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
