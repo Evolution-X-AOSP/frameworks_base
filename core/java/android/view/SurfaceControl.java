@@ -2705,7 +2705,9 @@ public final class SurfaceControl implements Parcelable {
          * @hide
          */
         protected void checkPreconditions(SurfaceControl sc) {
-            sc.checkNotReleased();
+            if (sc != null) {
+                sc.checkNotReleased();
+            }
         }
 
         /**
