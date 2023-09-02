@@ -692,14 +692,8 @@ public final class CameraManager {
         HashMap<String, CameraCharacteristics> physicalIdsToChars =
                 new HashMap<String, CameraCharacteristics>();
         Set<String> physicalCameraIds = chars.getPhysicalCameraIds();
-        CameraCharacteristics physicalChars;
         for (String physicalCameraId : physicalCameraIds) {
-            try {
-                physicalChars = getCameraCharacteristics(physicalCameraId);
-            } catch (Exception e) {
-                physicalCameraId = "20";
-                physicalChars = getCameraCharacteristics(physicalCameraId);
-            }
+            CameraCharacteristics physicalChars = getCameraCharacteristics(physicalCameraId);
             physicalIdsToChars.put(physicalCameraId, physicalChars);
         }
         return physicalIdsToChars;
