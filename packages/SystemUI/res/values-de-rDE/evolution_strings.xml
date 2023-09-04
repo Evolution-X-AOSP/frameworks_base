@@ -120,27 +120,13 @@
     <string name="quick_settings_aod_on_charge_label">Always-On-Display beim Laden</string>
     <string name="quick_settings_aod_off_label">Always-On-Display aus</string>
     <string name="quick_settings_aod_off_powersave_label">Always-On-Display aus\nEnergiesparmodus</string>
-    <!-- Refresh Rate Tile -->
-    <string name="refresh_rate_tile_label">Bildwiederholrate</string>
-    <string name="refresh_rate_auto_mode_placeholder">        Automatisch (<xliff:g id="min_refresh_rate" example="60">%1$d</xliff:g> - <xliff:g id="max_refresh_rate" example="60">%2$d</xliff:g> Hz)
-    </string>
-    <string name="refresh_rate_forced_mode_placeholder"><xliff:g id="refresh_rate" example="60">%1$d</xliff:g> Hz</string>
-    <!-- FPS Info tile -->
-    <string name="quick_settings_fpsinfo_label">FPS-Informationen</string>
-    <string name="accessibility_quick_settings_fpsinfo_off">FPS-Informationen aus</string>
-    <string name="accessibility_quick_settings_fpsinfo_on">FPS-Informationen ein</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Bildschirmfoto gelöscht</string>
     <!-- Status bar tuner -->
     <string name="status_bar_items_title">Statusleisten Symbole</string>
     <string name="status_bar_call_strength">Rufstärke</string>
     <string name="status_bar_data_saver">Datensparmodus</string>
-    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_vpn">VPN</string>
-    <!-- Kill button in notification guts -->
-    <string name="force_stop_dlg_title">Beenden erzwingen?</string>
-    <string name="force_stop_dlg_text">Das erzwungene Beenden einer Anwendung kann zu unerwünschtem Verhalten führen.</string>
-    <string name="guts_force_close_app">Anwendung schließen</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Schnellladen (<xliff:g id="charging_time_left" example="4 Stunden und 2 Minuten">%1$s</xliff:g> bis voll)</string>
     <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Schnellladen</string>
@@ -156,8 +142,6 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a SuperDart charger. Should match keyguard_plugged_in_superdart_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • SuperDart Ladevorgang (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> bis zur vollständigen Aufladung)</string>
     <string name="keyguard_plugged_in_superdart_charging"><xliff:g id="percentage">%s</xliff:g> • SuperDart Ladevorgang</string>
-    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
-    <string name="clock">Uhr</string>
     <!-- Screen record -->
     <string name="screenrecord_stopdot_label">Stopp-Punkt anzeigen\nZum Verschieben lang drücken</string>
     <string name="screenrecord_stopdot_summary">Gedrückt halten zum Verschieben</string>
@@ -169,7 +153,6 @@
     <string name="screenrecord_skip_time_summary">Dreisekündige Wartezeit deaktivieren</string>
     <string name="screenrecord_hevc_switch_label">HEVC aktivieren</string>
     <string name="screenrecord_hevc_switch_summary">HEVC als Videocodec verwenden (effizienter)</string>
-    <!-- FPS view text placeholder -->
     <!-- Kill foreground app -->
     <string name="task_helper_app_killed">%1$s erzwungen beendet</string>
     <string name="empty_app_killed">Anwendung</string>
@@ -195,8 +178,6 @@
     <string name="global_action_onthego">On-The-Go</string>
     <!-- OnTheGo Tile -->
     <string name="quick_settings_onthego_label">On-The-Go</string>
-    <!-- CPUInfo tile -->
-    <string name="quick_settings_cpuinfo_label">CPU-Informationen</string>
     <!-- Screenshot Tile -->
     <string name="screenshot_long_press">Lange drücken für partiellen Screenshot</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
@@ -211,8 +192,6 @@
     <string name="vpn_tethering_label">VPN-Tethering</string>
     <string name="vpn_tethering_changed_off">VPN-Tethering deaktiviert.</string>
     <string name="vpn_tethering_changed_on">VPN-Tethering aktiviert.</string>
-    <!-- Face Unlock -->
-    <string name="face_unlock_recognizing">Gesichtserkennung...</string>
     <!-- Glove Mode Tile -->
     <string name="quick_settings_glove_mode_label">Handschuh-Modus</string>
     <!-- Compass QS Tile -->
@@ -235,10 +214,6 @@
     <string name="accessibility_quick_settings_location_gps_only">Standortdienste: Nur Sensoren.</string>
     <string name="quick_settings_location_secondary_high_accuracy">Hohe Genauigkeit</string>
     <string name="accessibility_quick_settings_location_high_accuracy">Standortbestimmung: Hohe Genauigkeit.</string>
-    <!-- Data usage info in QS footer -->
-    <string name="usage_data">heute verwendet</string>
-    <string name="usage_data_default_suffix">Daten</string>
-    <string name="usage_wifi_default_suffix">WLAN</string>
     <!-- Sleep Mode -->
     <string name="quick_settings_sleep_mode_label">Schlafmodus</string>
     <!-- DC Dimming -->
@@ -254,4 +229,26 @@
     <string name="quick_settings_smart_pixels">Smart Pixels</string>
     <string name="quick_settings_smart_pixels_on_power_save">Smart Pixels automatisch einschalten</string>
     <!-- Text to use when the number in a notification info is too large -->
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Zeiger links</string>
+    <string name="accessibility_dpad_right">Zeiger rechts</string>
+    <!-- Preferred network tile -->
+    <string name="quick_settings_preferred_network_label">Bevorzugtes Netzwerk</string>
+    <string name="quick_settings_preferred_network_lte">4G/LTE</string>
+    <string name="quick_settings_preferred_network_nr">5G/NR</string>
+    <string name="quick_settings_preferred_network_unsupported">Nicht unterstützt</string>
+    <!-- Refresh Rate Tile -->
+    <string name="refresh_rate_tile_label">Bildwiederholrate</string>
+    <string name="auto_mode_label">Automatisch</string>
+    <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
+    <string name="clock">Uhr</string>
+    <!-- Name of the HD calling status bar icon. -->
+    <string name="status_bar_hd_calling">HD-Anruf (VoLTE/VoNR)</string>
+    <!-- Name of the VoWiFi status bar icon. -->
+    <string name="status_bar_vowifi">WLAN-Anruf (VoWiFi)</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Beenden erzwingen?</string>
+    <string name="force_stop_dlg_text">Das erzwungene Beenden einer Anwendung kann zu unerwünschtem Verhalten führen.</string>
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">Gesichtserkennung...</string>
 </resources>
