@@ -117,4 +117,7 @@
 
     <!-- HD calling icon -->
     <dimen name="signal_icon_viewport_size">24dp</dimen>
+
+    <!-- A11 QS style -->
+    <dimen name="custom_qs_panel_padding_top">0dp</dimen>
 </resources>
