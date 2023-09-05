@@ -61,4 +61,12 @@
     <string name="sleep_mode_enabled_toast">Uyku modu açıldı</string>
     <string name="sleep_mode_disabled_toast">Uyku modu kapatıldı</string>
     <!-- Parallel space badge -->
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">Şarj kontrolü</string>
+    <string name="charging_control_notification_title">Şarj kontrolü</string>
+    <string name="charging_control_notification_cancel_once">İptal Et</string>
+    <string name="charging_control_notification_content_limit">Batarya %1$d%% seviyesine kadar şarj edilecek</string>
+    <string name="charging_control_notification_content_limit_reached">Batarya %1$d%% seviyesine kadar şarj edildi</string>
+    <string name="charging_control_notification_content_target">Batarya %1$s%% saatinde şarj edilmiş olacak</string>
+    <string name="charging_control_notification_content_target_reached">Batarya şarj oldu</string>
 </resources>

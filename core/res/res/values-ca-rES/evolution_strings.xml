@@ -61,4 +61,12 @@
     <string name="sleep_mode_enabled_toast">S\'ha activat el mode en repòs</string>
     <string name="sleep_mode_disabled_toast">S\'ha desactivat el mode en repòs</string>
     <!-- Parallel space badge -->
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">Control de càrrega</string>
+    <string name="charging_control_notification_title">Control de càrrega</string>
+    <string name="charging_control_notification_cancel_once">Cancel·la</string>
+    <string name="charging_control_notification_content_limit">La bateria es carregarà al %1$d%%</string>
+    <string name="charging_control_notification_content_limit_reached">La bateria està carregada al %1$d%%</string>
+    <string name="charging_control_notification_content_target">La bateria es carregarà completament en %1$s</string>
+    <string name="charging_control_notification_content_target_reached">Bateria carregada</string>
 </resources>

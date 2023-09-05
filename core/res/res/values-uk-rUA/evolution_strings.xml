@@ -61,4 +61,12 @@
     <string name="sleep_mode_enabled_toast">Увімкнено режим сну</string>
     <string name="sleep_mode_disabled_toast">Вимкнено режим сну</string>
     <!-- Parallel space badge -->
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">Контроль заряджання</string>
+    <string name="charging_control_notification_title">Контроль заряджання</string>
+    <string name="charging_control_notification_cancel_once">Скасувати</string>
+    <string name="charging_control_notification_content_limit">Акумулятор буде заряджено до %1$d%%</string>
+    <string name="charging_control_notification_content_limit_reached">Акумулятор заряджено до %1$d%%</string>
+    <string name="charging_control_notification_content_target">Акумулятор буде повністю заряджено о %s</string>
+    <string name="charging_control_notification_content_target_reached">Акумулятор заряджено</string>
 </resources>
