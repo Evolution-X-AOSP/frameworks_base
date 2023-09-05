@@ -63,4 +63,12 @@
     <string name="sleep_mode_enabled_toast">Az Alvómód bekapcsolva</string>
     <string name="sleep_mode_disabled_toast">Az Alvómód kikapcsolva</string>
     <!-- Parallel space badge -->
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">Kontrollált töltés</string>
+    <string name="charging_control_notification_title">Kontrollált töltés</string>
+    <string name="charging_control_notification_cancel_once">Mégse</string>
+    <string name="charging_control_notification_content_limit">Az akkumulátor %1$d%% -ig lesz feltöltve</string>
+    <string name="charging_control_notification_content_limit_reached">Az akkumulátor feltöltődött %1$d%% -ig</string>
+    <string name="charging_control_notification_content_target">Az akkumulátor teljesen feltöltődik ekkorra %1$s</string>
+    <string name="charging_control_notification_content_target_reached">Az akku feltöltve</string>
 </resources>
