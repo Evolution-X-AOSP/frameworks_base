@@ -61,4 +61,12 @@
     <string name="sleep_mode_enabled_toast">Modo Sueño activado</string>
     <string name="sleep_mode_disabled_toast">Modo Sueño desactivado</string>
     <!-- Parallel space badge -->
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">Control de la carga</string>
+    <string name="charging_control_notification_title">Control de la carga</string>
+    <string name="charging_control_notification_cancel_once">Cancelar</string>
+    <string name="charging_control_notification_content_limit">La batería se cargará al %1$d%%</string>
+    <string name="charging_control_notification_content_limit_reached">Batería cargada al %1$d%%</string>
+    <string name="charging_control_notification_content_target">La batería se cargará completamente en %1$s</string>
+    <string name="charging_control_notification_content_target_reached">Batería cargada</string>
 </resources>
