@@ -63,4 +63,12 @@
     <string name="sleep_mode_enabled_toast">Modo de suspensão desativado</string>
     <string name="sleep_mode_disabled_toast">O modo de suspensão foi desativado</string>
     <!-- Parallel space badge -->
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">Carregamento inteligente</string>
+    <string name="charging_control_notification_title">Carregamento inteligente</string>
+    <string name="charging_control_notification_cancel_once">Cancelar</string>
+    <string name="charging_control_notification_content_limit">A bateria será carregada até %1$d%%</string>
+    <string name="charging_control_notification_content_limit_reached">A bateria está carregada até %1$d%%</string>
+    <string name="charging_control_notification_content_target">A bateria será completamente carregada em %1$s</string>
+    <string name="charging_control_notification_content_target_reached">Bateria carregada</string>
 </resources>
