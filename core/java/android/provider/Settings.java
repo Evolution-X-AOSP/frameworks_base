@@ -5871,26 +5871,6 @@ public final class Settings {
         public static final String FLASHLIGHT_ON_CALL_RATE = "flashlight_on_call_rate";
 
         /**
-         * @hide
-         */
-        public static final String SMART_CHARGING = "smart_charging";
-
-        /**
-         * @hide
-         */
-        public static final String SMART_CHARGING_LEVEL = "smart_charging_level";
-
-        /**
-         * @hide
-         */
-        public static final String SMART_CHARGING_RESET_STATS = "smart_charging_reset_stats";
-
-        /**
-         * @hide
-         */
-        public static final String SMART_CHARGING_RESUME_LEVEL = "smart_charging_resume_level";
-
-        /**
          * Hide Statusbar on LockScreen
          * @hide
          */
@@ -6949,7 +6929,7 @@ public final class Settings {
         /**
          * Haptic feedback on volume panel
          * @hide
-         */ 
+         */
         public static final String VOLUME_PANEL_HAPTIC_FEEDBACK = "volume_panel_haptic_feedback";
 
         /**
