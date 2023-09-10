@@ -48,10 +48,8 @@ import android.view.Display;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.android.internal.util.evolution.ImageHelper;
 import com.android.systemui.Dependency;
 import com.android.systemui.Dumpable;
-import com.android.systemui.R;
 import com.android.systemui.animation.Interpolators;
 import com.android.systemui.colorextraction.SysuiColorExtractor;
 import com.android.systemui.dagger.qualifiers.Main;
@@ -103,8 +101,6 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
 
     private static final String LOCKSCREEN_MEDIA_METADATA =
             Settings.Secure.LOCKSCREEN_MEDIA_METADATA;
-    private static final String LOCKSCREEN_ALBUMART_FILTER =
-            "system:" + Settings.System.LOCKSCREEN_ALBUMART_FILTER;
 
     private static final String NOWPLAYING_SERVICE = "com.google.android.as";
     private final StatusBarStateController mStatusBarStateController;
@@ -166,7 +162,6 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
     private LockscreenWallpaper.WallpaperDrawable mWallapperDrawable;
 
     private boolean mShowMediaMetadata;
-    private int mAlbumArtFilter;
 
     private final MediaController.Callback mMediaListener = new MediaController.Callback() {
         @Override
@@ -237,7 +232,6 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
 
         final TunerService tunerService = Dependency.get(TunerService.class);
         tunerService.addTunable(this, LOCKSCREEN_MEDIA_METADATA);
-        tunerService.addTunable(this, LOCKSCREEN_ALBUMART_FILTER);
     }
 
     @Override
@@ -246,11 +240,6 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
             case LOCKSCREEN_MEDIA_METADATA:
                 mShowMediaMetadata =
                         TunerService.parseIntegerSwitch(newValue, true);
-                dispatchUpdateMediaMetaData(false /* changed */, true /* allowAnimation */);
-                break;
-            case LOCKSCREEN_ALBUMART_FILTER:
-                mAlbumArtFilter =
-                        TunerService.parseInteger(newValue, 0);
                 dispatchUpdateMediaMetaData(false /* changed */, true /* allowAnimation */);
                 break;
             default:
@@ -661,29 +650,7 @@ public class NotificationMediaManager implements Dumpable, TunerService.Tunable 
         // set media artwork as lockscreen wallpaper if player is playing
         if (bmp != null && (mShowMediaMetadata || !ENABLE_LOCKSCREEN_WALLPAPER) &&
                 PlaybackState.STATE_PLAYING == getMediaControllerPlaybackState(mMediaController)) {
-            switch (mAlbumArtFilter) {
-                case 0:
-                default:
-                    artworkDrawable = new BitmapDrawable(mBackdropBack.getResources(), bmp);
-                    break;
-                case 1:
-                    artworkDrawable = new BitmapDrawable(mBackdropBack.getResources(),
-                        ImageHelper.toGrayscale(bmp));
-                    break;
-                case 2:
-                    Drawable aw = new BitmapDrawable(mBackdropBack.getResources(), bmp);
-                    artworkDrawable = new BitmapDrawable(ImageHelper.getColoredBitmap(aw,
-                        mContext.getResources().getColor(R.color.accent_device_default_light)));
-                    break;
-                case 3:
-                    artworkDrawable = new BitmapDrawable(mBackdropBack.getResources(),
-                        ImageHelper.getBlurredImage(mContext, bmp, 7.0f));
-                    break;
-                case 4:
-                    artworkDrawable = new BitmapDrawable(mBackdropBack.getResources(),
-                        ImageHelper.getGrayscaleBlurredImage(mContext, bmp, 7.0f));
-                    break;
-            }
+            artworkDrawable = new BitmapDrawable(mBackdropBack.getResources(), bmp);
         }
         boolean hasMediaArtwork = artworkDrawable != null;
         boolean allowWhenShade = false;
