@@ -262,6 +262,9 @@
     <!-- Mock Oplus LinearmotorVibratorService -->
     <java-symbol type="bool" name="config_mockOplusLinearmotorVibratorService" />
 
+    <!-- Whether to enable Lineage Health Service -->
+    <java-symbol type="bool" name="config_lineageHealthSupported" />
+
     <!-- Parallel space badge -->
     <java-symbol type="string" name="parallel_space_badge_label" />
     <java-symbol type="drawable" name="ic_parallel_badge" />
