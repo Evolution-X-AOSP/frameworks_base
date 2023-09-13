@@ -61,4 +61,12 @@
     <string name="sleep_mode_enabled_toast">睡眠模式已开启</string>
     <string name="sleep_mode_disabled_toast">睡眠模式已关闭</string>
     <!-- Parallel space badge -->
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">充电控制</string>
+    <string name="charging_control_notification_title">充电控制</string>
+    <string name="charging_control_notification_cancel_once">取消</string>
+    <string name="charging_control_notification_content_limit">电池将会被充电至 %1$d%%</string>
+    <string name="charging_control_notification_content_limit_reached">电池已充电到 %1$d%%</string>
+    <string name="charging_control_notification_content_target">电池将在 %1$s 完全充满</string>
+    <string name="charging_control_notification_content_target_reached">电池已充满</string>
 </resources>
