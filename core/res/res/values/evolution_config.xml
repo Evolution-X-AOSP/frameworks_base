@@ -378,4 +378,7 @@
 
     <!-- Expected value from fast charging status file  -->
     <string name="config_oemFastChargerStatusValue" translatable="false">1</string>
+
+    <!-- Whether to enable Lineage Health Service -->
+    <bool name="config_lineageHealthSupported">false</bool>
 </resources>
