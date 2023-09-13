@@ -2661,14 +2661,20 @@ public final class SystemServer implements Dumpable {
             t.traceEnd();
 
             // LiveDisplay
-            t.traceBegin("StartLiveDisplayService");
-            mSystemServiceManager.startService(LiveDisplayService.class);
-            t.traceEnd();
+            if (context.getResources().getBoolean(
+                    com.android.internal.R.bool.config_enableLiveDisplay)) {
+                t.traceBegin("StartLiveDisplayService");
+                mSystemServiceManager.startService(LiveDisplayService.class);
+                t.traceEnd();
+            }
 
             // Health
-            t.traceBegin("StartHealthService");
-            mSystemServiceManager.startService(HealthInterfaceService.class);
-            t.traceEnd();
+            if (context.getResources().getBoolean(
+                    com.android.internal.R.bool.config_lineageHealthSupported)) {
+                t.traceBegin("StartHealthService");
+                mSystemServiceManager.startService(HealthInterfaceService.class);
+                t.traceEnd();
+            }
 
             // LinearmotorVibratorLinearmotorVibrator
             if (context.getResources().getBoolean(
