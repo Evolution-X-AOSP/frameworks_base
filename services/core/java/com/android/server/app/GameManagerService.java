@@ -54,6 +54,7 @@ import android.app.IGameManagerService;
 import android.app.IUidObserver;
 import android.app.compat.PackageOverride;
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -65,6 +66,7 @@ import android.content.pm.UserInfo;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
+import android.database.ContentObserver;
 import android.hardware.power.Mode;
 import android.net.Uri;
 import android.os.Binder;
@@ -80,9 +82,11 @@ import android.os.RemoteException;
 import android.os.ResultReceiver;
 import android.os.ServiceManager;
 import android.os.ShellCallback;
+import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.DeviceConfig;
 import android.provider.DeviceConfig.Properties;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.AtomicFile;
@@ -1218,6 +1222,9 @@ public final class GameManagerService extends IGameManagerService.Stub {
         if (mGameServiceController != null) {
             mGameServiceController.onBootComplete();
         }
+        // Start to observe our Settings.Secure.GAME_OVERLAY
+        // after boot completed.
+        new SettingsObserver(mHandler);
     }
 
     void onUserStarting(@NonNull TargetUser user) {
@@ -1925,4 +1932,41 @@ public final class GameManagerService extends IGameManagerService.Stub {
         @Override
         public void onUidProcAdjChanged(int uid) {}
     }
+
+    class SettingsObserver extends ContentObserver {
+
+        private final ContentResolver mContentResolver;
+
+        SettingsObserver(Handler handler) {
+            super(handler);
+            mContentResolver = mContext.getContentResolver();
+            mContentResolver.registerContentObserver(Settings.Secure.getUriFor(
+                    Settings.Secure.GAME_OVERLAY), false, this,
+                    UserHandle.USER_ALL);
+            }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            String newValue = Settings.Secure.getString(mContentResolver,
+                    Settings.Secure.GAME_OVERLAY);
+            // We write key and value of the device_config property as a single string
+            // from our GameSpace.
+            // ';;' is the separator betweeen key and value.
+            // Example: com.libremobileos.game;;mode=2,downscaleFactor=0.7:mode=3,downscaleFactor=0.8
+            // So split the key and value from the string
+            // and set the device_config propery.
+            String[] parsedValues = newValue.split(";;");
+            // Value should contain both package name and config.
+            // Otherwise don't do anything.
+            if (parsedValues.length < 2) return;
+            // We don't need to care about any format and all.
+            // It will be handled by the GamePackageConfiguration while
+            // parsing the device_config property.
+            String packageName = parsedValues[0];
+            String configValue = parsedValues[1];
+            DeviceConfig.setProperty(DeviceConfig.NAMESPACE_GAME_OVERLAY,
+                    packageName, configValue, false);
+        }
+    }
+
 }
