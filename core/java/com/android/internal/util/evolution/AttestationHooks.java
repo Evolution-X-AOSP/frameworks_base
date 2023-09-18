@@ -64,7 +64,7 @@ public final class AttestationHooks {
         "DEVICE", "cheetah",
         "PRODUCT", "cheetah",
         "MODEL", "Pixel 7 Pro",
-        "FINGERPRINT", "google/cheetah/cheetah:13/TQ3A.230805.001/10316531:user/release-keys"
+        "FINGERPRINT", "google/cheetah/cheetah:13/TQ3A.230901.001/10750268:user/release-keys"
     );
 
     private static volatile String sProcessName;
