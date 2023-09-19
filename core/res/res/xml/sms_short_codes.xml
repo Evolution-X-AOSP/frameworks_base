@@ -217,7 +217,7 @@
     <shortcode country="pk" pattern="\\d{1,5}" free="2057" />
 
     <!-- Poland: 4-5 digits (not confirmed), known premium codes listed, plus EU -->
-    <shortcode country="pl" pattern="\\d{4,5}" premium="74240|79(?:10|866)|92525" free="116\\d{3}|8012|80921" />
+    <shortcode country="pl" pattern="\\d{4,5}" premium="74240|79(?:10|866)|92525" free="116\\d{3}|8012|80921|8080" />
 
     <!-- Portugal: 5 digits, plus EU:
          http://clients.txtnation.com/entries/158326-portugal-premium-sms-short-code-regulations -->
