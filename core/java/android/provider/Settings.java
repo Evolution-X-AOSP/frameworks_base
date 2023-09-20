@@ -13058,12 +13058,6 @@ public final class Settings {
         public static final String QSTILE_REQUIRES_UNLOCKING = "qstile_requires_unlocking";
 
         /**
-         * Whether to trigger doze for new notifications
-         * @hide
-         */
-        public static final String DOZE_FOR_NOTIFICATIONS = "doze_for_notifications";
-
-        /**
          * Whether to show ambient instead of waking for the pickup gesture
          * Do note quick pickup (device sensor) is already configured to do that
          * @hide

@@ -247,7 +247,7 @@ public class DozeTriggers implements DozeMachine.Part {
             return;
         }
         mNotificationPulseTime = SystemClock.elapsedRealtime();
-        if (!mConfig.userPulseOnNotificationEnabled(mUserTracker.getUserId())) {
+        if (!mConfig.pulseOnNotificationEnabled(mUserTracker.getUserId())) {
             runIfNotNull(onPulseSuppressedListener);
             mDozeLog.tracePulseDropped("pulseOnNotificationsDisabled");
             return;
