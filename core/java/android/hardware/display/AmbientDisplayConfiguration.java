@@ -282,11 +282,7 @@ public class AmbientDisplayConfiguration {
                 int status = intent.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
                 boolean isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING ||
                             status == BatteryManager.BATTERY_STATUS_FULL;
-                int plugged = intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
-                boolean isPlugged = plugged == BatteryManager.BATTERY_PLUGGED_AC || 
-                            plugged == BatteryManager.BATTERY_PLUGGED_USB ||
-                            plugged == BatteryManager.BATTERY_PLUGGED_WIRELESS;
-                return isPlugged && isCharging;
+                return isCharging;
             }
         }
         return false;
