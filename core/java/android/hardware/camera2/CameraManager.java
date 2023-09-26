@@ -781,7 +781,20 @@ public final class CameraManager {
                 new HashMap<String, CameraCharacteristics>();
         Set<String> physicalCameraIds = chars.getPhysicalCameraIds();
         for (String physicalCameraId : physicalCameraIds) {
-            CameraCharacteristics physicalChars = getCameraCharacteristics(physicalCameraId);
+            CameraCharacteristics physicalChars;
+            try {
+                physicalChars = getCameraCharacteristics(physicalCameraId);
+            } catch (Exception e) {
+                final String fallbackId = SystemProperties.get(
+                        "persist.sys.camera.fallback_id_" + physicalCameraId);
+                if (fallbackId.isEmpty()) {
+                    throw e;
+                }
+                Log.w(TAG, "Could not retrieve camera " + physicalCameraId + " characteristics", e);
+                Log.i(TAG, "Trying fallback camera " + fallbackId);
+                // if this also fails, exception will be thrown
+                physicalChars = getCameraCharacteristics(fallbackId);
+            }
             physicalIdsToChars.put(physicalCameraId, physicalChars);
         }
         return physicalIdsToChars;
