@@ -171,6 +171,9 @@ public class Transitions implements RemoteCallable<Transitions>,
     /** Transition to animate task to desktop. */
     public static final int TRANSIT_MOVE_TO_DESKTOP = WindowManager.TRANSIT_FIRST_CUSTOM + 15;
 
+    /** Transition type for exiting freeform via the Shell */
+    public static final int TRANSIT_EXIT_FREEFORM = WindowManager.TRANSIT_FIRST_CUSTOM + 16;
+
     private final WindowOrganizer mOrganizer;
     private final Context mContext;
     private final ShellExecutor mMainExecutor;
