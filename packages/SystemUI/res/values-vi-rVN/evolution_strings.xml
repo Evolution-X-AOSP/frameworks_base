@@ -249,6 +249,4 @@
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Buộc dừng?</string>
     <string name="force_stop_dlg_text">Nếu bạn buộc dừng ứng dụng, nó có thể hoạt động không ổn định.</string>
-    <!-- Face Unlock -->
-    <string name="face_unlock_recognizing">Đang nhận diện khuôn mặt...</string>
 </resources>
