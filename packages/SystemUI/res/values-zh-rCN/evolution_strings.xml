@@ -249,6 +249,4 @@
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">强制停止？</string>
     <string name="force_stop_dlg_text">强行停止某个应用可能会导致其出现异常</string>
-    <!-- Face Unlock -->
-    <string name="face_unlock_recognizing">正在识别面部...</string>
 </resources>
