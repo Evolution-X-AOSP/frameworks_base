@@ -249,6 +249,4 @@
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Vols forçar l\'aturada?</string>
     <string name="force_stop_dlg_text">Si forces l\'aturada d\'una aplicació, és possible que no funcioni correctament.</string>
-    <!-- Face Unlock -->
-    <string name="face_unlock_recognizing">S\'està reconeixent la cara...</string>
 </resources>
