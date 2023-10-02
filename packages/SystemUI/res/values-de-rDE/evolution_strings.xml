@@ -249,6 +249,4 @@
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Beenden erzwingen?</string>
     <string name="force_stop_dlg_text">Das erzwungene Beenden einer Anwendung kann zu unerwünschtem Verhalten führen.</string>
-    <!-- Face Unlock -->
-    <string name="face_unlock_recognizing">Gesichtserkennung...</string>
 </resources>
