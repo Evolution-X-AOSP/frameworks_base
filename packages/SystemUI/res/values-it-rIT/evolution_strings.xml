@@ -249,6 +249,4 @@
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Forzare l\'interruzione?</string>
     <string name="force_stop_dlg_text">Se forzi l\'interruzione di un\'app, questa potrebbe funzionare in modo anomalo.</string>
-    <!-- Face Unlock -->
-    <string name="face_unlock_recognizing">Riconoscimento volto...</string>
 </resources>
