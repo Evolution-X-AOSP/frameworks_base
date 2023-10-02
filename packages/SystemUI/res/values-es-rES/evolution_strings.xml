@@ -92,12 +92,12 @@
     <string name="quick_settings_poweroff_label">Apagar</string>
     <string name="quick_settings_reboot_label">Reiniciar</string>
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
-    <string name="quick_settings_reboot_bootloader_label">Bootloader</string>
+    <string name="quick_settings_reboot_bootloader_label">Gestor de arranque</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Panel de volumen</string>
     <!-- SoundSearch Tile -->
     <string name="quick_settings_sound_search">Búsqueda de sonidos</string>
-    <string name="quick_settings_sound_search_no_app">Lo sentimos, pero esto no funciona si no tienes una app de Busqueda de sonido.</string>
+    <string name="quick_settings_sound_search_no_app">¡Lo siento! Esta función no está disponible sin una app de búsqueda de sonidos.</string>
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">Conectar a\u2026</string>
@@ -249,6 +249,4 @@
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">¿Forzar detención?</string>
     <string name="force_stop_dlg_text">Si se detiene una aplicación, es posible que no funcione correctamente.</string>
-    <!-- Face Unlock -->
-    <string name="face_unlock_recognizing">Reconociendo cara...</string>
 </resources>
