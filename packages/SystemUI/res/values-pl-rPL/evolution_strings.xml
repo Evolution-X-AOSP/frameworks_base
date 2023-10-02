@@ -249,6 +249,4 @@
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Wymusić zatrzymanie?</string>
     <string name="force_stop_dlg_text">Jeśli wymusisz zatrzymanie aplikacji, może ona działać nieprawidłowo.</string>
-    <!-- Face Unlock -->
-    <string name="face_unlock_recognizing">Rozpoznawanie twarzy...</string>
 </resources>
