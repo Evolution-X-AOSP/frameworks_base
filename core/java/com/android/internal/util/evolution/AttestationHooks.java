@@ -58,13 +58,13 @@ public final class AttestationHooks {
         "FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys"
     );
 
-    private static final Map<String, Object> sPixel7ProProps = Map.of(
+    private static final Map<String, Object> sPixel8ProProps = Map.of(
         "BRAND", "google",
         "MANUFACTURER", "Google",
-        "DEVICE", "cheetah",
-        "PRODUCT", "cheetah",
-        "MODEL", "Pixel 7 Pro",
-        "FINGERPRINT", "google/cheetah/cheetah:13/TQ3A.230901.001/10750268:user/release-keys"
+        "DEVICE", "husky",
+        "PRODUCT", "husky",
+        "MODEL", "Pixel 8 Pro",
+        "FINGERPRINT", "google/husky/husky:14/UD1A.230803.041/10808477:user/release-keys"
     );
 
     private static volatile String sProcessName;
@@ -103,8 +103,8 @@ public final class AttestationHooks {
                 dlog("Setting model to " + sNetflixModel + " for Netflix");
                 setPropValue("MODEL", sNetflixModel);
             } else {
-                dlog("Spoofing Pixel 7 Pro for: " + packageName);
-                sPixel7ProProps.forEach(AttestationHooks::setPropValue);
+                dlog("Spoofing Pixel 8 Pro for: " + packageName);
+                sPixel8ProProps.forEach(AttestationHooks::setPropValue);
             }
         }
     }
