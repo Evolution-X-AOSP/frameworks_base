@@ -1124,8 +1124,8 @@ class WindowOrganizerController extends IWindowOrganizerController.Stub
             }
             case HIERARCHY_OP_TYPE_SET_ALWAYS_ON_TOP: {
                 final WindowContainer container = WindowContainer.fromBinder(hop.getContainer());
-                if (container == null || container.asDisplayArea() == null
-                        || !container.isAttached()) {
+                if (container == null || (!container.inFreeformWindowingMode()
+                        && container.asDisplayArea() == null) || !container.isAttached()) {
                     Slog.e(TAG, "Attempt to operate on unknown or detached display area: "
                             + container);
                     break;
