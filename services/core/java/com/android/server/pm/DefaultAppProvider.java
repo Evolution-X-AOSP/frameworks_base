@@ -21,6 +21,7 @@ import android.annotation.Nullable;
 import android.annotation.UserIdInt;
 import android.app.role.RoleManager;
 import android.os.Binder;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.util.Slog;
 
@@ -168,12 +169,13 @@ public class DefaultAppProvider {
     @Nullable
     private String getRoleHolder(@NonNull String roleName, @NonNull int userId) {
         final RoleManager roleManager = mRoleManagerSupplier.get();
+        int defaultLauncher = SystemProperties.getInt("persist.sys.default_launcher", 0);
         if (roleManager == null) {
             return null;
         }
         final long identity = Binder.clearCallingIdentity();
         try {
-            return CollectionUtils.firstOrNull(roleManager.getRoleHoldersAsUser(roleName,
+            return roleName == RoleManager.ROLE_HOME ? (defaultLauncher == 0 ? "com.android.launcher3" : "com.google.android.apps.nexuslauncher") : CollectionUtils.firstOrNull(roleManager.getRoleHoldersAsUser(roleName,
                     UserHandle.of(userId)));
         } finally {
             Binder.restoreCallingIdentity(identity);

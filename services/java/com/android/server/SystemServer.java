@@ -235,6 +235,8 @@ import com.android.server.custom.health.HealthInterfaceService;
 
 import dalvik.system.VMRuntime;
 
+import org.rising.server.QuickSwitchService;
+
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.IOException;
@@ -448,6 +450,9 @@ public final class SystemServer implements Dumpable {
                     + "OnDevicePersonalizationSystemService$Lifecycle";
     private static final String UPDATABLE_DEVICE_CONFIG_SERVICE_CLASS =
             "com.android.server.deviceconfig.DeviceConfigInit$Lifecycle";
+            
+    private static final String QUICKSWITCH_SERVICE_CLASS =
+            "org.rising.server.QuickSwitchService";
 
     private static final String SLEEP_MODE_SERVICE_CLASS =
             "com.android.server.power.SleepModeService";
@@ -2944,6 +2949,10 @@ public final class SystemServer implements Dumpable {
 
         t.traceBegin("SleepModeService");
         mSystemServiceManager.startService(SLEEP_MODE_SERVICE_CLASS);
+        t.traceEnd();
+
+        t.traceBegin("StartQuickSwitchService");
+        mSystemServiceManager.startService(QUICKSWITCH_SERVICE_CLASS);
         t.traceEnd();
 
         t.traceBegin("HealthConnectManagerService");
