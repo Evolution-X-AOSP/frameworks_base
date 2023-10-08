@@ -339,15 +339,9 @@ public class PixelPropsUtils {
     public static boolean shouldBypassTaskPermission(Context context) {
         // GMS doesn't have MANAGE_ACTIVITY_TASKS permission
         final int callingUid = Binder.getCallingUid();
-        final int gmsUid;
-        try {
-            gmsUid = context.getPackageManager().getApplicationInfo(PACKAGE_GMS, 0).uid;
-            dlog("shouldBypassTaskPermission: gmsUid:" + gmsUid + " callingUid:" + callingUid);
-        } catch (Exception e) {
-            Log.e(TAG, "shouldBypassTaskPermission: unable to get gms uid", e);
-            return false;
-        }
-        return gmsUid == callingUid;
+        final String callingPackage = context.getPackageManager().getNameForUid(callingUid);
+        dlog("shouldBypassTaskPermission: callingPackage:" + callingPackage);
+        return callingPackage != null && callingPackage.toLowerCase().contains("google");
     }
 
     private static boolean isCallerSafetyNet() {
