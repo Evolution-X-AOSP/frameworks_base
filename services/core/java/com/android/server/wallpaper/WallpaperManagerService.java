@@ -3245,7 +3245,7 @@ public class WallpaperManagerService extends IWallpaperManager.Stub
     // ToDo: Remove this version of the function
     @Override
     public void setWallpaperComponent(ComponentName name) {
-        setWallpaperComponent(name, "", UserHandle.getCallingUserId(), FLAG_SYSTEM);
+        setWallpaperComponent(name, "", FLAG_SYSTEM, UserHandle.getCallingUserId());
     }
 
     @VisibleForTesting
