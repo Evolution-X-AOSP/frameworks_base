@@ -416,6 +416,14 @@ public class PixelPropsUtils {
         return false;
     }
 
+    public static boolean shouldBypassTaskPermission(Context context) {
+        // GMS doesn't have MANAGE_ACTIVITY_TASKS permission
+        final int callingUid = Binder.getCallingUid();
+        final String callingPackage = context.getPackageManager().getNameForUid(callingUid);
+        dlog("shouldBypassTaskPermission: callingPackage:" + callingPackage);
+        return callingPackage != null && callingPackage.toLowerCase().contains("google");
+    }
+
     private static boolean isCallerSafetyNet() {
         return shouldTryToCertifyDevice() && sIsGms && Arrays.stream(Thread.currentThread().getStackTrace())
                 .anyMatch(elem -> elem.getClassName().contains("DroidGuard"));
