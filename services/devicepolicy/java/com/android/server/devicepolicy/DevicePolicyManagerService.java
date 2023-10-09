@@ -2362,9 +2362,11 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub {
     @VisibleForTesting
     CallerIdentity getCallerIdentity(@Nullable ComponentName adminComponent,
             @Nullable String callerPackage) {
-        final int callerUid = mInjector.binderGetCallingUid();
+        // Binder.getCallingUid() instead of attribution tag injection
+        final int callerUid = Binder.getCallingUid();
 
-        if (callerPackage != null) {
+        // skip the security check if caller is android itself
+        if (callerPackage != null && !callerPackage.equals("android")) {
             if (!isCallingFromPackage(callerPackage, callerUid)) {
                 throw new SecurityException(
                         String.format("Caller with uid %d is not %s", callerUid, callerPackage));
