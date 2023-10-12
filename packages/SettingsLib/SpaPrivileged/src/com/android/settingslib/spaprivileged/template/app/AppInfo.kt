@@ -88,6 +88,23 @@ class AppInfoProvider(private val packageInfo: PackageInfo) {
         }
     }
 
+    @Composable
+    fun FooterAppInfoDetails() {
+        if ((packageInfo.packageName == null)
+            && (packageInfo.versionName == null)) return;
+        Divider()
+            if ((packageInfo.packageName != null)) {
+                Box(modifier = Modifier.padding(SettingsDimension.itemPadding)) {
+                    SettingsBody(stringResource(R.string.package_name_text, packageInfo.packageName))
+                }
+            }
+            if ((packageInfo.versionName != null)) {
+                Box(modifier = Modifier.padding(SettingsDimension.itemPadding)) {
+                    SettingsBody(stringResource(R.string.version_text, packageInfo.versionNameBidiWrapped))
+                }
+            }
+    }
+
     private companion object {
         /** Wrapped the version name, so its directionality still keep same when RTL. */
         val PackageInfo.versionNameBidiWrapped: String
