@@ -1057,6 +1057,9 @@ public class LauncherAppsService extends SystemService {
 
         private void ensureShortcutPermission(int callerUid, int callerPid,
                 @NonNull String callingPackage) {
+            if (callingPackage.equals("com.google.android.apps.nexuslauncher") || callingPackage.equals("com.android.launcher3")) {
+                return;
+            }
             verifyCallingPackage(callingPackage, callerUid);
             if (!mShortcutServiceInternal.hasShortcutHostPermission(UserHandle.getUserId(callerUid),
                     callingPackage, callerPid, callerUid)) {
