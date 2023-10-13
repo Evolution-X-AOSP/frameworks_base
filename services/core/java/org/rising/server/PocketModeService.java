@@ -61,6 +61,7 @@ public class PocketModeService extends SystemService {
     private SensorManager mSensorManager;
     private Sensor mAccelerometerSensor;
     boolean mIsInPocket;
+    boolean mIsUnlocked;
     
     private boolean mAttached = false;
     private KeyguardManager mKeyguardManager;
@@ -104,6 +105,7 @@ public class PocketModeService extends SystemService {
                     case Intent.ACTION_SCREEN_ON:
                     case Intent.ACTION_SCREEN_OFF:
                         if (mIsInPocket) {
+                            mIsUnlocked = false;
                             showOverlay();
                         } else {
                             hideOverlay();
@@ -197,11 +199,13 @@ public class PocketModeService extends SystemService {
         float interactiveThresholdY = 1.0f;
         float pocketThresholdY = -1.0f;
         if (y > interactiveThresholdY) {
-            hideOverlay();
             mIsInPocket = false;
+            hideOverlay();
         } else if (y < pocketThresholdY) {
-            showOverlay();
             mIsInPocket = true;
+            if (!mIsUnlocked) {
+                showOverlay();
+            }
         }
     }
 
@@ -274,6 +278,7 @@ public class PocketModeService extends SystemService {
             public void onLongPress(MotionEvent e) {
                 vibrate(mDoubleClickEffect);
                 hideOverlay();
+                mIsUnlocked = true;
             }
 
             @Override
