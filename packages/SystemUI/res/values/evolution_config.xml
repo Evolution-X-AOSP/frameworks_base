@@ -113,9 +113,8 @@
     <!-- Update battery info every second when device is charging -->
     <bool name="config_alternateFastchargeInfoUpdate">false</bool>
 
-    <!-- The list of packages that are allowed to show headsup when using
-         Boring headsup mode -->
-    <string-array name="config_boringHeadsUpPackageAllowList">
+    <!-- Boring headsup whitelist -->
+    <string-array name="heads_up_whitelist_packages">
         <item>com.android.dialer</item>
         <item>com.google.android.dialer</item>
         <item>com.google.android.apps.messaging</item>
@@ -125,4 +124,5 @@
         <item>messenger</item>
         <item>clock</item>
     </string-array>
+
 </resources>
