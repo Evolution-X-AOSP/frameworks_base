@@ -58,14 +58,14 @@ public class PixelPropsUtils {
             Resources.getSystem().getBoolean(R.bool.config_enablePixelProps);
 
     private static final Map<String, Object> propsToChangeGeneric;
-    private static final Map<String, Object> propsToChangePixel8Pro;
+    private static final Map<String, Object> propsToChangeRecentPixel;
     private static final Map<String, Object> propsToChangePixel5;
     private static final Map<String, Object> propsToChangePixel2;
     private static final Map<String, Object> propsToChangeMeizu;
     private static final Map<String, ArrayList<String>> propsToKeep;
 
     // Packages to Spoof as Pixel 7 Pro
-    private static final String[] packagesToChangePixel8Pro = {
+    private static final String[] packagesToChangeRecentPixel = {
             "com.amazon.avod.thirdpartyclient",
             "com.android.chrome",
             "com.breel.wallpapers20",
@@ -139,15 +139,15 @@ public class PixelPropsUtils {
         propsToChangeGeneric = new HashMap<>();
         propsToChangeGeneric.put("TYPE", "user");
         propsToChangeGeneric.put("TAGS", "release-keys");
-        propsToChangePixel8Pro = new HashMap<>();
-        propsToChangePixel8Pro.put("BRAND", "google");
-        propsToChangePixel8Pro.put("MANUFACTURER", "Google");
-        propsToChangePixel8Pro.put("DEVICE", "husky");
-        propsToChangePixel8Pro.put("PRODUCT", "husky");
-        propsToChangePixel8Pro.put("HARDWARE", "husky");
-        propsToChangePixel8Pro.put("MODEL", "Pixel 8 Pro");
-        propsToChangePixel8Pro.put("ID", "UD1A.231105.004");
-        propsToChangePixel8Pro.put("FINGERPRINT", "google/husky/husky:14/UD1A.231105.004/11010374:user/release-keys");
+        propsToChangeRecentPixel = new HashMap<>();
+        propsToChangeRecentPixel.put("BRAND", "google");
+        propsToChangeRecentPixel.put("MANUFACTURER", "Google");
+        propsToChangeRecentPixel.put("DEVICE", "husky");
+        propsToChangeRecentPixel.put("PRODUCT", "husky");
+        propsToChangeRecentPixel.put("HARDWARE", "husky");
+        propsToChangeRecentPixel.put("MODEL", "Pixel 8 Pro");
+        propsToChangeRecentPixel.put("ID", "UD1A.231105.004");
+        propsToChangeRecentPixel.put("FINGERPRINT", "google/husky/husky:14/UD1A.231105.004/11010374:user/release-keys");
         propsToChangePixel5 = new HashMap<>();
         propsToChangePixel5.put("BRAND", "google");
         propsToChangePixel5.put("MANUFACTURER", "Google");
@@ -252,12 +252,12 @@ public class PixelPropsUtils {
         if (packageName.startsWith("com.google.")
                 || packageName.startsWith(SAMSUNG)
                 || Arrays.asList(packagesToChangePixel2).contains(packageName)
-                || Arrays.asList(packagesToChangePixel8Pro).contains(packageName)) {
+                || Arrays.asList(packagesToChangeRecentPixel).contains(packageName)) {
 
             if (Arrays.asList(packagesToChangePixel2).contains(packageName)) {
                 propsToChange.putAll(propsToChangePixel2);
-            } else if (Arrays.asList(packagesToChangePixel8Pro).contains(packageName)) {
-                propsToChange.putAll(propsToChangePixel8Pro);
+            } else if (Arrays.asList(packagesToChangeRecentPixel).contains(packageName)) {
+                propsToChange.putAll(propsToChangeRecentPixel);
             } else {
                 propsToChange.putAll(propsToChangePixel5);
             }
