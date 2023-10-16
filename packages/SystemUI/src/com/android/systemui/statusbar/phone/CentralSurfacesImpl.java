@@ -194,6 +194,7 @@ import com.android.systemui.scrim.ScrimView;
 import com.android.systemui.settings.UserTracker;
 import com.android.systemui.settings.brightness.BrightnessSliderController;
 import com.android.systemui.shade.CameraLauncher;
+import com.android.systemui.shade.NotificationPanelViewController;
 import com.android.systemui.shade.NotificationShadeWindowView;
 import com.android.systemui.shade.NotificationShadeWindowViewController;
 import com.android.systemui.shade.QuickSettingsController;
@@ -3510,6 +3511,18 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
             }
         }
     };
+
+    public void startActivity(Intent intent, boolean dismissShade) {
+        mActivityStarter.startActivityDismissingKeyguard(intent, false /* onlyProvisioned */, dismissShade);
+    }
+    
+    public void startPendingIntentDismissingKeyguard(PendingIntent intent) {
+        mActivityStarter.startPendingIntentDismissingKeyguard(intent);
+    }
+    
+    public NotificationPanelViewController getNotificationPanelViewController() {
+        return mCentralSurfacesComponent.getNotificationPanelViewController();
+    }
 
     @Override
     public void awakenDreams() {
