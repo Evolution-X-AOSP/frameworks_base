@@ -98,7 +98,6 @@ public class Events {
     public static final int DISMISS_REASON_OUTPUT_CHOOSER = 8;
     public static final int DISMISS_REASON_USB_OVERHEAD_ALARM_CHANGED = 9;
     public static final int DISMISS_REASON_CSD_WARNING_TIMEOUT = 10;
-    public static final int DISMISS_REASON_POSTURE_CHANGED = 11;
 
     public static final String[] DISMISS_REASONS = {
             "unknown",

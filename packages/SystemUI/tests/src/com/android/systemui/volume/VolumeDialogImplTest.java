@@ -84,8 +84,6 @@ public class VolumeDialogImplTest extends SysuiTestCase {
     View mDrawerMute;
     View mDrawerNormal;
     private TestableLooper mTestableLooper;
-    private ConfigurationController mConfigurationController;
-    private int mOriginalOrientation;
 
     @Mock
     VolumeDialogController mVolumeDialogController;
@@ -95,6 +93,8 @@ public class VolumeDialogImplTest extends SysuiTestCase {
     AccessibilityManagerWrapper mAccessibilityMgr;
     @Mock
     DeviceProvisionedController mDeviceProvisionedController;
+    @Mock
+    ConfigurationController mConfigurationController;
     @Mock
     MediaOutputDialogFactory mMediaOutputDialogFactory;
     @Mock
@@ -106,8 +106,6 @@ public class VolumeDialogImplTest extends SysuiTestCase {
     @Mock
     private DumpManager mDumpManager;
     @Mock CsdWarningDialog mCsdWarningDialog;
-    @Mock
-    DevicePostureController mPostureController;
 
     private final CsdWarningDialog.Factory mCsdWarningDialogFactory =
             new CsdWarningDialog.Factory() {
@@ -125,13 +123,6 @@ public class VolumeDialogImplTest extends SysuiTestCase {
 
         mTestableLooper = TestableLooper.get(this);
 
-        when(mPostureController.getDevicePosture())
-                .thenReturn(DevicePostureController.DEVICE_POSTURE_CLOSED);
-
-        mOriginalOrientation = mContext.getResources().getConfiguration().orientation;
-
-        mConfigurationController = new FakeConfigurationController();
-
         mDialog = new VolumeDialogImpl(
                 getContext(),
                 mVolumeDialogController,
@@ -143,7 +134,6 @@ public class VolumeDialogImplTest extends SysuiTestCase {
                 mActivityStarter,
                 mInteractionJankMonitor,
                 mCsdWarningDialogFactory,
-                mPostureController,
                 mTestableLooper.getLooper(),
                 mDumpManager);
         mDialog.init(0, null);
@@ -399,126 +389,11 @@ public class VolumeDialogImplTest extends SysuiTestCase {
         assertEquals(Gravity.TOP, gravity & Gravity.VERTICAL_GRAVITY_MASK);
     }
 
-    @Test
-    public void ifPortraitAndOpen_drawCenterVertically() {
-        DevicePostureController devicePostureController = mock(DevicePostureController.class);
-        when(devicePostureController.getDevicePosture())
-                .thenReturn(DevicePostureController.DEVICE_POSTURE_CLOSED);
-
-        VolumeDialogImpl dialog = new VolumeDialogImpl(
-                getContext(),
-                mVolumeDialogController,
-                mAccessibilityMgr,
-                mDeviceProvisionedController,
-                mConfigurationController,
-                mMediaOutputDialogFactory,
-                mVolumePanelFactory,
-                mActivityStarter,
-                mInteractionJankMonitor,
-                mCsdWarningDialogFactory,
-                devicePostureController,
-                mTestableLooper.getLooper(),
-                mDumpManager
-        );
-        dialog.init(0, null);
-
-        verify(devicePostureController).addCallback(any());
-        dialog.onPostureChanged(DevicePostureController.DEVICE_POSTURE_OPENED);
-        mTestableLooper.processAllMessages(); // let dismiss() finish
-
-        setOrientation(Configuration.ORIENTATION_PORTRAIT);
-
-        dialog.show(SHOW_REASON_UNKNOWN);
-        mTestableLooper.processAllMessages(); // let show() finish before assessing its side-effect
-
-        int gravity = dialog.getWindowGravity();
-        assertEquals(Gravity.CENTER_VERTICAL, gravity & Gravity.VERTICAL_GRAVITY_MASK);
-    }
-
-    @Test
-    public void ifLandscapeAndHalfOpen_drawCenterVertically() {
-        DevicePostureController devicePostureController = mock(DevicePostureController.class);
-        when(devicePostureController.getDevicePosture())
-                .thenReturn(DevicePostureController.DEVICE_POSTURE_CLOSED);
-
-        VolumeDialogImpl dialog = new VolumeDialogImpl(
-                getContext(),
-                mVolumeDialogController,
-                mAccessibilityMgr,
-                mDeviceProvisionedController,
-                mConfigurationController,
-                mMediaOutputDialogFactory,
-                mVolumePanelFactory,
-                mActivityStarter,
-                mInteractionJankMonitor,
-                mCsdWarningDialogFactory,
-                devicePostureController,
-                mTestableLooper.getLooper(),
-                mDumpManager
-        );
-        dialog.init(0, null);
-
-        verify(devicePostureController).addCallback(any());
-        dialog.onPostureChanged(DevicePostureController.DEVICE_POSTURE_HALF_OPENED);
-        mTestableLooper.processAllMessages(); // let dismiss() finish
-
-        setOrientation(Configuration.ORIENTATION_LANDSCAPE);
-
-        dialog.show(SHOW_REASON_UNKNOWN);
-        mTestableLooper.processAllMessages(); // let show() finish before assessing its side-effect
-
-        int gravity = dialog.getWindowGravity();
-        assertEquals(Gravity.CENTER_VERTICAL, gravity & Gravity.VERTICAL_GRAVITY_MASK);
-    }
-
-    @Test
-    public void dialogInit_addsPostureControllerCallback() {
-        // init is already called in setup
-        verify(mPostureController).addCallback(any());
-    }
-
-    @Test
-    public void dialogDestroy_removesPostureControllerCallback() {
-        VolumeDialogImpl dialog = new VolumeDialogImpl(
-                getContext(),
-                mVolumeDialogController,
-                mAccessibilityMgr,
-                mDeviceProvisionedController,
-                mConfigurationController,
-                mMediaOutputDialogFactory,
-                mVolumePanelFactory,
-                mActivityStarter,
-                mInteractionJankMonitor,
-                mCsdWarningDialogFactory,
-                mPostureController,
-                mTestableLooper.getLooper(),
-                mDumpManager
-        );
-        dialog.init(0, null);
-
-        verify(mPostureController, never()).removeCallback(any());
-
-        dialog.destroy();
-
-        verify(mPostureController).removeCallback(any());
-    }
-
-    private void setOrientation(int orientation) {
-        Configuration config = new Configuration();
-        config.orientation = orientation;
-        if (mConfigurationController != null) {
-            mConfigurationController.onConfigurationChanged(config);
-        }
-    }
-
     @After
     public void teardown() {
         if (mDialog != null) {
             mDialog.clearInternalHandlerAfterTest();
         }
-        setOrientation(mOriginalOrientation);
-        mTestableLooper.processAllMessages();
-        reset(mPostureController);
     }
 
 /*
