@@ -222,8 +222,11 @@ public class PocketModeService extends SystemService {
     }
 
     private void handleAccelerometerEvent(float x, float y, float z) {
-        float interactiveThresholdY = 1.0f;
-        float pocketThresholdY = -1.0f;
+        final float interactiveThresholdY = 1.0f;
+        final float pocketThresholdY = -1.0f;
+        final float pocketThresholdX = 7f;
+        final float pocketNegativeThresholdX = -7f;
+
         if (y > interactiveThresholdY) {
             mIsInPocket = false;
             hideOverlay();
@@ -232,6 +235,14 @@ public class PocketModeService extends SystemService {
             if (!mIsUnlocked) {
                 showOverlay();
             }
+        } else if (x > pocketThresholdX || x < pocketNegativeThresholdX) {
+            mIsInPocket = true;
+            if (!mIsUnlocked) {
+                showOverlay();
+            }
+        } else if (x < pocketThresholdX || x > pocketNegativeThresholdX) {
+            mIsInPocket = false;
+            hideOverlay();
         }
     }
 
