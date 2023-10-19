@@ -46,10 +46,15 @@ import com.android.server.SystemService;
 
 public class PocketModeService extends SystemService {
 
+    private static final long TIMEOUT_DELAY = 15000;
+    
+    private final Handler mTimeoutHandler = new Handler();
+
     private Context mContext;
     private View mOverlayView;
     private WindowManager mWindowManager;
     private GestureDetector mGestureDetector;
+    private PowerManager mPowerManager;
     private WindowManager.LayoutParams mLayoutParams;
 
     private BroadcastReceiver mScreenStateReceiver;
@@ -127,6 +132,16 @@ public class PocketModeService extends SystemService {
         }
     }
 
+    private Runnable mDismissOverlayRunnable = new Runnable() {
+        @Override
+        public void run() {
+           hideOverlay();
+           if (mPowerManager != null) {
+               mPowerManager.goToSleep(SystemClock.uptimeMillis());
+           }
+        }
+    };
+
     private void showOverlay() {
         final Runnable show = new Runnable() {
             @Override
@@ -137,6 +152,10 @@ public class PocketModeService extends SystemService {
                             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                             | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
                     mAttached = true;
+                    if (mTimeoutHandler != null) {
+                        mTimeoutHandler.removeCallbacksAndMessages(null);
+                        mTimeoutHandler.postDelayed(mDismissOverlayRunnable, TIMEOUT_DELAY);
+                    }
                 }
             }
         };
@@ -148,6 +167,9 @@ public class PocketModeService extends SystemService {
             @Override
             public void run() {
                 if (mWindowManager != null && mAttached) {
+                    if (mTimeoutHandler != null) {
+                        mTimeoutHandler.removeCallbacksAndMessages(null);
+                    }
                     mOverlayView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
                     mWindowManager.removeView(mOverlayView);
                     mAttached = false;
@@ -161,6 +183,10 @@ public class PocketModeService extends SystemService {
         @Override
         public boolean onTouch(View v, MotionEvent event) {
             mGestureDetector.onTouchEvent(event);
+            if (mTimeoutHandler != null) {
+                mTimeoutHandler.removeCallbacksAndMessages(null);
+                mTimeoutHandler.postDelayed(mDismissOverlayRunnable, TIMEOUT_DELAY);
+            }
             return true;
         }
     };
@@ -215,6 +241,7 @@ public class PocketModeService extends SystemService {
         mWindowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
         mSensorManager = (SensorManager) mContext.getSystemService(Context.SENSOR_SERVICE);
         mKeyguardManager = (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
+        mPowerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
         if (mSensorManager != null) {
             mAccelerometerSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         }
@@ -283,10 +310,9 @@ public class PocketModeService extends SystemService {
 
             @Override
             public boolean onDoubleTap(MotionEvent e) {
-                PowerManager powerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-                if (powerManager != null) {
+                if (mPowerManager != null) {
                     hideOverlay();
-                    powerManager.goToSleep(SystemClock.uptimeMillis());
+                    mPowerManager.goToSleep(SystemClock.uptimeMillis());
                 }
                 return true;
             }
