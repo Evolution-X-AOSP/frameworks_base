@@ -109,8 +109,8 @@ public class PocketModeService extends SystemService {
                 switch (intent.getAction()) {
                     case Intent.ACTION_SCREEN_ON:
                     case Intent.ACTION_SCREEN_OFF:
-                        if (mIsInPocket) {
-                            mIsUnlocked = false;
+                        mIsUnlocked = false;
+                        if (mIsInPocket && !mIsUnlocked) {
                             showOverlay();
                         } else {
                             hideOverlay();
