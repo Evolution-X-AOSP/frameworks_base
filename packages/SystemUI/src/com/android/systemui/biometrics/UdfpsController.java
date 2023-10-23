@@ -70,7 +70,7 @@ import androidx.annotation.OptIn;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.logging.InstanceId;
 import com.android.internal.util.LatencyTracker;
-import com.android.internal.util.evolution.udfps.UdfpsUtils;
+import com.android.internal.util.evolution.udfps.CustomUdfpsUtils;
 import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.systemui.Dumpable;
 import com.android.systemui.R;
@@ -792,7 +792,7 @@ public class UdfpsController implements DozeReceiver, Dumpable {
         udfpsHapticsSimulator.setUdfpsController(this);
         udfpsShell.setUdfpsOverlayController(mUdfpsOverlayController);
         mUdfpsVendorCode = mContext.getResources().getInteger(R.integer.config_udfpsVendorCode);
-        mDisableNightMode = UdfpsUtils.hasUdfpsSupport(mContext);
+        mDisableNightMode = CustomUdfpsUtils.hasUdfpsSupport(mContext);
 
         mAmbientDisplayConfiguration = new AmbientDisplayConfiguration(mContext);
         boolean screenOffFodSupported = mContext.getResources().getBoolean(
