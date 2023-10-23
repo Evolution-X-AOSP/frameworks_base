@@ -42,7 +42,8 @@ public class CutoutFullscreenController {
         mContext = context;
         final Resources resources = mContext.getResources();
 
-	final String displayCutout = resources.getString(com.android.internal.R.string.config_mainBuiltInDisplayCutout);
+	    final String displayCutout = 
+	            resources.getString(com.android.internal.R.string.config_mainBuiltInDisplayCutout);
         isAvailable = !TextUtils.isEmpty(displayCutout);
 
         if (!isAvailable) {
@@ -69,16 +70,16 @@ public class CutoutFullscreenController {
         return mApps;
     }
 
-    public void addApp(String packageName) {
+    public void addApp(String packageName, int userId) {
         mApps.add(packageName);
-        Settings.System.putString(mContext.getContentResolver(),
-                Settings.System.FORCE_FULLSCREEN_CUTOUT_APPS, String.join(",", mApps));
+        Settings.System.putStringForUser(mContext.getContentResolver(),
+                Settings.System.FORCE_FULLSCREEN_CUTOUT_APPS, String.join(",", mApps), userId);
     }
 
-    public void removeApp(String packageName) {
+    public void removeApp(String packageName, int userId) {
         mApps.remove(packageName);
-        Settings.System.putString(mContext.getContentResolver(),
-                Settings.System.FORCE_FULLSCREEN_CUTOUT_APPS, String.join(",", mApps));
+        Settings.System.putStringForUser(mContext.getContentResolver(),
+                Settings.System.FORCE_FULLSCREEN_CUTOUT_APPS, String.join(",", mApps), userId);
     }
 
     public void setApps(Set<String> apps) {
