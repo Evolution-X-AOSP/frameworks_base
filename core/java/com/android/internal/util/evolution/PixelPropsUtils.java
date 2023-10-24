@@ -52,7 +52,6 @@ public class PixelPropsUtils {
     private static final String SPOOF_MUSIC_APPS = "persist.sys.disguise_props_for_music_app";
 
     private static final String TAG = PixelPropsUtils.class.getSimpleName();
-    private static final String DEVICE = "ro.product.device";
     private static final boolean DEBUG = false;
 
     private static final Boolean sEnablePixelProps =
@@ -126,32 +125,6 @@ public class PixelPropsUtils {
             "cmccwm.mobilemusic",
             "cn.kuwo.player",
             "com.meizu.media.music"
-    };
-
-    // Codenames for currently supported Pixels by Google
-    private static final String[] pixelCodenames = {
-            "husky",
-            "shiba",
-            "felix",
-            "tangorpro",
-            "lynx",
-            "cheetah",
-            "panther",
-            "bluejay",
-            "oriole",
-            "raven",
-            "barbet",
-            "redfin",
-            "bramble",
-            "sunfish",
-            "coral",
-            "flame",
-            "bonito",
-            "sargo",
-            "crosshatch",
-            "blueline",
-            "taimen",
-            "walleye"
     };
 
     private static final ComponentName GMS_ADD_ACCOUNT_ACTIVITY = ComponentName.unflattenFromString(
@@ -281,10 +254,7 @@ public class PixelPropsUtils {
                 || Arrays.asList(packagesToChangePixel2).contains(packageName)
                 || Arrays.asList(packagesToChangePixel8Pro).contains(packageName)) {
 
-            boolean isPixelDevice = Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE));
-            if (isPixelDevice) {
-                return;
-            } else if (Arrays.asList(packagesToChangePixel2).contains(packageName)) {
+            if (Arrays.asList(packagesToChangePixel2).contains(packageName)) {
                 propsToChange.putAll(propsToChangePixel2);
             } else if (Arrays.asList(packagesToChangePixel8Pro).contains(packageName)) {
                 propsToChange.putAll(propsToChangePixel8Pro);
