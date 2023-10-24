@@ -10,4 +10,7 @@
     <!-- AttestationHooks -->
     <java-symbol type="array" name="config_certifiedBuildProperties" />
     <java-symbol type="string" name="config_stockFingerprint" />
+
+    <!-- Whether Pixel props is enabled -->
+    <java-symbol type="bool" name="config_enablePixelProps" />
 </resources>
