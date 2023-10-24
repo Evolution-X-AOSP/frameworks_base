@@ -122,4 +122,7 @@
         <item>lockdown</item>
         <item>devicecontrols</item>
     </string-array>
+
+    <!-- Whether Pixel props is enabled -->
+    <bool name="config_enablePixelProps">true</bool>
 </resources>
