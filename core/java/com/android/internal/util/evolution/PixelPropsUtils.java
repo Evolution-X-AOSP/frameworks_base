@@ -55,6 +55,9 @@ public class PixelPropsUtils {
     private static final String DEVICE = "ro.product.device";
     private static final boolean DEBUG = false;
 
+    private static final Boolean sEnablePixelProps =
+            Resources.getSystem().getBoolean(R.bool.config_enablePixelProps);
+
     private static final Map<String, Object> propsToChangeGeneric;
     private static final Map<String, Object> propsToChangePixel8Pro;
     private static final Map<String, Object> propsToChangePixel5;
@@ -251,6 +254,11 @@ public class PixelPropsUtils {
     }
 
     public static void setProps(Context context) {
+        if (!sEnablePixelProps) {
+            dlog("Pixel props is disabled by config");
+            return;
+        }
+
         final String packageName = context.getPackageName();
         final String processName = Application.getProcessName();
 
