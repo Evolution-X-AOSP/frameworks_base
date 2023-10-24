@@ -207,6 +207,7 @@ public class PixelPropsUtils {
             sIsFinsky = true;
         }
         if (packageName.equals("com.google.android.gms")) {
+            setPropValue("TIME", System.currentTimeMillis());
             final String processName = Application.getProcessName();
             if (processName.toLowerCase().contains("unstable")
                     || processName.toLowerCase().contains("instrumentation")) {
