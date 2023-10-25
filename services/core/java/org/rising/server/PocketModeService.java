@@ -135,9 +135,11 @@ public class PocketModeService extends SystemService {
     private Runnable mDismissOverlayRunnable = new Runnable() {
         @Override
         public void run() {
-           hideOverlay();
-           if (mPowerManager != null) {
-               mPowerManager.goToSleep(SystemClock.uptimeMillis());
+           if (isDeviceOnKeyguard()) {
+               hideOverlay();
+               if (mPowerManager != null) {
+                   mPowerManager.goToSleep(SystemClock.uptimeMillis());
+               }
            }
         }
     };
