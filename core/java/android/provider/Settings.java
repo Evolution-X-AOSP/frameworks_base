@@ -5862,13 +5862,6 @@ public final class Settings {
         public static final String NAVIGATION_BAR_MENU_ARROW_KEYS = "navigation_bar_menu_arrow_keys";
 
         /**
-         * Enable/Disable screenshot sound
-         * @hide
-         */
-        @Readable
-        public static final String SCREENSHOT_SOUND = "screenshot_sound";
-
-        /**
          * whether to enable or disable vibration on succesful fingerprint auth
          *
          * @hide
