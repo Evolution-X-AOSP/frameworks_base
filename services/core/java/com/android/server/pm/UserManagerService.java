@@ -4938,8 +4938,7 @@ public class UserManagerService extends IUserManager.Stub {
             // unlocked.  We do this to ensure that CE storage isn't prepared before the CE key is
             // saved to disk.  This also matches what is done for user 0.
             t.traceBegin("prepareUserData");
-            mUserDataPreparer.prepareUserData(userId, userInfo.serialNumber,
-                    StorageManager.FLAG_STORAGE_DE);
+            mUserDataPreparer.prepareUserData(userInfo, StorageManager.FLAG_STORAGE_DE);
             t.traceEnd();
 
             t.traceBegin("LSS.createNewUser");
@@ -6228,11 +6227,10 @@ public class UserManagerService extends IUserManager.Stub {
         }
         TimingsTraceAndSlog t = new TimingsTraceAndSlog();
         t.traceBegin("onBeforeStartUser-" + userId);
-        final int userSerial = userInfo.serialNumber;
         // Migrate only if build fingerprints mismatch
         boolean migrateAppsData = !String.valueOf(Build.TIME).equals(userInfo.lastLoggedInFingerprint);
         t.traceBegin("prepareUserData");
-        mUserDataPreparer.prepareUserData(userId, userSerial, StorageManager.FLAG_STORAGE_DE);
+        mUserDataPreparer.prepareUserData(userInfo, StorageManager.FLAG_STORAGE_DE);
         t.traceEnd();
         t.traceBegin("reconcileAppsData");
         getPackageManagerInternal().reconcileAppsData(userId, StorageManager.FLAG_STORAGE_DE,
@@ -6258,13 +6256,12 @@ public class UserManagerService extends IUserManager.Stub {
         if (userInfo == null) {
             return;
         }
-        final int userSerial = userInfo.serialNumber;
         // Migrate only if build fingerprints mismatch
         boolean migrateAppsData = !String.valueOf(Build.TIME).equals(userInfo.lastLoggedInFingerprint);
 
         final TimingsTraceAndSlog t = new TimingsTraceAndSlog();
         t.traceBegin("prepareUserData-" + userId);
-        mUserDataPreparer.prepareUserData(userId, userSerial, StorageManager.FLAG_STORAGE_CE);
+        mUserDataPreparer.prepareUserData(userInfo, StorageManager.FLAG_STORAGE_CE);
         t.traceEnd();
 
         StorageManagerInternal smInternal = LocalServices.getService(StorageManagerInternal.class);
