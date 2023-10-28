@@ -810,16 +810,8 @@ public class ApplicationPackageManager extends PackageManager {
                 }
             };
 
-    private static final String[] pTensorCodenames = {
-            "felix",
-            "tangorpro",
-            "lynx",
-            "cheetah",
-            "panther",
-            "bluejay",
-            "oriole",
-            "raven"
-    };
+    private static final Boolean sHasTensorSoC =
+            Resources.getSystem().getBoolean(com.android.internal.R.bool.config_hasTensorSoC);
 
     private static final String[] featuresPixel = {
             "com.google.android.apps.photos.PIXEL_2019_PRELOAD",
@@ -881,7 +873,7 @@ public class ApplicationPackageManager extends PackageManager {
     @Override
     public boolean hasSystemFeature(String name, int version) {
         if (name != null && Arrays.asList(featuresTensor).contains(name) &&
-                !Arrays.asList(pTensorCodenames).contains(SystemProperties.get("ro.product.device"))) {
+                !sHasTensorSoC) {
             return false;
         }
         String packageName = ActivityThread.currentPackageName();
