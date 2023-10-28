@@ -12,4 +12,7 @@
 
     <!-- Whether Pixel props is enabled -->
     <bool name="config_enablePixelProps">true</bool>
+
+    <!-- Whether device has Google Tensor SoC -->
+    <bool name="config_hasTensorSoC">false</bool>
 </resources>
