@@ -261,7 +261,6 @@ public class DisplayPolicy {
 
     private volatile boolean mHasStatusBar;
     private volatile boolean mHasNavigationBar;
-    private volatile int mForceNavbar = -1;
     // Can the navigation bar ever move to the side?
     private volatile boolean mNavigationBarCanMove;
     private volatile boolean mNavigationBarLetsThroughTaps;
@@ -822,10 +821,10 @@ public class DisplayPolicy {
 
         if (mDisplayContent.isDefaultDisplay) {
             mHasStatusBar = true;
-            mHasNavigationBar = ActionUtils.hasNavbarByDefault(mContext);
 
             // Register content observer only for main display
             mSettingsObserver = new SettingsObserver(mHandler);
+            updateSettings();
         } else {
             mHasStatusBar = false;
             mHasNavigationBar = mDisplayContent.supportsSystemDecorations();
@@ -903,11 +902,9 @@ public class DisplayPolicy {
     }
 
     public void updateSettings() {
-        ContentResolver resolver = mContext.getContentResolver();
-
-        mForceNavbar = Settings.System.getIntForUser(resolver,
-                Settings.System.FORCE_SHOW_NAVBAR, mHasNavigationBar ? 1 : 0,
-                UserHandle.USER_CURRENT);
+        mHasNavigationBar = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.FORCE_SHOW_NAVBAR, ActionUtils.hasNavbarByDefault(mContext) ? 1 : 0,
+                UserHandle.USER_CURRENT) != 0;
     }
 
     private int getDisplayId() {
@@ -962,7 +959,7 @@ public class DisplayPolicy {
     }
 
     public boolean hasNavigationBar() {
-        return mHasNavigationBar || mForceNavbar == 1;
+        return mHasNavigationBar;
     }
 
     public boolean hasStatusBar() {
