@@ -81,6 +81,9 @@ private const val POP_ON_INACTIVE_VELOCITY = -1.5f
 internal val VIBRATE_ACTIVATED_EFFECT =
     VibrationEffect.createPredefined(VibrationEffect.EFFECT_CLICK)
 
+internal val VIBRATE_DOUBLE_ACTIVATED_EFFECT =
+        VibrationEffect.createPredefined(VibrationEffect.EFFECT_DOUBLE_CLICK)
+
 internal val VIBRATE_DEACTIVATED_EFFECT =
     VibrationEffect.createPredefined(VibrationEffect.EFFECT_TICK)
 
@@ -699,7 +702,7 @@ internal constructor(
     private fun setTriggerLongSwipe(triggerLongSwipe: Boolean) {
         if (mTriggerLongSwipe != triggerLongSwipe) {
             mTriggerLongSwipe = triggerLongSwipe
-            vibratorHelper.vibrate(VIBRATE_ACTIVATED_EFFECT)
+            vibratorHelper.vibrate(VIBRATE_DOUBLE_ACTIVATED_EFFECT)
             updateRestingArrowDimens()
             // Whenever the trigger back state changes
             // the existing translation animation should be cancelled
