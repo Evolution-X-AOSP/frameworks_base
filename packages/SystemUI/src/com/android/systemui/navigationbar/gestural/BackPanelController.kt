@@ -190,6 +190,8 @@ internal constructor(
 
     private var backArrowVisibility = false
 
+    private var edgeHapticEnabled = false
+
     internal enum class GestureState {
         /* Arrow is off the screen and invisible */
         GONE,
@@ -681,6 +683,10 @@ internal constructor(
         backArrowVisibility = enabled
     }
 
+    override fun setEdgeHapticEnabled(enabled: Boolean) {
+        edgeHapticEnabled = enabled
+    }
+
     private fun isFlungAwayFromEdge(endX: Float, startX: Float = touchDeltaStartX): Boolean {
         val flingDistance = if (mView.isLeftPanel) endX - startX else startX - endX
         val flingVelocity =
@@ -940,9 +946,10 @@ internal constructor(
                     )
                 } else {
                     vibratorHelper.cancel()
-                    mainHandler.postDelayed(10L) {
-                        vibratorHelper.vibrate(VIBRATE_ACTIVATED_EFFECT)
-                    }
+                    if (edgeHapticEnabled) 
+                        mainHandler.postDelayed(10L) {
+                            vibratorHelper.vibrate(VIBRATE_ACTIVATED_EFFECT)
+                        }
                 }
                 val popVelocity =
                     if (previousState == GestureState.INACTIVE) {
@@ -970,7 +977,7 @@ internal constructor(
                         HapticFeedbackConstants.GESTURE_THRESHOLD_DEACTIVATE
                     )
                 } else {
-                    vibratorHelper.vibrate(VIBRATE_DEACTIVATED_EFFECT)
+                    if (edgeHapticEnabled) vibratorHelper.vibrate(VIBRATE_DEACTIVATED_EFFECT)
                 }
                 updateRestingArrowDimens()
             }
