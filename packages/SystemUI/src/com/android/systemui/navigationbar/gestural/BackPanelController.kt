@@ -188,6 +188,8 @@ internal constructor(
 
     private val failsafeRunnable = Runnable { onFailsafe() }
 
+    private var backArrowVisibility = false
+
     internal enum class GestureState {
         /* Arrow is off the screen and invisible */
         GONE,
@@ -675,6 +677,10 @@ internal constructor(
         windowManager.addView(mView, layoutParams)
     }
 
+    override fun setBackArrowVisibility(enabled: Boolean) {
+        backArrowVisibility = enabled
+    }
+
     private fun isFlungAwayFromEdge(endX: Float, startX: Float = touchDeltaStartX): Boolean {
         val flingDistance = if (mView.isLeftPanel) endX - startX else startX - endX
         val flingVelocity =
@@ -919,7 +925,7 @@ internal constructor(
                 mView.isVisible = false
             }
             GestureState.ENTRY -> {
-                mView.isVisible = true
+                mView.isVisible = if (backArrowVisibility) true else false
 
                 updateRestingArrowDimens()
                 gestureEntryTime = SystemClock.uptimeMillis()
