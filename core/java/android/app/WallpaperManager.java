@@ -626,10 +626,13 @@ public class WallpaperManager {
                     return mCachedWallpaper.mCachedWallpaper;
                 }
                 mCachedWallpaper = null;
-                Bitmap currentWallpaper = null;
                 try {
-                    currentWallpaper = getCurrentWallpaperLocked(
+                    Bitmap currentWallpaper = getCurrentWallpaperLocked(
                             context, which, userId, hardware, cmProxy);
+                    if (currentWallpaper != null) {
+                        mCachedWallpaper = new CachedWallpaper(currentWallpaper, userId, which);
+                        return currentWallpaper;
+                    }
                 } catch (OutOfMemoryError e) {
                     Log.w(TAG, "Out of memory loading the current wallpaper: " + e);
                 } catch (SecurityException e) {
@@ -653,10 +656,6 @@ public class WallpaperManager {
                         // Post-O apps really most sincerely need the permission.
                         throw e;
                     }
-                }
-                if (currentWallpaper != null) {
-                    mCachedWallpaper = new CachedWallpaper(currentWallpaper, userId, which);
-                    return currentWallpaper;
                 }
             }
             if (returnDefault || (which == FLAG_LOCK && isStaticWallpaper(FLAG_LOCK))) {
