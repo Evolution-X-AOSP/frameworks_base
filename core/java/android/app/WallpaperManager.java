@@ -622,15 +622,18 @@ public class WallpaperManager {
                 }
             }
             synchronized (this) {
-                if (mCachedWallpaper != null && mCachedWallpaper.isValid(userId, which) && context
-                        .checkSelfPermission(READ_WALLPAPER_INTERNAL) == PERMISSION_GRANTED) {
-                    return mCachedWallpaper.mCachedWallpaper;
-                }
-                mCachedWallpaper = null;
-                Bitmap currentWallpaper = null;
                 try {
-                    currentWallpaper = getCurrentWallpaperLocked(
+                    if (mCachedWallpaper != null && mCachedWallpaper.isValid(userId, which) && context
+                            .checkSelfPermission(READ_WALLPAPER_INTERNAL) == PERMISSION_GRANTED) {
+                        return mCachedWallpaper.mCachedWallpaper;
+                    }
+                    mCachedWallpaper = null;
+
+                    Bitmap currentWallpaper = getCurrentWallpaperLocked(
                             context, which, userId, hardware, cmProxy);
+                    if (currentWallpaper != null) {
+                        mCachedWallpaper = new CachedWallpaper(currentWallpaper, userId, which);
+                    }
                 } catch (OutOfMemoryError e) {
                     Log.w(TAG, "Out of memory loading the current wallpaper: " + e);
                 } catch (SecurityException e) {
@@ -654,10 +657,10 @@ public class WallpaperManager {
                         // Post-O apps really most sincerely need the permission.
                         throw e;
                     }
-                }
-                if (currentWallpaper != null) {
-                    mCachedWallpaper = new CachedWallpaper(currentWallpaper, userId, which);
-                    return currentWallpaper;
+                } finally {
+                    if (mCachedWallpaper != null) {
+                        return mCachedWallpaper.mCachedWallpaper;
+                    }
                 }
             }
             if (returnDefault || (which == FLAG_LOCK && isStaticWallpaper(FLAG_LOCK))) {
