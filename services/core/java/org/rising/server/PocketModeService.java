@@ -15,6 +15,7 @@
  */
 package org.rising.server;
 
+import android.app.ActivityManager;
 import android.app.KeyguardManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -84,10 +85,10 @@ public class PocketModeService extends SystemService {
     }
 
     private boolean isPocketModeEnabled() {
-        return Settings.Secure.getInt(
+        return Settings.Secure.getIntForUser(
                 mContext.getContentResolver(),
                 POCKET_MODE_ENABLED,
-                0) == 1;
+                0, ActivityManager.getCurrentUser()) == 1;
     }
 
     private void registerListeners() {
