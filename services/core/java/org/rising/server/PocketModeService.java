@@ -47,7 +47,7 @@ import com.android.server.SystemService;
 
 public class PocketModeService extends SystemService {
 
-    private static final long TIMEOUT_DELAY = 15000;
+    private static final long TIMEOUT_DELAY = 5000;
     
     private final Handler mTimeoutHandler = new Handler();
 
