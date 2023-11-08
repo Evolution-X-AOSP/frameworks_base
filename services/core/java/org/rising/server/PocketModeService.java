@@ -34,6 +34,7 @@ import android.os.PowerManager;
 import android.os.SystemClock;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.telephony.TelephonyManager;
 import android.provider.Settings;
 import android.view.GestureDetector;
 import android.view.Gravity;
@@ -56,6 +57,7 @@ public class PocketModeService extends SystemService {
     private GestureDetector mGestureDetector;
     private PowerManager mPowerManager;
     private WindowManager.LayoutParams mLayoutParams;
+    private TelephonyManager mTelephonyManager;
 
     private BroadcastReceiver mScreenStateReceiver;
     private ContentObserver mSettingsObserver;
@@ -148,7 +150,7 @@ public class PocketModeService extends SystemService {
         final Runnable show = new Runnable() {
             @Override
             public void run() {
-                if (mWindowManager != null && !mAttached && isDeviceOnKeyguard()) {
+                if (!isCallInProgress() && mWindowManager != null && !mAttached && isDeviceOnKeyguard()) {
                     mWindowManager.addView(mOverlayView, mLayoutParams);
                     mOverlayView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN
                             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
@@ -255,6 +257,7 @@ public class PocketModeService extends SystemService {
         mSensorManager = (SensorManager) mContext.getSystemService(Context.SENSOR_SERVICE);
         mKeyguardManager = (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
         mPowerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
+        mTelephonyManager = (TelephonyManager) mContext.getSystemService(Context.TELEPHONY_SERVICE);
         if (mSensorManager != null) {
             mAccelerometerSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         }
@@ -335,4 +338,13 @@ public class PocketModeService extends SystemService {
     private boolean isDeviceOnKeyguard() {
         return mKeyguardManager != null && mKeyguardManager.isDeviceLocked();
     }
+    
+    private boolean isCallInProgress() {
+        if (mTelephonyManager != null) {
+            int callState = mTelephonyManager.getCallState();
+            return callState != mTelephonyManager.CALL_STATE_IDLE;
+        }
+        return false;
+    }
+
 }
