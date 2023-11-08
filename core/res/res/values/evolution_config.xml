@@ -128,4 +128,8 @@
 
     <!-- Whether device has Google Tensor SoC -->
     <bool name="config_hasTensorSoC">false</bool>
+
+    <!-- Default values for status bar DT2S gesture -->
+    <bool name="config_dt2sGestureAvailable">true</bool>
+    <bool name="config_dt2sGestureEnabledByDefault">true</bool>
 </resources>
