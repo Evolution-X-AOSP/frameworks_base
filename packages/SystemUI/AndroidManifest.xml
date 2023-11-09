@@ -490,6 +490,7 @@
                 android:exported="true" />
 
         <activity android:name=".tuner.TunerActivity"
+                  android:enabled="false"
                   android:icon="@drawable/tuner"
                   android:theme="@style/Theme.SubSettingsBase"
                   android:label="@string/system_ui_tuner"
