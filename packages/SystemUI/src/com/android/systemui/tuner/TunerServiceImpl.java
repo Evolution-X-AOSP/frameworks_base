@@ -69,7 +69,7 @@ public class TunerServiceImpl extends TunerService {
     private static final String TAG = "TunerService";
     private static final String TUNER_VERSION = "sysui_tuner_version";
 
-    private static final int CURRENT_TUNER_VERSION = 5;
+    private static final int CURRENT_TUNER_VERSION = 4;
 
     // Things that use the tunable infrastructure but are now real user settings and
     // shouldn't be reset with tuner settings.
@@ -163,8 +163,8 @@ public class TunerServiceImpl extends TunerService {
                         TextUtils.join(",", iconHideList), mCurrentUser);
             }
         }
-        if (oldVersion < 5) {
-            setTunerEnabled(true);
+        if (oldVersion < 2) {
+            setTunerEnabled(false);
         }
         setValue(TUNER_VERSION, newVersion);
     }
