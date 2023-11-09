@@ -621,17 +621,17 @@ public class WallpaperManager {
                 }
             }
             synchronized (this) {
-                if (mCachedWallpaper != null && mCachedWallpaper.isValid(userId, which) && context
-                        .checkSelfPermission(READ_WALLPAPER_INTERNAL) == PERMISSION_GRANTED) {
-                    return mCachedWallpaper.mCachedWallpaper;
-                }
-                mCachedWallpaper = null;
                 try {
+                    if (mCachedWallpaper != null && mCachedWallpaper.isValid(userId, which) && context
+                            .checkSelfPermission(READ_WALLPAPER_INTERNAL) == PERMISSION_GRANTED) {
+                        return mCachedWallpaper.mCachedWallpaper;
+                    }
+                    mCachedWallpaper = null;
+
                     Bitmap currentWallpaper = getCurrentWallpaperLocked(
                             context, which, userId, hardware, cmProxy);
                     if (currentWallpaper != null) {
                         mCachedWallpaper = new CachedWallpaper(currentWallpaper, userId, which);
-                        return currentWallpaper;
                     }
                 } catch (OutOfMemoryError e) {
                     Log.w(TAG, "Out of memory loading the current wallpaper: " + e);
@@ -655,6 +655,10 @@ public class WallpaperManager {
                     } else {
                         // Post-O apps really most sincerely need the permission.
                         throw e;
+                    }
+                } finally {
+                    if (mCachedWallpaper != null) {
+                        return mCachedWallpaper.mCachedWallpaper;
                     }
                 }
             }
