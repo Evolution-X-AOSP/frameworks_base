@@ -66,17 +66,19 @@ public class InstallInstalling extends AlertActivity {
     /** The button that can cancel this dialog */
     private Button mCancelButton;
 
+    private ApplicationInfo mAppInfo;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ApplicationInfo appInfo = getIntent()
+        mAppInfo = getIntent()
                 .getParcelableExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO);
         mPackageURI = getIntent().getData();
 
         if (PackageInstallerActivity.SCHEME_PACKAGE.equals(mPackageURI.getScheme())) {
             try {
-                getPackageManager().installExistingPackage(appInfo.packageName);
+                getPackageManager().installExistingPackage(mAppInfo.packageName);
                 launchSuccess();
             } catch (PackageManager.NameNotFoundException e) {
                 launchFailure(PackageInstaller.STATUS_FAILURE,
@@ -86,7 +88,7 @@ public class InstallInstalling extends AlertActivity {
             // ContentResolver.SCHEME_FILE
             // STAGED_SESSION_ID extra contains an ID of a previously staged install session.
             final File sourceFile = new File(mPackageURI.getPath());
-            PackageUtil.AppSnippet as = PackageUtil.getAppSnippet(this, appInfo, sourceFile);
+            PackageUtil.AppSnippet as = PackageUtil.getAppSnippet(this, mAppInfo, sourceFile);
 
             mAlert.setIcon(as.icon);
             mAlert.setTitle(as.label);
@@ -154,6 +156,7 @@ public class InstallInstalling extends AlertActivity {
         Intent successIntent = new Intent(getIntent());
         successIntent.setClass(this, InstallSuccess.class);
         successIntent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+        successIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO, mAppInfo);
 
         startActivity(successIntent);
         finish();
