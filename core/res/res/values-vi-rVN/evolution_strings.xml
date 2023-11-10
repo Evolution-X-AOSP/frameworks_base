@@ -4,13 +4,6 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced reboot -->
-    <string name="reboot_to_recovery_title">Recovery</string>
-    <string name="reboot_to_recovery_message">Đang khởi động lại vào Recovery</string>
-    <string name="reboot_to_bootloader_title">Bootloader</string>
-    <string name="reboot_to_bootloader_message">Đang khởi động lại vào Bootloader</string>
-    <string name="reboot_title">Khởi động lại</string>
-    <string name="reboot_message">Đang khởi động lại hệ thống</string>
     <!-- Button that copies the url to the log of a crashed application -->
     <string name="aerr_copy">Sao chép URL nhật ký sự cố</string>
     <string name="url_copy_success">Đã sao chép URL thành công</string>
@@ -18,12 +11,6 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Yêu cầu khởi động lại SystemUI (Giao diện người dùng)</string>
     <string name="systemui_restart_message">Để mọi thay đổi được áp dụng, phải khởi động lại SystemUI. Khởi động lại bây giờ?</string>
-    <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Nhấn và giữ nút nguồn để mở khoá</string>
-    <string name="pocket_view_title">Chế độ bỏ túi đang bật</string>
-    <string name="pocket_view_title_cancel">Để sử dụng điện thoại của bạn:</string>
-    <string name="pocket_view_top_tag_cancel">Hãy đảm bảo không có vật cản và làm sạch bụi bẩn trên vùng màu xanh của điện thoại.</string>
-    <string name="pocket_view_top_tag_cancel2">Nhấn và giữ nút nguồn để buộc thoát khỏi chế độ bỏ túi</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Tự động</string>
     <string name="live_display_auto_summary">Tự động điều chỉnh nhiệt độ màu của màn hình sau khi mặt trời lặn và mặt trời mọc</string>
@@ -46,19 +33,11 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay đã đổi sang chế độ ban ngày.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay đã đổi sang chế độ ban đêm.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay đã đổi sang chế độ ngoài trời.</string>
-    <!-- Cycle through ringer modes -->
-    <string name="volume_dialog_ringer_guidance_normal">Cuộc gọi và thông báo sẽ rung</string>
-    <!-- App lock -->
-    <string name="unlock_application">Mở khóa <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
-    <!-- Face unlock -->
-    <string name="face_unlock_disabled_idle">Mở khóa bằng khuôn mặt bị tắt do không hoạt động</string>
-    <!-- Lock gesture -->
-    <string name="gesture_locked_warning">Vuốt lại để mở khóa cử chỉ</string>
-    <!-- Sleep Mode -->
-    <string name="notification_channel_sleep">Chế độ ngủ</string>
-    <string name="sleep_mode_notification_title">Đã bật chế độ ngủ</string>
-    <string name="sleep_mode_notification_content">Nhấn để tắt chế độ ngủ</string>
-    <string name="sleep_mode_enabled_toast">Đã bật chế độ ngủ</string>
-    <string name="sleep_mode_disabled_toast">Chế độ ngủ đã tắt</string>
-    <!-- Parallel space badge -->
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Đang khởi động lại vào Recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Đang khởi động lại vào Bootloader</string>
+    <string name="reboot_title">Khởi động lại</string>
+    <string name="reboot_message">Đang khởi động lại hệ thống</string>
 </resources>

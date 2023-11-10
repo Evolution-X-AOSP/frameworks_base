@@ -4,13 +4,6 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced reboot -->
-    <string name="reboot_to_recovery_title">Recovery</string>
-    <string name="reboot_to_recovery_message">Restartování do recovery</string>
-    <string name="reboot_to_bootloader_title">Fastboot</string>
-    <string name="reboot_to_bootloader_message">Restartování do fastboot</string>
-    <string name="reboot_title">Restartovat</string>
-    <string name="reboot_message">Restartování systému</string>
     <!-- Button that copies the url to the log of a crashed application -->
     <string name="aerr_copy">Kopírovat URL protokolu o selhání</string>
     <string name="url_copy_success">URL úspěšně zkopírována</string>
@@ -40,19 +33,11 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay změněn na režim ve dne.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay změněn na režim v noci.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay změněn na režim venku.</string>
-    <!-- Cycle through ringer modes -->
-    <string name="volume_dialog_ringer_guidance_normal">Volání a oznámení budou vyzvánět</string>
-    <!-- App lock -->
-    <string name="unlock_application">Odemknout <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
-    <!-- Face unlock -->
-    <string name="face_unlock_disabled_idle">Odemknutí obličejem vypnuto z důvodu nečinnosti</string>
-    <!-- Lock gesture -->
-    <string name="gesture_locked_warning">Opětovným přejetím odemknete gesta</string>
-    <!-- Sleep Mode -->
-    <string name="notification_channel_sleep">Režim spánku</string>
-    <string name="sleep_mode_notification_title">Režim spánku zapnutý</string>
-    <string name="sleep_mode_notification_content">Klepněte sem pro vypnutí režimu spánku</string>
-    <string name="sleep_mode_enabled_toast">Režim spánku je zapnutý</string>
-    <string name="sleep_mode_disabled_toast">Režim spánku je vypnutý</string>
-    <!-- Parallel space badge -->
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Restartování do recovery</string>
+    <string name="reboot_to_bootloader_title">Fastboot</string>
+    <string name="reboot_to_bootloader_message">Restartování do fastboot</string>
+    <string name="reboot_title">Restartovat</string>
+    <string name="reboot_message">Restartování systému</string>
 </resources>

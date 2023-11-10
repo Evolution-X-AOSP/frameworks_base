@@ -4,13 +4,6 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced reboot -->
-    <string name="reboot_to_recovery_title">Recovery</string>
-    <string name="reboot_to_recovery_message">Repornire în Recovery</string>
-    <string name="reboot_to_bootloader_title">Bootloader</string>
-    <string name="reboot_to_bootloader_message">Repornire în bootloader</string>
-    <string name="reboot_title">Repornire</string>
-    <string name="reboot_message">Repornire sistem</string>
     <!-- Button that copies the url to the log of a crashed application -->
     <string name="aerr_copy">Copiază URL-ul jurnalului de erori</string>
     <string name="url_copy_success">URL copiat cu succes</string>
@@ -40,19 +33,11 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay s-a schimbat la modul zi.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay s-a schimbat la modul noapte.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay s-a schimbat la modul exterior.</string>
-    <!-- Cycle through ringer modes -->
-    <string name="volume_dialog_ringer_guidance_normal">Apelurile și notificările vor suna</string>
-    <!-- App lock -->
-    <string name="unlock_application">Deblocare <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
-    <!-- Face unlock -->
-    <string name="face_unlock_disabled_idle">Deblocarea facială a fost dezactivată din cauza inactivității</string>
-    <!-- Lock gesture -->
-    <string name="gesture_locked_warning">Glisați din nou pentru a debloca gesturile</string>
-    <!-- Sleep Mode -->
-    <string name="notification_channel_sleep">Modul suspendare</string>
-    <string name="sleep_mode_notification_title">Modul suspendare este activat</string>
-    <string name="sleep_mode_notification_content">Atingeți pentru a dezactiva modul suspendare</string>
-    <string name="sleep_mode_enabled_toast">Modul suspendare este activat</string>
-    <string name="sleep_mode_disabled_toast">Modul suspendare este dezactivat</string>
-    <!-- Parallel space badge -->
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Repornire în Recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Repornire în bootloader</string>
+    <string name="reboot_title">Repornire</string>
+    <string name="reboot_message">Repornire sistem</string>
 </resources>
