@@ -126,9 +126,6 @@ public class NotificationShadeWindowViewController {
     private final SystemClock mClock;
     private final @Nullable MultiShadeMotionEventInteractor mMultiShadeMotionEventInteractor;
 
-    private GestureDetector mQQSGestureHandler;
-    private final QQSGestureListener mQQSGestureListener;
-
     @Inject
     public NotificationShadeWindowViewController(
             LockscreenShadeTransitionController transitionController,
@@ -157,8 +154,7 @@ public class NotificationShadeWindowViewController {
             FeatureFlags featureFlags,
             Provider<MultiShadeInteractor> multiShadeInteractorProvider,
             SystemClock clock,
-            Provider<MultiShadeMotionEventInteractor> multiShadeMotionEventInteractorProvider,
-            QQSGestureListener qqsGestureListener) {
+            Provider<MultiShadeMotionEventInteractor> multiShadeMotionEventInteractorProvider) {
         mLockscreenShadeTransitionController = transitionController;
         mFalsingCollector = falsingCollector;
         mStatusBarStateController = statusBarStateController;
@@ -179,7 +175,6 @@ public class NotificationShadeWindowViewController {
         mPulsingGestureListener = pulsingGestureListener;
         mNotificationInsetsController = notificationInsetsController;
         mIsTrackpadCommonEnabled = featureFlags.isEnabled(TRACKPAD_GESTURE_COMMON);
-        mQQSGestureListener = qqsGestureListener;
 
         // This view is not part of the newly inflated expanded status bar.
         mBrightnessMirror = mView.findViewById(R.id.brightness_mirror_container);
@@ -224,8 +219,6 @@ public class NotificationShadeWindowViewController {
         mStackScrollLayout = mView.findViewById(R.id.notification_stack_scroller);
         mPulsingWakeupGestureHandler = new GestureDetector(mView.getContext(),
                 mPulsingGestureListener);
-        mQQSGestureHandler = new GestureDetector(mView.getContext(),
-                mQQSGestureListener);
 
         mView.setLayoutInsetsController(mNotificationInsetsController);
         mView.setInteractionEventHandler(new NotificationShadeWindowView.InteractionEventHandler() {
@@ -279,12 +272,7 @@ public class NotificationShadeWindowViewController {
                 }
 
                 mFalsingCollector.onTouchEvent(ev);
-                mQQSGestureHandler.onTouchEvent(ev);
-                // Pass touch events to the pulsing gesture listener only if it's dozing,
-                // otherwise lockscreen DT2S and AOD DT2W will conflict.
-                if (mStatusBarStateController.isDozing()) {
-                    mPulsingWakeupGestureHandler.onTouchEvent(ev);
-                }
+                mPulsingWakeupGestureHandler.onTouchEvent(ev);
                 if (mStatusBarKeyguardViewManager.dispatchTouchEvent(ev)) {
                     return true;
                 }

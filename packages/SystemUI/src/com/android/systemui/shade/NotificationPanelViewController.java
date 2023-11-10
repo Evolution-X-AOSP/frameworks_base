@@ -55,9 +55,9 @@ import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.StatusBarManager;
 import android.content.ContentResolver;
-import android.content.Context;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
+import android.content.Context;
 import android.database.ContentObserver;
 import android.graphics.Color;
 import android.graphics.Insets;
@@ -289,8 +289,6 @@ public final class NotificationPanelViewController implements ShadeSurface, Dump
     private static final String COUNTER_PANEL_OPEN_PEEK = "panel_open_peek";
     private static final String DOUBLE_TAP_SLEEP_GESTURE =
             "system:" + Settings.System.DOUBLE_TAP_SLEEP_GESTURE;
-     private static final String DOUBLE_TAP_SLEEP_LOCKSCREEN =
-             "system:" + Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN;
     private static final String NOTIFICATION_MATERIAL_DISMISS =
             "system:" + Settings.System.NOTIFICATION_MATERIAL_DISMISS;
     private static final String RETICKER_STATUS =
@@ -528,8 +526,6 @@ public final class NotificationPanelViewController implements ShadeSurface, Dump
     private final int mDisplayId;
     private boolean mDoubleTapToSleepEnabled;
     private GestureDetector mDoubleTapGesture;
-
-    private boolean mIsLockscreenDoubleTapEnabled;
 
     private final KeyguardIndicationController mKeyguardIndicationController;
     private int mHeadsUpInset;
@@ -4524,7 +4520,6 @@ public final class NotificationPanelViewController implements ShadeSurface, Dump
             mStatusBarStateListener.onStateChanged(mStatusBarStateController.getState());
             mConfigurationController.addCallback(mConfigurationListener);
             mTunerService.addTunable(this, DOUBLE_TAP_SLEEP_GESTURE);
-            mTunerService.addTunable(this, DOUBLE_TAP_SLEEP_LOCKSCREEN);
             mTunerService.addTunable(this, NOTIFICATION_MATERIAL_DISMISS);
             mTunerService.addTunable(this, RETICKER_STATUS);
             mTunerService.addTunable(this, RETICKER_COLORED);
@@ -4553,12 +4548,6 @@ public final class NotificationPanelViewController implements ShadeSurface, Dump
             switch (key) {
                 case DOUBLE_TAP_SLEEP_GESTURE:
                     mDoubleTapToSleepEnabled =
-                            TunerService.parseIntegerSwitch(newValue,
-                                mResources.getBoolean(com.android.internal.R.bool.
-                                config_dt2sGestureEnabledByDefault));
-                    break;
-                case DOUBLE_TAP_SLEEP_LOCKSCREEN:
-                    mIsLockscreenDoubleTapEnabled =
                             TunerService.parseIntegerSwitch(newValue,
                                 mResources.getBoolean(com.android.internal.R.bool.
                                 config_dt2sGestureEnabledByDefault));
@@ -4908,10 +4897,7 @@ public final class NotificationPanelViewController implements ShadeSurface, Dump
                 return false;
             }
 
-            if ((mIsLockscreenDoubleTapEnabled && !mPulsing && !mDozing
-                    && mBarState == StatusBarState.KEYGUARD) ||
-                    (!mQsController.getExpanded() && mDoubleTapToSleepEnabled
-                    && event.getY() < mStatusBarHeaderHeightKeyguard)) {
+            if (mDoubleTapToSleepEnabled && !mPulsing && !mDozing) {
                 mDoubleTapGesture.onTouchEvent(event);
             }
 
