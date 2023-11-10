@@ -4,13 +4,6 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced reboot -->
-    <string name="reboot_to_recovery_title">Recovery</string>
-    <string name="reboot_to_recovery_message">Memulai ulang ke recovery</string>
-    <string name="reboot_to_bootloader_title">Bootloader</string>
-    <string name="reboot_to_bootloader_message">Memulai ulang ke bootloader</string>
-    <string name="reboot_title">Mulai ulang</string>
-    <string name="reboot_message">Memulai ulang sistem</string>
     <!-- Button that copies the url to the log of a crashed application -->
     <string name="aerr_copy">Salin tautan log kerusakan</string>
     <string name="url_copy_success">Tautan berhasil disalin</string>
@@ -18,12 +11,6 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Diperlukan memulai ulang SistemUI</string>
     <string name="systemui_restart_message">Untuk melihat semua perubahan, diperlukan memulai ulang SistemUI. Mulai ulang sekarang?</string>
-    <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Tekan dan tahan tombol daya untuk membuka kunci</string>
-    <string name="pocket_view_title">Mode saku aktif</string>
-    <string name="pocket_view_title_cancel">Untuk mengaktifkan ponsel Anda:</string>
-    <string name="pocket_view_top_tag_cancel">Harap jangan tutupi area biru ponsel Anda dan bersihkan kotoran atau debu darinya.</string>
-    <string name="pocket_view_top_tag_cancel2">Tekan lama tombol daya untuk memaksa keluar dari mode saku.</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Otomatis</string>
     <string name="live_display_auto_summary">Otomatis mengatur suhu warna di layar setelah matahari terbenam dan matahari terbit</string>
@@ -46,19 +33,11 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay diubah ke mode siang hari.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay diubah ke mode malam hari.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay diubah ke mode luar ruangan.</string>
-    <!-- Cycle through ringer modes -->
-    <string name="volume_dialog_ringer_guidance_normal">Panggilan dan notifikasi akan berdering</string>
-    <!-- App lock -->
-    <string name="unlock_application">Buka <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
-    <!-- Face unlock -->
-    <string name="face_unlock_disabled_idle">Face unlock dinonaktifkan karena tidak ada aktivitas</string>
-    <!-- Lock gesture -->
-    <string name="gesture_locked_warning">Gesek lagi untuk membuka kunci gestur</string>
-    <!-- Sleep Mode -->
-    <string name="notification_channel_sleep">Mode Tidur</string>
-    <string name="sleep_mode_notification_title">Mode Tidur diaktifkan</string>
-    <string name="sleep_mode_notification_content">Ketuk untuk menonaktifkan Mode Tidur</string>
-    <string name="sleep_mode_enabled_toast">Mode Tidur diaktifkan</string>
-    <string name="sleep_mode_disabled_toast">Mode Tidur dinonaktifkan</string>
-    <!-- Parallel space badge -->
+    <!-- Advanced reboot -->
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Memulai ulang ke recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Memulai ulang ke bootloader</string>
+    <string name="reboot_title">Mulai ulang</string>
+    <string name="reboot_message">Memulai ulang sistem</string>
 </resources>
