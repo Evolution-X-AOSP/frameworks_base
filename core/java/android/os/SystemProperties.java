@@ -100,6 +100,15 @@ public class SystemProperties {
     // indicates. Let's just live with having a Java function with a very unusual name.
     @UnsupportedAppUsage
     private static String native_get(String key) {
+        if (key.startsWith("ro.vendor.build.")) {
+            if (key.matches(".*\\.(date|fingerprint|id|tags|type)")) {
+                key = key.replace("ro.vendor.build.", "ro.system.build.");
+            }
+        } else if (key.endsWith(".build.tags")) {
+            return "release-keys";
+        } else if (key.endsWith(".build.type")) {
+            return "user";
+        }
         return native_get(key, "");
     }
 
