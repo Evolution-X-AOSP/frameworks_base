@@ -123,7 +123,6 @@ class NotificationShadeWindowViewTest : SysuiTestCase() {
     @Mock
     private lateinit var primaryBouncerToGoneTransitionViewModel:
         PrimaryBouncerToGoneTransitionViewModel
-    @Mock private lateinit var qqsGestureListener: QQSGestureListener
     @Captor
     private lateinit var interactionEventHandlerCaptor: ArgumentCaptor<InteractionEventHandler>
 
@@ -202,7 +201,6 @@ class NotificationShadeWindowViewTest : SysuiTestCase() {
                 ),
                 BouncerLogger(logcatLogBuffer("BouncerLog")),
                 Mockito.mock(KeyEventInteractor::class.java),
-                qqsGestureListener,
             )
 
         controller.setupExpandedStatusBar()
