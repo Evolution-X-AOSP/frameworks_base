@@ -143,7 +143,7 @@
     <string name="refresh_rate_tile_label">Frissítési gyakoriság</string>
     <string name="auto_mode_label">Automatikus</string>
     <!-- Screenshot Tile -->
-    <string name="screenshot_long_press">Részleges képernyőmentésért nyomja hosszan</string>
+    <string name="screenshot_long_press">Hosszannyomás - kijelölt terület</string>
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Nyelv</string>
     <string name="quick_settings_locale_more_locales_toast">A kapcsolónak csak több nyelv esetén van értelme, állítson be többet</string>
