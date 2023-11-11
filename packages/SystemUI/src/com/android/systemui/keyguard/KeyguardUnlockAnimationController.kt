@@ -27,6 +27,8 @@ import android.os.DeadObjectException
 import android.os.Handler
 import android.os.PowerManager
 import android.os.RemoteException
+import android.os.UserHandle
+import android.provider.Settings
 import android.util.Log
 import android.view.RemoteAnimationTarget
 import android.view.SurfaceControl
@@ -330,6 +332,10 @@ class KeyguardUnlockAnimationController @Inject constructor(
 
     private val tmpFloat = FloatArray(9)
 
+    private val isRippleEnabled: Boolean
+        get() = Settings.System.getIntForUser(context.contentResolver,
+            Settings.System.ENABLE_RIPPLE_EFFECT, 1, UserHandle.USER_CURRENT) == 1
+
     init {
         with(surfaceBehindAlphaAnimator) {
             duration = surfaceBehindFadeOutDurationMs()
@@ -424,7 +430,8 @@ class KeyguardUnlockAnimationController @Inject constructor(
                 // If the launcher is underneath, but we're about to launch an activity, don't do
                 // the animations since they won't be visible.
                 !notificationShadeWindowController.isLaunchingActivity &&
-                launcherUnlockController != null
+                launcherUnlockController != null &&
+                !(biometricUnlockControllerLazy.get().isWakeAndUnlock && !isRippleEnabled)
     }
 
     /**
