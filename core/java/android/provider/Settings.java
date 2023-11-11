@@ -6348,12 +6348,6 @@ public final class Settings {
         public static final String SWIPE_TO_SCREENSHOT = "swipe_to_screenshot";
 
         /**
-         * Switch between filters for lockscreen album art
-         * @hide
-         */
-        public static final String LOCKSCREEN_ALBUMART_FILTER = "lockscreen_albumart_filter";
-
-        /**
          * reTicker Status
          * @hide
          */
@@ -12434,12 +12428,6 @@ public final class Settings {
         public static final String GAME_OVERLAY = "game_overlay";
 
         /**
-         * Whether to pulse ambient on new music tracks
-         * @hide
-         */
-        public static final String PULSE_ON_NEW_TRACKS = "pulse_on_new_tracks";
-
-        /**
          * Whether to show or hide the arrow for back gesture
          * @hide
          */
@@ -12800,13 +12788,6 @@ public final class Settings {
          */
         public static final String POCKET_MODE_ENABLED
                 = "pocket_mode_enabled";
-
-        /**
-         * Whether to show media art on lockscreen
-         * Boolean setting. 0 = off, 1 = on.
-         * @hide
-         */
-        public static final String LOCKSCREEN_MEDIA_METADATA = "lockscreen_media_metadata";
 
         /**
          * Whether volume panel should appear on the left (or right).

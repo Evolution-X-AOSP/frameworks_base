@@ -18,6 +18,7 @@ package com.android.systemui.statusbar
 
 import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.graphics.Point
 import android.graphics.Rect
 import android.renderscript.Allocation
@@ -32,9 +33,9 @@ import com.android.systemui.statusbar.notification.MediaNotificationProcessor
 import javax.inject.Inject
 
 private const val TAG = "MediaArtworkProcessor"
-private const val COLOR_ALPHA = 255
-private const val BLUR_RADIUS = 1f
-private const val DOWNSAMPLE = 1
+private const val COLOR_ALPHA = (255 * 0.7f).toInt()
+private const val BLUR_RADIUS = 25f
+private const val DOWNSAMPLE = 6
 
 @SysUISingleton
 class MediaArtworkProcessor @Inject constructor() {
@@ -77,6 +78,10 @@ class MediaArtworkProcessor @Inject constructor() {
             blur.forEach(output)
             output.copyTo(outBitmap)
 
+            val swatch = MediaNotificationProcessor.findBackgroundSwatch(artwork)
+
+            val canvas = Canvas(outBitmap)
+            canvas.drawColor(ColorUtils.setAlphaComponent(swatch.rgb, COLOR_ALPHA))
             return outBitmap
         } catch (ex: IllegalArgumentException) {
             Log.e(TAG, "error while processing artwork", ex)
