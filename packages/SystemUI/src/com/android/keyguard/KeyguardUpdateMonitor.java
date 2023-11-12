@@ -3256,6 +3256,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
         mLogger.logSimState(subId, slotId, state);
 
         boolean becameAbsent = false;
+        boolean becameNotReady = false;
         if (!SubscriptionManager.isValidSubscriptionId(subId)) {
             mLogger.w("invalid subId in handleSimStateChange()");
             /* Only handle No SIM(ABSENT) and Card Error(CARD_IO_ERROR) due to
@@ -3274,6 +3275,13 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
                 }
             } else if (state == TelephonyManager.SIM_STATE_CARD_IO_ERROR) {
                 updateTelephonyCapable(true);
+            } else if (state == TelephonyManager.SIM_STATE_NOT_READY) {
+                becameNotReady = true;
+                for (SimData data : mSimDatas.values()) {
+                    if (data.slotId == slotId) {
+                        data.simState = TelephonyManager.SIM_STATE_NOT_READY;
+                    }
+                }
             }
         }
 
@@ -3291,7 +3299,8 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
             data.subId = subId;
             data.slotId = slotId;
         }
-        if ((changed || becameAbsent)) {
+        if ((changed || becameAbsent || becameNotReady)
+                && state != TelephonyManager.SIM_STATE_UNKNOWN) {
             for (int i = 0; i < mCallbacks.size(); i++) {
                 KeyguardUpdateMonitorCallback cb = mCallbacks.get(i).get();
                 if (cb != null) {
