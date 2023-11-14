@@ -42,6 +42,7 @@ import android.graphics.Point;
 import android.graphics.Rect;
 import android.hardware.HardwareBuffer;
 import android.os.IBinder;
+import android.os.PowerManager;
 import android.os.Trace;
 import android.util.Slog;
 import android.util.proto.ProtoOutputStream;
@@ -115,6 +116,8 @@ class ScreenRotationAnimation {
     private SurfaceControl mBackColorSurface;
     private BlackFrame mEnteringBlackFrame;
 
+    private final PowerManager.WakeLock mWakeLock;
+
     private final int mOriginalRotation;
     private final int mOriginalWidth;
     private final int mOriginalHeight;
@@ -143,6 +146,10 @@ class ScreenRotationAnimation {
         final Rect currentBounds = displayContent.getBounds();
         final int width = currentBounds.width();
         final int height = currentBounds.height();
+
+        PowerManager powerManager = (PowerManager)mContext.getSystemService(Context.POWER_SERVICE);
+        mWakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "RotationAnimation");
+        mWakeLock.setReferenceCounted(false);
 
         // Screenshot does NOT include rotation!
         final DisplayInfo displayInfo = displayContent.getDisplayInfo();
@@ -483,6 +490,7 @@ class ScreenRotationAnimation {
             }
         }
 
+        mWakeLock.acquire(1000);
         if (customAnim) {
             mSurfaceRotationAnimationController.startCustomAnimation();
         } else {
@@ -823,6 +831,7 @@ class ScreenRotationAnimation {
                     kill();
                 }
                 mService.updateRotation(false, false);
+                mWakeLock.release();
             }
         }
 
