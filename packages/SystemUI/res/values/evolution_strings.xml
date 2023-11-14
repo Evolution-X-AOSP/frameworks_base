@@ -67,9 +67,6 @@
     <!-- Text to use when the number in a notification info is too large -->
     <string name="status_bar_notification_info_overflow" translatable="false">\u221E</string>
 
-    <!-- Label for area where tiles can be added to the qs panel -->
-    <string name="drag_or_tap_to_add_tiles">Hold &amp; drag or tap to add tiles</string>
-
     <!-- Advanced Reboot -->
     <string name="global_action_restart_advanced">Advanced</string>
     <string name="global_action_restart_recovery">Recovery</string>

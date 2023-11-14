@@ -2080,6 +2080,12 @@
     <!-- Label for area where tiles can be dragged in to [CHAR LIMIT=60] -->
     <string name="drag_to_remove_tiles">Drag here to remove</string>
 
+    <!-- Label for the area where tiles can be added to the Quick Settings panel -->
+    <string name="drag_or_tap_to_add_tiles">Hold &amp; drag or tap to add tiles</string>
+
+    <!-- Label for the area where tiles can be dragged in to remove -->
+    <string name="drag_to_tap_to_remove_tiles">Tap an active tile or drag here to remove</string>
+
     <!-- Label to indicate to users that additional tiles cannot be removed. [CHAR LIMIT=60] -->
     <string name="drag_to_remove_disabled">You need at least <xliff:g id="min_num_tiles" example="6">%1$d</xliff:g> tiles</string>
 
