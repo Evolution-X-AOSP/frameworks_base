@@ -263,11 +263,13 @@ public abstract class WindowDecoration<T extends View & TaskFocusStateConsumer>
                 .setShadowRadius(mTaskSurface, shadowRadius)
                 .setColor(mTaskSurface, mTmpColor)
                 .show(mTaskSurface);
+        final float scale = mDecorWindowContext.getResources().getDisplayMetrics().density;
+        final int cornerRadiusPixels = (int) (28 * scale + 0.5f);
         finishT.setPosition(mTaskSurface, taskPosition.x, taskPosition.y)
                 .setWindowCrop(mTaskSurface, outResult.mWidth, outResult.mHeight);
         if (mTaskInfo.getWindowingMode() == WINDOWING_MODE_FREEFORM) {
-            startT.setCornerRadius(mTaskSurface, params.mCornerRadius);
-            finishT.setCornerRadius(mTaskSurface, params.mCornerRadius);
+            startT.setCornerRadius(mTaskSurface, cornerRadiusPixels);
+            finishT.setCornerRadius(mTaskSurface, cornerRadiusPixels);
         }
 
         if (mCaptionWindowManager == null) {

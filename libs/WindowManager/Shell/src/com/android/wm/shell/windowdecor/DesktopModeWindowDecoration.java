@@ -182,10 +182,9 @@ public class DesktopModeWindowDecoration extends WindowDecoration<WindowDecorLin
         mRelayoutParams.mShadowRadiusId = shadowRadiusID;
         mRelayoutParams.mApplyStartTransactionOnDraw = applyStartTransactionOnDraw;
 
-        final TypedArray ta = mContext.obtainStyledAttributes(
-                new int[]{android.R.attr.dialogCornerRadius});
-        mRelayoutParams.mCornerRadius = ta.getDimensionPixelSize(0, 0);
-        ta.recycle();
+        final float scale = mContext.getResources().getDisplayMetrics().density;
+        final int cornerRadiusPx = (int) (28 * scale + 0.5f);
+        mRelayoutParams.mCornerRadius = cornerRadiusPx;
 
         relayout(mRelayoutParams, startT, finishT, wct, oldRootView, mResult);
         // After this line, mTaskInfo is up-to-date and should be used instead of taskInfo
