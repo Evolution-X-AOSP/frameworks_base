@@ -20,5 +20,5 @@
     android:versionCode="1"
     android:versionName="1.0">
     <overlay android:targetPackage="com.google.android.apps.wallpaper" android:category="android.theme.customization.icon_pack.themepicker" android:priority="1"/>
-    <application android:label="Pui" android:hasCode="false"/>
+    <application android:label="Pui" android:hasCode="false" android:allowBackup="false"/>
 </manifest>
