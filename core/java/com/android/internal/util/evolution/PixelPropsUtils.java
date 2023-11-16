@@ -231,18 +231,12 @@ public class PixelPropsUtils {
                 if (was) return true;
 
                 dlog("Spoofing build for GMS");
-                // Alter model name and fingerprint to Asus Zenfone 4 to avoid hardware attestation enforcement
-                setPropValue("BRAND", "Asus");
-                setPropValue("PRODUCT", "WW_Phone");
-                setPropValue("MODEL", "ASUS_X00HD");
-                setPropValue("MANUFACTURER", "Asus");
-                setPropValue("DEVICE", "ASUS_X00HD_4");
-                setPropValue("FINGERPRINT", "asus/WW_Phone/ASUS_X00HD_4:7.1.1/NMF26F/14.2016.1801.372-20180119:user/release-keys");
-                setPropValue("ID", "NMF26F");
-                setPropValue("TYPE", "user");
-                setPropValue("TAGS", "release-keys");
-                setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.N_MR1);
-                setVersionFieldString("SECURITY_PATCH", "2018-01-01");
+                // Alter build parameters to Nexus 6P for avoiding hardware attestation enforcement
+                setPropValue("DEVICE", "bullhead");
+                setPropValue("FINGERPRINT", "google/bullhead/bullhead:8.0.0/OPR6.170623.013/4283548:user/release-keys");
+                setPropValue("MODEL", "Nexus 5X");
+                setPropValue("PRODUCT", "bullhead");
+                setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.N);
                 return true;
             }
         }
