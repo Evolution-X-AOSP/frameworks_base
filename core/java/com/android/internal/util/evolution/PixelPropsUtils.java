@@ -210,22 +210,12 @@ public class PixelPropsUtils {
                 if (was) return true;
 
                 dlog("Spoofing build for GMS");
-                // Alter model name and fingerprint to avoid hardware attestation enforcement
-                setPropValue("PRODUCT", "WW_Phone");
-                setPropValue("PRODUCT_FOR_ATTESTATION", "WW_Phone");
-                setPropValue("DEVICE", "ASUS_X00HD_4");
-                setPropValue("DEVICE_FOR_ATTESTATION", "ASUS_X00HD_4");
-                setPropValue("MANUFACTURER", "Asus");
-                setPropValue("MANUFACTURER_FOR_ATTESTATION", "Asus");
-                setPropValue("BRAND", "Asus");
-                setPropValue("BRAND_FOR_ATTESTATION", "Asus");
-                setPropValue("MODEL", "ASUS_X00HD");
-                setPropValue("MODEL_FOR_ATTESTATION", "ASUS_X00HD");
-                setPropValue("FINGERPRINT", "asus/WW_Phone/ASUS_X00HD_4:7.1.1/NMF26F/14.2016.1801.372-20180119:user/release-keys");
-                setPropValue("ID", "NMF26F");
-                setPropValue("TYPE", "user");
-                setPropValue("TAGS", "release-keys");
-                setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.N_MR1);
+                // Alter build parameters to Nexus 5X for avoiding hardware attestation enforcement
+                setPropValue("DEVICE", "bullhead");
+                setPropValue("FINGERPRINT", "google/bullhead/bullhead:8.0.0/OPR6.170623.013/4283548:user/release-keys");
+                setPropValue("MODEL", "Nexus 5X");
+                setPropValue("PRODUCT", "bullhead");
+                setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.N);
                 return true;
             }
         }
