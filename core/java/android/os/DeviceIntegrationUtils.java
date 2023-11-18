@@ -24,7 +24,7 @@ import android.compat.annotation.UnsupportedAppUsage;
  * {@hide}
  */
 public class DeviceIntegrationUtils {
-    public static final boolean DISABLE_DEVICE_INTEGRATION = true;
+    public static final boolean DISABLE_DEVICE_INTEGRATION = false;
 
     @UnsupportedAppUsage
     private DeviceIntegrationUtils() {
