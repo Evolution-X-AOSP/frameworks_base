@@ -99,7 +99,10 @@ public class AntiFlickerTile extends QSTileImpl<QSTile.BooleanState> {
         if (mLiveDisplay.getConfig() != null) {
             mAntiFlickerEnabled = mLiveDisplay.getConfig().hasFeature(FEATURE_ANTI_FLICKER);
             if (!isAvailable()) {
-                mHost.removeTile(getTileSpec());
+                try {
+                    mHost.removeTile(getTileSpec());
+                } catch (NullPointerException e) {
+                }
             }
             return true;
         }
