@@ -27,6 +27,8 @@
     android:layout_height="match_parent"
     android:background="@android:color/transparent">
 
+    <include layout="@layout/island_status_bar_layout" />
+
     <com.android.systemui.common.ui.view.LongPressHandlingView
         android:id="@+id/keyguard_long_press"
         android:layout_width="match_parent"
