@@ -40,4 +40,12 @@
     <string name="reboot_to_bootloader_message">Redémarrage en mode Amorçage</string>
     <string name="reboot_title">Redémarrer</string>
     <string name="reboot_message">Redémarrage du système</string>
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">Contrôle de la charge</string>
+    <string name="charging_control_notification_title">Contrôle de la charge</string>
+    <string name="charging_control_notification_cancel_once">Annuler</string>
+    <string name="charging_control_notification_content_limit">La batterie sera chargée à %1$d%%</string>
+    <string name="charging_control_notification_content_limit_reached">La batterie est chargée à %1$d%%</string>
+    <string name="charging_control_notification_content_target">La batterie sera complètement chargée à %1$s</string>
+    <string name="charging_control_notification_content_target_reached">La batterie est chargée</string>
 </resources>

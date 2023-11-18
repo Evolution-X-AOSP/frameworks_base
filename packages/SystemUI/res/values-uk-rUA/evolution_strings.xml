@@ -58,8 +58,6 @@
     <!-- Status bar - icons -->
     <string name="status_bar_icons_title">Значки статус бару</string>
     <!-- Text to use when the number in a notification info is too large -->
-    <!-- Label for area where tiles can be added to the qs panel -->
-    <string name="drag_or_tap_to_add_tiles">Утримуйте &amp; перетягніть або торкніться, щоб додати плитки</string>
     <!-- Advanced Reboot -->
     <string name="global_action_restart_advanced">Додатково</string>
     <string name="global_action_restart_recovery">Режим відновлення</string>
@@ -89,6 +87,7 @@
     <string name="screenrecord_hevc_switch_label">Увімкнути HEVC</string>
     <!-- Google lens screenshot notification -->
     <string name="lens">Об\'єктив</string>
+    <string name="lens_unavailable">Додаток Google Lens не встановлено</string>
     <!-- Alert slide extras -->
     <string name="volume_ringer_priority_only">Пріоритет</string>
     <string name="volume_ringer_alarms_only">Будильники</string>
@@ -137,8 +136,6 @@
     <string name="quick_settings_compass_SW">ПдЗх</string>
     <string name="quick_settings_compass_W">Зх</string>
     <string name="quick_settings_compass_NW">ПнЗх</string>
-    <!-- DataSwitch Tile -->
-    <string name="qs_data_switch_label">Змінити картку для передачі даних</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Панель гучності</string>
     <!-- Refresh Rate Tile -->
@@ -149,4 +146,22 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Мова</string>
     <string name="quick_settings_locale_more_locales_toast">Будь ласка, налаштуйте кілька мов, щоб увімкнути функцію перемикання</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Заряджання (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> до повного зарядження)</string>
+    <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Швидке заряджання</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> Warp заряджання (<xliff:g id="charging_time_left" example="4 год і 2 хв">%1$s</xliff:g> до повного заряду)</string>
+    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="percentage">%s</xliff:g> • Warp заряджання</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • VOOC заряджання (<xliff:g id="charging_time_left" example="4 год і 2 хв">%1$s</xliff:g> до повного заряду)</string>
+    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="percentage">%s</xliff:g> • VOOC заряджання</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Turbo заряджання (<xliff:g id="charging_time_left" example="4 год і 2 хв">%1$s</xliff:g> до повного заряду)</string>
+    <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Turbo заряджання</string>
+    <!-- CPUInfo tile -->
+    <string name="quick_settings_cpuinfo_label">Інформація про ЦП</string>
+    <!-- FPS Info tile -->
+    <string name="quick_settings_fpsinfo_label">Інформація про FPS</string>
+    <!-- FPS view text placeholder -->
+    <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
 </resources>

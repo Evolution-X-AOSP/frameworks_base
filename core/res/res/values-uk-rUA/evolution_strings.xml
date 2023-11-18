@@ -40,4 +40,12 @@
     <string name="reboot_to_bootloader_message">Перезавантажити у режим завантажувача</string>
     <string name="reboot_title">Перезавантаження</string>
     <string name="reboot_message">Перезавантаження системи</string>
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">Контроль заряджання</string>
+    <string name="charging_control_notification_title">Контроль заряджання</string>
+    <string name="charging_control_notification_cancel_once">Скасувати</string>
+    <string name="charging_control_notification_content_limit">Акумулятор буде заряджено до %1$d%%</string>
+    <string name="charging_control_notification_content_limit_reached">Акумулятор заряджено до %1$d%%</string>
+    <string name="charging_control_notification_content_target">Батарея буде повністю заряджена за %1$s</string>
+    <string name="charging_control_notification_content_target_reached">Акумулятор заряджено</string>
 </resources>

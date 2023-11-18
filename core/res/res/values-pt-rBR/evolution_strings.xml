@@ -40,4 +40,12 @@
     <string name="reboot_to_bootloader_message">Reiniciando...</string>
     <string name="reboot_title">Reiniciar</string>
     <string name="reboot_message">Reiniciando...</string>
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">Carregamento inteligente</string>
+    <string name="charging_control_notification_title">Carregamento inteligente</string>
+    <string name="charging_control_notification_cancel_once">Cancelar</string>
+    <string name="charging_control_notification_content_limit">A bateria será carregada até %1$d%%</string>
+    <string name="charging_control_notification_content_limit_reached">Carregamento pausado em %1$d%%</string>
+    <string name="charging_control_notification_content_target">A bateria estará totalmente carregada às %1$s</string>
+    <string name="charging_control_notification_content_target_reached">Bateria carregada</string>
 </resources>

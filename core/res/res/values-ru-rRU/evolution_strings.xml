@@ -40,4 +40,12 @@
     <string name="reboot_to_bootloader_message">Перезагрузка в загрузчик</string>
     <string name="reboot_title">Перезагрузка</string>
     <string name="reboot_message">Перезагрузка системы</string>
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">Управление зарядкой</string>
+    <string name="charging_control_notification_title">Управление зарядкой</string>
+    <string name="charging_control_notification_cancel_once">Отмена</string>
+    <string name="charging_control_notification_content_limit">Батарея будет заряжена до %1$d%%</string>
+    <string name="charging_control_notification_content_limit_reached">Батарея заряжена до %1$d%%</string>
+    <string name="charging_control_notification_content_target">Батарея будет полностью заряжена в %1$s</string>
+    <string name="charging_control_notification_content_target_reached">Батарея заряжена</string>
 </resources>
