@@ -40,4 +40,12 @@
     <string name="reboot_to_bootloader_message">Neustart in den Bootloader</string>
     <string name="reboot_title">Neustart</string>
     <string name="reboot_message">Starte Sytem neu</string>
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">Ladekontrolle</string>
+    <string name="charging_control_notification_title">Ladekontrolle</string>
+    <string name="charging_control_notification_cancel_once">Abbrechen</string>
+    <string name="charging_control_notification_content_limit">Akku wird bis %1$d%% geladen</string>
+    <string name="charging_control_notification_content_limit_reached">Akku ist bis %1$d%% geladen</string>
+    <string name="charging_control_notification_content_target">Akku wird bis %1$s vollständig geladen sein</string>
+    <string name="charging_control_notification_content_target_reached">Akku ist aufgeladen</string>
 </resources>
