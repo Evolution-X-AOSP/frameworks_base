@@ -13,4 +13,14 @@
         <item name="android:textSize">14sp</item>
         <item name="android:fontFamily">@*android:string/config_bodyFontFamily</item>
     </style>
+
+    <!-- Island notification -->
+    <style name="Theme.Island.SystemUI" parent="@style/Theme.MaterialComponents.DayNight">
+        <item name="android:fontFamily">@*android:string/config_bodyFontFamily</item>
+    </style>
+
+    <style name="islandBackgroundOverlay" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">48dp</item>
+    </style>
 </resources>
