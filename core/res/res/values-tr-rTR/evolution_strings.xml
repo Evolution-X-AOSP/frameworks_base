@@ -40,4 +40,12 @@
     <string name="reboot_to_bootloader_message">Önyükleyici modunda yeniden başlatılıyor</string>
     <string name="reboot_title">Yeniden başlat</string>
     <string name="reboot_message">Sistem yeniden başlatılıyor</string>
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">Şarj kontrolü</string>
+    <string name="charging_control_notification_title">Şarj kontrolü</string>
+    <string name="charging_control_notification_cancel_once">İptal Et</string>
+    <string name="charging_control_notification_content_limit">Batarya %1$d%% seviyesine kadar şarj edilecek</string>
+    <string name="charging_control_notification_content_limit_reached">Batarya %1$d%% seviyesine kadar şarj edildi</string>
+    <string name="charging_control_notification_content_target">Pil şu saatte tamamen şarj olmuş olacak: %1$s</string>
+    <string name="charging_control_notification_content_target_reached">Batarya şarj oldu</string>
 </resources>
