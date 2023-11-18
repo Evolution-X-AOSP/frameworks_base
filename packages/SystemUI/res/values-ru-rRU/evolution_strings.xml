@@ -87,7 +87,7 @@
     <string name="screenrecord_hevc_switch_label">Включить HEVC</string>
     <!-- Google lens screenshot notification -->
     <string name="lens">Объектив</string>
-    <string name="lens_unavailable">Приложение Гугл Объектив не установлено</string>
+    <string name="lens_unavailable">Приложение Google Объектив не установлено</string>
     <!-- Alert slide extras -->
     <string name="volume_ringer_priority_only">Приоритет</string>
     <string name="volume_ringer_alarms_only">Будильники</string>
