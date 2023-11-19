@@ -37,7 +37,8 @@
     <string name="quick_settings_usb_tether_label">USB internet paylaşımı</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Her zaman açık ekran</string>
-    <string name="quick_settings_aod_off_powersave_label">Her zaman açık ekran kapalı\nPil tasarrufu</string>
+    <string name="quick_settings_aod_on_charge_label">Şarj olurken her zaman açık ekran</string>
+    <string name="quick_settings_aod_off_label">Her zaman açık ekran kapalı</string>
     <!-- SoundSearch Tile -->
     <string name="quick_settings_sound_search">Ses araması</string>
     <string name="quick_settings_sound_search_not_found">Sesli aramanın düzgün çalışması için lütfen Google uygulamasını yükleyin</string>
@@ -162,4 +163,16 @@
     <string name="quick_settings_fpsinfo_label">FPS bilgisi</string>
     <!-- FPS view text placeholder -->
     <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
+    <!-- Data usage info in QS footer -->
+    <string name="usage_data">kullanıldı</string>
+    <string name="usage_data_default_suffix">Veri</string>
+    <string name="usage_wifi_default_suffix">Kablosuz ağ</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">Mobil veri kartını değiştir</string>
+    <string name="qs_data_switch_toast_0">Şuan takılı SIM kart yok</string>
+    <string name="qs_data_switch_toast_1">Şuan sadece bir SIM kart takılı</string>
+    <string name="qs_data_switch_text_1">SIM 1</string>
+    <string name="qs_data_switch_text_2">SIM 2</string>
+    <string name="qs_data_switch_changed_1">Veri kartı SIM 1\'e değiştirildi.</string>
+    <string name="qs_data_switch_changed_2">Veri kartı SIM 2\'e değiştirildi.</string>
 </resources>
