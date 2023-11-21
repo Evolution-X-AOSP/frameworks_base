@@ -63,7 +63,7 @@ public class PixelPropsUtils {
     private static final Map<String, Object> propsToChangeMeizu;
     private static final Map<String, ArrayList<String>> propsToKeep;
 
-    // Packages to Spoof as Pixel 7 Pro
+    // Packages to Spoof as the most recent Pixel device
     private static final String[] packagesToChangeRecentPixel = {
             "com.amazon.avod.thirdpartyclient",
             "com.android.chrome",
@@ -124,8 +124,8 @@ public class PixelPropsUtils {
     private static final ComponentName GMS_ADD_ACCOUNT_ACTIVITY = ComponentName.unflattenFromString(
             "com.google.android.gms/.auth.uiflows.minutemaid.MinuteMaidActivity");
 
-    private static volatile boolean sIsGms = false;
-    private static volatile boolean sIsFinsky = false;
+    private static volatile boolean sIsGms, sIsFinsky;
+    private static volatile String sProcessName;
 
     static {
         propsToKeep = new HashMap<>();
@@ -160,67 +160,52 @@ public class PixelPropsUtils {
         propsToChangeMeizu.put("MODEL", "meizu 16th Plus");
     }
 
-    private static boolean isGoogleCameraPackage(String packageName){
+    private static boolean isGoogleCameraPackage(String packageName) {
         return packageName.startsWith("com.google.android.GoogleCamera") ||
             Arrays.asList(customGoogleCameraPackages).contains(packageName);
     }
 
-    public static boolean setPropsForGms(String packageName) {
-        if (packageName.equals("com.android.vending")) {
-            sIsFinsky = true;
+    private static boolean shouldTryToCertifyDevice() {
+        final boolean was = isGmsAddAccountActivityOnTop();
+        final String reason = "GmsAddAccountActivityOnTop";
+        if (!was) {
+            return true;
         }
-        if (packageName.equals("com.google.android.gms")) {
-            setPropValue("TIME", System.currentTimeMillis());
-            final String processName = Application.getProcessName();
-            if (processName.toLowerCase().contains("unstable")
-                    || processName.toLowerCase().contains("instrumentation")) {
-                sIsGms = true;
-                final boolean was = isGmsAddAccountActivityOnTop();
-                final TaskStackListener taskStackListener = new TaskStackListener() {
-                    @Override
-                    public void onTaskStackChanged() {
-                        final boolean is = isGmsAddAccountActivityOnTop();
-                        if (is ^ was) {
-                            dlog("GmsAddAccountActivityOnTop is:" + is + " was:" + was + ", killing myself!");
-                            // process will restart automatically later
-                            Process.killProcess(Process.myPid());
-                        }
-                    }
-                };
-                try {
-                    ActivityTaskManager.getService().registerTaskStackListener(taskStackListener);
-                } catch (Exception e) {
-                    Log.e(TAG, "Failed to register task stack listener!", e);
+        dlog("Skip spoofing build for GMS, because " + reason + "!");
+        TaskStackListener taskStackListener = new TaskStackListener() {
+            @Override
+            public void onTaskStackChanged() {
+                final boolean isNow = isGmsAddAccountActivityOnTop();
+                if (isNow ^ was) {
+                    dlog(String.format("%s changed: isNow=%b, was=%b, killing myself!", reason, isNow, was));
+                    Process.killProcess(Process.myPid());
                 }
-                if (was) return true;
-
-                dlog("Spoofing build for GMS");
-                // Alter build parameters to Nexus 5X for avoiding hardware attestation enforcement
-                setPropValue("DEVICE", "bullhead");
-                setPropValue("FINGERPRINT", "google/bullhead/bullhead:8.0.0/OPR6.170623.013/4283548:user/release-keys");
-                setPropValue("MODEL", "Nexus 5X");
-                setPropValue("PRODUCT", "bullhead");
-                setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.N);
-                return true;
             }
+        };
+        try {
+            ActivityTaskManager.getService().registerTaskStackListener(taskStackListener);
+            return false;
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to register task stack listener!", e);
+            return true;
         }
-        return false;
+    }
+
+    private static void spoofBuildGms() {
+        // Alter build parameters to Nexus 5X for avoiding hardware attestation enforcement
+        setPropValue("DEVICE", "bullhead");
+        setPropValue("FINGERPRINT", "google/bullhead/bullhead:8.0.0/OPR6.170623.013/4283548:user/release-keys");
+        setPropValue("MODEL", "Nexus 5X");
+        setPropValue("PRODUCT", "bullhead");
+        setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.N);
     }
 
     public static void setProps(Context context) {
-        if (!sEnablePixelProps) {
-            dlog("Pixel props is disabled by config");
-            return;
-        }
-
         final String packageName = context.getPackageName();
         final String processName = Application.getProcessName();
 
         propsToChangeGeneric.forEach((k, v) -> setPropValue(k, v));
-        if (packageName == null || packageName.isEmpty()) {
-            return;
-        }
-        if (setPropsForGms(packageName)) {
+        if (packageName == null || processName == null || packageName.isEmpty()) {
             return;
         }
         if (Arrays.asList(packagesToKeep).contains(packageName)) {
@@ -230,11 +215,25 @@ public class PixelPropsUtils {
             return;
         }
         Map<String, Object> propsToChange = new HashMap<>();
-        if (packageName.startsWith("com.google.")
+        sProcessName = processName;
+        sIsGms = packageName.equals(PACKAGE_GMS) && processName.equals(PROCESS_GMS_UNSTABLE);
+        sIsFinsky = packageName.equals(PACKAGE_FINSKY);
+
+        if (sIsGms) {
+            if (shouldTryToCertifyDevice()) {
+                dlog("Spoofing build for GMS");
+                spoofBuildGms();
+            }
+        } else if (packageName.equals(PACKAGE_GMS)) {
+            setPropValue("TIME", System.currentTimeMillis());
+        } else if (packageName.startsWith("com.google.")
                 || packageName.startsWith(SAMSUNG)
                 || Arrays.asList(packagesToChangeRecentPixel).contains(packageName)) {
 
-            if (Arrays.asList(packagesToChangeRecentPixel).contains(packageName)) {
+            if (!sEnablePixelProps) {
+                dlog("Pixel props is disabled by config");
+                return;
+            } else if (Arrays.asList(packagesToChangeRecentPixel).contains(packageName)) {
                 propsToChange.putAll(propsToChangeRecentPixel);
             } else {
                 propsToChange.putAll(propsToChangePixel5);
@@ -309,19 +308,19 @@ public class PixelPropsUtils {
     }
 
     private static boolean isCallerSafetyNet() {
-        return sIsGms && Arrays.stream(Thread.currentThread().getStackTrace())
+        return shouldTryToCertifyDevice() && sIsGms && Arrays.stream(Thread.currentThread().getStackTrace())
                 .anyMatch(elem -> elem.getClassName().contains("DroidGuard"));
     }
 
     public static void onEngineGetCertificateChain() {
         // Check stack for SafetyNet or Play Integrity
         if (isCallerSafetyNet() || sIsFinsky) {
-            Log.i(TAG, "Blocked key attestation sIsGms=" + sIsGms + " sIsFinsky=" + sIsFinsky);
+            dlog("Blocked key attestation sIsGms=" + sIsGms + " sIsFinsky=" + sIsFinsky);
             throw new UnsupportedOperationException();
         }
     }
 
     public static void dlog(String msg) {
-        if (DEBUG) Log.d(TAG, msg);
+        if (DEBUG) Log.d(TAG, "[" + sProcessName + "] " + msg);
     }
 }
