@@ -60,7 +60,6 @@ public class PixelPropsUtils {
     private static final Map<String, Object> propsToChangeGeneric;
     private static final Map<String, Object> propsToChangeRecentPixel;
     private static final Map<String, Object> propsToChangePixel5;
-    private static final Map<String, Object> propsToChangePixel2;
     private static final Map<String, Object> propsToChangeMeizu;
     private static final Map<String, ArrayList<String>> propsToKeep;
 
@@ -82,11 +81,6 @@ public class PixelPropsUtils {
             "com.nhs.online.nhsonline",
             "com.nothing.smartcenter",
             "in.startv.hotstar"
-    };
-
-    // Packages to Spoof as Pixel 2
-    private static final String[] packagesToChangePixel2 = {
-            "com.snapchat.android"
     };
 
     private static final String[] customGoogleCameraPackages = {
@@ -157,15 +151,6 @@ public class PixelPropsUtils {
         propsToChangePixel5.put("MODEL", "Pixel 5");
         propsToChangePixel5.put("ID", "UP1A.231105.001");
         propsToChangePixel5.put("FINGERPRINT", "google/redfin/redfin:14/UP1A.231105.001/10817346:user/release-keys");
-        propsToChangePixel2 = new HashMap<>();
-        propsToChangePixel2.put("BRAND", "google");
-        propsToChangePixel2.put("MANUFACTURER", "Google");
-        propsToChangePixel2.put("DEVICE", "walleye");
-        propsToChangePixel2.put("PRODUCT", "walleye");
-        propsToChangePixel2.put("HARDWARE", "walleye");
-        propsToChangePixel2.put("MODEL", "Pixel 2");
-        propsToChangePixel2.put("ID", "OPM1.171019.011");
-        propsToChangePixel2.put("FINGERPRINT", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
         propsToChangeMeizu = new HashMap<>();
         propsToChangeMeizu.put("BRAND", "meizu");
         propsToChangeMeizu.put("MANUFACTURER", "Meizu");
@@ -247,12 +232,9 @@ public class PixelPropsUtils {
         Map<String, Object> propsToChange = new HashMap<>();
         if (packageName.startsWith("com.google.")
                 || packageName.startsWith(SAMSUNG)
-                || Arrays.asList(packagesToChangePixel2).contains(packageName)
                 || Arrays.asList(packagesToChangeRecentPixel).contains(packageName)) {
 
-            if (Arrays.asList(packagesToChangePixel2).contains(packageName)) {
-                propsToChange.putAll(propsToChangePixel2);
-            } else if (Arrays.asList(packagesToChangeRecentPixel).contains(packageName)) {
+            if (Arrays.asList(packagesToChangeRecentPixel).contains(packageName)) {
                 propsToChange.putAll(propsToChangeRecentPixel);
             } else {
                 propsToChange.putAll(propsToChangePixel5);
