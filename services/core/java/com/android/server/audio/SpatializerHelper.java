@@ -1031,9 +1031,7 @@ public class SpatializerHelper {
                 }
             } else {
                 Log.d(TAG, "Spatializer is null or not supported");
-                mState = STATE_NOT_SUPPORTED;
-                mCapableSpatLevel = Spatializer.SPATIALIZER_IMMERSIVE_LEVEL_NONE;
-                mActualHeadTrackingMode = Spatializer.HEAD_TRACKING_MODE_UNSUPPORTED;
+                postReset();
             }
         }
     }
