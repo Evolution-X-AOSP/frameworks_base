@@ -16,14 +16,22 @@
 package com.android.systemui.island
 
 import android.app.ActivityOptions
+import android.app.Notification
+import android.app.PendingIntent
 import android.content.Context
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
-import android.graphics.Region
+import android.graphics.Color
 import android.graphics.drawable.Drawable
-import android.app.Notification
-import android.app.PendingIntent
+import android.graphics.Region
+import android.graphics.Typeface
 import android.service.notification.StatusBarNotification
+import android.text.SpannableString
+import android.text.SpannableStringBuilder
+import android.text.Spanned
+import android.text.style.ForegroundColorSpan
+import android.text.style.RelativeSizeSpan
+import android.text.style.StyleSpan
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.View
@@ -39,8 +47,10 @@ class IslandView : ExtendedFloatingActionButton {
     private var isIslandAnimating: Boolean = false
     private var isDismissed: Boolean = true
     private var isTouchInsetsRemoved: Boolean = true
+    private var islandText: String = "";
     private var notificationStackScroller: NotificationStackScrollLayout? = null
     private var headsUpManager: HeadsUpManagerPhone? = null
+    private var subtitleColor = Color.parseColor("#66000000")
 
     private val insetsListener = ViewTreeObserver.OnComputeInternalInsetsListener { internalInsetsInfo ->
         internalInsetsInfo.touchableRegion.setEmpty()
@@ -91,7 +101,6 @@ class IslandView : ExtendedFloatingActionButton {
         postOnAnimationDelayed({
             extend()
             postOnAnimationDelayed({
-                isSelected = true
                 isDismissed = false
                 isIslandAnimating = true
                 if (isTouchInsetsRemoved) {
@@ -108,7 +117,7 @@ class IslandView : ExtendedFloatingActionButton {
             hide()
             isIslandAnimating = false
             isDismissed = true
-            isSelected = false
+            this.isSelected = false
             if (!isTouchInsetsRemoved) {
                 viewTreeObserver.removeOnComputeInternalInsetsListener(insetsListener)
                 isTouchInsetsRemoved = true
@@ -147,6 +156,11 @@ class IslandView : ExtendedFloatingActionButton {
             ColorStateList.valueOf(context.getColor(R.color.island_background_color_dark))
         }
         setTextColor(textColor)
+        subtitleColor = if (dark) {
+            Color.parseColor("#89ffffff")
+        } else {
+            Color.parseColor("#66000000")
+        }
     }
 
     private fun prepareIslandContent() {
@@ -158,17 +172,36 @@ class IslandView : ExtendedFloatingActionButton {
         val notifContent = notification.extras.getCharSequence(Notification.EXTRA_TEXT)?.toString() ?: ""
         val notifSubContent = notification.extras.getCharSequence(Notification.EXTRA_SUB_TEXT)?.toString() ?: ""
         val islandIntent = notification.contentIntent ?: notification.fullScreenIntent
-        val islandText = if (notifSubContent.isNotEmpty()) {
-            "$notifTitle: $notifContent \u2022 $notifSubContent"
-        } else {
-            "$notifTitle: $notifContent"
+        setOnClickListenerForIsland(islandIntent)
+        val titleSpannable = SpannableString(notifTitle).apply {
+            setSpan(StyleSpan(Typeface.BOLD), 0, notifTitle.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        }
+        val notifText = SpannableStringBuilder().apply {
+            append(titleSpannable)
+            if (notifContent.isNotEmpty()) {
+                val contentSpannable = SpannableString(notifContent).apply {
+                    setSpan(ForegroundColorSpan(subtitleColor), 0, notifContent.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                    setSpan(RelativeSizeSpan(0.9f), 0, notifContent.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                }
+                append("\n")
+                append(contentSpannable)
+            }
+            if (notifSubContent.isNotEmpty()) {
+                val subContentSpannable = SpannableString(notifSubContent).apply {
+                    setSpan(ForegroundColorSpan(subtitleColor), 0, notifSubContent.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                    setSpan(RelativeSizeSpan(0.85f), 0, notifSubContent.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                }
+                append("\n")
+                append(subContentSpannable)
+            }
         }
         this.icon = icon
         this.iconSize = resources.getDimensionPixelSize(R.dimen.island_icon_size)
         this.iconTint = null
-        this.text = islandText
-        this.ellipsize = TextUtils.TruncateAt.MARQUEE
-        setOnClickListenerForIsland(islandIntent)
+        this.isSingleLine = false
+        this.maxLines = 4
+        this.ellipsize = android.text.TextUtils.TruncateAt.END
+        this.text = notifText
     }
 
     private fun getNotificationIcon(sbn: StatusBarNotification, notification: Notification): Drawable? {
