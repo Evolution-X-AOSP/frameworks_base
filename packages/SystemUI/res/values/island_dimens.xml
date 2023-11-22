@@ -15,5 +15,5 @@
      limitations under the License.
 -->
 <resources>
-    <dimen name="island_icon_size">36dp</dimen>
+    <dimen name="island_icon_size">48dp</dimen>
 </resources>

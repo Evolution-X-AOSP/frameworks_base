@@ -35,8 +35,8 @@
         android:textAllCaps="false"
         android:layout_marginTop="@dimen/status_bar_header_height_keyguard"
         android:layout_gravity="top|center"
-        android:textColor="?android:attr/textColorPrimary"
-        android:theme="@style/Theme.Island.SystemUI"/>
+        android:theme="@style/Theme.Island.SystemUI"
+        systemui:shapeAppearanceOverlay="@style/islandBackgroundOverlay"/>
 
     <com.android.systemui.common.ui.view.LongPressHandlingView
         android:id="@+id/keyguard_long_press"
