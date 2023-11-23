@@ -33,7 +33,8 @@
     <dimen name="qs_security_footer_background_inset">12dp</dimen>
 
     <dimen name="volume_tool_tip_top_margin">12dp</dimen>
-    <dimen name="volume_row_slider_height">128dp</dimen>
+    <dimen name="volume_row_slider_height">94dp</dimen>
+    <dimen name="volume_row_slider_progress_height">68dp</dimen>
 
     <!-- width of ImmersiveModeConfirmation (-1 for match_parent) -->
     <dimen name="immersive_mode_cling_width">380dp</dimen>
