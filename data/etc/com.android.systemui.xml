@@ -16,11 +16,9 @@
   -->
 <permissions>
     <privapp-permissions package="com.android.systemui">
-        <permission name="android.permission.ACCESS_CONTEXT_HUB"/>
         <permission name="android.permission.ALLOW_SLIPPERY_TOUCHES"/>
         <permission name="android.permission.BATTERY_STATS"/>
         <permission name="android.permission.BIND_APPWIDGET"/>
-        <permission name="android.permission.BLUETOOTH_CONNECT"/>
         <permission name="android.permission.BLUETOOTH_PRIVILEGED"/>
         <permission name="android.permission.CAPTURE_AUDIO_OUTPUT"/>
         <permission name="android.permission.CHANGE_COMPONENT_ENABLED_STATE"/>
@@ -36,7 +34,6 @@
         <permission name="android.permission.GET_APP_OPS_STATS"/>
         <permission name="android.permission.INTERACT_ACROSS_USERS"/>
         <permission name="android.permission.LOCATION_HARDWARE"/>
-        <permission name="android.permission.INTERACT_ACROSS_USERS_FULL"/>
         <permission name="android.permission.MANAGE_DEBUGGING"/>
         <permission name="android.permission.MANAGE_GAME_MODE" />
         <permission name="android.permission.MANAGE_SENSOR_PRIVACY"/>
@@ -52,7 +49,6 @@
         <permission name="android.permission.OBSERVE_GRANT_REVOKE_PERMISSIONS" />
         <permission name="android.permission.OVERRIDE_WIFI_CONFIG"/>
         <permission name="android.permission.PACKAGE_USAGE_STATS" />
-        <permission name="android.permission.READ_CONTACTS"/>
         <permission name="android.permission.READ_DREAM_STATE"/>
         <permission name="android.permission.READ_FRAME_BUFFER"/>
         <permission name="android.permission.READ_NETWORK_USAGE_HISTORY"/>

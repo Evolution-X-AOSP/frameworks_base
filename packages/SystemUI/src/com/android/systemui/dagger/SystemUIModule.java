@@ -16,10 +16,8 @@
 
 package com.android.systemui.dagger;
 
-import android.app.AlarmManager;
 import android.app.INotificationManager;
 import android.content.Context;
-import android.os.Handler;
 import android.service.dreams.IDreamManager;
 
 import androidx.annotation.Nullable;
@@ -42,7 +40,6 @@ import com.android.systemui.biometrics.domain.BiometricsDomainLayerModule;
 import com.android.systemui.bouncer.data.repository.BouncerRepositoryModule;
 import com.android.systemui.bouncer.domain.interactor.BouncerInteractorModule;
 import com.android.systemui.bouncer.ui.BouncerViewModule;
-import com.android.systemui.broadcast.BroadcastDispatcher;
 import com.android.systemui.classifier.FalsingModule;
 import com.android.systemui.clipboardoverlay.dagger.ClipboardOverlayModule;
 import com.android.systemui.common.data.CommonDataLayerModule;
@@ -93,8 +90,6 @@ import com.android.systemui.screenrecord.ScreenRecordModule;
 import com.android.systemui.screenshot.dagger.ScreenshotModule;
 import com.android.systemui.security.data.repository.SecurityRepositoryModule;
 import com.android.systemui.settings.DisplayTracker;
-import com.android.systemui.settings.dagger.MultiUserUtilsModule;
-import com.android.systemui.settings.UserTracker;
 import com.android.systemui.shade.ShadeController;
 import com.android.systemui.shade.transition.LargeScreenShadeInterpolator;
 import com.android.systemui.shade.transition.LargeScreenShadeInterpolatorImpl;
@@ -102,7 +97,6 @@ import com.android.systemui.shared.condition.Monitor;
 import com.android.systemui.smartspace.dagger.SmartspaceModule;
 import com.android.systemui.statusbar.CommandQueue;
 import com.android.systemui.statusbar.NotificationLockscreenUserManager;
-import com.android.systemui.statusbar.NotificationMediaManager;
 import com.android.systemui.statusbar.NotificationShadeWindowController;
 import com.android.systemui.statusbar.connectivity.ConnectivityModule;
 import com.android.systemui.statusbar.dagger.StatusBarModule;
@@ -125,7 +119,6 @@ import com.android.systemui.statusbar.phone.NotificationIconAreaControllerModule
 import com.android.systemui.statusbar.pipeline.dagger.StatusBarPipelineModule;
 import com.android.systemui.statusbar.policy.HeadsUpManager;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
-import com.android.systemui.statusbar.policy.NextAlarmController;
 import com.android.systemui.statusbar.policy.PolicyModule;
 import com.android.systemui.statusbar.policy.ZenModeController;
 import com.android.systemui.statusbar.policy.dagger.SmartRepliesInflationModule;
@@ -139,7 +132,6 @@ import com.android.systemui.unfold.SysUIUnfoldModule;
 import com.android.systemui.user.UserModule;
 import com.android.systemui.user.domain.UserDomainLayerModule;
 import com.android.systemui.util.EventLogModule;
-import com.android.systemui.util.concurrency.DelayableExecutor;
 import com.android.systemui.util.concurrency.SysUIConcurrencyModule;
 import com.android.systemui.util.dagger.UtilModule;
 import com.android.systemui.util.kotlin.CoroutinesModule;
@@ -151,12 +143,6 @@ import com.android.systemui.util.time.SystemClockImpl;
 import com.android.systemui.wallet.dagger.WalletModule;
 import com.android.systemui.wmshell.BubblesManager;
 import com.android.wm.shell.bubbles.Bubbles;
-
-
-import com.google.android.systemui.smartspace.BcSmartspaceDataProvider;
-import com.google.android.systemui.smartspace.KeyguardMediaViewController;
-import com.google.android.systemui.smartspace.KeyguardSmartspaceController;
-import com.google.android.systemui.smartspace.KeyguardZenAlarmViewController;
 
 import dagger.Binds;
 import dagger.BindsOptionalOf;
@@ -392,31 +378,4 @@ public abstract class SystemUIModule {
     @Binds
     abstract LargeScreenShadeInterpolator largeScreensShadeInterpolator(
             LargeScreenShadeInterpolatorImpl impl);
-
-    @Provides
-    @SysUISingleton
-    static KeyguardSmartspaceController provideKeyguardSmartspaceController(FeatureFlags featureFlags,
-            KeyguardZenAlarmViewController keyguardZenAlarmViewController, KeyguardMediaViewController keyguardMediaViewController) {
-        return new KeyguardSmartspaceController(featureFlags, keyguardZenAlarmViewController, keyguardMediaViewController);
-    }
-
-    @Provides
-    @SysUISingleton
-    static KeyguardZenAlarmViewController provideKeyguardZenAlarmViewController(Context context, BcSmartspaceDataPlugin bcSmartspaceDataPlugin, ZenModeController zenModeController,
-            AlarmManager alarmManager, NextAlarmController nextAlarmController, Handler handler) {
-        return new KeyguardZenAlarmViewController(context, bcSmartspaceDataPlugin, zenModeController, alarmManager, nextAlarmController, handler);
-    }
-
-    @Provides
-    @SysUISingleton
-    static KeyguardMediaViewController provideKeyguardMediaViewController(Context context, BcSmartspaceDataPlugin bcSmartspaceDataPlugin,
-            @Main DelayableExecutor delayableExecutor, NotificationMediaManager notificationMediaManager, BroadcastDispatcher broadcastDispatcher, UserTracker userTracker) {
-        return new KeyguardMediaViewController(context, bcSmartspaceDataPlugin, delayableExecutor, notificationMediaManager, broadcastDispatcher, userTracker);
-    }
-
-    @Provides
-    @SysUISingleton
-    static BcSmartspaceDataPlugin provideBcSmartspaceDataPlugin() {
-        return new BcSmartspaceDataProvider();
-    }
 }

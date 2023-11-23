@@ -47,4 +47,7 @@
     <!-- Pulse -->
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
+    <!-- DataSwitch tile -->
+    <uses-permission android:name="android.permission.WRITE_APN_SETTINGS" />
+
 </manifest>
