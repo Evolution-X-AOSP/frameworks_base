@@ -4,5 +4,17 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
-
+    <!-- New color style -->
+    <color name="colorAccent">@android:color/system_accent1_600</color>
+    <color name="colorAccentVariant">@android:color/system_accent3_600</color>
+    <color name="rippleAccent">@color/color_container_overlay_light</color>
+    <color name="rippleDark">#1A000000</color>
+    <color name="rippleDarker">#33000000</color>
+    <color name="holo_blue_light">@android:color/system_accent1_600</color>
+    <color name="holo_green_light">@android:color/system_accent3_600</color>
+    <color name="colorBackground">@android:color/system_neutral2_50</color>
+    <color name="colorContainer">@android:color/system_neutral2_50</color>
+    <color name="shadow">#14000000</color>
+    <color name="neumorph_outline_start">#FFBDBDBD</color>
+    <color name="neumorph_outline_end">#FFF0F0F0</color>
 </resources>
