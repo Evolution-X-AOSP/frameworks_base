@@ -97,5 +97,7 @@
         <permission name="android.permission.INTERNAL_SYSTEM_WINDOW" />
         <permission name="android.permission.ACCESS_FINE_LOCATION"/>
         <permission name="android.permission.ACCESS_CONTEXT_HUB" />
+        <permission name="android.permission.REGISTER_STATS_PULL_ATOM" />
+        <permission name="android.permission.SET_WALLPAPER_COMPONENT" />
     </privapp-permissions>
 </permissions>
