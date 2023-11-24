@@ -354,7 +354,7 @@ public class KeyguardIndicationController {
 
         mStatusBarStateListener.onDozingChanged(mStatusBarStateController.isDozing());
 
-        mCurrentDivider = mContext.getResources().getInteger(R.integer.config_currentInfoDivider);
+        mCurrentDivider = mContext.getResources().getInteger(R.integer.config_battCurrentDivider);
         mAlternateFastchargeInfoUpdate =
                     mContext.getResources().getBoolean(R.bool.config_alternateFastchargeInfoUpdate);
         if (mAlternateFastchargeInfoUpdate) {

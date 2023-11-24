@@ -89,7 +89,7 @@
     <bool name="config_alternateFastchargeInfoUpdate">false</bool>
 
     <!-- Charging info current divider, if needed -->
-    <integer name="config_currentInfoDivider" translatable="false">1000</integer>
+    <integer name="config_battCurrentDivider" translatable="false">1000</integer>
 
     <!-- The CPU temperature sensor path, defaults to empty -->
     <string name="config_cpuTempSensor" translatable="false">/sys/class/thermal/thermal_zone0/temp</string>
