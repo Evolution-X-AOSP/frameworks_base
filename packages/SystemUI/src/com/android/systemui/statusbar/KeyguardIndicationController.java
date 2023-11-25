@@ -216,7 +216,7 @@ public class KeyguardIndicationController {
     private final Set<Integer> mCoExFaceAcquisitionMsgIdsToShow;
     private final FaceHelpMessageDeferral mFaceAcquiredMessageDeferral;
     private boolean mInited;
-    
+
     private boolean mFaceDetectionRunning;
 
     private int mCurrentDivider;
@@ -256,7 +256,7 @@ public class KeyguardIndicationController {
                 mBiometricErrorMessageToShowOnScreenOn = null;
             }
         }
-        
+
         @Override
         public void onScreenTurnedOff() {
             if (mFaceDetectionRunning) {
@@ -937,8 +937,9 @@ public class KeyguardIndicationController {
     private void showFaceUnlockRecognizingMessage() {
         mFaceIconView.setVisibility(View.VISIBLE);
         mFaceIconView.setState(FaceUnlockImageView.State.SCANNING);
-        showBiometricMessage(mContext.getResources().getString(
-                                    R.string.face_unlock_recognizing));
+        String faceUnlockMessage = mContext.getResources().getString(
+            R.string.face_unlock_recognizing);
+        showBiometricMessage(faceUnlockMessage);
     }
 
     private void hideFaceUnlockRecognizingMessage() {
