@@ -96,10 +96,10 @@ public class AppOpsCheckingServiceLoggingDecorator implements AppOpsCheckingServ
     }
 
     @Override
-    public void setPackageMode(@NonNull String packageName, int op, int mode, int userId) {
+    public boolean setPackageMode(@NonNull String packageName, int op, int mode, int userId) {
         Log.i(LOG_TAG, "setPackageMode(packageName = " + packageName + ", op = " + op + ", mode = "
                 + mode + ", userId = " + userId + ")");
-        mService.setPackageMode(packageName, op, mode, userId);
+        return mService.setPackageMode(packageName, op, mode, userId);
     }
 
     @Override

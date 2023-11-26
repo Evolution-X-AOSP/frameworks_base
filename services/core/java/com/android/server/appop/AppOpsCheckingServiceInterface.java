@@ -112,7 +112,7 @@ public interface AppOpsCheckingServiceInterface {
      * @param userId user id associated with the package.
      *
      */
-    void setPackageMode(@NonNull String packageName, int op, @Mode int mode, @UserIdInt int userId);
+    boolean setPackageMode(@NonNull String packageName, int op, @Mode int mode, @UserIdInt int userId);
 
     /**
      * Stop tracking any app-op modes for a package.

@@ -135,11 +135,13 @@ class AppOpService(
     ): IndexedMap<String, Int>? =
         service.getState { with(packagePolicy) { getAppOpModes(packageName, userId) } }
 
-    override fun setPackageMode(packageName: String, op: Int, mode: Int, userId: Int) {
+    override fun setPackageMode(packageName: String, op: Int, mode: Int, userId: Int): Boolean {
         val opName = AppOpsManager.opToPublicName(op)
+        var wasChanged = false
         service.mutateState {
-            with(packagePolicy) { setAppOpMode(packageName, userId, opName, mode) }
+            wasChanged = with(packagePolicy) { setAppOpMode(packageName, userId, opName, mode) }
         }
+        return wasChanged
     }
 
     override fun removeUid(uid: Int) {

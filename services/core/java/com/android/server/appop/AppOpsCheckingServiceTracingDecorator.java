@@ -138,12 +138,12 @@ public class AppOpsCheckingServiceTracingDecorator implements AppOpsCheckingServ
     }
 
     @Override
-    public void setPackageMode(@NonNull String packageName, int op, @AppOpsManager.Mode int mode,
+    public boolean setPackageMode(@NonNull String packageName, int op, @AppOpsManager.Mode int mode,
             @UserIdInt int userId) {
         Trace.traceBegin(TRACE_TAG,
                 "TaggedTracingAppOpsCheckingServiceInterfaceImpl#setPackageMode");
         try {
-            mService.setPackageMode(packageName, op, mode, userId);
+            return mService.setPackageMode(packageName, op, mode, userId);
         } finally {
             Trace.traceEnd(TRACE_TAG);
         }
