@@ -278,7 +278,6 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.INCREASING_RING_START_VOLUME, new InclusiveFloatRangeValidator(0, 1));
         VALIDATORS.put(System.INCREASING_RING_RAMP_UP_TIME, new InclusiveFloatRangeValidator(5, 60));
         VALIDATORS.put(System.NAV_BAR_COMPACT_LAYOUT, BOOLEAN_VALIDATOR);
-        VALIDATORS.put(System.VOLBTN_MUSIC_CONTROLS, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.TORCH_LONG_PRESS_POWER_GESTURE, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.TORCH_LONG_PRESS_POWER_TIMEOUT, new InclusiveIntegerRangeValidator(0, 3600));
         VALIDATORS.put(System.DOUBLE_TAP_SLEEP_GESTURE, BOOLEAN_VALIDATOR);

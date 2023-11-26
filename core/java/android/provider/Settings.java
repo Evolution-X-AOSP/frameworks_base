@@ -6702,20 +6702,6 @@ public final class Settings {
          */
         public static final String SHOW_APP_VOLUME = "show_app_volume";
 
-         /**
-         * Volume rocker wake
-         * @hide
-         */
-        @Readable
-        public static final String VOLUME_ROCKER_WAKE = "volume_rocker_wake";
-
-         /**
-         * Whether or not volume button music controls should be enabled to seek media tracks
-         * 0 = 0ff, 1 = on
-         * @hide
-         */
-        public static final String VOLBTN_MUSIC_CONTROLS = "volbtn_music_controls";
-
         /**
          * Activate torchlight when power button is
          * long-pressed while the display is off
@@ -7084,7 +7070,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(INCREASING_RING_START_VOLUME);
             PRIVATE_SETTINGS.add(INCREASING_RING_RAMP_UP_TIME);
             PRIVATE_SETTINGS.add(NAV_BAR_COMPACT_LAYOUT);
-            PRIVATE_SETTINGS.add(VOLBTN_MUSIC_CONTROLS);
             PRIVATE_SETTINGS.add(TORCH_LONG_PRESS_POWER_GESTURE);
             PRIVATE_SETTINGS.add(TORCH_LONG_PRESS_POWER_TIMEOUT);
             PRIVATE_SETTINGS.add(NAVIGATION_BAR_IME_SPACE);
@@ -13221,17 +13206,6 @@ public final class Settings {
          * @hide
          */
         public static final String QS_SHOW_AUTO_BRIGHTNESS = "qs_show_auto_brightness";
-
-        /**
-         * Parameter for Pocket Mode
-         *
-         * The value "1", Enable Pocket Mode
-         * The value "0", Disables Pocket Mode
-         *
-         * @hide
-         */
-        public static final String POCKET_MODE_ENABLED
-                = "pocket_mode_enabled";
 
         /**
          * Whether volume panel should appear on the left (or right).
