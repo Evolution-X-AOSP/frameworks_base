@@ -231,12 +231,15 @@ public class PixelPropsUtils {
                 if (was) return true;
 
                 dlog("Spoofing build for GMS");
-                // Alter build parameters to Nexus 6P for avoiding hardware attestation enforcement
-                setPropValue("DEVICE", "bullhead");
-                setPropValue("FINGERPRINT", "google/bullhead/bullhead:8.0.0/OPR6.170623.013/4283548:user/release-keys");
-                setPropValue("MODEL", "Nexus 5X");
-                setPropValue("PRODUCT", "bullhead");
-                setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.N);
+                // Alter build parameters to Pixel 2 XL to avoid hardware attestation enforcement
+                setPropValue("PRODUCT", "taimen");
+                setPropValue("DEVICE", "taimen");
+                setPropValue("MANUFACTURER", "Google");
+                setPropValue("BRAND", "google");
+                setPropValue("MODEL", "Pixel 2 XL");
+                setPropValue("FINGERPRINT", "google/taimen/taimen:8.1.0/OPM4.171019.021.R1/4833808:user/release-keys");
+                setVersionFieldString("SECURITY_PATCH", "2018-07-05");
+                setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.N_MR1);
                 return true;
             }
         }
