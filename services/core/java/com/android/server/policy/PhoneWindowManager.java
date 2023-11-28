@@ -220,6 +220,7 @@ import com.android.internal.policy.LogDecelerateInterpolator;
 import com.android.internal.policy.PhoneWindow;
 import com.android.internal.policy.TransitionAnimation;
 import com.android.internal.statusbar.IStatusBarService;
+import com.android.internal.util.custom.ActionUtils;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.server.AccessibilityManagerInternal;
 import com.android.server.ExtconStateObserver;
@@ -2135,14 +2136,20 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case VOICE_SEARCH:
                 launchAssistLongPressAction();
               break;
+            case IN_APP_SEARCH:
+                triggerVirtualKeypress(KeyEvent.KEYCODE_SEARCH);
+                break;
             case LAUNCH_CAMERA:
                 launchCameraAction();
                 break;
             case SLEEP:
                 mPowerManager.goToSleep(SystemClock.uptimeMillis());
                 break;
-            case SCREENSHOT:
-                interceptScreenshotChord(SCREENSHOT_KEY_OTHER, 0 /*pressDelay*/);
+            case LAST_APP:
+                ActionUtils.switchToLastApp(mContext, mCurrentUserId);
+                break;
+            case KILL_APP:
+                ActionUtils.killForegroundApp(mContext, mCurrentUserId);
                 break;
             default:
                 break;
