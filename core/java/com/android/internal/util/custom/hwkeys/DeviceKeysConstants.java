@@ -31,9 +31,11 @@ public class DeviceKeysConstants {
         APP_SWITCH,
         SEARCH,
         VOICE_SEARCH,
+        IN_APP_SEARCH,
         LAUNCH_CAMERA,
         SLEEP,
-        SCREENSHOT;
+        LAST_APP,
+        KILL_APP;
 
         public static Action fromIntSafe(int id) {
             if (id < NOTHING.ordinal() || id > Action.values().length) {
