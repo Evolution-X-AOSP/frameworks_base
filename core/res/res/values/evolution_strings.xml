@@ -82,4 +82,16 @@
     <string name="pocket_view_top_tag_cancel2">Long press the power button to force quit pocket mode.</string>
     <string name="pocket_view_top_tag_number1">1.\u0020</string>
     <string name="pocket_view_top_tag_number2">2.\u0020</string>
+
+    <!-- Settings Restart -->
+    <string name="settings_restart_title">Settings restart required</string>
+    <string name="settings_restart_message">For all changes to take effect, a Settings app restart is required. Restart Settings app now?</string>
+
+    <!-- System Reboot -->
+    <string name="system_restart_title">System restart required</string>
+    <string name="system_restart_message">For all the changes to take effect, a system restart is required. Perform system restart now?</string>
+
+    <!-- Launcher Restart -->
+    <string name="launcher_restart_title">Launcher restart required</string>
+    <string name="launcher_restart_message">For all changes to take effect, a Launcher restart is required. Restart Launcher now?</string>
 </resources>

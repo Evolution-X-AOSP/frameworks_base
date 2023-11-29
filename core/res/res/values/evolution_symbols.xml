@@ -334,4 +334,16 @@
     <!-- Pocket Service -->
     <java-symbol type="string" name="config_pocketJudgeVendorSensorName" />
     <java-symbol type="string" name="config_pocketJudgeVendorProximitySensorName" />
+
+    <!-- Settings Restart -->
+    <java-symbol type="string" name="settings_restart_title" />
+    <java-symbol type="string" name="settings_restart_message" />
+
+    <!-- Soft restart dialog -->
+    <java-symbol type="string" name="system_restart_title" />
+    <java-symbol type="string" name="system_restart_message" />
+
+    <!-- Launcher restart dialog -->
+    <java-symbol type="string" name="launcher_restart_title" />
+    <java-symbol type="string" name="launcher_restart_message" />
 </resources>
