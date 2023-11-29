@@ -84,6 +84,7 @@ import com.android.internal.statusbar.IStatusBarService;
 import com.android.internal.util.ArrayUtils;
 import com.android.internal.R;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -443,8 +444,111 @@ public class EvolutionUtils {
             return null;
         }
     }
-  
-       public static class SleepModeController {
+
+    public static void showSystemRestartDialog(Context context) {
+        new AlertDialog.Builder(context)
+                .setTitle(R.string.system_restart_title)
+                .setMessage(R.string.system_restart_message)
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Handler handler = new Handler();
+                        handler.postDelayed(() -> restartSystem(context), 2000);
+                    }
+                })
+                .setNegativeButton(R.string.cancel, null)
+                .show();
+    }
+
+    public static void restartSystem(Context context) {
+        new RestartSystemTask(context).execute();
+    }
+
+    private static class RestartSystemTask extends AsyncTask<Void, Void, Void> {
+        private final WeakReference<Context> mContext;
+
+        public RestartSystemTask(Context context) {
+            super();
+            mContext = new WeakReference<>(context);
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            try {
+                IStatusBarService mBarService = IStatusBarService.Stub.asInterface(
+                        ServiceManager.getService(Context.STATUS_BAR_SERVICE));
+                if (mBarService != null) {
+                    try {
+                        Thread.sleep(1250);
+                        mBarService.reboot(false);
+                    } catch (RemoteException | InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+    }
+
+    public static void showRestartDialog(Context context, int title, int message, Runnable action) {
+        new AlertDialog.Builder(context)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton(R.string.ok, (dialog, id) -> {
+                    Handler handler = new Handler();
+                    handler.postDelayed(action, 1250);
+                })
+                .setNegativeButton(R.string.cancel, null)
+                .show();
+    }
+
+    public static void restartProcess(Context context, String processName) {
+        new RestartTask(context, processName).execute();
+    }
+
+    private static class RestartTask extends AsyncTask<Void, Void, Void> {
+        private final WeakReference<Context> mContext;
+        private final String mProcessName;
+
+        public RestartTask(Context context, String processName) {
+            mContext = new WeakReference<>(context);
+            mProcessName = processName;
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            try {
+                ActivityManager am = (ActivityManager) mContext.get().getSystemService(Context.ACTIVITY_SERVICE);
+                if (am != null) {
+                    IActivityManager ams = ActivityManager.getService();
+                    for (ActivityManager.RunningAppProcessInfo app : am.getRunningAppProcesses()) {
+                        if (app.processName.contains(mProcessName)) {
+                            ams.killApplicationProcess(app.processName, app.uid);
+                            break;
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+    }
+
+    public static void showSettingsRestartDialog(Context context) {
+        showRestartDialog(context, R.string.settings_restart_title, R.string.settings_restart_message, () -> restartProcess(context, "com.android.settings"));
+    }
+
+    public static void showSystemUIRestartDialog(Context context) {
+        showRestartDialog(context, R.string.systemui_restart_title, R.string.systemui_restart_message, () -> restartProcess(context, "com.android.systemui"));
+    }
+
+    public static void showLauncherRestartDialog(Context context) {
+        showRestartDialog(context, R.string.launcher_restart_title, R.string.launcher_restart_message, () -> restartProcess(context, "com.android.launcher3"));
+    }
+
+    public static class SleepModeController {
         private final Resources mResources;
         private final Context mUiContext;
 
