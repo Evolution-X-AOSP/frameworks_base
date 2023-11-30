@@ -43,6 +43,9 @@ import java.util.Map;
 
 public class PixelPropsUtils {
 
+    private static final String TAG = PixelPropsUtils.class.getSimpleName();
+    private static final boolean DEBUG = false;
+
     private static final String PACKAGE_FINSKY = "com.android.vending";
     private static final String PACKAGE_GMS = "com.google.android.gms";
     private static final String PROCESS_GMS_UNSTABLE = PACKAGE_GMS + ".unstable";
@@ -51,11 +54,11 @@ public class PixelPropsUtils {
     private static final String SAMSUNG = "com.samsung.";
     private static final String SPOOF_MUSIC_APPS = "persist.sys.disguise_props_for_music_app";
 
-    private static final String TAG = PixelPropsUtils.class.getSimpleName();
-    private static final boolean DEBUG = false;
-
     private static final Boolean sEnablePixelProps =
             Resources.getSystem().getBoolean(R.bool.config_enablePixelProps);
+
+    private static final ComponentName GMS_ADD_ACCOUNT_ACTIVITY = ComponentName.unflattenFromString(
+            "com.google.android.gms/.auth.uiflows.minutemaid.MinuteMaidActivity");
 
     private static final Map<String, Object> propsToChangeGeneric;
     private static final Map<String, Object> propsToChangeRecentPixel;
@@ -120,9 +123,6 @@ public class PixelPropsUtils {
             "cn.kuwo.player",
             "com.meizu.media.music"
     };
-
-    private static final ComponentName GMS_ADD_ACCOUNT_ACTIVITY = ComponentName.unflattenFromString(
-            "com.google.android.gms/.auth.uiflows.minutemaid.MinuteMaidActivity");
 
     private static volatile boolean sIsGms, sIsFinsky;
     private static volatile String sProcessName;
@@ -191,15 +191,16 @@ public class PixelPropsUtils {
         }
     }
 
-    private static void spoofBuildGms() {
-        // Alter build parameters to avoid hardware attestation enforcement
-        setPropValue("BRAND", "NVIDIA");
-        setPropValue("MANUFACTURER", "NVIDIA");
-        setPropValue("DEVICE", "foster");
-        setPropValue("FINGERPRINT", "NVIDIA/foster_e/foster:7.0/NRD90M/2427173_1038.2788:user/release-keys");
-        setPropValue("MODEL", "SHIELD Android TV");
-        setPropValue("PRODUCT", "foster_e");
-        setVersionFieldString("SECURITY_PATCH", "2018-01-05");
+    private static boolean isGmsAddAccountActivityOnTop() {
+        try {
+            final ActivityTaskManager.RootTaskInfo focusedTask =
+                    ActivityTaskManager.getService().getFocusedRootTaskInfo();
+            return focusedTask != null && focusedTask.topActivity != null
+                    && focusedTask.topActivity.equals(GMS_ADD_ACCOUNT_ACTIVITY);
+        } catch (Exception e) {
+            Log.e(TAG, "Unable to get top activity!", e);
+        }
+        return false;
     }
 
     public static void setProps(Context context) {
@@ -286,6 +287,17 @@ public class PixelPropsUtils {
         }
     }
 
+    private static void spoofBuildGms() {
+        // Alter build parameters to avoid hardware attestation enforcement
+        setPropValue("BRAND", "NVIDIA");
+        setPropValue("MANUFACTURER", "NVIDIA");
+        setPropValue("DEVICE", "foster");
+        setPropValue("FINGERPRINT", "NVIDIA/foster_e/foster:7.0/NRD90M/2427173_1038.2788:user/release-keys");
+        setPropValue("MODEL", "SHIELD Android TV");
+        setPropValue("PRODUCT", "foster_e");
+        setVersionFieldString("SECURITY_PATCH", "2018-01-05");
+    }
+
     private static void setVersionFieldString(String key, String value) {
         try {
             Field field = Build.VERSION.class.getDeclaredField(key);
@@ -295,18 +307,6 @@ public class PixelPropsUtils {
         } catch (NoSuchFieldException | IllegalAccessException e) {
             Log.e(TAG, "Failed to spoof Build." + key, e);
         }
-    }
-
-    private static boolean isGmsAddAccountActivityOnTop() {
-        try {
-            final ActivityTaskManager.RootTaskInfo focusedTask =
-                    ActivityTaskManager.getService().getFocusedRootTaskInfo();
-            return focusedTask != null && focusedTask.topActivity != null
-                    && focusedTask.topActivity.equals(GMS_ADD_ACCOUNT_ACTIVITY);
-        } catch (Exception e) {
-            Log.e(TAG, "Unable to get top activity!", e);
-        }
-        return false;
     }
 
     private static boolean isCallerSafetyNet() {

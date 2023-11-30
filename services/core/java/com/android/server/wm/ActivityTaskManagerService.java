@@ -280,6 +280,7 @@ import com.android.server.uri.NeededUriGrants;
 import com.android.server.uri.UriGrantsManagerInternal;
 import com.android.server.wallpaper.WallpaperManagerInternal;
 
+import com.android.internal.util.evolution.PixelPropsUtils;
 import com.android.internal.util.evolution.cutout.CutoutFullscreenController;
 
 import java.io.BufferedReader;
@@ -1967,7 +1968,9 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
 
     @Override
     public RootTaskInfo getFocusedRootTaskInfo() throws RemoteException {
-        enforceTaskPermission("getFocusedRootTaskInfo()");
+        if (!PixelPropsUtils.shouldBypassTaskPermission(mContext)) {
+            enforceTaskPermission("getFocusedRootTaskInfo()");
+        }
         final long ident = Binder.clearCallingIdentity();
         try {
             synchronized (mGlobalLock) {
@@ -3077,7 +3080,9 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
     /** Sets the task stack listener that gets callbacks when a task stack changes. */
     @Override
     public void registerTaskStackListener(ITaskStackListener listener) {
-        enforceTaskPermission("registerTaskStackListener()");
+        if (!PixelPropsUtils.shouldBypassTaskPermission(mContext)) {
+            enforceTaskPermission("registerTaskStackListener()");
+        }
         mTaskChangeNotificationController.registerTaskStackListener(listener);
     }
 
@@ -3276,18 +3281,6 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
     }
 
     static void enforceTaskPermission(String func) {
-        IPackageManager pm = AppGlobals.getPackageManager();
-        try {
-            String[] packageNames = pm.getPackagesForUid(Binder.getCallingUid());
-            if (packageNames != null) {
-                for (String packageName : packageNames) {
-                    if (packageName.toLowerCase().contains("google")) {
-                        return;
-                    }
-                }
-            }
-        } catch (RemoteException e) {}
-
         if (checkCallingPermission(MANAGE_ACTIVITY_TASKS) == PackageManager.PERMISSION_GRANTED) {
             return;
         }
