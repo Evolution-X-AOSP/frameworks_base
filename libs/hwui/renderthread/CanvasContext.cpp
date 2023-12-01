@@ -883,6 +883,7 @@ void CanvasContext::onSurfaceStatsAvailable(void* context, int32_t surfaceContro
     }
     uint64_t frameNumber = functions.getFrameNumberFunc(stats);
 
+    instance->mRenderThread.queue().post([=]() {
     FrameInfo* frameInfo = instance->getFrameInfoFromLast4(frameNumber, surfaceControlId);
 
     if (frameInfo != nullptr) {
@@ -894,6 +895,7 @@ void CanvasContext::onSurfaceStatsAvailable(void* context, int32_t surfaceContro
         instance->mJankTracker.finishFrame(*frameInfo, instance->mFrameMetricsReporter, frameNumber,
                                            surfaceControlId);
     }
+    });
 }
 
 // Called by choreographer to do an RT-driven animation
