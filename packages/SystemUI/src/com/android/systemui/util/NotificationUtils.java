@@ -55,6 +55,7 @@ public class NotificationUtils {
         Bitmap albumArt = metadata.getBitmap(MediaMetadata.METADATA_KEY_ALBUM_ART);
         String title = metadata.getString(MediaMetadata.METADATA_KEY_TITLE);
         String artist = metadata.getString(MediaMetadata.METADATA_KEY_ARTIST);
+        if (title == null || artist == null) return;
         Notification notification = new NotificationCompat.Builder(context, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_music_note)
                 .setLargeIcon(albumArt) 
@@ -73,4 +74,3 @@ public class NotificationUtils {
         notificationManager.cancel(NOTIFICATION_ID);
     }
 }
-
