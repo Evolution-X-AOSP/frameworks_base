@@ -1798,6 +1798,12 @@ public class AppOpsService extends IAppOpsService.Stub {
                 uidState = new UidState(uid);
                 mUidStates.put(uid, uidState);
             }
+
+            previousMode = uidState.getUidMode(code);
+            if (previousMode == mode) {
+                return;
+            }
+
             if (uidState.getUidMode(code) != AppOpsManager.opToDefaultMode(code)) {
                 previousMode = uidState.getUidMode(code);
             } else {
