@@ -1055,8 +1055,8 @@ class WindowState extends WindowContainer<WindowState> implements WindowManagerP
      */
     void setOnBackInvokedCallbackInfo(
             @Nullable OnBackInvokedCallbackInfo callbackInfo) {
-        ProtoLog.d(WM_DEBUG_BACK_PREVIEW, "%s: Setting back callback %s",
-                this, callbackInfo);
+        //ProtoLog.d(WM_DEBUG_BACK_PREVIEW, "%s: Setting back callback %s",
+        //        this, callbackInfo);
         mOnBackInvokedCallbackInfo = callbackInfo;
     }
 
@@ -1200,7 +1200,7 @@ class WindowState extends WindowContainer<WindowState> implements WindowManagerP
         // Make sure we initial all fields before adding to parentWindow, to prevent exception
         // during onDisplayChanged.
         if (mIsChildWindow) {
-            ProtoLog.v(WM_DEBUG_ADD_REMOVE, "Adding %s to %s", this, parentWindow);
+            //ProtoLog.v(WM_DEBUG_ADD_REMOVE, "Adding %s to %s", this, parentWindow);
             parentWindow.addChild(this, sWindowSubLayerComparator);
         }
 

@@ -892,7 +892,7 @@ public final class AutofillManagerService
         for (int i = 0; i < compatPackageCount; i++) {
             final String packageName = compatPackages.keyAt(i);
             if (allowedPackages == null || !allowedPackages.containsKey(packageName)) {
-                Slog.w(TAG, "Ignoring not allowed compat package " + packageName);
+                if (sDebug) Slog.w(TAG, "Ignoring not allowed compat package " + packageName);
                 continue;
             }
             final Long maxVersionCode = compatPackages.valueAt(i);

@@ -428,10 +428,10 @@ public class WindowOnBackInvokedDispatcher implements OnBackInvokedDispatcher {
                 OnBackInvokedCallback callback) {
             if (!isOnBackInvokedCallbackEnabled(getContext())
                     && !(callback instanceof CompatOnBackInvokedCallback)) {
-                Log.w(TAG,
-                        "OnBackInvokedCallback is not enabled for the application."
-                                + "\nSet 'android:enableOnBackInvokedCallback=\"true\"' in the"
-                                + " application manifest.");
+                //Log.w(TAG,
+                //        "OnBackInvokedCallback is not enabled for the application."
+                //                + "\nSet 'android:enableOnBackInvokedCallback=\"true\"' in the"
+                //                + " application manifest.");
                 return false;
             }
             if (priority < 0) {

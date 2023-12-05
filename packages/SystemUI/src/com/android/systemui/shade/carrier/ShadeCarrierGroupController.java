@@ -346,7 +346,7 @@ public class ShadeCarrierGroupController {
         }
 
         if (mStatusBarPipelineFlags.useNewShadeCarrierGroupMobileIcons()) {
-            Log.d(TAG, "ignoring old pipeline callback because new mobile icon is enabled");
+            //Log.d(TAG, "ignoring old pipeline callback because new mobile icon is enabled");
         } else {
             for (int i = 0; i < SIM_SLOTS; i++) {
                 mCarrierGroups[i].updateState(mInfos[i], singleCarrier);
