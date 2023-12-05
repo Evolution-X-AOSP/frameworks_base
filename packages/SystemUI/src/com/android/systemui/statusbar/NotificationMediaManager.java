@@ -105,6 +105,8 @@ public class NotificationMediaManager implements Dumpable {
     private static final String NOWPLAYING_SERVICE = "com.google.android.as";
     private static final String ISLAND_NOTIFICATION =
             "system:" + Settings.System.ISLAND_NOTIFICATION;
+    private static final String ISLAND_NOTIFICATION_NOW_PLAYING =
+            "system:" + Settings.System.ISLAND_NOTIFICATION_NOW_PLAYING;
 
     private final StatusBarStateController mStatusBarStateController;
     private final SysuiColorExtractor mColorExtractor;
@@ -167,6 +169,7 @@ public class NotificationMediaManager implements Dumpable {
     private LockscreenWallpaper.WallpaperDrawable mWallapperDrawable;
 
     private boolean mIslandEnabled;
+    private boolean mIslandNowPlayingEnabled;
     private NotificationUtils notifUtils;
 
     private final MediaController.Callback mMediaListener = new MediaController.Callback() {
@@ -177,7 +180,7 @@ public class NotificationMediaManager implements Dumpable {
                 Log.v(TAG, "DEBUG_MEDIA: onPlaybackStateChanged: " + state);
             }
             if (state != null) {
-                if (mIslandEnabled) {
+                if (mIslandEnabled && mIslandNowPlayingEnabled) {
                     if (PlaybackState.STATE_PLAYING == getMediaControllerPlaybackState(mMediaController) && mMediaMetadata != null) {
                         notifUtils.showNowPlayingNotification(mMediaMetadata);
                     } else {
@@ -199,7 +202,7 @@ public class NotificationMediaManager implements Dumpable {
             }
             mMediaArtworkProcessor.clearCache();
             mMediaMetadata = metadata;
-            if (mIslandEnabled) {
+            if (mIslandEnabled && mIslandNowPlayingEnabled) {
                 notifUtils.cancelNowPlayingNotification();
                 notifUtils.showNowPlayingNotification(metadata);
             }
@@ -250,7 +253,10 @@ public class NotificationMediaManager implements Dumpable {
         dumpManager.registerDumpable(this);
 
         notifUtils = new NotificationUtils(mContext);
-        Dependency.get(TunerService.class).addTunable(mTunable, ISLAND_NOTIFICATION);
+        TunerService tunerService = Dependency.get(TunerService.class);
+        tunerService.addTunable(mTunable, 
+            ISLAND_NOTIFICATION,
+            ISLAND_NOTIFICATION_NOW_PLAYING);
     }
 
     private final TunerService.Tunable mTunable = new TunerService.Tunable() {
@@ -259,6 +265,9 @@ public class NotificationMediaManager implements Dumpable {
             switch (key) {
                 case ISLAND_NOTIFICATION:
                     mIslandEnabled = TunerService.parseIntegerSwitch(newValue, true);
+                    break;
+                case ISLAND_NOTIFICATION_NOW_PLAYING:
+                    mIslandNowPlayingEnabled = TunerService.parseIntegerSwitch(newValue, true);
                     break;
                 default:
                     break;
