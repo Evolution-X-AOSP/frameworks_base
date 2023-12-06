@@ -255,8 +255,7 @@ class IslandView : ExtendedFloatingActionButton {
         }
         notifContent = when {
             isNowPlaying -> { "" }
-            notificationTitle.isNotBlank() && notificationText.isNotBlank() && !hasExtrasIcon -> { "$notificationTitle : $notificationText" } // meant for messaging apps
-            hasExtrasIcon -> { "$notificationText" }
+            notificationTitle.isNotBlank() && notificationText.isNotBlank() -> { "$notificationTitle : $notificationText" } // meant for messaging apps
             else -> { notificationText.takeIf { it.isNotBlank() } ?: "" } // normal apps
         }
         notifSubContent = notification.extras.getCharSequence(Notification.EXTRA_SUB_TEXT)?.toString().orEmpty()
