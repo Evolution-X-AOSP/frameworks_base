@@ -215,7 +215,7 @@ public class PixelPropsUtils {
     }
 
     public static void spoofBuildGms(Context context) {
-        String packageName = "org.evolution.pif";
+        String packageName = "com.goolag.pif";
 
         if (!EvolutionUtils.isPackageInstalled(context, packageName)) {
             Log.e(TAG, "'" + packageName + "' is not installed.");
@@ -236,15 +236,21 @@ public class PixelPropsUtils {
                     int selectedArrayResId = resources.getIdentifier(deviceArrays[randomIndex], "array", packageName);
                     String[] selectedDeviceProps = resources.getStringArray(selectedArrayResId);
 
-                    setPropValue("BRAND", selectedDeviceProps[0]);
-                    setPropValue("MANUFACTURER", selectedDeviceProps[1]);
-                    setPropValue("ID", selectedDeviceProps[2].isEmpty() ? getBuildID(selectedDeviceProps[6]) : selectedDeviceProps[2]);
-                    setPropValue("DEVICE", selectedDeviceProps[3].isEmpty() ? getDeviceName(selectedDeviceProps[6]) : selectedDeviceProps[3]);
-                    setPropValue("PRODUCT", selectedDeviceProps[4].isEmpty() ? getDeviceName(selectedDeviceProps[6]) : selectedDeviceProps[4]);
-                    setPropValue("MODEL", selectedDeviceProps[5]);
-                    setPropValue("FINGERPRINT", selectedDeviceProps[6]);
-                    setPropValue("TYPE", selectedDeviceProps[7].isEmpty() ? "user" : selectedDeviceProps[7]);
-                    setPropValue("TAGS", selectedDeviceProps[8].isEmpty() ? "release-keys" : selectedDeviceProps[8]);
+                    setPropValue("PRODUCT", selectedDeviceProps[0]);
+                    setPropValue("DEVICE", selectedDeviceProps[1].isEmpty() ? getDeviceName(selectedDeviceProps[5]) : selectedDeviceProps[1]);
+                    setPropValue("MANUFACTURER", selectedDeviceProps[2]);
+                    setPropValue("BRAND", selectedDeviceProps[3]);
+                    setPropValue("MODEL", selectedDeviceProps[4]);
+                    setPropValue("FINGERPRINT", selectedDeviceProps[5]);
+                    setVersionFieldString("SECURITY_PATCH", selectedDeviceProps[6]);
+                    if (!selectedDeviceProps[7].isEmpty() && selectedDeviceProps[7].matches("2[3-6]")) {
+                        setVersionFieldInt("DEVICE_INITIAL_SDK_INT", Integer.parseInt(selectedDeviceProps[7]));
+                    } else {
+                        Log.e(TAG, "Value for DEVICE_INITIAL_SDK_INT must be between 23-26!");
+                    }
+                    setPropValue("ID", selectedDeviceProps[8].isEmpty() ? getBuildID(selectedDeviceProps[5]) : selectedDeviceProps[8]);
+                    setPropValue("TYPE", selectedDeviceProps[9].isEmpty() ? "user" : selectedDeviceProps[9]);
+                    setPropValue("TAGS", selectedDeviceProps[10].isEmpty() ? "release-keys" : selectedDeviceProps[10]);
                 } else {
                     Log.e(TAG, "No device arrays found.");
                 }
@@ -342,6 +348,17 @@ public class PixelPropsUtils {
     }
 
     private static void setVersionFieldString(String key, String value) {
+        try {
+            Field field = Build.VERSION.class.getDeclaredField(key);
+            field.setAccessible(true);
+            field.set(null, value);
+            field.setAccessible(false);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            Log.e(TAG, "Failed to spoof Build." + key, e);
+        }
+    }
+
+    private static void setVersionFieldInt(String key, int value) {
         try {
             Field field = Build.VERSION.class.getDeclaredField(key);
             field.setAccessible(true);
