@@ -2285,7 +2285,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     final TelecomManager telecomManager = getTelecommService();
                     if (telecomManager != null && telecomManager.isRinging()) {
                         telecomManager.acceptRingingCall();
-                        return -1;
+                        return false;
                     }
                 }
 
@@ -4069,7 +4069,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                         }
                     }
                 }
-                return key_consumed;
+                return true;
             case KeyEvent.KEYCODE_VOICE_ASSIST:
                 Slog.wtf(TAG, "KEYCODE_VOICE_ASSIST should be handled in"
                         + " interceptKeyBeforeQueueing");
