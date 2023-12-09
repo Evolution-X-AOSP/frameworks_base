@@ -290,9 +290,6 @@ public final class NotificationPanelViewController implements ShadeSurface, Dump
     private static final String COUNTER_PANEL_OPEN_PEEK = "panel_open_peek";
     private static final String DOUBLE_TAP_SLEEP_GESTURE =
             "system:" + Settings.System.DOUBLE_TAP_SLEEP_GESTURE;
-    private static final String NOTIFICATION_MATERIAL_DISMISS =
-            "system:" + Settings.System.NOTIFICATION_MATERIAL_DISMISS;
-
     private static final String ISLAND_NOTIFICATION =
             "system:" + Settings.System.ISLAND_NOTIFICATION;
 
@@ -643,8 +640,6 @@ public final class NotificationPanelViewController implements ShadeSurface, Dump
     private int mLockscreenToOccludedTransitionTranslationY;
 
     private final PowerManagerInternal mLocalPowerManager;
-
-    private boolean mShowDimissButton;
 
     private boolean mBlockedGesturalNavigation = false;
 
@@ -3154,7 +3149,7 @@ public final class NotificationPanelViewController implements ShadeSurface, Dump
     }
 
     private boolean isPanelVisibleBecauseOfHeadsUp() {
-        return mHeadsUpManager != null && (mHeadsUpManager.hasPinnedHeadsUp() || mHeadsUpAnimatingAway)
+        return (mHeadsUpManager.hasPinnedHeadsUp() || mHeadsUpAnimatingAway)
                 && mBarState == StatusBarState.SHADE;
     }
 
@@ -4045,7 +4040,7 @@ public final class NotificationPanelViewController implements ShadeSurface, Dump
         return mExpandedHeight;
     }
 
-    public float getExpandedFraction() {
+    float getExpandedFraction() {
         return mExpandedFraction;
     }
 
@@ -4748,7 +4743,6 @@ public final class NotificationPanelViewController implements ShadeSurface, Dump
             mStatusBarStateListener.onStateChanged(mStatusBarStateController.getState());
             mConfigurationController.addCallback(mConfigurationListener);
             mTunerService.addTunable(this, DOUBLE_TAP_SLEEP_GESTURE);
-            mTunerService.addTunable(this, NOTIFICATION_MATERIAL_DISMISS);
             mTunerService.addTunable(this, ISLAND_NOTIFICATION);
             // Theme might have changed between inflating this view and attaching it to the
             // window, so
@@ -4778,11 +4772,6 @@ public final class NotificationPanelViewController implements ShadeSurface, Dump
                             TunerService.parseIntegerSwitch(newValue,
                                 mResources.getBoolean(com.android.internal.R.bool.
                                 config_dt2sGestureEnabledByDefault));
-                    break;
-                case NOTIFICATION_MATERIAL_DISMISS:
-                    mShowDimissButton =
-                            TunerService.parseIntegerSwitch(newValue, false);
-                    updateDismissAllVisibility();
                     break;
                 case ISLAND_NOTIFICATION:
                     mUseIslandNotification = TunerService.parseIntegerSwitch(newValue, true);
@@ -5409,17 +5398,6 @@ public final class NotificationPanelViewController implements ShadeSurface, Dump
         @Override
         public void clearNotificationEffects() {
             mCentralSurfaces.clearNotificationEffects();
-        }
-    }
-
-    public void updateDismissAllVisibility() {
-        if (mCentralSurfaces == null) return;
-
-        if (mShowDimissButton && mBarState != StatusBarState.KEYGUARD && !isFullyCollapsed()
-                && !isPanelVisibleBecauseOfHeadsUp()) {
-            mCentralSurfaces.updateDismissAllVisibility(true);
-        } else {
-            mCentralSurfaces.updateDismissAllVisibility(false);
         }
     }
 

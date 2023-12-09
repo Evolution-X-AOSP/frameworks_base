@@ -6379,12 +6379,6 @@ public final class Settings {
         public static final String SECURE_LOCKSCREEN_QS_DISABLED = "secure_lockscreen_qs_disabled";
 
         /**
-         * Whether to show material Dismiss All Button for notifications
-         * @hide
-         */
-        public static final String NOTIFICATION_MATERIAL_DISMISS = "notification_material_dismiss";
-
-        /**
          * Change quick settings tiles animation style
          * @hide
          */

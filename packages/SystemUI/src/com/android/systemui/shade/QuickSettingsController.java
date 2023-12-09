@@ -1069,7 +1069,6 @@ public class QuickSettingsController implements Dumpable {
         mShadeHeaderController.setShadeExpandedFraction(shadeExpandedFraction);
         mShadeHeaderController.setQsExpandedFraction(qsExpansionFraction);
         mShadeHeaderController.setQsVisible(mVisible);
-        mPanelViewControllerLazy.get().updateDismissAllVisibility();
         mPanelViewControllerLazy.get().updateIslandVisibility();
 
         // Update the light bar

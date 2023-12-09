@@ -402,12 +402,6 @@ public interface CentralSurfaces extends Dumpable, LifecycleOwner {
 
     void onBrightnessChanged(boolean upOrCancel);
 
-    View getDismissAllButton();
-
-    void updateDismissAllVisibility(boolean visible);
-
-    void updateDismissAllButton();
-
     void setBlockedGesturalNavigation(boolean blocked);
 
     void startActivity(Intent intent, boolean dismiss);
