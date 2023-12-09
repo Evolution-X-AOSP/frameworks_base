@@ -6269,13 +6269,6 @@ public final class Settings {
                 "lockscreen_scramble_pin_layout";
 
         /**
-         * Whether to control brightness from status bar
-         * 0 = 0ff, 1 = on
-         * @hide
-         */
-        public static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
-
-        /**
          * Whether StatusBar icons should use app icon
          * @hide
          */
