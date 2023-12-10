@@ -438,7 +438,8 @@ public final class PendingIntent implements Parcelable {
             throw new IllegalArgumentException(
                 "Cannot set both FLAG_IMMUTABLE and FLAG_MUTABLE for PendingIntent");
         }
-
+        
+        /**
         if (Compatibility.isChangeEnabled(PENDING_INTENT_EXPLICIT_MUTABILITY_REQUIRED)
                 && !isFlagImmutableSet && !isFlagMutableSet) {
             String msg = packageName + ": Targeting S+ (version " + Build.VERSION_CODES.S
@@ -449,6 +450,7 @@ public final class PendingIntent implements Parcelable {
                     + " be used with inline replies or bubbles.";
                 throw new IllegalArgumentException(msg);
         }
+        **/
 
         // For apps with target SDK < U, warn that creation or retrieval of a mutable implicit
         // PendingIntent that is not of type {@link ActivityManager#INTENT_SENDER_ACTIVITY_RESULT}
@@ -563,6 +565,11 @@ public final class PendingIntent implements Parcelable {
             @NonNull Intent intent, int flags, Bundle options, UserHandle user) {
         String packageName = context.getPackageName();
         String resolvedType = intent.resolveTypeIfNeeded(context.getContentResolver());
+        final boolean isFlagImmutableSet = (flags & PendingIntent.FLAG_IMMUTABLE) != 0;
+        final boolean isFlagMutableSet = (flags & PendingIntent.FLAG_MUTABLE) != 0;
+        if (!isFlagImmutableSet && !isFlagMutableSet) {
+            flags |= PendingIntent.FLAG_IMMUTABLE;
+        }
         checkPendingIntent(flags, intent, context, /* isActivityResultType */ false);
         try {
             intent.migrateExtraStreamToClipData(context);
