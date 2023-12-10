@@ -6722,6 +6722,16 @@ public final class Settings {
         public static final String QS_TILE_LABEL_SIZE = "qs_tile_label_size";
 
         /**
+         * @hide
+         */
+        public static final String QQS_LAYOUT_ROWS_LANDSCAPE = "qqs_layout_rows_landscape";
+
+        /**
+         * @hide
+         */
+        public static final String QQS_LAYOUT_ROWS = "qqs_layout_rows";
+
+        /**
          * Whether to enable the ripple animation on fingerprint unlock
          * @hide
          */
