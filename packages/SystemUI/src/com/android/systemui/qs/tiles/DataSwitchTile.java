@@ -93,6 +93,10 @@ public class DataSwitchTile extends QSTileImpl<BooleanState> {
     @Override
     public boolean isAvailable() {
         int count = TelephonyManager.getDefault().getPhoneCount();
+        if (mSubscriptionManager.getDefaultDataSubscriptionInfo() == null) {
+            // voice only phone or no SIMs
+            count = 0;
+        }
         Log.d(TAG, "phoneCount: " + count);
         return count >= 2;
     }
@@ -175,8 +179,8 @@ public class DataSwitchTile extends QSTileImpl<BooleanState> {
     protected void handleUpdateState(BooleanState state, Object arg) {
         boolean activeSIMZero;
         if (arg == null) {
-            final int defaultPhoneId =
-                    mSubscriptionManager.getDefaultDataSubscriptionInfo().getSimSlotIndex();
+            final SubscriptionInfo info = mSubscriptionManager.getDefaultDataSubscriptionInfo();
+            final int defaultPhoneId = info == null ? 0 : info.getSimSlotIndex();
             Log.d(TAG, "default data phone id=" + defaultPhoneId);
             activeSIMZero = defaultPhoneId == 0;
         } else {
