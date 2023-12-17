@@ -2017,7 +2017,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         if (mBrightnessChanged && upOrCancel) {
             mBrightnessChanged = false;
             if (mJustPeeked && mShadeController.isExpandedVisible()) {
-                mCentralSurfacesComponent.getNotificationPanelViewController().fling(10, false, false);
+                getNotificationShadeWindowViewController().fling(10, false, false);
             }
             mDisplayManager.setBrightness(mDisplayId, mCurrentBrightness);
         }
