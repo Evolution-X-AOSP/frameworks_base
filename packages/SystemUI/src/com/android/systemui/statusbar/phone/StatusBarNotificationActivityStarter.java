@@ -124,6 +124,7 @@ class StatusBarNotificationActivityStarter implements NotificationActivityStarte
     private final MetricsLogger mMetricsLogger;
     private final StatusBarNotificationActivityStarterLogger mLogger;
 
+    private final CentralSurfaces mCentralSurfaces;
     private final NotificationPresenter mPresenter;
     private final ShadeViewController mShadeViewController;
     private final NotificationShadeWindowController mNotificationShadeWindowController;
@@ -134,8 +135,6 @@ class StatusBarNotificationActivityStarter implements NotificationActivityStarte
     private final OnUserInteractionCallback mOnUserInteractionCallback;
 
     private boolean mIsCollapsingToShowActivityOverLockscreen;
-
-    protected GameSpaceManager mGameSpaceManager;
 
     @Inject
     StatusBarNotificationActivityStarter(
@@ -163,6 +162,7 @@ class StatusBarNotificationActivityStarter implements NotificationActivityStarte
             MetricsLogger metricsLogger,
             StatusBarNotificationActivityStarterLogger logger,
             OnUserInteractionCallback onUserInteractionCallback,
+            CentralSurfaces centralSurfaces,
             NotificationPresenter presenter,
             ShadeViewController shadeViewController,
             NotificationShadeWindowController notificationShadeWindowController,
@@ -197,6 +197,7 @@ class StatusBarNotificationActivityStarter implements NotificationActivityStarte
         mFeatureFlags = featureFlags;
         mMetricsLogger = metricsLogger;
         mLogger = logger;
+        mCentralSurfaces = centralSurfaces;
         mOnUserInteractionCallback = onUserInteractionCallback;
         mPresenter = presenter;
         mShadeViewController = shadeViewController;
@@ -206,9 +207,6 @@ class StatusBarNotificationActivityStarter implements NotificationActivityStarte
         mUserTracker = userTracker;
 
         launchFullScreenIntentProvider.registerListener(entry -> launchFullScreenIntent(entry));
-
-        mGameSpaceManager = new GameSpaceManager(mContext, mKeyguardStateController);
-        mGameSpaceManager.observe();
     }
 
     /**
@@ -579,7 +577,7 @@ class StatusBarNotificationActivityStarter implements NotificationActivityStarte
 
     @VisibleForTesting
     void launchFullScreenIntent(NotificationEntry entry) {
-        GameSpaceManager gameSpace = mGameSpaceManager;
+        GameSpaceManager gameSpace = mCentralSurfaces.getGameSpaceManager();
         if (gameSpace != null && gameSpace.shouldSuppressFullScreenIntent()) {
             return;
         }

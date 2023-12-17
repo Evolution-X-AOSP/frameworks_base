@@ -1556,7 +1556,7 @@ public final class NotificationPanelViewController implements ShadeSurface, Dump
             mNotificationStackScrollLayoutController.setKeyguardBottomPaddingForDebug(-1f);
         }
     }
-    
+
     public void updateMaxDisplayedNotificationsWrapper(boolean recompute) {
         updateMaxDisplayedNotifications(recompute);
     }
@@ -5473,5 +5473,15 @@ public final class NotificationPanelViewController implements ShadeSurface, Dump
 
     protected void updateIslandVisibility() {
         mNotifIsland.updateIslandVisibility(getExpandedFraction());
+    }
+
+    @Override
+    public NotificationStackScrollLayoutController getScrollerLayoutController() {
+        return mNotificationStackScrollLayoutController;
+    }
+
+    @Override
+    public KeyguardBottomAreaView getKeyguardBottomAreaView() {
+        return mKeyguardBottomArea;
     }
 }

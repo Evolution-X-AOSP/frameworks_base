@@ -259,6 +259,7 @@ import com.android.systemui.statusbar.policy.DeviceProvisionedController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController.DeviceProvisionedListener;
 import com.android.systemui.statusbar.policy.ExtensionController;
 import com.android.systemui.statusbar.policy.FlashlightController;
+import com.android.systemui.statusbar.policy.GameSpaceManager;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
 import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
@@ -547,6 +548,8 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
 
     private final PulseControllerImpl mPulseController;
     private VisualizerView mVisualizerView;
+
+    private GameSpaceManager mGameSpaceManager;
 
     private CentralSurfacesComponent mCentralSurfacesComponent;
 
@@ -968,6 +971,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
 
         mActivityIntentHelper = new ActivityIntentHelper(mContext);
         mActivityLaunchAnimator = activityLaunchAnimator;
+        mGameSpaceManager = new GameSpaceManager(mContext, mKeyguardStateController);
 
         // The status bar background may need updating when the ongoing call status changes.
         mOngoingCallController.addCallback((animate) -> maybeUpdateBarMode());
@@ -1640,6 +1644,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         filter.addAction(Intent.ACTION_SCREEN_CAMERA_GESTURE);
         mBroadcastDispatcher.registerReceiver(mBroadcastReceiver, filter, null, UserHandle.ALL);
+        mGameSpaceManager.observe();
     }
 
     @Override
@@ -1763,11 +1768,11 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         mMediaManager.addCallback(mPulseController);
     }
 
-    protected NotificationShadeWindowViewController getNotificationShadeWindowViewController() {
+    public NotificationShadeWindowViewController getNotificationShadeWindowViewController() {
         return mNotificationShadeWindowViewControllerLazy.get();
     }
 
-    protected NotificationShadeWindowView getNotificationShadeWindowView() {
+    public NotificationShadeWindowView getNotificationShadeWindowView() {
         return getNotificationShadeWindowViewController().getView();
     }
 
@@ -3538,13 +3543,17 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
     public void startActivity(Intent intent, boolean dismissShade) {
         mActivityStarter.startActivityDismissingKeyguard(intent, false /* onlyProvisioned */, dismissShade);
     }
-    
+
     public void startPendingIntentDismissingKeyguard(PendingIntent intent) {
         mActivityStarter.startPendingIntentDismissingKeyguard(intent);
     }
-    
-    public NotificationPanelViewController getNotificationPanelViewController() {
-        return mCentralSurfacesComponent.getNotificationPanelViewController();
+
+    public ShadeViewController getNotificationPanelViewController() {
+        return mShadeSurface;
+    }
+
+    public void wakeUpDeviceifDozing() {
+        mPowerInteractor.wakeUpIfDozing("AMBIENT MUSIC", PowerManager.WAKE_REASON_GESTURE);
     }
 
     @Override
@@ -3745,6 +3754,11 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
             default:
                 break;
          }
+    }
+
+    @Override
+    public GameSpaceManager getGameSpaceManager() {
+        return mGameSpaceManager;
     }
 
     // End Extra BaseStatusBarMethods.
@@ -4075,5 +4089,23 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
     public ActivityLaunchAnimator.Controller getAnimatorControllerFromNotification(
             ExpandableNotificationRow associatedView) {
         return mNotificationAnimationProvider.getAnimatorController(associatedView);
+    }
+
+    public void collapseShade() {
+        if (mShadeController != null) {
+            mShadeController.collapseShade();
+        }
+    }
+
+    public void postAnimateCollapsePanels() {
+        if (mShadeController != null) {
+            mShadeController.animateCollapseShade();
+        }
+    }
+
+    public void animateExpandNotificationsPanel() {
+        if (mCommandQueueCallbacks != null) {
+            mCommandQueueCallbacks.animateExpandNotificationsPanel();
+        }
     }
 }

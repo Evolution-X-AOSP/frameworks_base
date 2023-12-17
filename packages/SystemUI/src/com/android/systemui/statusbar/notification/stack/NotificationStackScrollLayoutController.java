@@ -855,7 +855,7 @@ public class NotificationStackScrollLayoutController {
     public View getNotificationStackScrollLayoutView() {
         return mView;
     }
-    
+
     public boolean isViewAffectedBySwipe(ExpandableView expandableView) {
         return mNotificationRoundnessManager.isViewAffectedBySwipe(expandableView);
     }
