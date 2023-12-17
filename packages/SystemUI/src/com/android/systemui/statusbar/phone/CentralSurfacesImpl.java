@@ -1383,7 +1383,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
             });
         }
 
-        mVisualizerView = (VisualizerView) mNotificationShadeWindowViewControllerLazy.findViewById(R.id.visualizerview);
+        mVisualizerView = (VisualizerView) getNotificationShadeWindowView().findViewById(R.id.visualizerview);
 
         mReportRejectedTouch = getNotificationShadeWindowView()
                 .findViewById(R.id.report_rejected_touch);
