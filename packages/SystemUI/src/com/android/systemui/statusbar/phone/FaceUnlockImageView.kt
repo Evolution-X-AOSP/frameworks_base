@@ -203,9 +203,9 @@ class FaceUnlockImageView @JvmOverloads constructor(
                 successAnimation.cancel()
                 failureShakeAnimation.start()
                 failureShakeAnimation.doOnEnd {
-                    postOnAnimation {
+                    postOnAnimationDelayed({
                         dismissAnimation.start()
-                    }
+                    }, DELAY_HIDE_DURATION.toLong())
                 }
                 vibrate(VibrationEffect.EFFECT_DOUBLE_CLICK)
             }
