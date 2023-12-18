@@ -13348,13 +13348,6 @@ public final class Settings {
         public static final String SYSTEM_CUSTOM_THEME = "system_custom_theme";
 
         /**
-         * Whether to show QS auto brightness toggle button
-         * @hide
-         */
-        @Readable
-        public static final String QSTILE_REQUIRES_UNLOCKING = "qstile_requires_unlocking";
-
-        /**
          * Whether to enable Sleep Mode
          * @hide
          */

@@ -40,7 +40,7 @@ import com.android.systemui.dagger.qualifiers.Background;
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.FalsingManager;
-import com.android.systemui.plugins.qs.QSTile;
+import com.android.systemui.plugins.qs.QSTile.BooleanState;
 import com.android.systemui.plugins.statusbar.StatusBarStateController;
 import com.android.systemui.qs.SettingObserver;
 import com.android.systemui.qs.QSHost;
@@ -48,7 +48,6 @@ import com.android.systemui.qs.QsEventLogger;
 import com.android.systemui.qs.logging.QSLogger;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
 import com.android.systemui.settings.UserTracker;
-import com.android.systemui.statusbar.policy.KeyguardStateController;
 import com.android.systemui.util.settings.SecureSettings;
 
 import java.time.format.DateTimeFormatter;
@@ -56,7 +55,7 @@ import java.time.LocalTime;
 
 import javax.inject.Inject;
 
-public class SleepModeTile extends SecureQSTile<QSTile.BooleanState> {
+public class SleepModeTile extends QSTileImpl<BooleanState> {
 
     public static final String TILE_SPEC = "sleep_mode";
 
@@ -84,11 +83,10 @@ public class SleepModeTile extends SecureQSTile<QSTile.BooleanState> {
             ActivityStarter activityStarter,
             QSLogger qsLogger,
             SecureSettings secureSettings,
-            KeyguardStateController keyguardStateController,
             UserTracker userTracker
     ) {
         super(host, uiEventLogger, backgroundLooper, mainHandler, falsingManager, metricsLogger,
-                statusBarStateController, activityStarter, qsLogger, keyguardStateController);
+                statusBarStateController, activityStarter, qsLogger);
 
         mSetting = new SettingObserver(secureSettings, mHandler, Settings.Secure.SLEEP_MODE_ENABLED,
                 userTracker.getUserId()) {
@@ -107,10 +105,7 @@ public class SleepModeTile extends SecureQSTile<QSTile.BooleanState> {
     }
 
     @Override
-    protected void handleClick(@Nullable View view, boolean keyguardShowing) {
-        if (checkKeyguard(view, keyguardShowing)) {
-            return;
-        }
+    public void handleClick(@Nullable View view) {
         if (mIsTurningOn) {
             return;
         }
