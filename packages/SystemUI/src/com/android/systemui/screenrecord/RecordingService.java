@@ -39,6 +39,7 @@ import android.os.RemoteException;
 import android.os.SystemClock;
 import android.os.UserHandle;
 import android.provider.Settings;
+import android.service.notification.StatusBarNotification;
 import android.util.Log;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -80,6 +81,7 @@ public class RecordingService extends Service implements ScreenMediaRecorderList
     private static final String GROUP_KEY = "screen_record_saved";
     private static final String EXTRA_RESULT_CODE = "extra_resultCode";
     private static final String EXTRA_PATH = "extra_path";
+    private static final String EXTRA_ID = "extra_id";
     private static final String EXTRA_AUDIO_SOURCE = "extra_useAudio";
     private static final String EXTRA_SHOW_TAPS = "extra_showTaps";
     private static final String EXTRA_CAPTURE_TARGET = "extra_captureTarget";
@@ -257,7 +259,9 @@ public class RecordingService extends Service implements ScreenMediaRecorderList
                     startActivity(Intent.createChooser(shareIntent, shareLabel)
                             .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
                     // Remove notification
-                    mNotificationManager.cancelAsUser(null, mNotificationId, currentUser);
+                    final int id = intent.getIntExtra(EXTRA_ID, mNotificationId);
+                    mNotificationManager.cancelAsUser(null, id, currentUser);
+                    maybeDismissGroup(currentUser);
                     return false;
                 }, false, false);
 
@@ -266,19 +270,18 @@ public class RecordingService extends Service implements ScreenMediaRecorderList
                 break;
             case ACTION_DELETE:
                 // Close quick shade
-                sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
-
+                closeSystemDialogs();
                 ContentResolver resolver = getContentResolver();
                 Uri uri = Uri.parse(intent.getStringExtra(EXTRA_PATH));
                 resolver.delete(uri, null, null);
-
                 Toast.makeText(
                         this,
                         R.string.screenrecord_delete_description,
                         Toast.LENGTH_LONG).show();
-
                 // Remove notification
-                mNotificationManager.cancelAsUser(null, NOTIF_BASE_ID, currentUser);
+                final int id = intent.getIntExtra(EXTRA_ID, mNotificationId);
+                mNotificationManager.cancelAsUser(null, id, currentUser);
+                maybeDismissGroup(currentUser);
                 Log.d(TAG, "Deleted recording " + uri);
                 break;
             case ACTION_SHOW_DIALOG:
@@ -429,7 +432,7 @@ public class RecordingService extends Service implements ScreenMediaRecorderList
                 getResources().getString(R.string.screenrecord_share_label),
                 PendingIntent.getService(
                         this,
-                        REQUEST_CODE,
+                        mNotificationId, /* unique request code */
                         getShareIntent(this, uri.toString()),
                         PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE))
                 .build();
@@ -439,7 +442,7 @@ public class RecordingService extends Service implements ScreenMediaRecorderList
                 getResources().getString(R.string.screenrecord_delete_label),
                 PendingIntent.getService(
                         this,
-                        REQUEST_CODE,
+                        mNotificationId, /* unique request code */
                         getDeleteIntent(this, uri.toString()),
                         PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE))
                 .build();
@@ -454,7 +457,7 @@ public class RecordingService extends Service implements ScreenMediaRecorderList
                 .setContentText(getResources().getString(R.string.screenrecord_save_text))
                 .setContentIntent(PendingIntent.getActivity(
                         this,
-                        REQUEST_CODE,
+                        mNotificationId, /* unique request code */
                         viewIntent,
                         PendingIntent.FLAG_IMMUTABLE))
                 .addAction(shareAction)
@@ -479,6 +482,8 @@ public class RecordingService extends Service implements ScreenMediaRecorderList
      * grouped together, and the foreground service recording notification is not
      */
     private void postGroupNotification(UserHandle currentUser) {
+        if (countGroupNotifications() < 2)
+            return; // only post after we show the 2nd notification
         Bundle extras = new Bundle();
         extras.putString(Notification.EXTRA_SUBSTITUTE_APP_NAME,
                 getResources().getString(R.string.screenrecord_title));
@@ -487,9 +492,26 @@ public class RecordingService extends Service implements ScreenMediaRecorderList
                 .setContentTitle(getResources().getString(R.string.screenrecord_save_title))
                 .setGroup(GROUP_KEY)
                 .setGroupSummary(true)
+                .setAutoCancel(true)
                 .setExtras(extras)
                 .build();
         mNotificationManager.notifyAsUser(TAG, NOTIF_BASE_ID, groupNotif, currentUser);
+    }
+
+    private void maybeDismissGroup(UserHandle currentUser) {
+        if (countGroupNotifications() >= 1)
+            return; // dismiss only when we have one notification left
+        mNotificationManager.cancelAsUser(TAG, NOTIF_BASE_ID, currentUser);
+    }
+
+    private int countGroupNotifications() {
+        StatusBarNotification[] notifications = mNotificationManager.getActiveNotifications();
+        int count = 0;
+        for (StatusBarNotification notification : notifications) {
+            if (notification.getId() != NOTIF_BASE_ID)
+                count++;
+        }
+        return count;
     }
 
     private void stopService() {
@@ -538,14 +560,15 @@ public class RecordingService extends Service implements ScreenMediaRecorderList
         mLongExecutor.execute(() -> {
             try {
                 Log.d(TAG, "saving recording");
-                Notification notification = createSaveNotification(getRecorder().save());
                 postGroupNotification(currentUser);
-                mNotificationManager.notifyAsUser(null, mNotificationId,  notification,
+                Notification notification = createSaveNotification(getRecorder().save());
+                mNotificationManager.notifyAsUser(null, mNotificationId, notification,
                         currentUser);
             } catch (IOException | IllegalStateException e) {
                 Log.e(TAG, "Error saving screen recording: " + e.getMessage());
                 showErrorToast(R.string.screenrecord_save_error);
                 mNotificationManager.cancelAsUser(null, mNotificationId, currentUser);
+                maybeDismissGroup(currentUser);
             }
         });
     }
@@ -674,14 +697,24 @@ public class RecordingService extends Service implements ScreenMediaRecorderList
         return new Intent(context, RecordingService.class).setAction(ACTION_STOP_NOTIF);
     }
 
-    private static Intent getShareIntent(Context context, String path) {
-        return new Intent(context, RecordingService.class).setAction(ACTION_SHARE)
-                .putExtra(EXTRA_PATH, path);
+    private Intent getShareIntent(Context context, String path) {
+        return getShareIntent(context, path, mNotificationId);
     }
 
-    private static Intent getDeleteIntent(Context context, String path) {
+    private static Intent getShareIntent(Context context, String path, int id) {
+        return new Intent(context, RecordingService.class).setAction(ACTION_SHARE)
+                .putExtra(EXTRA_PATH, path)
+                .putExtra(EXTRA_ID, id);
+    }
+
+    private Intent getDeleteIntent(Context context, String path) {
+        return getDeleteIntent(context, path, mNotificationId);
+    }
+
+    private static Intent getDeleteIntent(Context context, String path, int id) {
         return new Intent(context, RecordingService.class).setAction(ACTION_DELETE)
-                .putExtra(EXTRA_PATH, path);
+                .putExtra(EXTRA_PATH, path)
+                .putExtra(EXTRA_ID, id);
     }
 
     @Override
