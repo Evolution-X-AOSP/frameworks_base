@@ -4,23 +4,10 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="status_deep_sleep">(Tiefschlaf: %1$d%2$s)</string>
-    <!-- Label for estimated remaining duration of dash battery charging -->
-    <string name="power_remaining_dash_charging_duration_only">Schnelles Aufladen (Dash) (<xliff:g id="time">%1$s</xliff:g> bis voll aufgeladen)</string>
-    <!-- Battery use screen.  Battery status shown in chart label when charging from a dash source.  -->
-    <string name="battery_info_status_dash_charging">Schnellladen (Dash)</string>
-    <!-- Label for estimated remaining duration of warp battery charging -->
-    <string name="power_remaining_warp_charging_duration_only">Superschnelles Aufladen (Warp) (<xliff:g id="time">%1$s</xliff:g> bis voll aufgeladen)</string>
-    <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
-    <string name="battery_info_status_warp_charging">Superschnelles Aufladen (Warp)</string>
-    <!-- Label for estimated remaining duration of vooc battery charging -->
-    <string name="power_remaining_vooc_charging_duration_only">VOOC-Ladevorgang (<xliff:g id="time">%1$s</xliff:g> bis vollständig aufgeladen)</string>
-    <!-- Battery use screen. Battery status shown in chart label when charging from a VOOC source.  -->
-    <string name="battery_info_status_vooc_charging">VOOC Laden</string>
-    <!-- Label for estimated remaining duration of TurboPower battery charging -->
-    <string name="power_remaining_turbo_charging_duration_only">Turbo-Ladevorgang (<xliff:g id="time">%1$s</xliff:g> übrig bis voll)</string>
-    <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
-    <string name="battery_info_status_turbo_charging">Turbo-Laden</string>
-    <!-- [CHAR LIMIT=25] Manage applications, text for when an application is hidden. -->
-    <string name="hidden">Ausgeblendet</string>
+    <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
+    <string name="screen_zoom_summary_smaller">Kleiner</string>
+    <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
+    <string name="screen_zoom_summary_smallest">Am kleinsten</string>
+    <!-- String for removal of sensitive info on about, depending on tap -->
+    <string name="device_info_protected_single_press">Antippen, um Info anzuzeigen</string>
 </resources>

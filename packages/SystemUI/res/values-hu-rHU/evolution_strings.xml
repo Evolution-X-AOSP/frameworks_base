@@ -9,6 +9,7 @@
     <!-- Statusbar Icons -->
     <string name="status_bar_call_strength">Jelerősség</string>
     <string name="status_bar_data_saver">Adatforgalom-csökkentő</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_nfc">NFC</string>
     <string name="status_bar_vpn">VPN</string>
     <!-- Sound QS Tile -->
@@ -37,14 +38,15 @@
     <string name="quick_settings_usb_tether_label">USB-megosztás</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Mindig bekapcsolva (AOD)</string>
-    <string name="quick_settings_aod_off_powersave_label">AOD ki\nAkkukímélő</string>
+    <string name="quick_settings_aod_on_charge_label">AOD töltéskor</string>
+    <string name="quick_settings_aod_off_label">AOD ki</string>
     <!-- SoundSearch Tile -->
     <string name="quick_settings_sound_search">Zenekeresés</string>
     <string name="quick_settings_sound_search_not_found">A \'Hangalapú keresés\' megfelelő működéséhez előbb telepíteni kell a Google alkalmazását</string>
     <!-- Bluetooth dialog -->
     <string name="turn_on_bluetooth">Bluetooth-használat</string>
     <string name="bluetooth_is_off">A Bluetooth ki van kapcsolva</string>
-    <string name="tap_a_device_to_connect">Kapcsolódáshoz koppintson a kívánt készülékre</string>
+    <string name="tap_a_device_to_connect">Érintse meg fel- vagy lecsatlakoztatáshoz</string>
     <!-- QuickSettings: InternetDialog: Summary for how many devices are connected to the hotspot [CHAR LIMIT=NONE] -->
     <plurals name="quick_settings_internet_hotspot_summary_num_devices">
         <item quantity="one">%d készülék csatlakoztatva</item>
@@ -56,8 +58,6 @@
     <!-- Status bar - icons -->
     <string name="status_bar_icons_title">Állapotsori ikonok</string>
     <!-- Text to use when the number in a notification info is too large -->
-    <!-- Label for area where tiles can be added to the qs panel -->
-    <string name="drag_or_tap_to_add_tiles">Tartsa nyomva és húzza, vagy érintse meg a csempék hozzáadásához</string>
     <!-- Advanced Reboot -->
     <string name="global_action_restart_advanced">Speciális</string>
     <string name="global_action_restart_recovery">Recovery</string>
@@ -87,6 +87,7 @@
     <string name="screenrecord_hevc_switch_label">HEVC-kodek</string>
     <!-- Google lens screenshot notification -->
     <string name="lens">Lens</string>
+    <string name="lens_unavailable">Nincs telepítve a Google Lens</string>
     <!-- Alert slide extras -->
     <string name="volume_ringer_priority_only">Fontosak</string>
     <string name="volume_ringer_alarms_only">Ébresztések</string>
@@ -135,8 +136,6 @@
     <string name="quick_settings_compass_SW">DNy</string>
     <string name="quick_settings_compass_W">Ny</string>
     <string name="quick_settings_compass_NW">ÉNy</string>
-    <!-- DataSwitch Tile -->
-    <string name="qs_data_switch_label">SIM-kártyaváltás</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Hangerőszabályzó</string>
     <!-- Refresh Rate Tile -->
@@ -147,4 +146,75 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Nyelv</string>
     <string name="quick_settings_locale_more_locales_toast">A kapcsolónak csak több nyelv esetén van értelme, állítson be többet</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Erőteljes töltés (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> a teljes töltésig)</string>
+    <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Erőteljes töltés</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> Lánctöltés (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> a teljes töltöttségig)</string>
+    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="percentage">%s</xliff:g> • Lánctöltés</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • VOOC-Töltés (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> a teljes feltöltésig)</string>
+    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="percentage">%s</xliff:g>• VOOC-Töltés</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Turbótöltés (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> a teljes töltöttségig)</string>
+    <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Turbó töltés</string>
+    <!-- CPUInfo tile -->
+    <string name="quick_settings_cpuinfo_label">CPU-adatok</string>
+    <!-- FPS Info tile -->
+    <string name="quick_settings_fpsinfo_label">FPS-adatok</string>
+    <!-- FPS view text placeholder -->
+    <string name="fps_text_placeholder"><xliff:g id="fps" example="90">%1$d</xliff:g> FPS</string>
+    <!-- Data usage info in QS footer -->
+    <string name="usage_data">felhasználva</string>
+    <string name="usage_data_default_suffix">Adat</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">SIM-kártyaváltás</string>
+    <string name="qs_data_switch_toast_0">Jelenleg nincs SIM-kártya behelyezve</string>
+    <string name="qs_data_switch_toast_1">Jelenleg csak egy SIM-kártya van behelyezve</string>
+    <string name="qs_data_switch_text_1">1.SIM</string>
+    <string name="qs_data_switch_text_2">2.SIM</string>
+    <string name="qs_data_switch_changed_1">Az 1.SIM lett az adatkártya</string>
+    <string name="qs_data_switch_changed_2">A 2.SIM lett az adatkártya</string>
+    <!-- Sleep Mode -->
+    <string name="quick_settings_sleep_mode_label">Alvómód</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">DC-kiegyenlítés</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Megjeleníti mindaddíg, amíg fel nem oldja a rögzítést. A feloldáshoz érintse meg és tartsa lenyomva a Vissza gombot.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">A Képernyőblokkolás feloldásához érintse meg és tartsa nyomva a Vissza gombot</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">Megjeleníti mindaddíg, amíg fel nem oldja a rögzítést. A feloldáshoz érintse meg és tartsa lenyomva az ujjlenyomat-olvasót.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">A Képernyőblokkolás feloldásához érintse meg és tartsa nyomva az ujjlenyomat-olvasót</string>
+    <!-- Preferred network tile -->
+    <string name="quick_settings_preferred_network_label">Előnyt élvező hálózat</string>
+    <string name="quick_settings_preferred_network_lte">4G / LTE</string>
+    <string name="quick_settings_preferred_network_nr">5G / NR</string>
+    <string name="quick_settings_preferred_network_unsupported">Nem támogatott</string>
+    <!-- Advance location quick setting tile -->
+    <string name="accessibility_quick_settings_location_off">Helymeghatározás-jelentés: ki.</string>
+    <string name="quick_settings_location_secondary_battery_saving">Akkumulátorkímélő</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Helymeghatározás-jelentés: akkukímélő mód.</string>
+    <string name="quick_settings_location_secondary_gps_only">Csak szenzorokkal</string>
+    <string name="accessibility_quick_settings_location_gps_only">Helymeghatározás-jelentés: csak szenzorok használatával.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Nagy pontosságú</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Helymeghatározás-jeletés: Tökéletes pontossággal.</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Csatlakozás a következőhöz\u2026</string>
+    <string name="vpn_credentials_hint">Kérjük, adja meg a hitelesítőadatait, hogy csatlakozhasson a következőhöz: <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Felhasználónév</string>
+    <string name="vpn_credentials_password">Jelszó</string>
+    <string name="vpn_credentials_dialog_connect">Csatlakozás</string>
+    <!-- Text while recognizing face -->
+    <string name="face_unlock_recognizing">Arcfelismerés...</string>
+    <!-- App kill -->
+    <string name="task_helper_app_killed">%1$s kényszerítve leállt</string>
+    <string name="empty_app_killed">Alkalmazás</string>
+    <!-- App picker -->
+    <string name="app_picker_dialog_title">Válasszon egy alkalmazást</string>
+    <string name="active_edge_app_select_title">Alkalmazásválasztás</string>
+    <string name="active_edge_activity_select_title">Válasszon műveletet</string>
 </resources>

@@ -5,12 +5,12 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Button that copies the url to the log of a crashed application -->
-    <string name="aerr_copy">Skopiuj logi awarii</string>
+    <string name="aerr_copy">Skopiuj log awarii</string>
     <string name="url_copy_success">Skopiowano pomyślnie</string>
-    <string name="url_copy_failed">Wystąpił błąd podczas przesyłania rejestru do Hastebin</string>
+    <string name="url_copy_failed">Wystąpił błąd podczas przesyłania logu</string>
     <!-- SystemUI Restart -->
-    <string name="systemui_restart_title">Wymagane ponowne uruchomienie SystemUI</string>
-    <string name="systemui_restart_message">Zapisanie wszystkich zmian wymaga ponownego uruchomienia SystemUI. Uruchomić ponownie SystemUI teraz?</string>
+    <string name="systemui_restart_title">Wymagany restart interfejsu</string>
+    <string name="systemui_restart_message">Aby zastosować zmiany, wymagany jest restart interfejsu. Zrestartować interfejs teraz?</string>
     <!-- LiveDisplay strings -->
     <string name="live_display_auto">Automatycznie</string>
     <string name="live_display_auto_summary">Automatycznie dopasuj temperaturę kolorów ekranu po zachodzie i wschodnie słońca</string>
@@ -20,19 +20,19 @@
     <string name="live_display_day_summary">Użyj tylko ustawień dnia</string>
     <string name="live_display_night">Noc</string>
     <string name="live_display_night_summary">Użyj tylko ustawień nocnych</string>
-    <string name="live_display_outdoor">Na zewnątrz (jasne słońce)</string>
+    <string name="live_display_outdoor">Na zewnątrz (słonecznie)</string>
     <string name="live_display_outdoor_summary">Użyj wyłącznie ustawienia \"na zewnątrz\"</string>
-    <string name="live_display_hint">LiveDisplay może zredukować zmęczenie oczu oraz może pomóc zasnąć w nocy. Kliknij aby wypróbować!</string>
+    <string name="live_display_hint">LiveDisplay może zredukować zmęczenie oczu oraz pomóc zasnąć w nocy. Kliknij, aby wypróbować!</string>
     <string name="accessibility_quick_settings_live_display_off">LiveDisplay wyłączony.</string>
     <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: tryb automatyczny.</string>
     <string name="accessibility_quick_settings_live_display_day">LiveDisplay: tryb dzienny.</string>
     <string name="accessibility_quick_settings_live_display_night">LiveDisplay: tryb nocny.</string>
     <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: tryb \"na zewnątrz\".</string>
     <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay wyłączony.</string>
-    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay zmieniony na tryb automatyczny.</string>
-    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay zmieniony na tryb dzienny.</string>
-    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay zmieniony na tryb nocny.</string>
-    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay zmieniony na tryb \"na zewnątrz\".</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay zmieniono na tryb automatyczny.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay zmieniono na tryb dzienny.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay zmieniono na tryb nocny.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay zmieniono na tryb \"na zewnątrz\".</string>
     <!-- Advanced reboot -->
     <string name="reboot_to_recovery_title">Recovery</string>
     <string name="reboot_to_recovery_message">Restartowanie do recovery</string>
@@ -40,4 +40,46 @@
     <string name="reboot_to_bootloader_message">Restartowanie do bootloadera</string>
     <string name="reboot_title">Zrestartuj</string>
     <string name="reboot_message">Restartowanie systemu</string>
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">Kontrola ładowania</string>
+    <string name="charging_control_notification_title">Kontrola ładowania</string>
+    <string name="charging_control_notification_cancel_once">Anuluj</string>
+    <string name="charging_control_notification_content_limit">Bateria zostanie naładowana do %1$d%%</string>
+    <string name="charging_control_notification_content_limit_reached">Bateria jest naładowana w %1$d%%</string>
+    <string name="charging_control_notification_content_target">Bateria zostanie w pełni naładowana o %1$s</string>
+    <string name="charging_control_notification_content_target_reached">Bateria jest naładowana</string>
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Tryb uśpienia</string>
+    <string name="sleep_mode_notification_title">Tryb uśpienia włączony</string>
+    <string name="sleep_mode_notification_content">Dotknij, aby wyłączyć Tryb uśpienia</string>
+    <string name="sleep_mode_enabled_toast">Włączono Tryb uśpienia</string>
+    <string name="sleep_mode_disabled_toast">Wyłączono Tryb uśpienia</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Połączenia i powiadomienia użyją dzwonka</string>
+    <!-- Lock gesture -->
+    <string name="gesture_locked_warning">Przesuń ponownie, aby odblokować gesty</string>
+    <!-- Title & summary of notification letting users know that battery saver is now on [CHAR_LIMIT=80] -->
+    <string name="battery_saver_on_notification_title">Oszczędzanie baterii włączone</string>
+    <string name="battery_saver_on_notification_summary">Według harmonogramu. Naciśnij, aby przejrzeć ustawienia.</string>
+    <!-- Long-press back kill application -->
+    <string name="app_killed_message">Aplikacja zabita</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Naciśnij i przytrzymaj przycisk zasilania, aby odblokować</string>
+    <string name="pocket_view_title">Tryb kieszonkowy jest włączony</string>
+    <string name="pocket_view_title_cancel">Aby aktywować swój telefon:</string>
+    <string name="pocket_view_top_tag_cancel">Nie zakrywaj oraz usuń wszelkie zabrudzenia lub kurz z niebieskiego obszaru swojego urządzenia.</string>
+    <string name="pocket_view_top_tag_cancel2">Przytrzymaj przycisk zasilania, aby wymusić wyjście z trybu kieszonkowego.</string>
+    <string name="pocket_view_top_tag_number1">1.\u0020</string>
+    <string name="pocket_view_top_tag_number2">2.\u0020</string>
+    <!-- Settings Restart -->
+    <string name="settings_restart_title">Wymagany restart aplikacji Ustawień</string>
+    <string name="settings_restart_message">Aby zastosować zmiany, wymagany jest restart aplikacji Ustawień. Zrestartować aplikacje Ustawień teraz?</string>
+    <!-- System Reboot -->
+    <string name="system_restart_title">Wymagany restart systemu</string>
+    <string name="system_restart_message">Aby zastosować zmiany, wymagany jest restart systemu. Zrestartować system teraz?</string>
+    <!-- Launcher Restart -->
+    <string name="launcher_restart_title">Wymagany restart Launchera</string>
+    <string name="launcher_restart_message">Aby zastosować zmiany, wymagany jest restart Launchera. Zrestartować Launcher teraz?</string>
+    <!-- App lock -->
+    <string name="unlock_application">Odblokuj <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
 </resources>

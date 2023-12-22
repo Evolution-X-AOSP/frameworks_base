@@ -48,4 +48,36 @@
     <string name="charging_control_notification_content_limit_reached">Batarya %1$d%% seviyesine kadar şarj edildi</string>
     <string name="charging_control_notification_content_target">Pil şu saatte tamamen şarj olmuş olacak: %1$s</string>
     <string name="charging_control_notification_content_target_reached">Batarya şarj oldu</string>
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Uyku modu</string>
+    <string name="sleep_mode_notification_title">Uyku modu etkin</string>
+    <string name="sleep_mode_notification_content">Uyku modunu kapatmak için dokunun</string>
+    <string name="sleep_mode_enabled_toast">Uyku modu açıldı</string>
+    <string name="sleep_mode_disabled_toast">Uyku modu kapatıldı</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Çağrılar ve bildirimler telefonu çaldıracak</string>
+    <!-- Lock gesture -->
+    <string name="gesture_locked_warning">Hareket kilidini açmak için tekrar kaydırın</string>
+    <!-- Title & summary of notification letting users know that battery saver is now on [CHAR_LIMIT=80] -->
+    <string name="battery_saver_on_notification_title">Pil tasarrufu açıldı</string>
+    <string name="battery_saver_on_notification_summary">Programa göre. Ayarları gözden geçirmek için basın.</string>
+    <!-- Long-press back kill application -->
+    <string name="app_killed_message">Uygulama sonlandırıldı</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Kilidi açmak için güç tuşuna basılı tutun</string>
+    <string name="pocket_view_title">Cep modu açık</string>
+    <string name="pocket_view_title_cancel">Telefonunuzu etkinleştirmek için:</string>
+    <string name="pocket_view_top_tag_cancel">Telefonunuzun mavi alanında herhangi bir engel olup olmadığını kontrol edin ve herhangi bir kir veya toz varsa temizleyin.</string>
+    <string name="pocket_view_top_tag_cancel2">Cep modundan çıkmaya zorlamak için güç düğmesine uzun basın.</string>
+    <string name="pocket_view_top_tag_number1">1.\u0020</string>
+    <string name="pocket_view_top_tag_number2">2.\u0020</string>
+    <!-- Settings Restart -->
+    <string name="settings_restart_title">Ayarların yeniden başlatılması gerekiyor</string>
+    <string name="settings_restart_message">Tüm değişikliklerin etkin olabilmesi için ayarların yeniden başlatılması gerekiyor. Ayarlar şimdi yeniden başlatılsın mı?</string>
+    <!-- System Reboot -->
+    <string name="system_restart_title">Sistem arayüzünün yeniden başlatılması gerekir</string>
+    <string name="system_restart_message">Tüm değişikliklerin etkili olması için sistemin yeniden başlatılması gerekir. Sistem yeniden başlatılsın mı?</string>
+    <!-- Launcher Restart -->
+    <string name="launcher_restart_title">Başlatıcının yeniden başlatılması gerekiyor</string>
+    <string name="launcher_restart_message">Tüm değişikliklerin etkili olması için başlatıcının yeniden başlatılması gerekiyor. Başlatıcıyı şimdi yeniden başlatmak ister misiniz?</string>
 </resources>

@@ -4,23 +4,10 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="status_deep_sleep">(深度休眠: %1$d%2$s)</string>
-    <!-- Label for estimated remaining duration of dash battery charging -->
-    <string name="power_remaining_dash_charging_duration_only">Dash 闪充 (还需 <xliff:g id="time">%1$s</xliff:g> 充满)</string>
-    <!-- Battery use screen.  Battery status shown in chart label when charging from a dash source.  -->
-    <string name="battery_info_status_dash_charging">Dash 闪充</string>
-    <!-- Label for estimated remaining duration of warp battery charging -->
-    <string name="power_remaining_warp_charging_duration_only">Warp 闪充 (还需 <xliff:g id="time">%1$s</xliff:g> 充满)</string>
-    <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
-    <string name="battery_info_status_warp_charging">Warp 闪充</string>
-    <!-- Label for estimated remaining duration of vooc battery charging -->
-    <string name="power_remaining_vooc_charging_duration_only">Vooc 闪充 (还需 <xliff:g id="time">%1$s</xliff:g> 充满)</string>
-    <!-- Battery use screen. Battery status shown in chart label when charging from a VOOC source.  -->
-    <string name="battery_info_status_vooc_charging">VOOC 闪充</string>
-    <!-- Label for estimated remaining duration of TurboPower battery charging -->
-    <string name="power_remaining_turbo_charging_duration_only">涡轮闪充 (还需 <xliff:g id="time">%1$s</xliff:g> 充满)</string>
-    <!-- Battery use screen. Battery status shown in chart label when charging from a TurboPower source.  -->
-    <string name="battery_info_status_turbo_charging">正在涡轮闪充</string>
-    <!-- [CHAR LIMIT=25] Manage applications, text for when an application is hidden. -->
-    <string name="hidden">隐藏</string>
+    <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
+    <string name="screen_zoom_summary_smaller">更小</string>
+    <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
+    <string name="screen_zoom_summary_smallest">最小</string>
+    <!-- String for removal of sensitive info on about, depending on tap -->
+    <string name="device_info_protected_single_press">点击以显示信息</string>
 </resources>

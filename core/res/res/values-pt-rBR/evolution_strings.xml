@@ -48,4 +48,38 @@
     <string name="charging_control_notification_content_limit_reached">Carregamento pausado em %1$d%%</string>
     <string name="charging_control_notification_content_target">A bateria estará totalmente carregada às %1$s</string>
     <string name="charging_control_notification_content_target_reached">Bateria carregada</string>
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Modo de suspensão</string>
+    <string name="sleep_mode_notification_title">Modo de suspensão ativado</string>
+    <string name="sleep_mode_notification_content">Toque para desativar o modo de suspensão</string>
+    <string name="sleep_mode_enabled_toast">Modo de suspensão ativado</string>
+    <string name="sleep_mode_disabled_toast">Modo de suspensão desativado</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Chamadas e notificações tocarão</string>
+    <!-- Lock gesture -->
+    <string name="gesture_locked_warning">Deslize novamente para desbloquear os gestos</string>
+    <!-- Title & summary of notification letting users know that battery saver is now on [CHAR_LIMIT=80] -->
+    <string name="battery_saver_on_notification_title">Economia de bateria ativada</string>
+    <string name="battery_saver_on_notification_summary">Por programação. Pressione para rever as configurações.</string>
+    <!-- Long-press back kill application -->
+    <string name="app_killed_message">Aplicativo encerrado</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Pressione e segure o botão liga/desliga para desbloquear</string>
+    <string name="pocket_view_title">Modo bolso está ativado</string>
+    <string name="pocket_view_title_cancel">Para ativar seu telefone:</string>
+    <string name="pocket_view_top_tag_cancel">Não cubra a área azul do seu telefone, limpe qualquer terra ou poeira.</string>
+    <string name="pocket_view_top_tag_cancel2">Pressione e segure o botão liga/desliga para forçar a saída do modo de bolso.</string>
+    <string name="pocket_view_top_tag_number1">1.\u0020</string>
+    <string name="pocket_view_top_tag_number2">2.\u0020</string>
+    <!-- Settings Restart -->
+    <string name="settings_restart_title">É necessário reiniciar o app de configurações</string>
+    <string name="settings_restart_message">Para que todas as alterações tenham efeito, é necessário reiniciar o app de configurações. Reiniciar agora?</string>
+    <!-- System Reboot -->
+    <string name="system_restart_title">É necessário reiniciar o sistema</string>
+    <string name="system_restart_message">Para que todas as alterações tenham efeito, uma reinicialização do sistema é necessária. Reiniciar o sistema agora?</string>
+    <!-- Launcher Restart -->
+    <string name="launcher_restart_title">É necessário reiniciar o launcher</string>
+    <string name="launcher_restart_message">Para que todas as alterações tenham efeito, é necessário reiniciar o launcher. Reiniciar o launcher agora?</string>
+    <!-- App lock -->
+    <string name="unlock_application">Desbloquear <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
 </resources>
