@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2023 Evolution X
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Cardinal directions for the compass tile -->
+    <string-array name="cardinal_directions">
+        <item>@string/quick_settings_compass_U</item>
+        <!-- North -->
+        <item>@string/quick_settings_compass_TL</item>
+        <!-- North east -->
+        <item>@string/quick_settings_compass_T</item>
+        <!-- East -->
+        <item>@string/quick_settings_compass_TG</item>
+        <!-- South east -->
+        <item>@string/quick_settings_compass_S</item>
+        <!-- South -->
+        <item>@string/quick_settings_compass_BD</item>
+        <!-- South west -->
+        <item>@string/quick_settings_compass_B</item>
+        <!-- West -->
+        <item>@string/quick_settings_compass_BL</item>
+        <!-- North west -->
+    </string-array>
+</resources>

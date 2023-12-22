@@ -40,4 +40,44 @@
     <string name="reboot_to_bootloader_message">Reiniciando al modo Bootloader</string>
     <string name="reboot_title">Reiniciar</string>
     <string name="reboot_message">Reiniciando sistema</string>
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">Control de carga</string>
+    <string name="charging_control_notification_title">Control de carga</string>
+    <string name="charging_control_notification_cancel_once">Cancelar</string>
+    <string name="charging_control_notification_content_limit">La batería se cargará a %1$d%%</string>
+    <string name="charging_control_notification_content_limit_reached">Batería cargada al %1$d%%</string>
+    <string name="charging_control_notification_content_target">La batería se cargará completamente en %1$s</string>
+    <string name="charging_control_notification_content_target_reached">Batería cargada</string>
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Modo 💤</string>
+    <string name="sleep_mode_notification_title">Modo 💤 activado</string>
+    <string name="sleep_mode_notification_content">Toca para desactivar modo 💤</string>
+    <string name="sleep_mode_enabled_toast">Modo 💤 habilitado</string>
+    <string name="sleep_mode_disabled_toast">Modo 💤 deshabilitado</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Las llamadas y notificaciones sonarán</string>
+    <!-- Lock gesture -->
+    <string name="gesture_locked_warning">Desliza nuevamente para desbloquear gestos</string>
+    <!-- Title & summary of notification letting users know that battery saver is now on [CHAR_LIMIT=80] -->
+    <string name="battery_saver_on_notification_title">Ahorro de batería activado</string>
+    <string name="battery_saver_on_notification_summary">Pulsa para revisar los ajustes de horario.</string>
+    <!-- Long-press back kill application -->
+    <string name="app_killed_message">Aplicación finalizada</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Mantén presionado el botón de encendido para desbloquear</string>
+    <string name="pocket_view_title">Modo bolsillo activado</string>
+    <string name="pocket_view_title_cancel">Para activar tu teléfono:</string>
+    <string name="pocket_view_top_tag_cancel">Quita todo aquello que cubra la zona azúl; como suciedad o polvo.</string>
+    <string name="pocket_view_top_tag_cancel2">Mantén presionado el botón de encendido para desactivar el modo bolsillo.</string>
+    <string name="pocket_view_top_tag_number1">1.\u0020</string>
+    <string name="pocket_view_top_tag_number2">2.\u0020</string>
+    <!-- Settings Restart -->
+    <string name="settings_restart_title">Es necesario reiniciar Ajustes</string>
+    <string name="settings_restart_message">Para aplicar los cambios es necesario reiniciar la aplicación de ajustes. ¿Quieres reiniciar ahora?</string>
+    <!-- System Reboot -->
+    <string name="system_restart_title">Es necesario reiniciar el sistema</string>
+    <string name="system_restart_message">Para aplicar los cambios es necesario reiniciar el sistema. ¿Quieres reiniciar ahora?</string>
+    <!-- Launcher Restart -->
+    <string name="launcher_restart_title">Es necesario reiniciar el lanzador del sistema</string>
+    <string name="launcher_restart_message">Para aplicar los cambios es necesario reiniciar el lanzador del sistema. ¿Quieres reiniciar ahora?</string>
 </resources>
