@@ -40,4 +40,44 @@
     <string name="reboot_to_bootloader_message">Memulai ulang ke bootloader</string>
     <string name="reboot_title">Mulai ulang</string>
     <string name="reboot_message">Memulai ulang sistem</string>
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">Kontrol pengisian daya</string>
+    <string name="charging_control_notification_title">Kontrol pengisian daya</string>
+    <string name="charging_control_notification_cancel_once">Batal</string>
+    <string name="charging_control_notification_content_limit">Baterai akan diisi daya hingga %1$d%%</string>
+    <string name="charging_control_notification_content_limit_reached">Baterai diisi daya hingga %1$d%%</string>
+    <string name="charging_control_notification_content_target">Baterai akan terisi penuh pada %1$s</string>
+    <string name="charging_control_notification_content_target_reached">Baterai terisi</string>
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Mode Tidur</string>
+    <string name="sleep_mode_notification_title">Mode Tidur diaktifkan</string>
+    <string name="sleep_mode_notification_content">Ketuk untuk menonaktifkan Mode Tidur</string>
+    <string name="sleep_mode_enabled_toast">Mode Tidur diaktifkan</string>
+    <string name="sleep_mode_disabled_toast">Mode Tidur dinonaktifkan</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Panggilan dan notifikasi akan berdering</string>
+    <!-- Lock gesture -->
+    <string name="gesture_locked_warning">Gesek lagi untuk membuka kunci gestur</string>
+    <!-- Title & summary of notification letting users know that battery saver is now on [CHAR_LIMIT=80] -->
+    <string name="battery_saver_on_notification_title">Penghemat Baterai diaktifkan</string>
+    <string name="battery_saver_on_notification_summary">Berdasarkan jadwal. Tekan untuk meninjau setelan.</string>
+    <!-- Long-press back kill application -->
+    <string name="app_killed_message">Aplikasi dimatikan</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Tekan dan tahan tombol daya untuk membuka kunci</string>
+    <string name="pocket_view_title">Mode saku aktif</string>
+    <string name="pocket_view_title_cancel">Untuk mengaktifkan ponsel Anda:</string>
+    <string name="pocket_view_top_tag_cancel">Harap jangan tutupi area biru ponsel Anda dan bersihkan kotoran atau debu darinya.</string>
+    <string name="pocket_view_top_tag_cancel2">Tekan lama tombol daya untuk memaksa keluar dari mode saku.</string>
+    <string name="pocket_view_top_tag_number1">1.\u0020</string>
+    <string name="pocket_view_top_tag_number2">2.\u0020</string>
+    <!-- Settings Restart -->
+    <string name="settings_restart_title">Mulai ulang Setelan diperlukan</string>
+    <string name="settings_restart_message">Untuk melihat semua perubahan, diperlukan memulai ulang Setelan. Mulai ulang Setelan sekarang?</string>
+    <!-- System Reboot -->
+    <string name="system_restart_title">Diperlukan memulai ulang Sistem</string>
+    <string name="system_restart_message">Agar semua perubahan diterapkan, diperlukan mulai ulang sistem. Lakukan mulai ulang sistem sekarang?</string>
+    <!-- Launcher Restart -->
+    <string name="launcher_restart_title">Diperlukan mulai ulang peluncur</string>
+    <string name="launcher_restart_message">Untuk melihat semua perubahan, diperlukan memulai ulang Peluncur. Mulai ulang Peluncur sekarang?</string>
 </resources>

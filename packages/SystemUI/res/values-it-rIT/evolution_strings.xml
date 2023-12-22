@@ -37,7 +37,8 @@
     <string name="quick_settings_usb_tether_label">Tethering USB</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Schermo sempre attivo (AOD)</string>
-    <string name="quick_settings_aod_off_powersave_label">AOD disattivato\nRisparmio energetico</string>
+    <string name="quick_settings_aod_on_charge_label">AOD durante la ricarica</string>
+    <string name="quick_settings_aod_off_label">AOD disattivato</string>
     <!-- SoundSearch Tile -->
     <string name="quick_settings_sound_search">Ricerca audio</string>
     <string name="quick_settings_sound_search_not_found">Installa l\'app Google per far funzionare correttamente la ricerca audio</string>
@@ -56,8 +57,6 @@
     <!-- Status bar - icons -->
     <string name="status_bar_icons_title">Icone barra di stato</string>
     <!-- Text to use when the number in a notification info is too large -->
-    <!-- Label for area where tiles can be added to the qs panel -->
-    <string name="drag_or_tap_to_add_tiles">Tieni premuto e trascina, o tocca, per aggiungere i tile</string>
     <!-- Advanced Reboot -->
     <string name="global_action_restart_advanced">Avanzate</string>
     <string name="global_action_restart_recovery">Recovery</string>
@@ -87,10 +86,11 @@
     <string name="screenrecord_hevc_switch_label">Abilita HEVC</string>
     <!-- Google lens screenshot notification -->
     <string name="lens">Lens</string>
+    <string name="lens_unavailable">Google Lens non è installato</string>
     <!-- Alert slide extras -->
     <string name="volume_ringer_priority_only">Priorità</string>
     <string name="volume_ringer_alarms_only">Sveglie</string>
-    <string name="volume_ringer_dnd">DnD</string>
+    <string name="volume_ringer_dnd">Non disturbare</string>
     <string name="tristate_flashlight">Torcia</string>
     <string name="tristate_flashlight_on">Torcia accesa</string>
     <string name="tristate_flashlight_off">Torcia spenta</string>
@@ -135,8 +135,6 @@
     <string name="quick_settings_compass_SW">SO</string>
     <string name="quick_settings_compass_W">O</string>
     <string name="quick_settings_compass_NW">NO</string>
-    <!-- DataSwitch Tile -->
-    <string name="qs_data_switch_label">Cambia Sim dati</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Pannello del volume</string>
     <!-- Refresh Rate Tile -->
@@ -147,4 +145,75 @@
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Lingua</string>
     <string name="quick_settings_locale_more_locales_toast">Per favore configura più lingue per abilitare la funzionalità del toggle</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Ricarica rapida (<xliff:g id="charging_time_left" example="4 ore e 2 minuti">%s</xliff:g> fino al completamento della carica)</string>
+    <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Ricarica rapida</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Ricarica Warp (<xliff:g id="charging_time_left" example="4 ore e 2 minuti">%1$s</xliff:g> al completamento)</string>
+    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="percentage">%s</xliff:g> • Ricarica Warp</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Ricarica VOOC (<xliff:g id="charging_time_left" example="4 ore e 2 minuti">%1$s</xliff:g> al completamento)</string>
+    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="percentage">%s</xliff:g> • Ricarica VOOC</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time"><xliff:g id="percentage">%2$s</xliff:g> • Ricarica Turbo (<xliff:g id="charging_time_left" example="4 ore e 2 minuti">%1$s</xliff:g> al completamento)</string>
+    <string name="keyguard_plugged_in_turbo_charging"><xliff:g id="percentage">%s</xliff:g> • Ricarica Turbo</string>
+    <!-- CPUInfo tile -->
+    <string name="quick_settings_cpuinfo_label">Info CPU</string>
+    <!-- FPS Info tile -->
+    <string name="quick_settings_fpsinfo_label">Info FPS</string>
+    <!-- FPS view text placeholder -->
+    <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
+    <!-- Data usage info in QS footer -->
+    <string name="usage_data">usato</string>
+    <string name="usage_data_default_suffix">Dati</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">Cambia Sim dati</string>
+    <string name="qs_data_switch_toast_0">Attualmente non è inserita alcuna scheda SIM</string>
+    <string name="qs_data_switch_toast_1">Correntemente è inserita solo una scheda SIM</string>
+    <string name="qs_data_switch_text_1">SIM 1</string>
+    <string name="qs_data_switch_text_2">SIM 2</string>
+    <string name="qs_data_switch_changed_1">Passa la scheda dati alla SIM 1.</string>
+    <string name="qs_data_switch_changed_2">Passa la scheda dati alla SIM 2.</string>
+    <!-- Sleep Mode -->
+    <string name="quick_settings_sleep_mode_label">Modalità sonno</string>
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">Attenuazione DC</string>
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">La schermata rimane in primo piano finché non la sblocchi. Tocca e tieni premuto il tasto Indietro per sbloccarla.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Per sbloccare questa schermata, tocca e tieni premuto il tasto Indietro</string>
+    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
+    <string name="screen_pinning_description_no_navbar_fpsensor">La schermata rimane in primo piano finché non la sblocchi. Tocca e tieni premuto il sensore di impronte per sbloccarla.</string>
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
+    <string name="screen_pinning_toast_no_navbar_fpsensor">Per sbloccare questa schermata, tocca e tieni premuto il sensore di impronte</string>
+    <!-- Preferred network tile -->
+    <string name="quick_settings_preferred_network_label">Rete preferita</string>
+    <string name="quick_settings_preferred_network_lte">4G / LTE</string>
+    <string name="quick_settings_preferred_network_nr">5G / NR</string>
+    <string name="quick_settings_preferred_network_unsupported">Non supportata</string>
+    <!-- Advance location quick setting tile -->
+    <string name="accessibility_quick_settings_location_off">Segnalazione posizione: disattivata.</string>
+    <string name="quick_settings_location_secondary_battery_saving">Risparmio batteria</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Segnalazione posizione: modalità risparmio energetico.</string>
+    <string name="quick_settings_location_secondary_gps_only">Solo sensori</string>
+    <string name="accessibility_quick_settings_location_gps_only">Segnalazione posizione: modalità solo sensori.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Alta precisione</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Segnalazione posizione: modalità alta precisione.</string>
+    <!-- VPN QS tile -->
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Connettiti a\u2026</string>
+    <string name="vpn_credentials_hint">Inserisci le tue credenziali per connetterti a <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Nome utente</string>
+    <string name="vpn_credentials_password">Password</string>
+    <string name="vpn_credentials_dialog_connect">Connetti</string>
+    <!-- Text while recognizing face -->
+    <string name="face_unlock_recognizing">Riconoscimento viso...</string>
+    <!-- App kill -->
+    <string name="task_helper_app_killed">%1$s arrestata forzatamente</string>
+    <string name="empty_app_killed">Applicazione</string>
+    <!-- App picker -->
+    <string name="app_picker_dialog_title">Seleziona un\'applicazione</string>
+    <string name="active_edge_app_select_title">Seleziona l\'applicazione</string>
+    <string name="active_edge_activity_select_title">Seleziona attività</string>
 </resources>

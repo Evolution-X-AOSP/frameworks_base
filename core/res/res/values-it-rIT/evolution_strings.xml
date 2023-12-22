@@ -40,4 +40,46 @@
     <string name="reboot_to_bootloader_message">Riavvio in bootloader</string>
     <string name="reboot_title">Riavvia</string>
     <string name="reboot_message">Riavvio del sistema</string>
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">Controllo della ricarica</string>
+    <string name="charging_control_notification_title">Controllo della ricarica</string>
+    <string name="charging_control_notification_cancel_once">Annulla</string>
+    <string name="charging_control_notification_content_limit">La batteria sarà completamente carica entro %1$d%%</string>
+    <string name="charging_control_notification_content_limit_reached">La batteria è carica al %1$d%%</string>
+    <string name="charging_control_notification_content_target">La batteria sarà completamente carica alle %1$s</string>
+    <string name="charging_control_notification_content_target_reached">La batteria è carica</string>
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Modalità sonno</string>
+    <string name="sleep_mode_notification_title">Modalità sonno attivata</string>
+    <string name="sleep_mode_notification_content">Tocca per disattivare la modalità sonno</string>
+    <string name="sleep_mode_enabled_toast">Modalità sonno attivata</string>
+    <string name="sleep_mode_disabled_toast">Modalità sonno disattivata</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">La suoneria sarà attiva per chiamate e notifiche</string>
+    <!-- Lock gesture -->
+    <string name="gesture_locked_warning">Scorri di nuovo per sbloccare i gesti</string>
+    <!-- Title & summary of notification letting users know that battery saver is now on [CHAR_LIMIT=80] -->
+    <string name="battery_saver_on_notification_title">Risparmio batteria attivato</string>
+    <string name="battery_saver_on_notification_summary">Da programmazione. Premi per rivedere le impostazioni.</string>
+    <!-- Long-press back kill application -->
+    <string name="app_killed_message">Applicazione terminata</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Premi e tieni premuto il pulsante di accensione per sbloccare</string>
+    <string name="pocket_view_title">Modalità tasca attiva</string>
+    <string name="pocket_view_title_cancel">Per risvegliare il telefono:</string>
+    <string name="pocket_view_top_tag_cancel">Non coprire l\'area colorata in blu del telefono e rimuovi sporco o polvere.</string>
+    <string name="pocket_view_top_tag_cancel2">Tieni premuto il pulsante di accensione per forzare l\'uscita dalla modalità tasca.</string>
+    <string name="pocket_view_top_tag_number1">1.\u0020</string>
+    <string name="pocket_view_top_tag_number2">2.\u0020</string>
+    <!-- Settings Restart -->
+    <string name="settings_restart_title">Riavvio delle impostazioni richiesto</string>
+    <string name="settings_restart_message">Per rendere effettive tutte le modifiche, è necessario un riavvio delle impostazioni. Riavviare le impostazioni ora?</string>
+    <!-- System Reboot -->
+    <string name="system_restart_title">Riavvio del sistema richiesto</string>
+    <string name="system_restart_message">Per rendere effettive tutte le modifiche, è necessario un riavvio del sistema. Riavviarlo ora?</string>
+    <!-- Launcher Restart -->
+    <string name="launcher_restart_title">Riavvio del launcher richiesto</string>
+    <string name="launcher_restart_message">Per rendere effettive tutte le modifiche, è necessario un riavvio del launcher. Riavviare il launcher ora?</string>
+    <!-- App lock -->
+    <string name="unlock_application">Sblocca <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
 </resources>
