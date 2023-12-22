@@ -40,4 +40,44 @@
     <string name="reboot_to_bootloader_message">Restartowanie do bootloadera</string>
     <string name="reboot_title">Zrestartuj</string>
     <string name="reboot_message">Restartowanie systemu</string>
+    <!-- Health interface -->
+    <string name="charging_control_notification_channel">Kontrola ładowania</string>
+    <string name="charging_control_notification_title">Kontrola ładowania</string>
+    <string name="charging_control_notification_cancel_once">Anuluj</string>
+    <string name="charging_control_notification_content_limit">Bateria zostanie naładowana do %1$d%%</string>
+    <string name="charging_control_notification_content_limit_reached">Bateria jest naładowana w %1$d%%</string>
+    <string name="charging_control_notification_content_target">Bateria zostanie w pełni załadowana o %1$s</string>
+    <string name="charging_control_notification_content_target_reached">Bateria jest naładowana</string>
+    <!-- Sleep Mode -->
+    <string name="notification_channel_sleep">Tryb uśpienia</string>
+    <string name="sleep_mode_notification_title">Tryb uśpienia włączony</string>
+    <string name="sleep_mode_notification_content">Dotknij, aby wyłączyć Tryb uśpienia</string>
+    <string name="sleep_mode_enabled_toast">Włączono Tryb uśpienia</string>
+    <string name="sleep_mode_disabled_toast">Wyłączono Tryb uśpienia</string>
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Połączenia i powiadomienia użyją dzwonka</string>
+    <!-- Lock gesture -->
+    <string name="gesture_locked_warning">Przesuń ponownie aby odblokować gesty</string>
+    <!-- Title & summary of notification letting users know that battery saver is now on [CHAR_LIMIT=80] -->
+    <string name="battery_saver_on_notification_title">Oszczędzanie baterii włączone</string>
+    <string name="battery_saver_on_notification_summary">Według harmonogramu. Naciśnij, aby przejrzeć ustawienia.</string>
+    <!-- Long-press back kill application -->
+    <string name="app_killed_message">Zamknięto aplikację</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Naciśnij i przytrzymaj przycisk zasilania aby odblokować</string>
+    <string name="pocket_view_title">Tryb kieszonkowy jest włączony</string>
+    <string name="pocket_view_title_cancel">Aby aktywować swój telefon:</string>
+    <string name="pocket_view_top_tag_cancel">Nie zakrywaj niebieskiego obszaru Twojego telefonu, i usuń wszelkie zabrudzenia lub kurz.</string>
+    <string name="pocket_view_top_tag_cancel2">Przytrzymaj przycisk zasilania, aby wymusić wyjście z trybu kieszonkowego.</string>
+    <string name="pocket_view_top_tag_number1">1.\u0020</string>
+    <string name="pocket_view_top_tag_number2">2.\u0020</string>
+    <!-- Settings Restart -->
+    <string name="settings_restart_title">Wymagany restart ustawień</string>
+    <string name="settings_restart_message">Aby wszystkie zmiany zostały wprowadzone, wymagany jest restart SystemUI. Zrestartować SystemUI teraz?</string>
+    <!-- System Reboot -->
+    <string name="system_restart_title">Wymagane ponowne uruchomienie SystemUI</string>
+    <string name="system_restart_message">Aby zastosować zmiany, wymagane jest ponowne uruchomienie systemu. Zrestartować system teraz?</string>
+    <!-- Launcher Restart -->
+    <string name="launcher_restart_title">Wymagany restart launchera</string>
+    <string name="launcher_restart_message">Aby wszystkie zmiany stały się skuteczne, wymagany jest restart Launchera. Zrestartować Launcher teraz?</string>
 </resources>
