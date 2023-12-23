@@ -56,6 +56,9 @@ public class PixelPropsUtils {
     private static final String PACKAGE_SI = "com.google.android.settings.intelligence";
     private static final String SAMSUNG = "com.samsung.";
     private static final String SPOOF_MUSIC_APPS = "persist.sys.disguise_props_for_music_app";
+    private static final String SPOOF_PIF = "persist.sys.pif";
+    private static final String SPOOF_PIXEL_PROPS = "persist.sys.pixelprops";
+    private static final String SPOOF_PIXEL_RECENT = "persist.sys.pixelprops.recent";
 
     private static final String TAG = PixelPropsUtils.class.getSimpleName();
     private static final boolean DEBUG = true;
@@ -310,8 +313,13 @@ public class PixelPropsUtils {
 
         if (sIsGms) {
             if (shouldTryToCertifyDevice()) {
-                dlog("Spoofing build for GMS to pass CTS/Play Integrity API");
-                spoofBuildGms(context);
+                if (!SystemProperties.getBoolean(SPOOF_PIF, true)) {
+                    dlog("PIF is disabled by system prop");
+                    return;
+                } else {
+                    dlog("Spoofing build for GMS to pass CTS/Play Integrity API");
+                    spoofBuildGms(context);
+                }
             }
         } else if (packageName.equals(PACKAGE_GMS)) {
             setPropValue("TIME", System.currentTimeMillis());
@@ -319,10 +327,11 @@ public class PixelPropsUtils {
                 || packageName.startsWith(SAMSUNG)
                 || Arrays.asList(packagesToChangeRecentPixel).contains(packageName)) {
 
-            if (!sEnablePixelProps) {
-                dlog("Pixel props is disabled by config");
+            if (!sEnablePixelProps || !SystemProperties.getBoolean(SPOOF_PIXEL_PROPS, true)) {
+                dlog("Pixel props is disabled by config or system prop");
                 return;
-            } else if (Arrays.asList(packagesToChangeRecentPixel).contains(packageName)) {
+            } else if ((SystemProperties.getBoolean(SPOOF_PIXEL_RECENT, true)) &&
+                    (Arrays.asList(packagesToChangeRecentPixel).contains(packageName))) {
                 propsToChange.putAll(propsToChangeRecentPixel);
             } else {
                 propsToChange.putAll(propsToChangePixel5);
