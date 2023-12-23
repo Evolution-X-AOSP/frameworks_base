@@ -45,7 +45,7 @@
     <!-- Bluetooth dialog -->
     <string name="turn_on_bluetooth">Usar Bluetooth</string>
     <string name="bluetooth_is_off">O Bluetooth está desligado</string>
-    <string name="tap_a_device_to_connect">Selecione um dispositivo para conectar</string>
+    <string name="tap_a_device_to_connect">Toque para conectar ou desconectar um dispositivo</string>
     <!-- QuickSettings: InternetDialog: Summary for how many devices are connected to the hotspot [CHAR LIMIT=NONE] -->
     <plurals name="quick_settings_internet_hotspot_summary_num_devices">
         <item quantity="one">%d dispositivo conectado</item>
