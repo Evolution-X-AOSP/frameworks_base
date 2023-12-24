@@ -720,8 +720,8 @@ public class QSPanel extends LinearLayout implements Tunable {
             mUsingHorizontalLayout = horizontal;
             ViewGroup newParent = horizontal ? mHorizontalContentContainer : this;
             switchAllContentToParent(newParent, mTileLayout);
+            updateResources();
             if (mBrightnessRunnable != null) {
-                updateResources();
                 mBrightnessRunnable.run();
             }
             reAttachMediaHost(mediaHostView, horizontal);
@@ -736,6 +736,16 @@ public class QSPanel extends LinearLayout implements Tunable {
         updateMediaHostContentMargins(mediaHostView);
         updateHorizontalLinearLayoutMargins();
         updatePadding();
+    }
+
+    protected void updateBrightnessSliderPosition() {
+        if (mBrightnessView == null) return;
+        ViewGroup newParent = mUsingHorizontalLayout ? mHorizontalContentContainer : this;
+        switchAllContentToParent(newParent, mTileLayout);
+        updateResources();
+        if (mBrightnessRunnable != null) {
+            mBrightnessRunnable.run();
+        }
     }
 
     /**
@@ -780,16 +790,6 @@ public class QSPanel extends LinearLayout implements Tunable {
      */
     public void setCanCollapse(boolean canCollapse) {
         mCanCollapse = canCollapse;
-    }
-
-    protected void updateBrightnessSliderPosition() {
-        if (mBrightnessView == null) return;
-        ViewGroup newParent = mUsingHorizontalLayout ? mHorizontalContentContainer : this;
-        switchAllContentToParent(newParent, mTileLayout);
-        if (mBrightnessRunnable != null) {
-            updateResources();
-            mBrightnessRunnable.run();
-        }
     }
 
     public interface QSTileLayout {
