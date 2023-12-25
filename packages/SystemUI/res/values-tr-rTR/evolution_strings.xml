@@ -45,7 +45,7 @@
     <!-- Bluetooth dialog -->
     <string name="turn_on_bluetooth">Bluetooth\'u kullan</string>
     <string name="bluetooth_is_off">Bluetooth kapalı</string>
-    <string name="tap_a_device_to_connect">Bağlanmak için bir cihaz seçin</string>
+    <string name="tap_a_device_to_connect">Bir cihazı bağlamak veya bağlantısını kesmek için dokunun</string>
     <!-- QuickSettings: InternetDialog: Summary for how many devices are connected to the hotspot [CHAR LIMIT=NONE] -->
     <plurals name="quick_settings_internet_hotspot_summary_num_devices">
         <item quantity="one">%d cihaz bağlandı</item>
