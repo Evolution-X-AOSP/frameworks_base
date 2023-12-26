@@ -555,6 +555,7 @@ status_t BootAnimation::readyToRun() {
     mMaxWidth = android::base::GetIntProperty("ro.surface_flinger.max_graphics_width", 0);
     mMaxHeight = android::base::GetIntProperty("ro.surface_flinger.max_graphics_height", 0);
     ui::Size resolution = displayMode.resolution;
+    ui::Size displayResolution = resolution;
     resolution = limitSurfaceSize(resolution.width, resolution.height);
     // create the native surface
     sp<SurfaceControl> control = session()->createSurface(String8("BootAnimation"),
@@ -562,6 +563,9 @@ status_t BootAnimation::readyToRun() {
             ISurfaceComposerClient::eOpaque);
 
     SurfaceComposerClient::Transaction t;
+    if (displayResolution != resolution) {
+        t.setGeometry(control, Rect(resolution), Rect(displayResolution), 0);
+    }
     if (isValid) {
         // In the case of multi-display, boot animation shows on the specified displays
         for (const auto id : physicalDisplayIds) {
