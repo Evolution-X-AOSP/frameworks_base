@@ -2086,7 +2086,9 @@ public class RootWindowContainer extends WindowContainer<DisplayContent>
                         .setIntent(r.intent)
                         .setDeferTaskAppear(true)
                         .setHasBeenVisible(true)
-                        .setWindowingMode(task.getRequestedOverrideWindowingMode())
+                        .setWindowingMode(newTransition != null && organizedTf != null
+                                ? organizedTf.getRequestedOverrideWindowingMode()
+                                : task.getRequestedOverrideWindowingMode())
                         .build();
                 // Establish bi-directional link between the original and pinned task.
                 r.setLastParentBeforePip(launchIntoPipHostActivity);
