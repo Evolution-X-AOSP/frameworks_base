@@ -33,6 +33,10 @@ import com.android.systemui.shared.clocks.DefaultClockController;
 import java.io.PrintWriter;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import android.database.ContentObserver;
+import android.os.UserHandle;
+import android.provider.Settings;
+import com.android.systemui.util.settings.SecureSettings;
 
 /**
  * Switch to show plugin clock when plugin is connected, otherwise it will show default clock.
@@ -61,6 +65,8 @@ public class KeyguardClockSwitch extends RelativeLayout {
     // compensate for translation of parents subject to device screen
     // In this case, the translation comes from KeyguardStatusView
     public int screenOffsetYPadding = 0;
+
+    private boolean mEnableCustomClock = true;
 
     /** Returns a region for the large clock to position itself, based on the given parent. */
     public static Rect getLargeClockRegion(ViewGroup parent) {
@@ -94,6 +100,7 @@ public class KeyguardClockSwitch extends RelativeLayout {
     private KeyguardClockFrame mSmallClockFrame;
     private KeyguardClockFrame mLargeClockFrame;
     private ClockController mClock;
+    private SecureSettings mSecureSettings;
 
     // It's bc_smartspace_view, assigned by KeyguardClockSwitchController
     // to get the top padding for translating smartspace for weather clock
@@ -228,6 +235,23 @@ public class KeyguardClockSwitch extends RelativeLayout {
     public LogBuffer getLogBuffer() {
         return mLogBuffer;
     }
+    
+    private final ContentObserver mCustomClockObserver = new ContentObserver(null) {
+        @Override
+        public void onChange(boolean change) {
+            updateCustomClock();
+            updateClockTargetRegions();
+        }
+    };
+    
+    private void updateCustomClock() {
+        mEnableCustomClock = mSecureSettings.getIntForUser(
+            Settings.Secure.CLOCK_LS, 1,
+                UserHandle.USER_CURRENT) != 0;
+        RelativeLayout.LayoutParams params= new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+    	params.addRule(RelativeLayout.BELOW, mEnableCustomClock ? R.id.clock_ls : R.id.lockscreen_clock_view);  
+        mStatusArea.setLayoutParams(params);
+    }
 
     /** Returns the id of the currently rendering clock */
     public String getClockId() {
@@ -254,9 +278,10 @@ public class KeyguardClockSwitch extends RelativeLayout {
         // Attach small and big clock views to hierarchy.
         if (mLogBuffer != null) {
             mLogBuffer.log(TAG, LogLevel.INFO, "Attached new clock views to switch");
-        }
-        mSmallClockFrame.addView(clock.getSmallClock().getView());
+        } 
+    	mSmallClockFrame.addView(clock.getSmallClock().getView());
         mLargeClockFrame.addView(clock.getLargeClock().getView());
+        
         updateClockTargetRegions();
         updateStatusArea(/* animate= */false);
     }
@@ -358,7 +383,7 @@ public class KeyguardClockSwitch extends RelativeLayout {
             // would happen after the out animation runs, but we can't guarantee that the
             // nofications won't enter only after the out animation runs.
             removeView(out);
-        }
+        } 
 
         if (!animate) {
             out.setAlpha(0f);
@@ -374,8 +399,8 @@ public class KeyguardClockSwitch extends RelativeLayout {
             mStatusArea.setTranslateYFromClockSize(statusAreaYTranslation);
             mSmallClockFrame.setTranslationY(statusAreaYTranslation);
             return;
-        }
-
+        } 
+        
         mClockOutAnim = new AnimatorSet();
         mClockOutAnim.setDuration(CLOCK_OUT_MILLIS);
         mClockOutAnim.setInterpolator(Interpolators.LINEAR);
