@@ -1201,6 +1201,11 @@ class ProcessRecord implements WindowProcessListener {
         }
     }
 
+    public long getPss(int pid) {
+
+        return Process.getPss(pid);
+    }
+
     @GuardedBy("mService")
     void killLocked(String reason, @Reason int reasonCode, boolean noisy) {
         killLocked(reason, reasonCode, ApplicationExitInfo.SUBREASON_UNKNOWN, noisy, true);
@@ -1245,7 +1250,7 @@ class ProcessRecord implements WindowProcessListener {
             if (mPid > 0) {
                 mService.mProcessList.noteAppKill(this, reasonCode, subReason, description);
                 EventLog.writeEvent(EventLogTags.AM_KILL,
-                        userId, mPid, processName, mState.getSetAdj(), reason);
+                        userId, mPid, getPss(mPid), processName, mState.getSetAdj(), reason);
                 Process.killProcessQuiet(mPid);
                 killProcessGroupIfNecessaryLocked(asyncKPG);
             } else {
