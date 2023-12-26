@@ -25,6 +25,7 @@
     android:layout_gravity="start"
     android:clipToPadding="false"
     android:orientation="vertical"
+    android:layout_marginStart="@dimen/below_clock_padding_start"
     android:paddingStart="@dimen/below_clock_padding_start">
     <TextView
               android:id="@+id/title"
