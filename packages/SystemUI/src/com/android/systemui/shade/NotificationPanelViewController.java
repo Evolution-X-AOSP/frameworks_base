@@ -3721,8 +3721,8 @@ public final class NotificationPanelViewController implements ShadeSurface, Dump
                 .setFlag(SYSUI_STATE_NOTIFICATION_PANEL_VISIBLE, mPanelExpanded)
                 .setFlag(SYSUI_STATE_NOTIFICATION_PANEL_EXPANDED,
                         isFullyExpanded() && !mQsController.getExpanded())
-                .setFlag(SYSUI_STATE_QUICK_SETTINGS_EXPANDED,
-                        mBlockedGesturalNavigation || (isFullyExpanded() && mQsController.getExpanded())).commitUpdate(mDisplayId);
+                .setFlag(SYSUI_STATE_QUICK_SETTINGS_EXPANDED, mBlockedGesturalNavigation ||
+                        (isFullyExpanded() && mQsController.getExpanded())).commitUpdate(mDisplayId);
     }
 
     private void debugLog(String fmt, Object... args) {
