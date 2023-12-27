@@ -1860,7 +1860,6 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
 
     protected void dismissH(int reason) {
         Trace.beginSection("VolumeDialogImpl#dismissH");
-
         // Avoid multiple animation calls on touch spams.
         if (!mShowing) {
             return;
@@ -1942,6 +1941,7 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
     private boolean isExpandableRowH(VolumeRow row) {
         return row != null && row != mDefaultRow && !row.defaultStream
                 && (row.stream == STREAM_RING
+                        || row.stream == STREAM_NOTIFICATION
                         || row.stream == STREAM_ALARM
                         || row.stream == STREAM_MUSIC);
     }
