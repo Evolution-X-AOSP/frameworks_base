@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 The LineageOS Project
+ * Copyright (C) 2018-2023 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -120,6 +120,12 @@ public class ClockController implements TunerService.Tunable {
     public void removeDarkReceiver() {
         if (mActiveClock != null) {
             Dependency.get(DarkIconDispatcher.class).removeDarkReceiver(mActiveClock);
+        }
+    }
+
+    public void onDensityOrFontScaleChanged() {
+        if (mActiveClock != null) {
+            mActiveClock.onDensityOrFontScaleChanged();
         }
     }
 }

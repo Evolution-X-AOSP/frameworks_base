@@ -68,7 +68,6 @@ public class PhoneStatusBarView extends FrameLayout implements Callbacks {
     private final StatusBarContentInsetsProvider mContentInsetsProvider;
 
     private DarkReceiver mBattery;
-    private Clock mClock;
     private ClockController mClockController;
     private int mRotationOrientation = -1;
     private RotationButtonController mRotationButtonController;
@@ -165,7 +164,6 @@ public class PhoneStatusBarView extends FrameLayout implements Callbacks {
     public void onFinishInflate() {
         super.onFinishInflate();
         mBattery = findViewById(R.id.battery);
-        mClock = findViewById(R.id.clock);
         mClockController = new ClockController(getContext(), this);
         mCutoutSpace = findViewById(R.id.cutout_space_view);
         mStatusBarContents = (ViewGroup) findViewById(R.id.status_bar_contents);
@@ -216,7 +214,7 @@ public class PhoneStatusBarView extends FrameLayout implements Callbacks {
     }
 
     void onDensityOrFontScaleChanged() {
-        mClock.onDensityOrFontScaleChanged();
+        mClockController.onDensityOrFontScaleChanged();
     }
 
     @Override
