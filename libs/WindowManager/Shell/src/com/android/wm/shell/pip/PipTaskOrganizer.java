@@ -617,8 +617,14 @@ public class PipTaskOrganizer implements ShellTaskOrganizer.TaskListener,
         mSyncTransactionQueue.runInSync(t -> {
             // Make sure to grab the latest source hint rect as it could have been
             // updated right after applying the windowing mode change.
-            final Rect sourceHintRect = PipBoundsAlgorithm.getValidSourceHintRect(
+            Rect sourceHintRect = PipBoundsAlgorithm.getValidSourceHintRect(
                     mPictureInPictureParams, destinationBounds);
+                 if (sourceHintRect != null && currentBounds != null
+                    && sourceHintRect.width() < currentBounds.width() / 2
+                    && sourceHintRect.height() < currentBounds.height() / 3) {
+                sourceHintRect = null;
+            }
+        
             final PipAnimationController.PipTransitionAnimator<?> animator =
                     animateResizePip(mPipBoundsState.getBounds(), destinationBounds, sourceHintRect,
                             direction, animationDurationMs, 0 /* startingAngle */);
