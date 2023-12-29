@@ -13,6 +13,9 @@
     <!-- Whether Pixel props is enabled -->
     <bool name="config_enablePixelProps">true</bool>
 
+    <!-- Spoof GMS as Pixel Tablet -->
+    <bool name="config_spoofasTablet">false</bool>
+
     <!-- Whether device has Google Tensor SoC -->
     <bool name="config_hasTensorSoC">false</bool>
 </resources>
