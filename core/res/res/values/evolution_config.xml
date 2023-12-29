@@ -547,4 +547,7 @@
 
     <!-- Enforce DisplayModeDirector to select user preferred resolution -->
     <bool name="config_forceToUseSelectedResolution">false</bool>
+
+    <!-- Spoof GMS as Pixel Tablet -->
+    <bool name="config_spoofasTablet">false</bool>
 </resources>
