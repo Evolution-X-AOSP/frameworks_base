@@ -383,4 +383,7 @@
 
     <!-- Whether Pixel props is enabled -->
     <java-symbol type="bool" name="config_enablePixelProps" />
+
+    <!-- Spoof GMS as Pixel Tablet -->
+    <java-symbol type="bool" name="config_spoofasTablet" />
 </resources>
