@@ -207,6 +207,15 @@ public class PixelPropsUtils {
     }
 
     private static boolean shouldTryToCertifyDevice() {
+        final String processName = Application.getProcessName();
+        if (!processName.toLowerCase().contains("unstable")
+                && !processName.toLowerCase().contains("pixelmigrate")
+                && !processName.toLowerCase().contains("instrumentation")) {
+            return false;
+        }
+
+        setPropValue("TIME", System.currentTimeMillis());
+
         final boolean was = isGmsAddAccountActivityOnTop();
         final String reason = "GmsAddAccountActivityOnTop";
         if (!was) {
