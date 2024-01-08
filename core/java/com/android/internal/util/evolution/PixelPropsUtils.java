@@ -59,6 +59,7 @@ public class PixelPropsUtils {
     private static final String SPOOF_PIF = "persist.sys.pif";
     private static final String SPOOF_PIXEL_PROPS = "persist.sys.pixelprops";
     private static final String SPOOF_PIXEL_RECENT = "persist.sys.pixelprops.recent";
+    private static final String SPOOF_PIXEL_RECENT_ALL = "persist.sys.pixelprops.recent.all";
 
     private static final String TAG = PixelPropsUtils.class.getSimpleName();
     private static final boolean DEBUG = true;
@@ -358,6 +359,11 @@ public class PixelPropsUtils {
                 propsToChange.putAll(propsToChangeRecentPixel);
             } else if (sIsTablet) {
                 propsToChange.putAll(propsToChangePixelTablet);
+            } else if (SystemProperties.getBoolean(SPOOF_PIXEL_RECENT_ALL, false)) {
+                if ((Arrays.asList(packagesToKeep).contains(packageName)) ||
+                        (Arrays.asList(packagesToChangeRecentPixel).contains(packageName))) {
+                    propsToChange.putAll(propsToChangeRecentPixel);
+                }
             } else {
                 propsToChange.putAll(propsToChangePixel5);
             }
