@@ -104,12 +104,11 @@ final class PackageManagerNative extends IPackageManagerNative.Stub {
     @Override
     public int getTargetSdkVersionForPackage(String packageName) throws RemoteException {
         int targetSdk = mPm.snapshotComputer().getTargetSdkVersion(packageName);
-        int currentSdkVersion = 34;
         if (targetSdk != -1) {
             return targetSdk;
         }
 
-        return currentSdkVersion;
+        return 34; // current version
     }
 
     @Override
