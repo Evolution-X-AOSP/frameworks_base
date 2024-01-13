@@ -239,19 +239,9 @@ public class KeyguardClockSwitch extends RelativeLayout {
     private final ContentObserver mCustomClockObserver = new ContentObserver(null) {
         @Override
         public void onChange(boolean change) {
-            updateCustomClock();
             updateClockTargetRegions();
         }
     };
-    
-    private void updateCustomClock() {
-        mEnableCustomClock = mSecureSettings.getIntForUser(
-            Settings.Secure.CLOCK_LS, 1,
-                UserHandle.USER_CURRENT) != 0;
-        RelativeLayout.LayoutParams params= new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-    	params.addRule(RelativeLayout.BELOW, mEnableCustomClock ? R.id.clock_ls : R.id.lockscreen_clock_view);  
-        mStatusArea.setLayoutParams(params);
-    }
 
     /** Returns the id of the currently rendering clock */
     public String getClockId() {
