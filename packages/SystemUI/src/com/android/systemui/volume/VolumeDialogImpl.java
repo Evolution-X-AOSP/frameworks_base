@@ -1645,6 +1645,11 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
     }
 
     private void showH(int reason, boolean keyguardLocked, int lockTaskModeState) {
+        if (mVolumePanelFactory.isShowing()) {
+            Log.i(TAG, "showH: panel dialog is already showing");
+            return;
+        }
+
         Trace.beginSection("VolumeDialogImpl#showH");
         Log.i(TAG, "showH r=" + Events.SHOW_REASONS[reason]);
         mHandler.removeMessages(H.SHOW);
@@ -1760,7 +1765,7 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
                 .setDuration(mDialogHideAnimationDurationMs)
                 .setInterpolator(new SystemUIInterpolators.LogAccelerateInterpolator())
                 .withEndAction(() -> mHandler.postDelayed(() -> {
-                    if (mController != null) {
+                    if (mController != null && !mVolumePanelFactory.isShowing()) {
                         mController.notifyVisible(false);
                     }
                     if (mDialog != null) {
