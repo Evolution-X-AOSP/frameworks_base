@@ -107,6 +107,7 @@ public class PixelPropsUtils {
     private static final String[] packagesToKeep = {
             PACKAGE_GPHOTOS,
             "com.google.android.apps.motionsense.bridge",
+            "com.google.android.apps.nexuslauncher",
             "com.google.android.apps.pixelmigrate",
             "com.google.android.apps.recorder",
             "com.google.android.apps.restore",
