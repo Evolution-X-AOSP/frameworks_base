@@ -525,6 +525,7 @@
         <item>com.qualcomm.qti.cne</item>
         <item>com.shannon.imsservice</item>
         <item>org.pixelexperience.faceunlock</item>
+        <item>co.aospa.sense</item>
     </string-array>
 
     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
