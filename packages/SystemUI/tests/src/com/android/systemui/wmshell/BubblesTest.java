@@ -362,9 +362,7 @@ public class BubblesTest extends SysuiTestCase {
                 Collections.singletonList(mock(UserInfo.class)));
 
         TestableNotificationInterruptStateProviderImpl interruptionStateProvider =
-                new TestableNotificationInterruptStateProviderImpl(
-                        mContext,
-                        mContext.getContentResolver(),
+                new TestableNotificationInterruptStateProviderImpl(mContext.getContentResolver(),
                         mock(PowerManager.class),
                         mock(AmbientDisplayConfiguration.class),
                         mock(StatusBarStateController.class),
