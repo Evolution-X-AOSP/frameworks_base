@@ -123,8 +123,8 @@ class UdfpsControllerOverlay @JvmOverloads constructor(
 
     private var overlayTouchListener: TouchExplorationStateChangeListener? = null
 
-    private val frameworkDimming = context.getResources().getBoolean(R.bool.config_udfpsFrameworkDimming)
-
+    private val frameworkDimming = context.getResources().getBoolean(
+        R.bool.config_udfpsFrameworkDimming)
     private val coreLayoutParams = WindowManager.LayoutParams(
         WindowManager.LayoutParams.TYPE_DISPLAY_OVERLAY,
         0 /* flags set in computeLayoutParams() */,
