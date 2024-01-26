@@ -55,7 +55,9 @@ public class ClockController implements TunerService.Tunable {
 
         mClockPosition = Settings.System.getIntForUser(mContext.getContentResolver(),
                     STATUS_BAR_CLOCK, CLOCK_POSITION_LEFT, UserHandle.USER_CURRENT);
-        updateActiveClock();
+        mContext.getMainExecutor().execute(() -> {
+            updateActiveClock();
+        });
 
         Dependency.get(TunerService.class).addTunable(this,
                 STATUS_BAR_CLOCK);
@@ -104,7 +106,9 @@ public class ClockController implements TunerService.Tunable {
         switch (key) {
             case STATUS_BAR_CLOCK:
                 mClockPosition = TunerService.parseInteger(newValue, CLOCK_POSITION_LEFT);
-                updateActiveClock();
+                mContext.getMainExecutor().execute(() -> {
+                    updateActiveClock();
+                });
                 break;
             default:
                 break;
