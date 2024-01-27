@@ -24,7 +24,19 @@ public class ClockStyle extends RelativeLayout implements TunerService.Tunable {
             R.id.keyguard_clock_style_custom,
             R.id.keyguard_clock_style_custom1,
             R.id.keyguard_clock_style_custom2,
-            R.id.keyguard_clock_style_custom3
+            R.id.keyguard_clock_style_custom3,
+            R.id.keyguard_clock_style_miui,
+            R.id.keyguard_clock_style_ide,
+            R.id.keyguard_clock_style_lottie,
+            R.id.keyguard_clock_style_lottie2,
+            R.id.keyguard_clock_style_fluid,
+            R.id.keyguard_clock_style_hyper,
+            R.id.keyguard_clock_style_dual,
+            R.id.keyguard_clock_style_stylish,
+            R.id.keyguard_clock_style_sidebar,
+            R.id.keyguard_clock_style_minimal,
+            R.id.keyguard_clock_style_minimal2,
+            R.id.keyguard_clock_style_minimal3
     };
 
     private static final int DEFAULT_STYLE = 0; //Disabled
@@ -47,7 +59,7 @@ public class ClockStyle extends RelativeLayout implements TunerService.Tunable {
     }
 
     private void enableClockOverlays(boolean enable) {
-        boolean isCenterClock = mClockStyle == 2 || mClockStyle == 4 || mClockStyle == 5 || mClockStyle == 6;
+        boolean isCenterClock = mClockStyle == 2 || mClockStyle == 4 || mClockStyle == 5 || mClockStyle == 9 || mClockStyle == 10 || mClockStyle == 11 || mClockStyle == 12 || mClockStyle == 15 || mClockStyle == 17 || mClockStyle == 18 || mClockStyle == 19;
         mThemeUtils.setOverlayEnabled("android.theme.customization.smartspace", enable ? "com.android.systemui.hide.smartspace" : "com.android.systemui", "com.android.systemui");
         mThemeUtils.setOverlayEnabled("android.theme.customization.smartspace_offset", enable && isCenterClock ? "com.android.systemui.smartspace_offset.smartspace" : "com.android.systemui", "com.android.systemui");
     }
