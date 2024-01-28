@@ -114,4 +114,7 @@
 
     <!-- Whether the mobile signal icon pipeline should ignore IWlan status -->
     <bool name="config_mobileIconIgnoresIWlan">false</bool>
+
+    <!-- Whether to enable edge light only when the device face down -->
+    <bool name="config_showEdgeLightOnlyWhenFaceDown">false</bool>
 </resources>

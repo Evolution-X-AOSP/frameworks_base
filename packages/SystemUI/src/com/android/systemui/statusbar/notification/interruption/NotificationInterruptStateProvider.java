@@ -185,4 +185,9 @@ public interface NotificationInterruptStateProvider {
      * Remove a component that can suppress visual interruptions.
      */
     void removeSuppressor(NotificationInterruptSuppressor suppressor);
+
+    /**
+     * Whether the notification should show pulse light or not.
+     */
+    boolean shouldShowPulseLight(NotificationEntry entry, boolean forFaceDown);
 }
