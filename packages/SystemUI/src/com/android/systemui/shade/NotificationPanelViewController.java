@@ -68,6 +68,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManagerInternal;
 import android.os.Trace;
+import android.os.UserHandle;
 import android.os.UserManager;
 import android.os.VibrationEffect;
 import android.provider.Settings;
@@ -171,6 +172,7 @@ import com.android.systemui.plugins.statusbar.StatusBarStateController;
 import com.android.systemui.plugins.statusbar.StatusBarStateController.StateListener;
 import com.android.systemui.power.domain.interactor.PowerInteractor;
 import com.android.systemui.power.shared.model.WakefulnessModel;
+import com.android.systemui.pulselight.PulseLightView;
 import com.android.systemui.res.R;
 import com.android.systemui.shade.data.repository.ShadeRepository;
 import com.android.systemui.shade.domain.interactor.ShadeAnimationInteractor;
@@ -193,6 +195,7 @@ import com.android.systemui.statusbar.notification.NotificationWakeUpCoordinator
 import com.android.systemui.statusbar.notification.PropertyAnimator;
 import com.android.systemui.statusbar.notification.ViewGroupFadeHelper;
 import com.android.systemui.statusbar.notification.collection.NotificationEntry;
+import com.android.systemui.statusbar.notification.collection.NotifPipeline;
 import com.android.systemui.statusbar.notification.domain.interactor.ActiveNotificationsInteractor;
 import com.android.systemui.statusbar.notification.footer.shared.FooterViewRefactor;
 import com.android.systemui.statusbar.notification.row.ExpandableNotificationRow;
@@ -723,6 +726,9 @@ public final class NotificationPanelViewController implements ShadeSurface, Dump
 
     private final ActivityStarter mActivityStarter;
 
+    private PulseLightView mPulseLightView;
+    private NotifPipeline mNotifPipeline;
+
     @Inject
     public NotificationPanelViewController(NotificationPanelView view,
             @Main Handler handler,
@@ -821,7 +827,8 @@ public final class NotificationPanelViewController implements ShadeSurface, Dump
             KeyguardClockPositionAlgorithm keyguardClockPositionAlgorithm,
             NaturalScrollingSettingObserver naturalScrollingSettingObserver,
             TunerService tunerService,
-            Context context) {
+            Context context,
+            NotifPipeline notifPipeline) {
         keyguardStateController.addCallback(new KeyguardStateController.Callback() {
             @Override
             public void onKeyguardFadingAwayChanged() {
@@ -1046,6 +1053,7 @@ public final class NotificationPanelViewController implements ShadeSurface, Dump
                 });
         mAlternateBouncerInteractor = alternateBouncerInteractor;
         dumpManager.registerDumpable(this);
+        mNotifPipeline = notifPipeline;
         mLocalPowerManager = LocalServices.getService(PowerManagerInternal.class);
         mPerf = new BoostFramework();
     }
@@ -1136,6 +1144,7 @@ public final class NotificationPanelViewController implements ShadeSurface, Dump
         if (!keyguardBottomAreaRefactor()) {
             setKeyguardBottomArea(mView.findViewById(R.id.keyguard_bottom_area));
         }
+        mPulseLightView = (PulseLightView) mView.findViewById(R.id.pulse_light_view);
 
         mNotificationStackScroller = mView.findViewById(R.id.notification_stack_scroller);
         mNotifIsland = mView.findViewById(R.id.notification_island);
@@ -3263,9 +3272,42 @@ public final class NotificationPanelViewController implements ShadeSurface, Dump
         if (!mPulsing && !mDozing) {
             mAnimateNextPositionUpdate = false;
         }
+
+        showPulseLight();
+
         mNotificationStackScrollLayoutController.setPulsing(pulsing, animatePulse);
 
         updateKeyguardStatusViewAlignment(/* animate= */ true);
+    }
+
+    private void showPulseLight() {
+        if (mPulseLightView == null || !isPulseLightEnabled()) return;
+        if (mPulsing) {
+            // Get the notification that's pulsing
+            String notifPackageName = "";
+            List<NotificationEntry> notificationEntries =
+                    new ArrayList(mNotifPipeline.getAllNotifs());
+            for (int i = 0; i < notificationEntries.size(); i++) {
+                NotificationEntry entry = notificationEntries.get(i);
+                if (entry.showingPulseLight()) {
+                    notifPackageName = entry.getSbn().getPackageName();
+                    break;
+                }
+            }
+            // Animate edge light only for notification pulse.
+            // Package not empty means pulse caused by a notification.
+            if (!notifPackageName.isEmpty()) {
+                mPulseLightView.setVisibility(View.VISIBLE);
+                mPulseLightView.animateNotification(notifPackageName);
+            }
+        } else {
+            mPulseLightView.setVisibility(View.GONE);
+        }
+    }
+
+    private boolean isPulseLightEnabled() {
+        return Settings.Secure.getIntForUser(mView.getContext().getContentResolver(),
+                Settings.Secure.PULSE_AMBIENT_LIGHT, 0, UserHandle.USER_CURRENT) != 0;
     }
 
     @Override

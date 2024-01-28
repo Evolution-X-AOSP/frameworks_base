@@ -156,4 +156,11 @@
     <include
         layout="@layout/keyguard_bottom_area"
         android:visibility="gone" />
+
+    <include layout="@layout/pulse_light_view"
+        android:id="@+id/pulse_light_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
 </com.android.systemui.shade.NotificationPanelView>

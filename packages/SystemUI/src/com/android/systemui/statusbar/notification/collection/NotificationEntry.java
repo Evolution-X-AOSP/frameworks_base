@@ -181,6 +181,9 @@ public final class NotificationEntry extends ListEntry {
      */
     private boolean mBlockable;
 
+    // For pulse light
+    private boolean mShowPulseLight = false;
+
     /**
      * The {@link SystemClock#elapsedRealtime()} when this notification entry was created.
      */
@@ -994,6 +997,14 @@ public final class NotificationEntry extends ListEntry {
         final Class<? extends Notification.Style> style =
                 getSbn().getNotification().getNotificationStyle();
         return style == null ? "nostyle" : style.getSimpleName();
+    }
+
+    public void setPulseLightState(boolean value) {
+        mShowPulseLight = value;
+    }
+
+    public boolean showingPulseLight() {
+        return mShowPulseLight;
     }
 
     /** Information about a suggestion that is being edited. */
