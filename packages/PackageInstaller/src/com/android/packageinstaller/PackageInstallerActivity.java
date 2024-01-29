@@ -162,6 +162,10 @@ public class PackageInstallerActivity extends Activity {
                 oldVersionView.setVisibility(View.VISIBLE);
                 mOk.setText(R.string.update_anyway);
             } else {
+                oldVersionView = requireViewById(R.id.installed_app_version);
+                ((TextView)oldVersionView).setText(
+                        getString(R.string.old_version_number, oldInfo.versionName));
+                oldVersionView.setVisibility(View.VISIBLE);
                 mOk.setText(R.string.update);
             }
         } else {
