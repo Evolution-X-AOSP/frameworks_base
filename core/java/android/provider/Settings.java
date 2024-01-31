@@ -6901,13 +6901,6 @@ public final class Settings {
         public static final String ENABLE_FLOATING_ROTATION_BUTTON = "enable_floating_rotation_button";
 
         /**
-         * Action to perform when the screen edge is long-swiped. (Default is 0)
-         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
-         * @hide
-         */
-        public static final String KEY_EDGE_LONG_SWIPE_ACTION = "key_edge_long_swipe_action";
-
-        /**
          * Whether or not volume button music controls should be enabled to seek media tracks
          * @hide
          */
@@ -7273,7 +7266,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(CAMERA_WAKE_SCREEN);
             PRIVATE_SETTINGS.add(CAMERA_SLEEP_ON_RELEASE);
             PRIVATE_SETTINGS.add(CAMERA_LAUNCH);
-            PRIVATE_SETTINGS.add(KEY_EDGE_LONG_SWIPE_ACTION);
         }
 
         /**
