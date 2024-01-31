@@ -54,7 +54,9 @@ public class PixelPropsUtils {
     private static final String PROCESS_GMS_UNSTABLE = PACKAGE_GMS + ".unstable";
     private static final String PACKAGE_GPHOTOS = "com.google.android.apps.photos";
     private static final String PACKAGE_SI = "com.google.android.settings.intelligence";
+    private static final String PACKAGE_VELVET = "com.google.android.googlequicksearchbox";
     private static final String SAMSUNG = "com.samsung.";
+    private static final String SPOOF_CTS = "persist.sys.velvet.cts";
     private static final String SPOOF_MUSIC_APPS = "persist.sys.disguise_props_for_music_app";
     private static final String SPOOF_PIF = "persist.sys.pif";
     private static final String SPOOF_PIXEL_PROPS = "persist.sys.pixelprops";
@@ -322,20 +324,34 @@ public class PixelPropsUtils {
         final String packageName = context.getPackageName();
         final String processName = Application.getProcessName();
 
+        Map<String, Object> propsToChange = new HashMap<>();
+        sProcessName = processName;
+
+        sIsGms = packageName.equals(PACKAGE_GMS) && processName.equals(PROCESS_GMS_UNSTABLE);
+        sIsFinsky = packageName.equals(PACKAGE_FINSKY);
+
         propsToChangeGeneric.forEach((k, v) -> setPropValue(k, v));
         if (packageName == null || processName == null || packageName.isEmpty()) {
-            return;
-        }
-        if (Arrays.asList(packagesToKeep).contains(packageName)) {
             return;
         }
         if (isGoogleCameraPackage(packageName)) {
             return;
         }
-        Map<String, Object> propsToChange = new HashMap<>();
-        sProcessName = processName;
-        sIsGms = packageName.equals(PACKAGE_GMS) && processName.equals(PROCESS_GMS_UNSTABLE);
-        sIsFinsky = packageName.equals(PACKAGE_FINSKY);
+        if (SystemProperties.getBoolean(SPOOF_PIXEL_RECENT_ALL, false)) {
+            if (packageName.startsWith("com.google.") ||
+                    packageName.startsWith(SAMSUNG) ||
+                    Arrays.asList(packagesToChangeRecentPixel).contains(packageName) ||
+                    Arrays.asList(packagesToKeep).contains(packageName)) {
+                propsToChange.putAll(propsToChangeRecentPixel);
+            }
+        }
+        if (Arrays.asList(packagesToKeep).contains(packageName)) {
+            if (SystemProperties.getBoolean(SPOOF_CTS, false) &&
+                    packageName.equals(PACKAGE_VELVET)) {
+                propsToChange.putAll(propsToChangeRecentPixel);
+            }
+            return;
+        }
 
         if (sIsGms) {
             if (shouldTryToCertifyDevice()) {
@@ -349,28 +365,23 @@ public class PixelPropsUtils {
             }
         } else if (packageName.equals(PACKAGE_GMS)) {
             setPropValue("TIME", System.currentTimeMillis());
-        } else if (packageName.startsWith("com.google.")
-                || packageName.startsWith(SAMSUNG)
-                || Arrays.asList(packagesToChangeRecentPixel).contains(packageName)) {
+        } else if (packageName.startsWith("com.google.") ||
+                packageName.startsWith(SAMSUNG) ||
+                Arrays.asList(packagesToChangeRecentPixel).contains(packageName)) {
 
             if (!sEnablePixelProps || !SystemProperties.getBoolean(SPOOF_PIXEL_PROPS, true)) {
                 dlog("Pixel props is disabled by config or system prop");
                 return;
-            } else if ((SystemProperties.getBoolean(SPOOF_PIXEL_RECENT, true)) &&
-                    (Arrays.asList(packagesToChangeRecentPixel).contains(packageName))) {
+            } else if (SystemProperties.getBoolean(SPOOF_PIXEL_RECENT, true) &&
+                    Arrays.asList(packagesToChangeRecentPixel).contains(packageName)) {
                 propsToChange.putAll(propsToChangeRecentPixel);
             } else if (sIsTablet) {
                 propsToChange.putAll(propsToChangePixelTablet);
-            } else if (SystemProperties.getBoolean(SPOOF_PIXEL_RECENT_ALL, false)) {
-                if ((Arrays.asList(packagesToKeep).contains(packageName)) ||
-                        (Arrays.asList(packagesToChangeRecentPixel).contains(packageName))) {
-                    propsToChange.putAll(propsToChangeRecentPixel);
-                }
             } else {
                 propsToChange.putAll(propsToChangePixel5);
             }
-        } else if ((SystemProperties.getBoolean(SPOOF_MUSIC_APPS, false)) &&
-                (Arrays.asList(packagesToChangeMeizu).contains(packageName))) {
+        } else if (SystemProperties.getBoolean(SPOOF_MUSIC_APPS, false) &&
+                Arrays.asList(packagesToChangeMeizu).contains(packageName)) {
             propsToChange.putAll(propsToChangeMeizu);
         }
         dlog("Defining props for: " + packageName);
