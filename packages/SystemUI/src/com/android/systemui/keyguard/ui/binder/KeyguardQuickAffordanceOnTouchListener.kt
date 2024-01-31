@@ -42,6 +42,8 @@ class KeyguardQuickAffordanceOnTouchListener(
     private val longPressDurationMs = ViewConfiguration.getLongPressTimeout().toLong()
     private var longPressAnimator: ViewPropertyAnimator? = null
     private val downDisplayCoords: PointF by lazy { PointF() }
+    private val requireLongPress =
+        view.context.resources.getBoolean(R.bool.config_keyguardQuickAffordanceRequiresLongPress)
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouch(v: View, event: MotionEvent): Boolean {
@@ -49,7 +51,7 @@ class KeyguardQuickAffordanceOnTouchListener(
             MotionEvent.ACTION_DOWN -> {
                 if (viewModel.configKey != null) {
                     downDisplayCoords.set(event.rawX, event.rawY)
-                    if (isUsingAccurateTool(event)) {
+                    if (!requireLongPress || isUsingAccurateTool(event)) {
                         // For accurate tool types (stylus, mouse, etc.), we don't require a
                         // long-press.
                     } else {

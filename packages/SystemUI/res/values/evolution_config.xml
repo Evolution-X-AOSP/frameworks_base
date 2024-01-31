@@ -108,4 +108,7 @@
 
     <!-- Unlock ripple animation -->
     <bool name="config_enableUnlockRippleAnimation">true</bool>
+
+    <!-- Whether long press is required to activate keyguard quick affordance buttons -->
+    <bool name="config_keyguardQuickAffordanceRequiresLongPress">true</bool>
 </resources>
