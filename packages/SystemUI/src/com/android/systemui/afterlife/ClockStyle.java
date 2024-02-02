@@ -7,7 +7,9 @@ import android.os.Handler;
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextClock;
 import com.android.systemui.Dependency;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.res.R;
@@ -41,9 +43,8 @@ public class ClockStyle extends RelativeLayout implements TunerService.Tunable {
 
     private static final int DEFAULT_STYLE = 0; //Disabled
     private static final String CLOCK_STYLE_KEY = "clock_style";
-    
-    private static final String CLOCK_STYLE =
-            "system:" + CLOCK_STYLE_KEY;
+
+    private static final String CLOCK_STYLE = "system:" + CLOCK_STYLE_KEY;
 
     private ThemeUtils mThemeUtils;
 
@@ -51,9 +52,14 @@ public class ClockStyle extends RelativeLayout implements TunerService.Tunable {
     private View[] clockViews;
     private int mClockStyle;
 
+    private static final long UPDATE_INTERVAL_MILLIS = 15 * 1000;
+    private final Handler mHandler;
+    private long lastUpdateTimeMillis = 0;
+
     public ClockStyle(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
+        mHandler = new Handler(context.getMainLooper());
         mThemeUtils = new ThemeUtils(context);
         Dependency.get(TunerService.class).addTunable(this, CLOCK_STYLE);
     }
@@ -67,24 +73,60 @@ public class ClockStyle extends RelativeLayout implements TunerService.Tunable {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        clockViews = new View[CLOCK_VIEW_IDS.length];
-        for (int i = 0; i < CLOCK_VIEW_IDS.length; i++) {
-            if (CLOCK_VIEW_IDS[i] != 0) {
-                clockViews[i] = findViewById(CLOCK_VIEW_IDS[i]);
-            } else {
-                clockViews[i] = null;
+        mHandler.post(() -> {
+            clockViews = new View[CLOCK_VIEW_IDS.length];
+            for (int i = 0; i < CLOCK_VIEW_IDS.length; i++) {
+                if (CLOCK_VIEW_IDS[i] != 0) {
+                    clockViews[i] = findViewById(CLOCK_VIEW_IDS[i]);
+                } else {
+                    clockViews[i] = null;
+                }
+            }
+            updateClockView();
+        });
+    }
+
+    private void updateTextClockViews(View view) {
+        if (view instanceof ViewGroup) {
+            ViewGroup viewGroup = (ViewGroup) view;
+            mHandler.post(() -> {
+                for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                    View childView = viewGroup.getChildAt(i);
+                    updateTextClockViews(childView);
+                    if (childView instanceof TextClock) {
+                        ((TextClock) childView).refreshTime();
+                    }
+                }
+            });
+        }
+    }
+
+    public void onTimeChanged() {
+        long currentTimeMillis = System.currentTimeMillis();
+        if (currentTimeMillis - lastUpdateTimeMillis >= UPDATE_INTERVAL_MILLIS) {
+            if (clockViews != null) {
+                mHandler.post(() -> {
+                    for (View clockView : clockViews) {
+                        updateTextClockViews(clockView);
+                        lastUpdateTimeMillis = currentTimeMillis;
+                    }
+                });
             }
         }
-        updateClockView();
     }
 
     private void updateClockView() {
         if (clockViews != null) {
-            for (int i = 0; i < clockViews.length; i++) {
-                if (clockViews[i] != null) {
-                    clockViews[i].setVisibility(i == mClockStyle ? View.VISIBLE : View.GONE);
+            mHandler.post(() -> {
+                for (int i = 0; i < clockViews.length; i++) {
+                    if (clockViews[i] != null) {
+                        int visibility = (i == mClockStyle) ? View.VISIBLE : View.GONE;
+                        if (clockViews[i].getVisibility() != visibility) {
+                            clockViews[i].setVisibility(visibility);
+                        }
+                    }
                 }
-            }
+            });
         }
     }
     
