@@ -4838,7 +4838,7 @@ public final class NotificationPanelViewController implements ShadeSurface, Dump
                     updateDismissAllVisibility();
                     break;
                 case ISLAND_NOTIFICATION:
-                    mUseIslandNotification = TunerService.parseIntegerSwitch(newValue, false);
+                    mUseIslandNotification = TunerService.parseIntegerSwitch(newValue, true);
                     mNotifIsland.setIslandEnabled(mUseIslandNotification);
                     break;
                 default:
