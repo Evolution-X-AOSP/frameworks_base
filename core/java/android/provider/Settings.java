@@ -7228,14 +7228,9 @@ public final class Settings {
         /**
          * Give haptic feedback on scroll fling.
          * @hide
-         */ 
+         */
         @Readable
         public static final String SCROLL_FLING_HAPTIC_FEEDBACK = "scroll_fling_haptic_feedback";
-
-        /**
-         * @hide
-         */
-        public static final String UDFPS_ANIM = "udfps_anim";
 
         /**
          * @hide
