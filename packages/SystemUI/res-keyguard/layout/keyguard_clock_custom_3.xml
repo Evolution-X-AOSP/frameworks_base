@@ -14,8 +14,7 @@
         android:layout_height="fill_parent"
         android:layout_marginTop="10.0dip">
         <TextClock
-            android:textSize="90.0dip"
-            android:textStyle="bold"
+            android:textSize="86.0sp"
             android:textColor="@android:color/white"
             android:gravity="start|center"
             android:layout_gravity="start|center"
@@ -29,8 +28,7 @@
             android:format12Hour="hh"
             android:format24Hour="HH"/>
         <TextClock
-            android:textSize="90.0dip"
-            android:textStyle="bold"
+            android:textSize="86.0sp"
             android:textColor="@android:color/white"
             android:gravity="start|center"
             android:layout_gravity="start|center"
