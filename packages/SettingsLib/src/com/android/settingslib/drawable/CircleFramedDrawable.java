@@ -92,6 +92,45 @@ public class CircleFramedDrawable extends Drawable {
         mDstRect = new RectF(0, 0, mSize, mSize);
     }
 
+    public CircleFramedDrawable(Bitmap icon, int size, float radius) {
+        super();
+        mSize = size;
+
+        mBitmap = Bitmap.createBitmap(mSize, mSize, Bitmap.Config.ARGB_8888);
+        final Canvas canvas = new Canvas(mBitmap);
+
+        final int width = icon.getWidth();
+        final int height = icon.getHeight();
+        final int square = Math.min(width, height);
+
+        final Rect cropRect = new Rect((width - square) / 2, (height - square) / 2, square, square);
+        final RectF circleRect = new RectF(0f, 0f, mSize, mSize);
+
+        final Path fillPath = new Path();
+        fillPath.addCircle(mSize / 2f, mSize / 2f, radius, Path.Direction.CW);
+
+        canvas.drawColor(0, PorterDuff.Mode.CLEAR);
+
+        // opaque circle matte
+        Paint paint = new Paint();
+        paint.setAntiAlias(true);
+        paint.setColor(Color.BLACK);
+        paint.setStyle(Paint.Style.FILL);
+        canvas.drawPath(fillPath, paint);
+
+        // mask in the icon where the bitmap is opaque
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        canvas.drawBitmap(icon, cropRect, circleRect, paint);
+
+        // prepare paint for frame drawing
+        paint.setXfermode(null);
+
+        mScale = 1f;
+
+        mSrcRect = new Rect(0, 0, mSize, mSize);
+        mDstRect = new RectF(0, 0, mSize, mSize);
+    }
+
     @Override
     public void draw(Canvas canvas) {
         final float inside = mScale * mSize;
