@@ -119,9 +119,6 @@ public class SoundTriggerHelper implements SoundTrigger.StatusListener {
     @GuardedBy("mLock")
     private SoundTriggerDeviceState mDeviceState = SoundTriggerDeviceState.DISABLE;
 
-    @GuardedBy("mLock")
-    private boolean mIsAppOpPermitted = true;
-
     SoundTriggerHelper(Context context, EventLogger eventLogger,
             @NonNull Function<SoundTrigger.StatusListener, SoundTriggerModule> moduleProvider,
             int moduleId,
@@ -326,7 +323,7 @@ public class SoundTriggerHelper implements SoundTrigger.StatusListener {
             modelData.setRunInBatterySaverMode(runInBatterySaverMode);
             modelData.setSoundModel(soundModel);
 
-            if (isRecognitionAllowed(modelData)) {
+            if (isRecognitionAllowedByDeviceState(modelData)) {
                 int startRecoResult = updateRecognitionLocked(modelData,
                         false /* Don't notify for synchronous calls */);
                 if (startRecoResult == SoundTrigger.STATUS_OK) {
@@ -616,16 +613,6 @@ public class SoundTriggerHelper implements SoundTrigger.StatusListener {
         }
     }
 
-    public void onAppOpStateChanged(boolean isPermitted) {
-        synchronized (mLock) {
-            if (mIsAppOpPermitted == isPermitted) {
-                return;
-            }
-            mIsAppOpPermitted = isPermitted;
-            updateAllRecognitionsLocked();
-        }
-    }
-
     public int getGenericModelState(UUID modelId) {
         synchronized (mLock) {
             MetricsLogger.count(mContext, "sth_get_generic_model_state", 1);
@@ -795,7 +782,6 @@ public class SoundTriggerHelper implements SoundTrigger.StatusListener {
         return event instanceof KeyphraseRecognitionEvent;
     }
 
-    @GuardedBy("mLock")
     private void onGenericRecognitionLocked(GenericRecognitionEvent event) {
         MetricsLogger.count(mContext, "sth_generic_recognition_event", 1);
         if (event.status != SoundTrigger.RECOGNITION_STATUS_SUCCESS
@@ -880,7 +866,6 @@ public class SoundTriggerHelper implements SoundTrigger.StatusListener {
         }
     }
 
-    @GuardedBy("mLock")
     private void onResourcesAvailableLocked() {
         mEventLogger.enqueue(new SessionEvent(Type.RESOURCES_AVAILABLE, null));
         updateAllRecognitionsLocked();
@@ -926,7 +911,6 @@ public class SoundTriggerHelper implements SoundTrigger.StatusListener {
         return keyphraseExtras[0].id;
     }
 
-    @GuardedBy("mLock")
     private void onKeyphraseRecognitionLocked(KeyphraseRecognitionEvent event) {
         Slog.i(TAG, "Recognition success");
         MetricsLogger.count(mContext, "sth_keyphrase_recognition_event", 1);
@@ -972,7 +956,6 @@ public class SoundTriggerHelper implements SoundTrigger.StatusListener {
         }
     }
 
-    @GuardedBy("mLock")
     private void updateAllRecognitionsLocked() {
         // updateRecognitionLocked can possibly update the list of models
         ArrayList<ModelData> modelDatas = new ArrayList<ModelData>(mModelDataMap.values());
@@ -981,9 +964,8 @@ public class SoundTriggerHelper implements SoundTrigger.StatusListener {
         }
     }
 
-    @GuardedBy("mLock")
     private int updateRecognitionLocked(ModelData model, boolean notifyClientOnError) {
-        boolean shouldStartModel = model.isRequested() && isRecognitionAllowed(model);
+        boolean shouldStartModel = model.isRequested() && isRecognitionAllowedByDeviceState(model);
         if (shouldStartModel == model.isModelStarted()) {
             // No-op.
             return STATUS_OK;
@@ -1202,10 +1184,7 @@ public class SoundTriggerHelper implements SoundTrigger.StatusListener {
      * @return True if recognition is allowed to run at this time. False if not.
      */
     @GuardedBy("mLock")
-    private boolean isRecognitionAllowed(ModelData modelData) {
-        if (!mIsAppOpPermitted) {
-            return false;
-        }
+    private boolean isRecognitionAllowedByDeviceState(ModelData modelData) {
         return switch (mDeviceState) {
             case DISABLE -> false;
             case CRITICAL -> modelData.shouldRunInBatterySaverMode();
@@ -1216,7 +1195,6 @@ public class SoundTriggerHelper implements SoundTrigger.StatusListener {
 
     // A single routine that implements the start recognition logic for both generic and keyphrase
     // models.
-    @GuardedBy("mLock")
     private int startRecognitionLocked(ModelData modelData, boolean notifyClientOnError) {
         IRecognitionStatusCallback callback = modelData.getCallback();
         RecognitionConfig config = modelData.getRecognitionConfig();
@@ -1227,7 +1205,7 @@ public class SoundTriggerHelper implements SoundTrigger.StatusListener {
             return STATUS_ERROR;
         }
 
-        if (!isRecognitionAllowed(modelData)) {
+        if (!isRecognitionAllowedByDeviceState(modelData)) {
             // Nothing to do here.
             Slog.w(TAG, "startRecognition requested but not allowed.");
             MetricsLogger.count(mContext, "sth_start_recognition_not_allowed", 1);

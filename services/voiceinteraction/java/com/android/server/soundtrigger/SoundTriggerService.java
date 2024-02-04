@@ -42,7 +42,6 @@ import android.Manifest;
 import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.app.ActivityThread;
-import android.app.AppOpsManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -112,7 +111,6 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.function.Consumer;
 import java.util.List;
 import java.util.Set;
 import java.util.Deque;
@@ -238,8 +236,6 @@ public class SoundTriggerService extends SystemService {
     private final DeviceStateHandler mDeviceStateHandler;
     private final Executor mDeviceStateHandlerExecutor = Executors.newSingleThreadExecutor();
     private PhoneCallStateHandler mPhoneCallStateHandler;
-    private AppOpsManager mAppOpsManager;
-    private PackageManager mPackageManager;
 
     public SoundTriggerService(Context context) {
         super(context);
@@ -262,8 +258,6 @@ public class SoundTriggerService extends SystemService {
         Slog.d(TAG, "onBootPhase: " + phase + " : " + isSafeMode());
         if (PHASE_THIRD_PARTY_APPS_CAN_START == phase) {
             mDbHelper = new SoundTriggerDbHelper(mContext);
-            mAppOpsManager = mContext.getSystemService(AppOpsManager.class);
-            mPackageManager = mContext.getPackageManager();
             final PowerManager powerManager = mContext.getSystemService(PowerManager.class);
             // Hook up power state listener
             mContext.registerReceiver(
@@ -352,44 +346,6 @@ public class SoundTriggerService extends SystemService {
         while (!mDetachedSessionEventLoggers.offerFirst(logger)) {
             // Remove the oldest element, if one still exists
             mDetachedSessionEventLoggers.pollLast();
-        }
-    }
-
-    class MyAppOpsListener implements AppOpsManager.OnOpChangedListener {
-        private final Identity mOriginatorIdentity;
-        private final Consumer<Boolean> mOnOpModeChanged;
-
-        MyAppOpsListener(Identity originatorIdentity, Consumer<Boolean> onOpModeChanged) {
-            mOriginatorIdentity = Objects.requireNonNull(originatorIdentity);
-            mOnOpModeChanged = Objects.requireNonNull(onOpModeChanged);
-            // Validate package name
-            try {
-                int uid = mPackageManager.getPackageUid(mOriginatorIdentity.packageName,
-                        PackageManager.PackageInfoFlags.of(PackageManager.MATCH_ANY_USER));
-                if (!UserHandle.isSameApp(uid, mOriginatorIdentity.uid)) {
-                    throw new SecurityException("Uid " + mOriginatorIdentity.uid +
-                            " attempted to spoof package name " +
-                            mOriginatorIdentity.packageName + " with uid: " + uid);
-                }
-            } catch (PackageManager.NameNotFoundException e) {
-                throw new SecurityException("Package name not found: "
-                        + mOriginatorIdentity.packageName);
-            }
-        }
-
-        @Override
-        public void onOpChanged(String op, String packageName) {
-            if (!Objects.equals(op, AppOpsManager.OPSTR_RECORD_AUDIO)) {
-                return;
-            }
-            final int mode = mAppOpsManager.checkOpNoThrow(
-                    AppOpsManager.OPSTR_RECORD_AUDIO, mOriginatorIdentity.uid,
-                    mOriginatorIdentity.packageName);
-            mOnOpModeChanged.accept(mode == AppOpsManager.MODE_ALLOWED);
-        }
-
-        void forceOpChangeRefresh() {
-            onOpChanged(AppOpsManager.OPSTR_RECORD_AUDIO, mOriginatorIdentity.packageName);
         }
     }
 
@@ -511,7 +467,6 @@ public class SoundTriggerService extends SystemService {
         private final Object mCallbacksLock = new Object();
         private final TreeMap<UUID, IRecognitionStatusCallback> mCallbacks = new TreeMap<>();
         private final EventLogger mEventLogger;
-        private final MyAppOpsListener mAppOpsListener;
 
         SoundTriggerSessionStub(@NonNull IBinder client,
                 SoundTriggerHelper soundTriggerHelper, EventLogger eventLogger) {
@@ -528,12 +483,6 @@ public class SoundTriggerService extends SystemService {
             }
             mListener = (SoundTriggerDeviceState state)
                     -> mSoundTriggerHelper.onDeviceStateChanged(state);
-            mAppOpsListener = new MyAppOpsListener(mOriginatorIdentity,
-                    mSoundTriggerHelper::onAppOpStateChanged);
-            mAppOpsListener.forceOpChangeRefresh();
-            mAppOpsManager.startWatchingMode(AppOpsManager.OPSTR_RECORD_AUDIO,
-                    mOriginatorIdentity.packageName, AppOpsManager.WATCH_FOREGROUND_CHANGES,
-                    mAppOpsListener);
             mDeviceStateHandler.registerListener(mListener);
         }
 
@@ -985,9 +934,6 @@ public class SoundTriggerService extends SystemService {
         }
 
         private void detach() {
-            if (mAppOpsListener != null) {
-                mAppOpsManager.stopWatchingMode(mAppOpsListener);
-            }
             mDeviceStateHandler.unregisterListener(mListener);
             mSoundTriggerHelper.detach();
             detachSessionLogger(mEventLogger);
@@ -1003,8 +949,9 @@ public class SoundTriggerService extends SystemService {
         }
 
         private void enforceDetectionPermissions(ComponentName detectionService) {
+            PackageManager packageManager = mContext.getPackageManager();
             String packageName = detectionService.getPackageName();
-            if (mPackageManager.checkPermission(
+            if (packageManager.checkPermission(
                         Manifest.permission.CAPTURE_AUDIO_HOTWORD, packageName)
                     != PackageManager.PERMISSION_GRANTED) {
                 throw new SecurityException(detectionService.getPackageName() + " does not have"
@@ -1692,7 +1639,6 @@ public class SoundTriggerService extends SystemService {
             private final EventLogger mEventLogger;
             private final Identity mOriginatorIdentity;
             private final @NonNull DeviceStateListener mListener;
-            private final MyAppOpsListener mAppOpsListener;
 
             private final SparseArray<UUID> mModelUuid = new SparseArray<>(1);
 
@@ -1713,12 +1659,6 @@ public class SoundTriggerService extends SystemService {
                 }
                 mListener = (SoundTriggerDeviceState state)
                         -> mSoundTriggerHelper.onDeviceStateChanged(state);
-                mAppOpsListener = new MyAppOpsListener(mOriginatorIdentity,
-                        mSoundTriggerHelper::onAppOpStateChanged);
-                mAppOpsListener.forceOpChangeRefresh();
-                mAppOpsManager.startWatchingMode(AppOpsManager.OPSTR_RECORD_AUDIO,
-                        mOriginatorIdentity.packageName, AppOpsManager.WATCH_FOREGROUND_CHANGES,
-                        mAppOpsListener);
                 mDeviceStateHandler.registerListener(mListener);
             }
 
@@ -1786,9 +1726,6 @@ public class SoundTriggerService extends SystemService {
             }
 
             private void detachInternal() {
-                if (mAppOpsListener != null) {
-                    mAppOpsManager.stopWatchingMode(mAppOpsListener);
-                }
                 mEventLogger.enqueue(new SessionEvent(Type.DETACH, null));
                 detachSessionLogger(mEventLogger);
                 mDeviceStateHandler.unregisterListener(mListener);
