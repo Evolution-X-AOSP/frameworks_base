@@ -94,7 +94,8 @@ public class ProfileLayout extends LinearLayout implements TunerService.Tunable 
             bitmapUserIcon = UserIcons.convertToBitmap(defaultUserIcon);
         }
         Drawable drawableUserIcon = new CircleFramedDrawable(bitmapUserIcon,
-                (int) mContext.getResources().getDimension(R.dimen.custom_clock_2_avatar_width));
+                (int) mContext.getResources().getDimension(R.dimen.custom_clock_2_avatar_width),
+                (int) mContext.getResources().getDimension(R.dimen.custom_clock_2_avatar_radius));
         return drawableUserIcon;
     }
     
