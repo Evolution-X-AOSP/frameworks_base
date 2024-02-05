@@ -80,4 +80,6 @@
     <!-- Launcher Restart -->
     <string name="launcher_restart_title">Launcher-újraindítás szükséges</string>
     <string name="launcher_restart_message">Az összes módosítás érvénybe léptetéséhez Launcher-újraindítás szükséges. Újraindítja most?</string>
+    <!-- App lock -->
+    <string name="unlock_application">Feloldja a következőt: <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
 </resources>
