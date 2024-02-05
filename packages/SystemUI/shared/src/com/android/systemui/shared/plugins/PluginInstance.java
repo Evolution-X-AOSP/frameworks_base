@@ -57,7 +57,7 @@ public class PluginInstance<T extends Plugin> implements PluginLifecycleManager 
     private final PluginFactory<T> mPluginFactory;
     private final String mTag;
 
-    private boolean mIsDebug = false;
+    private boolean mIsDebug = true;
     private Context mPluginContext;
     private T mPlugin;
 
