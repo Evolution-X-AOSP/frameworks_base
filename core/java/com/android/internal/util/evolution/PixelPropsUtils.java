@@ -159,8 +159,8 @@ public class PixelPropsUtils {
         propsToChangeRecentPixel.put("PRODUCT", "husky");
         propsToChangeRecentPixel.put("HARDWARE", "husky");
         propsToChangeRecentPixel.put("MODEL", "Pixel 8 Pro");
-        propsToChangeRecentPixel.put("ID", "UQ1A.240105.004");
-        propsToChangeRecentPixel.put("FINGERPRINT", "google/husky/husky:14/UQ1A.240105.004/11206848:user/release-keys");
+        propsToChangeRecentPixel.put("ID", "UQ1A.240205.004");
+        propsToChangeRecentPixel.put("FINGERPRINT", "google/husky/husky:14/UQ1A.240205.004/11269751:user/release-keys");
         propsToChangePixelTablet = new HashMap<>();
         propsToChangePixelTablet.put("BRAND", "google");
         propsToChangePixelTablet.put("MANUFACTURER", "Google");
@@ -168,8 +168,8 @@ public class PixelPropsUtils {
         propsToChangePixelTablet.put("PRODUCT", "tangorpro");
         propsToChangePixelTablet.put("HARDWARE", "tangorpro");
         propsToChangePixelTablet.put("MODEL", "Pixel Tablet");
-        propsToChangePixelTablet.put("ID", "UQ1A.240105.004");
-        propsToChangePixelTablet.put("FINGERPRINT", "google/tangorpro/tangorpro:14/UQ1A.240105.004/11206848:user/release-keys");
+        propsToChangePixelTablet.put("ID", "UQ1A.240205.002");
+        propsToChangePixelTablet.put("FINGERPRINT", "google/tangorpro/tangorpro:14/UQ1A.240205.002/11224170:user/release-keys");
         propsToChangePixel5 = new HashMap<>();
         propsToChangePixel5.put("BRAND", "google");
         propsToChangePixel5.put("MANUFACTURER", "Google");
