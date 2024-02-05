@@ -80,4 +80,6 @@
     <!-- Launcher Restart -->
     <string name="launcher_restart_title">Redémarrage du lanceur requis</string>
     <string name="launcher_restart_message">Pour que toutes les modifications prennent effet, un redémarrage du lanceur est nécessaire. Redémarrer le lanceur maintenant ?</string>
+    <!-- App lock -->
+    <string name="unlock_application">Dévérouiller <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
 </resources>
