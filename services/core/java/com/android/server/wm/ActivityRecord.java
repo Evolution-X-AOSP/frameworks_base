@@ -711,7 +711,7 @@ public final class ActivityRecord extends WindowToken implements WindowManagerSe
     private boolean mCurrentLaunchCanTurnScreenOn = true;
 
     /** Whether our surface was set to be showing in the last call to {@link #prepareSurfaces} */
-    private boolean mLastSurfaceShowing;
+    boolean mLastSurfaceShowing;
 
     /**
      * The activity is opaque and fills the entire space of this task.
@@ -5366,19 +5366,14 @@ public final class ActivityRecord extends WindowToken implements WindowManagerSe
                 // Finish should only ever commit visibility=false, so we can check full containment
                 // rather than just direct membership.
                 inFinishingTransition = mTransitionController.inFinishingTransition(this);
-                if (!inFinishingTransition && (visible || !mDisplayContent.isSleeping())) {
-                    Slog.e(TAG, "setVisibility=" + visible
-                            + " while transition is not collecting or finishing "
-                            + this + " caller=" + Debug.getCallers(8));
-                    // Force showing the parents because they may be hidden by previous transition.
+                if (!inFinishingTransition) {
                     if (visible) {
-                        final Transaction t = getSyncTransaction();
-                        for (WindowContainer<?> p = getParent(); p != null && p != mDisplayContent;
-                                p = p.getParent()) {
-                            if (p.mSurfaceControl != null) {
-                                t.show(p.mSurfaceControl);
-                            }
+                        if (!mDisplayContent.isSleeping() || canShowWhenLocked()) {
+                            mTransitionController.onVisibleWithoutCollectingTransition(this,
+                                    Debug.getCallers(1, 1));
                         }
+                    } else if (!mDisplayContent.isSleeping()) {
+                        Slog.w(TAG, "Set invisible without transition " + this);
                     }
                 }
             }
