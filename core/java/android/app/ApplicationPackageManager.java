@@ -885,8 +885,7 @@ public class ApplicationPackageManager extends PackageManager {
             if (Arrays.asList(featuresNexus).contains(name)) return true;
         }
         if (packageName != null &&
-                packageName.equals("com.google.android.googlequicksearchbox") &&
-                SystemProperties.getBoolean("persist.sys.velvet.cts", false)) {
+                packageName.equals("com.google.android.googlequicksearchbox")) {
             if (Arrays.asList(featuresPixel).contains(name)) return true;
             if (Arrays.asList(featuresPixelOthers).contains(name)) return true;
             if (Arrays.asList(featuresTensor).contains(name)) return true;

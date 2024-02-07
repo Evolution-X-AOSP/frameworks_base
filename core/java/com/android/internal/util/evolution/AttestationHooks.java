@@ -87,8 +87,8 @@ public final class AttestationHooks {
 
         if (packageName.equals(PACKAGE_GPHOTOS)) {
             if (!SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", true)) {
-                dlog("Photos spoofing disabled by system prop");
-                return;
+                dlog("Spoofing Pixel 8 Pro for: " + packageName);
+                sPixel8ProProps.forEach(AttestationHooks::setPropValue);
             } else {
                 dlog("Spoofing Pixel XL for: " + packageName);
                 sPixelXLProps.forEach(AttestationHooks::setPropValue);
@@ -96,15 +96,9 @@ public final class AttestationHooks {
         }
 
         if (packageName.equals(PACKAGE_NETFLIX)) {
-            if (!SystemProperties.getBoolean("persist.sys.pixelprops.netflix", false)) {
-                dlog("Netflix spoofing disabled by system prop");
-                return;
-            } else if (!sNetflixModel.isEmpty() && packageName.equals(PACKAGE_NETFLIX)) {
+            if (!sNetflixModel.isEmpty() && packageName.equals(PACKAGE_NETFLIX)) {
                 dlog("Setting model to " + sNetflixModel + " for Netflix");
                 setPropValue("MODEL", sNetflixModel);
-            } else {
-                dlog("Spoofing Pixel 8 Pro for: " + packageName);
-                sPixel8ProProps.forEach(AttestationHooks::setPropValue);
             }
         }
     }
