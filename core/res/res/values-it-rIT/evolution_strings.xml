@@ -81,5 +81,5 @@
     <string name="launcher_restart_title">Riavvio del launcher richiesto</string>
     <string name="launcher_restart_message">Per rendere effettive tutte le modifiche, è necessario un riavvio del launcher. Riavviare il launcher ora?</string>
     <!-- App lock -->
-    <string name="unlock_application">Sblocca <xliff:g id="label" esempio="Telegram">%1$s</xliff:g></string>
+    <string name="unlock_application">Sblocca <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
 </resources>
