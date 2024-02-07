@@ -46,17 +46,7 @@ public final class AttestationHooks {
             Resources.getSystem().getString(R.string.config_netflixSpoofModel);
 
     private static final String PACKAGE_ARCORE = "com.google.ar.core";
-    private static final String PACKAGE_GPHOTOS = "com.google.android.apps.photos";
     private static final String PACKAGE_NETFLIX = "com.netflix.mediaclient";
-
-    private static final Map<String, Object> sPixelXLProps = Map.of(
-        "BRAND", "google",
-        "MANUFACTURER", "Google",
-        "DEVICE", "marlin",
-        "PRODUCT", "marlin",
-        "MODEL", "Pixel XL",
-        "FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys"
-    );
 
     private static final Map<String, Object> sPixel8ProProps = Map.of(
         "BRAND", "google",
@@ -85,26 +75,10 @@ public final class AttestationHooks {
             setPropValue("FINGERPRINT", sStockFp);
         }
 
-        if (packageName.equals(PACKAGE_GPHOTOS)) {
-            if (!SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", true)) {
-                dlog("Photos spoofing disabled by system prop");
-                return;
-            } else {
-                dlog("Spoofing Pixel XL for: " + packageName);
-                sPixelXLProps.forEach(AttestationHooks::setPropValue);
-            }
-        }
-
         if (packageName.equals(PACKAGE_NETFLIX)) {
-            if (!SystemProperties.getBoolean("persist.sys.pixelprops.netflix", false)) {
-                dlog("Netflix spoofing disabled by system prop");
-                return;
-            } else if (!sNetflixModel.isEmpty() && packageName.equals(PACKAGE_NETFLIX)) {
+            if (!sNetflixModel.isEmpty() && packageName.equals(PACKAGE_NETFLIX)) {
                 dlog("Setting model to " + sNetflixModel + " for Netflix");
                 setPropValue("MODEL", sNetflixModel);
-            } else {
-                dlog("Spoofing Pixel 8 Pro for: " + packageName);
-                sPixel8ProProps.forEach(AttestationHooks::setPropValue);
             }
         }
     }
