@@ -84,6 +84,7 @@ public class PixelPropsUtils {
             "com.android.chrome",
             "com.breel.wallpapers20",
             "com.disney.disneyplus",
+            "com.google.android.apps.bard",
             "com.google.android.apps.customization.pixel",
             "com.google.android.apps.emojiwallpaper",
             "com.google.android.apps.privacy.wildlife",
