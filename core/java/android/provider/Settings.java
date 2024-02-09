@@ -7291,6 +7291,11 @@ public final class Settings {
         /**
          * @hide
          */
+        public static final String WIFI_STANDARD_ICON = "wifi_standard_icon";
+
+        /**
+         * @hide
+         */
         public static final String ISLAND_NOTIFICATION = "island_notification";
 
         /**
