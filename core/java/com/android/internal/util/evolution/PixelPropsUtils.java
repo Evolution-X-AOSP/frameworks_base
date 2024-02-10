@@ -65,7 +65,8 @@ public class PixelPropsUtils {
     private static final String SPOOF_PIXEL_PROPS = "persist.sys.pixelprops";
 
     private static final String TAG = PixelPropsUtils.class.getSimpleName();
-    private static final boolean DEBUG = true;
+    private static final String DEVICE = "org.evolution.device";
+    private static final boolean DEBUG = false;
 
     private static final Boolean sEnablePixelProps =
             Resources.getSystem().getBoolean(R.bool.config_enablePixelProps);
@@ -73,7 +74,7 @@ public class PixelPropsUtils {
     private static final Map<String, Object> propsToChangeGeneric;
     private static final Map<String, Object> propsToChangeRecentPixel;
     private static final Map<String, Object> propsToChangePixelTablet;
-    private static final Map<String, Object> propsToChangePixel5;
+    private static final Map<String, Object> propsToChangePixel5a;
     private static final Map<String, Object> propsToChangeMeizu;
     private static final Map<String, ArrayList<String>> propsToKeep;
 
@@ -141,6 +142,21 @@ public class PixelPropsUtils {
             "com.meizu.media.music"
     };
 
+    // Codenames for currently supported Pixels by Google
+    private static final String[] pixelCodenames = {
+            "husky",
+            "shiba",
+            "felix",
+            "tangorpro",
+            "lynx",
+            "cheetah",
+            "panther",
+            "bluejay",
+            "oriole",
+            "raven",
+            "barbet"
+    };
+
     private static final ComponentName GMS_ADD_ACCOUNT_ACTIVITY = ComponentName.unflattenFromString(
             "com.google.android.gms/.auth.uiflows.minutemaid.MinuteMaidActivity");
 
@@ -171,15 +187,15 @@ public class PixelPropsUtils {
         propsToChangePixelTablet.put("MODEL", "Pixel Tablet");
         propsToChangePixelTablet.put("ID", "UQ1A.240205.002");
         propsToChangePixelTablet.put("FINGERPRINT", "google/tangorpro/tangorpro:14/UQ1A.240205.002/11224170:user/release-keys");
-        propsToChangePixel5 = new HashMap<>();
-        propsToChangePixel5.put("BRAND", "google");
-        propsToChangePixel5.put("MANUFACTURER", "Google");
-        propsToChangePixel5.put("DEVICE", "redfin");
-        propsToChangePixel5.put("PRODUCT", "redfin");
-        propsToChangePixel5.put("HARDWARE", "redfin");
-        propsToChangePixel5.put("MODEL", "Pixel 5");
-        propsToChangePixel5.put("ID", "UP1A.231105.001");
-        propsToChangePixel5.put("FINGERPRINT", "google/redfin/redfin:14/UP1A.231105.001/10817346:user/release-keys");
+        propsToChangePixel5a = new HashMap<>();
+        propsToChangePixel5a.put("BRAND", "google");
+        propsToChangePixel5a.put("MANUFACTURER", "Google");
+        propsToChangePixel5a.put("DEVICE", "barbet");
+        propsToChangePixel5a.put("PRODUCT", "barbet");
+        propsToChangePixel5a.put("HARDWARE", "barbet");
+        propsToChangePixel5a.put("MODEL", "Pixel 5a");
+        propsToChangePixel5a.put("ID", "UQ1A.240205.002");
+        propsToChangePixel5a.put("FINGERPRINT", "google/barbet/barbet:14/UQ1A.240205.002/11224170:user/release-keys");
         propsToChangeMeizu = new HashMap<>();
         propsToChangeMeizu.put("BRAND", "meizu");
         propsToChangeMeizu.put("MANUFACTURER", "Meizu");
@@ -343,19 +359,29 @@ public class PixelPropsUtils {
                     dlog("PIF is disabled by system prop");
                     return;
                 } else {
-                    dlog("Spoofing build for GMS to pass CTS/Play Integrity API");
+                    dlog("Spoofing build for GMS to pass Play Integrity");
                     spoofBuildGms(context);
                 }
             }
         } else if (packageName.startsWith("com.google.") || packageName.startsWith(SAMSUNG)
                 || Arrays.asList(packagesToChangeRecentPixel).contains(packageName)) {
 
+            boolean isPixelDevice = Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE));
+            if (isPixelDevice) {
+                if (packageName.equals(PACKAGE_GMS)) {
+                    setPropValue("TIME", System.currentTimeMillis());
+                }
+                dlog("Pixel props is disabled as this is a currently supported Pixel device");
+                return;
+            }
+            if (packageName.equals(PACKAGE_GMS)) {
+                setPropValue("TIME", System.currentTimeMillis());
+            }
             if (!sEnablePixelProps || !SystemProperties.getBoolean(SPOOF_PIXEL_PROPS, true)) {
                 dlog("Pixel props is disabled by config or system prop");
                 return;
-            } else if (packageName.equals(PACKAGE_GMS)) {
-                setPropValue("TIME", System.currentTimeMillis());
-            } else if (Arrays.asList(packagesToChangeRecentPixel).contains(packageName)) {
+            }
+            if (Arrays.asList(packagesToChangeRecentPixel).contains(packageName)) {
                 if (processName.toLowerCase().contains("ui")
                         || processName.toLowerCase().contains("gservice")
                         || processName.toLowerCase().contains("gapps")
@@ -365,10 +391,10 @@ public class PixelPropsUtils {
                     return;
                 }
                 propsToChange.putAll(propsToChangeRecentPixel);
-            } else if (sIsTablet) {
+            } else if (sIsTablet && !isPixelDevice) {
                 propsToChange.putAll(propsToChangePixelTablet);
             } else {
-                propsToChange.putAll(propsToChangePixel5);
+                propsToChange.putAll(propsToChangePixel5a);
             }
         } else if (SystemProperties.getBoolean(SPOOF_MUSIC_APPS, false)
                 && Arrays.asList(packagesToChangeMeizu).contains(packageName)) {

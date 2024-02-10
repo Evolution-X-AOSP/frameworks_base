@@ -90,8 +90,8 @@ public final class AttestationHooks {
                 dlog("Photos spoofing disabled by system prop");
                 return;
             } else {
-                dlog("Spoofing Pixel XL for: " + packageName);
-                sPixelXLProps.forEach(AttestationHooks::setPropValue);
+                dlog("Spoofing Pixel 8 Pro for: " + packageName);
+                sPixel8ProProps.forEach(AttestationHooks::setPropValue);
             }
         }
 
