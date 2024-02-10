@@ -25,6 +25,7 @@ import android.app.TaskStackListener;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Binder;
 import android.os.Build;
@@ -32,7 +33,9 @@ import android.os.Process;
 import android.os.SystemProperties;
 import android.provider.Settings;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.WindowManager;
 
 import com.android.internal.R;
 import com.android.internal.util.evolution.EvolutionUtils;
@@ -66,8 +69,6 @@ public class PixelPropsUtils {
 
     private static final Boolean sEnablePixelProps =
             Resources.getSystem().getBoolean(R.bool.config_enablePixelProps);
-    private static final Boolean sIsTablet =
-            Resources.getSystem().getBoolean(R.bool.config_spoofasTablet);
 
     private static final Map<String, Object> propsToChangeGeneric;
     private static final Map<String, Object> propsToChangeRecentPixel;
@@ -321,6 +322,8 @@ public class PixelPropsUtils {
         final String packageName = context.getPackageName();
         final String processName = Application.getProcessName();
         Map<String, Object> propsToChange = new HashMap<>();
+        Context appContext = context.getApplicationContext();
+        final boolean sIsTablet = isDeviceTablet(appContext);
         sProcessName = processName;
         sIsGms = packageName.equals(PACKAGE_GMS) && processName.equals(PROCESS_GMS_UNSTABLE);
         sIsFinsky = packageName.equals(PACKAGE_FINSKY);
@@ -387,6 +390,23 @@ public class PixelPropsUtils {
             setPropValue("FINGERPRINT", String.valueOf(Build.TIME));
             return;
         }
+    }
+
+    private static boolean isDeviceTablet(Context context) {
+        if (context == null) {
+            return false;
+        }
+        Configuration configuration = context.getResources().getConfiguration();
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        if (windowManager != null) {
+            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+        }
+        return (configuration.screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK)
+                >= Configuration.SCREENLAYOUT_SIZE_LARGE
+                || displayMetrics.densityDpi == DisplayMetrics.DENSITY_XHIGH
+                || displayMetrics.densityDpi == DisplayMetrics.DENSITY_XXHIGH
+                || displayMetrics.densityDpi == DisplayMetrics.DENSITY_XXXHIGH;
     }
 
     private static void setPropValue(String key, Object value) {
