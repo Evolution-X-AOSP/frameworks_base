@@ -7129,12 +7129,6 @@ public final class Settings {
         public static final String RIGHT_LONG_BACK_SWIPE_APP_ACTIVITY_ACTION = "right_long_back_swipe_app_activity_action";
 
         /**
-         * Gestures nav: long back swipe timeout
-         * @hide
-         */
-        public static final String LONG_BACK_SWIPE_TIMEOUT = "long_back_swipe_timeout";
-
-        /**
          * Gestures nav: whether to use extended swipe instead of timeout to trigger custom actions
          * @hide
          */
