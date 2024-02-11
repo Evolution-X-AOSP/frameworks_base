@@ -165,9 +165,6 @@ public class GestureNavigationSettingsObserver extends ContentObserver {
                 Settings.System.getUriFor(Settings.System.LOCK_GESTURE_STATUS),
                 false, this, UserHandle.USER_ALL);
         r.registerContentObserver(
-                Settings.System.getUriFor(Settings.System.LONG_BACK_SWIPE_TIMEOUT),
-                false, this, UserHandle.USER_ALL);
-        r.registerContentObserver(
                 Settings.System.getUriFor(Settings.System.LEFT_LONG_BACK_SWIPE_ACTION),
                 false, this, UserHandle.USER_ALL);
         r.registerContentObserver(
@@ -287,12 +284,6 @@ public class GestureNavigationSettingsObserver extends ContentObserver {
         final float inset = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, backGestureInset,
                 dm);
         return inset;
-    }
-
-    public int getLongSwipeTimeOut() {
-        return Settings.System.getIntForUser(mContext.getContentResolver(),
-            Settings.System.LONG_BACK_SWIPE_TIMEOUT, 2000,
-            UserHandle.USER_CURRENT);
     }
 
     public int getLeftLongSwipeAction() {
