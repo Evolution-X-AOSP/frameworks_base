@@ -381,7 +381,9 @@ class MobileIconInteractorImpl(
                 shouldShowExclamationMark,
             ) { isDefaultDataEnabled, isDefaultConnectionFailed,
                 isInService, shouldShowExclamationMark ->
-                (!isDefaultDataEnabled || isDefaultConnectionFailed || !isInService)
+                val mobileIconIgnoresIWlan = context.resources.getBoolean(
+                    com.android.systemui.R.bool.config_mobileIconIgnoresIWlan)
+                ((!isDefaultDataEnabled && !mobileIconIgnoresIWlan) || isDefaultConnectionFailed || !isInService)
                 && shouldShowExclamationMark
             }
             .stateIn(scope, SharingStarted.WhileSubscribed(), true)

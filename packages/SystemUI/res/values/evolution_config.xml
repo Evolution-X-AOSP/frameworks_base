@@ -117,4 +117,7 @@
 
     <!-- Interval between subsequent shifting of statusbar and navbar contents, in seconds -->
     <integer name="config_statusBarBurnInProtectionShiftInterval">60</integer>
+
+    <!-- Whether the mobile signal icon pipeline should ignore IWlan status -->
+    <bool name="config_mobileIconIgnoresIWlan">false</bool>
 </resources>
