@@ -111,4 +111,7 @@
 
     <!-- Whether long press is required to activate keyguard quick affordance buttons -->
     <bool name="config_keyguardQuickAffordanceRequiresLongPress">true</bool>
+
+    <!-- Whether the mobile signal icon pipeline should ignore IWlan status -->
+    <bool name="config_mobileIconIgnoresIWlan">false</bool>
 </resources>
