@@ -1462,7 +1462,8 @@ public class LockPatternView extends View {
     private void drawLineSegment(Canvas canvas, float startX, float startY, float endX, float endY,
             long lineFadeStart, long elapsedRealtime) {
         float fadeAwayProgress;
-        if (mFadePattern) {
+        final boolean drawWrongPath = mPatternDisplayMode == DisplayMode.Wrong && mShowErrorPath;
+        if (mFadePattern && !drawWrongPath) {
             if (elapsedRealtime - lineFadeStart
                     >= mLineFadeOutAnimationDelayMs + mLineFadeOutAnimationDurationMs) {
                 // Time for this segment animation is out so we don't need to draw it.
@@ -1556,7 +1557,8 @@ public class LockPatternView extends View {
      */
     private void drawCircle(Canvas canvas, float centerX, float centerY, float radius,
             boolean partOfPattern, float alpha, float activationAnimationProgress) {
-        if (mFadePattern && !mInStealthMode) {
+        final boolean drawWrongPath = mPatternDisplayMode == DisplayMode.Wrong && mShowErrorPath;
+        if (mFadePattern && !mInStealthMode && !drawWrongPath) {
             int resultColor = ColorUtils.blendARGB(mDotColor, mDotActivatedColor,
                     /* ratio= */ activationAnimationProgress);
             mPaint.setColor(resultColor);
