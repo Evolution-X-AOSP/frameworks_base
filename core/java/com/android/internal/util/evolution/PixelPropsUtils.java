@@ -49,6 +49,7 @@ import java.util.Random;
 
 public class PixelPropsUtils {
 
+    private static final String PACKAGE_AIAI = "com.google.android.apps.miphone.aiai.AiaiApplication";
     private static final String PACKAGE_FINSKY = "com.android.vending";
     private static final String PACKAGE_GMS = "com.google.android.gms";
     private static final String PROCESS_GMS_UNSTABLE = PACKAGE_GMS + ".unstable";
@@ -106,6 +107,7 @@ public class PixelPropsUtils {
 
     // Packages to Keep with original device
     private static final String[] packagesToKeep = {
+            PACKAGE_AIAI,
             PACKAGE_GPHOTOS,
             "com.google.android.apps.motionsense.bridge",
             "com.google.android.apps.nexuslauncher",
