@@ -1748,15 +1748,17 @@ public final class PowerManagerService extends SystemService
                 tag = tag.substring(0,9);
             }
 
+            String tagNormalized = tag.replaceAll("#\\d*$", "");
+
             boolean blockWakelock = false;
-            if (!mSeenWakeLocks.contains(tag)) {
+            if (!mSeenWakeLocks.contains(tagNormalized)) {
                 if ((flags & PowerManager.WAKE_LOCK_LEVEL_MASK) == PowerManager.PARTIAL_WAKE_LOCK) {
-                    mSeenWakeLocks.add(tag);
+                    mSeenWakeLocks.add(tagNormalized);
                 }
             }
 
             if (mWakeLockBlockingEnabled == 1) {
-                if (mBlockedWakeLocks.contains(tag)) {
+                if (mBlockedWakeLocks.contains(tagNormalized)) {
                     blockWakelock = true;
                 }
             }
