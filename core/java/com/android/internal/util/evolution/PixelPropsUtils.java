@@ -57,6 +57,7 @@ public class PixelPropsUtils {
     private static final String PACKAGE_GMS = "com.google.android.gms";
     private static final String PROCESS_GMS_UNSTABLE = PACKAGE_GMS + ".unstable";
     private static final String PACKAGE_GPHOTOS = "com.google.android.apps.photos";
+    private static final String PACKAGE_SETUP_WIZARD = "com.google.android.setupwizard";
     private static final String PACKAGE_SI = "com.google.android.settings.intelligence";
     private static final String PACKAGE_VELVET = "com.google.android.googlequicksearchbox";
     private static final String SAMSUNG = "com.samsung.";
@@ -74,7 +75,6 @@ public class PixelPropsUtils {
     private static final Map<String, Object> propsToChangeGeneric;
     private static final Map<String, Object> propsToChangeRecentPixel;
     private static final Map<String, Object> propsToChangePixelTablet;
-    private static final Map<String, Object> propsToChangePixel5a;
     private static final Map<String, Object> propsToChangeMeizu;
     private static final Map<String, ArrayList<String>> propsToKeep;
 
@@ -111,6 +111,7 @@ public class PixelPropsUtils {
     private static final String[] packagesToKeep = {
             PACKAGE_AIAI,
             PACKAGE_GPHOTOS,
+            PACKAGE_SETUP_WIZARD,
             "com.google.android.apps.motionsense.bridge",
             "com.google.android.apps.nexuslauncher",
             "com.google.android.apps.pixelmigrate",
@@ -124,7 +125,6 @@ public class PixelPropsUtils {
             "com.google.android.as",
             "com.google.android.dialer",
             "com.google.android.euicc",
-            "com.google.android.setupwizard",
             "com.google.android.youtube",
             "com.google.ar.core",
             "com.google.oslo"
@@ -160,7 +160,7 @@ public class PixelPropsUtils {
     private static final ComponentName GMS_ADD_ACCOUNT_ACTIVITY = ComponentName.unflattenFromString(
             "com.google.android.gms/.auth.uiflows.minutemaid.MinuteMaidActivity");
 
-    private static volatile boolean sIsGms, sIsFinsky;
+    private static volatile boolean sIsGms, sIsFinsky, sIsSetupWizard;
     private static volatile String sProcessName;
 
     static {
@@ -187,15 +187,6 @@ public class PixelPropsUtils {
         propsToChangePixelTablet.put("MODEL", "Pixel Tablet");
         propsToChangePixelTablet.put("ID", "UQ1A.240205.002");
         propsToChangePixelTablet.put("FINGERPRINT", "google/tangorpro/tangorpro:14/UQ1A.240205.002/11224170:user/release-keys");
-        propsToChangePixel5a = new HashMap<>();
-        propsToChangePixel5a.put("BRAND", "google");
-        propsToChangePixel5a.put("MANUFACTURER", "Google");
-        propsToChangePixel5a.put("DEVICE", "barbet");
-        propsToChangePixel5a.put("PRODUCT", "barbet");
-        propsToChangePixel5a.put("HARDWARE", "barbet");
-        propsToChangePixel5a.put("MODEL", "Pixel 5a");
-        propsToChangePixel5a.put("ID", "UQ1A.240205.002");
-        propsToChangePixel5a.put("FINGERPRINT", "google/barbet/barbet:14/UQ1A.240205.002/11224170:user/release-keys");
         propsToChangeMeizu = new HashMap<>();
         propsToChangeMeizu.put("BRAND", "meizu");
         propsToChangeMeizu.put("MANUFACTURER", "Meizu");
@@ -228,36 +219,27 @@ public class PixelPropsUtils {
             || Arrays.asList(customGoogleCameraPackages).contains(packageName);
     }
 
-    private static boolean shouldTryToCertifyDevice() {
-        final String processName = Application.getProcessName();
-        if (!processName.toLowerCase().contains("unstable")
-                && !processName.toLowerCase().contains("pixelmigrate")
-                && !processName.toLowerCase().contains("instrumentation")) {
-            return false;
-        }
-        final boolean was = isGmsAddAccountActivityOnTop();
-        final String reason = "GmsAddAccountActivityOnTop";
-        if (!was) {
-            return true;
-        }
+    private static boolean shouldTryToSpoofDevice() {
+        final boolean[] shouldCertify = {true};
+        boolean was = isGmsAddAccountActivityOnTop();
+        String reason = "GmsAddAccountActivityOnTop";
         dlog("Skip spoofing build for GMS, because " + reason + "!");
         TaskStackListener taskStackListener = new TaskStackListener() {
             @Override
             public void onTaskStackChanged() {
-                final boolean isNow = isGmsAddAccountActivityOnTop();
+                boolean isNow = isGmsAddAccountActivityOnTop();
                 if (isNow ^ was) {
                     dlog(String.format("%s changed: isNow=%b, was=%b, killing myself!", reason, isNow, was));
-                    Process.killProcess(Process.myPid());
+                    shouldCertify[0] = false;
                 }
             }
         };
         try {
             ActivityTaskManager.getService().registerTaskStackListener(taskStackListener);
-            return false;
         } catch (Exception e) {
             Log.e(TAG, "Failed to register task stack listener!", e);
-            return true;
         }
+        return shouldCertify[0];
     }
 
     public static void spoofBuildGms(Context context) {
@@ -343,6 +325,7 @@ public class PixelPropsUtils {
         sProcessName = processName;
         sIsGms = packageName.equals(PACKAGE_GMS) && processName.equals(PROCESS_GMS_UNSTABLE);
         sIsFinsky = packageName.equals(PACKAGE_FINSKY);
+        sIsSetupWizard = packageName.equals(PACKAGE_SETUP_WIZARD);
         propsToChangeGeneric.forEach((k, v) -> setPropValue(k, v));
         if (packageName == null || processName == null || packageName.isEmpty()) {
             return;
@@ -353,49 +336,45 @@ public class PixelPropsUtils {
         if (Arrays.asList(packagesToKeep).contains(packageName)) {
             return;
         }
-        if (sIsGms) {
-            if (shouldTryToCertifyDevice()) {
-                if (!SystemProperties.getBoolean(SPOOF_PIF, true)) {
-                    dlog("PIF is disabled by system prop");
-                    return;
-                } else {
+        if (packageName.equals(PACKAGE_GMS)) {
+            setPropValue("TIME", System.currentTimeMillis());
+            if (sIsGms) {
+                if (shouldTryToSpoofDevice()) {
+                    if (!SystemProperties.getBoolean(SPOOF_PIF, true)) {
+                        dlog("PIF is disabled by system prop");
+                        return;
+                    }
                     dlog("Spoofing build for GMS to pass Play Integrity");
                     spoofBuildGms(context);
+                } else {
+                    Process.killProcess(Process.myPid());
                 }
             }
-        } else if (packageName.startsWith("com.google.") || packageName.startsWith(SAMSUNG)
+        }
+        if ((packageName.startsWith("com.google.") && !sIsGms) || packageName.startsWith(SAMSUNG)
                 || Arrays.asList(packagesToChangeRecentPixel).contains(packageName)) {
 
             boolean isPixelDevice = Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE));
             if (isPixelDevice) {
-                if (packageName.equals(PACKAGE_GMS)) {
-                    setPropValue("TIME", System.currentTimeMillis());
-                }
                 dlog("Pixel props is disabled as this is a currently supported Pixel device");
                 return;
-            }
-            if (packageName.equals(PACKAGE_GMS)) {
-                setPropValue("TIME", System.currentTimeMillis());
             }
             if (!sEnablePixelProps || !SystemProperties.getBoolean(SPOOF_PIXEL_PROPS, true)) {
                 dlog("Pixel props is disabled by config or system prop");
                 return;
             }
-            if (Arrays.asList(packagesToChangeRecentPixel).contains(packageName)) {
-                if (processName.toLowerCase().contains("ui")
-                        || processName.toLowerCase().contains("gservice")
-                        || processName.toLowerCase().contains("gapps")
-                        || processName.toLowerCase().contains("learning")
-                        || processName.toLowerCase().contains("search")
-                        || processName.toLowerCase().contains("persistent")) {
-                    return;
-                }
-                propsToChange.putAll(propsToChangeRecentPixel);
-            } else if (sIsTablet && !isPixelDevice) {
+            if (sIsTablet && !isPixelDevice) {
                 propsToChange.putAll(propsToChangePixelTablet);
-            } else {
-                propsToChange.putAll(propsToChangePixel5a);
             }
+            if (processName.toLowerCase().contains("ui")
+                    && processName.toLowerCase().contains("gservice")
+                    && processName.toLowerCase().contains("gapps")
+                    && processName.toLowerCase().contains("learning")
+                    && processName.toLowerCase().contains("search")
+                    && processName.toLowerCase().contains("persistent")) {
+                return;
+            }
+            propsToChange.putAll(propsToChangeRecentPixel);
         } else if (SystemProperties.getBoolean(SPOOF_MUSIC_APPS, false)
                 && Arrays.asList(packagesToChangeMeizu).contains(packageName)) {
             propsToChange.putAll(propsToChangeMeizu);
@@ -484,7 +463,7 @@ public class PixelPropsUtils {
 
     private static boolean isGmsAddAccountActivityOnTop() {
         try {
-            final ActivityTaskManager.RootTaskInfo focusedTask =
+            ActivityTaskManager.RootTaskInfo focusedTask =
                     ActivityTaskManager.getService().getFocusedRootTaskInfo();
             return focusedTask != null && focusedTask.topActivity != null
                     && focusedTask.topActivity.equals(GMS_ADD_ACCOUNT_ACTIVITY);
@@ -503,12 +482,15 @@ public class PixelPropsUtils {
     }
 
     private static boolean isCallerSafetyNet() {
-        return shouldTryToCertifyDevice() && sIsGms && Arrays.stream(Thread.currentThread().getStackTrace())
+        return sIsGms && Arrays.stream(Thread.currentThread().getStackTrace())
                 .anyMatch(elem -> elem.getClassName().contains("DroidGuard"));
     }
 
     public static void onEngineGetCertificateChain() {
         // Check stack for SafetyNet or Play Integrity
+        if (!shouldTryToSpoofDevice() || sIsSetupWizard) {
+            Process.killProcess(Process.myPid());
+        }
         if (isCallerSafetyNet() || sIsFinsky) {
             dlog("Blocked key attestation sIsGms=" + sIsGms + " sIsFinsky=" + sIsFinsky);
             throw new UnsupportedOperationException();
