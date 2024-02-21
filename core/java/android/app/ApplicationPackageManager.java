@@ -893,16 +893,9 @@ public class ApplicationPackageManager extends PackageManager {
 
     @Override
     public boolean hasSystemFeature(String name, int version) {
-        if (name != null && Arrays.asList(featuresTensor).contains(name)
-                && !Arrays.asList(pTensorCodenames).contains(SystemProperties.get("org.evolution.device"))) {
-            return false;
-        }
         String packageName = ActivityThread.currentPackageName();
-        if ((!Arrays.asList(pTensorCodenames).contains(SystemProperties.get("org.evolution.device"))
-                && SystemProperties.getBoolean("persist.sys.tensor.features", false))
-                && (packageName != null
-                && packageName.toLowerCase().contains("com.google")
-                && !packageName.equals("com.google.android.apps.photos"))) {
+        if (name != null
+                && Arrays.asList(pTensorCodenames).contains(SystemProperties.get("org.evolution.device"))) {
             if (Arrays.asList(featuresTensor).contains(name)) return true;
         }
         if (packageName != null

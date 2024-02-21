@@ -48,6 +48,7 @@ public final class AttestationHooks {
     private static final String PACKAGE_ARCORE = "com.google.ar.core";
     private static final String PACKAGE_GPHOTOS = "com.google.android.apps.photos";
     private static final String PACKAGE_NETFLIX = "com.netflix.mediaclient";
+    private static final String PACKAGE_SNAPCHAT = "com.snapchat.android";
 
     private static final Map<String, Object> sPixelXLProps = Map.of(
         "BRAND", "google",
@@ -56,6 +57,15 @@ public final class AttestationHooks {
         "PRODUCT", "marlin",
         "MODEL", "Pixel XL",
         "FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys"
+    );
+
+    private static final Map<String, Object> sPixel2Props = Map.of(
+        "BRAND", "google",
+        "MANUFACTURER", "Google",
+        "DEVICE", "walleye",
+        "PRODUCT", "walleye",
+        "MODEL", "Pixel 2",
+        "FINGERPRINT", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys"
     );
 
     private static final Map<String, Object> sPixel8ProProps = Map.of(
@@ -87,8 +97,8 @@ public final class AttestationHooks {
 
         if (packageName.equals(PACKAGE_GPHOTOS)) {
             if (!SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", true)) {
-                dlog("Spoofing Pixel 8 Pro for: " + packageName);
-                sPixel8ProProps.forEach(AttestationHooks::setPropValue);
+                dlog("Photos spoofing disabled by system prop");
+                return;
             } else {
                 dlog("Spoofing Pixel XL for: " + packageName);
                 sPixelXLProps.forEach(AttestationHooks::setPropValue);
@@ -105,6 +115,16 @@ public final class AttestationHooks {
             } else {
                 dlog("Spoofing Pixel 8 Pro for: " + packageName);
                 sPixel8ProProps.forEach(AttestationHooks::setPropValue);
+            }
+        }
+
+        if (packageName.equals(PACKAGE_SNAPCHAT)) {
+            if (!SystemProperties.getBoolean("persist.sys.pixelprops.snapchat", false)) {
+                dlog("Snapchat spoofing disabled by system prop");
+                return;
+            } else {
+                dlog("Spoofing Pixel 2 for: " + packageName);
+                sPixel2Props.forEach(AttestationHooks::setPropValue);
             }
         }
     }
