@@ -80,7 +80,9 @@ class PulseLightView @JvmOverloads constructor(
         // Nothing
     }
 
-    fun animateNotification(notificationPackageName: String) {
+    fun startAnimation(notificationPackageName: String) {
+        // Make it visible
+        isVisible = true
         val lightDuration = Settings.Secure.getIntForUser(
             context.contentResolver,
             Settings.Secure.PULSE_AMBIENT_LIGHT_DURATION, 2,
@@ -127,6 +129,12 @@ class PulseLightView @JvmOverloads constructor(
             }
             start()
         }
+    }
+
+    fun stopAnimation() {
+        isVisible = false
+        lightAnimator?.cancel()
+        lightAnimator = null
     }
 
     private fun getLightColor(notificationPackageName: String): Int {
