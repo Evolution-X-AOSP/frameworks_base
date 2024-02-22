@@ -274,9 +274,19 @@ public class DozeTriggers implements DozeMachine.Part {
             mDozeLog.tracePulseDropped("dozeSuppressed");
             return;
         }
-        requestPulse(DozeLog.PULSE_REASON_NOTIFICATION, false /* performedProxCheck */,
+        // Consider proximity check is done already
+        // if edge light on face down enabled
+        boolean performedProxCheck = canShowPulseLight();
+        requestPulse(DozeLog.PULSE_REASON_NOTIFICATION, performedProxCheck /* performedProxCheck */,
                 onPulseSuppressedListener);
         mDozeLog.traceNotificationPulse();
+    }
+
+    private boolean canShowPulseLight() {
+        return mPulseLightOnFaceDown
+                && (Settings.Secure.getIntForUser(
+                mContext.getContentResolver(), Settings.Secure.PULSE_AMBIENT_LIGHT,
+                0, UserHandle.USER_CURRENT) != 0);
     }
 
     private static void runIfNotNull(Runnable runnable) {
@@ -609,17 +619,7 @@ public class DozeTriggers implements DozeMachine.Part {
 
         mDozeHost.setPulsePending(true);
         proximityCheckThenCall((isNear) -> {
-            // Don't skip pulse for notifications when proximity is near
-            // if edge light is enabled for face down only.
-            boolean shouldPulse = false;
-            if (mPulseLightOnFaceDown) {
-                boolean edgeLightEnabled = Settings.Secure.getIntForUser(
-                        mContext.getContentResolver(), Settings.Secure.PULSE_AMBIENT_LIGHT,
-                        0, UserHandle.USER_CURRENT) != 0;
-                boolean pulseForNotification = reason == DozeLog.PULSE_REASON_NOTIFICATION;
-                shouldPulse = edgeLightEnabled && pulseForNotification;
-            }
-            if (isNear != null && isNear && !shouldPulse) {
+            if (isNear != null && isNear) {
                 // in pocket, abort pulse
                 mDozeLog.tracePulseDropped("requestPulse - inPocket");
                 mDozeHost.setPulsePending(false);
