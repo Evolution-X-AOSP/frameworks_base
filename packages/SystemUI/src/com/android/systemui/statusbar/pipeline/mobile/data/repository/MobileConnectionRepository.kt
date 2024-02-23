@@ -19,6 +19,7 @@ package com.android.systemui.statusbar.pipeline.mobile.data.repository
 import android.telephony.SubscriptionInfo
 import android.telephony.TelephonyManager
 import com.android.systemui.log.table.TableLogBuffer
+import com.android.systemui.statusbar.pipeline.ims.data.model.ImsStateModel
 import com.android.systemui.statusbar.pipeline.mobile.data.model.DataConnectionState
 import com.android.systemui.statusbar.pipeline.mobile.data.model.NetworkNameModel
 import com.android.systemui.statusbar.pipeline.mobile.data.model.ResolvedNetworkType
@@ -130,6 +131,11 @@ interface MobileConnectionRepository {
      * True if this type of connection is allowed while airplane mode is on, and false otherwise.
      */
     val isAllowedDuringAirplaneMode: StateFlow<Boolean>
+
+    /**
+     * The current state of the IMS with its capabilities
+     */
+    val imsState: StateFlow<ImsStateModel>
 
     companion object {
         /** The default number of levels to use for [numberOfLevels]. */

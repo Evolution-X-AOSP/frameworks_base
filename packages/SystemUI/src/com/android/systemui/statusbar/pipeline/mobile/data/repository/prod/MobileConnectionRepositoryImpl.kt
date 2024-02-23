@@ -42,6 +42,8 @@ import com.android.systemui.common.coroutine.ConflatedCallbackFlow.conflatedCall
 import com.android.systemui.dagger.qualifiers.Application
 import com.android.systemui.dagger.qualifiers.Background
 import com.android.systemui.log.table.TableLogBuffer
+import com.android.systemui.statusbar.pipeline.ims.data.model.ImsStateModel
+import com.android.systemui.statusbar.pipeline.ims.data.repository.ImsRepository
 import com.android.systemui.statusbar.pipeline.mobile.data.MobileInputLogger
 import com.android.systemui.statusbar.pipeline.mobile.data.model.DataConnectionState.Disconnected
 import com.android.systemui.statusbar.pipeline.mobile.data.model.NetworkNameModel
@@ -98,6 +100,7 @@ class MobileConnectionRepositoryImpl(
     logger: MobileInputLogger,
     override val tableLogBuffer: TableLogBuffer,
     scope: CoroutineScope,
+    imsRepo: ImsRepository,
 ) : MobileConnectionRepository {
     init {
         if (telephonyManager.subscriptionId != subId) {
@@ -371,6 +374,8 @@ class MobileConnectionRepositoryImpl(
     /** Typical mobile connections aren't available during airplane mode. */
     override val isAllowedDuringAirplaneMode = MutableStateFlow(false).asStateFlow()
 
+    override val imsState: StateFlow<ImsStateModel> = imsRepo.imsState
+
     class Factory
     @Inject
     constructor(
@@ -389,6 +394,7 @@ class MobileConnectionRepositoryImpl(
             subscriptionModel: StateFlow<SubscriptionModel?>,
             defaultNetworkName: NetworkNameModel,
             networkNameSeparator: String,
+            imsRepository: ImsRepository,
         ): MobileConnectionRepository {
             return MobileConnectionRepositoryImpl(
                 subId,
@@ -404,6 +410,7 @@ class MobileConnectionRepositoryImpl(
                 logger,
                 mobileLogger,
                 scope,
+                imsRepository,
             )
         }
     }

@@ -114,6 +114,9 @@ interface MobileIconInteractor {
      */
     val isRoaming: StateFlow<Boolean>
 
+    /** See [MobileIconsInteractor.isRoamingForceHidden]. */
+    val isRoamingForceHidden: Flow<Boolean>
+
     /** See [MobileIconsInteractor.isForceHidden]. */
     val isForceHidden: Flow<Boolean>
 
@@ -122,6 +125,18 @@ interface MobileIconInteractor {
 
     /** True when in carrier network change mode */
     val carrierNetworkChangeActive: StateFlow<Boolean>
+
+    /** True when VoLTE/VONR available */
+    val isMobileHd: StateFlow<Boolean>
+
+    /** See [MobileIconsInteractor.isMobileHdForceHidden]. */
+    val isMobileHdForceHidden: Flow<Boolean>
+
+    /** True when VoWifi available */
+    val isVoWifi: StateFlow<Boolean>
+
+    /** See [MobileIconsInteractor.isVoWifiForceHidden]. */
+    val isVoWifiForceHidden: Flow<Boolean>
 
     val shouldShowFourgIcon: StateFlow<Boolean>
 }
@@ -140,6 +155,9 @@ class MobileIconInteractorImpl(
     defaultMobileIconGroup: StateFlow<MobileIconGroup>,
     isDefaultConnectionFailed: StateFlow<Boolean>,
     override val isForceHidden: Flow<Boolean>,
+    override val isRoamingForceHidden: Flow<Boolean>,
+    override val isMobileHdForceHidden: Flow<Boolean>,
+    override val isVoWifiForceHidden: Flow<Boolean>,
     connectionRepository: MobileConnectionRepository,
     private val context: Context,
     val carrierIdOverrides: MobileIconCarrierIdOverrides = MobileIconCarrierIdOverridesImpl()
@@ -192,30 +210,6 @@ class MobileIconInteractorImpl(
                         }
                     }
                 Dependency.get(TunerService::class.java).addTunable(callback, SHOW_FOURG_ICON)
-
-                awaitClose { Dependency.get(TunerService::class.java).removeTunable(callback) }
-            }
-            .stateIn(
-                scope,
-                started = SharingStarted.WhileSubscribed(),
-                true
-            )
-
-    private final val ROAMING_INDICATOR_ICON: String =
-            "system:" + Settings.System.ROAMING_INDICATOR_ICON;
-
-    private val shouldShowRoamingIcon: StateFlow<Boolean> =
-        conflatedCallbackFlow {
-                val callback =
-                    object : TunerService.Tunable {
-                        override fun onTuningChanged(key: String, newValue: String?) {
-                            when (key) {
-                                ROAMING_INDICATOR_ICON -> 
-                                    trySend(TunerService.parseIntegerSwitch(newValue, true))
-                            }
-                        }
-                    }
-                Dependency.get(TunerService::class.java).addTunable(callback, ROAMING_INDICATOR_ICON)
 
                 awaitClose { Dependency.get(TunerService::class.java).removeTunable(callback) }
             }
@@ -323,19 +317,13 @@ class MobileIconInteractorImpl(
                 connectionRepository.isGsm,
                 connectionRepository.isRoaming,
                 connectionRepository.cdmaRoaming,
-                shouldShowRoamingIcon,
-            ) { carrierNetworkChangeActive, isGsm, isRoaming, cdmaRoaming,
-                shouldShowRoamingIcon ->
-                if (shouldShowRoamingIcon) {
-                    if (carrierNetworkChangeActive) {
-                        false
-                    } else if (isGsm) {
-                        isRoaming
-                    } else {
-                        cdmaRoaming
-                    }
-                } else {
+            ) { carrierNetworkChangeActive, isGsm, isRoaming, cdmaRoaming ->
+                if (carrierNetworkChangeActive) {
                     false
+                } else if (isGsm) {
+                    isRoaming
+                } else {
+                    cdmaRoaming
                 }
             }
             .stateIn(scope, SharingStarted.WhileSubscribed(), false)
@@ -397,6 +385,15 @@ class MobileIconInteractorImpl(
             }
             .stateIn(scope, SharingStarted.WhileSubscribed(), 0)
 
+    private val showRoaming: StateFlow<Boolean> =
+        combine(
+                isRoaming,
+                isRoamingForceHidden
+        ) { roaming, roamingForceHidden ->
+            roaming && !roamingForceHidden
+        }
+        .stateIn(scope, SharingStarted.WhileSubscribed(), false)
+
     override val signalLevelIcon: StateFlow<SignalIconModel> = run {
         val initial =
             SignalIconModel(
@@ -404,18 +401,21 @@ class MobileIconInteractorImpl(
                 numberOfLevels = numberOfLevels.value,
                 showExclamationMark = showExclamationMark.value,
                 carrierNetworkChange = carrierNetworkChangeActive.value,
+                showRoaming = showRoaming.value
             )
         combine(
                 shownLevel,
                 numberOfLevels,
                 showExclamationMark,
                 carrierNetworkChangeActive,
-            ) { shownLevel, numberOfLevels, showExclamationMark, carrierNetworkChange ->
+                showRoaming
+            ) { shownLevel, numberOfLevels, showExclamationMark, carrierNetworkChange, showRoaming ->
                 SignalIconModel(
                     shownLevel,
                     numberOfLevels,
                     showExclamationMark,
                     carrierNetworkChange,
+                    showRoaming
                 )
             }
             .distinctUntilChanged()
@@ -426,4 +426,14 @@ class MobileIconInteractorImpl(
             )
             .stateIn(scope, SharingStarted.WhileSubscribed(), initial)
     }
+
+    override val isMobileHd: StateFlow<Boolean> =
+        connectionRepository.imsState
+            .map { it.isHdVoiceCapable() }
+            .stateIn(scope, SharingStarted.WhileSubscribed(), false)
+
+    override val isVoWifi: StateFlow<Boolean> =
+        connectionRepository.imsState
+            .map { it.isVoWifiAvailable() }
+            .stateIn(scope, SharingStarted.WhileSubscribed(), false)
 }
