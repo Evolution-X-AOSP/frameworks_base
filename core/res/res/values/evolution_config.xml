@@ -320,6 +320,10 @@
          causes a poor experience. -->
     <bool name="config_fingerprintWakeAndUnlock">true</bool>
 
+    <!-- Whether device implements proximity sensor based checks to prevent
+         accidental unlocks when the screen is off. -->
+    <bool name="config_proximityCheckOnFpsUnlock">false</bool>
+
     <!-- Any package that has one of the package names defined below will be prevented
        from using specific sensors in order to stop battery drain -->
     <string-array name="config_blockPackagesSensorDrain">
