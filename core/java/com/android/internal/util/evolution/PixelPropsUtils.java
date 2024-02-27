@@ -99,6 +99,7 @@ public class PixelPropsUtils {
             "com.microsoft.android.smsorganizer",
             "com.nhs.online.nhsonline",
             "com.nothing.smartcenter",
+            "com.realme.link",
             "in.startv.hotstar",
             "jp.id_credit_sp2.android"
     };
