@@ -238,7 +238,6 @@ public class PixelPropsUtils {
     private static boolean shouldTryToCertifyDevice() {
         final String processName = Application.getProcessName();
         if (!processName.toLowerCase().contains("unstable")
-                && !processName.toLowerCase().contains("chimera")
                 && !processName.toLowerCase().contains("pixelmigrate")
                 && !processName.toLowerCase().contains("instrumentation")) {
             return false;
@@ -386,7 +385,8 @@ public class PixelPropsUtils {
                 if (packageName.toLowerCase().contains("com.google.android.gms")) {
                     if (processName.toLowerCase().contains("update")) {
                         return;
-                    } else if (processName.toLowerCase().contains("gservice")
+                    } else if (processName.toLowerCase().contains("chimera")
+                            || processName.toLowerCase().contains("gservice")
                             || processName.toLowerCase().contains("gapps")) {
                         propsToChange.putAll(propsToChangePixel5a);
                     }
