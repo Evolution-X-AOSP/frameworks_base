@@ -240,7 +240,9 @@ public class NavigationBarInflaterView extends FrameLayout implements TunerServi
             Boolean mIsHintEnabledOld = mIsHintEnabledRef.get();
             mIsHintEnabledRef.compareAndSet(mIsHintEnabledOld, TunerService.parseIntegerSwitch(newValue, true));
             updateHint();
-            onLikelyDefaultLayoutChange();
+            mContext.getMainExecutor().execute(() -> {
+                onLikelyDefaultLayoutChange();
+            });
         } else if (NAV_BAR_COMPACT.equals(key)) {
             boolean compactLayout = TunerService.parseIntegerSwitch(newValue, false);
             if (compactLayout != mCompactLayout) {
