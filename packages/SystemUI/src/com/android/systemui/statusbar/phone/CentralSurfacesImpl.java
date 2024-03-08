@@ -3799,7 +3799,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
                 break;
             case PULSE_ON_NEW_TRACKS:
                 boolean showPulseOnNewTracks =
-                        TunerService.parseIntegerSwitch(newValue, true);
+                        TunerService.parseIntegerSwitch(newValue, false);
                 KeyguardSliceProvider sliceProvider = KeyguardSliceProvider.getAttachedInstance();
                 if (sliceProvider != null)
                     sliceProvider.setPulseOnNewTracks(showPulseOnNewTracks);
