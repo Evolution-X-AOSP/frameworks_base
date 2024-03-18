@@ -357,7 +357,7 @@ open class LandscapeBatteryDrawableBuddy(private val context: Context, frameColo
         return batteryLevel
     }
 
-    override fun onBoundsChange(bounds: Rect?) {
+    override fun onBoundsChange(bounds: Rect) {
         super.onBoundsChange(bounds)
         updateSize()
     }
