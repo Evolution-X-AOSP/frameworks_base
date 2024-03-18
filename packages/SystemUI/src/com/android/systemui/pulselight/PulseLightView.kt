@@ -31,7 +31,7 @@ import androidx.core.view.isVisible
 import androidx.palette.graphics.Palette
 
 import com.android.settingslib.Utils
-import com.android.systemui.R
+import com.android.systemui.res.R
 import com.android.systemui.people.PeopleSpaceUtils
 
 import com.android.internal.custom.hardware.LineageHardwareManager

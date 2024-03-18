@@ -1,6 +1,6 @@
 package com.android.systemui.afterlife;
 
-import com.android.systemui.R;
+import com.android.systemui.res.R;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

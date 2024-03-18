@@ -58,7 +58,7 @@ import android.view.ViewGroup
 import android.view.ViewTreeObserver
 import androidx.transition.AutoTransition
 import androidx.transition.TransitionManager
-import com.android.systemui.R
+import com.android.systemui.res.R
 import com.android.systemui.statusbar.phone.HeadsUpManagerPhone
 import com.android.systemui.statusbar.notification.stack.NotificationStackScrollLayout
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton

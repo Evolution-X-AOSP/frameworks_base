@@ -32,7 +32,7 @@ import android.os.Handler;
 import android.os.Looper;
 import androidx.core.app.NotificationCompat;
 
-import com.android.systemui.R;
+import com.android.systemui.res.R;
 
 public class NotificationUtils {
 

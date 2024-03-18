@@ -24,7 +24,7 @@ import android.os.Handler
 import android.os.UserHandle
 import android.provider.Settings
 
-import com.android.systemui.R
+import com.android.systemui.res.R
 import com.android.systemui.dagger.SysUISingleton
 import com.android.systemui.dagger.qualifiers.Main
 import com.android.systemui.statusbar.notification.collection.NotificationEntry

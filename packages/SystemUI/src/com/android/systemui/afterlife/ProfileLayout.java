@@ -42,7 +42,7 @@ import java.util.List;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 
-import com.android.systemui.R;
+import com.android.systemui.res.R;
 import java.util.List;
 
 import com.android.internal.util.UserIcons;
