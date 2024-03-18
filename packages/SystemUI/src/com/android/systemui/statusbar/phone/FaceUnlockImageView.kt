@@ -25,7 +25,7 @@ import android.view.animation.LinearInterpolator
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 
-import com.android.systemui.R
+import com.android.systemui.res.R
 
 class FaceUnlockImageView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
