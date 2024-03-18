@@ -38,7 +38,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import com.android.systemui.R;
+import com.android.systemui.res.R;
 
 public class AppPicker extends ListActivity {
 

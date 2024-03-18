@@ -51,7 +51,7 @@ import android.view.WindowManager.LayoutParams;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.systemui.R;
+import com.android.systemui.res.R;
 import com.android.systemui.tristate.TriStateUiController;
 import com.android.systemui.tristate.TriStateUiController.UserActivityListener;
 import com.android.systemui.plugins.VolumeDialogController;

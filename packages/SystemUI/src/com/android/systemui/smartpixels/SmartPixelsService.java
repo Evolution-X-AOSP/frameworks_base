@@ -63,7 +63,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-import com.android.systemui.R;
+import com.android.systemui.res.R;
 
 public class SmartPixelsService extends Service {
     public static final String LOG = "SmartPixelsService";

@@ -22,7 +22,7 @@ import android.util.Log
 
 import com.android.internal.policy.SystemBarUtils
 
-import com.android.systemui.R
+import com.android.systemui.res.R
 import com.android.systemui.dagger.SysUISingleton
 import com.android.systemui.doze.util.zigzag
 import com.android.systemui.navigationbar.NavigationBarView

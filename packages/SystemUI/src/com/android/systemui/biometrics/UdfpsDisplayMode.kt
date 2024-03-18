@@ -19,7 +19,7 @@ package com.android.systemui.biometrics
 import android.content.Context
 import android.os.RemoteException
 import android.os.Trace
-import com.android.systemui.R
+import com.android.systemui.res.R
 import com.android.systemui.util.concurrency.Execution
 
 private const val TAG = "UdfpsDisplayMode"
