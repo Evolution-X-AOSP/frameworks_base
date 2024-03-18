@@ -367,7 +367,7 @@ open class RLandscapeBatteryDrawableStyleB(private val context: Context, frameCo
         return batteryLevel
     }
 
-    override fun onBoundsChange(bounds: Rect?) {
+    override fun onBoundsChange(bounds: Rect) {
         super.onBoundsChange(bounds)
         updateSize()
     }
