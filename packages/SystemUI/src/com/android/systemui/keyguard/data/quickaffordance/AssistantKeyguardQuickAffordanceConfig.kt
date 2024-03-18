@@ -20,7 +20,7 @@ package com.android.systemui.keyguard.data.quickaffordance
 import android.app.StatusBarManager
 import android.content.Context
 import android.content.Intent
-import com.android.systemui.R
+import com.android.systemui.res.R
 import com.android.systemui.animation.Expandable
 import com.android.systemui.common.shared.model.ContentDescription
 import com.android.systemui.common.shared.model.Icon

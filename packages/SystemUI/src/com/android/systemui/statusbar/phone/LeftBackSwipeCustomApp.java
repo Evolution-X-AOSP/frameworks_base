@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.android.systemui.statusbar.phone.AppPicker;
-import com.android.systemui.R;
+import com.android.systemui.res.R;
 
 public class LeftBackSwipeCustomApp extends AppPicker {
 
