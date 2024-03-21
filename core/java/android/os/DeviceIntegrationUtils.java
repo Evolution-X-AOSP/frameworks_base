@@ -16,6 +16,8 @@
 
 package android.os;
 
+import android.os.SystemProperties;
+
 import android.compat.annotation.UnsupportedAppUsage;
 
 /**
@@ -24,7 +26,8 @@ import android.compat.annotation.UnsupportedAppUsage;
  * {@hide}
  */
 public class DeviceIntegrationUtils {
-    public static final boolean DISABLE_DEVICE_INTEGRATION = false;
+    public static final boolean DISABLE_DEVICE_INTEGRATION =
+            SystemProperties.getBoolean("persist.sys.device_integration.disable", true);
 
     @UnsupportedAppUsage
     private DeviceIntegrationUtils() {
