@@ -758,8 +758,8 @@ public class BackgroundActivityStartController {
         final int appSwitchState = mService.getBalAppSwitchesState();
 
         if (!DeviceIntegrationUtils.DISABLE_DEVICE_INTEGRATION
-            && mService.getRemoteTaskManager().isFromBackgroundWhiteList(realCallingUid)) {
-            return BAL_ALLOW_DEFAULT;
+            && mService.getRemoteTaskManager().isFromBackgroundWhiteList(state.mRealCallingUid)) {
+            return new BalVerdict(BAL_ALLOW_DEFAULT, false, "Default");
         }
         // don't abort if the callingUid has a visible window or is a persistent system process
         final int callingUidProcState = mService.mActiveUids.getUidState(callingUid);
