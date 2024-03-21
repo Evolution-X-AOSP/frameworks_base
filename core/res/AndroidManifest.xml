@@ -943,7 +943,8 @@
     <permission android:name="android.permission.ACCESS_MESSAGES_ON_ICC"
         android:protectionLevel="signature" />
 
-    <!-- Allows accessing Device Integration functions. -->
+    <!-- Allows accessing Device Integration functions. 
+         @hide -->
     <permission android:name="deviceintegration.permission.MANAGE_CROSS_DEVICE"
         android:protectionLevel="signature|privileged"
         />

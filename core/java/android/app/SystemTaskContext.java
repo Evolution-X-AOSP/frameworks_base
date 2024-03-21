@@ -24,6 +24,7 @@ import android.annotation.Nullable;
 /**
  * Helper class for building a remote task context that can be used with
  * {@link com.app.IRemoteTaskHandler#verifyRemoteTask(android.app.SystemTaskContext)
+ * @hide
  */
 public final class SystemTaskContext implements Parcelable {
 

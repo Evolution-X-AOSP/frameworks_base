@@ -43,6 +43,7 @@ import static android.content.pm.PackageManager.PERMISSION_GRANTED;
  * through this class:
  * <p>
  * CrossDeviceManager manager = context.getSystemService("cross_device_service");
+ * @hide
  */
 @SystemService(Context.CROSS_DEVICE_SERVICE)
 public class CrossDeviceManager {

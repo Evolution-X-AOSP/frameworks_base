@@ -25,6 +25,7 @@ import android.annotation.Nullable;
  * Helper class for building a remote task info that can be used as parameter of
  * {@link com.app.ICrossDeviceService#activateRemoteTask(android.app.RemoteTaskInfo)
  * to declare the remote task detail information that has been activated.
+ * @hide
  */
 public final class RemoteTaskInfo implements Parcelable {
     private  String uuid;
