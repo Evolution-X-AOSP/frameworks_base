@@ -141,7 +141,7 @@ class TaskLaunchParamsModifier implements LaunchParamsModifier {
         if (!DeviceIntegrationUtils.DISABLE_DEVICE_INTEGRATION) {
             suggestedDisplayArea
                     = mSupervisor.mService.getRemoteTaskManager().queryPreferredDisplayArea(
-                    task, suggestedDisplayArea, activity.intent, source, activity, options);
+                    task, suggestedDisplayArea, activity == null ? null : activity.intent, source, activity, options);
         }
 
         outParams.mPreferredTaskDisplayArea = suggestedDisplayArea;
