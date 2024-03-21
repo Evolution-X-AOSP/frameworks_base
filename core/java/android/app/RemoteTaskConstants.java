@@ -18,6 +18,9 @@ package android.app;
 
 import android.annotation.SuppressLint;
 
+/**
+ * @hide
+ */
 @SuppressLint("StaticUtils")
 public final class RemoteTaskConstants {
     /**

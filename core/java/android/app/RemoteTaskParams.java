@@ -24,6 +24,7 @@ import android.annotation.Nullable;
 /**
  * Helper class for building a remote task options that can be used as return value
  * {@link com.app.IRemoteTaskHandler#verifyRemoteTask(android.app.SystemTaskContext)
+ * @hide
  */
 public final class RemoteTaskParams implements Parcelable {
 
