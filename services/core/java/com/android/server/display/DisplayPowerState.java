@@ -105,13 +105,22 @@ final class DisplayPowerState {
     }
 
     public void setScreenStateAnimator(int mode) {
-        if (mColorFade != null) {
-            mColorFade.dismiss();
-        }
+        cleanUpColorFade();
         if (mode == DisplayPowerController.SCREEN_OFF_FADE) {
             mColorFade = new ColorFade(Display.DEFAULT_DISPLAY);
         } else {
             mColorFade = new ElectronBeam(Display.DEFAULT_DISPLAY);
+        }
+    }
+    
+    public void cleanUpColorFade() {
+        if (mColorFade != null) {
+            // only Color Fade screen animator has destroy interface
+            if (mColorFade instanceof ColorFade) {
+                ((ColorFade) mColorFade).destroy();
+            } else {
+                mColorFade.dismiss();
+            }
         }
     }
 
@@ -257,7 +266,7 @@ final class DisplayPowerState {
      */
     public void dismissColorFade() {
         Trace.traceCounter(Trace.TRACE_TAG_POWER, COUNTER_COLOR_FADE, 100);
-        if (mColorFade != null) mColorFade.dismiss();
+        cleanUpColorFade();
         mColorFadePrepared = false;
         mColorFadeReady = true;
     }
@@ -332,9 +341,7 @@ final class DisplayPowerState {
     public void stop() {
         mStopped = true;
         mPhotonicModulator.interrupt();
-        if (mColorFade != null) {
-            mColorFade.destroy();
-        }
+        cleanUpColorFade();
         mCleanListener = null;
         mHandler.removeCallbacksAndMessages(null);
     }
