@@ -63,14 +63,6 @@
     <string name="battery_saver_on_notification_summary">Da programmazione. Premi per rivedere le impostazioni.</string>
     <!-- Long-press back kill application -->
     <string name="app_killed_message">Applicazione terminata</string>
-    <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Premi e tieni premuto il pulsante di accensione per sbloccare</string>
-    <string name="pocket_view_title">Modalità tasca attiva</string>
-    <string name="pocket_view_title_cancel">Per risvegliare il telefono:</string>
-    <string name="pocket_view_top_tag_cancel">Non coprire l\'area colorata in blu del telefono e rimuovi sporco o polvere.</string>
-    <string name="pocket_view_top_tag_cancel2">Tieni premuto il pulsante di accensione per forzare l\'uscita dalla modalità tasca.</string>
-    <string name="pocket_view_top_tag_number1">1.\u0020</string>
-    <string name="pocket_view_top_tag_number2">2.\u0020</string>
     <!-- Settings Restart -->
     <string name="settings_restart_title">Riavvio delle impostazioni richiesto</string>
     <string name="settings_restart_message">Per rendere effettive tutte le modifiche, è necessario un riavvio delle impostazioni. Riavviare le impostazioni ora?</string>
@@ -80,6 +72,4 @@
     <!-- Launcher Restart -->
     <string name="launcher_restart_title">Riavvio del launcher richiesto</string>
     <string name="launcher_restart_message">Per rendere effettive tutte le modifiche, è necessario un riavvio del launcher. Riavviare il launcher ora?</string>
-    <!-- App lock -->
-    <string name="unlock_application">Sblocca <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
 </resources>
