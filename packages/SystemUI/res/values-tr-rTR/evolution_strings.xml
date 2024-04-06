@@ -7,10 +7,15 @@
     <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
     <string name="clock">Saat</string>
     <!-- Statusbar Icons -->
-    <string name="status_bar_call_strength">Sinyal kuveti</string>
     <string name="status_bar_data_saver">Veri tasarrufu</string>
     <string name="status_bar_nfc">NFC</string>
     <string name="status_bar_vpn">VPN</string>
+    <!-- Name of the roaming status bar icon. -->
+    <string name="status_bar_roaming">Dolaşım göstergesi</string>
+    <!-- Name of the HD calling status bar icon. -->
+    <string name="status_bar_hd_calling">HD arama (VoLTE/VoNR)</string>
+    <!-- Name of the VoWiFi status bar icon. -->
+    <string name="status_bar_vowifi">Wi-Fi arama (VoWiFi)</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Ses</string>
     <string name="quick_settings_sound_ring">Zil sesi</string>
@@ -42,10 +47,6 @@
     <!-- SoundSearch Tile -->
     <string name="quick_settings_sound_search">Ses araması</string>
     <string name="quick_settings_sound_search_not_found">Sesli aramanın düzgün çalışması için lütfen Google uygulamasını yükleyin</string>
-    <!-- Bluetooth dialog -->
-    <string name="turn_on_bluetooth">Bluetooth\'u kullan</string>
-    <string name="bluetooth_is_off">Bluetooth kapalı</string>
-    <string name="tap_a_device_to_connect">Bir cihazı bağlamak veya bağlantısını kesmek için dokunun</string>
     <!-- QuickSettings: InternetDialog: Summary for how many devices are connected to the hotspot [CHAR LIMIT=NONE] -->
     <plurals name="quick_settings_internet_hotspot_summary_num_devices">
         <item quantity="one">%d cihaz bağlandı</item>
@@ -135,13 +136,16 @@
     <string name="quick_settings_compass_SW">GB</string>
     <string name="quick_settings_compass_W">B</string>
     <string name="quick_settings_compass_NW">KB</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">Mobil veri kartını değiştir</string>
+    <string name="qs_data_switch_toast_0">Şuan takılı SIM kart yok</string>
+    <string name="qs_data_switch_toast_1">Şuan sadece bir SIM kart takılı</string>
+    <string name="qs_data_switch_text_1">SIM 1</string>
+    <string name="qs_data_switch_text_2">SIM 2</string>
+    <string name="qs_data_switch_changed_1">Veri kartı SIM 1\'e değiştirildi.</string>
+    <string name="qs_data_switch_changed_2">Veri kartı SIM 2\'e değiştirildi.</string>
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">Ses paneli</string>
-    <!-- Refresh Rate Tile -->
-    <string name="refresh_rate_tile_label">Yenileme hızı</string>
-    <string name="auto_mode_label">Otomatik</string>
-    <!-- Screenshot Tile -->
-    <string name="screenshot_long_press">Kısmi ekran görüntüsü için basılı tutun</string>
     <!-- Language toggle tile -->
     <string name="quick_settings_locale_label">Dil</string>
     <string name="quick_settings_locale_more_locales_toast">Geçiş işlevselliğinin etkin olması için lütfen birden fazla dil ekleyin</string>
@@ -163,18 +167,6 @@
     <string name="quick_settings_fpsinfo_label">FPS bilgisi</string>
     <!-- FPS view text placeholder -->
     <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
-    <!-- Data usage info in QS footer -->
-    <string name="usage_data">kullanıldı</string>
-    <string name="usage_data_default_suffix">Veri</string>
-    <string name="usage_wifi_default_suffix">Kablosuz ağ</string>
-    <!-- DataSwitch Tile -->
-    <string name="qs_data_switch_label">Mobil veri kartını değiştir</string>
-    <string name="qs_data_switch_toast_0">Şuan takılı SIM kart yok</string>
-    <string name="qs_data_switch_toast_1">Şuan sadece bir SIM kart takılı</string>
-    <string name="qs_data_switch_text_1">SIM 1</string>
-    <string name="qs_data_switch_text_2">SIM 2</string>
-    <string name="qs_data_switch_changed_1">Veri kartı SIM 1\'e değiştirildi.</string>
-    <string name="qs_data_switch_changed_2">Veri kartı SIM 2\'e değiştirildi.</string>
     <!-- Sleep Mode -->
     <string name="quick_settings_sleep_mode_label">Uyku modu</string>
     <!-- DC Dimming -->
@@ -192,14 +184,6 @@
     <string name="quick_settings_preferred_network_lte">4g / LTE</string>
     <string name="quick_settings_preferred_network_nr">5g / NR</string>
     <string name="quick_settings_preferred_network_unsupported">Desteklenmiyor</string>
-    <!-- Advance location quick setting tile -->
-    <string name="accessibility_quick_settings_location_off">Konum raporlama: kapalı.</string>
-    <string name="quick_settings_location_secondary_battery_saving">Pil Tasarrufu</string>
-    <string name="accessibility_quick_settings_location_battery_saving">Konum raporlama: pil tasarrufu modu.</string>
-    <string name="quick_settings_location_secondary_gps_only">Sadece sensörler</string>
-    <string name="accessibility_quick_settings_location_gps_only">Konum raporlama: sadece sensörler modu.</string>
-    <string name="quick_settings_location_secondary_high_accuracy">Yüksek Doğruluk</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Konum raporlama: yüksek doğruluk modu.</string>
     <!-- VPN QS tile -->
     <string name="quick_settings_vpn_label">VPN</string>
     <string name="quick_settings_vpn_connect_dialog_title">\u2026\'a bağlan</string>
@@ -207,4 +191,22 @@
     <string name="vpn_credentials_username">Kullanıcı adı</string>
     <string name="vpn_credentials_password">Şifre</string>
     <string name="vpn_credentials_dialog_connect">Bağlan</string>
+    <!-- Text while recognizing face -->
+    <string name="face_unlock_recognizing">Yüz algılanıyor...</string>
+    <!-- AI Assistant affordance [CHAR LIMIT=32] -->
+    <string name="accessibility_assistant_button">Ai Yardımcı</string>
+    <!-- App kill -->
+    <string name="task_helper_app_killed">%1$s zorla durduruldu</string>
+    <string name="empty_app_killed">Uygulama</string>
+    <!-- App picker -->
+    <string name="app_picker_dialog_title">Bir uygulama seç</string>
+    <string name="active_edge_app_select_title">Uygulama seç</string>
+    <string name="active_edge_activity_select_title">Etkinlik seç</string>
+    <!-- Data usage info in QS footer -->
+    <string name="usage_data">kullanıldı</string>
+    <string name="usage_data_default_suffix">Veri</string>
+    <string name="usage_wifi_default_suffix">Kablosuz ağ</string>
+    <!-- Island notification -->
+    <string name="now_playing_on">Şu anda %1$s üzerinde oynatılıyor</string>
+    <string name="by_artist">%1$s tarafından %2$s</string>
 </resources>
