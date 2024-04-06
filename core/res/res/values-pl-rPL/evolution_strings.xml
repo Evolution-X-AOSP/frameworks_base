@@ -63,14 +63,6 @@
     <string name="battery_saver_on_notification_summary">Według harmonogramu. Naciśnij, aby przejrzeć ustawienia.</string>
     <!-- Long-press back kill application -->
     <string name="app_killed_message">Aplikacja zabita</string>
-    <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Naciśnij i przytrzymaj przycisk zasilania, aby odblokować</string>
-    <string name="pocket_view_title">Tryb kieszonkowy jest włączony</string>
-    <string name="pocket_view_title_cancel">Aby aktywować swój telefon:</string>
-    <string name="pocket_view_top_tag_cancel">Nie zakrywaj oraz usuń wszelkie zabrudzenia lub kurz z niebieskiego obszaru swojego urządzenia.</string>
-    <string name="pocket_view_top_tag_cancel2">Przytrzymaj przycisk zasilania, aby wymusić wyjście z trybu kieszonkowego.</string>
-    <string name="pocket_view_top_tag_number1">1.\u0020</string>
-    <string name="pocket_view_top_tag_number2">2.\u0020</string>
     <!-- Settings Restart -->
     <string name="settings_restart_title">Wymagany restart aplikacji Ustawień</string>
     <string name="settings_restart_message">Aby zastosować zmiany, wymagany jest restart aplikacji Ustawień. Zrestartować aplikacje Ustawień teraz?</string>
@@ -80,6 +72,4 @@
     <!-- Launcher Restart -->
     <string name="launcher_restart_title">Wymagany restart Launchera</string>
     <string name="launcher_restart_message">Aby zastosować zmiany, wymagany jest restart Launchera. Zrestartować Launcher teraz?</string>
-    <!-- App lock -->
-    <string name="unlock_application">Odblokuj <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
 </resources>
