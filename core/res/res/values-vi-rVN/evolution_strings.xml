@@ -63,14 +63,6 @@
     <string name="battery_saver_on_notification_summary">Theo lịch trình. Nhấn để xem lại cài đặt.</string>
     <!-- Long-press back kill application -->
     <string name="app_killed_message">Đã đóng ứng dụng</string>
-    <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Nhấn giữ nút nguồn để mở khoá</string>
-    <string name="pocket_view_title">Chế độ bỏ túi đang bật</string>
-    <string name="pocket_view_title_cancel">Để sử dụng điện thoại của bạn:</string>
-    <string name="pocket_view_top_tag_cancel">Hãy đảm bảo không có vật cản và làm sạch bụi bẩn trên vùng màu xanh của điện thoại.</string>
-    <string name="pocket_view_top_tag_cancel2">Nhấn giữ nút nguồn để buộc thoát khỏi chế độ bỏ túi.</string>
-    <string name="pocket_view_top_tag_number1">1.\u0020</string>
-    <string name="pocket_view_top_tag_number2">2.\u0020</string>
     <!-- Settings Restart -->
     <string name="settings_restart_title">Yêu cầu khởi động lại ứng dụng Cài đặt</string>
     <string name="settings_restart_message">Để tất cả các thay đổi có hiệu lực, cần phải khởi động lại ứng dụng Cài đặt. Khởi động lại ứng dụng Cài đặt ngay bây giờ?</string>
@@ -80,6 +72,4 @@
     <!-- Launcher Restart -->
     <string name="launcher_restart_title">Yêu cầu khởi động lại trình khởi chạy</string>
     <string name="launcher_restart_message">Để tất cả các thay đổi có hiệu lực, cần phải khởi động lại Trình khởi chạy. Khởi động lại Trình khởi chạy ngay bây giờ?</string>
-    <!-- App lock -->
-    <string name="unlock_application">Mở khóa <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
 </resources>

@@ -63,14 +63,6 @@
     <string name="battery_saver_on_notification_summary">Berdasarkan jadwal. Tekan untuk meninjau setelan.</string>
     <!-- Long-press back kill application -->
     <string name="app_killed_message">Aplikasi dimatikan</string>
-    <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Tekan dan tahan tombol daya untuk membuka kunci</string>
-    <string name="pocket_view_title">Mode saku aktif</string>
-    <string name="pocket_view_title_cancel">Untuk mengaktifkan ponsel Anda:</string>
-    <string name="pocket_view_top_tag_cancel">Harap jangan tutupi area biru ponsel Anda dan bersihkan kotoran atau debu darinya.</string>
-    <string name="pocket_view_top_tag_cancel2">Tekan lama tombol daya untuk memaksa keluar dari mode saku.</string>
-    <string name="pocket_view_top_tag_number1">1.\u0020</string>
-    <string name="pocket_view_top_tag_number2">2.\u0020</string>
     <!-- Settings Restart -->
     <string name="settings_restart_title">Mulai ulang Setelan diperlukan</string>
     <string name="settings_restart_message">Untuk melihat semua perubahan, diperlukan memulai ulang Setelan. Mulai ulang Setelan sekarang?</string>
