@@ -68,4 +68,12 @@
     <!-- Launcher Restart -->
     <string name="launcher_restart_title">Vyžaduje sa reštart spúšťača</string>
     <string name="launcher_restart_message">Vyžaduje sa reštart spúšťača, aby sa prejavili všetky zmeny. Reštartovať spúšťač teraz?</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Stlačte a podržte tlačidlo napájania pre odomknutie</string>
+    <string name="pocket_view_title">Vreckový režim je zapnutý</string>
+    <string name="pocket_view_title_cancel">Pre použitie vášho telefónu:</string>
+    <string name="pocket_view_top_tag_cancel">Nezakrývajte modrú oblasť telefónu a odstráňte z nej všetky nečistoty alebo prach.</string>
+    <string name="pocket_view_top_tag_cancel2">Dlhým stlačením tlačidla napájania vynútite ukončenie vreckového režimu.</string>
+    <string name="pocket_view_top_tag_number1">1.\u0020</string>
+    <string name="pocket_view_top_tag_number2">2.\u0020</string>
 </resources>
