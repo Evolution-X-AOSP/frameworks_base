@@ -72,4 +72,12 @@
     <!-- Launcher Restart -->
     <string name="launcher_restart_title">需要重新啟動桌面啟動器</string>
     <string name="launcher_restart_message">如果要讓所有變更生效，需要重新啟動桌面啟動器。現在重新啟動桌面啟動器？</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">長按電源按鈕以解鎖</string>
+    <string name="pocket_view_title">口袋防誤觸模式已開啟</string>
+    <string name="pocket_view_title_cancel">若要繼續使用您的手機：</string>
+    <string name="pocket_view_top_tag_cancel">檢查手機的藍色區域是否被遮擋，並清除所有污垢或灰塵。</string>
+    <string name="pocket_view_top_tag_cancel2">長按電源鍵以退出防誤觸模式.</string>
+    <string name="pocket_view_top_tag_number1">1.\u0020</string>
+    <string name="pocket_view_top_tag_number2">2.\u0020</string>
 </resources>
