@@ -88,6 +88,9 @@ public final class PhantomProcessList {
     @GuardedBy("mLock")
     private final ArrayList<PhantomProcessRecord> mTempPhantomProcesses = new ArrayList<>();
 
+    @GuardedBy("mLock")
+    private final ArrayList<PhantomProcessRecord> mOrphanPhantomProcesses = new ArrayList<>();
+
     /**
      * The mapping between a phantom process ID to its parent process (an app process)
      */
@@ -429,21 +432,21 @@ public final class PhantomProcessList {
             synchronized (mLock) {
                 mTrimPhantomProcessScheduled = false;
                 if (mService.mConstants.MAX_PHANTOM_PROCESSES < mPhantomProcesses.size()) {
-                    for (int i = mPhantomProcesses.size() - 1; i >= 0; i--) {
-                        mTempPhantomProcesses.add(mPhantomProcesses.valueAt(i));
-                    }
                     synchronized (mService.mPidsSelfLocked) {
+                        for (int i = mPhantomProcesses.size() - 1; i >= 0; i--) {
+                            final PhantomProcessRecord ppr = mPhantomProcesses.valueAt(i);
+                            final ProcessRecord pr = mService.mPidsSelfLocked.get(ppr.mPpid);
+                            if (pr != null) {
+                                mTempPhantomProcesses.add(ppr);
+                                continue;
+                            }
+                            // add the orphans to a separate array
+                            mOrphanPhantomProcesses.add(ppr);
+                        }
+                        // sort the non orphans
                         Collections.sort(mTempPhantomProcesses, (a, b) -> {
                             final ProcessRecord ra = mService.mPidsSelfLocked.get(a.mPpid);
-                            if (ra == null) {
-                                // parent is gone, this process should have been killed too
-                                return 1;
-                            }
                             final ProcessRecord rb = mService.mPidsSelfLocked.get(b.mPpid);
-                            if (rb == null) {
-                                // parent is gone, this process should have been killed too
-                                return -1;
-                            }
                             if (ra.mState.getCurAdj() != rb.mState.getCurAdj()) {
                                 return ra.mState.getCurAdj() - rb.mState.getCurAdj();
                             }
@@ -453,6 +456,9 @@ public final class PhantomProcessList {
                             }
                             return 0;
                         });
+                        // add the orphans to the end of the list (top priority for killing)
+                        mTempPhantomProcesses.addAll(mOrphanPhantomProcesses);
+                        mOrphanPhantomProcesses.clear(); // we don't need the orphan array no more
                     }
                     for (int i = mTempPhantomProcesses.size() - 1;
                             i >= mService.mConstants.MAX_PHANTOM_PROCESSES; i--) {
