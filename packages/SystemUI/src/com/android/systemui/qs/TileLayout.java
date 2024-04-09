@@ -33,8 +33,6 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
 
     private static final String TAG = "TileLayout";
 
-    private static final int NUM_COLUMNS_ID = R.integer.quick_settings_num_columns;
-
     protected int mColumns;
     protected int mCellWidth;
     protected int mResourceCellHeightResId = R.dimen.qs_tile_height;
@@ -140,9 +138,6 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
 
     public boolean updateResources() {
         Resources res = getResources();
-        int columns = useSmallLandscapeLockscreenResources()
-                ? res.getInteger(R.integer.small_land_lockscreen_quick_settings_num_columns)
-                : res.getInteger(R.integer.quick_settings_num_columns);
         mResourceCellHeight = res.getDimensionPixelSize(mResourceCellHeightResId);
         mCellMarginHorizontal = res.getDimensionPixelSize(R.dimen.qs_tile_margin_horizontal);
         mSidePadding = useSidePadding() ? mCellMarginHorizontal / 2 : 0;
@@ -150,7 +145,7 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
         int rows = useSmallLandscapeLockscreenResources()
                 ? res.getInteger(R.integer.small_land_lockscreen_quick_settings_max_rows)
                 : res.getInteger(R.integer.quick_settings_max_rows);
-        mMaxAllowedRows = Math.max(getResourceRows(), res.getInteger(R.integer.quick_settings_max_rows));
+        mMaxAllowedRows = Math.max(getResourceRows(), rows);
         if (mLessRows) {
             mMaxAllowedRows = Math.max(mMinRows, mMaxAllowedRows - 1);
         }
@@ -369,8 +364,7 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
     }
 
     public int getResourceColumns() {
-        int columns = getResources().getInteger(NUM_COLUMNS_ID);
-        return TileUtils.getQSColumnsCount(mContext, columns);
+        return TileUtils.getQSColumnsCount(mContext);
     }
 
     public int getResourceRows() {
