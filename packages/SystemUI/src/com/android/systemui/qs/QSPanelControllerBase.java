@@ -63,21 +63,6 @@ import kotlin.jvm.functions.Function1;
 public abstract class QSPanelControllerBase<T extends QSPanel> extends ViewController<T>
         implements Dumpable, TunerService.Tunable {
 
-    private static final String QS_TILE_VERTICAL_LAYOUT =
-            "system:" + Settings.System.QS_TILE_VERTICAL_LAYOUT;
-    private static final String QS_LAYOUT_COLUMNS =
-            "system:" + Settings.System.QS_LAYOUT_COLUMNS;
-    private static final String QS_LAYOUT_COLUMNS_LANDSCAPE =
-            "system:" + Settings.System.QS_LAYOUT_COLUMNS_LANDSCAPE;
-    private static final String QS_TILE_LABEL_HIDE =
-            "system:" + Settings.System.QS_TILE_LABEL_HIDE;
-    private static final String QS_TILE_LABEL_SIZE =
-            "system:" + Settings.System.QS_TILE_LABEL_SIZE;
-    private static final String QQS_LAYOUT_ROWS =
-            "system:" + Settings.System.QQS_LAYOUT_ROWS;
-    private static final String QQS_LAYOUT_ROWS_LANDSCAPE =
-            "system:" + Settings.System.QQS_LAYOUT_ROWS_LANDSCAPE;
-
     private static final String TAG = "QSPanelControllerBase";
     protected final QSHost mHost;
     private final QSCustomizerController mQsCustomizerController;
@@ -103,6 +88,8 @@ public abstract class QSPanelControllerBase<T extends QSPanel> extends ViewContr
     private final QSHost.Callback mQSHostCallback = this::setTiles;
 
     private SplitShadeStateController mSplitShadeStateController;
+
+    private boolean mForceUpdate;
 
     @VisibleForTesting
     protected final QSPanel.OnConfigurationChangedListener mOnConfigurationChangedListener =
@@ -229,13 +216,13 @@ public abstract class QSPanelControllerBase<T extends QSPanel> extends ViewContr
 
         mDumpManager.registerDumpable(mView.getDumpableTag(), this);
 
-        mTunerService.addTunable(this, QS_TILE_VERTICAL_LAYOUT);
-        mTunerService.addTunable(this, QS_LAYOUT_COLUMNS);
-        mTunerService.addTunable(this, QS_LAYOUT_COLUMNS_LANDSCAPE);
-        mTunerService.addTunable(this, QS_TILE_LABEL_HIDE);
-        mTunerService.addTunable(this, QS_TILE_LABEL_SIZE);
-        mTunerService.addTunable(this, QQS_LAYOUT_ROWS);
-        mTunerService.addTunable(this, QQS_LAYOUT_ROWS_LANDSCAPE);
+        mTunerService.addTunable(this, QSPanel.QS_TILE_VERTICAL_LAYOUT);
+        mTunerService.addTunable(this, QSPanel.QS_TILE_LABEL_HIDE);
+        mTunerService.addTunable(this, QSPanel.QS_TILE_LABEL_SIZE);
+        mTunerService.addTunable(this, QSPanel.QS_LAYOUT_COLUMNS);
+        mTunerService.addTunable(this, QSPanel.QS_LAYOUT_COLUMNS_LANDSCAPE);
+        mTunerService.addTunable(this, QSPanel.QQS_LAYOUT_ROWS);
+        mTunerService.addTunable(this, QSPanel.QQS_LAYOUT_ROWS_LANDSCAPE);
     }
 
     @Override
@@ -259,7 +246,6 @@ public abstract class QSPanelControllerBase<T extends QSPanel> extends ViewContr
 
     /** */
     public void setTiles() {
-        if (mHost.getTiles() == null) return;
         setTiles(mHost.getTiles(), false);
     }
 
@@ -283,7 +269,7 @@ public abstract class QSPanelControllerBase<T extends QSPanel> extends ViewContr
             shouldChange = true;
         }
 
-        if (shouldChange) {
+        if (shouldChange || mForceUpdate) {
             for (QSPanelControllerBase.TileRecord record : mRecords) {
                 mView.removeTile(record);
                 record.tile.removeCallback(record.callback);
@@ -547,16 +533,18 @@ public abstract class QSPanelControllerBase<T extends QSPanel> extends ViewContr
     @Override
     public void onTuningChanged(String key, String newValue) {
         switch (key) {
-            case QS_TILE_VERTICAL_LAYOUT:
-            case QS_LAYOUT_COLUMNS:
-            case QS_LAYOUT_COLUMNS_LANDSCAPE:
-            case QS_TILE_LABEL_HIDE:
-            case QS_TILE_LABEL_SIZE:
-            case QQS_LAYOUT_ROWS:
-            case QQS_LAYOUT_ROWS_LANDSCAPE:
+            case QSPanel.QS_TILE_VERTICAL_LAYOUT:
+            case QSPanel.QS_TILE_LABEL_HIDE:
+            case QSPanel.QS_TILE_LABEL_SIZE:
+            case QSPanel.QS_LAYOUT_COLUMNS:
+            case QSPanel.QS_LAYOUT_COLUMNS_LANDSCAPE:
+            case QSPanel.QQS_LAYOUT_ROWS:
+            case QSPanel.QQS_LAYOUT_ROWS_LANDSCAPE:
                 if (mView.getTileLayout() != null) {
                     mView.getTileLayout().updateSettings();
+                    mForceUpdate = true;
                     setTiles();
+                    mForceUpdate = false;
                 }
                 break;
             default:

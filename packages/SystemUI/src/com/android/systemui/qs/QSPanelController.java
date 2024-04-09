@@ -88,8 +88,7 @@ public class QSPanelController extends QSPanelControllerBase<QSPanel> {
             SplitShadeStateController splitShadeStateController,
             SceneContainerFlags sceneContainerFlags) {
         super(view, qsHost, qsCustomizerController, usingMediaPlayer, mediaHost,
-                metricsLogger, uiEventLogger, qsLogger, dumpManager, splitShadeStateController,
-                tunerService);
+                metricsLogger, uiEventLogger, qsLogger, dumpManager, splitShadeStateController, tunerService);
         mTunerService = tunerService;
         mQsCustomizerController = qsCustomizerController;
         mQsTileRevealControllerFactory = qsTileRevealControllerFactory;

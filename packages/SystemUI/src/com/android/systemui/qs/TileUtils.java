@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2022-2023 crDroid Android Project
+* Copyright (C) 2022-2024 crDroid Android Project
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -23,9 +23,26 @@ import android.content.res.Resources;
 import android.os.UserHandle;
 import android.provider.Settings;
 
+import com.android.systemui.res.R;
+import com.android.systemui.flags.Flags;
+import com.android.systemui.flags.RefactorFlag;
+
 public class TileUtils {
 
-    public static int getQSColumnsCount(Context context, int resourceCount) {
+    private static boolean useSmallLandscapeLockscreenResources(Resources res) {
+        return RefactorFlag.forView(Flags.LOCKSCREEN_ENABLE_LANDSCAPE).isEnabled()
+                && res.getBoolean(R.bool.is_small_screen_landscape);
+    }
+
+    public static int getQSColumnsCount(Context context) {
+        Resources res = context.getResources();
+        int columns = useSmallLandscapeLockscreenResources(res)
+                ? res.getInteger(R.integer.small_land_lockscreen_quick_settings_num_columns)
+                : res.getInteger(R.integer.quick_settings_num_columns);
+        return getQSColumnsCount(context, columns);
+    }
+
+    private static int getQSColumnsCount(Context context, int resourceCount) {
         final int QS_COLUMNS_MIN = 2;
         final Resources res = context.getResources();
         int value = QS_COLUMNS_MIN;
@@ -43,9 +60,8 @@ public class TileUtils {
 
     public static int getQSRowsCount(Context context) {
         final int QS_ROWS_MIN = 1;
-        final Resources res = context.getResources();
         int value = QS_ROWS_MIN;
-        if (res.getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+        if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             value = Settings.System.getIntForUser(
                     context.getContentResolver(), Settings.System.QQS_LAYOUT_ROWS,
                     2, UserHandle.USER_CURRENT);
