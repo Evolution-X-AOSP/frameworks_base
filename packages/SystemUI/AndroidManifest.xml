@@ -25,6 +25,8 @@
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
+    <uses-permission android:name="com.google.restricted_assist_gesture.permission.RESTRICTED_ASSIST_GESTURE_PROVIDER" />
+
     <!-- Used to read wallpaper -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_WALLPAPER_INTERNAL" />
