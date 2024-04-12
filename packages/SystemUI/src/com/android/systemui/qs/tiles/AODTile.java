@@ -37,7 +37,6 @@ import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.plugins.FalsingManager;
 import com.android.systemui.plugins.qs.QSIconView;
 import com.android.systemui.plugins.qs.QSTile.BooleanState;
-import com.android.systemui.plugins.qs.QSTile.State;
 import com.android.systemui.plugins.statusbar.StatusBarStateController;
 import com.android.systemui.qs.QsEventLogger;
 import com.android.systemui.qs.logging.QSLogger;
@@ -48,7 +47,7 @@ import com.android.systemui.statusbar.policy.KeyguardStateController;
 
 import javax.inject.Inject;
 
-public class AODTile extends QSTileImpl<State> {
+public class AODTile extends QSTileImpl<BooleanState> {
     private boolean mListening;
     private final Icon mIcon = ResourceIcon.get(R.drawable.ic_qs_aod);
 
@@ -88,8 +87,8 @@ public class AODTile extends QSTileImpl<State> {
     }
 
     @Override
-    public State newTileState() {
-        return new State();
+    public BooleanState newTileState() {
+        return new BooleanState();
     }
 
     @Override
@@ -137,7 +136,7 @@ public class AODTile extends QSTileImpl<State> {
     }
 
     @Override
-    protected void handleUpdateState(State state, Object arg) {
+    protected void handleUpdateState(BooleanState state, Object arg) {
         state.icon = mIcon;
         state.label = getTileLabel();
         state.state = getAodState() == 0 ? Tile.STATE_INACTIVE : Tile.STATE_ACTIVE;
