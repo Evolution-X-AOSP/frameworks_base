@@ -1002,7 +1002,12 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
         if (D.BUG) Slog.d(TAG, "Adding row for stream " + stream);
         VolumeRow row = new VolumeRow();
         initRow(row, stream, iconRes, iconMuteRes, important, defaultStream);
-        mDialogRowsView.addView(row.view);
+        if (mDialogRowsView != null && row.view != null) { // Check for null
+            mDialogRowsView.addView(row.view);
+        } else {
+            // Handle the case where mDialogRowsView or row.view is null
+            if (D.BUG) Slog.e(TAG, "mDialogRowsView or row.view is null");
+        }
         mRows.add(row);
     }
 
