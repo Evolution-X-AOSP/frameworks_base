@@ -70,14 +70,12 @@ class ScreenRecordPermissionDialogDelegate(
     SystemUIDialog.Delegate {
     private lateinit var screenShareModeSpinner: Spinner
     private lateinit var tapsSwitch: Switch
-    private lateinit var tapsSwitchContainer: ViewGroup
     private lateinit var tapsView: View
     private lateinit var audioSwitch: Switch
     private lateinit var audioSwitchContainer: ViewGroup
     private lateinit var options: Spinner
     private lateinit var stopDotSwitch: Switch
-    private lateinit var lowQualitySwitch: Switch
-    private lateinit var longerDurationSwitch: Switch
+    private lateinit var lowQualitySpinner: Spinner
     private lateinit var skipTimeSwitch: Switch
     private lateinit var hevcSwitch: Switch
 
@@ -127,8 +125,13 @@ class ScreenRecordPermissionDialogDelegate(
         audioSwitch = dialog.requireViewById(R.id.screenrecord_audio_switch)
         tapsSwitch = dialog.requireViewById(R.id.screenrecord_taps_switch)
         skipTimeSwitch = dialog.requireViewById(R.id.screenrecord_skip_time_switch)
+        tapsView = dialog.requireViewById(R.id.show_taps)
+        updateTapsViewVisibility()
+        options = dialog.requireViewById(R.id.screen_recording_options)
+        stopDotSwitch = dialog.requireViewById(R.id.screenrecord_stopdot_switch)
+        lowQualitySpinner = dialog.requireViewById(R.id.screenrecord_lowquality_spinner)
+        hevcSwitch = dialog.requireViewById(R.id.screenrecord_hevc_switch)
         audioSwitchContainer = dialog.requireViewById(R.id.screenrecord_audio_switch_container)
-        tapsSwitchContainer = dialog.requireViewById(R.id.screenrecord_taps_switch_container)
 
         // Add these listeners so that the switch only responds to movement
         // within its target region, to meet accessibility requirements
@@ -136,16 +139,9 @@ class ScreenRecordPermissionDialogDelegate(
         tapsSwitch.setOnTouchListener { _, event -> event.action == ACTION_MOVE }
 
         audioSwitchContainer.setOnClickListener { audioSwitch.toggle() }
-        tapsSwitchContainer.setOnClickListener { tapsSwitch.toggle() }
 
-        tapsView = dialog.requireViewById(R.id.show_taps)
         updateTapsViewVisibility()
 
-        options = dialog.requireViewById(R.id.screen_recording_options)
-        stopDotSwitch = dialog.requireViewById(R.id.screenrecord_stopdot_switch)
-        lowQualitySwitch = dialog.requireViewById(R.id.screenrecord_lowquality_switch)
-        longerDurationSwitch = dialog.requireViewById(R.id.screenrecord_longer_timeout_switch)
-        hevcSwitch = dialog.requireViewById(R.id.screenrecord_hevc_switch)
         val a: ArrayAdapter<*> =
             ScreenRecordingAdapter(
                 dialog.context,
@@ -171,12 +167,33 @@ class ScreenRecordPermissionDialogDelegate(
             }
         options.isLongClickable = false
 
+        val b: ArrayAdapter<*> =
+            ScreenRecordingQualityAdapter(
+                dialog.context,
+                android.R.layout.simple_spinner_dropdown_item,
+                QUALITIES
+            )
+        b.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        lowQualitySpinner.adapter = b
+
+        // disable redundant Touch & Hold accessibility action for Switch Access
+        lowQualitySpinner.accessibilityDelegate =
+            object : View.AccessibilityDelegate() {
+                override fun onInitializeAccessibilityNodeInfo(
+                    host: View,
+                    info: AccessibilityNodeInfo
+                ) {
+                    info.removeAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_LONG_CLICK)
+                    super.onInitializeAccessibilityNodeInfo(host, info)
+                }
+            }
+        lowQualitySpinner.isLongClickable = false
+
         val userContext = userContextProvider.userContext
         screenShareModeSpinner.setSelection(Prefs.getInt(userContext, PREF_SHARE_MODE, 0))
         tapsSwitch.isChecked = Prefs.getInt(userContext, PREF_TAPS, 0) == 1
         stopDotSwitch.isChecked = Prefs.getInt(userContext, PREF_DOT, 0) == 1
-        lowQualitySwitch.isChecked = Prefs.getInt(userContext, PREF_LOW, 0) == 1
-        longerDurationSwitch.isChecked = Prefs.getInt(userContext, PREF_LONGER, 0) == 1
+        lowQualitySpinner.setSelection(Prefs.getInt(userContext, PREF_LOW, 0))
         audioSwitch.isChecked = Prefs.getInt(userContext, PREF_AUDIO, 0) == 1
         options.setSelection(Prefs.getInt(userContext, PREF_AUDIO_SOURCE, 0))
         skipTimeSwitch.isChecked = Prefs.getInt(userContext, PREF_SKIP, 0) == 1
@@ -205,8 +222,7 @@ class ScreenRecordPermissionDialogDelegate(
             if (audioSwitch.isChecked) options.selectedItem as ScreenRecordingAudioSource
             else ScreenRecordingAudioSource.NONE
         val showStopDot = stopDotSwitch.isChecked
-        val lowQuality = lowQualitySwitch.isChecked
-        val longerDuration = longerDurationSwitch.isChecked
+        val lowQuality = lowQualitySpinner.selectedItemPosition
         val hevc = hevcSwitch.isChecked
         val skipTime = skipTimeSwitch.isChecked
         val startIntent =
@@ -221,7 +237,6 @@ class ScreenRecordPermissionDialogDelegate(
                     captureTarget,
                     showStopDot,
                     lowQuality,
-                    longerDuration,
                     hevc
                 ),
                 PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
@@ -237,8 +252,7 @@ class ScreenRecordPermissionDialogDelegate(
         Prefs.putInt(userContext, PREF_SHARE_MODE, screenShareModeSpinner.selectedItemPosition)
         Prefs.putInt(userContext, PREF_TAPS, if (showTaps) 1 else 0)
         Prefs.putInt(userContext, PREF_DOT, if (showStopDot) 1 else 0)
-        Prefs.putInt(userContext, PREF_LOW, if (lowQuality) 1 else 0)
-        Prefs.putInt(userContext, PREF_LONGER, if (longerDuration) 1 else 0)
+        Prefs.putInt(userContext, PREF_LOW, lowQuality)
         Prefs.putInt(userContext, PREF_AUDIO, if (audioSwitch.isChecked) 1 else 0)
         Prefs.putInt(userContext, PREF_AUDIO_SOURCE, options.selectedItemPosition)
         Prefs.putInt(userContext, PREF_SKIP, if (skipTime) 1 else 0)
@@ -271,6 +285,7 @@ class ScreenRecordPermissionDialogDelegate(
                 ScreenRecordingAudioSource.MIC,
                 ScreenRecordingAudioSource.MIC_AND_INTERNAL
             )
+        private val QUALITIES = listOf(0, 1, 2)
         private const val DELAY_MS: Long = 3000
         private const val NO_DELAY: Long = 100
         private const val INTERVAL_MS: Long = 1000
@@ -278,8 +293,7 @@ class ScreenRecordPermissionDialogDelegate(
         private const val PREF_SHARE_MODE = "screenrecord_share_mode"
         private const val PREF_TAPS = "screenrecord_show_taps"
         private const val PREF_DOT = "screenrecord_show_dot"
-        private const val PREF_LOW = "screenrecord_use_low_quality"
-        private const val PREF_LONGER = "screenrecord_use_longer_timeout"
+        private const val PREF_LOW = "screenrecord_use_low_quality_2"
         private const val PREF_HEVC = "screenrecord_use_hevc"
         private const val PREF_AUDIO = "screenrecord_use_audio"
         private const val PREF_AUDIO_SOURCE = "screenrecord_audio_source"

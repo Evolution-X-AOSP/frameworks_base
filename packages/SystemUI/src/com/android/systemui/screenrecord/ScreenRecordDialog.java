@@ -45,7 +45,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.android.systemui.Prefs;
+import com.android.systemui.animation.ActivityLaunchAnimator;
+import com.android.systemui.animation.DialogLaunchAnimator;
+import com.android.systemui.flags.FeatureFlags;
+import com.android.systemui.flags.Flags;
 import com.android.systemui.mediaprojection.MediaProjectionCaptureTarget;
+import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.res.R;
 import com.android.systemui.settings.UserContextProvider;
 import com.android.systemui.statusbar.phone.SystemUIDialog;
@@ -59,6 +64,7 @@ import java.util.List;
 public class ScreenRecordDialog extends SystemUIDialog {
     private static final List<ScreenRecordingAudioSource> MODES = Arrays.asList(INTERNAL, MIC,
             MIC_AND_INTERNAL);
+    private static final List<Integer> QUALITIES = Arrays.asList(0, 1, 2);
     private static final long DELAY_MS = 3000;
     private static final long NO_DELAY = 100;
     private static final long INTERVAL_MS = 1000;
@@ -66,8 +72,7 @@ public class ScreenRecordDialog extends SystemUIDialog {
     private static final String PREFS = "screenrecord_";
     private static final String PREF_TAPS = "show_taps";
     private static final String PREF_DOT = "show_dot";
-    private static final String PREF_LOW = "use_low_quality";
-    private static final String PREF_LONGER = "use_longer_timeout";
+    private static final String PREF_LOW = "use_low_quality_2";
     private static final String PREF_HEVC = "use_hevc";
     private static final String PREF_AUDIO = "use_audio";
     private static final String PREF_AUDIO_SOURCE = "audio_source";
@@ -80,11 +85,10 @@ public class ScreenRecordDialog extends SystemUIDialog {
     private final Runnable mOnStartRecordingClicked;
     private Switch mTapsSwitch;
     private Switch mStopDotSwitch;
-    private Switch mLowQualitySwitch;
-    private Switch mLongerSwitch;
     private Switch mHEVCSwitch;
     private Switch mAudioSwitch;
     private Switch mSkipSwitch;
+    private Spinner mLowQualitySpinner;
     private Spinner mOptions;
 
     public ScreenRecordDialog(Context context,
@@ -130,8 +134,6 @@ public class ScreenRecordDialog extends SystemUIDialog {
         mTapsSwitch = findViewById(R.id.screenrecord_taps_switch);
         mSkipSwitch = findViewById(R.id.screenrecord_skip_switch);
         mStopDotSwitch = findViewById(R.id.screenrecord_stopdot_switch);
-        mLowQualitySwitch = findViewById(R.id.screenrecord_lowquality_switch);
-        mLongerSwitch = findViewById(R.id.screenrecord_longer_timeout_switch);
         mHEVCSwitch = findViewById(R.id.screenrecord_hevc_switch);
         mOptions = findViewById(R.id.screen_recording_options);
         ArrayAdapter a = new ScreenRecordingAdapter(getContext().getApplicationContext(),
@@ -142,7 +144,6 @@ public class ScreenRecordDialog extends SystemUIDialog {
         mOptions.setOnItemClickListenerInt((parent, view, position, id) -> {
             mAudioSwitch.setChecked(true);
         });
-
         // disable redundant Touch & Hold accessibility action for Switch Access
         mOptions.setAccessibilityDelegate(new View.AccessibilityDelegate() {
             @Override
@@ -154,10 +155,25 @@ public class ScreenRecordDialog extends SystemUIDialog {
         });
         mOptions.setLongClickable(false);
 
+        mLowQualitySpinner = findViewById(R.id.screenrecord_lowquality_spinner);
+        ArrayAdapter b = new ScreenRecordingQualityAdapter(getContext().getApplicationContext(),
+                android.R.layout.simple_spinner_dropdown_item,
+                QUALITIES);
+        b.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mLowQualitySpinner.setAdapter(b);
+        // disable redundant Touch & Hold accessibility action for Switch Access
+        mLowQualitySpinner.setAccessibilityDelegate(new View.AccessibilityDelegate() {
+            @Override
+            public void onInitializeAccessibilityNodeInfo(@NonNull View host,
+                    @NonNull AccessibilityNodeInfo info) {
+                info.removeAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_LONG_CLICK);
+                super.onInitializeAccessibilityNodeInfo(host, info);
+            }
+        });
+
         mTapsSwitch.setChecked(Prefs.getInt(mUserContext, PREFS + PREF_TAPS, 0) == 1);
         mStopDotSwitch.setChecked(Prefs.getInt(mUserContext, PREFS + PREF_DOT, 0) == 1);
-        mLowQualitySwitch.setChecked(Prefs.getInt(mUserContext, PREFS + PREF_LOW, 0) == 1);
-        mLongerSwitch.setChecked(Prefs.getInt(mUserContext, PREFS + PREF_LONGER, 0) == 1);
+        mLowQualitySpinner.setSelection(Prefs.getInt(mUserContext, PREFS + PREF_LOW, 0));
         mAudioSwitch.setChecked(Prefs.getInt(mUserContext, PREFS + PREF_AUDIO, 0) == 1);
         mOptions.setSelection(Prefs.getInt(mUserContext, PREFS + PREF_AUDIO_SOURCE, 0));
         mSkipSwitch.setChecked(Prefs.getInt(mUserContext, PREFS + PREF_SKIP, 0) == 1);
@@ -172,11 +188,10 @@ public class ScreenRecordDialog extends SystemUIDialog {
     private void requestScreenCapture(@Nullable MediaProjectionCaptureTarget captureTarget) {
         boolean showTaps = mTapsSwitch.isChecked();
         boolean showStopDot = mStopDotSwitch.isChecked();
-        boolean lowQuality = mLowQualitySwitch.isChecked();
-        boolean longerDuration = mLongerSwitch.isChecked();
         boolean skipTime = mSkipSwitch.isChecked();
         boolean audioSwitch = mAudioSwitch.isChecked();
         boolean hevc = mHEVCSwitch.isChecked();
+        int lowQuality = mLowQualitySpinner.getSelectedItemPosition();
         ScreenRecordingAudioSource audioMode = audioSwitch
                 ? (ScreenRecordingAudioSource) mOptions.getSelectedItem() : NONE;
         PendingIntent startIntent = PendingIntent.getForegroundService(mUserContext,
@@ -184,7 +199,7 @@ public class ScreenRecordDialog extends SystemUIDialog {
                 RecordingService.getStartIntent(
                         mUserContext, Activity.RESULT_OK,
                         audioMode.ordinal(), showTaps, captureTarget,
-                        showStopDot, lowQuality, longerDuration, hevc),
+                        showStopDot, lowQuality, hevc),
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
         PendingIntent stopIntent = PendingIntent.getService(mUserContext,
                 RecordingService.REQUEST_CODE,
@@ -192,8 +207,7 @@ public class ScreenRecordDialog extends SystemUIDialog {
                 PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
         Prefs.putInt(mUserContext, PREFS + PREF_TAPS, showTaps ? 1 : 0);
         Prefs.putInt(mUserContext, PREFS + PREF_DOT, showStopDot ? 1 : 0);
-        Prefs.putInt(mUserContext, PREFS + PREF_LOW, lowQuality ? 1 : 0);
-        Prefs.putInt(mUserContext, PREFS + PREF_LONGER, longerDuration ? 1 : 0);
+        Prefs.putInt(mUserContext, PREFS + PREF_LOW, lowQuality);
         Prefs.putInt(mUserContext, PREFS + PREF_AUDIO, audioSwitch ? 1 : 0);
         Prefs.putInt(mUserContext, PREFS + PREF_AUDIO_SOURCE, mOptions.getSelectedItemPosition());
         Prefs.putInt(mUserContext, PREFS + PREF_SKIP, skipTime ? 1 : 0);
