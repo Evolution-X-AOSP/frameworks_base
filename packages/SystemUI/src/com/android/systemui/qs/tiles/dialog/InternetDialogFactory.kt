@@ -56,7 +56,8 @@ class InternetDialogFactory @Inject constructor(
         aboveStatusBar: Boolean,
         canConfigMobileData: Boolean,
         canConfigWifi: Boolean,
-        view: View?
+        view: View?,
+        isAutoOn: Boolean = false,
     ) {
         if (internetDialog != null) {
             if (DEBUG) {
@@ -68,7 +69,7 @@ class InternetDialogFactory @Inject constructor(
                 context, this, internetDialogController,
                 canConfigMobileData, canConfigWifi, aboveStatusBar, uiEventLogger,
                     dialogLaunchAnimator, handler,
-                executor, keyguardStateController
+                executor, keyguardStateController, isAutoOn
             )
             if (view != null) {
                 dialogLaunchAnimator.showFromView(
