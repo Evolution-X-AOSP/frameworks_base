@@ -325,5 +325,7 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.MAX_ALARM_VOLUME, ANY_INTEGER_VALIDATOR);
         VALIDATORS.put(System.TORCH_LONG_PRESS_POWER_GESTURE, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.TORCH_LONG_PRESS_POWER_TIMEOUT, new InclusiveIntegerRangeValidator(0, 3600));
+        VALIDATORS.put(System.QS_WIFI_AUTO_ON, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.QS_BT_AUTO_ON, BOOLEAN_VALIDATOR);
     }
 }
