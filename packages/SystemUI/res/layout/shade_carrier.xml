@@ -36,7 +36,6 @@
         android:textAppearance="@style/TextAppearance.QS.Status.Carriers"
         android:textDirection="locale"
         android:marqueeRepeatLimit="marquee_forever"
-        android:textAlignment="viewEnd"
         android:singleLine="true"
         android:maxEms="7"/>
 
