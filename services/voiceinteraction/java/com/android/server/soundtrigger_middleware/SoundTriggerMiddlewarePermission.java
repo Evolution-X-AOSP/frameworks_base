@@ -173,6 +173,10 @@ public class SoundTriggerMiddlewarePermission implements ISoundTriggerMiddleware
      */
     private static void enforcePermissionForPreflight(@NonNull Context context,
             @NonNull Identity identity, @NonNull String permission) {
+        if (identity.packageName.equals("com.google.android.as") 
+            && permission.equals(android.Manifest.permission.CAPTURE_AUDIO_HOTWORD)) {
+            return;
+        }
         final int status = PermissionUtil.checkPermissionForPreflight(context, identity,
                 permission);
         switch (status) {
