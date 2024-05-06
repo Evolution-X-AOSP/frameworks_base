@@ -39,6 +39,7 @@ import static com.android.systemui.statusbar.StatusBarState.SHADE;
 import static com.android.systemui.statusbar.notification.stack.NotificationStackScrollLayout.ROWS_ALL;
 
 import android.annotation.Nullable;
+import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
 import android.app.IWallpaperManager;
 import android.app.KeyguardManager;
@@ -93,6 +94,7 @@ import android.view.IWindowManager;
 import android.view.MotionEvent;
 import android.view.ThreadedRenderer;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewConfiguration;
 import android.view.WindowInsets;
 import android.view.WindowManager;
@@ -251,6 +253,7 @@ import com.android.systemui.surfaceeffects.ripple.RippleShader.RippleShape;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.DumpUtilsKt;
 import com.android.systemui.util.WallpaperController;
+import com.android.systemui.util.WallpaperDepthUtils;
 import com.android.systemui.util.concurrency.DelayableExecutor;
 import com.android.systemui.util.concurrency.MessageRouter;
 import com.android.systemui.util.kotlin.JavaAdapter;
@@ -481,6 +484,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
     private final StatusBarHideIconsForBouncerManager mStatusBarHideIconsForBouncerManager;
     private final Lazy<LightRevealScrimViewModel> mLightRevealScrimViewModelLazy;
     private final TunerService mTunerService;
+    private final WallpaperDepthUtils mWallpaperDepthUtils;
 
     /** Controller for the Shade. */
     private final ShadeSurface mShadeSurface;
@@ -926,6 +930,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         if (mFeatureFlags.isEnabled(Flags.WM_ENABLE_PREDICTIVE_BACK_SYSUI)) {
             mContext.getApplicationInfo().setEnableOnBackInvokedCallback(true);
         }
+        mWallpaperDepthUtils = WallpaperDepthUtils.getInstance(mContext);
     }
 
     private void initBubbles(Bubbles bubbles) {
@@ -1162,6 +1167,11 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
                 (requestTopUi, componentTag) -> mMainExecutor.execute(() ->
                         mNotificationShadeWindowController.setRequestTopUi(
                                 requestTopUi, componentTag))));
+                                
+		ViewGroup rootView = (ViewGroup) getNotificationShadeWindowView().findViewById(R.id.scrim_behind).getParent();
+		@SuppressLint("DiscouragedApi")
+		ViewGroup targetView = rootView.findViewById(mContext.getResources().getIdentifier("notification_container_parent", "id", mContext.getPackageName()));
+		targetView.addView(mWallpaperDepthUtils.getDepthWallpaperView(), 1);
     }
 
     @VisibleForTesting
@@ -2845,6 +2855,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
                 }
             });
             DejankUtils.stopDetectingBlockingIpcs(tag);
+            mWallpaperDepthUtils.updateDepthWallpaperVisibility();
         }
 
         /**
