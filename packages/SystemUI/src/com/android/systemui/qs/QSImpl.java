@@ -72,6 +72,7 @@ import com.android.systemui.statusbar.policy.BrightnessMirrorController;
 import com.android.systemui.statusbar.policy.RemoteInputQuickSettingsDisabler;
 import com.android.systemui.statusbar.policy.SecureLockscreenQSDisabler;
 import com.android.systemui.util.Utils;
+import com.android.systemui.util.WallpaperDepthUtils;
 
 import dalvik.annotation.optimization.NeverCompile;
 
@@ -174,6 +175,8 @@ public class QSImpl implements QS, CommandQueue.Callbacks, StatusBarStateControl
 
     private View mRootView;
     private View mFooterActionsView;
+
+    private WallpaperDepthUtils mWallpaperDepthUtils;
 
     @Inject
     public QSImpl(RemoteInputQuickSettingsDisabler remoteInputQsDisabler,
@@ -283,6 +286,8 @@ public class QSImpl implements QS, CommandQueue.Callbacks, StatusBarStateControl
 
         // This will immediately call disable, so it needs to be added after setting up the fields.
         mCommandQueue.addCallback(this);
+
+        mWallpaperDepthUtils = WallpaperDepthUtils.getInstance(mRootView.getContext());
     }
 
     private void bindFooterActionsView(View root) {
@@ -723,6 +728,10 @@ public class QSImpl implements QS, CommandQueue.Callbacks, StatusBarStateControl
             mQsMediaHost.setSquishFraction(mSquishinessFraction);
         }
         updateMediaPositions();
+        
+        if (onKeyguard) {
+            mWallpaperDepthUtils.updateDepthWallper();
+        }
     }
 
     private void setAlphaAnimationProgress(float progress) {
