@@ -67,8 +67,8 @@
     <string name="pocket_lock_message_long_press">Tartsa lenyomva a bekapcsológombot a feloldáshoz</string>
     <string name="pocket_view_title">A Zsebmód bekapcsolva</string>
     <string name="pocket_view_title_cancel">Telefonja aktiválásához:</string>
-    <string name="pocket_view_top_tag_cancel">Ellenőrizze, hogy a kék területen nincs-e valami, és távolítsa el a szennyeződéseket és a port.</string>
-    <string name="pocket_view_top_tag_cancel2">A Bekapcsológomb hosszannyomása azonnal kikapcsolja a Zsebmódot</string>
+    <string name="pocket_view_top_tag_cancel">Kérjük ne takarja le telefonján a kék területet és távolítson el róla minden szennyeződést vagy port.</string>
+    <string name="pocket_view_top_tag_cancel2">A bekapcsológomb hosszannyomása azonnal kikapcsolja a Zsebmódot</string>
     <string name="pocket_view_top_tag_number1">1.\u0020</string>
     <string name="pocket_view_top_tag_number2">2.\u0020</string>
     <!-- Settings Restart -->
