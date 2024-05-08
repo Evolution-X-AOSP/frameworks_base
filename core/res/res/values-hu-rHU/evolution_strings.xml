@@ -72,4 +72,14 @@
     <!-- Launcher Restart -->
     <string name="launcher_restart_title">Launcher-újraindítás szükséges</string>
     <string name="launcher_restart_message">Az összes módosítás érvénybe léptetéséhez Launcher-újraindítás szükséges. Újraindítja most?</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Tartsa lenyomva a bekapcsológombot a feloldáshoz</string>
+    <string name="pocket_view_title">A Zsebmód bekapcsolva</string>
+    <string name="pocket_view_title_cancel">Telefonja aktiválásához:</string>
+    <string name="pocket_view_top_tag_cancel">Kérjük ne takarja le telefonján a kék területet és távolítson el róla minden szennyeződést vagy port.</string>
+    <string name="pocket_view_top_tag_cancel2">A bekapcsológomb hosszannyomása azonnal kikapcsolja a Zsebmódot</string>
+    <string name="pocket_view_top_tag_number1">1.\u0020</string>
+    <string name="pocket_view_top_tag_number2">2.\u0020</string>
+    <!-- App lock -->
+    <string name="unlock_application">Feloldja a következőt: <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
 </resources>
