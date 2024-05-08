@@ -66,9 +66,9 @@
     <!-- Pocket Lock -->
     <string name="pocket_lock_message_long_press">Нажмите и удерживайте кнопку питания, чтобы разблокировать</string>
     <string name="pocket_view_title">Режим «В кармане» включен</string>
-    <string name="pocket_view_title_cancel">Чтобы активировать свой телефон:</string>
+    <string name="pocket_view_title_cancel">Для использования вашего телефона:</string>
     <string name="pocket_view_top_tag_cancel">Пожалуйста, не закрывайте синюю область телефона и очищайте её от грязи и пыли.</string>
-    <string name="pocket_view_top_tag_cancel2">Долгое нажатие кнопки питания для принудительного выхода из режима «В кармане».</string>
+    <string name="pocket_view_top_tag_cancel2">Зажмите кнопку питания для принудительного выхода из режима «В кармане».</string>
     <string name="pocket_view_top_tag_number1">1.\u0020</string>
     <string name="pocket_view_top_tag_number2">2.\u0020</string>
     <!-- Settings Restart -->
