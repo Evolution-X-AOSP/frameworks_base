@@ -7,5 +7,5 @@
     <!-- Message for updating an existing app [CHAR LIMIT=NONE] -->
     <string name="old_version_number">Versão instalada: <xliff:g id="old_version">%1$s</xliff:g></string>
     <!-- Message for updating an existing system app [CHAR LIMIT=NONE] -->
-    <string name="new_version_number">Para instalar: <xliff:g id="new_version">%1$s</xliff:g></string>
+    <string name="new_version_number">Para ser instalado: <xliff:g id="new_version">%1$s</xliff:g></string>
 </resources>
