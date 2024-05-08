@@ -72,4 +72,14 @@
     <!-- Launcher Restart -->
     <string name="launcher_restart_title">Требуется перезапуск лаунчера</string>
     <string name="launcher_restart_message">Чтобы все изменения вступили в силу, требуется перезагрузка лаунчера. Перезапустить лаунчер сейчас?</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Нажмите и удерживайте кнопку питания, чтобы разблокировать</string>
+    <string name="pocket_view_title">Режим «В кармане» включен</string>
+    <string name="pocket_view_title_cancel">Для использования вашего телефона:</string>
+    <string name="pocket_view_top_tag_cancel">Пожалуйста, не закрывайте синюю область телефона и очищайте её от грязи и пыли.</string>
+    <string name="pocket_view_top_tag_cancel2">Зажмите кнопку питания для принудительного выхода из режима «В кармане».</string>
+    <string name="pocket_view_top_tag_number1">1.\u0020</string>
+    <string name="pocket_view_top_tag_number2">2.\u0020</string>
+    <!-- App lock -->
+    <string name="unlock_application">Разблокировать <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
 </resources>
