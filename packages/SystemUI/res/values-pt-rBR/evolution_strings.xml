@@ -7,10 +7,15 @@
     <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
     <string name="clock">Relógio</string>
     <!-- Statusbar Icons -->
-    <string name="status_bar_call_strength">Intensidade do sinal para chamadas</string>
     <string name="status_bar_data_saver">Economia de dados</string>
     <string name="status_bar_nfc">NFC</string>
     <string name="status_bar_vpn">VPN</string>
+    <!-- Name of the roaming status bar icon. -->
+    <string name="status_bar_roaming">Indicador de roaming</string>
+    <!-- Name of the HD calling status bar icon. -->
+    <string name="status_bar_hd_calling">Chamada HD (VoLTE/VoNr)</string>
+    <!-- Name of the VoWiFi status bar icon. -->
+    <string name="status_bar_vowifi">Chamada Wi-Fi (VoWiFi)</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Som</string>
     <string name="quick_settings_sound_ring">Toque</string>
