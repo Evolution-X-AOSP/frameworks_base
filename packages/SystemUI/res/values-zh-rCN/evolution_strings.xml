@@ -7,10 +7,12 @@
     <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
     <string name="clock">时钟</string>
     <!-- Statusbar Icons -->
-    <string name="status_bar_call_strength">通话强度</string>
     <string name="status_bar_data_saver">流量节省程序</string>
     <string name="status_bar_nfc">NFC 近场通讯</string>
     <string name="status_bar_vpn">VPN</string>
+    <!-- Name of the roaming status bar icon. -->
+    <!-- Name of the HD calling status bar icon. -->
+    <!-- Name of the VoWiFi status bar icon. -->
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">声音</string>
     <string name="quick_settings_sound_ring">响铃</string>
@@ -85,14 +87,14 @@
     <string name="screenrecord_hevc_switch_label">启用 HEVC 编码</string>
     <!-- Google lens screenshot notification -->
     <string name="lens">镜头</string>
-    <string name="lens_unavailable">未安装 Google 智能镜头</string>
+    <string name="lens_unavailable">未安装 Google Lens</string>
     <!-- Alert slide extras -->
     <string name="volume_ringer_priority_only">优先</string>
     <string name="volume_ringer_alarms_only">警报</string>
     <string name="volume_ringer_dnd">勿扰</string>
     <string name="tristate_flashlight">手电筒</string>
-    <string name="tristate_flashlight_on">手电筒开</string>
-    <string name="tristate_flashlight_off">手电筒关</string>
+    <string name="tristate_flashlight_on">打开手电筒</string>
+    <string name="tristate_flashlight_off">关闭手电筒</string>
     <string name="tristate_flashlight_blink">手电筒闪烁</string>
     <string name="tristate_brightness_bright">最大亮度</string>
     <string name="tristate_brightness_dark">最小亮度</string>
@@ -187,7 +189,7 @@
     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
     <string name="screen_pinning_toast_no_navbar_fpsensor">要取消固定此屏幕，请触摸并按住指纹传感器。</string>
     <!-- Preferred network tile -->
-    <string name="quick_settings_preferred_network_label">首选网络</string>
+    <string name="quick_settings_preferred_network_label">首选网络类型</string>
     <string name="quick_settings_preferred_network_lte">4g / LTE</string>
     <string name="quick_settings_preferred_network_nr">5g / NR</string>
     <string name="quick_settings_preferred_network_unsupported">不支持</string>
@@ -206,4 +208,13 @@
     <string name="vpn_credentials_username">用户名</string>
     <string name="vpn_credentials_password">密码</string>
     <string name="vpn_credentials_dialog_connect">连接</string>
+    <!-- Text while recognizing face -->
+    <string name="face_unlock_recognizing">正在识别面部...</string>
+    <!-- App kill -->
+    <string name="task_helper_app_killed">%1$s 已停止运行</string>
+    <string name="empty_app_killed">应用</string>
+    <!-- App picker -->
+    <string name="app_picker_dialog_title">选择一个应用</string>
+    <string name="active_edge_app_select_title">选择应用</string>
+    <string name="active_edge_activity_select_title">选择活动</string>
 </resources>
