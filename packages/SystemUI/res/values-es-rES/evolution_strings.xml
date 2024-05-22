@@ -7,10 +7,15 @@
     <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
     <string name="clock">Reloj</string>
     <!-- Statusbar Icons -->
-    <string name="status_bar_call_strength">Intensidad de llamada</string>
     <string name="status_bar_data_saver">Ahorro de datos</string>
     <string name="status_bar_nfc">NFC</string>
     <string name="status_bar_vpn">VPN</string>
+    <!-- Name of the roaming status bar icon. -->
+    <string name="status_bar_roaming">Indicador de roaming</string>
+    <!-- Name of the HD calling status bar icon. -->
+    <string name="status_bar_hd_calling">Llamada HD (VoLTE/VoNR)</string>
+    <!-- Name of the VoWiFi status bar icon. -->
+    <string name="status_bar_vowifi">Llamada Wi-Fi (VoWiFi)</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Sonido</string>
     <string name="quick_settings_sound_ring">Tono</string>
@@ -207,4 +212,13 @@
     <string name="vpn_credentials_username">Nombre de usuario</string>
     <string name="vpn_credentials_password">Contraseña</string>
     <string name="vpn_credentials_dialog_connect">Conectar</string>
+    <!-- Text while recognizing face -->
+    <string name="face_unlock_recognizing">Reconociendo rostro...</string>
+    <!-- App kill -->
+    <string name="task_helper_app_killed">%1$s detención forzada</string>
+    <string name="empty_app_killed">App</string>
+    <!-- App picker -->
+    <string name="app_picker_dialog_title">Selecciona una app</string>
+    <string name="active_edge_app_select_title">Seleccionar app</string>
+    <string name="active_edge_activity_select_title">Seleccionar actividad</string>
 </resources>
