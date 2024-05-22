@@ -7,11 +7,15 @@
     <!-- Name of the clock in status bar [CHAR LIMIT=30] -->
     <string name="clock">Óra</string>
     <!-- Statusbar Icons -->
-    <string name="status_bar_call_strength">Jelerősség</string>
     <string name="status_bar_data_saver">Adatforgalom-csökkentő</string>
-    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="status_bar_nfc">NFC</string>
     <string name="status_bar_vpn">VPN</string>
+    <!-- Name of the roaming status bar icon. -->
+    <string name="status_bar_roaming">Barangoláskijelző</string>
+    <!-- Name of the HD calling status bar icon. -->
+    <string name="status_bar_hd_calling">HD-hívás (VoLTE/VoNR)</string>
+    <!-- Name of the VoWiFi status bar icon. -->
+    <string name="status_bar_vowifi">WiFi-hívás (VoWiFi)</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Hang</string>
     <string name="quick_settings_sound_ring">Csengés</string>
